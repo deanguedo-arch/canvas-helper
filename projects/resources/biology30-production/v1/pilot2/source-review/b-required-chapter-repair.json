@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "stage": "B three required chapter-operation replacements",
+  "teacherDecision": null,
+  "newIds": [
+    "b-application-accessory-gland-layout",
+    "b-application-developmental-clock-and-sequence",
+    "b-application-matching-mechanism-and-limits"
+  ],
+  "scope": "Replace three redundant chapter MC questions with missing constructed operations. Keep65 questions,28 chapter items and two guided per topic. Prior whole items retained; new semantic response IDs, no answer equivalence. All new required prose/worked examples read. Two existing practice passage receipts and five textbook guides reread after the one location clarification; related old-section retention target remains complete.",
+  "modelCharacters": [
+    404,
+    477,
+    392
+  ],
+  "responseLimits": [
+    550,
+    600,
+    500
+  ],
+  "ordinaryMaximumStateCharacters": 32498,
+  "coreChange": "One sentence explicitly locates paired seminal vesicles behind the bladder and defines the bladder as storing urine. Prostate/Cowper locations and differentiated secretion meanings retained. No other required core text changed.",
+  "locationAuthority": {
+    "source": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-14.pdf",
+    "sha256": "864ea82ed9960000c20e887250997d2f5e8455155f018dd2bf41865461b5365b",
+    "physicalPage": 8,
+    "printedPage": 479,
+    "figure": "14.2",
+    "reviewImage": "projects/resources/biology30-production/v1/pilot2/source-review/textbook-pages/ch14-physical-8.png",
+    "reviewImageSha256": "cc400a98a41a4029bb04ab7267998650f5c4accb40800a168f951fe4822f80a5",
+    "visualScope": "Relative gland positions checked on the supplied full-page rendering. This is an anatomy evidence check, not a learner figure-selection, native enlargement or redistribution approval.",
+    "excluded": "Do not transfer the adjacent source pH generalization to every gland, incidental incidence statistic, or stereotyped traits table."
+  },
+  "counts": {
+    "B": {
+      "total": 65,
+      "multipleChoice": 39,
+      "written": 26
+    },
+    "allUnits": {
+      "total": 249,
+      "multipleChoice": 168,
+      "written": 81
+    }
+  },
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json": "cd907db410d6e160ae5378a80aa7f4477fdff6b34772f8bfe03a28cbee7b4218",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-review.json": "4b0d638b0a3fe1e856d941cb7cfa892262976d4fa05f7717ae3410e172cdad2b",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-review.json": "9a84f6a46e2301271907d194ef2adc6017a60f1c32d7688265ed42ceb1f10f0a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-operation-review.json": "b77f773ea46660bc0f83b630fa74b8200d4eddd6a89864e547611615c4533d1c",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-passage-review.json": "bc7076780ef5601aefe3c4ddfc0e95fff35771cb5d8bc6d03a01249cd1d58121",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json": "faa4bc516c7c8f606b85882767576bc667518a272afc38271c45e2def29069b9",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "c59af0cff37d0e0e8e7056cb3c8b030942e633339578929557ae54faa0853ad9",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-passage-review.json": "654dbcf66b6cca3ef983abe763d474f20c4d4bbf72d9f5f7e89a128ae34c72e9"
+  },
+  "remaining": "No B component has an empty required-practice link; full sub-operation coverage, teaching, figures and rendered evidence remain unproved.",
+  "preVerificationMappingCorrection": "Earlier cleavage/gastrulation references moved from same-topic teachingPartIds to prerequisitePartIds. The three exact required passages, prompt and key are unchanged; the validator caught the cross-topic classification."
+}

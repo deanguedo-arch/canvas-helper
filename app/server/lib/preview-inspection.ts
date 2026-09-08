@@ -151,11 +151,6 @@ export function isPreviewInspectionNodeId(value: string | null | undefined) {
   return typeof value === "string" && new RegExp(`^${PREVIEW_NODE_ID_PREFIX}:[a-f0-9]{24}:[1-9][0-9]*$`).test(value);
 }
 
-function injectNodeAttribute(html: string, tag: OpeningTag, nodeId: string) {
-  const insertionIndex = html[tag.end - 1] === "/" ? tag.end - 1 : tag.end;
-  return `${html.slice(0, insertionIndex)} ${PREVIEW_INSPECT_NODE_ATTRIBUTE}="${nodeId}"${html.slice(insertionIndex)}`;
-}
-
 export function decoratePreviewHtml(html: string): PreviewInspectionDocument | null {
   if (Buffer.byteLength(html, "utf8") > MAX_INSPECTABLE_HTML_BYTES) {
     return null;
@@ -169,11 +164,16 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
   const nodeIds = new Set<string>();
   const nodeLocations = new Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number; ordinal: number; tagName: string; editId: string | null }>();
   const lineStarts = collectLineStarts(html);
-  let decorated = html;
+  // Assemble unchanged source slices once. Repeated whole-document splicing
+  // becomes quadratic on large static courses with thousands of controls.
+  const decoratedParts: string[] = [];
+  let suffixStart = html.length;
 
   for (let index = tags.length - 1; index >= 0; index -= 1) {
     const nodeId = createNodeId(sourceDigest, index + 1);
-    decorated = injectNodeAttribute(decorated, tags[index], nodeId);
+    const insertionIndex = html[tags[index].end - 1] === "/" ? tags[index].end - 1 : tags[index].end;
+    decoratedParts.push(html.slice(insertionIndex, suffixStart), ` ${PREVIEW_INSPECT_NODE_ATTRIBUTE}="${nodeId}"`);
+    suffixStart = insertionIndex;
     nodeIds.add(nodeId);
     nodeLocations.set(nodeId, {
       lineStart: lineForOffset(lineStarts, tags[index].start),
@@ -186,7 +186,8 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
     });
   }
 
-  return { source: html, html: decorated, sourceDigest, nodeIds, nodeLocations };
+  decoratedParts.push(html.slice(0, suffixStart));
+  return { source: html, html: decoratedParts.reverse().join(""), sourceDigest, nodeIds, nodeLocations };
 }
 
 export function decoratePreviewHtmlBuffer(body: Buffer) {

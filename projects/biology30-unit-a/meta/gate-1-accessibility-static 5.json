@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-30T02:13:55.137Z",
+  "scope": "static pre-browser Gate 1 checks; browser axe and interaction checks remain separate",
+  "pass": true,
+  "checks": {
+    "oneH1PerRoute": true,
+    "skipLink": true,
+    "semanticMain": true,
+    "noDuplicateIds": true,
+    "controlsLabeled": true,
+    "imagesHaveAlt": true,
+    "svgTitlesAndDescriptions": true,
+    "tableCaptions": true,
+    "tableHeaderScopes": true,
+    "visibleFocusCss": true,
+    "reducedMotionCss": true,
+    "mobileReflowCss": true,
+    "printCss": true,
+    "noAutoplay": true
+  },
+  "findings": {
+    "duplicateIds": [],
+    "unlabeledControlCount": 0,
+    "imagesWithoutAltCount": 0,
+    "figuresWithoutDescriptionsCount": 0,
+    "uncaptionedTableCount": 0,
+    "tableHeadersWithoutScopeCount": 0
+  }
+}

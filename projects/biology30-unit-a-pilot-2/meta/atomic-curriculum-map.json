@@ -1,12 +1,14 @@
 {
   "schemaVersion": 1,
   "project": "biology30-unit-a-pilot-2",
-  "generatedAt": "2026-09-05T13:46:27.949Z",
+  "generatedAt": "2026-09-08T16:12:53.462Z",
   "status": "revision-gate-b-awaiting-teacher-review",
-  "coveragePolicy": "A required idea is covered only when an exact rendered teaching block, source locator, prerequisite vocabulary, visual or data object, worked example, aligned practice item, and observable evidence record all resolve.",
+  "coveragePolicy": "This is an exact structural evidence index, not a certificate of academic completeness. Authored question/task bindings replace route fallbacks. gap-recorded means the named behaviour is not demonstrated; mapped-awaiting-review still needs scientific and teacher review. A labelled figure does not prove the learner performed a labelling task, and synthetic data do not prove a hands-on or published-data behaviour.",
   "counts": {
     "outcomes": 25,
-    "acceptableStandardBehaviours": 53,
+    "acceptableStandardBehaviours": 47,
+    "excellenceStandardBehaviours": 5,
+    "localCurriculumCriteria": 1,
     "atomicComponents": 78
   },
   "components": [
@@ -18,6 +20,9 @@
       "performanceBehaviourIds": [
         "A1.1k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-01",
@@ -36,9 +41,13 @@
       ],
       "visualOrDataId": "neuron-anatomy",
       "workedExampleId": "lesson-01-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-11-practice-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"neuron-labels\"]"
       ],
+      "alignmentRationale": "The saved A–G response identifies all seven required parts on a peripheral neuron schematic and gives each function. A comparison guide supports revision; this is not microscopy evidence.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1A neuron has regions with different jobs A neuron is a cell that handles information. Its shape supports four jobs: receive a message, combine information, carry an electrical signal, and pass information to another cell.Dendrites receive much of the input. The cell body contains the nucleus and keeps the cell working. The axon carries an electrical signal away from the cell body. At the far end, axon terminals communicate with another neuron, muscle, or gland.These labels describe a typical pattern. Neurons vary in shape, so follow the direction of information instead of expecting every neuron to look identical.The cell body also contains the structures that build proteins and"
@@ -51,6 +60,9 @@
       "performanceBehaviourIds": [
         "A1.1k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-02",
@@ -70,8 +82,13 @@
       "visualOrDataId": "myelin-saltatory",
       "workedExampleId": "lesson-01-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-11-practice-01"
+        "biology30-unit-a-pilot-2:practice:lesson-01-guided-2",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-02"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The questions require the insulation and conduction explanation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Glial cells and myelin help the signal arrive quicklyNeurons do not work alone. Glial cells support, protect, and maintain the conditions neurons need. Some glial cells wrap axons with layers of membrane called myelin.Myelin acts as electrical insulation. It limits current loss from the axon between the nodes of Ranvier, which are small gaps in the covering. The action potential is regenerated at each node. This pattern, called saltatory conduction, is faster than regenerating the signal continuously along an unmyelinated axon of similar size.Myelin does not make one action potential larger. It changes how far local current can spread before the next membrane region must regene"
@@ -84,6 +101,9 @@
       "performanceBehaviourIds": [
         "A1.1k-03"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-03",
@@ -103,8 +123,13 @@
       "visualOrDataId": "neuron-roles",
       "workedExampleId": "lesson-01-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-04"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The learner distinguishes neuron roles by direction within a reflex pathway.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3Three neuron roles form a pathwayA sensory neuron carries information from a receptor toward the central nervous system. An interneuron connects and processes information within the brain or spinal cord. A motor neuron carries a command from the central nervous system to an effector such as a muscle or gland. Sensory, interneuron, and motor rolesView larger Read the figure: Neuron type is defined by its role and direction of information, not by one universal cell shape. A reflex pathway can produce a rapid spinal response while information also travels to the brain. In a simple withdrawal reflex, a receptor detects a harmful stimulus. A sensory neuron enters the spinal cord, wh"
@@ -117,6 +142,9 @@
       "performanceBehaviourIds": [
         "A1.1k-04"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-04",
@@ -135,9 +163,13 @@
       ],
       "visualOrDataId": "neuron-roles",
       "workedExampleId": "lesson-01-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"reflex-labels\"]"
       ],
+      "alignmentRationale": "The learner identifies sensory, interneuron and motor roles from a lettered pathway and explains direction/connections rather than inferring a universal shape.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3Three neuron roles form a pathwayA sensory neuron carries information from a receptor toward the central nervous system. An interneuron connects and processes information within the brain or spinal cord. A motor neuron carries a command from the central nervous system to an effector such as a muscle or gland. Sensory, interneuron, and motor rolesView larger Read the figure: Neuron type is defined by its role and direction of information, not by one universal cell shape. A reflex pathway can produce a rapid spinal response while information also travels to the brain. In a simple withdrawal reflex, a receptor detects a harmful stimulus. A sensory neuron enters the spinal cord, wh"
@@ -150,6 +182,9 @@
       "performanceBehaviourIds": [
         "A1.1k-05"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-05",
@@ -168,9 +203,13 @@
       ],
       "visualOrDataId": "neuron-anatomy",
       "workedExampleId": "lesson-01-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-microscopy]"
       ],
+      "alignmentRationale": "A real, locally stored prepared-tissue micrograph has an enlarged view, saved cell-profile observation and inference limits. Fully online adaptation: this demonstrates digital observation, not physical microscope operation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1A neuron has regions with different jobs A neuron is a cell that handles information. Its shape supports four jobs: receive a message, combine information, carry an electrical signal, and pass information to another cell.Dendrites receive much of the input. The cell body contains the nucleus and keeps the cell working. The axon carries an electrical signal away from the cell body. At the far end, axon terminals communicate with another neuron, muscle, or gland.These labels describe a typical pattern. Neurons vary in shape, so follow the direction of information instead of expecting every neuron to look identical.The cell body also contains the structures that build proteins and"
@@ -183,6 +222,9 @@
       "performanceBehaviourIds": [
         "A1.1k-06"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-06",
@@ -203,8 +245,13 @@
       "visualOrDataId": "action-potential-voltage-graph",
       "workedExampleId": "lesson-02-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-08",
+        "biology30-unit-a-pilot-2:practice:lesson-02-guided-02"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Refractory recovery and all-or-none firing are practised in their signal context.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Voltage-gated channels create a travelling signalA stimulus can open channels and make the membrane less negative. If the trigger region reaches threshold, many voltage-gated sodium channels open. Sodium follows its concentration and electrical gradients into the neuron. The rapid entry of positive charge causes depolarization, the steep rising phase on the voltage graph.Near the peak, sodium channels become inactive and voltage-gated potassium channels open. Potassium leaves the neuron, carrying positive charge outward. This movement causes repolarization, so the voltage falls toward its resting value. Potassium channels close slowly, so the voltage may briefly fall below rest"
@@ -217,6 +264,9 @@
       "performanceBehaviourIds": [
         "A1.1k-07"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-07",
@@ -236,9 +286,13 @@
       ],
       "visualOrDataId": "action-potential-voltage-graph",
       "workedExampleId": "lesson-02-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"voltage-labels\"]"
       ],
+      "alignmentRationale": "The saved letter key labels rest, threshold, rising/falling phases and both refractory intervals on a numeric voltage-time graph, with equivalent data and a 105 mV calculation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Voltage-gated channels create a travelling signalA stimulus can open channels and make the membrane less negative. If the trigger region reaches threshold, many voltage-gated sodium channels open. Sodium follows its concentration and electrical gradients into the neuron. The rapid entry of positive charge causes depolarization, the steep rising phase on the voltage graph.Near the peak, sodium channels become inactive and voltage-gated potassium channels open. Potassium leaves the neuron, carrying positive charge outward. This movement causes repolarization, so the voltage falls toward its resting value. Potassium channels close slowly, so the voltage may briefly fall below rest"
@@ -251,6 +305,9 @@
       "performanceBehaviourIds": [
         "A1.1k-08"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-08",
@@ -270,9 +327,13 @@
       ],
       "visualOrDataId": "resting-membrane-potential",
       "workedExampleId": "lesson-02-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"transport-reasoning\"]"
       ],
+      "alignmentRationale": "The saved response explains gradient maintenance by the pump and selective resting permeability/leak; the guide distinguishes these from rapid voltage-gated events.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Ion gradients store potential energyA resting neuron has an unequal distribution of charged particles, called ions. Sodium ions are more concentrated outside the cell, while potassium ions are more concentrated inside. Large negatively charged proteins also remain inside. Separating these charges stores potential energy. A voltmeter placed across the membrane would detect an electrical difference called the membrane potential.The membrane is selectively permeable, so some ions cross more easily than others. At rest, potassium leak channels let potassium diffuse out faster than sodium leaks in. Each departing potassium ion carries positive charge away. This movement helps make t"
@@ -285,6 +346,9 @@
       "performanceBehaviourIds": [
         "A1.1k-09"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-09",
@@ -304,9 +368,13 @@
       ],
       "visualOrDataId": "action-potential-voltage-graph",
       "workedExampleId": "lesson-02-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"transport-reasoning\"]"
       ],
+      "alignmentRationale": "The response explicitly connects local current, regeneration in the next region and refractory recovery behind it. The voltage-labelling task separately checks phases.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Voltage-gated channels create a travelling signalA stimulus can open channels and make the membrane less negative. If the trigger region reaches threshold, many voltage-gated sodium channels open. Sodium follows its concentration and electrical gradients into the neuron. The rapid entry of positive charge causes depolarization, the steep rising phase on the voltage graph.Near the peak, sodium channels become inactive and voltage-gated potassium channels open. Potassium leaves the neuron, carrying positive charge outward. This movement causes repolarization, so the voltage falls toward its resting value. Potassium channels close slowly, so the voltage may briefly fall below rest"
@@ -319,6 +387,9 @@
       "performanceBehaviourIds": [
         "A1.1k-10"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-10",
@@ -339,8 +410,14 @@
       "visualOrDataId": "stimulus-intensity-code",
       "workedExampleId": "lesson-02-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:lesson-02-guided-02",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-06",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-07"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Threshold and firing frequency distinguish stimulus strength from spike height.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3The signal is regenerated and its pattern carries informationAn action potential at one axon region creates local current in the next region. If that next region reaches threshold, it produces a new action potential. The signal is therefore regenerated along the axon instead of fading like a passive electrical change. On an unmyelinated axon, regeneration occurs across many neighbouring membrane regions.On a myelinated axon, current spreads under the myelin and action potentials are regenerated mainly at the nodes of Ranvier. This saltatory conduction is faster and uses fewer active membrane regions. The action potential does not literally jump through empty space; current spre"
@@ -353,6 +430,9 @@
       "performanceBehaviourIds": [
         "A1.1k-11"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-11",
@@ -370,8 +450,13 @@
       "visualOrDataId": "synapse-signal-types",
       "workedExampleId": "lesson-03-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:lesson-03-guided-1",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-09"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The messenger definition precedes the calcium-triggered synaptic sequence.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-03:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Define the messenger before following the messageA neurotransmitter is a chemical messenger released by a neuron. It travels only a very short distance across a synaptic cleft and binds to matching receptor proteins on a target cell.The complete junction is called a synapse. The cell that releases the messenger is presynaptic. The cell that receives it is postsynaptic. The target may be another neuron, a muscle cell, or a gland cell.A neurotransmitter does not carry the electrical action potential through the empty space. Instead, the arriving electrical signal causes chemical release. Receptor binding then changes the target cell.When the action potential reaches the terminal,"
@@ -384,6 +469,9 @@
       "performanceBehaviourIds": [
         "A1.1k-12"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-12",
@@ -401,8 +489,13 @@
       "visualOrDataId": "synaptic-transmission",
       "workedExampleId": "lesson-03-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:lesson-03-guided-2",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-10"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The changed-enzyme case requires the effect of acetylcholine breakdown.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-03:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2The messenger, receptor, and ending mechanism all matter Chemical transmission across a synapseView larger Read the figure: The sequence has a clear direction. Calcium entry belongs in the presynaptic terminal. The neurotransmitter crosses the cleft and binds receptors; it does not become the next action potential. Acetylcholine is a neurotransmitter used at many synapses, including the junction between a motor neuron and skeletal muscle. When it binds to receptors there, it helps depolarize the muscle membrane. Cholinesterase breaks acetylcholine down so the stimulation does not continue without limit.Norepinephrine is another neurotransmitter. It is used by many sympathetic p"
@@ -415,6 +508,9 @@
       "performanceBehaviourIds": [
         "A1.1k-13"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=6&behaviour=A1.1k-13",
@@ -434,8 +530,12 @@
       "visualOrDataId": "myelin-saltatory",
       "workedExampleId": "lesson-01-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:final-practice-core-01"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The synthetic conduction case locates a plausible myelin-related disruption without diagnosing a person.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Glial cells and myelin help the signal arrive quicklyNeurons do not work alone. Glial cells support, protect, and maintain the conditions neurons need. Some glial cells wrap axons with layers of membrane called myelin.Myelin acts as electrical insulation. It limits current loss from the axon between the nodes of Ranvier, which are small gaps in the covering. The action potential is regenerated at each node. This pattern, called saltatory conduction, is faster than regenerating the signal continuously along an unmyelinated axon of similar size.Myelin does not make one action potential larger. It changes how far local current can spread before the next membrane region must regene"
@@ -448,6 +548,9 @@
       "performanceBehaviourIds": [
         "A1.2k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-01",
@@ -467,8 +570,13 @@
       "visualOrDataId": "nervous-system-hierarchy",
       "workedExampleId": "lesson-04-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-11-practice-02"
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-11",
+        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "CNS structures and outgoing motor information are distinguished.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-04:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1The CNS processes; the PNS connectsThe central nervous system, or CNS, contains the brain and spinal cord. It receives information, compares it with other information, and organizes responses. The peripheral nervous system, or PNS, includes nerves and ganglia outside the CNS. It carries sensory information toward the CNS and motor commands away from it.A nerve is a bundle of axons in the PNS. Some nerves carry mainly sensory information, some mainly motor information, and many carry both. Sensory pathways are often called afferent because they arrive at the CNS. Motor pathways are often called efferent because they exit the CNS.The somatic system includes sensory input from ski"
@@ -481,6 +589,9 @@
       "performanceBehaviourIds": [
         "A1.2k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-02",
@@ -499,9 +610,13 @@
       ],
       "visualOrDataId": "nervous-system-hierarchy",
       "workedExampleId": "lesson-04-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-11-practice-02"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"matter-comparison\"]"
       ],
+      "alignmentRationale": "The saved A–D comparison identifies grey/white tissue in cerebral and spinal sections, explains contents and function, and qualifies the simplified arrangement.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-04:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1The CNS processes; the PNS connectsThe central nervous system, or CNS, contains the brain and spinal cord. It receives information, compares it with other information, and organizes responses. The peripheral nervous system, or PNS, includes nerves and ganglia outside the CNS. It carries sensory information toward the CNS and motor commands away from it.A nerve is a bundle of axons in the PNS. Some nerves carry mainly sensory information, some mainly motor information, and many carry both. Sensory pathways are often called afferent because they arrive at the CNS. Motor pathways are often called efferent because they exit the CNS.The somatic system includes sensory input from ski"
@@ -514,6 +629,9 @@
       "performanceBehaviourIds": [
         "A1.2k-03"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-03",
@@ -533,8 +651,13 @@
       "visualOrDataId": "somatic-autonomic-compare",
       "workedExampleId": "lesson-04-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-04-guided-02",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-12"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Autonomic effects are selected in organ-specific context.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-04:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Autonomic divisions coordinate internal organsThe autonomic system regulates cardiac muscle, smooth muscle, and glands. Its sympathetic and parasympathetic divisions often produce opposing effects, but neither division simply switches every organ on or off.A sympathetic response supports immediate action. Heart rate may rise, airways may widen, and blood flow may be redirected. A parasympathetic response supports digestion, energy storage, and routine maintenance. Its effects often help restore conditions after a challenge.The effect depends on the organ and the receptors on its target cells. For example, sympathetic signals can increase heart rate but reduce some digestive act"
@@ -547,6 +670,9 @@
       "performanceBehaviourIds": [
         "A1.2k-04"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-04",
@@ -566,8 +692,13 @@
       "visualOrDataId": "nervous-system-hierarchy",
       "workedExampleId": "lesson-04-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-04"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The task identifies skeletal-muscle motor output.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-04:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1The CNS processes; the PNS connectsThe central nervous system, or CNS, contains the brain and spinal cord. It receives information, compares it with other information, and organizes responses. The peripheral nervous system, or PNS, includes nerves and ganglia outside the CNS. It carries sensory information toward the CNS and motor commands away from it.A nerve is a bundle of axons in the PNS. Some nerves carry mainly sensory information, some mainly motor information, and many carry both. Sensory pathways are often called afferent because they arrive at the CNS. Motor pathways are often called efferent because they exit the CNS.The somatic system includes sensory input from ski"
@@ -580,6 +711,9 @@
       "performanceBehaviourIds": [
         "A1.2k-05"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-05",
@@ -594,12 +728,16 @@
       ],
       "visualOrDataId": "sensory-receptor-investigation-data",
       "workedExampleId": "sensory-receptors-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"sensory-receptors\"]"
       ],
+      "alignmentRationale": "The editor supports a two-point receptor-density procedure and supplied-data analysis.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:sensory-receptors",
       "tier": "required-core",
-      "renderedTextEvidence": "Sensory-receptor investigationPlan a fair two-point comparison or use supplied data.Question: Does the smallest detected two-point spacing differ between a fingertip and forearm?Safety: use two blunt tips, light pressure, intact skin, and consent. Stop on request. Use the supplied data if materials or a partner are unavailable.Smallest spacing reported as two pointsTrialFingertipForearm13 mm28 mm24 mm31 mm33 mm30 mmSentence frame: I will change ___. I will measure ___. I will keep ___ and ___ the same. The data show ___. This may be explained by ___.See a worked startBody location is changed. The smallest two-point spacing is measured. Tip shape and pressure are held as steady as possible. S"
+      "renderedTextEvidence": "Sensory-receptor investigationCompare touch, visual detail and sound evidence without testing your senses.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Plan a fair comparisonQuestion: Does the smallest detected two-point spacing differ between a fingertip and forearm? Predict which site has finer spatial resolution. The location is the manipulated variable; smallest reported two-point spacing is the responding variable. Keep tip sh"
     },
     {
       "id": "behaviour-a1-2k-06",
@@ -609,6 +747,9 @@
       "performanceBehaviourIds": [
         "A1.2k-06"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-06",
@@ -627,9 +768,13 @@
       ],
       "visualOrDataId": "somatic-autonomic-compare",
       "workedExampleId": "lesson-04-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-04 .retrieve-block"
       ],
+      "alignmentRationale": "The saved hierarchy explanation can connect CNS/PNS and autonomic control; organ effects are taught alongside it.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-04:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Autonomic divisions coordinate internal organsThe autonomic system regulates cardiac muscle, smooth muscle, and glands. Its sympathetic and parasympathetic divisions often produce opposing effects, but neither division simply switches every organ on or off.A sympathetic response supports immediate action. Heart rate may rise, airways may widen, and blood flow may be redirected. A parasympathetic response supports digestion, energy storage, and routine maintenance. Its effects often help restore conditions after a challenge.The effect depends on the organ and the receptors on its target cells. For example, sympathetic signals can increase heart rate but reduce some digestive act"
@@ -642,6 +787,9 @@
       "performanceBehaviourIds": [
         "A1.2k-07"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-07",
@@ -658,9 +806,13 @@
       ],
       "visualOrDataId": "brain-region-network",
       "workedExampleId": "lesson-05-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"brain-labels\"]"
       ],
+      "alignmentRationale": "The saved A–J key identifies the required lobes, cerebellum, pons, medulla, hypothalamus and spinal cord plus the thalamus; the response names the cerebrum, gives functions and states inference limits.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-05:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Deep brain regions and the brainstem regulate essential functionsThe thalamus receives and organizes much of the sensory information moving toward the cerebral cortex. Smell follows a different early route. The thalamus does more than pass messages unchanged; it helps select and organize information. The nearby hypothalamus monitors internal conditions and helps regulate temperature, thirst, hunger, autonomic activity, and endocrine signalling.The cerebellum compares intended movement with sensory feedback. It adjusts timing, force, posture, and balance. Damage can produce poorly timed or unsteady movement even when the muscles can still produce force. The cerebellum works with"
@@ -673,6 +825,9 @@
       "performanceBehaviourIds": [
         "A1.2k-08"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-08",
@@ -689,9 +844,13 @@
       ],
       "visualOrDataId": "brain-region-network",
       "workedExampleId": "lesson-05-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-model-panel=\"brain\"]"
       ],
+      "alignmentRationale": "Learners can inspect a computer model and compare a change with a functional explanation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-05:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Deep brain regions and the brainstem regulate essential functionsThe thalamus receives and organizes much of the sensory information moving toward the cerebral cortex. Smell follows a different early route. The thalamus does more than pass messages unchanged; it helps select and organize information. The nearby hypothalamus monitors internal conditions and helps regulate temperature, thirst, hunger, autonomic activity, and endocrine signalling.The cerebellum compares intended movement with sensory feedback. It adjusts timing, force, posture, and balance. Damage can produce poorly timed or unsteady movement even when the muscles can still produce force. The cerebellum works with"
@@ -704,6 +863,9 @@
       "performanceBehaviourIds": [
         "A1.2k-09"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.2k-09",
@@ -721,8 +883,14 @@
       "visualOrDataId": "spinal-cord-directions",
       "workedExampleId": "lesson-05-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-05-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-05-guided-02",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-05"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Coordination evidence and inference limits are tested together.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-05:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3The spinal cord both conducts and processes informationThe spinal cord carries information between the brain and spinal nerves. Sensory information enters through dorsal roots. Motor information leaves through ventral roots. Ascending tracts carry sensory information toward the brain, while descending tracts carry motor commands toward spinal circuits. In the spinal cord, central grey matter is surrounded by white matter containing many myelinated axons.The spinal cord is also a processing centre. In a withdrawal reflex, sensory input can activate interneurons and motor neurons before the brain produces conscious awareness. The brain still receives information about the event a"
@@ -735,6 +903,9 @@
       "performanceBehaviourIds": [
         "A1.3k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.3k-01",
@@ -754,8 +925,13 @@
       "visualOrDataId": "neuron-roles",
       "workedExampleId": "lesson-01-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-11-practice-03"
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-06"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "A withdrawal-reflex sequence connects receptor, sensory path and response.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3Three neuron roles form a pathwayA sensory neuron carries information from a receptor toward the central nervous system. An interneuron connects and processes information within the brain or spinal cord. A motor neuron carries a command from the central nervous system to an effector such as a muscle or gland. Sensory, interneuron, and motor rolesView larger Read the figure: Neuron type is defined by its role and direction of information, not by one universal cell shape. A reflex pathway can produce a rapid spinal response while information also travels to the brain. In a simple withdrawal reflex, a receptor detects a harmful stimulus. A sensory neuron enters the spinal cord, wh"
@@ -768,6 +944,9 @@
       "performanceBehaviourIds": [
         "A1.3k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.3k-02",
@@ -786,9 +965,13 @@
       ],
       "visualOrDataId": "neuron-roles",
       "workedExampleId": "lesson-01-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-11-practice-03"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"reflex-labels\"]"
       ],
+      "alignmentRationale": "A saved learner-generated A–E key names receptor, sensory neuron, interneuron, motor neuron and effector in the displayed withdrawal pathway.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3Three neuron roles form a pathwayA sensory neuron carries information from a receptor toward the central nervous system. An interneuron connects and processes information within the brain or spinal cord. A motor neuron carries a command from the central nervous system to an effector such as a muscle or gland. Sensory, interneuron, and motor rolesView larger Read the figure: Neuron type is defined by its role and direction of information, not by one universal cell shape. A reflex pathway can produce a rapid spinal response while information also travels to the brain. In a simple withdrawal reflex, a receptor detects a harmful stimulus. A sensory neuron enters the spinal cord, wh"
@@ -801,6 +984,9 @@
       "performanceBehaviourIds": [
         "A1.3k-03"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.3k-03",
@@ -815,12 +1001,16 @@
       ],
       "visualOrDataId": "reflex-response-data",
       "workedExampleId": "reflex-response-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"reflex-observation\"]"
       ],
+      "alignmentRationale": "Learners trace and compare supplied reflex-pathway observations, locate alternative disruptions and distinguish a reflex from a voluntary ruler catch. Online adaptation: no eliciting a physical reflex or diagnosis is claimed.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:reflex-response",
       "tier": "required-core",
-      "renderedTextEvidence": "Reflex-response investigationUse a safe ruler drop or the complete supplied-data path.Question: How consistent is response distance across five trials?Safety: use only a clean ruler, keep it away from faces, and get consent. If a partner, ruler, or comfortable movement is unavailable, use the supplied values.Supplied ruler-drop distance in centimetresTrial12345Distance1821192420Sentence frame: The values range from ___ to ___ cm. Most values cluster near ___. This supports the claim that ___, but it does not show ___.See a worked startThe range is 18–24 cm. Four values are between 18 and 21 cm, while 24 cm is higher. This suggests some trial-to-trial variation, but it does not identify its c"
+      "renderedTextEvidence": "Reflex and reaction-time evidenceCompare a reflex pathway with a voluntary reaction; revise a claim.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Observe a reflex pathwayQuestion: Does a rapid response always mean a reflex? A reflex is an automatic response through a neural pathway. In this withdrawal model, a skin receptor activates a sensory neuron, spinal interneurons activate motor neurons, and a muscle contracts. Sensory infor"
     },
     {
       "id": "behaviour-a1-3k-04",
@@ -830,6 +1020,9 @@
       "performanceBehaviourIds": [
         "A1.3k-04"
       ],
+      "sourceStandard": "excellence",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "right-excellence",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=7&behaviour=A1.3k-04",
@@ -844,12 +1037,16 @@
       ],
       "visualOrDataId": "reflex-response-data",
       "workedExampleId": "reflex-response-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-01 [data-advanced-block-id=\"l01-b03\"]"
       ],
+      "alignmentRationale": "The optional disruption case develops excellence-level inference. Independent physical reflex experiment design is a source example not selected for this fully online delivery; this is not represented as demonstrated hands-on design.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:reflex-response",
-      "tier": "required-core",
-      "renderedTextEvidence": "Reflex-response investigationUse a safe ruler drop or the complete supplied-data path.Question: How consistent is response distance across five trials?Safety: use only a clean ruler, keep it away from faces, and get consent. If a partner, ruler, or comfortable movement is unavailable, use the supplied values.Supplied ruler-drop distance in centimetresTrial12345Distance1821192420Sentence frame: The values range from ___ to ___ cm. Most values cluster near ___. This supports the claim that ___, but it does not show ___.See a worked startThe range is 18–24 cm. Four values are between 18 and 21 cm, while 24 cm is higher. This suggests some trial-to-trial variation, but it does not identify its c"
+      "tier": "advanced",
+      "renderedTextEvidence": "Reflex and reaction-time evidenceCompare a reflex pathway with a voluntary reaction; revise a claim.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Observe a reflex pathwayQuestion: Does a rapid response always mean a reflex? A reflex is an automatic response through a neural pathway. In this withdrawal model, a skin receptor activates a sensory neuron, spinal interneurons activate motor neurons, and a muscle contracts. Sensory infor"
     },
     {
       "id": "behaviour-a1-4k-01",
@@ -859,6 +1056,9 @@
       "performanceBehaviourIds": [
         "A1.4k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.4k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.4k-01",
@@ -876,12 +1076,16 @@
       ],
       "visualOrDataId": "eye-light-path",
       "workedExampleId": "lesson-07-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"eye-structure-function\"]"
       ],
+      "alignmentRationale": "All fourteen required/supporting eye structures are actively selected from spatial clues, connected to the anatomical figure and checked against a complete explanation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a picture. Perception develops from neural processing "
+      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction: the bending of light as it passes between materials. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a"
     },
     {
       "id": "behaviour-a1-4k-02",
@@ -891,6 +1095,9 @@
       "performanceBehaviourIds": [
         "A1.4k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.4k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.4k-02",
@@ -908,12 +1115,16 @@
       ],
       "visualOrDataId": "eye-light-path",
       "workedExampleId": "lesson-07-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-model-panel=\"eye\"]"
       ],
+      "alignmentRationale": "The selected vision model lets learners inspect eye/light-path relationships.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a picture. Perception develops from neural processing "
+      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction: the bending of light as it passes between materials. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a"
     },
     {
       "id": "behaviour-a1-4k-03",
@@ -923,6 +1134,9 @@
       "performanceBehaviourIds": [
         "A1.4k-03"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.4k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.4k-03",
@@ -940,12 +1154,16 @@
       ],
       "visualOrDataId": "eye-light-path",
       "workedExampleId": "lesson-07-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-07-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"eye-structure-function\"]"
       ],
+      "alignmentRationale": "Each eye structure receives a separate function selection and misconception-aware explanation; the stored matrix covers the full list rather than a subset of quiz items.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a picture. Perception develops from neural processing "
+      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction: the bending of light as it passes between materials. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a"
     },
     {
       "id": "behaviour-a1-4k-04",
@@ -955,6 +1173,9 @@
       "performanceBehaviourIds": [
         "A1.4k-04"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.4k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.4k-04",
@@ -969,12 +1190,16 @@
       ],
       "visualOrDataId": "sensory-receptor-investigation-data",
       "workedExampleId": "sensory-receptors-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-07-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"vision-procedure\"]"
       ],
+      "alignmentRationale": "An explicit simulated visual-discrimination protocol controls display conditions, applies an eight-of-ten threshold and compares two retinal locations. Online supplied-data adaptation, not a test of the learner's vision.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:sensory-receptors",
       "tier": "required-core",
-      "renderedTextEvidence": "Sensory-receptor investigationPlan a fair two-point comparison or use supplied data.Question: Does the smallest detected two-point spacing differ between a fingertip and forearm?Safety: use two blunt tips, light pressure, intact skin, and consent. Stop on request. Use the supplied data if materials or a partner are unavailable.Smallest spacing reported as two pointsTrialFingertipForearm13 mm28 mm24 mm31 mm33 mm30 mmSentence frame: I will change ___. I will measure ___. I will keep ___ and ___ the same. The data show ___. This may be explained by ___.See a worked startBody location is changed. The smallest two-point spacing is measured. Tip shape and pressure are held as steady as possible. S"
+      "renderedTextEvidence": "Sensory-receptor investigationCompare touch, visual detail and sound evidence without testing your senses.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Plan a fair comparisonQuestion: Does the smallest detected two-point spacing differ between a fingertip and forearm? Predict which site has finer spatial resolution. The location is the manipulated variable; smallest reported two-point spacing is the responding variable. Keep tip sh"
     },
     {
       "id": "behaviour-a1-4k-05",
@@ -984,6 +1209,9 @@
       "performanceBehaviourIds": [
         "A1.4k-05"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.4k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.4k-05",
@@ -1001,9 +1229,13 @@
       ],
       "visualOrDataId": "retina-light-pathway",
       "workedExampleId": "lesson-07-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-07-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-07 .retrieve-block"
       ],
+      "alignmentRationale": "The saved explanation traces the optical pathway and distinguishes neural interpretation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Rods and cones begin visual codingRods are very sensitive in dim light and support black-and-white vision, but they provide less fine detail. Cones work best in brighter light and support colour vision and high detail. Three cone classes have different wavelength sensitivities.The fovea is a small central region with a high density of cones. It supports sharp central vision. The optic disc is where axons leave as the optic nerve. It has no photoreceptors, creating a blind spot in each eye.Retinal circuits process information before it leaves the eye. Photoreceptors influence bipolar cells, which influence ganglion cells. Ganglion-cell axons form the optic nerve. At the optic ch"
@@ -1016,6 +1248,9 @@
       "performanceBehaviourIds": [
         "A1.5k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.5k-01",
@@ -1033,9 +1268,13 @@
       ],
       "visualOrDataId": "sound-pathway",
       "workedExampleId": "lesson-08-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-02"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"ear-structure-function\"]"
       ],
+      "alignmentRationale": "Fourteen location clues require active ear identification, including individual ossicles, hair cells, vestibule and Eustachian tube.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Sound energy moves through three regionsSound waves enter the auditory canal and vibrate the tympanic membrane. The malleus, incus, and stapes are the three ossicles of the middle ear. They transfer vibration to the oval window of the inner ear.Pressure waves then move through fluid in the cochlea. They move the basilar membrane and bend hair cells in the organ of Corti. Bending opens mechanically gated channels, changing transmitter release onto sensory neurons. This is sensory transduction.The round window allows pressure to be released. The Eustachian tube connects the middle ear with the throat and helps equalize air pressure across the tympanic membrane. It is not part of "
@@ -1048,6 +1287,9 @@
       "performanceBehaviourIds": [
         "A1.5k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.5k-02",
@@ -1065,9 +1307,13 @@
       ],
       "visualOrDataId": "sound-pathway",
       "workedExampleId": "lesson-08-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-02"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-model-panel=\"hearing\"]"
       ],
+      "alignmentRationale": "The computer model connects inner-ear structure with hearing and balance.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Sound energy moves through three regionsSound waves enter the auditory canal and vibrate the tympanic membrane. The malleus, incus, and stapes are the three ossicles of the middle ear. They transfer vibration to the oval window of the inner ear.Pressure waves then move through fluid in the cochlea. They move the basilar membrane and bend hair cells in the organ of Corti. Bending opens mechanically gated channels, changing transmitter release onto sensory neurons. This is sensory transduction.The round window allows pressure to be released. The Eustachian tube connects the middle ear with the throat and helps equalize air pressure across the tympanic membrane. It is not part of "
@@ -1080,6 +1326,9 @@
       "performanceBehaviourIds": [
         "A1.5k-03"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.5k-03",
@@ -1097,9 +1346,13 @@
       ],
       "visualOrDataId": "sound-pathway",
       "workedExampleId": "lesson-08-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-08-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"ear-structure-function\"]"
       ],
+      "alignmentRationale": "All fourteen ear structures have a separate function choice and a corrected explanation, including pressure equalization and the hearing/balance distinction.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Sound energy moves through three regionsSound waves enter the auditory canal and vibrate the tympanic membrane. The malleus, incus, and stapes are the three ossicles of the middle ear. They transfer vibration to the oval window of the inner ear.Pressure waves then move through fluid in the cochlea. They move the basilar membrane and bend hair cells in the organ of Corti. Bending opens mechanically gated channels, changing transmitter release onto sensory neurons. This is sensory transduction.The round window allows pressure to be released. The Eustachian tube connects the middle ear with the throat and helps equalize air pressure across the tympanic membrane. It is not part of "
@@ -1112,6 +1365,9 @@
       "performanceBehaviourIds": [
         "A1.5k-04"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.5k-04",
@@ -1129,9 +1385,13 @@
       ],
       "visualOrDataId": "equilibrium-apparatus",
       "workedExampleId": "lesson-08-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-08-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"hearing-procedure\"]"
       ],
+      "alignmentRationale": "Students follow a controlled sound-response model procedure and interpret cochlear-region data. Fully online/no-audio adaptation: this does not demonstrate physical hearing testing and cannot diagnose hearing.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2The vestibular apparatus detects head movementThe semicircular canals detect rotational movement. Each canal is oriented in a different plane. When the head turns, fluid movement bends a gelatinous structure and its hair cells. The firing pattern changes with the direction and speed of rotation.The utricle and saccule detect linear acceleration and head position relative to gravity. Small calcium-carbonate crystals add mass to a gelatinous layer. Movement shifts the layer and bends hair cells.Balance also uses vision and proprioception. The brain compares these sources and sends motor commands that adjust posture and eye movement. A classroom activity cannot diagnose hearing lo"
@@ -1144,6 +1404,9 @@
       "performanceBehaviourIds": [
         "A1.5k-05"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.5k-05",
@@ -1161,9 +1424,13 @@
       ],
       "visualOrDataId": "equilibrium-apparatus",
       "workedExampleId": "lesson-08-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-08-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-08 .retrieve-block"
       ],
+      "alignmentRationale": "The saved sound pathway explanation links mechanical transfer to neural information.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2The vestibular apparatus detects head movementThe semicircular canals detect rotational movement. Each canal is oriented in a different plane. When the head turns, fluid movement bends a gelatinous structure and its hair cells. The firing pattern changes with the direction and speed of rotation.The utricle and saccule detect linear acceleration and head position relative to gravity. Small calcium-carbonate crystals add mass to a gelatinous layer. Movement shifts the layer and bends hair cells.Balance also uses vision and proprioception. The brain compares these sources and sends motor commands that adjust posture and eye movement. A classroom activity cannot diagnose hearing lo"
@@ -1176,6 +1443,9 @@
       "performanceBehaviourIds": [
         "A1.6k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.6k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.6k-01",
@@ -1195,8 +1465,15 @@
       "visualOrDataId": "sensory-receptor-families",
       "workedExampleId": "lesson-06-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-03"
+        "biology30-unit-a-pilot-2:practice:lesson-06-guided-01",
+        "biology30-unit-a-pilot-2:practice:chapter-12-practice-01",
+        "biology30-unit-a-pilot-2:practice:chapter-12-practice-02",
+        "biology30-unit-a-pilot-2:practice:chapter-12-practice-12"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Receptor classes and multisensory balance distinguish stimulus and response types.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-06:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Receptors convert different forms of energyA sensory receptor does not send light, pressure, or chemicals through a neuron. It performs sensory transduction: stimulus energy changes the receptor membrane. If the change is strong enough, action potentials begin in a sensory neuron or transmitter is released to one.Photoreceptors respond to light. Mechanoreceptors respond to stretch, pressure, vibration, or movement. Chemoreceptors respond to particular chemicals. Thermoreceptors respond to temperature change. Nociceptors respond to potentially damaging conditions. Proprioceptors are mechanoreceptors that report muscle length, tendon tension, and joint position.Each receptor is m"
@@ -1209,6 +1486,9 @@
       "performanceBehaviourIds": [
         "A1.6k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.6k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=8&behaviour=A1.6k-02",
@@ -1223,12 +1503,16 @@
       ],
       "visualOrDataId": "sensory-receptor-investigation-data",
       "workedExampleId": "sensory-receptors-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-03"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"sensory-receptors\"]"
       ],
+      "alignmentRationale": "The authored frame asks for manipulated, responding and controlled variables.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:sensory-receptors",
       "tier": "required-core",
-      "renderedTextEvidence": "Sensory-receptor investigationPlan a fair two-point comparison or use supplied data.Question: Does the smallest detected two-point spacing differ between a fingertip and forearm?Safety: use two blunt tips, light pressure, intact skin, and consent. Stop on request. Use the supplied data if materials or a partner are unavailable.Smallest spacing reported as two pointsTrialFingertipForearm13 mm28 mm24 mm31 mm33 mm30 mmSentence frame: I will change ___. I will measure ___. I will keep ___ and ___ the same. The data show ___. This may be explained by ___.See a worked startBody location is changed. The smallest two-point spacing is measured. Tip shape and pressure are held as steady as possible. S"
+      "renderedTextEvidence": "Sensory-receptor investigationCompare touch, visual detail and sound evidence without testing your senses.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Plan a fair comparisonQuestion: Does the smallest detected two-point spacing differ between a fingertip and forearm? Predict which site has finer spatial resolution. The location is the manipulated variable; smallest reported two-point spacing is the responding variable. Keep tip sh"
     },
     {
       "id": "behaviour-a2-1k-01",
@@ -1238,6 +1522,9 @@
       "performanceBehaviourIds": [
         "A2.1k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.1k-01",
@@ -1258,9 +1545,13 @@
       ],
       "visualOrDataId": "integrated-control",
       "workedExampleId": "lesson-09-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"gland-locations\"]"
       ],
+      "alignmentRationale": "Seven location/region choices cover the Unit A hypothalamus, pituitary, thyroid, parathyroids, pancreatic islets, adrenal cortex and medulla.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Homeostasis is active and dynamicHomeostasis does not hold the body at one unchanging number. Conditions such as temperature, blood glucose, and water balance vary within workable ranges. Control systems detect changes and adjust responses over time.A regulated variable is the condition being monitored. A receptor detects a change. A control centre compares information with a workable range and organizes output. An effector changes its activity. The response changes the regulated variable.In negative feedback, the response reduces the original disturbance. If body temperature rises, heat-loss responses oppose the rise. The word negative describes the direction of the response, "
@@ -1273,6 +1564,9 @@
       "performanceBehaviourIds": [
         "A2.1k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.1k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.1k-02",
@@ -1289,12 +1583,16 @@
       ],
       "visualOrDataId": "hgh-pathway",
       "workedExampleId": "lesson-10-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"hormone-source-target-effect\"]"
       ],
+      "alignmentRationale": "Every listed hormone has a source selection; epinephrine/norepinephrine share their adrenal row while the explanation distinguishes their synaptic role. Production versus release is explicit for ADH.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-10:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 2Human growth hormone supports growth and fuel useHuman growth hormone, or hGH, is released by the anterior pituitary. It acts directly on some tissues and stimulates the liver and other tissues to produce growth factors. These signals support protein synthesis, cell division, bone growth, and changes in fuel use.Too little hGH during childhood can limit growth. Too much before growth plates close can cause excessive linear growth. Too much after the plates close can enlarge some bones and soft tissues. These patterns are explained as hormone imbalances, not diagnosed from appearance.hGH release changes in pulses and is influenced by sleep, activity, nutrition, and feedback. A s"
+      "renderedTextEvidence": "Learn · Part 2Human growth hormone supports growth and fuel useHuman growth hormone, or hGH, is released by the anterior pituitary. It acts directly on some tissues and stimulates the liver and other tissues to produce growth factors. These signals support protein synthesis, cell division, bone growth, and changes in fuel use.Growth plates are regions near the ends of growing long bones where new tissue allows the bones to lengthen. Too little hGH during childhood can limit growth. Too much before growth plates close can cause excessive linear growth. Too much after the plates close can enlarge some bones and soft tissues. These patterns are explained as hormone imbalances, not diagnosed fro"
     },
     {
       "id": "behaviour-a2-2k-01",
@@ -1304,6 +1602,9 @@
       "performanceBehaviourIds": [
         "A2.2k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.2k-01",
@@ -1320,12 +1621,16 @@
       ],
       "visualOrDataId": "hgh-pathway",
       "workedExampleId": "lesson-10-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-02"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"hormone-source-target-effect\"]"
       ],
+      "alignmentRationale": "Every hormone row requires source, receptor-bearing target and effect, then offers a full explanation. ACTH/cortisol, calcitonin and tissue-specific insulin action are explicit.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-10:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 2Human growth hormone supports growth and fuel useHuman growth hormone, or hGH, is released by the anterior pituitary. It acts directly on some tissues and stimulates the liver and other tissues to produce growth factors. These signals support protein synthesis, cell division, bone growth, and changes in fuel use.Too little hGH during childhood can limit growth. Too much before growth plates close can cause excessive linear growth. Too much after the plates close can enlarge some bones and soft tissues. These patterns are explained as hormone imbalances, not diagnosed from appearance.hGH release changes in pulses and is influenced by sleep, activity, nutrition, and feedback. A s"
+      "renderedTextEvidence": "Learn · Part 2Human growth hormone supports growth and fuel useHuman growth hormone, or hGH, is released by the anterior pituitary. It acts directly on some tissues and stimulates the liver and other tissues to produce growth factors. These signals support protein synthesis, cell division, bone growth, and changes in fuel use.Growth plates are regions near the ends of growing long bones where new tissue allows the bones to lengthen. Too little hGH during childhood can limit growth. Too much before growth plates close can cause excessive linear growth. Too much after the plates close can enlarge some bones and soft tissues. These patterns are explained as hormone imbalances, not diagnosed fro"
     },
     {
       "id": "behaviour-a2-2k-02",
@@ -1335,6 +1640,9 @@
       "performanceBehaviourIds": [
         "A2.2k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.2k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.2k-02",
@@ -1356,8 +1664,15 @@
       "visualOrDataId": "control-system-comparison",
       "workedExampleId": "lesson-09-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-02"
+        "biology30-unit-a-pilot-2:practice:lesson-09-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-12-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-12-guided-02",
+        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The questions require negative-feedback direction across thyroid, calcium and glucose.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Two control systems use different signalsThe nervous system sends electrical signals along neurons and chemical signals across synapses. Its responses are often fast, brief, and directed to specific connected targets.The endocrine system releases hormones into the blood. Hormones travel widely, but only receptor-bearing target cells respond. Endocrine responses are often slower to begin and longer lasting because transport, receptor binding, and changes inside target cells take time.The systems overlap. The hypothalamus receives neural information and controls pituitary pathways. Sympathetic neurons stimulate the adrenal medulla. During stress, fast neural signals and longer ho"
@@ -1370,6 +1685,9 @@
       "performanceBehaviourIds": [
         "A2.3k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.3k-01",
@@ -1390,12 +1708,16 @@
       ],
       "visualOrDataId": "blood-glucose-feedback",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-03"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"hormone-source-target-effect\"]"
       ],
+      "alignmentRationale": "The full matrix covers growth, thyroid metabolism, calcium, glucose, water, sodium and stress effects. One integration response is no longer used as evidence for all roles.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose tissue, supports glycogen formation in liver and muscle, and reduces glucose output by the liver. Not every tissue responds in the same way. The brain, for example, does not depend on insu"
+      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose (fat) tissue. It supports formation of glycogen, a storage molecule made of linked glucose units, in liver and muscle. It also reduces glucose output by the liver. Not every tissue respond"
     },
     {
       "id": "behaviour-a2-3k-02",
@@ -1405,6 +1727,9 @@
       "performanceBehaviourIds": [
         "A2.3k-02"
       ],
+      "sourceStandard": "excellence",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "right-excellence",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.3k-02",
@@ -1425,11 +1750,16 @@
       ],
       "visualOrDataId": "adrenal-response-comparison",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-03"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-13 [data-advanced-block-id=\"l13-b03\"]",
+        "#lesson-12 [data-advanced-block-id=\"l12-b02\"]"
       ],
+      "alignmentRationale": "Existing optional comparisons address the two hormone pairs. Self-marking indicates participation, not independently demonstrated excellence.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
-      "tier": "required-core",
+      "tier": "advanced",
       "renderedTextEvidence": "Learn · Part 4The adrenal cortex supports longer stress and salt balance The outer adrenal cortex releases steroid hormones. ACTH from the anterior pituitary stimulates the cortex to release cortisol. Cortisol changes gene activity and helps maintain fuel availability during a longer challenge. Rising cortisol can reduce hypothalamic and pituitary stimulation through negative feedback. The cortex also releases aldosterone. Aldosterone increases sodium reabsorption in kidney tubules. Water tends to follow sodium, so this response can support blood volume and pressure. Aldosterone is controlled mainly by kidney-linked pressure and ion signals, not by ACTH. ADH mainly changes water permeability"
     },
     {
@@ -1440,6 +1770,9 @@
       "performanceBehaviourIds": [
         "A2.3k-03"
       ],
+      "sourceStandard": "excellence",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "right-excellence",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.3k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.3k-03",
@@ -1460,11 +1793,15 @@
       ],
       "visualOrDataId": "adrenal-response-comparison",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-10-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"endocrine-experiment\"]"
       ],
+      "alignmentRationale": "The optional investigation asks for an ADH hypothesis, controlled trials and a follow-up that varies target sensitivity. It is a testable model prediction rather than a physical intervention.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
-      "tier": "required-core",
+      "tier": "advanced",
       "renderedTextEvidence": "Learn · Part 4The adrenal cortex supports longer stress and salt balance The outer adrenal cortex releases steroid hormones. ACTH from the anterior pituitary stimulates the cortex to release cortisol. Cortisol changes gene activity and helps maintain fuel availability during a longer challenge. Rising cortisol can reduce hypothalamic and pituitary stimulation through negative feedback. The cortex also releases aldosterone. Aldosterone increases sodium reabsorption in kidney tubules. Water tends to follow sodium, so this response can support blood volume and pressure. Aldosterone is controlled mainly by kidney-linked pressure and ion signals, not by ACTH. ADH mainly changes water permeability"
     },
     {
@@ -1475,6 +1812,9 @@
       "performanceBehaviourIds": [
         "A2.4k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.4k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=9&behaviour=A2.4k-01",
@@ -1496,8 +1836,14 @@
       "visualOrDataId": "integrated-control",
       "workedExampleId": "lesson-09-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-04"
+        "biology30-unit-a-pilot-2:practice:lesson-11-guided-01",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-13",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-14"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Dehydration and calcium cases connect sensed change with opposing target response.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Homeostasis is active and dynamicHomeostasis does not hold the body at one unchanging number. Conditions such as temperature, blood glucose, and water balance vary within workable ranges. Control systems detect changes and adjust responses over time.A regulated variable is the condition being monitored. A receptor detects a change. A control centre compares information with a workable range and organizes output. An effector changes its activity. The response changes the regulated variable.In negative feedback, the response reduces the original disturbance. If body temperature rises, heat-loss responses oppose the rise. The word negative describes the direction of the response, "
@@ -1510,6 +1856,9 @@
       "performanceBehaviourIds": [
         "A2.5k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=10&behaviour=A2.5k-01",
@@ -1531,8 +1880,13 @@
       "visualOrDataId": "adrenal-response-comparison",
       "workedExampleId": "lesson-13-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-05"
+        "biology30-unit-a-pilot-2:practice:lesson-13-guided-2",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-18"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "Rapid medulla and slower ACTH/cortex effects are compared.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 4The adrenal cortex supports longer stress and salt balance The outer adrenal cortex releases steroid hormones. ACTH from the anterior pituitary stimulates the cortex to release cortisol. Cortisol changes gene activity and helps maintain fuel availability during a longer challenge. Rising cortisol can reduce hypothalamic and pituitary stimulation through negative feedback. The cortex also releases aldosterone. Aldosterone increases sodium reabsorption in kidney tubules. Water tends to follow sodium, so this response can support blood volume and pressure. Aldosterone is controlled mainly by kidney-linked pressure and ion signals, not by ACTH. ADH mainly changes water permeability"
@@ -1545,6 +1899,9 @@
       "performanceBehaviourIds": [
         "A2.5k-02"
       ],
+      "sourceStandard": "excellence",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "right-excellence",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.5k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=10&behaviour=A2.5k-02",
@@ -1565,11 +1922,15 @@
       ],
       "visualOrDataId": "adrenal-anatomy",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-05"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-13 [data-advanced-block-id=\"l13-b03\"]"
       ],
+      "alignmentRationale": "The optional worked comparison connects sympathetic input, medulla and norepinephrine/epinephrine. Foundational stress teaching remains in core.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
-      "tier": "required-core",
+      "tier": "advanced",
       "renderedTextEvidence": "Learn · Part 3The adrenal medulla supports a rapid stress response Each adrenal gland sits above a kidney and has two regions. The inner adrenal medulla is closely linked with the sympathetic nervous system. During an immediate challenge, sympathetic neurons stimulate medulla cells to release epinephrine and norepinephrine into the blood. Epinephrine can increase heart rate and force, widen some airways, redirect blood flow, and increase fuel availability. These changes prepare several organs for rapid action. The hormone travels widely, but only receptor-bearing cells respond. Its exact effect depends on receptor type and target tissue. Adrenal regions and their hormonesView largerAdrenal g"
     },
     {
@@ -1580,6 +1941,9 @@
       "performanceBehaviourIds": [
         "A2.6k-01"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.6k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=10&behaviour=A2.6k-01",
@@ -1600,12 +1964,16 @@
       ],
       "visualOrDataId": "diabetes-urinalysis-evidence",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-06"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"endocrine-data\"]"
       ],
+      "alignmentRationale": "The supplied case distinguishes blood/urine glucose and a non-diagnostic inference.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 2Diabetes and urinalysis reveal changed glucose control Diabetes mellitus is a group of disorders in which blood glucose remains too high. In type 1 diabetes, an autoimmune process destroys pancreatic beta cells, so the body produces little or no insulin. In type 2 diabetes, target tissues may respond less effectively to insulin, and insulin secretion can also change over time. If blood glucose rises above the kidney's reabsorption capacity, glucose can remain in the forming urine. Water follows the dissolved glucose, which can increase urine volume and thirst. A urinalysis result showing glucose is evidence that needs more investigation. It does not identify a type of diabetes "
+      "renderedTextEvidence": "Learn · Part 2Diabetes and urinalysis reveal changed glucose control Diabetes mellitus is a group of disorders in which blood glucose remains too high. In type 1 diabetes, the immune system attacks the body’s own pancreatic beta cells. This is an autoimmune process. Loss of these cells means the body produces little or no insulin. In type 2 diabetes, target tissues may respond less effectively to insulin, and insulin secretion can also change over time. If blood glucose rises above the kidney's reabsorption capacity, glucose can remain in the forming urine. Water follows the dissolved glucose, which can increase urine volume and thirst. A urinalysis result showing glucose is evidence that ne"
     },
     {
       "id": "behaviour-a2-6k-02",
@@ -1615,6 +1983,9 @@
       "performanceBehaviourIds": [
         "A2.6k-02"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.6k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=10&behaviour=A2.6k-02",
@@ -1635,9 +2006,13 @@
       ],
       "visualOrDataId": "adrenal-response-comparison",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-06"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"hormone-patterns\"]"
       ],
+      "alignmentRationale": "Twenty controlled teaching cases span source deficiency, excess and target-response distinctions across the hormone inventory. They explicitly prohibit diagnosis and treatment inference.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 4The adrenal cortex supports longer stress and salt balance The outer adrenal cortex releases steroid hormones. ACTH from the anterior pituitary stimulates the cortex to release cortisol. Cortisol changes gene activity and helps maintain fuel availability during a longer challenge. Rising cortisol can reduce hypothalamic and pituitary stimulation through negative feedback. The cortex also releases aldosterone. Aldosterone increases sodium reabsorption in kidney tubules. Water tends to follow sodium, so this response can support blood volume and pressure. Aldosterone is controlled mainly by kidney-linked pressure and ion signals, not by ACTH. ADH mainly changes water permeability"
@@ -1650,6 +2025,9 @@
       "performanceBehaviourIds": [
         "A2.6k-03"
       ],
+      "sourceStandard": "acceptable",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "left-acceptable",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.6k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=10&behaviour=A2.6k-03",
@@ -1664,12 +2042,16 @@
       ],
       "visualOrDataId": "endocrine-supplied-data",
       "workedExampleId": "endocrine-data-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-10-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"endocrine-experiment\"]"
       ],
+      "alignmentRationale": "A controlled ADH model specifies manipulated/responding/controlled variables, repeated results and a follow-up target-sensitivity question. The original multivariable samples are separately labelled observational.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:endocrine-data",
       "tier": "required-core",
-      "renderedTextEvidence": "Endocrine supplied-data investigationUse hormone, blood, and urine evidence without making a diagnosis.All values below are synthetic instructional data.Glucose and water-balance evidenceSampleBlood glucoseUrine glucoseADHUrine patternA5.4 mmol/LNot detectedHigherLow volume, concentratedB12.8 mmol/LDetectedLowerHigh volume, diluteSentence frame: Sample ___ shows ___. The relevant hormone pathway is ___. The target response would ___. These data cannot tell us ___.See a worked startSample A shows concentrated urine with higher ADH. This fits increased kidney water reabsorption. It does not reveal why ADH rose or diagnose a condition.Pattern, mechanism, and limitSave investigation checkpointDr"
+      "renderedTextEvidence": "Endocrine supplied-data investigationTest a model prediction, evaluate a tool and revise a conclusion.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. State a testable model questionQuestion: does increasing ADH increase kidney water reabsorption when the target responds normally? Predict that more effective ADH will reduce urine volume. ADH level is the manipulated variable; relative urine volume is the responding variable. In the mo"
     },
     {
       "id": "behaviour-a2-6k-04",
@@ -1679,6 +2061,9 @@
       "performanceBehaviourIds": [
         "A2.6k-04"
       ],
+      "sourceStandard": "excellence",
+      "sourceKind": "official-performance-example",
+      "authorityColumn": "right-excellence",
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A2.6k",
         "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=10&behaviour=A2.6k-04",
@@ -1693,12 +2078,16 @@
       ],
       "visualOrDataId": "endocrine-supplied-data",
       "workedExampleId": "endocrine-data-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-10-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#lesson-13 [data-advanced-block-id=\"l13-b04\"]"
       ],
+      "alignmentRationale": "The optional water/salt synthesis remains an original synthetic-data case. The illustrative excellence example of a hypothesis from published environmental-endocrine research is not selected; neither a publication nor equivalent empirical evidence is claimed. Required environmental/STS reasoning is separately taught in the online tool-evaluation task.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:endocrine-data",
-      "tier": "required-core",
-      "renderedTextEvidence": "Endocrine supplied-data investigationUse hormone, blood, and urine evidence without making a diagnosis.All values below are synthetic instructional data.Glucose and water-balance evidenceSampleBlood glucoseUrine glucoseADHUrine patternA5.4 mmol/LNot detectedHigherLow volume, concentratedB12.8 mmol/LDetectedLowerHigh volume, diluteSentence frame: Sample ___ shows ___. The relevant hormone pathway is ___. The target response would ___. These data cannot tell us ___.See a worked startSample A shows concentrated urine with higher ADH. This fits increased kidney water reabsorption. It does not reveal why ADH rose or diagnose a condition.Pattern, mechanism, and limitSave investigation checkpointDr"
+      "tier": "advanced",
+      "renderedTextEvidence": "Endocrine supplied-data investigationTest a model prediction, evaluate a tool and revise a conclusion.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. State a testable model questionQuestion: does increasing ADH increase kidney water reabsorption when the target responds normally? Predict that more effective ADH will reduce urine volume. ADH level is the manipulated variable; relative urine volume is the responding variable. In the mo"
     },
     {
       "id": "behaviour-a1-4s-01",
@@ -1708,9 +2097,12 @@
       "performanceBehaviourIds": [
         "A1.4s-01"
       ],
+      "sourceStandard": "local-curriculum-criterion",
+      "sourceKind": "locally-authored-curriculum-paraphrase",
+      "authorityColumn": null,
       "sourceRefs": [
         "https://education.alberta.ca/media/159727/bio203007.pdf#A1.4s",
-        "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf#pdf-page=5&behaviour=A1.4s-01",
+        "https://education.alberta.ca/media/159727/bio203007.pdf#pdf-page=53&behaviour=A1.4s-01",
         "unit-a-review-plan:row-2:Review Seminar source",
         "textbook:Unit 5 review at actual printed pp. 468–471"
       ],
@@ -1722,12 +2114,16 @@
       ],
       "visualOrDataId": "sensory-receptor-investigation-data",
       "workedExampleId": "sensory-receptors-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-12-practice-07"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"sensory-receptors\"]"
       ],
+      "alignmentRationale": "Students communicate a plan and conclusion, compare with a worked explanation or asynchronous teacher/classmate feedback, and record a justified revision. Independent model comparison is labelled as such; actual teamwork is not assumed.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:sensory-receptors",
       "tier": "required-core",
-      "renderedTextEvidence": "Sensory-receptor investigationPlan a fair two-point comparison or use supplied data.Question: Does the smallest detected two-point spacing differ between a fingertip and forearm?Safety: use two blunt tips, light pressure, intact skin, and consent. Stop on request. Use the supplied data if materials or a partner are unavailable.Smallest spacing reported as two pointsTrialFingertipForearm13 mm28 mm24 mm31 mm33 mm30 mmSentence frame: I will change ___. I will measure ___. I will keep ___ and ___ the same. The data show ___. This may be explained by ___.See a worked startBody location is changed. The smallest two-point spacing is measured. Tip shape and pressure are held as steady as possible. S"
+      "renderedTextEvidence": "Sensory-receptor investigationCompare touch, visual detail and sound evidence without testing your senses.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Plan a fair comparisonQuestion: Does the smallest detected two-point spacing differ between a fingertip and forearm? Predict which site has finer spatial resolution. The location is the manipulated variable; smallest reported two-point spacing is the responding variable. Keep tip sh"
     },
     {
       "id": "outcome-a1-1k",
@@ -1754,8 +2150,30 @@
       "visualOrDataId": "resting-membrane-potential",
       "workedExampleId": "lesson-02-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-02-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-01-guided-2",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-02",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-04",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-08",
+        "biology30-unit-a-pilot-2:practice:lesson-02-guided-02",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-06",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-07",
+        "biology30-unit-a-pilot-2:practice:lesson-03-guided-1",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-09",
+        "biology30-unit-a-pilot-2:practice:lesson-03-guided-2",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-10",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-01"
       ],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"neuron-labels\"]",
+        "#model-lab [data-study-task=\"reflex-labels\"]",
+        "#model-lab [data-online-microscopy]",
+        "#model-lab [data-study-task=\"voltage-labels\"]",
+        "#model-lab [data-study-task=\"transport-reasoning\"]"
+      ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Ion gradients store potential energyA resting neuron has an unequal distribution of charged particles, called ions. Sodium ions are more concentrated outside the cell, while potassium ions are more concentrated inside. Large negatively charged proteins also remain inside. Separating these charges stores potential energy. A voltmeter placed across the membrane would detect an electrical difference called the membrane potential.The membrane is selectively permeable, so some ions cross more easily than others. At rest, potassium leak channels let potassium diffuse out faster than sodium leaks in. Each departing potassium ion carries positive charge away. This movement helps make t"
@@ -1782,8 +2200,25 @@
       "visualOrDataId": "complete-brain-anatomy",
       "workedExampleId": "lesson-05-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-05-guided-01"
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-11",
+        "biology30-unit-a-pilot-2:practice:lesson-04-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-04-guided-02",
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-12",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-04",
+        "biology30-unit-a-pilot-2:practice:lesson-05-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-05-guided-02",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-05"
       ],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"matter-comparison\"]",
+        "#process-collection [data-investigation=\"sensory-receptors\"]",
+        "#lesson-04 .retrieve-block",
+        "#model-lab [data-study-task=\"brain-labels\"]",
+        "#model-lab [data-model-panel=\"brain\"]"
+      ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-05:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Brain regions work as connected networksThe cerebrum is the largest part of the brain. It has two connected cerebral hemispheres and a folded outer layer called the cerebral cortex. The cortex contains grey matter with many neuron cell bodies, dendrites, and synapses. Deeper white matter contains many myelinated axons that connect cortical areas with each other and with other parts of the nervous system.The frontal lobes contribute to planning, decision making, speech production, and voluntary movement. The parietal lobes process body sensations and spatial information. The temporal lobes support hearing, language, and memory. The occipital lobes process visual information. The"
@@ -1812,8 +2247,16 @@
       "visualOrDataId": "neuron-anatomy",
       "workedExampleId": "lesson-01-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+        "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-06"
       ],
+      "taskSelectors": [
+        "#model-lab [data-study-task=\"reflex-labels\"]",
+        "#process-collection [data-online-investigation-step=\"reflex-observation\"]"
+      ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1A neuron has regions with different jobs A neuron is a cell that handles information. Its shape supports four jobs: receive a message, combine information, carry an electrical signal, and pass information to another cell.Dendrites receive much of the input. The cell body contains the nucleus and keeps the cell working. The axon carries an electrical signal away from the cell body. At the far end, axon terminals communicate with another neuron, muscle, or gland.These labels describe a typical pattern. Neurons vary in shape, so follow the direction of information instead of expecting every neuron to look identical.The cell body also contains the structures that build proteins and"
@@ -1840,12 +2283,19 @@
       ],
       "visualOrDataId": "eye-light-path",
       "workedExampleId": "lesson-07-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-07-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"eye-structure-function\"]",
+        "#model-lab [data-model-panel=\"eye\"]",
+        "#process-collection [data-online-investigation-step=\"vision-procedure\"]",
+        "#lesson-07 .retrieve-block"
       ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a picture. Perception develops from neural processing "
+      "renderedTextEvidence": "Learn · Part 1The eye focuses light on the retinaLight first passes through the cornea. The cornea provides most of the eye's refraction: the bending of light as it passes between materials. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a"
     },
     {
       "id": "outcome-a1-5k",
@@ -1869,9 +2319,16 @@
       ],
       "visualOrDataId": "sound-pathway",
       "workedExampleId": "lesson-08-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-08-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"ear-structure-function\"]",
+        "#model-lab [data-model-panel=\"hearing\"]",
+        "#process-collection [data-online-investigation-step=\"hearing-procedure\"]",
+        "#lesson-08 .retrieve-block"
       ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Sound energy moves through three regionsSound waves enter the auditory canal and vibrate the tympanic membrane. The malleus, incus, and stapes are the three ossicles of the middle ear. They transfer vibration to the oval window of the inner ear.Pressure waves then move through fluid in the cochlea. They move the basilar membrane and bend hair cells in the organ of Corti. Bending opens mechanically gated channels, changing transmitter release onto sensory neurons. This is sensory transduction.The round window allows pressure to be released. The Eustachian tube connects the middle ear with the throat and helps equalize air pressure across the tympanic membrane. It is not part of "
@@ -1900,8 +2357,17 @@
       "visualOrDataId": "sensory-receptor-families",
       "workedExampleId": "lesson-06-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-06-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-06-guided-01",
+        "biology30-unit-a-pilot-2:practice:chapter-12-practice-01",
+        "biology30-unit-a-pilot-2:practice:chapter-12-practice-02",
+        "biology30-unit-a-pilot-2:practice:chapter-12-practice-12"
       ],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"sensory-receptors\"]"
+      ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-06:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Receptors convert different forms of energyA sensory receptor does not send light, pressure, or chemicals through a neuron. It performs sensory transduction: stimulus energy changes the receptor membrane. If the change is strong enough, action potentials begin in a sensory neuron or transmitter is released to one.Photoreceptors respond to light. Mechanoreceptors respond to stretch, pressure, vibration, or movement. Chemoreceptors respond to particular chemicals. Thermoreceptors respond to temperature change. Nociceptors respond to potentially damaging conditions. Proprioceptors are mechanoreceptors that report muscle length, tendon tension, and joint position.Each receptor is m"
@@ -1927,9 +2393,13 @@
       ],
       "visualOrDataId": "synaptic-transmission",
       "workedExampleId": "lesson-03-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-03-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"neural-hypothesis\"]"
       ],
+      "alignmentRationale": "Two explanations for transmitter release make different calcium predictions. A controlled supplied comparison challenges one explanation and asks the learner to revise a claim, showing how scientific explanations respond to evidence.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-03:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2The messenger, receptor, and ending mechanism all matter Chemical transmission across a synapseView larger Read the figure: The sequence has a clear direction. Calcium entry belongs in the presynaptic terminal. The neurotransmitter crosses the cleft and binds receptors; it does not become the next action potential. Acetylcholine is a neurotransmitter used at many synapses, including the junction between a motor neuron and skeletal muscle. When it binds to receptors there, it helps depolarize the muscle membrane. Cholinesterase breaks acetylcholine down so the stimulation does not continue without limit.Norepinephrine is another neurotransmitter. It is used by many sympathetic p"
@@ -1955,9 +2425,13 @@
       ],
       "visualOrDataId": "changed-synapse-reasoning",
       "workedExampleId": "lesson-03-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-03-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#review-seminar [data-seminar-session=\"nervous\"]"
       ],
+      "alignmentRationale": "The learner predicts changed release from a blocked mechanism and names supporting evidence.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-03:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3A changed synaptic step produces a predictable resultA drug or toxin can act at different places in the sequence. Blocking presynaptic calcium channels reduces vesicle fusion, so less neurotransmitter is released. Blocking postsynaptic receptors can prevent the target from responding even when normal transmitter reaches the cleft. Slowing clearance can extend the response.Begin an explanation by locating the changed step. Then state what happens immediately before and after it. This keeps a receptor problem separate from a release problem. It also prevents a change at the synapse from being incorrectly blamed on myelin, which affects conduction along the axon.One transmitter ca"
@@ -1984,9 +2458,13 @@
       ],
       "visualOrDataId": "retina-light-pathway",
       "workedExampleId": "lesson-07-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-03-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"vision-procedure\"]"
       ],
+      "alignmentRationale": "The learner recommends enlargement/high contrast from visual evidence and evaluates the tradeoff of less information fitting on screen. This is an explicit design decision, not a passing technology mention.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Rods and cones begin visual codingRods are very sensitive in dim light and support black-and-white vision, but they provide less fine detail. Cones work best in brighter light and support colour vision and high detail. Three cone classes have different wavelength sensitivities.The fovea is a small central region with a high density of cones. It supports sharp central vision. The optic disc is where axons leave as the optic nerve. It has no photoreceptors, creating a blind spot in each eye.Retinal circuits process information before it leaves the eye. Photoreceptors influence bipolar cells, which influence ganglion cells. Ganglion-cell axons form the optic nerve. At the optic ch"
@@ -2010,12 +2488,16 @@
       ],
       "visualOrDataId": "sensory-receptor-investigation-data",
       "workedExampleId": "sensory-receptors-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-06-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"sensory-receptors\"]"
       ],
+      "alignmentRationale": "The frame supports a fair-test question and variables.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:sensory-receptors",
       "tier": "required-core",
-      "renderedTextEvidence": "Sensory-receptor investigationPlan a fair two-point comparison or use supplied data.Question: Does the smallest detected two-point spacing differ between a fingertip and forearm?Safety: use two blunt tips, light pressure, intact skin, and consent. Stop on request. Use the supplied data if materials or a partner are unavailable.Smallest spacing reported as two pointsTrialFingertipForearm13 mm28 mm24 mm31 mm33 mm30 mmSentence frame: I will change ___. I will measure ___. I will keep ___ and ___ the same. The data show ___. This may be explained by ___.See a worked startBody location is changed. The smallest two-point spacing is measured. Tip shape and pressure are held as steady as possible. S"
+      "renderedTextEvidence": "Sensory-receptor investigationCompare touch, visual detail and sound evidence without testing your senses.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Plan a fair comparisonQuestion: Does the smallest detected two-point spacing differ between a fingertip and forearm? Predict which site has finer spatial resolution. The location is the manipulated variable; smallest reported two-point spacing is the responding variable. Keep tip sh"
     },
     {
       "id": "outcome-a1-2s",
@@ -2036,12 +2518,16 @@
       ],
       "visualOrDataId": "reflex-response-data",
       "workedExampleId": "reflex-response-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-01-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"reflex-response\"]"
       ],
+      "alignmentRationale": "Digital model observation and repeated supplied reaction distances support systematic recording and comparison. Fully online adaptation; no physical ruler or reflex procedure is claimed.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:reflex-response",
       "tier": "required-core",
-      "renderedTextEvidence": "Reflex-response investigationUse a safe ruler drop or the complete supplied-data path.Question: How consistent is response distance across five trials?Safety: use only a clean ruler, keep it away from faces, and get consent. If a partner, ruler, or comfortable movement is unavailable, use the supplied values.Supplied ruler-drop distance in centimetresTrial12345Distance1821192420Sentence frame: The values range from ___ to ___ cm. Most values cluster near ___. This supports the claim that ___, but it does not show ___.See a worked startThe range is 18–24 cm. Four values are between 18 and 21 cm, while 24 cm is higher. This suggests some trial-to-trial variation, but it does not identify its c"
+      "renderedTextEvidence": "Reflex and reaction-time evidenceCompare a reflex pathway with a voluntary reaction; revise a claim.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Observe a reflex pathwayQuestion: Does a rapid response always mean a reflex? A reflex is an automatic response through a neural pathway. In this withdrawal model, a skin receptor activates a sensory neuron, spinal interneurons activate motor neurons, and a muscle contracts. Sensory infor"
     },
     {
       "id": "outcome-a1-3s",
@@ -2067,9 +2553,13 @@
       ],
       "visualOrDataId": "action-potential-voltage-graph",
       "workedExampleId": "lesson-02-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-02-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"reflex-response\"]"
       ],
+      "alignmentRationale": "The learner calculates mean and range, interprets variation, compares competing mechanisms and states limitations. The separate voltage-labelling task adds a quantitative graph/105 mV calculation.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 2Voltage-gated channels create a travelling signalA stimulus can open channels and make the membrane less negative. If the trigger region reaches threshold, many voltage-gated sodium channels open. Sodium follows its concentration and electrical gradients into the neuron. The rapid entry of positive charge causes depolarization, the steep rising phase on the voltage graph.Near the peak, sodium channels become inactive and voltage-gated potassium channels open. Potassium leaves the neuron, carrying positive charge outward. This movement causes repolarization, so the voltage falls toward its resting value. Potassium channels close slowly, so the voltage may briefly fall below rest"
@@ -2093,12 +2583,16 @@
       ],
       "visualOrDataId": "sensory-receptor-investigation-data",
       "workedExampleId": "sensory-receptors-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-06-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"sensory-receptors\"]"
       ],
+      "alignmentRationale": "Students communicate a plan and conclusion, compare with a worked explanation or asynchronous teacher/classmate feedback, and record a justified revision. Independent model comparison is labelled as such; actual teamwork is not assumed.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:sensory-receptors",
       "tier": "required-core",
-      "renderedTextEvidence": "Sensory-receptor investigationPlan a fair two-point comparison or use supplied data.Question: Does the smallest detected two-point spacing differ between a fingertip and forearm?Safety: use two blunt tips, light pressure, intact skin, and consent. Stop on request. Use the supplied data if materials or a partner are unavailable.Smallest spacing reported as two pointsTrialFingertipForearm13 mm28 mm24 mm31 mm33 mm30 mmSentence frame: I will change ___. I will measure ___. I will keep ___ and ___ the same. The data show ___. This may be explained by ___.See a worked startBody location is changed. The smallest two-point spacing is measured. Tip shape and pressure are held as steady as possible. S"
+      "renderedTextEvidence": "Sensory-receptor investigationCompare touch, visual detail and sound evidence without testing your senses.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. Plan a fair comparisonQuestion: Does the smallest detected two-point spacing differ between a fingertip and forearm? Predict which site has finer spatial resolution. The location is the manipulated variable; smallest reported two-point spacing is the responding variable. Keep tip sh"
     },
     {
       "id": "outcome-a2-1k",
@@ -2125,9 +2619,14 @@
       ],
       "visualOrDataId": "integrated-control",
       "workedExampleId": "lesson-09-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-09-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"gland-locations\"]",
+        "#model-lab [data-online-study=\"hormone-source-target-effect\"]"
       ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Homeostasis is active and dynamicHomeostasis does not hold the body at one unchanging number. Conditions such as temperature, blood glucose, and water balance vary within workable ranges. Control systems detect changes and adjust responses over time.A regulated variable is the condition being monitored. A receptor detects a change. A control centre compares information with a workable range and organizes output. An effector changes its activity. The response changes the regulated variable.In negative feedback, the response reduces the original disturbance. If body temperature rises, heat-loss responses oppose the rise. The word negative describes the direction of the response, "
@@ -2158,8 +2657,17 @@
       "visualOrDataId": "integrated-control",
       "workedExampleId": "lesson-09-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-09-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-09-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-12-guided-01",
+        "biology30-unit-a-pilot-2:practice:lesson-12-guided-02",
+        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
       ],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"hormone-source-target-effect\"]"
+      ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Homeostasis is active and dynamicHomeostasis does not hold the body at one unchanging number. Conditions such as temperature, blood glucose, and water balance vary within workable ranges. Control systems detect changes and adjust responses over time.A regulated variable is the condition being monitored. A receptor detects a change. A control centre compares information with a workable range and organizes output. An effector changes its activity. The response changes the regulated variable.In negative feedback, the response reduces the original disturbance. If body temperature rises, heat-loss responses oppose the rise. The word negative describes the direction of the response, "
@@ -2189,12 +2697,16 @@
       ],
       "visualOrDataId": "blood-glucose-feedback",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#model-lab [data-online-study=\"hormone-source-target-effect\"]"
       ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose tissue, supports glycogen formation in liver and muscle, and reduces glucose output by the liver. Not every tissue responds in the same way. The brain, for example, does not depend on insu"
+      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose (fat) tissue. It supports formation of glycogen, a storage molecule made of linked glucose units, in liver and muscle. It also reduces glucose output by the liver. Not every tissue respond"
     },
     {
       "id": "outcome-a2-4k",
@@ -2222,8 +2734,14 @@
       "visualOrDataId": "integrated-control",
       "workedExampleId": "lesson-09-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-09-guided-01"
+        "biology30-unit-a-pilot-2:practice:lesson-11-guided-01",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-13",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-14"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 1Homeostasis is active and dynamicHomeostasis does not hold the body at one unchanging number. Conditions such as temperature, blood glucose, and water balance vary within workable ranges. Control systems detect changes and adjust responses over time.A regulated variable is the condition being monitored. A receptor detects a change. A control centre compares information with a workable range and organizes output. An effector changes its activity. The response changes the regulated variable.In negative feedback, the response reduces the original disturbance. If body temperature rises, heat-loss responses oppose the rise. The word negative describes the direction of the response, "
@@ -2254,11 +2772,16 @@
       "visualOrDataId": "blood-glucose-feedback",
       "workedExampleId": "lesson-13-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
+        "biology30-unit-a-pilot-2:practice:lesson-13-guided-2",
+        "biology30-unit-a-pilot-2:practice:final-practice-core-18"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose tissue, supports glycogen formation in liver and muscle, and reduces glucose output by the liver. Not every tissue responds in the same way. The brain, for example, does not depend on insu"
+      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose (fat) tissue. It supports formation of glycogen, a storage molecule made of linked glucose units, in liver and muscle. It also reduces glucose output by the liver. Not every tissue respond"
     },
     {
       "id": "outcome-a2-6k",
@@ -2285,12 +2808,18 @@
       ],
       "visualOrDataId": "blood-glucose-feedback",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"endocrine-data\"]",
+        "#model-lab [data-online-study=\"hormone-patterns\"]",
+        "#process-collection [data-online-investigation-step=\"endocrine-experiment\"]"
       ],
+      "alignmentRationale": "This outcome aggregates the explicitly authored behaviour bindings; it is not satisfied by one question selected from a route.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose tissue, supports glycogen formation in liver and muscle, and reduces glucose output by the liver. Not every tissue responds in the same way. The brain, for example, does not depend on insu"
+      "renderedTextEvidence": "Learn · Part 1Pancreatic islets respond to changing blood glucose The pancreas has digestive tissue and small endocrine clusters called pancreatic islets. Beta cells in the islets release insulin when blood glucose rises. Alpha cells release glucagon when blood glucose falls. The two cell types detect different directions of change and start responses that oppose those disturbances. Insulin travels in blood and binds to receptors on particular target cells. It increases glucose uptake in muscle and adipose (fat) tissue. It supports formation of glycogen, a storage molecule made of linked glucose units, in liver and muscle. It also reduces glucose output by the liver. Not every tissue respond"
     },
     {
       "id": "outcome-a2-1sts",
@@ -2317,12 +2846,16 @@
       ],
       "visualOrDataId": "diabetes-urinalysis-evidence",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-07"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"endocrine-technology\"]"
       ],
+      "alignmentRationale": "The response evaluates repeated monitoring and delivery tools by intended benefit, measurement/system limits, access and professional-context requirements.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 2Diabetes and urinalysis reveal changed glucose control Diabetes mellitus is a group of disorders in which blood glucose remains too high. In type 1 diabetes, an autoimmune process destroys pancreatic beta cells, so the body produces little or no insulin. In type 2 diabetes, target tissues may respond less effectively to insulin, and insulin secretion can also change over time. If blood glucose rises above the kidney's reabsorption capacity, glucose can remain in the forming urine. Water follows the dissolved glucose, which can increase urine volume and thirst. A urinalysis result showing glucose is evidence that needs more investigation. It does not identify a type of diabetes "
+      "renderedTextEvidence": "Learn · Part 2Diabetes and urinalysis reveal changed glucose control Diabetes mellitus is a group of disorders in which blood glucose remains too high. In type 1 diabetes, the immune system attacks the body’s own pancreatic beta cells. This is an autoimmune process. Loss of these cells means the body produces little or no insulin. In type 2 diabetes, target tissues may respond less effectively to insulin, and insulin secretion can also change over time. If blood glucose rises above the kidney's reabsorption capacity, glucose can remain in the forming urine. Water follows the dissolved glucose, which can increase urine volume and thirst. A urinalysis result showing glucose is evidence that ne"
     },
     {
       "id": "outcome-a2-2sts",
@@ -2349,12 +2882,16 @@
       ],
       "visualOrDataId": "diabetes-urinalysis-evidence",
       "workedExampleId": "lesson-13-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:chapter-13-practice-08"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"endocrine-technology\"]"
       ],
+      "alignmentRationale": "Explicit teaching and response criteria connect intended monitoring benefits with unintended sensor/packaging/battery waste, cost, training and access. No treatment advice or invented numerical impact is supplied.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
       "tier": "required-core",
-      "renderedTextEvidence": "Learn · Part 2Diabetes and urinalysis reveal changed glucose control Diabetes mellitus is a group of disorders in which blood glucose remains too high. In type 1 diabetes, an autoimmune process destroys pancreatic beta cells, so the body produces little or no insulin. In type 2 diabetes, target tissues may respond less effectively to insulin, and insulin secretion can also change over time. If blood glucose rises above the kidney's reabsorption capacity, glucose can remain in the forming urine. Water follows the dissolved glucose, which can increase urine volume and thirst. A urinalysis result showing glucose is evidence that needs more investigation. It does not identify a type of diabetes "
+      "renderedTextEvidence": "Learn · Part 2Diabetes and urinalysis reveal changed glucose control Diabetes mellitus is a group of disorders in which blood glucose remains too high. In type 1 diabetes, the immune system attacks the body’s own pancreatic beta cells. This is an autoimmune process. Loss of these cells means the body produces little or no insulin. In type 2 diabetes, target tissues may respond less effectively to insulin, and insulin secretion can also change over time. If blood glucose rises above the kidney's reabsorption capacity, glucose can remain in the forming urine. Water follows the dissolved glucose, which can increase urine volume and thirst. A urinalysis result showing glucose is evidence that ne"
     },
     {
       "id": "outcome-a2-1s",
@@ -2375,12 +2912,16 @@
       ],
       "visualOrDataId": "endocrine-supplied-data",
       "workedExampleId": "endocrine-data-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"endocrine-experiment\"]"
       ],
+      "alignmentRationale": "A model hypothesis identifies ADH as the manipulated variable, urine volume as response and controlled inputs; the learner proposes a target-sensitivity follow-up.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:endocrine-data",
       "tier": "required-core",
-      "renderedTextEvidence": "Endocrine supplied-data investigationUse hormone, blood, and urine evidence without making a diagnosis.All values below are synthetic instructional data.Glucose and water-balance evidenceSampleBlood glucoseUrine glucoseADHUrine patternA5.4 mmol/LNot detectedHigherLow volume, concentratedB12.8 mmol/LDetectedLowerHigh volume, diluteSentence frame: Sample ___ shows ___. The relevant hormone pathway is ___. The target response would ___. These data cannot tell us ___.See a worked startSample A shows concentrated urine with higher ADH. This fits increased kidney water reabsorption. It does not reveal why ADH rose or diagnose a condition.Pattern, mechanism, and limitSave investigation checkpointDr"
+      "renderedTextEvidence": "Endocrine supplied-data investigationTest a model prediction, evaluate a tool and revise a conclusion.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. State a testable model questionQuestion: does increasing ADH increase kidney water reabsorption when the target responds normally? Predict that more effective ADH will reduce urine volume. ADH level is the manipulated variable; relative urine volume is the responding variable. In the mo"
     },
     {
       "id": "outcome-a2-2s",
@@ -2401,12 +2942,16 @@
       ],
       "visualOrDataId": "endocrine-supplied-data",
       "workedExampleId": "endocrine-data-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-11-guided-01"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-online-investigation-step=\"endocrine-experiment\"]"
       ],
+      "alignmentRationale": "The learner predicts, runs the existing ADH software case, records its displayed response and compares controlled repeated values. This is computer-model observation, not collection of human physiological measurements.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:endocrine-data",
       "tier": "required-core",
-      "renderedTextEvidence": "Endocrine supplied-data investigationUse hormone, blood, and urine evidence without making a diagnosis.All values below are synthetic instructional data.Glucose and water-balance evidenceSampleBlood glucoseUrine glucoseADHUrine patternA5.4 mmol/LNot detectedHigherLow volume, concentratedB12.8 mmol/LDetectedLowerHigh volume, diluteSentence frame: Sample ___ shows ___. The relevant hormone pathway is ___. The target response would ___. These data cannot tell us ___.See a worked startSample A shows concentrated urine with higher ADH. This fits increased kidney water reabsorption. It does not reveal why ADH rose or diagnose a condition.Pattern, mechanism, and limitSave investigation checkpointDr"
+      "renderedTextEvidence": "Endocrine supplied-data investigationTest a model prediction, evaluate a tool and revise a conclusion.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. State a testable model questionQuestion: does increasing ADH increase kidney water reabsorption when the target responds normally? Predict that more effective ADH will reduce urine volume. ADH level is the manipulated variable; relative urine volume is the responding variable. In the mo"
     },
     {
       "id": "outcome-a2-3s",
@@ -2431,8 +2976,12 @@
       "visualOrDataId": "water-balance-data",
       "workedExampleId": "lesson-11-worked-example",
       "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-11-guided-01"
+        "biology30-unit-a-pilot-2:practice:final-practice-core-17"
       ],
+      "taskSelectors": [],
+      "alignmentRationale": "The high-ADH/dilute-urine pattern requires a source-target inference.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:lesson-11:evidence-slip",
       "tier": "required-core",
       "renderedTextEvidence": "Learn · Part 3A changed pathway produces a different data patternUrine and blood data can help locate a changed step. A low volume of concentrated urine during dehydration is consistent with effective ADH signalling. A large volume of dilute urine despite concentrated blood may mean that too little ADH reaches the blood or that the kidney does not respond normally. One pattern alone cannot show which explanation is correct.Diabetes insipidus is a water-balance disorder involving too little effective ADH signalling. It is different from diabetes mellitus, which involves blood-glucose regulation. In a central form, too little ADH is produced or released. In a nephrogenic form, the kidneys resp"
@@ -2456,13 +3005,17 @@
       ],
       "visualOrDataId": "endocrine-supplied-data",
       "workedExampleId": "endocrine-data-worked-example",
-      "practiceItemIds": [
-        "biology30-unit-a-pilot-2:practice:lesson-13-guided-1"
+      "practiceItemIds": [],
+      "taskSelectors": [
+        "#process-collection [data-investigation=\"endocrine-data\"]"
       ],
+      "alignmentRationale": "The saved response contains the hypothesis, model observation, quantitative comparison, tool evaluation and justified revision. Online peer/teacher feedback may be cited only when it occurred; the independent worked-model path remains available.",
+      "academicStatus": "mapped-awaiting-review",
+      "remainingGap": null,
       "evidenceId": "biology30-unit-a-pilot-2:investigation:endocrine-data",
       "tier": "required-core",
-      "renderedTextEvidence": "Endocrine supplied-data investigationUse hormone, blood, and urine evidence without making a diagnosis.All values below are synthetic instructional data.Glucose and water-balance evidenceSampleBlood glucoseUrine glucoseADHUrine patternA5.4 mmol/LNot detectedHigherLow volume, concentratedB12.8 mmol/LDetectedLowerHigh volume, diluteSentence frame: Sample ___ shows ___. The relevant hormone pathway is ___. The target response would ___. These data cannot tell us ___.See a worked startSample A shows concentrated urine with higher ADH. This fits increased kidney water reabsorption. It does not reveal why ADH rose or diagnose a condition.Pattern, mechanism, and limitSave investigation checkpointDr"
+      "renderedTextEvidence": "Endocrine supplied-data investigationTest a model prediction, evaluate a tool and revise a conclusion.Complete this investigation online with the supplied evidence. No partner, equipment, body testing or personal health information is needed. This is model observation and data analysis, not a claim that you performed a physical experiment. Your earlier writing is kept; add a revised conclusion when useful. 1. State a testable model questionQuestion: does increasing ADH increase kidney water reabsorption when the target responds normally? Predict that more effective ADH will reduce urine volume. ADH level is the manipulated variable; relative urine volume is the responding variable. In the mo"
     }
   ],
-  "workspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc"
+  "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544"
 }

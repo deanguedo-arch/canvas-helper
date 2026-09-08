@@ -1,0 +1,98 @@
+✔ one owning activity index accounts for every B/C/D response, choice and flag exactly once (79.263708ms)
+✔ all-work text retains unsaved drafts, canonical choices, plotted errors, confirmations and raw earlier work (9.115208ms)
+✔ completion derives from required attempted work, never optional collection activity (38.549125ms)
+✔ topic tree hashes match intake format and include assets; symlinks are refused (60.874375ms)
+✔ topic build promotes verified workspace and copied metadata together (52.656167ms)
+✔ validation and intervening metadata failures leave current learner and edits intact (74.283208ms)
+✔ a partial promotion rolls back while preserving writing made to its temporary candidate (38.464167ms)
+✔ a second topic transaction cannot enter while the first owns the lock (16.231167ms)
+✔ definition wording reviews cover all501 introduced and236 preserved entries and reject stale or missing receipts (52.785583ms)
+✔ graphs draw entered values only, preserve gaps and use proportional day spacing (13.110542ms)
+✔ scale overflow is explicit and multiple series retain distinct markers and complete equivalents (4.094208ms)
+✔ all six required graphs bind 39 plotted values to reviewed data and fit existing response fields (31.850834ms)
+✔ graph drafts preserve blanks, zeroes, wrong answers and readable full collection text (5.254041ms)
+✔ graph response rejection preserves earlier prose, unknown versions and escaped overflow (10.567084ms)
+✔ growth curves retain interval units and usable alternative scales are not marked incorrect (3.146542ms)
+✔ all 127 authored parts retain ordered worked operations, self-checks and optional adjacent Advanced (223.569541ms)
+✔ walkthrough drafts cannot omit frames, drift from their source, outgrow responses or skip chapter practice (49.570958ms)
+✔ the authoring audit refuses omitted teaching, cross-unit content and accidental optional-work gating (30.828292ms)
+✔ nine investigation operations and graph responses have exact bounded review contracts (61.045917ms)
+✔ investigation reviews reject data/prose drift, missing operations, capacity loss and gating changes (5.228709ms)
+✔ constructed practice fits complete exemplars and rejects capacity or schema drift (58.43375ms)
+✖ passage receipts reject changed questions, prose, examples and review inventories (21.636125ms)
+✔ all-unit migration maps account for each original schema identity without claiming new equivalence (19.639959ms)
+✔ old shell arrays/maps and both envelope versions are backed up before a preserved-only migration (14.285875ms)
+✔ readable earlier work preserves duplicate responses and unknown fields without turning old completions into new ones (18.497792ms)
+✔ all 27 cases reconstruct without mutating source data or silently accepting another option (7.443334ms)
+✔ B outputs keep hormone scales, within-stage denominators and production versus transport distinct (2.945958ms)
+✔ C outputs preserve daughter-cell boundaries, cross probabilities and translation stops (2.748917ms)
+✔ D outputs distinguish observed counts, expectations, density and per-initial-individual rates (2.841333ms)
+✔ model audit rejects drift in shared investigation observations and optional-state contracts (32.942ms)
+✔ required operation links reject foundation/challenge laundering and stale component mappings (79.2915ms)
+✖ all practice keys have explicit derivations and cannot drop, duplicate or silently accept changed operations (25.601042ms)
+✔ varied option presentation preserves canonical saved selection and feedback across reload and inventory changes (73.862375ms)
+✔ retention audit accepts all reviewed units and refuses to promote pending evidence (67.666209ms)
+✔ a destination label cannot replace exact source and authored teaching evidence (68.8955ms)
+✔ observed allele counts and conditional equilibrium predictions stay distinct (2.333625ms)
+✔ population calculations retain area, interval and initial-population denominators (0.362583ms)
+✔ chromosome stages and Mendelian crosses preserve counts and conditional probabilities (0.342584ms)
+✔ strand direction, code and termination independently reproduce sequence keys (0.265125ms)
+✔ each all-unit maximum ordinary/Unicode state fits target and round-trips without duplicated work (14.901791ms)
+✔ escaping and mixed legacy overflow reject atomically and preserve original and last valid payload (6.860708ms)
+✔ save channels and exceptions are reported independently (1.354708ms)
+✔ migration preserves byte-exact raw work without reassigning answers or completions (2.009959ms)
+✔ written Frayer replacement requires scoped clear and leaves all unrelated work untouched (0.708583ms)
+✔ corrupt, duplicate, unknown, cross-unit and oversized fields cannot silently overwrite work (1.187917ms)
+✔ compact flags preserve the semantic set, accept earlier token arrays and reject changed map identities or unknown bits (7.970458ms)
+✔ textbook receipts account for every item and keep unfinished reviews pending (135.437833ms)
+✔ textbook evidence rejects source, prose, guide, context and target drift (14.385708ms)
+✔ atomic targets, required online skill operations and exact textbook assignments remain connected (49.107667ms)
+✔ pre-render reviews reject stale bytes, missing inventory, design drift and unsafe evidence paths (34.2365ms)
+✔ all-unit teacher topics and added slide continuations cover every slide exactly once (51.742416ms)
+✔ profile refusal cannot silently regenerate the legacy candidate or alter metadata (96.445125ms)
+✖ actual practice, vocabulary, Frayer and time contracts stay connected to the response registry (14.194209ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 50
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1290.374792
+
+✖ failing tests:
+
+test at scripts/tests/biology30-pilot2-learning.test.ts:1:2258
+✖ passage receipts reject changed questions, prose, examples and review inventories (21.636125ms)
+  TypeError: Cannot read properties of undefined (reading '1')
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-learning.test.ts:43:66)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7)
+
+test at scripts/tests/biology30-pilot2-practice-review.test.ts:1:727
+✖ all practice keys have explicit derivations and cannot drop, duplicate or silently accept changed operations (25.601042ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-practice-review.test.ts:27:12)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /key disagreement/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at scripts/tests/biology30-topic-contract.test.ts:1:7273
+✖ actual practice, vocabulary, Frayer and time contracts stay connected to the response registry (14.194209ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-topic-contract.test.ts:121:86)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /practice key/,
+    operator: 'throws',
+    diff: 'simple'
+  }

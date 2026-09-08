@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-11",
+  "module": "Sensory Systems",
+  "title": "Sensory Evidence, Photoperiod, and Technology",
+  "inquiry": "How do we move from a sensory observation to a defensible explanation or technology decision?",
+  "learningIntention": "I am learning to use sensory data to evaluate explanations, biological timing, and sensory technologies.",
+  "requiredMinutes": 75,
+  "optionalMinutes": 10,
+  "outcomeIds": ["A1.1sts", "A1.2sts", "A1.3sts", "A1.3s", "A1.4s"],
+  "materials": "No special materials. Use the local photoperiod dataset and evidence board.",
+  "safety": "No sleep manipulation, bright-light exposure, sound exposure, or personal health testing is required.",
+  "targets": [
+    "Interpret a context-rich sensory dataset using pattern, mechanism, and limitation.",
+    "Explain how photoperiod information can influence biological timing without claiming one simple cause.",
+    "Evaluate a sensory technology by evidence, intended function, trade-offs, and access."
+  ],
+  "warmup": {
+    "title": "Evidence has levels",
+    "prompt": "A wearable reports that a learner slept seven hours. What can that number support, and what would be an overclaim about sleep quality or health?",
+    "placeholder": "The number supports… It cannot establish…"
+  },
+  "sections": [
+    {
+      "label": "Build an evidence chain",
+      "title": "1. Observation, mechanism, and conclusion are different claims",
+      "paragraphs": [
+        "An observation describes what was measured: threshold changed, response time increased, or activity occurred at a particular time. A mechanism proposes how receptors, pathways, or effectors could produce the pattern. A conclusion states how strongly the evidence supports that mechanism within the design.",
+        "Good reasoning keeps these levels connected but separate. If a visual threshold changes after a display setting is altered, the result may support an accessibility benefit in that task. It does not prove that the setting prevents eye disease, improves every user's reading, or changes retinal anatomy.",
+        "A strong evidence chain also names alternatives. Changes in attention, prior experience, equipment calibration, order, and response criterion can produce sensory differences. An alternative is not an excuse to ignore the pattern; it identifies the next evidence needed."
+      ],
+      "figureIds": ["figure-sensory-evidence-chain"]
+    },
+    {
+      "label": "Interpret photoperiod",
+      "title": "2. Light timing can provide biological time information",
+      "paragraphs": [
+        "Photoperiod is the duration of light and darkness across a day. Retinal light information reaches brain timing pathways, including the suprachiasmatic nucleus. These pathways influence daily rhythms and signals involving the pineal gland and melatonin. Melatonin typically rises during the biological night; it is a timing signal, not a general sleep switch.",
+        "In many organisms, seasonal changes in day length influence reproduction, migration, coat growth, or flowering. In humans, light timing affects circadian alignment, alertness, and sleep timing. Individual response varies, and social schedules, age, latitude, prior light exposure, and behaviour also matter.",
+        "A correlation between shorter days and a later activity pattern does not prove that photoperiod acted alone. A stronger design controls clock time, light intensity and spectrum, temperature, and social schedule, or uses repeated measurements across seasons."
+      ],
+      "table": {
+        "caption": "Synthetic seasonal timing dataset",
+        "headers": ["Observation week", "Daylight duration", "Average evening dim-light melatonin rise", "Average sleep midpoint"],
+        "rows": [
+          ["A", "15.8 h", "21:35", "03:05"],
+          ["B", "12.1 h", "21:10", "03:20"],
+          ["C", "8.2 h", "20:40", "03:42"],
+          ["D", "7.6 h", "20:35", "03:48"]
+        ]
+      }
+    },
+    {
+      "label": "Evaluate technology",
+      "title": "3. A technology should be judged against its intended problem",
+      "paragraphs": [
+        "A cochlear implant, hearing aid, retinal image, screen reader, tactile display, colour filter, or light-management device is designed for a particular need. Evaluation begins by naming the user, function, environment, and outcome. A device that improves performance in a quiet clinic may have different effects in a noisy classroom.",
+        "Useful evidence may include controlled performance data, user-reported outcomes, safety monitoring, reliability, accessibility, and long-term follow-up. Trade-offs can include surgery, learning demands, battery dependence, cost, maintenance, privacy, and unequal access. A practical solution is not automatically a complete solution.",
+        "Claims should be proportional to evidence. A device can support access without normalizing every sensory experience. User goals and informed choice matter. Evaluations should include people who use the technology rather than treating them only as study subjects."
+      ]
+    },
+    {
+      "label": "Communicate responsibly",
+      "title": "4. Source context and rights shape a defensible evidence brief",
+      "paragraphs": [
+        "A scientific brief identifies where data came from, how variables were measured, and whether the dataset is observational, experimental, or synthetic. It distinguishes an adapted explanation from copied artwork. This course uses locally redrawn figures and labels synthetic instructional data directly.",
+        "Cultural knowledge and technologies require appropriate authority and context. An Indigenous neurotoxin example should be used only with an Indigenous-led, rights-safe source and a clear educational purpose. Without that source, the curriculum outcome can be met through sourced neurotoxin mechanisms and technology evaluation without appropriation.",
+        "Collaboration should improve evidence, not block access. A peer can challenge the proposed mechanism or identify a missing stakeholder. When peer discussion is unavailable, the same questions can be submitted to a teacher or answered through a structured self-review."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-sensory-evidence-board",
+    "title": "Assemble a defensible evidence brief",
+    "intro": "Choose the weakest part of a proposed technology claim. The board supplies a revision and the evidence needed.",
+    "prompt": "Which revision best matches claim strength to evidence?",
+    "options": [
+      {"id": "overclaim", "label": "One classroom result proves the device works for everyone", "evidence": "The result comes from one task, one setting, and a small sample.", "explanation": "Revise to a bounded performance claim and ask for diverse users, settings, repeated measures, and user-reported outcomes."},
+      {"id": "mechanism", "label": "The device changes an outcome, but no mechanism is named", "evidence": "Performance improved, but the changed sensory information is unclear.", "explanation": "Name the input or processing barrier the design changes, then test whether that mechanism predicts the observed pattern."},
+      {"id": "access", "label": "Average benefit is reported without access evidence", "evidence": "Cost, training, language, compatibility, and maintenance were not assessed.", "explanation": "Add implementation and user evidence. Technical efficacy alone does not establish equitable practical benefit."}
+    ],
+    "staticFallback": "A defensible brief names the problem, mechanism, measured outcome, source, users, limitations, trade-offs, and next evidence."
+  },
+  "collaboration": {
+    "title": "Sensory evidence feedback checkpoint",
+    "peerRoute": "Share a three-sentence claim-evidence-reasoning brief in the enabled discussion. Ask a peer to identify one overclaim or missing stakeholder.",
+    "teacherRoute": "Send the same brief to the teacher or complete the evidence-board self-review. Peer availability never blocks completion."
+  },
+  "exit": {
+    "title": "Calibrate the claim",
+    "prompt": "In 2–3 sentences, revise this claim: shorter winter days cause every person to sleep later. Use the synthetic data and at least one limitation.",
+    "placeholder": "In this dataset… The pattern is consistent with… but…"
+  },
+  "sources": {
+    "summary": "Built from Alberta STS and skills outcomes, CBE sensory Lessons 4–6, official NEI and NIDCD sensory explanations, and current government health-source principles. Photoperiod values are synthetic instructional data.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "system-m1-l4", "system-m1-l5", "system-m1-l6", "ninds-health-information", "nei-how-eyes-work", "nidcd-how-hearing-works", "health-canada"]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "stage": 109,
+  "scope": "Finish six C capacity repairs through opt-in lossless choice/visited-route metadata packing. No learner text compression, new IDs, prompts, workload or threshold changes.",
+  "teacherAcceptance": null,
+  "priorOwnerSha256": "794d28011982aa6b4f4c33faee5f5771c1bd6b2deb38526321e403e2b61a3091",
+  "ownerSha256": "19afa96b0f1d36c8c168c7d0227632b34f02fb32c9498580764d362295d06d8d",
+  "changedOwnerFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts",
+      "sha256": "f47021982c600becd7c8cafcb3043031ad150807bf52b30798fba70ba49985b6"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-state.ts",
+      "sha256": "8f993cf392bc5f6336495da8ffaf30f4b5d08ea9874359565727af879feb56ae"
+    }
+  ],
+  "changedInputs": [
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+      "beforeSha256": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+      "sha256": "76c784babdceaa0a5e9505768e785c1feb04ed782b2a9dce9dfe2eb2c21699fd"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+      "beforeSha256": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+      "sha256": "154aaf03f624354c040721f64de6605f7bfc03a83eab255b64ea509feddf2b23"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json",
+      "beforeSha256": "364e785eb80ca6f6fe096261db7fe8b8abc5af84e3d11f28c6b4950d29e384b0",
+      "sha256": "d4084b4107748c742691a0b1b5794d94eae5ede8c04ac1143843f8aca3abea62"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json",
+      "beforeSha256": "b403e14b26b814a500f9605c944d98f5e18c318706a5d1448f5d5ddab43baed7",
+      "sha256": "1c69f2062d30972b7844b3edbe7deb0a5bab2537a3295fbf8ea5d7800a0dfa9d"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-budget.json",
+      "beforeSha256": "a3a67960ebd109ea7a1ea8bd39fda8a3142268d94bfc4083df230032a0129087",
+      "sha256": "19a935f2bb249d08a1c9934ff1d2086b98a6cc2586fbfac9bfc9db8cc522c258"
+    }
+  ],
+  "sumRuleDisposition": "No demonstrated repair required: c-topic-mendelian-genetics-guided-construct independently requests genotype and phenotype probabilities (AA or Aa aggregates to dominant phenotype); c-topic-single-and-two-trait-crosses-guided-construct uses A_ including AA and Aa. Explicit isolated naming of the sum rule is not separately assessed; no added question warranted by this check.",
+  "verification": "Focused indexed-state compatibility, corruption rejection and all optional Frayer pair maxima pass. Final browser/candidate hashes recorded separately."
+}

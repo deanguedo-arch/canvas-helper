@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T16:26:26.271Z",
+  "priorOwnerSha256": "dcbb77f174c8b31d4d3b1bd316ab34e61a75c66057b77219e77208f9fa524ec8",
+  "ownerSha256": "aede0194a32687db361c7599e42711fa551736b7dd08d76d412eb5d5d979b9d6",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "433c8771cff27f640b0a30bc6e00edfed8199531540e24d5c281d38f98739046"
+    }
+  ],
+  "reason": "User confirms A videos belonged directly in lessons. Embed each mapped original source video in its teaching lesson before the existing walkthrough/checkpoint, keep source order and one library entry, and make lesson-header links jump to the inline player. Existing source-resource review status and state keys remain unchanged.",
+  "teacherAcceptance": null
+}

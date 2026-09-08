@@ -1,0 +1,30 @@
+{
+  "stage": 65,
+  "status": "B65-C132-practice-sub-operations-reviewed",
+  "teacherDecision": null,
+  "focusedTests": 53,
+  "draftContracts": "passed",
+  "typecheck": {
+    "exitCode": 2,
+    "unrelatedDiagnostics": 25,
+    "ownedDiagnostics": 0
+  },
+  "latestProtectionReceipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-preserved-glossary/protection.log",
+  "protectionScope": "Prior stage64 check retained; subsequent writes restricted to B/C resource mappings, owner validators/tests and operational records. No learner-tree write.",
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "authoredGatesTotalPerUnit": 13,
+  "sourceReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+  "missingRequiredPracticeLinks": {
+    "B": 7,
+    "C": 11,
+    "D": 0
+  },
+  "meaning": "Other required evidence must be inspected before repairs; nonempty tags never prove full criteria.",
+  "logSha256": {
+    "contracts.log": "1fde9d94d31384fca975f8d46f4c09e7437f004061a984b984ad00886ae989ab",
+    "typecheck.log": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544",
+    "activities.log": "3a9e75242826b7f8f4e8d28006925247a597f0441ed8e240c1c279dad600369c",
+    "tests.log": "6485d05dcd268ad7dfa402d2c8372b3ba223ca11e1f4ce981d0af78dc47dbbde"
+  }
+}

@@ -1,0 +1,1550 @@
+{
+  "unit": "B",
+  "status": "draft: all65 current prompts mapped to asked sub-operations; complete criterion and visual proof pending",
+  "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+  "outcomeCount": 30,
+  "componentCount": 43,
+  "components": [
+    {
+      "id": "b1-1k-female-structures",
+      "outcomeId": "B1.1k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Locate ovaries, Fallopian tubes, uterus, endometrium, cervix and vagina, and connect each to its reproductive function.",
+      "targets": [
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+          "teachingTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-teaching",
+          "visualTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+          "workedTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-worked",
+          "retrievalTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-check",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ovary",
+            "follicle",
+            "oocyte",
+            "corpus luteum"
+          ]
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+          "teachingTarget": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-teaching",
+          "visualTarget": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-figure",
+          "workedTarget": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-worked",
+          "retrievalTarget": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-check",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "Fallopian tube",
+            "fimbriae",
+            "uterus",
+            "endometrium",
+            "cervix",
+            "vagina"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-03-b-lesson-03-evidence",
+        "b-practice-final-b-lesson-03-b-lesson-03-bounded",
+        "b-topic-female-reproductive-structures-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-2k-production-support",
+      "outcomeId": "B1.2k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Locate testes, seminiferous tubules, interstitial cells and Sertoli cells; distinguish sperm production, support and testosterone secretion.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+          "teachingTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-teaching",
+          "visualTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-figure",
+          "workedTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-worked",
+          "retrievalTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-check",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "testes",
+            "seminiferous tubules",
+            "Sertoli cells",
+            "interstitial cells"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-01-b-lesson-01-bounded",
+        "b-practice-guided-b-lesson-02-b-lesson-02-anchor",
+        "b-practice-chapter-b-lesson-02-b-lesson-02-evidence",
+        "b-topic-male-reproductive-structures-guided-construct",
+        "b-chapter-construct-01",
+        "b-investigation-structure-function-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-2k-duct-route",
+      "outcomeId": "B1.2k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Trace epididymis → vas deferens → ejaculatory duct → urethra; relate the penis to delivery.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-the-transport-pathway",
+          "teachingTarget": "b-topic-male-reproductive-structures-the-transport-pathway-teaching",
+          "visualTarget": "b-topic-male-reproductive-structures-the-transport-pathway-figure",
+          "workedTarget": "b-topic-male-reproductive-structures-the-transport-pathway-worked",
+          "retrievalTarget": "b-topic-male-reproductive-structures-the-transport-pathway-check",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "epididymis",
+            "vas deferens",
+            "ejaculatory duct",
+            "urethra",
+            "penis"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-02-b-lesson-02-bounded",
+        "b-practice-chapter-b-lesson-14-b-lesson-14-evidence",
+        "b-topic-male-reproductive-structures-guided-construct",
+        "b-chapter-construct-01",
+        "b-investigation-structure-function-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-2k-accessory-glands",
+      "outcomeId": "B1.2k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Locate Cowper glands, seminal vesicles and prostate; explain how their secretions contribute to semen without making sperm.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+          "teachingTarget": "b-topic-male-reproductive-structures-semen-and-accessory-glands-teaching",
+          "visualTarget": "b-topic-male-reproductive-structures-semen-and-accessory-glands-figure",
+          "workedTarget": "b-topic-male-reproductive-structures-semen-and-accessory-glands-worked",
+          "retrievalTarget": "b-topic-male-reproductive-structures-semen-and-accessory-glands-check",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "seminal vesicles",
+            "prostate gland",
+            "Cowper glands",
+            "semen"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-application-accessory-gland-layout"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-3k-gamete-support-distinction",
+      "outcomeId": "B1.3k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish sperm and oocytes from seminiferous tubules, interstitial/Sertoli cells, follicle and corpus luteum in a labelled representation.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+          "teachingTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-teaching",
+          "visualTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-figure",
+          "workedTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-worked",
+          "retrievalTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-check",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "testes",
+            "seminiferous tubules",
+            "Sertoli cells",
+            "interstitial cells"
+          ]
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+          "teachingTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-teaching",
+          "visualTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+          "workedTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-worked",
+          "retrievalTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-check",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ovary",
+            "follicle",
+            "oocyte",
+            "corpus luteum"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-01-b-lesson-01-bounded",
+        "b-practice-guided-b-lesson-02-b-lesson-02-anchor",
+        "b-practice-chapter-b-lesson-02-b-lesson-02-evidence",
+        "b-practice-guided-b-lesson-03-b-lesson-03-anchor",
+        "b-topic-female-reproductive-structures-guided-construct",
+        "b-chapter-construct-01"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-3k-gamete-development",
+      "outcomeId": "B1.3k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Sequence meiotic reduction and gamete differentiation; compare sperm production with unequal oocyte division and its pauses.",
+      "targets": [
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "partId": "b-topic-spermatogenesis-gametes-and-chromosome-sets",
+          "teachingTarget": "b-topic-spermatogenesis-gametes-and-chromosome-sets-teaching",
+          "visualTarget": "b-topic-spermatogenesis-gametes-and-chromosome-sets-figure",
+          "workedTarget": "b-topic-spermatogenesis-gametes-and-chromosome-sets-worked",
+          "retrievalTarget": "b-topic-spermatogenesis-gametes-and-chromosome-sets-check",
+          "evidenceTarget": "b-topic-spermatogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "diploid",
+            "haploid",
+            "spermatogonium",
+            "primary spermatocyte"
+          ]
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "partId": "b-topic-spermatogenesis-division-and-differentiation",
+          "teachingTarget": "b-topic-spermatogenesis-division-and-differentiation-teaching",
+          "visualTarget": "b-topic-spermatogenesis-division-and-differentiation-figure",
+          "workedTarget": "b-topic-spermatogenesis-division-and-differentiation-worked",
+          "retrievalTarget": "b-topic-spermatogenesis-division-and-differentiation-check",
+          "evidenceTarget": "b-topic-spermatogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "secondary spermatocyte",
+            "spermatid",
+            "spermatozoon",
+            "acrosome",
+            "flagellum"
+          ]
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+          "teachingTarget": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-teaching",
+          "visualTarget": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure",
+          "workedTarget": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-worked",
+          "retrievalTarget": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-check",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "primary oocyte",
+            "secondary oocyte",
+            "polar body",
+            "ovulation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-01-b-lesson-01-evidence",
+        "b-topic-spermatogenesis-guided-construct",
+        "b-topic-female-reproductive-structures-guided-construct",
+        "b-chapter-construct-02"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-4k-gonadal-development",
+      "outcomeId": "B1.4k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how a typical Y-linked testis-development signal leads to gonadal development and testosterone-dependent pathways, and why signal, target response and developmental timing all matter. Include development when testicular signals are absent; do not reduce every sex trait to one chromosome.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "teachingTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-teaching",
+          "visualTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-figure",
+          "workedTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-worked",
+          "retrievalTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-check",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "Y chromosome",
+            "testosterone",
+            "responsive target",
+            "STI",
+            "fertility"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-04-b-lesson-04-anchor",
+        "b-practice-chapter-b-lesson-04-b-lesson-04-evidence",
+        "b-practice-final-b-lesson-04-b-lesson-04-bounded"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-5k-infection-function",
+      "outcomeId": "B1.5k",
+      "requiredSourcePage": 58,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect infection/inflammation or tissue damage to impaired gamete transport or reproductive function; distinguish risk mechanisms from a diagnosis or inevitable infertility.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "teachingTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-teaching",
+          "visualTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-figure",
+          "workedTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-worked",
+          "retrievalTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-check",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "Y chromosome",
+            "testosterone",
+            "responsive target",
+            "STI",
+            "fertility"
+          ]
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "teachingTarget": "b-topic-female-reproductive-structures-structure-and-reproductive-function-teaching",
+          "visualTarget": "b-topic-female-reproductive-structures-structure-and-reproductive-function-figure",
+          "workedTarget": "b-topic-female-reproductive-structures-structure-and-reproductive-function-worked",
+          "retrievalTarget": "b-topic-female-reproductive-structures-structure-and-reproductive-function-check",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ciliary transport",
+            "obstruction",
+            "fertility probability"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-03-b-lesson-03-bounded",
+        "b-practice-final-b-lesson-07-b-lesson-07-bounded"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-1sts-evidence-and-perspectives",
+      "outcomeId": "B1.1sts",
+      "requiredSourcePage": 58,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "teachingTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-teaching",
+          "evidenceTarget": "b-topic-male-reproductive-structures-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "b-application-information-and-hormone-research"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-1s-online-operation",
+      "outcomeId": "B1.1s",
+      "requiredSourcePage": 59,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Which observations distinguish a production problem from a transport obstruction? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "requiredSkillTask": "b-topic-female-reproductive-structures-structure-and-reproductive-function-skill-task",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "optionalExtension": "b-investigation-structure-function",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-structure-function",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-14-b-lesson-14-bounded",
+        "b-investigation-structure-function-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-2s-online-operation",
+      "outcomeId": "B1.2s",
+      "requiredSourcePage": 59,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "requiredSkillTask": "b-topic-female-reproductive-structures-structure-and-reproductive-function-skill-task",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "optionalExtension": "b-investigation-structure-function",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-structure-function",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-investigation-structure-function-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-3s-online-operation",
+      "outcomeId": "B1.3s",
+      "requiredSourcePage": 59,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "requiredSkillTask": "b-topic-female-reproductive-structures-structure-and-reproductive-function-skill-task",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "optionalExtension": "b-investigation-structure-function",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-structure-function",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-14-b-lesson-14-evidence",
+        "b-chapter-construct-01",
+        "b-investigation-structure-function-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b1-4s-online-operation",
+      "outcomeId": "B1.4s",
+      "requiredSourcePage": 59,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "requiredSkillTask": "b-topic-female-reproductive-structures-structure-and-reproductive-function-skill-task",
+          "evidenceTarget": "b-topic-female-reproductive-structures-evidence",
+          "optionalExtension": "b-investigation-structure-function",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-structure-function",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-investigation-structure-function-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-1k-sources-targets-sex-traits",
+      "outcomeId": "B2.1k",
+      "requiredSourcePage": 60,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Identify GnRH, FSH, LH, estrogen, progesterone and testosterone sources, targets and roles; distinguish primary reproductive structures from secondary pubertal characteristics.",
+      "targets": [
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "partId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "teachingTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-teaching",
+          "visualTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-figure",
+          "workedTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-worked",
+          "retrievalTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-check",
+          "evidenceTarget": "b-topic-spermatogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "GnRH",
+            "FSH",
+            "LH",
+            "testosterone",
+            "hypothalamus",
+            "anterior pituitary",
+            "primary sex characteristic",
+            "secondary sex characteristic"
+          ]
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "teachingTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure",
+          "workedTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "FSH",
+            "LH",
+            "estrogen",
+            "positive feedback",
+            "LH surge"
+          ]
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "teachingTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure",
+          "workedTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "progesterone",
+            "negative feedback",
+            "menstruation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-03-b-lesson-03-evidence",
+        "b-practice-guided-b-lesson-05-b-lesson-05-anchor",
+        "b-topic-spermatogenesis-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-2k-cycle-feedback",
+      "outcomeId": "B2.2k",
+      "requiredSourcePage": 60,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain interactions among estrogen, progesterone, FSH and LH across follicular growth, positive-feedback LH surge, ovulation, luteal support and hormone withdrawal; align ovarian and uterine changes.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-two-coordinated-cycles",
+          "teachingTarget": "b-topic-menstrual-cycle-two-coordinated-cycles-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-two-coordinated-cycles-figure",
+          "workedTarget": "b-topic-menstrual-cycle-two-coordinated-cycles-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-two-coordinated-cycles-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ovarian cycle",
+            "uterine cycle",
+            "follicular phase",
+            "luteal phase"
+          ]
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "teachingTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure",
+          "workedTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "FSH",
+            "LH",
+            "estrogen",
+            "positive feedback",
+            "LH surge"
+          ]
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "teachingTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure",
+          "workedTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "progesterone",
+            "negative feedback",
+            "menstruation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-06-b-lesson-06-anchor",
+        "b-practice-chapter-b-lesson-06-b-lesson-06-evidence",
+        "b-topic-menstrual-cycle-guided-construct",
+        "b-chapter-construct-03",
+        "b-investigation-cycle-graphs-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-2k-cycle-graph",
+      "outcomeId": "B2.2k",
+      "requiredSourcePage": 60,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Interpret and construct separately scaled hormone curves with named axes, event order and limits of an illustrative cycle.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "teachingTarget": "b-topic-menstrual-cycle-graphs-and-cycle-variation-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-graphs-and-cycle-variation-figure",
+          "workedTarget": "b-topic-menstrual-cycle-graphs-and-cycle-variation-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-graphs-and-cycle-variation-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "axis",
+            "relative concentration",
+            "peak",
+            "cycle variation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-06-b-lesson-06-bounded",
+        "b-topic-menstrual-cycle-guided-construct",
+        "b-investigation-cycle-graphs-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-3k-male-feedback",
+      "outcomeId": "B2.3k",
+      "requiredSourcePage": 60,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect FSH to Sertoli-cell support, LH to interstitial-cell testosterone production, and testosterone to reproductive function/negative feedback; predict the effect of changing an upstream signal.",
+      "targets": [
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "partId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "teachingTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-teaching",
+          "visualTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-figure",
+          "workedTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-worked",
+          "retrievalTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-check",
+          "evidenceTarget": "b-topic-spermatogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "GnRH",
+            "FSH",
+            "LH",
+            "testosterone",
+            "hypothalamus",
+            "anterior pituitary",
+            "primary sex characteristic",
+            "secondary sex characteristic"
+          ]
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "partId": "b-topic-spermatogenesis-feedback-and-evidence",
+          "teachingTarget": "b-topic-spermatogenesis-feedback-and-evidence-teaching",
+          "visualTarget": "b-topic-spermatogenesis-feedback-and-evidence-figure",
+          "workedTarget": "b-topic-spermatogenesis-feedback-and-evidence-worked",
+          "retrievalTarget": "b-topic-spermatogenesis-feedback-and-evidence-check",
+          "evidenceTarget": "b-topic-spermatogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "negative feedback",
+            "inhibin",
+            "controlled variable"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-05-b-lesson-05-evidence",
+        "b-practice-final-b-lesson-05-b-lesson-05-bounded",
+        "b-practice-final-b-lesson-14-b-lesson-14-bounded",
+        "b-topic-spermatogenesis-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-1sts-evidence-and-perspectives",
+      "outcomeId": "B2.1sts",
+      "requiredSourcePage": 60,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain how science and technology have influenced, and been influenced by, historical development and societal needs (SEC2) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+          "teachingTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-teaching",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "b-application-information-and-hormone-research"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-2sts-evidence-and-perspectives",
+      "outcomeId": "B2.2sts",
+      "requiredSourcePage": 60,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain why decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1] Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+          "teachingTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-teaching",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "b-application-information-and-hormone-research"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-1s-online-operation",
+      "outcomeId": "B2.1s",
+      "requiredSourcePage": 61,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "How does the order of four hormone changes support a model of ovulation and endometrial maintenance? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "requiredSkillTask": "b-topic-menstrual-cycle-graphs-and-cycle-variation-skill-task",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "optionalExtension": "b-investigation-cycle-graphs",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-cycle-graphs",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-investigation-cycle-graphs-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-2s-online-operation",
+      "outcomeId": "B2.2s",
+      "requiredSourcePage": 61,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "requiredSkillTask": "b-topic-menstrual-cycle-graphs-and-cycle-variation-skill-task",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "optionalExtension": "b-investigation-cycle-graphs",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-cycle-graphs",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-topic-menstrual-cycle-guided-construct",
+        "b-investigation-cycle-graphs-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-3s-online-operation",
+      "outcomeId": "B2.3s",
+      "requiredSourcePage": 61,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "requiredSkillTask": "b-topic-menstrual-cycle-graphs-and-cycle-variation-skill-task",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "optionalExtension": "b-investigation-cycle-graphs",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-cycle-graphs",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-06-b-lesson-06-bounded",
+        "b-topic-menstrual-cycle-guided-construct",
+        "b-investigation-cycle-graphs-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b2-4s-online-operation",
+      "outcomeId": "B2.4s",
+      "requiredSourcePage": 61,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "requiredSkillTask": "b-topic-menstrual-cycle-graphs-and-cycle-variation-skill-task",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "optionalExtension": "b-investigation-cycle-graphs",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-cycle-graphs",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-topic-menstrual-cycle-guided-construct",
+        "b-investigation-cycle-graphs-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1k-fertilization",
+      "outcomeId": "B3.1k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Trace gamete interaction, meiotic completion, combination of chromosome sets and prevention of polyspermy in a uterine tube.",
+      "targets": [
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-gametes-meet",
+          "teachingTarget": "b-topic-fertilization-to-implantation-gametes-meet-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-gametes-meet-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-gametes-meet-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-gametes-meet-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "fertilization",
+            "capacitation",
+            "acrosome reaction",
+            "zona pellucida"
+          ]
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+          "teachingTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "meiotic completion",
+            "pronucleus",
+            "zygote",
+            "polyspermy block"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-08-b-lesson-08-anchor",
+        "b-topic-female-reproductive-structures-guided-construct",
+        "b-topic-fertilization-to-implantation-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1k-implantation",
+      "outcomeId": "B3.1k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish cleavage, morula, blastocyst and implantation; explain trophoblast interaction with the endometrium.",
+      "targets": [
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+          "teachingTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "cleavage",
+            "morula",
+            "blastocyst",
+            "inner cell mass",
+            "trophoblast"
+          ]
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+          "teachingTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "implantation",
+            "receptive endometrium",
+            "IVF",
+            "embryo transfer"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-08-b-lesson-08-anchor",
+        "b-practice-chapter-b-lesson-08-b-lesson-08-evidence",
+        "b-practice-final-b-lesson-08-b-lesson-08-bounded",
+        "b-topic-female-reproductive-structures-guided-construct",
+        "b-topic-fertilization-to-implantation-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1k-pregnancy-control",
+      "outcomeId": "B3.1k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect early hCG to continued corpus-luteum progesterone secretion, distinguish its LH-like action from LH secretion, and explain later placental hormone support.",
+      "targets": [
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "partId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+          "teachingTarget": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-teaching",
+          "visualTarget": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-figure",
+          "workedTarget": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-worked",
+          "retrievalTarget": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-check",
+          "evidenceTarget": "b-topic-hcg-and-gastrulation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "hCG",
+            "trophoblast",
+            "corpus luteum",
+            "progesterone"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-topic-hcg-and-gastrulation-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1k-extraembryonic-support",
+      "outcomeId": "B3.1k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Identify placenta, amnion, chorion and allantois and their support roles; trace exchange across normally separate maternal and fetal circulations.",
+      "targets": [
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "partId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes",
+          "teachingTarget": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-teaching",
+          "visualTarget": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-figure",
+          "workedTarget": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-worked",
+          "retrievalTarget": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-check",
+          "evidenceTarget": "b-topic-extraembryonic-structures-and-organogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "amnion",
+            "chorion",
+            "allantois",
+            "placenta",
+            "umbilical cord"
+          ]
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "partId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+          "teachingTarget": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-teaching",
+          "visualTarget": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-figure",
+          "workedTarget": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-worked",
+          "retrievalTarget": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-check",
+          "evidenceTarget": "b-topic-extraembryonic-structures-and-organogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "placental exchange",
+            "diffusion",
+            "umbilical artery",
+            "umbilical vein"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-09-b-lesson-09-anchor",
+        "b-practice-chapter-b-lesson-09-b-lesson-09-evidence",
+        "b-practice-final-b-lesson-09-b-lesson-09-bounded",
+        "b-topic-extraembryonic-structures-and-organogenesis-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1k-birth-control",
+      "outcomeId": "B3.1k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Trace parturition with progesterone action, prostaglandins, cervical stretch and oxytocin feedback; separate reduced progesterone action from an obligatory pre-labour serum decline in humans.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-labour-and-positive-feedback",
+          "teachingTarget": "b-topic-parturition-labour-and-positive-feedback-teaching",
+          "visualTarget": "b-topic-parturition-labour-and-positive-feedback-figure",
+          "workedTarget": "b-topic-parturition-labour-and-positive-feedback-worked",
+          "retrievalTarget": "b-topic-parturition-labour-and-positive-feedback-check",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": [
+            "parturition",
+            "cervical stretch",
+            "oxytocin",
+            "prostaglandin"
+          ]
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-birth-and-the-transition",
+          "teachingTarget": "b-topic-parturition-birth-and-the-transition-teaching",
+          "visualTarget": "b-topic-parturition-birth-and-the-transition-figure",
+          "workedTarget": "b-topic-parturition-birth-and-the-transition-worked",
+          "retrievalTarget": "b-topic-parturition-birth-and-the-transition-check",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": [
+            "cervical dilation",
+            "delivery",
+            "placental delivery",
+            "newborn transition"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-12-b-lesson-12-evidence",
+        "b-practice-final-b-lesson-12-b-lesson-12-bounded",
+        "b-topic-parturition-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1k-lactation-control",
+      "outcomeId": "B3.1k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish prolactin-driven milk synthesis from oxytocin-mediated milk ejection and identify the suckling feedback pathway.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-milk-synthesis-and-release",
+          "teachingTarget": "b-topic-parturition-milk-synthesis-and-release-teaching",
+          "visualTarget": "b-topic-parturition-milk-synthesis-and-release-figure",
+          "workedTarget": "b-topic-parturition-milk-synthesis-and-release-worked",
+          "retrievalTarget": "b-topic-parturition-milk-synthesis-and-release-check",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": [
+            "prolactin",
+            "milk synthesis",
+            "oxytocin",
+            "milk ejection",
+            "suckling"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-12-b-lesson-12-anchor",
+        "b-topic-parturition-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-2k-development-time",
+      "outcomeId": "B3.2k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Order zygote, blastocyst, gastrulation and morphogenesis and explain major organ-system development across trimesters. Explicitly distinguish time since fertilization from obstetric gestational age.",
+      "targets": [
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+          "teachingTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "meiotic completion",
+            "pronucleus",
+            "zygote",
+            "polyspermy block"
+          ]
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+          "teachingTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "cleavage",
+            "morula",
+            "blastocyst",
+            "inner cell mass",
+            "trophoblast"
+          ]
+        },
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "partId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+          "teachingTarget": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-teaching",
+          "visualTarget": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-figure",
+          "workedTarget": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-worked",
+          "retrievalTarget": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-check",
+          "evidenceTarget": "b-topic-hcg-and-gastrulation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "gastrulation",
+            "cell migration",
+            "differentiation",
+            "germ layer"
+          ]
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "partId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+          "teachingTarget": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-teaching",
+          "visualTarget": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-figure",
+          "workedTarget": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-worked",
+          "retrievalTarget": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-check",
+          "evidenceTarget": "b-topic-extraembryonic-structures-and-organogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "organogenesis",
+            "embryo",
+            "fetus",
+            "trimester"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-application-developmental-clock-and-sequence"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-3k-ectoderm",
+      "outcomeId": "B3.3k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect ectoderm to nervous system and epidermis.",
+      "targets": [
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "partId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "teachingTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-teaching",
+          "visualTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-figure",
+          "workedTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-worked",
+          "retrievalTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-check",
+          "evidenceTarget": "b-topic-hcg-and-gastrulation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ectoderm",
+            "mesoderm",
+            "endoderm",
+            "nervous tissue",
+            "epidermis",
+            "skeleton",
+            "muscle",
+            "reproductive structures",
+            "digestive lining",
+            "respiratory lining",
+            "endocrine tissue"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-10-b-lesson-10-anchor",
+        "b-practice-chapter-b-lesson-10-b-lesson-10-evidence",
+        "b-topic-hcg-and-gastrulation-guided-construct",
+        "b-chapter-construct-05"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-3k-mesoderm",
+      "outcomeId": "B3.3k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect mesoderm to skeleton, muscles and reproductive structures.",
+      "targets": [
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "partId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "teachingTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-teaching",
+          "visualTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-figure",
+          "workedTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-worked",
+          "retrievalTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-check",
+          "evidenceTarget": "b-topic-hcg-and-gastrulation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ectoderm",
+            "mesoderm",
+            "endoderm",
+            "nervous tissue",
+            "epidermis",
+            "skeleton",
+            "muscle",
+            "reproductive structures",
+            "digestive lining",
+            "respiratory lining",
+            "endocrine tissue"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-10-b-lesson-10-anchor",
+        "b-practice-final-b-lesson-10-b-lesson-10-bounded",
+        "b-topic-hcg-and-gastrulation-guided-construct",
+        "b-chapter-construct-05"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-3k-endoderm",
+      "outcomeId": "B3.3k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect endoderm to digestive/respiratory linings and specified endocrine tissues; qualify that endocrine glands have different embryonic origins.",
+      "targets": [
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "partId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "teachingTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-teaching",
+          "visualTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-figure",
+          "workedTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-worked",
+          "retrievalTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-check",
+          "evidenceTarget": "b-topic-hcg-and-gastrulation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "ectoderm",
+            "mesoderm",
+            "endoderm",
+            "nervous tissue",
+            "epidermis",
+            "skeleton",
+            "muscle",
+            "reproductive structures",
+            "digestive lining",
+            "respiratory lining",
+            "endocrine tissue"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-guided-b-lesson-10-b-lesson-10-anchor",
+        "b-practice-final-b-lesson-10-b-lesson-10-bounded",
+        "b-topic-hcg-and-gastrulation-guided-construct",
+        "b-chapter-construct-05"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-4k-environment-development",
+      "outcomeId": "B3.4k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how agent, dose, route, developmental timing and response affect embryonic/fetal development; use exposure evidence without individual risk diagnosis or blame.",
+      "targets": [
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "partId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+          "teachingTarget": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-teaching",
+          "visualTarget": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-figure",
+          "workedTarget": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-worked",
+          "retrievalTarget": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-check",
+          "evidenceTarget": "b-topic-extraembryonic-structures-and-organogenesis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "teratogen",
+            "dose",
+            "route",
+            "timing",
+            "confounder"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-11-b-lesson-11-evidence",
+        "b-practice-final-b-lesson-11-b-lesson-11-bounded",
+        "b-investigation-development-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-5k-conception-control",
+      "outcomeId": "B3.5k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare barrier, hormonal and transport-interruption mechanisms at the affected reproductive step.",
+      "targets": [
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+          "teachingTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-teaching",
+          "visualTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-figure",
+          "workedTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-worked",
+          "retrievalTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-check",
+          "evidenceTarget": "b-topic-menstrual-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "contraception",
+            "feedback suppression",
+            "benefit",
+            "limitation"
+          ]
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "teachingTarget": "b-topic-parturition-technologies-infertility-and-perspectives-teaching",
+          "visualTarget": "b-topic-parturition-technologies-infertility-and-perspectives-figure",
+          "workedTarget": "b-topic-parturition-technologies-infertility-and-perspectives-worked",
+          "retrievalTarget": "b-topic-parturition-technologies-infertility-and-perspectives-check",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": [
+            "barrier method",
+            "hormonal method",
+            "sterilization",
+            "infertility reversal",
+            "IVF"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-chapter-b-lesson-13-b-lesson-13-evidence",
+        "b-chapter-construct-06"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-5k-ivf",
+      "outcomeId": "B3.5k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Locate retrieval, fertilization and embryo transfer in the reproductive sequence; explain that transfer does not guarantee implantation.",
+      "targets": [
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+          "teachingTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-teaching",
+          "visualTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-figure",
+          "workedTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-worked",
+          "retrievalTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-check",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "implantation",
+            "receptive endometrium",
+            "IVF",
+            "embryo transfer"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-13-b-lesson-13-bounded",
+        "b-chapter-construct-04",
+        "b-application-fertility-evidence-and-perspectives"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-5k-infertility-reversal",
+      "outcomeId": "B3.5k",
+      "requiredSourcePage": 62,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how hormonal support or restoring a passage may address one cause, with conditions and limitations.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "teachingTarget": "b-topic-parturition-technologies-infertility-and-perspectives-teaching",
+          "visualTarget": "b-topic-parturition-technologies-infertility-and-perspectives-figure",
+          "workedTarget": "b-topic-parturition-technologies-infertility-and-perspectives-worked",
+          "retrievalTarget": "b-topic-parturition-technologies-infertility-and-perspectives-check",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": [
+            "barrier method",
+            "hormonal method",
+            "sterilization",
+            "infertility reversal",
+            "IVF"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-application-matching-mechanism-and-limits"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1sts-evidence-and-perspectives",
+      "outcomeId": "B3.1sts",
+      "requiredSourcePage": 62,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that science and technology are developed to meet societal needs and expand human capability (SEC1) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "partId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+          "teachingTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-teaching",
+          "evidenceTarget": "b-topic-fertilization-to-implantation-evidence",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "teachingTarget": "b-topic-parturition-technologies-infertility-and-perspectives-teaching",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-13-b-lesson-13-bounded",
+        "b-chapter-construct-04",
+        "b-application-fertility-evidence-and-perspectives"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-2sts-evidence-and-perspectives",
+      "outcomeId": "B3.2sts",
+      "requiredSourcePage": 62,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain why decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "teachingTarget": "b-topic-parturition-technologies-infertility-and-perspectives-teaching",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "b-application-fertility-evidence-and-perspectives"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-1s-online-operation",
+      "outcomeId": "B3.1s",
+      "requiredSourcePage": 63,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Does an exposure model support the same developmental effect at every stage? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "requiredSkillTask": "b-topic-parturition-investigating-and-communicating-a-claim-skill-task",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "optionalExtension": "b-investigation-development-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-development-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-investigation-development-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-2s-online-operation",
+      "outcomeId": "B3.2s",
+      "requiredSourcePage": 63,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "requiredSkillTask": "b-topic-parturition-investigating-and-communicating-a-claim-skill-task",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "optionalExtension": "b-investigation-development-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-development-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-investigation-development-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-3s-online-operation",
+      "outcomeId": "B3.3s",
+      "requiredSourcePage": 63,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "requiredSkillTask": "b-topic-parturition-investigating-and-communicating-a-claim-skill-task",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "optionalExtension": "b-investigation-development-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-development-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-practice-final-b-lesson-11-b-lesson-11-bounded",
+        "b-investigation-development-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    },
+    {
+      "id": "b3-4s-online-operation",
+      "outcomeId": "B3.4s",
+      "requiredSourcePage": 64,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "b-topic-parturition",
+          "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "requiredSkillTask": "b-topic-parturition-investigating-and-communicating-a-claim-skill-task",
+          "evidenceTarget": "b-topic-parturition-evidence",
+          "optionalExtension": "b-investigation-development-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-development-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "b-investigation-development-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only; prerequisite-only and optional challenge items do not satisfy required practice. Full criterion, teaching and visual proof remain separate."
+    }
+  ],
+  "sourceExamplesPolicy": "The 116 illustrative Program examples remain source options. Mandatory i.e. lists in knowledge outcomes are part of the required outcome. Performance-column examples are separately registered and do not independently create required content.",
+  "scientificCorrections": [
+    "D3.2k fractions visually checked against official page 79: gr=ΔN/Δt; cgr=ΔN/N(initial); Dp=N/A or N/V.",
+    "C2.4s optional tongue-rolling/earlobe example is replaced with fictional supplied crosses; it is not taught as a reliable single-gene human trait.",
+    "No independent digital task certifies physical laboratory or live collaboration performance."
+  ],
+  "teacherAcceptance": null,
+  "prerequisitePolicy": "Terms on each target are definitions to introduce before explanation, not a claim that they were already taught. Prior knowledge must be separately authored at topic level."
+}

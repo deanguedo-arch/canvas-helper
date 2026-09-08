@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-07",
+  "module": "Nervous Control",
+  "title": "Reflex Arcs and Response Investigation",
+  "inquiry": "Can a response be rapid, measurable, and organized before conscious awareness—and how would you test that safely?",
+  "learningIntention": "I am learning to model a reflex arc and use a safe investigation to evaluate response-time evidence.",
+  "requiredMinutes": 105,
+  "optionalMinutes": 30,
+  "outcomeIds": ["A1.3k", "A1.2s", "A1.3s", "A1.4s"],
+  "materials": "Preferred observation: a ruler or the supplied reaction-time dataset. No striking, painful stimulus, eye drops, bright flash, or electrical stimulation.",
+  "safety": "Use the supplied-data path if working alone, if movement is unsafe, or if a partner does not consent. A ruler-drop response is not a clinical reflex test.",
+  "targets": [
+    "Trace receptor, sensory neuron, integration, motor neuron, and effector in a reflex arc.",
+    "Design a safe comparison with a testable hypothesis, controlled variables, repeated trials, and limitations.",
+    "Graph supplied or collected data and distinguish reaction time from a simple spinal reflex."
+  ],
+  "warmup": {
+    "title": "Fast does not mean identical",
+    "prompt": "Compare touching a hot surface and catching a falling ruler. Which parts of each response require sensory input, central processing, motor output, and conscious decision?",
+    "placeholder": "Both require… The ruler task differs because…"
+  },
+  "sections": [
+    {
+      "label": "Build the circuit",
+      "title": "1. A reflex arc is an organized neural pathway",
+      "paragraphs": [
+        "A receptor detects a stimulus and changes sensory-neuron activity. The sensory neuron carries input into the central nervous system. Within the spinal cord or brainstem, the pathway may synapse directly on a motor neuron or pass through one or more interneurons. The motor neuron carries output to an effector, producing a response.",
+        "In a withdrawal reflex, interneurons can activate flexor muscles and inhibit opposing muscles. Other pathways send information upward, supporting pain perception and later decisions. The response can begin before conscious awareness because the spinal circuit does not need to wait for cortical processing.",
+        "The patellar reflex is a stretch reflex involving sensory information from muscle spindles and motor output to the same muscle group, with additional inhibitory circuitry. The pupillary light reflex involves the brainstem and autonomic motor output. Different reflexes share a control logic but not identical anatomy."
+      ],
+      "figureIds": ["figure-reflex-arc"]
+    },
+    {
+      "label": "Define the investigation",
+      "title": "2. Reaction-time tasks model response evidence, not a clinical reflex",
+      "paragraphs": [
+        "A ruler-drop task measures a voluntary response to a visual cue. Light must be detected, information processed, and a movement initiated. It is useful for studying repeated measurement, attention, anticipation, and variability, but it is not the same as a monosynaptic stretch reflex.",
+        "A testable question might ask whether the median catch distance changes between a single-task condition and a distraction condition. The independent variable is the condition. Catch distance or converted reaction time is the dependent variable. Ruler orientation, release height, hand position, number of trials, and rest interval should be controlled.",
+        "A hypothesis must predict a direction and give a mechanism. For example: if attention is divided, median catch distance will increase because additional processing competes with detecting the release and initiating the motor response. This explanation can be evaluated with data; it does not claim that one measurement reveals a person's general ability."
+      ]
+    },
+    {
+      "label": "Collect responsibly",
+      "title": "3. Repeated trials reveal variability",
+      "paragraphs": [
+        "If you use a ruler, one person holds it vertically with the zero mark level with the participant's open fingers. The releaser waits a variable interval and releases without a countdown. The participant catches it as quickly as comfortably possible. Record the distance at the top of the fingers. Complete at least five trials per condition, with rest as needed.",
+        "Consent is required. Stop if the participant has pain, dizziness, tremor, or another concern. Do not ridicule slow or variable responses. Do not compare classmates publicly. The supplied dataset is an equivalent route and is preferable when a consistent procedure cannot be maintained.",
+        "Use the median for a small set because one anticipated release or missed catch can strongly affect the mean. Plot individual trials and the condition medians. A graph should name the condition, unit, and sample size. Preserve unexpected values; label procedural problems rather than silently deleting evidence."
+      ],
+      "table": {
+        "caption": "Synthetic ruler-drop data in centimetres",
+        "headers": ["Trial", "Single task", "Divided attention"],
+        "rows": [
+          ["1", "18", "25"], ["2", "21", "29"], ["3", "17", "24"], ["4", "19", "34"], ["5", "20", "27"], ["Median", "19", "27"]
+        ]
+      }
+    },
+    {
+      "label": "Interpret with limits",
+      "title": "4. A difference supports a claim only within the design",
+      "paragraphs": [
+        "In the supplied data, the divided-attention median is eight centimetres greater. A longer fall distance indicates a longer interval before the catch. The pattern is consistent with the hypothesis that divided attention delayed the response in these trials.",
+        "The evidence does not prove that distraction changes spinal-reflex conduction. The task includes visual detection, attention, decision, and voluntary movement. The sample is one synthetic participant, order effects are possible, and the releaser may introduce cues. Repeating with counterbalanced order and more participants would strengthen generalization.",
+        "A conclusion should include the measured pattern, a mechanism linked to the task, and at least two limitations. A graph is evidence, not the explanation itself. The neural pathway model explains why extra processing steps and variable attention could change the observed response."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-reflex-arc-builder",
+    "title": "Build the pathway before interpreting speed",
+    "intro": "Select a proposed sequence. The model identifies the anatomical error or confirms the route.",
+    "prompt": "Which sequence is a defensible withdrawal-reflex model?",
+    "options": [
+      {"id": "complete", "label": "Receptor → sensory neuron → spinal interneuron → motor neuron → flexor muscle", "evidence": "The sensory route enters the CNS, integration occurs in the spinal cord, and motor output reaches an effector.", "explanation": "This sequence supports a rapid response while additional ascending pathways provide conscious information."},
+      {"id": "brain-first", "label": "Receptor → sensory neuron → conscious cortex → spinal cord → motor neuron", "evidence": "The sequence requires conscious cortex before any response.", "explanation": "Conscious processing can influence later action, but a withdrawal reflex can begin through spinal integration before cortical awareness."},
+      {"id": "missing-sensory", "label": "Stimulus → motor neuron → muscle", "evidence": "No receptor or sensory route is included.", "explanation": "A motor neuron cannot identify the external stimulus on its own. The pathway requires sensory detection and central integration."}
+    ],
+    "staticFallback": "Receptor → sensory neuron → central integration → motor neuron → effector. Parallel ascending pathways support awareness; descending pathways can modify responses."
+  },
+  "artifact": {
+    "id": "reflex-investigation",
+    "number": 3,
+    "prompt": "Report either your safe ruler-drop observation or the supplied dataset. Include a hypothesis, variables, procedure or supplied-data route, graph description, evidence-based conclusion, and limitations.",
+    "evidenceRequirements": ["Use at least five trials per condition or all supplied values.", "Report medians with units.", "Distinguish the voluntary task from a clinical spinal-reflex test."]
+  },
+  "exit": {
+    "title": "Separate reflex from reaction time",
+    "prompt": "In 2–3 sentences, explain why the ruler-drop result can support a response-time claim but cannot by itself measure the speed of a spinal reflex arc.",
+    "placeholder": "The ruler task includes… A spinal reflex differs because…"
+  },
+  "sources": {
+    "summary": "Built from Alberta investigation outcomes, supplied notes pages 18–20, CBE Module 1 Lesson 3, and OpenStax reflex material. All table values are synthetic instructional data.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-reflexes", "system-m1-l3", "openstax-a-and-p"]
+  }
+}

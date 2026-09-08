@@ -1,0 +1,945 @@
+{
+  "stage": 104,
+  "checkedAt": "2026-09-07T17:10:13.566Z",
+  "authority": "User: Ok go, authorizing the targeted learning-level correction described in the preceding response.",
+  "reference": "Protected final A core learning approach and playbook sections19/21/22; not teacher acceptance.",
+  "changes": [
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+      "beforeSha256": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804",
+      "sha256": "f3c37bccc4fdc20be8a335fbe3be26d05a6523d339222cb51dc1b85e364c9217",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+      "beforeSha256": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+      "sha256": "7b31dcee161b4efdf1787facc506162b42ead72929caad0430e5548d5b6d7414",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-instruction.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json",
+      "beforeSha256": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84",
+      "sha256": "b430a62bf0eb817c078b5aebc77fa34d3edaba8a8a523b35d611ed737f7348f6",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-topic-teaching.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-reading-report.json",
+      "beforeSha256": "1c24fcbe9798c9c5f69c5afa0c7ce3436b4f3c08f40a1971796f966f249d0dd3",
+      "sha256": "175b279da7ec9c9d90d8557629f8e0ff1a9c5df348c5293745ec5f03dc302cc7",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-reading-report.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+      "beforeSha256": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+      "sha256": "cec322e3c05c3f110bbfb92d76b9e296e45b9739335696ac0c0d27a4e8faab50",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+      "beforeSha256": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+      "sha256": "fb096b95d39fdd2e44c70b46cf308474592d08ed16b70dad1e722936d6332dcf",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-instruction.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+      "beforeSha256": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20",
+      "sha256": "c4eef7f7c6e0de8f71171729cd1b4d42b2b5093233320011425a0c971e2cc053",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-topic-teaching.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-reading-report.json",
+      "beforeSha256": "39c048f9d90ee458dde591342f33d787bab856dac7b22874187a0b108dcf2a6c",
+      "sha256": "89285f9928298eaff4772d415d2ffae8614abe848659727bfc79ce2879d0f0c4",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-reading-report.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+      "beforeSha256": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+      "sha256": "52b04920d033a30640de51078c08a3cada29b7b78efcaba47169fd2aefd64cb0",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-content.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+      "beforeSha256": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+      "sha256": "ad51d30bc40b9cdcf59cac35cfee3c832c26080c4b1a73774423f1e8279abffe",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-instruction.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json",
+      "beforeSha256": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1",
+      "sha256": "d0b31038f7ba6692ff7090ab61ff0a2123ab95645e87454d2f328cab6b216696",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-topic-teaching.json"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-reading-report.json",
+      "beforeSha256": "62f85ed584068d9f1524072d674271869519f23e437c74bc46a2ec075927e1b8",
+      "sha256": "03816ac36eda22391fd7e560a00971f2415297c964e4503da74648c9b95a1e23",
+      "beforeFile": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-reading-report.json"
+    }
+  ],
+  "changedOwners": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-instruction-audit.ts",
+      "sha256": "002487f63e1ab64fdf40e2dfc2d65d83b41cfdc18434319af7c166bf379859d7"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-reading.ts",
+      "sha256": "91b99eb41c83425be2b73e31e193fff548712a059ca607dbe587af459f79a87a"
+    }
+  ],
+  "priorOwnerSha256": "7067ccac4bbd8e51f3523499a4bbf7291281765b4f5e41532f30a7f1553b29f1",
+  "ownerSha256": "a4bf1b6d03091bdbcb5822774c2f46db56eb4b368e9bbdd116f54e6448680d92",
+  "units": [
+    {
+      "unit": "B",
+      "revisedBlocks": [
+        {
+          "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "title": "Reproductive development and health",
+          "before": {
+            "words": 285,
+            "sentences": 22,
+            "averageSentenceWords": 13,
+            "fleschKincaidGrade": 13.2
+          },
+          "after": {
+            "words": 276,
+            "sentences": 25,
+            "averageSentenceWords": 11,
+            "fleschKincaidGrade": 8.8
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+          "title": "Oogenesis and meiotic pauses",
+          "before": {
+            "words": 186,
+            "sentences": 16,
+            "averageSentenceWords": 11.6,
+            "fleschKincaidGrade": 13.1
+          },
+          "after": {
+            "words": 203,
+            "sentences": 21,
+            "averageSentenceWords": 9.7,
+            "fleschKincaidGrade": 9.4
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "title": "Structure and reproductive function",
+          "before": {
+            "words": 213,
+            "sentences": 16,
+            "averageSentenceWords": 13.3,
+            "fleschKincaidGrade": 12.4
+          },
+          "after": {
+            "words": 244,
+            "sentences": 24,
+            "averageSentenceWords": 10.2,
+            "fleschKincaidGrade": 8
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "title": "Follicle growth and changing feedback",
+          "before": {
+            "words": 271,
+            "sentences": 19,
+            "averageSentenceWords": 14.3,
+            "fleschKincaidGrade": 13.1
+          },
+          "after": {
+            "words": 277,
+            "sentences": 24,
+            "averageSentenceWords": 11.5,
+            "fleschKincaidGrade": 8.5
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "title": "Corpus luteum and the endometrium",
+          "before": {
+            "words": 176,
+            "sentences": 12,
+            "averageSentenceWords": 14.7,
+            "fleschKincaidGrade": 12.6
+          },
+          "after": {
+            "words": 195,
+            "sentences": 18,
+            "averageSentenceWords": 10.8,
+            "fleschKincaidGrade": 9.6
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+          "title": "Maternal and fetal circulation",
+          "before": {
+            "words": 191,
+            "sentences": 14,
+            "averageSentenceWords": 13.6,
+            "fleschKincaidGrade": 12.5
+          },
+          "after": {
+            "words": 210,
+            "sentences": 21,
+            "averageSentenceWords": 10,
+            "fleschKincaidGrade": 7.9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "b-topic-parturition-birth-and-the-transition",
+          "title": "Birth and the transition",
+          "before": {
+            "words": 190,
+            "sentences": 14,
+            "averageSentenceWords": 13.6,
+            "fleschKincaidGrade": 12.1
+          },
+          "after": {
+            "words": 195,
+            "sentences": 20,
+            "averageSentenceWords": 9.8,
+            "fleschKincaidGrade": 6.6
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-b/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        }
+      ],
+      "allCoreParts": 34,
+      "previousHighParts": 7,
+      "currentHighParts": 0,
+      "topicReports": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "words": 844,
+          "sentences": 69,
+          "averageSentenceWords": 12.2,
+          "fleschKincaidGrade": 9.8
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "words": 922,
+          "sentences": 77,
+          "averageSentenceWords": 12,
+          "fleschKincaidGrade": 11.2
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "words": 816,
+          "sentences": 75,
+          "averageSentenceWords": 10.9,
+          "fleschKincaidGrade": 9.8
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "words": 1160,
+          "sentences": 101,
+          "averageSentenceWords": 11.5,
+          "fleschKincaidGrade": 9.5
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "words": 786,
+          "sentences": 74,
+          "averageSentenceWords": 10.6,
+          "fleschKincaidGrade": 9.3
+        },
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "words": 730,
+          "sentences": 65,
+          "averageSentenceWords": 11.2,
+          "fleschKincaidGrade": 8.8
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "words": 846,
+          "sentences": 75,
+          "averageSentenceWords": 11.3,
+          "fleschKincaidGrade": 8.8
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "words": 1047,
+          "sentences": 98,
+          "averageSentenceWords": 10.7,
+          "fleschKincaidGrade": 9.4
+        }
+      ]
+    },
+    {
+      "unit": "C",
+      "revisedBlocks": [
+        {
+          "partId": "c-topic-chromosomes-and-dna-reading-karyotypes",
+          "title": "Reading karyotypes",
+          "before": {
+            "words": 185,
+            "sentences": 15,
+            "averageSentenceWords": 12.3,
+            "fleschKincaidGrade": 12.2
+          },
+          "after": {
+            "words": 190,
+            "sentences": 19,
+            "averageSentenceWords": 10,
+            "fleschKincaidGrade": 8.5
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "title": "Control and division",
+          "before": {
+            "words": 178,
+            "sentences": 12,
+            "averageSentenceWords": 14.8,
+            "fleschKincaidGrade": 13.4
+          },
+          "after": {
+            "words": 209,
+            "sentences": 20,
+            "averageSentenceWords": 10.4,
+            "fleschKincaidGrade": 7.4
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-mitosis-preparing-to-separate",
+          "title": "Preparing to separate",
+          "before": {
+            "words": 174,
+            "sentences": 12,
+            "averageSentenceWords": 14.5,
+            "fleschKincaidGrade": 12.5
+          },
+          "after": {
+            "words": 189,
+            "sentences": 17,
+            "averageSentenceWords": 11.1,
+            "fleschKincaidGrade": 7.7
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-mitosis-finishing-cell-division",
+          "title": "Finishing cell division",
+          "before": {
+            "words": 181,
+            "sentences": 12,
+            "averageSentenceWords": 15.1,
+            "fleschKincaidGrade": 12.3
+          },
+          "after": {
+            "words": 193,
+            "sentences": 17,
+            "averageSentenceWords": 11.4,
+            "fleschKincaidGrade": 6.9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-meiosis-part-a-second-meiotic-division",
+          "title": "Second meiotic division",
+          "before": {
+            "words": 174,
+            "sentences": 13,
+            "averageSentenceWords": 13.4,
+            "fleschKincaidGrade": 12.5
+          },
+          "after": {
+            "words": 181,
+            "sentences": 16,
+            "averageSentenceWords": 11.3,
+            "fleschKincaidGrade": 8.4
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-meiosis-part-b-twins-and-early-development",
+          "title": "Twins and early development",
+          "before": {
+            "words": 174,
+            "sentences": 13,
+            "averageSentenceWords": 13.4,
+            "fleschKincaidGrade": 13
+          },
+          "after": {
+            "words": 177,
+            "sentences": 15,
+            "averageSentenceWords": 11.8,
+            "fleschKincaidGrade": 10
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-reproductive-strategies-animal-strategies",
+          "title": "Animal strategies",
+          "before": {
+            "words": 190,
+            "sentences": 14,
+            "averageSentenceWords": 13.6,
+            "fleschKincaidGrade": 12.7
+          },
+          "after": {
+            "words": 189,
+            "sentences": 19,
+            "averageSentenceWords": 9.9,
+            "fleschKincaidGrade": 9.6
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-genes-alleles-and-traits-inheritance-language",
+          "title": "Inheritance language",
+          "before": {
+            "words": 185,
+            "sentences": 14,
+            "averageSentenceWords": 13.2,
+            "fleschKincaidGrade": 12.1
+          },
+          "after": {
+            "words": 197,
+            "sentences": 18,
+            "averageSentenceWords": 10.9,
+            "fleschKincaidGrade": 8.4
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+          "title": "Controlled crosses and evidence",
+          "before": {
+            "words": 186,
+            "sentences": 13,
+            "averageSentenceWords": 14.3,
+            "fleschKincaidGrade": 12.8
+          },
+          "after": {
+            "words": 192,
+            "sentences": 18,
+            "averageSentenceWords": 10.7,
+            "fleschKincaidGrade": 8.8
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-mendelian-genetics-segregation",
+          "title": "Segregation",
+          "before": {
+            "words": 176,
+            "sentences": 15,
+            "averageSentenceWords": 11.7,
+            "fleschKincaidGrade": 13.3
+          },
+          "after": {
+            "words": 195,
+            "sentences": 19,
+            "averageSentenceWords": 10.3,
+            "fleschKincaidGrade": 8.4
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-single-and-two-trait-crosses-probability-rules",
+          "title": "Probability rules",
+          "before": {
+            "words": 170,
+            "sentences": 14,
+            "averageSentenceWords": 12.1,
+            "fleschKincaidGrade": 11.6
+          },
+          "after": {
+            "words": 260,
+            "sentences": 25,
+            "averageSentenceWords": 10.4,
+            "fleschKincaidGrade": 6.9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-other-modes-of-inheritance-sex-linkage",
+          "title": "Sex linkage",
+          "before": {
+            "words": 192,
+            "sentences": 12,
+            "averageSentenceWords": 16,
+            "fleschKincaidGrade": 12.1
+          },
+          "after": {
+            "words": 206,
+            "sentences": 19,
+            "averageSentenceWords": 10.8,
+            "fleschKincaidGrade": 7.5
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-other-modes-of-inheritance-comparing-model-predictions",
+          "title": "Comparing model predictions",
+          "before": {
+            "words": 174,
+            "sentences": 12,
+            "averageSentenceWords": 14.5,
+            "fleschKincaidGrade": 13.3
+          },
+          "after": {
+            "words": 190,
+            "sentences": 19,
+            "averageSentenceWords": 10,
+            "fleschKincaidGrade": 7.9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-pedigrees-autosomal-hypotheses",
+          "title": "Autosomal hypotheses",
+          "before": {
+            "words": 186,
+            "sentences": 13,
+            "averageSentenceWords": 14.3,
+            "fleschKincaidGrade": 12.1
+          },
+          "after": {
+            "words": 204,
+            "sentences": 19,
+            "averageSentenceWords": 10.7,
+            "fleschKincaidGrade": 8.1
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-chromosome-mapping-linkage-and-recombination",
+          "title": "Linkage and recombination",
+          "before": {
+            "words": 189,
+            "sentences": 13,
+            "averageSentenceWords": 14.5,
+            "fleschKincaidGrade": 12.4
+          },
+          "after": {
+            "words": 200,
+            "sentences": 19,
+            "averageSentenceWords": 10.5,
+            "fleschKincaidGrade": 9.1
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-chromosome-mapping-recombination-frequency",
+          "title": "Recombination frequency",
+          "before": {
+            "words": 168,
+            "sentences": 12,
+            "averageSentenceWords": 14,
+            "fleschKincaidGrade": 12.1
+          },
+          "after": {
+            "words": 169,
+            "sentences": 18,
+            "averageSentenceWords": 9.4,
+            "fleschKincaidGrade": 7.9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-chromosome-mapping-limits-of-linkage-estimates",
+          "title": "Limits of linkage estimates",
+          "before": {
+            "words": 176,
+            "sentences": 11,
+            "averageSentenceWords": 16,
+            "fleschKincaidGrade": 13.6
+          },
+          "after": {
+            "words": 193,
+            "sentences": 16,
+            "averageSentenceWords": 12.1,
+            "fleschKincaidGrade": 9.5
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-dna-replication-semiconservative-replication",
+          "title": "Semiconservative replication",
+          "before": {
+            "words": 183,
+            "sentences": 13,
+            "averageSentenceWords": 14.1,
+            "fleschKincaidGrade": 12.5
+          },
+          "after": {
+            "words": 195,
+            "sentences": 17,
+            "averageSentenceWords": 11.5,
+            "fleschKincaidGrade": 8.2
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-dna-replication-replication-evidence",
+          "title": "Replication evidence",
+          "before": {
+            "words": 173,
+            "sentences": 12,
+            "averageSentenceWords": 14.4,
+            "fleschKincaidGrade": 12.7
+          },
+          "after": {
+            "words": 190,
+            "sentences": 15,
+            "averageSentenceWords": 12.7,
+            "fleschKincaidGrade": 7.7
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-mutations-inheritance-and-variation",
+          "title": "Inheritance and variation",
+          "before": {
+            "words": 174,
+            "sentences": 13,
+            "averageSentenceWords": 13.4,
+            "fleschKincaidGrade": 12.2
+          },
+          "after": {
+            "words": 190,
+            "sentences": 16,
+            "averageSentenceWords": 11.9,
+            "fleschKincaidGrade": 9.6
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+          "title": "Amplifying and separating",
+          "before": {
+            "words": 185,
+            "sentences": 12,
+            "averageSentenceWords": 15.4,
+            "fleschKincaidGrade": 12.2
+          },
+          "after": {
+            "words": 202,
+            "sentences": 18,
+            "averageSentenceWords": 11.2,
+            "fleschKincaidGrade": 8.1
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-c/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        }
+      ],
+      "allCoreParts": 71,
+      "previousHighParts": 20,
+      "currentHighParts": 0,
+      "topicReports": [
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "words": 567,
+          "sentences": 49,
+          "averageSentenceWords": 11.6,
+          "fleschKincaidGrade": 9.6
+        },
+        {
+          "topicId": "c-topic-the-cell-cycle",
+          "words": 576,
+          "sentences": 49,
+          "averageSentenceWords": 11.8,
+          "fleschKincaidGrade": 8.9
+        },
+        {
+          "topicId": "c-topic-mitosis",
+          "words": 738,
+          "sentences": 69,
+          "averageSentenceWords": 10.7,
+          "fleschKincaidGrade": 8
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "words": 706,
+          "sentences": 63,
+          "averageSentenceWords": 11.2,
+          "fleschKincaidGrade": 9.6
+        },
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "words": 728,
+          "sentences": 65,
+          "averageSentenceWords": 11.2,
+          "fleschKincaidGrade": 9.4
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "words": 804,
+          "sentences": 68,
+          "averageSentenceWords": 11.8,
+          "fleschKincaidGrade": 10.2
+        },
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "words": 569,
+          "sentences": 51,
+          "averageSentenceWords": 11.2,
+          "fleschKincaidGrade": 8.8
+        },
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "words": 754,
+          "sentences": 65,
+          "averageSentenceWords": 11.6,
+          "fleschKincaidGrade": 9.5
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "words": 789,
+          "sentences": 66,
+          "averageSentenceWords": 12,
+          "fleschKincaidGrade": 9.8
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "words": 965,
+          "sentences": 82,
+          "averageSentenceWords": 11.8,
+          "fleschKincaidGrade": 8.9
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "words": 750,
+          "sentences": 65,
+          "averageSentenceWords": 11.5,
+          "fleschKincaidGrade": 9.5
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "words": 745,
+          "sentences": 67,
+          "averageSentenceWords": 11.1,
+          "fleschKincaidGrade": 9
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "words": 706,
+          "sentences": 59,
+          "averageSentenceWords": 12,
+          "fleschKincaidGrade": 9.5
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "words": 736,
+          "sentences": 57,
+          "averageSentenceWords": 12.9,
+          "fleschKincaidGrade": 9.5
+        },
+        {
+          "topicId": "c-topic-transcription",
+          "words": 766,
+          "sentences": 54,
+          "averageSentenceWords": 14.2,
+          "fleschKincaidGrade": 10.4
+        },
+        {
+          "topicId": "c-topic-translation",
+          "words": 745,
+          "sentences": 50,
+          "averageSentenceWords": 14.9,
+          "fleschKincaidGrade": 10.7
+        },
+        {
+          "topicId": "c-topic-mutations",
+          "words": 743,
+          "sentences": 55,
+          "averageSentenceWords": 13.5,
+          "fleschKincaidGrade": 10.7
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "words": 1011,
+          "sentences": 79,
+          "averageSentenceWords": 12.8,
+          "fleschKincaidGrade": 9.9
+        }
+      ]
+    },
+    {
+      "unit": "D",
+      "revisedBlocks": [
+        {
+          "partId": "d-topic-hardy-weinberg-equilibrium-assumptions",
+          "title": "Equilibrium assumptions",
+          "before": {
+            "words": 179,
+            "sentences": 12,
+            "averageSentenceWords": 14.9,
+            "fleschKincaidGrade": 12.6
+          },
+          "after": {
+            "words": 200,
+            "sentences": 16,
+            "averageSentenceWords": 12.5,
+            "fleschKincaidGrade": 9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "d-topic-hardy-weinberg-solving-and-checking",
+          "title": "Solving and checking",
+          "before": {
+            "words": 157,
+            "sentences": 12,
+            "averageSentenceWords": 13.1,
+            "fleschKincaidGrade": 12.6
+          },
+          "after": {
+            "words": 226,
+            "sentences": 25,
+            "averageSentenceWords": 9,
+            "fleschKincaidGrade": 6.9
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "d-topic-population-growth-exponential-and-logistic-models",
+          "title": "Exponential and logistic models",
+          "before": {
+            "words": 183,
+            "sentences": 14,
+            "averageSentenceWords": 13.1,
+            "fleschKincaidGrade": 12.2
+          },
+          "after": {
+            "words": 198,
+            "sentences": 21,
+            "averageSentenceWords": 9.4,
+            "fleschKincaidGrade": 7.7
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "d-topic-population-growth-feedback-and-changing-limits",
+          "title": "Feedback and changing limits",
+          "before": {
+            "words": 188,
+            "sentences": 13,
+            "averageSentenceWords": 14.5,
+            "fleschKincaidGrade": 12.1
+          },
+          "after": {
+            "words": 203,
+            "sentences": 17,
+            "averageSentenceWords": 11.9,
+            "fleschKincaidGrade": 8.8
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        },
+        {
+          "partId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "title": "Interactions and their effects",
+          "before": {
+            "words": 245,
+            "sentences": 18,
+            "averageSentenceWords": 13.6,
+            "fleschKincaidGrade": 12.3
+          },
+          "after": {
+            "words": 256,
+            "sentences": 23,
+            "averageSentenceWords": 11.1,
+            "fleschKincaidGrade": 9.6
+          },
+          "sourceBefore": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/before/unit-d/pilot2-content.json",
+          "scope": "Preserved the mechanism, examples and limits in the recorded source; rewrote sentences and made the reasoning sequence explicit. No required idea moved to optional work."
+        }
+      ],
+      "allCoreParts": 22,
+      "previousHighParts": 5,
+      "currentHighParts": 0,
+      "topicReports": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "words": 968,
+          "sentences": 79,
+          "averageSentenceWords": 12.3,
+          "fleschKincaidGrade": 9.6
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "words": 974,
+          "sentences": 84,
+          "averageSentenceWords": 11.6,
+          "fleschKincaidGrade": 10
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "words": 1114,
+          "sentences": 90,
+          "averageSentenceWords": 12.4,
+          "fleschKincaidGrade": 10.1
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "words": 1344,
+          "sentences": 114,
+          "averageSentenceWords": 11.8,
+          "fleschKincaidGrade": 10.3
+        }
+      ]
+    }
+  ],
+  "workedScaffolds": [
+    "B hormone graph: read axes, order events, explain feedback, state limitation",
+    "C probability: single-locus chances, product rule, two offspring orders, sum rule; conditional sample reduction taught separately",
+    "D Hardy-Weinberg: percent to fraction, square root, complement, heterozygotes, whole check; conditional denominator numerical example"
+  ],
+  "invariants": [
+    "No topic, part, outcome, figure, vocabulary introduction, question, answer, response or saved-state ID removed or changed",
+    "No optional disclosure or practice item changed",
+    "Local walkthrough steps synchronized with revised worked steps",
+    "Broad teacher topics retain their required content and existing internal boundaries; not cut to an arbitrary word count",
+    "No teacher acceptance, deployment, export or Studio Edit"
+  ],
+  "limitations": [
+    "Readability score is not comprehension or measured timing",
+    "This is a targeted content correction, not a new claim of exhaustive independent academic clearance"
+  ],
+  "teacherAcceptance": null
+}

@@ -5,7 +5,11 @@ import {
   type LearnerEvidenceScenario,
   type ProjectE2EContract
 } from "./project-contract-schema";
-import { reloadWorkspacePreview, waitForWorkspacePreviewReady } from "./project-open";
+import {
+  reloadWorkspacePreview,
+  waitForWorkspacePreviewReady,
+  workspacePreviewPathMatchesProject
+} from "./project-open";
 
 type EnabledLearnerCourse = Extract<
   NonNullable<ProjectE2EContract["learnerCourse"]>,
@@ -598,10 +602,23 @@ async function assertEvidenceScenarios(
   learnerCourse: EnabledLearnerCourse
 ) {
   const scenarios = resolveLearnerEvidenceScenarios(learnerCourse);
-  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: true });
+  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2") });
   for (const [scenarioIndex, scenario] of scenarios.entries()) {
     const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-    if (scenario.kind === "individual") {
+    if (scenario.kind === "pilot2") {
+      const section = await showLearnerRoute(workspaceFrame, scenario.route);
+      const response = section.locator(`[data-pilot2-response="${scenario.responseId}"]`);
+      const value = `Evidence saved during project verification ${scenarioIndex}.`;
+      await response.fill(value);
+      await section.locator(`[data-pilot2-collect="${scenario.collectionFlag}"]`).click();
+      await expect(section.locator(`[data-pilot2-collection-status="${scenario.collectionFlag}"]`)).toContainText(/saved|collected/i);
+      await reloadWorkspacePreview(page, projectSlug);
+      const collection = await showLearnerRoute(workspaceFrame, scenario.collectionRoute);
+      await expect(collection.locator('[data-pilot2-work-list]')).toContainText(value);
+      await collection.locator(`[data-pilot2-return-focus="${scenario.responseId}"]`).click();
+      await expect(response).toHaveValue(value);
+      await expect(response).toBeFocused();
+    } else if (scenario.kind === "individual") {
       await assertIndividualEvidenceScenario(page, workspaceFrame, projectSlug, scenario, scenarioIndex);
     } else {
       await assertCollectionEvidenceScenario(page, workspaceFrame, projectSlug, scenario, scenarioIndex);
@@ -614,13 +631,13 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
   const pageErrors: string[] = [];
   const localFailures: string[] = [];
   const baseOrigin = new URL(page.url()).origin;
-  const previewConfigResponse = await page.request.get("/api/preview-config");
-  expect(previewConfigResponse.ok(), "isolated preview configuration is available for mobile learner checks").toBe(true);
-  const previewConfig = (await previewConfigResponse.json()) as { origin?: string };
-  if (!previewConfig.origin) {
-    throw new Error("Isolated preview configuration did not provide a preview origin.");
+  const frameSrc = await page.getByTestId("workspace-preview-frame").getAttribute("src");
+  if (!frameSrc) throw new Error(`Workspace preview frame has no source for ${projectSlug}.`);
+  const scopedPreviewUrl = new URL(frameSrc, page.url());
+  if (!workspacePreviewPathMatchesProject(scopedPreviewUrl.pathname, projectSlug)) {
+    throw new Error(`Workspace preview frame does not target ${projectSlug}: ${scopedPreviewUrl.pathname}`);
   }
-  const previewOrigin = new URL(previewConfig.origin).origin;
+  const previewOrigin = scopedPreviewUrl.origin;
 
   mobilePage.on("pageerror", (error) => pageErrors.push(error.message));
   mobilePage.on("response", (response) => {
@@ -634,7 +651,7 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
       width: learnerCourse.mobile.width,
       height: learnerCourse.mobile.height
     });
-    await mobilePage.goto(new URL(`/preview/workspace/${projectSlug}/index.html`, previewOrigin).toString(), {
+    await mobilePage.goto(scopedPreviewUrl.toString(), {
       waitUntil: "domcontentloaded"
     });
 

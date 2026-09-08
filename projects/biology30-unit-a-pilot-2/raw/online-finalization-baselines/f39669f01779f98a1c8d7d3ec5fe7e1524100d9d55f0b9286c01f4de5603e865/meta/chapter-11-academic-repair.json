@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "generatedAt": "2026-09-06T01:33:45.862Z",
+  "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "baselineWorkspaceSha256": "b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652",
+  "status": "awaiting-explicit-user-review",
+  "teacherDecision": null,
+  "sourceInput": "scripts/lib/biology30-unit-a-pilot-2/chapter-11-study.ts",
+  "sources": [
+    {
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-2-nervous-tissue",
+      "supports": "neuron and glial structure, function and morphology limits",
+      "checkedAt": "2026-09-05"
+    },
+    {
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-4-the-action-potential",
+      "supports": "ion gradients, channel states, propagation and refractory recovery",
+      "checkedAt": "2026-09-05"
+    },
+    {
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system",
+      "supports": "cortex/spinal tissue arrangement and brain functions",
+      "checkedAt": "2026-09-05"
+    }
+  ],
+  "curriculum": {
+    "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf",
+    "physicalPages": [
+      6,
+      7
+    ]
+  },
+  "tasks": [
+    {
+      "id": "neuron-labels",
+      "modelId": "myelin",
+      "lessonId": "lesson-01",
+      "title": "Identify the neuron parts and explain their jobs",
+      "prompt": "Name A–G on the diagram. For each letter, add the part’s job in a few words. Distinguish the glial cell from the insulating layers it makes. This is a peripheral neuron model, not a microscope image.",
+      "frame": "A = …; its job is … . Continue through G. Short notes are enough.",
+      "maxLength": 600,
+      "visual": "neuron",
+      "description": "A marks short branches entering a rounded region B. C marks the long fibre leaving B. D marks the insulating layers on that fibre. E encloses one whole supporting cell, including its outer nucleus. F marks the gap between two insulated segments. G marks the branches at the far end.",
+      "guide": [
+        "A: dendrites receive input. B: cell body maintains the cell and integrates inputs. C: axon carries action potentials toward terminals.",
+        "D: myelin sheath reduces current loss across the membrane. E: a Schwann cell makes one myelin segment in the PNS. An oligodendrocyte instead makes myelin segments in the CNS.",
+        "F: node of Ranvier is a gap where an action potential is regenerated. G: axon terminals communicate with the next cell, usually by releasing a neurotransmitter. The drawing shows one common form, not the shape of every neuron."
+      ],
+      "behaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "teacherPlanRow": "ch11-day-1",
+      "slides": "1–20",
+      "printedPages": "367–372",
+      "responseId": "biology30-unit-a-pilot-2:chapter-11-study:neuron-labels:v1",
+      "selector": "[data-study-task=\"neuron-labels\"]",
+      "collectionRecordId": "model-myelin",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "rights": "Original authored SVG/semantic diagrams; existing course brain schematic reused for letter identification. No new third-party raster assets.",
+      "accessibility": "Native disclosures, labelled keyboard-editable response, adjacent full text/table equivalent; SVGs can be enlarged."
+    },
+    {
+      "id": "reflex-labels",
+      "modelId": "myelin",
+      "lessonId": "lesson-01",
+      "title": "Label a withdrawal-reflex pathway",
+      "prompt": "Name A–E and state the job of each. Which three letters are neurons? Which carries information into the CNS, which connects cells inside it, and which carries information out? Explain why direction and connections identify a role more reliably than cell shape.",
+      "frame": "A = … . B carries … . C … . D … . E … . Shape alone cannot … .",
+      "maxLength": 400,
+      "visual": "reflex",
+      "description": "A detects a change at the skin. An arrow follows B into the spinal cord, passes through C within the cord, and follows D out to E in a skeletal muscle. A branch carries information toward the brain. The arrows show information flow, not neuron morphology.",
+      "guide": [
+        "A is a sensory receptor: it detects the stimulus. B is a sensory (afferent) neuron: it carries information toward the CNS. C is an interneuron: it links neurons within the CNS.",
+        "D is a motor (efferent) neuron: it carries output to E, the muscle effector that contracts. B, C and D are neurons. Their roles depend on connections and signal direction; a single cell shape does not define each class.",
+        "This simplified withdrawal arc contains an interneuron; not every reflex has the same circuit. Information also travels to the brain. No painful stimulus or classroom reflex test is required."
+      ],
+      "behaviourIds": [
+        "A1.1k-04",
+        "A1.3k-02"
+      ],
+      "teacherPlanRow": "ch11-day-1",
+      "slides": "1–20",
+      "printedPages": "367–372 and 384",
+      "responseId": "biology30-unit-a-pilot-2:chapter-11-study:reflex-labels:v1",
+      "selector": "[data-study-task=\"reflex-labels\"]",
+      "collectionRecordId": "model-myelin",
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3k"
+      ],
+      "rights": "Original authored SVG/semantic diagrams; existing course brain schematic reused for letter identification. No new third-party raster assets.",
+      "accessibility": "Native disclosures, labelled keyboard-editable response, adjacent full text/table equivalent; SVGs can be enlarged."
+    },
+    {
+      "id": "voltage-labels",
+      "modelId": "action-potential",
+      "lessonId": "lesson-02",
+      "title": "Label and read an action-potential graph",
+      "prompt": "Name the phases at A–F and the line T. Identify the refractory intervals X and Y and explain why a second impulse is harder or impossible during each. Use the voltage scale to calculate the change from A to C. The table supplies the same evidence as the graph.",
+      "frame": "A = …; B = …; C = …; D = …; E = …; F = …; T = … . X … . Y … . Change = … mV.",
+      "maxLength": 650,
+      "visual": "voltage",
+      "description": "Use the lettered voltage graph and its data table. Times and refractory boundaries are approximate teaching values, not measurements from a person.",
+      "guide": [
+        "A: resting potential (−70 mV). B: depolarization. C: peak (+35 mV). D: repolarization. E: hyperpolarization. F: return to rest. T: threshold (about −55 mV). The rise from A to C is 35 − (−70) = 105 mV.",
+        "X: absolute refractory interval, beginning during the upstroke and continuing through much of repolarization. Sodium channels are already activated or inactivated; they cannot support a new action potential until they recover.",
+        "Y: relative refractory interval. Some sodium channels have recovered, but remaining potassium conductance and the more negative voltage mean a stronger stimulus is needed. Refractory boundaries depend on channel recovery, not a universal time or voltage."
+      ],
+      "behaviourIds": [
+        "A1.1k-07"
+      ],
+      "teacherPlanRow": "ch11-day-2",
+      "slides": "21–30",
+      "printedPages": "374–377",
+      "responseId": "biology30-unit-a-pilot-2:chapter-11-study:voltage-labels:v1",
+      "selector": "[data-study-task=\"voltage-labels\"]",
+      "collectionRecordId": "model-action-potential",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "rights": "Original authored SVG/semantic diagrams; existing course brain schematic reused for letter identification. No new third-party raster assets.",
+      "accessibility": "Native disclosures, labelled keyboard-editable response, adjacent full text/table equivalent; SVGs can be enlarged."
+    },
+    {
+      "id": "transport-reasoning",
+      "modelId": "action-potential",
+      "lessonId": "lesson-02",
+      "title": "Explain the pump, channels, and forward signal",
+      "prompt": "Explain how the pump and leak channels support resting voltage. Then explain how a spike can reach the next membrane region without sodium ions travelling the whole axon. Why is the recently active region harder to excite again? Do not credit the pump with rapidly causing repolarization.",
+      "frame": "The pump … . Leak channels … . Local current … . Behind the signal … .",
+      "maxLength": 400,
+      "visual": "transport",
+      "description": "Three processes operate together but do different jobs. Use the comparison before explaining the sequence in your own words.",
+      "guide": [
+        "The ATP-powered pump maintains sodium and potassium gradients over time (three Na⁺ out, two K⁺ in). Selective permeability, especially potassium leak, helps make the inside negative at rest.",
+        "Sodium entry through voltage-gated channels produces the upstroke. Local current brings the next membrane region to threshold; a new spike is regenerated there. Sodium-channel inactivation and potassium exit drive repolarization, not an instantaneous pump reset.",
+        "Recently active channels need to recover. This refractory region limits immediate backward re-excitation during normal propagation. Myelin reduces current loss between nodes; ions do not jump the full axon."
+      ],
+      "behaviourIds": [
+        "A1.1k-08",
+        "A1.1k-09"
+      ],
+      "teacherPlanRow": "ch11-day-2",
+      "slides": "21–30",
+      "printedPages": "374–377",
+      "responseId": "biology30-unit-a-pilot-2:chapter-11-study:transport-reasoning:v1",
+      "selector": "[data-study-task=\"transport-reasoning\"]",
+      "collectionRecordId": "model-action-potential",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "rights": "Original authored SVG/semantic diagrams; existing course brain schematic reused for letter identification. No new third-party raster assets.",
+      "accessibility": "Native disclosures, labelled keyboard-editable response, adjacent full text/table equivalent; SVGs can be enlarged."
+    },
+    {
+      "id": "matter-comparison",
+      "modelId": "nervous-system",
+      "lessonId": "lesson-04",
+      "title": "Compare grey and white matter in two locations",
+      "prompt": "Identify A–D as grey or white matter. Explain the tissue contents and main role of each type. How does their arrangement differ in the cerebral cortex and spinal cord? Include one reason why white does not mean inactive and grey does not mean unmyelinated neurons only.",
+      "frame": "A/C = …; B/D = … . Grey matter … . White matter … . Their arrangement … .",
+      "maxLength": 400,
+      "visual": "matter",
+      "description": "In the cerebral section, A is the outer cortical layer and B is the underlying tissue. In the spinal-cord section, C is the central butterfly-shaped tissue and D surrounds it. These are simplified sections, not a complete map of every brain nucleus.",
+      "guide": [
+        "A and C are grey matter; B and D are white matter. Grey matter contains many cell bodies, dendrites and synapses, supporting local processing. White matter contains many myelinated axons, supporting communication between regions.",
+        "Cerebral cortex is outer grey matter with white matter beneath it; deep grey nuclei also exist. Spinal grey matter is central, surrounded by white matter. Both tissue types contain glia and axons; neither colour means that an area is inactive or contains only one kind of cell."
+      ],
+      "behaviourIds": [
+        "A1.2k-02"
+      ],
+      "teacherPlanRow": "ch11-day-4",
+      "slides": "43–53",
+      "printedPages": "389 and 396–399",
+      "responseId": "biology30-unit-a-pilot-2:chapter-11-study:matter-comparison:v1",
+      "selector": "[data-study-task=\"matter-comparison\"]",
+      "collectionRecordId": "model-nervous-system",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "rights": "Original authored SVG/semantic diagrams; existing course brain schematic reused for letter identification. No new third-party raster assets.",
+      "accessibility": "Native disclosures, labelled keyboard-editable response, adjacent full text/table equivalent; SVGs can be enlarged."
+    },
+    {
+      "id": "brain-labels",
+      "modelId": "brain",
+      "lessonId": "lesson-05",
+      "title": "Identify brain structures before interpreting a case",
+      "prompt": "Name A–J on the diagram and add one function for each. Which larger region contains lobes A–D? Which two labelled structures are parts of the brainstem? End with one reason why a symptom alone cannot diagnose damage to a single region.",
+      "frame": "A = …, helps … . Continue through J. A–D belong to … . Brainstem: … . A symptom alone … .",
+      "maxLength": 700,
+      "visual": "brain",
+      "description": "A–D mark the frontal, upper rear, lower side and back regions of the cerebrum without supplying their names. E is the folded structure behind the brainstem. F and G are deep central regions, G below F. H is the upper labelled bulge of the brainstem, I is below it, and J continues down into the vertebral canal. Deep structures are shown through the surface as a schematic cutaway.",
+      "guide": [
+        "A: frontal lobe—planning and voluntary movement. B: parietal lobe—body sensation and spatial processing. C: temporal lobe—hearing and memory. D: occipital lobe—visual processing. These lobes belong to the cerebrum; its two hemispheres work through connected networks.",
+        "E: cerebellum—movement coordination, posture and balance. F: thalamus—relay and organization of much sensory information toward cortex. G: hypothalamus—internal regulation linking autonomic and endocrine responses.",
+        "H: pons—relay pathways and contribution to breathing regulation. I: medulla oblongata—vital automatic functions, including cardiovascular and breathing control. H and I are parts of the brainstem. J: spinal cord—ascending/descending pathways and some reflex circuits.",
+        "A symptom is evidence to investigate, not a diagnosis. Several connected structures can contribute to the same function, and different causes can produce similar changes."
+      ],
+      "behaviourIds": [
+        "A1.2k-07"
+      ],
+      "teacherPlanRow": "ch11-day-5",
+      "slides": "54–65",
+      "printedPages": "389–395",
+      "responseId": "biology30-unit-a-pilot-2:chapter-11-study:brain-labels:v1",
+      "selector": "[data-study-task=\"brain-labels\"]",
+      "collectionRecordId": "model-brain",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "rights": "Original authored SVG/semantic diagrams; existing course brain schematic reused for letter identification. No new third-party raster assets.",
+      "accessibility": "Native disclosures, labelled keyboard-editable response, adjacent full text/table equivalent; SVGs can be enlarged."
+    }
+  ],
+  "invariants": {
+    "requiredPracticeItems": 80,
+    "optionalPracticeItems": 6,
+    "requiredRoutes": 18,
+    "stateVersion": 6,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "collectionRecords": 178,
+    "completionImpact": false
+  },
+  "remaining": [
+    "Microscopy and a safe reflex procedure still need teacher-approved resources.",
+    "Chapter 12/13 academic repairs, item-by-item practice and media parity reviews remain open.",
+    "No exact-build teacher acceptance or B-D transfer is implied."
+  ]
+}

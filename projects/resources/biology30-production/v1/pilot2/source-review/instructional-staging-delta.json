@@ -1,0 +1,155 @@
+{
+  "stage": 110,
+  "scope": "First-use A paragraph plus presentation staging of eight existing BCD tasks. Broader curriculum walkthrough remains in progress.",
+  "changes": [
+    {
+      "unit": "b",
+      "id": "b-topic-spermatogenesis-guided-construct",
+      "originalPrompt": "A human primary spermatocyte has replicated its DNA. State chromosome number and duplication at the start, after meiosis I and after meiosis II. Add one distinct hormonal support pathway.",
+      "stages": [
+        "Stage and count reasoning: a human primary spermatocyte has replicated its DNA. State chromosome number and duplication at the start, after meiosis I and after meiosis II.",
+        "Hormonal support: add one distinct hormonal support pathway."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "b1-3k-gamete-development",
+        "b2-1k-sources-targets-sex-traits",
+        "b2-3k-male-feedback"
+      ]
+    },
+    {
+      "unit": "b",
+      "id": "b-topic-menstrual-cycle-guided-construct",
+      "originalPrompt": "Construct four separate hormone graphs from the supplied six-day table. Choose labelled axes and an appropriate scale, then enter every point. Explain the estrogen–LH sequence and the later progesterone change. State one limitation of sparse, separately scaled indices.",
+      "stages": [
+        "Set up four separate hormone graphs from the supplied six-day table. Choose labelled axes and an appropriate scale for each hormone.",
+        "Plot: enter every point from the table.",
+        "Explain: describe the estrogen–LH sequence and the later progesterone change.",
+        "Limit: state one limitation of sparse, separately scaled indices."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "b2-2k-cycle-feedback",
+        "b2-2k-cycle-graph",
+        "b2-2s-online-operation",
+        "b2-3s-online-operation",
+        "b2-4s-online-operation"
+      ]
+    },
+    {
+      "unit": "c",
+      "id": "c-topic-single-and-two-trait-crosses-guided-construct",
+      "originalPrompt": "For AaBb × AaBb with independently assorting loci and complete dominance, calculate P(aabb) and P(A_bb). Explain each multiplication.",
+      "stages": [
+        "Use AaBb × AaBb, independently assorting loci and complete dominance. Calculate P(aabb) and explain the multiplication.",
+        "Calculate P(A_bb) and explain the multiplication."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "c2-1k-independent-assortment",
+        "c2-2k-probability"
+      ]
+    },
+    {
+      "unit": "c",
+      "id": "c-topic-pedigrees-guided-construct",
+      "originalPrompt": "Under a fully penetrant autosomal recessive model, two unaffected parents have an affected child. Give parent genotypes and the carrier probability for another child known to be unaffected.",
+      "stages": [
+        "Use a fully penetrant autosomal recessive model: two unaffected parents have an affected child. Give the parent genotypes.",
+        "For another child known to be unaffected, calculate the carrier probability."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "c2-5k-pedigree"
+      ]
+    },
+    {
+      "unit": "c",
+      "id": "c-topic-chromosome-mapping-guided-construct",
+      "originalPrompt": "An AB/ab heterozygote is test-crossed with ab/ab, producing 40 AB, 40 ab, 10 Ab and 10 aB gamete-derived offspring. Calculate recombination frequency. In a separate mapping dataset, interpret distances A–B=14, B–C=6 and A–C=20 map units.",
+      "stages": [
+        "Recombination dataset: an AB/ab heterozygote is test-crossed with ab/ab, producing 40 AB, 40 ab, 10 Ab and 10 aB gamete-derived offspring. Calculate recombination frequency.",
+        "Separate mapping dataset: interpret distances A–B=14, B–C=6 and A–C=20 map units."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "c2-3k-mapping"
+      ]
+    },
+    {
+      "unit": "c",
+      "id": "c-topic-transcription-guided-construct",
+      "originalPrompt": "Given coding DNA 5′-ATGGAATTTTAA-3′, write aligned template DNA and the mRNA 5′→3′. Explain which strand RNA polymerase reads.",
+      "stages": [
+        "Given coding DNA 5′-ATGGAATTTTAA-3′, write the aligned template DNA.",
+        "Write the mRNA 5′→3′.",
+        "Explain which strand RNA polymerase reads."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "c3-3k-transcription"
+      ]
+    },
+    {
+      "unit": "d",
+      "id": "d-topic-hardy-weinberg-guided-construct",
+      "originalPrompt": "In 100 diploid organisms, AA=36, Aa=48 and aa=16. Calculate p and q from counts, calculate the Hardy–Weinberg expectations and state which calculation needs model assumptions.",
+      "stages": [
+        "From counts: in 100 diploid organisms, AA=36, Aa=48 and aa=16. Calculate p and q.",
+        "From the model: calculate the Hardy–Weinberg expectations.",
+        "Assumptions: state which calculation needs model assumptions."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "d1-3k-allele-counts",
+        "d1-3k-expected-genotypes",
+        "d1-1k-equilibrium"
+      ]
+    },
+    {
+      "unit": "d",
+      "id": "d-topic-population-growth-guided-construct",
+      "originalPrompt": "Use the three explicitly separate datasets. For quadrats 2, 8, 4, 10 and 6 plants in five 1 m² samples from 200 m², calculate density and estimated abundance. For initial N=1000, B=120, I=30, D=70 and E=20 in ten days, calculate absolute rate and interval per-capita change. Then plot both supplied growth-model series on common labelled axes and explain why they diverge.",
+      "stages": [
+        "Quadrat estimate: use 2, 8, 4, 10 and 6 plants in five 1 m² samples from 200 m². Calculate density and estimated abundance.",
+        "Separate demographic dataset: initial N=1000, B=120, I=30, D=70 and E=20 in ten days. Calculate absolute rate and interval per-capita change.",
+        "Separate growth-model dataset: plot both supplied series on common labelled axes.",
+        "Model comparison: explain why the two growth-model series diverge."
+      ],
+      "requiredWorkloadDelta": 0,
+      "responseFieldsDelta": 0,
+      "sourceComponents": [
+        "d3-2k-density",
+        "d3-1k-demographic-balance",
+        "d3-2k-absolute-rate",
+        "d3-2k-percapita-interval",
+        "d3-3k-growth-curves",
+        "d3-2s-online-operation",
+        "d3-3s-online-operation"
+      ]
+    }
+  ],
+  "changedOwners": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts",
+      "sha256": "79efb694a29ff8e40b21d9549818167b6e99890802e4b970a276c12007dd025d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-preflight.ts",
+      "sha256": "7cd19e252508fe29fe463ca8f748f152566a59621b293c478e63327cdf17ce6e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "sha256": "f21c0e45cd1b80b91948172b2ae10c9021364640929daeffe959be1c0ab5f8ba"
+    }
+  ],
+  "priorOwnerSha256": "19afa96b0f1d36c8c168c7d0227632b34f02fb32c9498580764d362295d06d8d",
+  "teacherAcceptance": null
+}

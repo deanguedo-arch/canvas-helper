@@ -1,0 +1,646 @@
+{
+  "unit": "C",
+  "status": "draft",
+  "investigations": [
+    {
+      "id": "c-investigation-cell-observations",
+      "title": "Observe and count dividing cells",
+      "generalOutcome": 1,
+      "question": "Which visible features support a phase classification, and what can phase counts tell us?",
+      "sourceKind": "authentic textbook mitosis micrographs (Fig. 16.8), with separately labelled synthetic counts",
+      "variables": {
+        "compare": "cell phases in the same specified tissue region",
+        "observe": "visible chromosome arrangement and assigned phase",
+        "holdConstant": "sampling field boundaries and classification rules"
+      },
+      "dataset": {
+        "columns": [
+          "Phase",
+          "Illustrative count"
+        ],
+        "rows": [
+          [
+            "Interphase",
+            72
+          ],
+          [
+            "Prophase",
+            12
+          ],
+          [
+            "Metaphase",
+            6
+          ],
+          [
+            "Anaphase",
+            4
+          ],
+          [
+            "Telophase/cytokinesis",
+            6
+          ]
+        ]
+      },
+      "prediction": "Predict which visible feature would distinguish metaphase from anaphase before opening the annotated comparison.",
+      "procedure": [
+        "Inspect the authentic supplied Fig. 16.8 micrographs at full size; record the cell label, visible chromosome feature and tentative phase before revealing the reference. Do not claim these are verified onion cells or that the synthetic counts were measured from these selected photos.",
+        "Compare your classifications with the annotated reference, retaining ambiguous cells as uncertain.",
+        "Use the separate illustrative 100-cell table to compute the mitotic index. Estimate phase times only under the supplied asynchronous, steady-population model and 20-hour cycle assumption.",
+        "Explain how field choice, ambiguous boundaries and unequal cell-cycle conditions affect the inference."
+      ],
+      "expected": "Illustrative mitotic index is (12+6+4+6)/100 = 0.28 = 28%. Model phase times are 14.4, 2.4, 1.2, 0.8 and 1.2 hours, summing to 20. A photograph supports digital observation, not slide preparation or physical microscope competence.",
+      "limitations": [
+        "Selected micrographs illustrate phases; they are not an unbiased field for estimating phase frequencies.",
+        "Phase frequencies approximate time only under stated model assumptions."
+      ],
+      "saveFields": [
+        "question and classification rule",
+        "cell observations with uncertainty",
+        "index and conditional time calculations",
+        "comparison and model limits"
+      ],
+      "coreSkillTopicId": "c-topic-mitosis",
+      "coreSkillPartId": "c-topic-mitosis-observation-and-simulation",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "C1.1s",
+        "C1.2s",
+        "C1.3s",
+        "C1.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "observationSource": {
+        "chapter": 16,
+        "physicalPage": 14,
+        "printedPage": 557,
+        "figure": "16.8",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "sourceSha256": "cf8928524eb1535bb25342bdfdba5a5268f632b2d4048b796af7a992aaf4bb66",
+        "initialVisualReview": "A has a diffuse nucleus; B condensed chromosomes; C equatorial alignment; D two separating groups; E re-forming daughter regions. These are distinct from the adjacent schematic illustrations.",
+        "assetPreparation": "Five original embedded photographs extracted unchanged, inspected and matched to labels; responsive/reveal placement pending.",
+        "rights": "supplied textbook material for authorized local course review; no public release authorized",
+        "openlyLicensedSupplement": {
+          "manifest": "projects/resources/biology30-production/v1/units/unit-c/pilot2-observation-images.json",
+          "imageId": "c-onion-mitosis-staticd",
+          "role": "real image observation and model comparison; synthetic count dataset remains distinct",
+          "placementStatus": "pending"
+        },
+        "embeddedImageManifest": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/extraction.json"
+      },
+      "graphExercise": {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json",
+        "responseId": "c-topic-the-cell-cycle-guided-construct",
+        "relationship": "Open the same saved core graph exercise; do not create a duplicate graph answer or substitute model values.",
+        "requiredForInvestigationExtension": true
+      },
+      "responseFields": [
+        {
+          "id": "c-investigation-cell-observations-plan",
+          "label": "question and classification rule",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Which features separate alignment from separation? Predict one central band versus two groups. Keep visible-feature rules fixed; retain unclear views.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-cell-observations-observations",
+          "label": "cell observations with uncertainty",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "A:diffuse nucleus; B:condensed cluster, alignment unclear; C:central band; D:two groups; E:two daughter regions. B/E exact boundaries remain uncertain.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-cell-observations-explanation",
+          "label": "index and conditional time calculations",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "Separate counts:mitotic28/100=.28. With steady asynchronous20h model, I/P/M/A/T times=14.4/2.4/1.2/.8/1.2h. These are not measured photo durations.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-cell-observations-revision",
+          "label": "comparison and model limits",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "A model drawing cannot prove a photo feature. Retain uncertain labels; inspect further views. Counts/time inference needs representative sampling and similar cycles.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "c-investigation-cell-observations",
+            "title": "Observe and count dividing cells",
+            "generalOutcome": 1,
+            "question": "Which visible features support a phase classification, and what can phase counts tell us?",
+            "sourceKind": "authentic textbook mitosis micrographs (Fig. 16.8), with separately labelled synthetic counts",
+            "variables": {
+              "compare": "cell phases in the same specified tissue region",
+              "observe": "visible chromosome arrangement and assigned phase",
+              "holdConstant": "sampling field boundaries and classification rules"
+            },
+            "dataset": {
+              "columns": [
+                "Phase",
+                "Illustrative count"
+              ],
+              "rows": [
+                [
+                  "Interphase",
+                  72
+                ],
+                [
+                  "Prophase",
+                  12
+                ],
+                [
+                  "Metaphase",
+                  6
+                ],
+                [
+                  "Anaphase",
+                  4
+                ],
+                [
+                  "Telophase/cytokinesis",
+                  6
+                ]
+              ]
+            },
+            "prediction": "Predict which visible feature would distinguish metaphase from anaphase before opening the annotated comparison.",
+            "procedure": [
+              "Inspect the authentic supplied Fig. 16.8 micrographs at full size; record the cell label, visible chromosome feature and tentative phase before revealing the reference. Do not claim these are verified onion cells or that the synthetic counts were measured from these selected photos.",
+              "Compare your classifications with the annotated reference, retaining ambiguous cells as uncertain.",
+              "Use the separate illustrative 100-cell table to compute the mitotic index. Estimate phase times only under the supplied asynchronous, steady-population model and 20-hour cycle assumption.",
+              "Explain how field choice, ambiguous boundaries and unequal cell-cycle conditions affect the inference."
+            ],
+            "expected": "Illustrative mitotic index is (12+6+4+6)/100 = 0.28 = 28%. Model phase times are 14.4, 2.4, 1.2, 0.8 and 1.2 hours, summing to 20. A photograph supports digital observation, not slide preparation or physical microscope competence.",
+            "limitations": [
+              "Selected micrographs illustrate phases; they are not an unbiased field for estimating phase frequencies.",
+              "Phase frequencies approximate time only under stated model assumptions."
+            ],
+            "saveFields": [
+              "question and classification rule",
+              "cell observations with uncertainty",
+              "index and conditional time calculations",
+              "comparison and model limits"
+            ],
+            "coreSkillTopicId": "c-topic-mitosis",
+            "coreSkillPartId": "c-topic-mitosis-observation-and-simulation",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "C1.1s",
+              "C1.2s",
+              "C1.3s",
+              "C1.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending",
+            "observationSource": {
+              "chapter": 16,
+              "physicalPage": 14,
+              "printedPage": 557,
+              "figure": "16.8",
+              "labels": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E"
+              ],
+              "sourceSha256": "cf8928524eb1535bb25342bdfdba5a5268f632b2d4048b796af7a992aaf4bb66",
+              "initialVisualReview": "A has a diffuse nucleus; B condensed chromosomes; C equatorial alignment; D two separating groups; E re-forming daughter regions. These are distinct from the adjacent schematic illustrations.",
+              "assetPreparation": "pending exact source-image extraction and accessible placement review",
+              "rights": "supplied textbook material for authorized local course review; no public release authorized",
+              "openlyLicensedSupplement": {
+                "manifest": "projects/resources/biology30-production/v1/units/unit-c/pilot2-observation-images.json",
+                "imageId": "c-onion-mitosis-staticd",
+                "role": "real image observation and model comparison; synthetic count dataset remains distinct",
+                "placementStatus": "pending"
+              }
+            }
+          }
+        }
+      ],
+      "materialFiles": [
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im1.jpg",
+          "sha256": "bd1122c6654b1fcbe923a508d0eb464bf20d26aaf178d7728333f1de90a93f37",
+          "role": "Supplied MHR textbook chapter16 page557 Fig16.8; original photograph D; authorized local blocked review only, no public redistribution clearance"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im2.jpg",
+          "sha256": "b72d76aa6f78899a3e2f8f8800b6bf06aac391196c597193ff59a266c587c474",
+          "role": "Supplied MHR textbook chapter16 page557 Fig16.8; original photograph A; authorized local blocked review only, no public redistribution clearance"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im3.jpg",
+          "sha256": "a6715b30d11fd7a9129baaa1ecce0933b2f49c6575628dea78158c6e1bb5bee6",
+          "role": "Supplied MHR textbook chapter16 page557 Fig16.8; original photograph B; authorized local blocked review only, no public redistribution clearance"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im4.jpg",
+          "sha256": "bff6e0bdaf3f3e31043d78bbcd75cbdf83ee08ec0e67aa877306d62a17fdab1c",
+          "role": "Supplied MHR textbook chapter16 page557 Fig16.8; original photograph C; authorized local blocked review only, no public redistribution clearance"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im5.jpg",
+          "sha256": "c36dae801b8da3af269245c7d1cfa1a3616841af0c89d44e32e6acb6f1e2e077",
+          "role": "Supplied MHR textbook chapter16 page557 Fig16.8; original photograph E; authorized local blocked review only, no public redistribution clearance"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/extraction.json",
+          "sha256": "fb3355ebe07fa6d4b49a18c94e49c73d61beca5ad834671b411e07e1b0dd9b16",
+          "role": "Exact extracted-photo provenance, label mapping and observation limits"
+        }
+      ]
+    },
+    {
+      "id": "c-investigation-inheritance-data",
+      "title": "Expected ratios and observed offspring",
+      "generalOutcome": 2,
+      "question": "How closely do simulated Aa × Aa offspring match the predicted ratio in different samples?",
+      "sourceKind": "synthetic independent offspring samples under a stated complete-dominance model",
+      "variables": {
+        "compare": "small and large sample sizes",
+        "observe": "AA, Aa and aa counts",
+        "holdConstant": "parental genotypes, equal gamete probabilities, independent unions, equal survival"
+      },
+      "dataset": {
+        "columns": [
+          "Sample",
+          "AA",
+          "Aa",
+          "aa"
+        ],
+        "rows": [
+          [
+            "Small 1",
+            3,
+            5,
+            2
+          ],
+          [
+            "Small 2",
+            1,
+            7,
+            2
+          ],
+          [
+            "Large 1",
+            24,
+            51,
+            25
+          ],
+          [
+            "Large 2",
+            28,
+            48,
+            24
+          ]
+        ]
+      },
+      "prediction": "Construct the gametes and expected probabilities before examining the samples. Predict whether each group must equal 1:2:1 exactly.",
+      "procedure": [
+        "Construct Aa × Aa and record AA=1/4, Aa=1/2, aa=1/4, with phenotype assumptions stated.",
+        "Calculate expected counts for 10 and 100 offspring. Record differences between observed and expected.",
+        "Compare replicate samples at the same size before comparing small and large samples.",
+        "Revise a claim that one deviation proves an inheritance rule false; state what patterns and additional evidence would justify a different model."
+      ],
+      "expected": "Expected counts are 2.5,5,2.5 at n=10 and 25,50,25 at n=100; expected counts need not be whole observed organisms. Samples vary by chance. The supplied large samples show smaller proportional departures than the most uneven small sample, but this is not guaranteed for every draw.",
+      "limitations": [
+        "Simulation does not demonstrate breeding or field data collection.",
+        "No tongue rolling, earlobes or private family traits are treated as simple Mendelian tests."
+      ],
+      "saveFields": [
+        "question and expected cross",
+        "observed and expected counts",
+        "replicate comparison",
+        "alternative model and revised conclusion"
+      ],
+      "coreSkillTopicId": "c-topic-single-and-two-trait-crosses",
+      "coreSkillPartId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "C2.1s",
+        "C2.2s",
+        "C2.3s",
+        "C2.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "responseFields": [
+        {
+          "id": "c-investigation-inheritance-data-plan",
+          "label": "question and expected cross",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Predict AA/Aa/aa=1/4,1/2,1/4 from Aa×Aa. Compare replicates at each n; hold gamete probabilities, unions, scoring and survival fixed.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-inheritance-data-observations",
+          "label": "observed and expected counts",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "n10:3/5/2,1/7/2; expected2.5/5/2.5. n100:24/51/25,28/48/24; expected25/50/25. Expectations may be fractional; observations are counts.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-inheritance-data-explanation",
+          "label": "replicate comparison",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "Small2 has AA proportion.10 vs expected.25; large2 has.28 vs.25. These larger samples are closer proportionally, but not every larger draw must be.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-inheritance-data-revision",
+          "label": "alternative model and revised conclusion",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "One deviation does not refute segregation. Repeat independent samples and check scoring/survival. Sustained departures may warrant an alternative model.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "c-investigation-inheritance-data",
+            "title": "Expected ratios and observed offspring",
+            "generalOutcome": 2,
+            "question": "How closely do simulated Aa × Aa offspring match the predicted ratio in different samples?",
+            "sourceKind": "synthetic independent offspring samples under a stated complete-dominance model",
+            "variables": {
+              "compare": "small and large sample sizes",
+              "observe": "AA, Aa and aa counts",
+              "holdConstant": "parental genotypes, equal gamete probabilities, independent unions, equal survival"
+            },
+            "dataset": {
+              "columns": [
+                "Sample",
+                "AA",
+                "Aa",
+                "aa"
+              ],
+              "rows": [
+                [
+                  "Small 1",
+                  3,
+                  5,
+                  2
+                ],
+                [
+                  "Small 2",
+                  1,
+                  7,
+                  2
+                ],
+                [
+                  "Large 1",
+                  24,
+                  51,
+                  25
+                ],
+                [
+                  "Large 2",
+                  28,
+                  48,
+                  24
+                ]
+              ]
+            },
+            "prediction": "Construct the gametes and expected probabilities before examining the samples. Predict whether each group must equal 1:2:1 exactly.",
+            "procedure": [
+              "Construct Aa × Aa and record AA=1/4, Aa=1/2, aa=1/4, with phenotype assumptions stated.",
+              "Calculate expected counts for 10 and 100 offspring. Record differences between observed and expected.",
+              "Compare replicate samples at the same size before comparing small and large samples.",
+              "Revise a claim that one deviation proves an inheritance rule false; state what patterns and additional evidence would justify a different model."
+            ],
+            "expected": "Expected counts are 2.5,5,2.5 at n=10 and 25,50,25 at n=100; expected counts need not be whole observed organisms. Samples vary by chance. The supplied large samples show smaller proportional departures than the most uneven small sample, but this is not guaranteed for every draw.",
+            "limitations": [
+              "Simulation does not demonstrate breeding or field data collection.",
+              "No tongue rolling, earlobes or private family traits are treated as simple Mendelian tests."
+            ],
+            "saveFields": [
+              "question and expected cross",
+              "observed and expected counts",
+              "replicate comparison",
+              "alternative model and revised conclusion"
+            ],
+            "coreSkillTopicId": "c-topic-single-and-two-trait-crosses",
+            "coreSkillPartId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "C2.1s",
+              "C2.2s",
+              "C2.3s",
+              "C2.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": []
+    },
+    {
+      "id": "c-investigation-molecular-evidence",
+      "title": "Test a DNA sequence explanation",
+      "generalOutcome": 3,
+      "question": "Can sequence and fragment evidence distinguish an insertion from a substitution?",
+      "sourceKind": "authored DNA/fragment model, with fictional labels",
+      "variables": {
+        "compare": "reference, substitution and insertion models",
+        "observe": "coding sequence, translated segment and predicted fragment sizes",
+        "holdConstant": "5′→3′ coding orientation, reading frame, standard supplied codon table, the supplied separate fragment-assay model"
+      },
+      "dataset": {
+        "columns": [
+          "Model",
+          "Coding DNA (5′→3′)",
+          "Model fragments (bp)"
+        ],
+        "rows": [
+          [
+            "Reference",
+            "ATGGAATTTTAA",
+            "400 + 600"
+          ],
+          [
+            "Substitution",
+            "ATGGAGTTTTAA",
+            "400 + 600"
+          ],
+          [
+            "Insertion",
+            "ATGAGAATTTTAA",
+            "401 + 600"
+          ]
+        ]
+      },
+      "prediction": "Predict whether an unchanged fragment pattern guarantees an unchanged DNA sequence.",
+      "procedure": [
+        "Transcribe each coding sequence using the stated orientation, then translate complete codons with the supplied code table.",
+        "Compare reference and substitution products; do not assume every substitution changes an amino acid.",
+        "Compute total fragment sizes and interpret the one-base insertion while retaining a practical gel-resolution limitation.",
+        "Design an additional sequence-based test that could distinguish equal-length molecules. Respond to the alternative claim that a matching gel proves identity."
+      ],
+      "expected": "Reference mRNA AUG GAA UUU UAA yields Met–Glu–Phe then stop. Substitution AUG GAG UUU UAA gives the same peptide. Insertion AUG AGA AUU UUA plus one incomplete base alters the displayed reading frame; a downstream stop is not shown. Totals are 1000,1000,1001 bp. A typical classroom gel may not resolve a one-base difference near these sizes; sequencing would be more discriminating.",
+      "limitations": [
+        "Fragments are a separate simplified assay model and are not calculated from the short displayed coding segment.",
+        "Matching bands establish compatibility at tested sites, not personal identity or guilt."
+      ],
+      "saveFields": [
+        "question and competing predictions",
+        "oriented RNA and peptide sequences",
+        "fragment evidence and assay limits",
+        "additional test and revised claim"
+      ],
+      "coreSkillTopicId": "c-topic-genetic-technologies",
+      "coreSkillPartId": "c-topic-genetic-technologies-applications-and-uncertainty",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "C3.1s",
+        "C3.2s",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "suppliedCodonKey": {
+        "orientation": "mRNA codons read 5′→3′ in the displayed frame",
+        "AUG": "methionine (Met)",
+        "GAA": "glutamate (Glu)",
+        "GAG": "glutamate (Glu)",
+        "UUU": "phenylalanine (Phe)",
+        "UAA": "stop signal; not an amino acid",
+        "AGA": "arginine (Arg)",
+        "AUU": "isoleucine (Ile)",
+        "UUA": "leucine (Leu)"
+      },
+      "responseFields": [
+        {
+          "id": "c-investigation-molecular-evidence-plan",
+          "label": "question and competing predictions",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Can equal fragment patterns hide sequence change? Predict substitution can preserve size. Hold coding5′→3′ orientation, initial frame and assay conditions fixed.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-molecular-evidence-observations",
+          "label": "oriented RNA and peptide sequences",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "RNA:ref AUG GAA UUU UAA; sub AUG GAG UUU UAA; ins AUG AGA AUU UUA +A. Peptides:Met-Glu-Phe/stop; same; Met-Arg-Ile-Leu/incomplete.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-molecular-evidence-explanation",
+          "label": "fragment evidence and assay limits",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "Fragments total1000,1000,1001bp; separate assay from short sequence. One-base change may be unresolved by classroom gel. Matching bands do not prove sequence identity.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "c-investigation-molecular-evidence-revision",
+          "label": "additional test and revised claim",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "Sequence equal-length molecules to distinguish substitution. Revise matching-bands claim to compatibility at tested sizes; include controls and provenance.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "c-investigation-molecular-evidence",
+            "title": "Test a DNA sequence explanation",
+            "generalOutcome": 3,
+            "question": "Can sequence and fragment evidence distinguish an insertion from a substitution?",
+            "sourceKind": "authored DNA/fragment model, with fictional labels",
+            "variables": {
+              "compare": "reference, substitution and insertion models",
+              "observe": "coding sequence, translated segment and predicted fragment sizes",
+              "holdConstant": "5′→3′ coding orientation, reading frame, standard supplied codon table, specified cut sites"
+            },
+            "dataset": {
+              "columns": [
+                "Model",
+                "Coding DNA (5′→3′)",
+                "Model fragments (bp)"
+              ],
+              "rows": [
+                [
+                  "Reference",
+                  "ATGGAATTTTAA",
+                  "400 + 600"
+                ],
+                [
+                  "Substitution",
+                  "ATGGAGTTTTAA",
+                  "400 + 600"
+                ],
+                [
+                  "Insertion",
+                  "ATGAGAATTTTAA",
+                  "401 + 600"
+                ]
+              ]
+            },
+            "prediction": "Predict whether an unchanged fragment pattern guarantees an unchanged DNA sequence.",
+            "procedure": [
+              "Transcribe each coding sequence using the stated orientation, then translate complete codons with the supplied code table.",
+              "Compare reference and substitution products; do not assume every substitution changes an amino acid.",
+              "Compute total fragment sizes and interpret the one-base insertion while retaining a practical gel-resolution limitation.",
+              "Design an additional sequence-based test that could distinguish equal-length molecules. Respond to the alternative claim that a matching gel proves identity."
+            ],
+            "expected": "Reference mRNA AUG GAA UUU UAA yields Met–Glu–Phe then stop. Substitution AUG GAG UUU UAA gives the same peptide. Insertion AUG AGA AUU UUA plus one incomplete base alters the displayed reading frame; a downstream stop is not shown. Totals are 1000,1000,1001 bp. A typical classroom gel may not resolve a one-base difference near these sizes; sequencing would be more discriminating.",
+            "limitations": [
+              "Fragments are a separate simplified assay model and are not calculated from the short displayed coding segment.",
+              "Matching bands establish compatibility at tested sites, not personal identity or guilt."
+            ],
+            "saveFields": [
+              "question and competing predictions",
+              "oriented RNA and peptide sequences",
+              "fragment evidence and assay limits",
+              "additional test and revised claim"
+            ],
+            "coreSkillTopicId": "c-topic-genetic-technologies",
+            "coreSkillPartId": "c-topic-genetic-technologies-applications-and-uncertainty",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "C3.1s",
+              "C3.2s",
+              "C3.3s",
+              "C3.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": []
+    }
+  ],
+  "teacherAcceptance": null
+}

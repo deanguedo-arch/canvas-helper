@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "setId": "lesson-checks-module-5",
+  "items": [
+    {
+      "id": "lesson-12-check-1",
+      "setId": "lesson-12",
+      "outcomeIds": ["A2.1k", "A2.2k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-hormone-signalling", "system-m2-l1"],
+      "prompt": "Why can a circulating hormone affect one tissue but not another?",
+      "choices": {"a": "Only target cells have the appropriate receptor and response machinery.", "b": "Blood carries hormones to exactly one organ.", "c": "Hormones become action potentials in every cell.", "d": "Non-target tissues never receive the hormone."},
+      "answerKey": "a",
+      "rationale": "Circulation may expose many tissues to a hormone, but response requires an appropriate receptor and intracellular machinery.",
+      "targetedFeedback": {"b": "Blood distributes hormones broadly rather than through a dedicated one-organ tube.", "c": "Hormone binding can alter cell activity but does not turn the hormone itself into an action potential.", "d": "Non-target tissues can receive the hormone in blood but lack an effective response pathway."}
+    },
+    {
+      "id": "lesson-12-check-2",
+      "setId": "lesson-12",
+      "outcomeIds": ["A2.4k", "A2.5k"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-homeostasis", "system-m2-l1"],
+      "prompt": "Blood calcium falls, PTH rises, and target responses increase blood calcium. Which event closes the negative-feedback loop?",
+      "choices": {"a": "Rising calcium reduces the stimulus for PTH release.", "b": "PTH enters every cell equally.", "c": "The parathyroid gland becomes a neuron.", "d": "Calcium continues falling because PTH rose."},
+      "answerKey": "a",
+      "rationale": "The return effect occurs when the response raises calcium and thereby reduces the original low-calcium stimulus.",
+      "targetedFeedback": {"b": "PTH targets responsive tissues; equal response in every cell is not required.", "c": "An endocrine gland does not become neural tissue.", "d": "A PTH response should oppose, not explain continuation of, the original decrease in this simple model."}
+    },
+    {
+      "id": "lesson-12-check-3",
+      "setId": "lesson-12",
+      "outcomeIds": ["A2.2k", "A2.4k"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "openstax-a-and-p"],
+      "prompt": "A model shows a normal hormone concentration but almost no target response. Which added measurement would best locate the failure?",
+      "choices": {"a": "Receptor binding or downstream target-cell activity", "b": "The colour of the gland", "c": "Only the learner's pulse", "d": "Whether the hormone has a short name"},
+      "answerKey": "a",
+      "rationale": "Normal circulating signal with weak effect directs investigation toward receptor availability and intracellular response.",
+      "targetedFeedback": {"b": "Gland colour does not test target responsiveness.", "c": "Pulse may be unrelated and cannot locate a receptor-level failure alone.", "d": "Terminology length has no physiological meaning."}
+    },
+    {
+      "id": "lesson-13-check-1",
+      "setId": "lesson-13",
+      "outcomeIds": ["A2.1k", "A2.2k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-pituitary", "system-m2-l2"],
+      "prompt": "Which statement correctly distinguishes the posterior from the anterior pituitary?",
+      "choices": {"a": "The posterior pituitary releases hypothalamic ADH; anterior-pituitary cells synthesize and release hormones such as hGH.", "b": "The posterior pituitary synthesizes every endocrine hormone.", "c": "The anterior pituitary is a peripheral nerve.", "d": "Both regions are independent of the hypothalamus."},
+      "answerKey": "a",
+      "rationale": "ADH is synthesized in hypothalamic neurons and released from posterior-pituitary terminals, while anterior-pituitary endocrine cells synthesize their hormones under hypothalamic control.",
+      "targetedFeedback": {"b": "The posterior pituitary releases specific hypothalamic hormones rather than synthesizing every hormone.", "c": "The anterior pituitary is endocrine tissue, not a peripheral nerve.", "d": "Both regions are controlled by the hypothalamus through different routes."}
+    },
+    {
+      "id": "lesson-13-check-2",
+      "setId": "lesson-13",
+      "outcomeIds": ["A2.3k", "A2.6k", "A2.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-pituitary", "system-m2-l6"],
+      "prompt": "A synthetic case shows high plasma osmotic concentration, high ADH, and persistently dilute urine. Which mechanism is most consistent?",
+      "choices": {"a": "Reduced kidney response to ADH", "b": "Failure to release any ADH", "c": "Excess insulin action", "d": "A normal water-conservation response"},
+      "answerKey": "a",
+      "rationale": "High ADH shows the central signal is present, while dilute urine suggests collecting ducts are responding weakly.",
+      "targetedFeedback": {"b": "The measured ADH is high, so absent release does not fit.", "c": "Insulin regulates glucose pathways rather than collecting-duct water permeability.", "d": "Effective conservation would usually produce more concentrated, lower-volume urine."}
+    },
+    {
+      "id": "lesson-13-check-3",
+      "setId": "lesson-13",
+      "outcomeIds": ["A2.3k", "A2.6k", "A2.3s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "openstax-a-and-p"],
+      "prompt": "Why is one random hGH measurement weak evidence for a growth-disorder conclusion?",
+      "choices": {"a": "hGH secretion is pulsatile and growth also depends on age, nutrition, thyroid function, genetics, and growth factors.", "b": "Hormones cannot be measured.", "c": "hGH acts only during one minute of life.", "d": "Adult height proves pituitary output."},
+      "answerKey": "a",
+      "rationale": "Timing and multiple interacting determinants make a single hGH concentration insufficient; repeated or stimulation-based evidence and clinical context are needed.",
+      "targetedFeedback": {"b": "Hormones can be measured, but interpretation depends on timing and context.", "c": "hGH secretion occurs across life and varies over time.", "d": "Height reflects many influences and cannot isolate pituitary output."}
+    },
+    {
+      "id": "lesson-14-check-1",
+      "setId": "lesson-14",
+      "outcomeIds": ["A2.1k", "A2.2k", "A2.4k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-thyroid", "system-m2-l4"],
+      "prompt": "Which hormone from the anterior pituitary directly stimulates the thyroid gland?",
+      "choices": {"a": "TSH", "b": "PTH", "c": "Insulin", "d": "ADH"},
+      "answerKey": "a",
+      "rationale": "Thyroid-stimulating hormone from the anterior pituitary supports thyroid-hormone synthesis and release.",
+      "targetedFeedback": {"b": "PTH is released by parathyroid glands and regulates blood calcium.", "c": "Insulin is released by pancreatic beta cells and participates in glucose regulation.", "d": "ADH is released from the posterior pituitary and regulates water balance."}
+    },
+    {
+      "id": "lesson-14-check-2",
+      "setId": "lesson-14",
+      "outcomeIds": ["A2.3k", "A2.6k", "A2.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-thyroid", "system-m2-l4"],
+      "prompt": "Synthetic results show low thyroxine and high TSH. Which location is the leading candidate in an otherwise intact axis?",
+      "choices": {"a": "The thyroid is not producing enough hormone despite strong pituitary drive.", "b": "The pituitary is producing no TSH.", "c": "The pancreas is releasing too much glucagon.", "d": "The posterior pituitary is releasing ADH."},
+      "answerKey": "a",
+      "rationale": "High TSH shows pituitary drive is present, while low thyroxine indicates a thyroid-level production limitation is plausible.",
+      "targetedFeedback": {"b": "The TSH measurement is high, not absent.", "c": "Glucagon does not directly explain the TSH-thyroxine pairing.", "d": "ADH concerns water balance and does not account for this thyroid-axis pattern."}
+    },
+    {
+      "id": "lesson-14-check-3",
+      "setId": "lesson-14",
+      "outcomeIds": ["A2.3k", "A2.4k", "A2.6k"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "notes-thyroid"],
+      "prompt": "Low calcium persists while PTH is high. Which next evidence best distinguishes two candidate mechanisms?",
+      "choices": {"a": "Kidney function, vitamin D status, and intestinal calcium absorption", "b": "Hair colour alone", "c": "Whether the thyroid is drawn above the pancreas", "d": "A second PTH label without a calcium measurement"},
+      "answerKey": "a",
+      "rationale": "The high PTH signal is present, so target pathways and calcium supply are logical places to seek discriminating evidence.",
+      "targetedFeedback": {"b": "Hair colour does not test calcium target pathways.", "c": "Diagram placement does not distinguish a physiological cause.", "d": "Repeating the signal label without target evidence does not locate the limitation."}
+    },
+    {
+      "id": "lesson-16-check-1",
+      "setId": "lesson-16",
+      "outcomeIds": ["A2.2k", "A2.5k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-adrenals", "system-m2-l3"],
+      "prompt": "Which pairing correctly distinguishes adrenal-medulla and adrenal-cortex responses?",
+      "choices": {"a": "Medulla—rapid sympathetic activation and epinephrine; cortex—slower ACTH-supported cortisol release", "b": "Medulla—thyroxine; cortex—insulin", "c": "Medulla—ADH synthesis; cortex—action potentials", "d": "Both regions release only cortisol"},
+      "answerKey": "a",
+      "rationale": "The adrenal medulla is activated directly by sympathetic input for a rapid catecholamine phase; the cortex participates in slower steroid-hormone pathways including cortisol.",
+      "targetedFeedback": {"b": "Thyroxine is from the thyroid and insulin from pancreatic beta cells.", "c": "ADH is synthesized in the hypothalamus; cortical endocrine cells do not send axonal action potentials as their circulating signal.", "d": "The medulla releases catecholamines, while the cortex releases steroid hormones including cortisol and aldosterone."}
+    },
+    {
+      "id": "lesson-16-check-2",
+      "setId": "lesson-16",
+      "outcomeIds": ["A2.3k", "A2.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-adrenals", "system-m2-l3"],
+      "prompt": "After two hours without fluid, osmotic concentration and ADH rise while urine volume falls. Which mechanism best fits?",
+      "choices": {"a": "ADH increases collecting-duct water permeability, conserving water.", "b": "ADH blocks every kidney transport process.", "c": "Aldosterone directly converts urine into blood.", "d": "Insulin causes the urine concentration change."},
+      "answerKey": "a",
+      "rationale": "Rising osmotic concentration promotes ADH release, which increases kidney water reabsorption and reduces water loss.",
+      "targetedFeedback": {"b": "ADH specifically increases water permeability rather than blocking all transport.", "c": "Aldosterone alters sodium transport; it does not convert one body fluid into another.", "d": "Insulin regulates glucose metabolism, not the principal water-permeability mechanism described."}
+    },
+    {
+      "id": "lesson-16-check-3",
+      "setId": "lesson-16",
+      "outcomeIds": ["A2.1s", "A2.4s", "A2.2sts"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "health-canada"],
+      "prompt": "Which evaluation best addresses both scientific and social dimensions of a hormone-monitoring technology?",
+      "choices": {"a": "Compare accuracy and health outcomes while considering safety, privacy, access, cost, and user burden.", "b": "Assume more measurements always produce better health.", "c": "Use the manufacturer's slogan as the only evidence.", "d": "Ignore people who cannot afford the device."},
+      "answerKey": "a",
+      "rationale": "An STS evaluation weighs mechanism and outcome evidence together with risks, equity, privacy, cost, and lived use.",
+      "targetedFeedback": {"b": "More data can create burden or false alarms and must be linked to meaningful outcomes.", "c": "Promotional claims require independent evidence and limitations.", "d": "Access and equity are central consequences, not irrelevant details."}
+    }
+  ]
+}

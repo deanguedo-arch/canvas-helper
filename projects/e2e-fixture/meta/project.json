@@ -14,7 +14,7 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-17T20:08:49.339Z",
   "createdAt": "2026-03-16T00:00:00.000Z",
-  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "updatedAt": "2026-08-27T15:38:47.955Z",
   "workspaceApprovedAt": "2026-04-17T20:08:49.339Z",
   "migrationState": "migrated",
   "projectType": "conversion",
@@ -44,6 +44,11 @@
     "driverId": "direct-workspace-v1",
     "familyId": "studio-e2e-fixture",
     "qualityProfile": "direct-workspace",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    },
     "learnerSurfaces": {
       "schemaVersion": 1,
       "mode": "static-pages-complete",
@@ -57,11 +62,6 @@
           "route": ""
         }
       ]
-    },
-    "studioEditing": {
-      "enabled": true,
-      "renameCourse": true,
-      "imageAssets": true
     }
   }
 }

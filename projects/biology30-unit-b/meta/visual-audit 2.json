@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-b",
+  "buildSha256": "9f0b61ac8bdd17527ccf6169a88c85af662e26d544abd3cc8f0df9773729688e",
+  "workspaceTreeSha256": "9f0b61ac8bdd17527ccf6169a88c85af662e26d544abd3cc8f0df9773729688e",
+  "generatedAt": "2026-08-31T01:55:26.049Z",
+  "status": "geometry-passed-awaiting-visual-inspection",
+  "viewports": [
+    {
+      "id": "desktop-1440x900",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "id": "tablet-1024x768",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "mobile-390x844",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "requiredRoutes": [
+    "overview",
+    "b-lesson-01",
+    "b-lesson-08",
+    "b-lesson-14",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub"
+  ],
+  "routeSheets": [
+    {
+      "viewport": "desktop-1440x900",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/routes-desktop-1440x900-01.png",
+      "sha256": "e128db22e299440e19e25873302c73b0cd69009f9e54d9bae452684efb4dbdc5",
+      "routes": [
+        "overview",
+        "b-lesson-01",
+        "b-lesson-08",
+        "b-lesson-14",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/routes-tablet-1024x768-01.png",
+      "sha256": "4c90bded7527285109f73b57b0822b9b31383088d5cb2cc4879ac90412a437e1",
+      "routes": [
+        "overview",
+        "b-lesson-01",
+        "b-lesson-08",
+        "b-lesson-14",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    },
+    {
+      "viewport": "mobile-390x844",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/routes-mobile-390x844-01.png",
+      "sha256": "eed8a223e6fa3622265e8b25b92ddeb1bc8e18a58a046f7f6bf6e407d15142f2",
+      "routes": [
+        "overview",
+        "b-lesson-01",
+        "b-lesson-08",
+        "b-lesson-14",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    }
+  ],
+  "expectedFigureCount": 14,
+  "figures": [
+    {
+      "figureId": "b-lesson-01-concept-model",
+      "routeId": "b-lesson-01",
+      "title": "Reproduction as an evidence system",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/01-b-lesson-01-concept-model.png",
+      "screenshotSha256": "998ad387523d6359f96d27b9464317451a3e3a3ca0e5c1b955e0817064ff706e"
+    },
+    {
+      "figureId": "b-lesson-02-concept-model",
+      "routeId": "b-lesson-02",
+      "title": "Sperm production-to-delivery pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/02-b-lesson-02-concept-model.png",
+      "screenshotSha256": "2373a819061f293f97befeebd620867f03c38168df62186bbfd13330683efa57"
+    },
+    {
+      "figureId": "b-lesson-03-concept-model",
+      "routeId": "b-lesson-03",
+      "title": "Oocyte-to-implantation pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/03-b-lesson-03-concept-model.png",
+      "screenshotSha256": "725db76ada77328c15732da635ae1e681ee8318280efbc6fc826e18973639653"
+    },
+    {
+      "figureId": "b-lesson-04-concept-model",
+      "routeId": "b-lesson-04",
+      "title": "Chromosome-to-tissue response pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/04-b-lesson-04-concept-model.png",
+      "screenshotSha256": "669c2a4f03feee71c91ae8c1021fa41afcf74a43bc3d2c4f1aafdaf290950f5e"
+    },
+    {
+      "figureId": "b-lesson-05-concept-model",
+      "routeId": "b-lesson-05",
+      "title": "Hypothalamus-pituitary-gonad axis",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/05-b-lesson-05-concept-model.png",
+      "screenshotSha256": "2aae2b4ba9093dc05838e6fad9d26076ee12f89297d1f720e494521610749b26"
+    },
+    {
+      "figureId": "b-lesson-06-concept-model",
+      "routeId": "b-lesson-06",
+      "title": "Cycle evidence timeline",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/06-b-lesson-06-concept-model.png",
+      "screenshotSha256": "1aae76658299a5529b383e65bb3bebea71ac6aa7247b2851f60d5a7aff2f68fe"
+    },
+    {
+      "figureId": "b-lesson-07-concept-model",
+      "routeId": "b-lesson-07",
+      "title": "Layered reproductive-health protection",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/07-b-lesson-07-concept-model.png",
+      "screenshotSha256": "fa2fc64def8b09d60867de310cef2596fc1e9671666fdb68d00623f14841bf11"
+    },
+    {
+      "figureId": "b-lesson-08-concept-model",
+      "routeId": "b-lesson-08",
+      "title": "Fertilization-to-implantation sequence",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/08-b-lesson-08-concept-model.png",
+      "screenshotSha256": "8ae56f6275467ea422976e7307232baf10abd12ef56a06007e65cc30f8438fef"
+    },
+    {
+      "figureId": "b-lesson-09-concept-model",
+      "routeId": "b-lesson-09",
+      "title": "Maternal-fetal exchange interface",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/09-b-lesson-09-concept-model.png",
+      "screenshotSha256": "41fa6d0b1b70d83ed28ad8ec2ed2505a3879a2cdbae21989279e6a33bb47df6f"
+    },
+    {
+      "figureId": "b-lesson-10-concept-model",
+      "routeId": "b-lesson-10",
+      "title": "Gastrulation-to-organogenesis pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/10-b-lesson-10-concept-model.png",
+      "screenshotSha256": "f65a2845c4a518384e982b58adfaec33eb2f23a4303cd503226ef9a5313054a7"
+    },
+    {
+      "figureId": "b-lesson-11-concept-model",
+      "routeId": "b-lesson-11",
+      "title": "Developmental exposure evidence chain",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/11-b-lesson-11-concept-model.png",
+      "screenshotSha256": "28c9f72417ebb80e5857be40c7d32efb848eae86c320babf2f58a9c9bea63bd5"
+    },
+    {
+      "figureId": "b-lesson-12-concept-model",
+      "routeId": "b-lesson-12",
+      "title": "Birth and lactation feedback loops",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/12-b-lesson-12-concept-model.png",
+      "screenshotSha256": "bd1a3cae6e4add0d73844c729cebe1e6e3cfaf8742c215776d2f18c22e6703c6"
+    },
+    {
+      "figureId": "b-lesson-13-concept-model",
+      "routeId": "b-lesson-13",
+      "title": "Reproductive-technology decision pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/13-b-lesson-13-concept-model.png",
+      "screenshotSha256": "d4b73d041158dd8aa0f12395e842ae9d1fddb4a3679600a855ec6af5a320b502"
+    },
+    {
+      "figureId": "b-lesson-14-concept-model",
+      "routeId": "b-lesson-14",
+      "title": "Integrated reproduction case method",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures/14-b-lesson-14-concept-model.png",
+      "screenshotSha256": "31de2b1bb9c9567d3d934c08215efabaf1857ed930959f5c568bf084516869e0"
+    }
+  ],
+  "figureSheets": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures-contact-sheet-01.png",
+      "sha256": "8f0e5cec5ffa52c26d97dd0bd68cd5429974e807227708c13f1dd0a75cd3890c",
+      "figureIds": [
+        "b-lesson-01-concept-model",
+        "b-lesson-02-concept-model",
+        "b-lesson-03-concept-model",
+        "b-lesson-04-concept-model",
+        "b-lesson-05-concept-model",
+        "b-lesson-06-concept-model",
+        "b-lesson-07-concept-model",
+        "b-lesson-08-concept-model",
+        "b-lesson-09-concept-model",
+        "b-lesson-10-concept-model",
+        "b-lesson-11-concept-model",
+        "b-lesson-12-concept-model"
+      ]
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures-contact-sheet-02.png",
+      "sha256": "8cbb4bc7aa3c76b08eed717c1ca1e44c0149a77b0e93da731ea48414b95135d1",
+      "figureIds": [
+        "b-lesson-13-concept-model",
+        "b-lesson-14-concept-model"
+      ]
+    }
+  ],
+  "geometry": {
+    "pass": true,
+    "findingCount": 0,
+    "findings": []
+  },
+  "visualInspection": {
+    "required": true,
+    "status": "pending",
+    "instruction": "Open every route and figure contact sheet. Inspect hierarchy, text fit, overlap, model arrows, responsive reflow, focus affordances, and scientific legibility. Record exact sheet hashes and unresolved findings in visual-review.json; do not set a human score or approval."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a",
+  "buildSha256": "4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0",
+  "status": "passed",
+  "reviewer": "Codex visual inspection",
+  "inspectedAt": "2026-08-31T01:37:00Z",
+  "openedAllContactSheets": true,
+  "contactSheets": [
+    {
+      "path": ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-01.png",
+      "sha256": "bb922000d760b348a681c144d3388b7f013f15ed98499363f280234d2c62d841"
+    },
+    {
+      "path": ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-02.png",
+      "sha256": "43cdbbf5efb03604c6c597462310abec90438b5fcb27bd1e1f566aa5dc4ed275"
+    },
+    {
+      "path": ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-03.png",
+      "sha256": "6e502216b625796c1dacb1891a01fee927187aa6570b7eb0bd5008b643b1d168"
+    },
+    {
+      "path": ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-04.png",
+      "sha256": "e2aca5d2d9874026b26978fef0e906fe925beb6e3096398e6a0f1d90d6727544"
+    }
+  ],
+  "inspectedFigureIds": [
+    "figure-action-potential-graph",
+    "figure-blood-glucose-loop",
+    "figure-brain-regions",
+    "figure-calcium-regulation-loop",
+    "figure-control-system-comparison",
+    "figure-ear-hearing-pathway",
+    "figure-endocrine-body-map",
+    "figure-equilibrium-apparatus",
+    "figure-eye-anatomy",
+    "figure-generic-feedback-loop",
+    "figure-hypothalamus-pituitary-axes",
+    "figure-integrated-control-overview",
+    "figure-integrated-nervous-endocrine-case",
+    "figure-myelin-saltatory-conduction",
+    "figure-nervous-system-hierarchy",
+    "figure-neuron-anatomy",
+    "figure-neuron-types",
+    "figure-reflex-arc",
+    "figure-resting-membrane",
+    "figure-retina-light-pathway",
+    "figure-sensory-evidence-chain",
+    "figure-sensory-receptor-families",
+    "figure-stress-response-comparison",
+    "figure-synaptic-transmission",
+    "figure-thyroxine-loop",
+    "figure-water-balance-loop",
+    "figure-water-salt-regulation"
+  ],
+  "reviewCriteria": [
+    "information hierarchy and scientific legibility",
+    "text fit, clipping, and overlap",
+    "connector and arrow alignment",
+    "spacing and visual balance",
+    "colour-independent meaning",
+    "course-width rendering rather than isolated source rendering"
+  ],
+  "resolvedDuringAudit": [
+    "Rebuilt the resting-membrane model with dedicated label zones, consistent arrowheads, and separated ion fields.",
+    "Separated two crowded title stacks in the blood-glucose feedback figure.",
+    "Contained complex figures in a readable mobile evidence lane instead of shrinking labels or expanding the learner page."
+  ],
+  "placementNote": "The 27 unique figures appear in 28 course placements because the generic feedback model is intentionally reused in Lessons 2 and 12; both placements were rendered and inspected.",
+  "unresolvedFindings": []
+}

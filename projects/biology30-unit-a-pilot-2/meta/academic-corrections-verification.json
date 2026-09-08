@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "recordedAt": "2026-09-06 01:58:11 UTC",
+  "iteration": "practice-links-and-standards-1",
+  "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "workspaceTreeSha256": "982c883f92a51cd5176b9561745ed3a1b8496b5866c3d9614612ed54fac9db27",
+  "checkpointCommit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+  "baselineWorkspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+  "buildBaselineWorkspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+  "previousVerification": "raw/academic-correction-baselines/21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5/meta/final-academic-verification.json",
+  "scope": "Bounded practice, textbook and source-classification corrections. All 86 prompts, correct answers and rationales preserved; changed distractor meanings receive fresh values while retired answers remain readable. Not complete academic clearance.",
+  "technicalStatus": "focused-and-project-gates-passed-broad-suite-startup-failures-retained",
+  "academicStatus": "academic-gaps-open",
+  "teacherDecision": null,
+  "transferReady": false,
+  "checks": [
+    {
+      "command": "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+      "status": "passed",
+      "note": "Transactional baseline and five protected-tree checks passed; final metadata rebuild reproduced the same learner SHA."
+    },
+    {
+      "command": "npx tsx --test --test-concurrency=1 scripts/tests/biology30-unit-a-academic-corrections.test.ts scripts/tests/biology30-unit-a-academic-review.test.ts scripts/tests/biology30-unit-a-pilot-2.test.ts",
+      "status": "passed",
+      "passed": 25
+    },
+    {
+      "command": "npx tsx scripts/check-biology30-unit-a-academic-corrections.ts",
+      "status": "passed",
+      "note": "Live candidate independently recomputed against preserved baseline."
+    },
+    {
+      "command": "npx tsx scripts/review-biology30-unit-a-pilot-2-academic.ts --check",
+      "status": "passed",
+      "note": "Historical review validated against archived 21363490 build; not certified for new learner bytes."
+    },
+    {
+      "command": "npm run test:biology30-unit-a-improvement-pilot",
+      "status": "passed",
+      "passed": 12
+    },
+    {
+      "command": "npm run test:science-comparison",
+      "status": "passed",
+      "passed": 6
+    },
+    {
+      "command": "npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace",
+      "status": "passed"
+    },
+    {
+      "command": "npm run validate:manifests",
+      "status": "passed"
+    },
+    {
+      "command": "npm run build:studio",
+      "status": "passed"
+    },
+    {
+      "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+      "status": "expected-blocked",
+      "exitCode": 1,
+      "diagnostics": [
+        "not-active"
+      ]
+    },
+    {
+      "command": "npm run audit:biology30-unit-a-pilot-2:visual",
+      "status": "passed",
+      "note": "39 sheets opened; zero automated geometry findings; scope below."
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --grep 'practice corrections|all 86 practice|save reporting' --output=/tmp/biology30-correction-e2e-cejY32/focused",
+      "status": "passed",
+      "passed": 3,
+      "elapsed": "2.4 minutes"
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --output=/tmp/biology30-correction-e2e-cejY32/full-rerun",
+      "status": "failed-preview-startup",
+      "passed": 27,
+      "failed": 2,
+      "elapsed": "15.4 minutes",
+      "note": "Both failures occurred before learner interaction in Studio preview readiness. Separate focused recheck passed both; this full run still exited 1."
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:project -- --project biology30-unit-a-pilot-2 --output=/tmp/biology30-correction-e2e-cejY32/project",
+      "status": "passed",
+      "passed": 1,
+      "elapsed": "46.6 seconds"
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer",
+      "status": "passed",
+      "note": "52 rules indexed; B/C/D remain not ready; verified two archives and five notes PDFs."
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer -- --check",
+      "status": "passed",
+      "note": "52 rules indexed; B/C/D remain not ready; verified two archives and five notes PDFs."
+    },
+    {
+      "command": "npm run test:biology30-improvement-transfer",
+      "status": "passed",
+      "passed": 4
+    },
+    {
+      "command": "npm run test:biology30-unit-a-pilot-2",
+      "status": "passed",
+      "passed": 18,
+      "note": "Standard command now includes the four academic-correction tests."
+    },
+    {
+      "command": "Local Markdown file-link check: playbook, Pilot 2 prompt pack/journal/correction report, science workflow",
+      "status": "passed",
+      "linksChecked": 148,
+      "missing": 0,
+      "note": "File existence, not every fragment or external source."
+    },
+    {
+      "command": "Scoped authored-source, metadata, documentation and four new-file whitespace checks",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check -- projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "status": "generated-whitespace-warning",
+      "lines": [
+        2469,
+        2610,
+        2657,
+        2704,
+        2751,
+        2798,
+        2845,
+        2892,
+        2939
+      ],
+      "note": "Nine inherited whitespace-only generated model-panel lines. Kept functionally verified learner bytes rather than performing a cosmetic rebuild."
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --grep 'practice corrections|all lesson models use a clear' --output=/tmp/biology30-correction-e2e-cejY32/preview-recheck",
+      "status": "passed",
+      "passed": 2,
+      "elapsed": "57.4 seconds",
+      "note": "Both cases that failed preview startup in the second full run now passed unchanged assertions on the same learner build."
+    }
+  ],
+  "failedAttempts": [
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2",
+      "passed": 24,
+      "failed": 5,
+      "status": "retained-not-hidden",
+      "evidenceDirectory": "test-results",
+      "observation": "Four failures occurred before learner interactions in Studio workspace-preview readiness; save-reporting timed out while navigating a scenario page. Focused rerun of new compatibility, all-item and save-message checks passed without changed timeouts or forced controls."
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --output=/tmp/biology30-correction-e2e-cejY32/full-rerun",
+      "passed": 27,
+      "failed": 2,
+      "status": "retained-not-hidden",
+      "evidence": [
+        "/tmp/biology30-correction-e2e-cejY32/full-rerun/biology30-unit-a-pilot-2-p-30f46--allowing-a-revised-attempt-chromium/trace.zip",
+        "/tmp/biology30-correction-e2e-cejY32/full-rerun/biology30-unit-a-pilot-2-a-cf544-Test-Explain-and-Save-cycle-chromium/trace.zip"
+      ],
+      "observation": "Both timed out in e2e/lib/project-open.ts waitForWorkspacePreviewReady before course interaction; the same two tests then passed in the focused preview-recheck run.",
+      "limitation": "This is not a clean full-suite pass; intermittent Studio preview initialization still needs separate investigation if it persists."
+    }
+  ],
+  "developmentFindings": [
+    "An intermediate helper was placed only in the unused legacy runtime; browser inspection caught that omission and the emitted runtime was corrected before the current build.",
+    "Old-answer fixtures are injected once on document initialization so an unload save cannot overwrite the seeded state."
+  ],
+  "visual": {
+    "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-06T01-17-16-990Z/report.json",
+    "reportSha256": "aa6a11c60a75e329553bf7de08c043a9080827cf63682c1b6bc76ed02b3f9903",
+    "routeCaptures": 81,
+    "stateCaptures": 184,
+    "contactSheets": 39,
+    "allContactSheetsOpened": true,
+    "geometryFindings": 0,
+    "additionalViewportCloseUps": 3,
+    "scope": "Every contact sheet opened. Twelve new feedback captures cover desktop, tablet, mobile and 200-percent text-size cases; three full-size samples additionally inspected. No new overlap/clipping observed. Whole-page thumbnails are structural overview, not full-size proof of all labels. Cross-origin PDF/video capture is not playback/transcript certification."
+  },
+  "corrections": {
+    "practiceItems": 86,
+    "changedPrompts": 0,
+    "keyReversals": 0,
+    "changedTextbookLocators": 49,
+    "invalidPracticeLocators": 0,
+    "changedDistractors": 188,
+    "choiceSpecificFeedback": 258,
+    "keyPositions": [
+      21,
+      22,
+      22,
+      21
+    ],
+    "acceptableExamples": 47,
+    "excellenceExamples": 5,
+    "localCriteria": 1
+  },
+  "invariants": {
+    "stateVersion": 6,
+    "storageKey": "biology30-unit-a-pilot-2:state:v1",
+    "worstCaseStateCharacters": 42284,
+    "previousWorstCaseStateCharacters": 42284,
+    "stateTarget": 44000,
+    "runtimeGuard": 48000,
+    "maximumPersistedResponseFields": 73,
+    "newSavedFields": 0,
+    "requiredRoutes": 18,
+    "lessons": 13,
+    "reviewRoutes": 5,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "practiceItems": 86,
+    "advancedBlocks": 40,
+    "mediaCheckpoints": 14,
+    "vocabularyFamilies": 28,
+    "possibleProcessRecords": 178,
+    "existingQuestionAndResponseIdsPreserved": true,
+    "completionOrScoreChanges": false,
+    "coreProseAndQuestionSemanticsPreserved": true
+  },
+  "protected": {
+    "pilot1LearnerSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "productionUnitsADChanged": false,
+    "pilot1OperationalExceptions": [
+      "meta/unit-a-to-bcd-improvement-playbook.md",
+      "meta/biology30-improvement-transfer-contract.json",
+      "meta/bcd-material-readiness.json"
+    ],
+    "deployed": false,
+    "committed": false,
+    "pushed": false,
+    "exported": false,
+    "studioEditEnabled": false
+  },
+  "academicReview": "meta/final-academic-review.json",
+  "correctionReport": "meta/academic-corrections.json",
+  "historicalReview": "meta/remaining-academic-review.json",
+  "academicGapRecords": 35,
+  "requiredScopeGapRecords": 32,
+  "optionalScopeGapRecords": 3,
+  "nextWork": "Next substantive academic batch: complete fourteen local illustrated media equivalents and thirteen actual transcript reviews; settle practical delivery before prescribing physical evidence. Confirm remaining Chapter 12/13 and topic/cognitive-demand coverage. Keep Studio startup instability separate and require whole-build teacher acceptance.",
+  "limits": [
+    "The two broad specialized runs exited nonzero due to startup/navigation timeouts. All 29 distinct cases passed across recorded runs, and the project gate passed; no clean single full-suite result is claimed.",
+    "The 35 gap records overlap and are not 35 independent defects or student-skill scores.",
+    "Required explanations are preserved; new wrong-answer feedback does not raise the core reading-level contract.",
+    "Saved-state size is an ordinary-text estimator, not adversarial escaping/Unicode proof. Last-valid-state protection remains.",
+    "Browser persistence tests use mocked LMS APIs, not live Brightspace certification.",
+    "No complete-course teacher acceptance, playback/caption certification, deployment or B-D transfer is claimed.",
+    "Five excellence examples are illustrative options, not additional required core tasks."
+  ],
+  "browserCoverage": {
+    "distinctCasesPassingAcrossRecordedRuns": 29,
+    "totalSpecializedCases": 29,
+    "cleanSingleFullSuitePass": false,
+    "projectContractPassed": true,
+    "assertionsWeakened": false,
+    "timeLimitsIncreased": false,
+    "forcedControls": false,
+    "learnerCodeChangedAfterVisualAudit": false
+  }
+}

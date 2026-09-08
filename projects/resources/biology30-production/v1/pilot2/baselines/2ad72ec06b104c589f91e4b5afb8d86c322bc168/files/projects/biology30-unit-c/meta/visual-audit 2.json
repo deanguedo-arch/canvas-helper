@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-c",
+  "buildSha256": "4427dd5974c0f095084ed1c892cb21bf80e96bd062f5601d9a37d908dd675617",
+  "workspaceTreeSha256": "4427dd5974c0f095084ed1c892cb21bf80e96bd062f5601d9a37d908dd675617",
+  "generatedAt": "2026-08-31T01:55:33.030Z",
+  "status": "geometry-passed-awaiting-visual-inspection",
+  "viewports": [
+    {
+      "id": "desktop-1440x900",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "id": "tablet-1024x768",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "mobile-390x844",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "requiredRoutes": [
+    "overview",
+    "c-lesson-01",
+    "c-lesson-13",
+    "c-lesson-24",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub"
+  ],
+  "routeSheets": [
+    {
+      "viewport": "desktop-1440x900",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/routes-desktop-1440x900-01.png",
+      "sha256": "f7aae3ba9ee18a3b6b72d7fb59255b46e8a7ed3956c59420f97b89a864902319",
+      "routes": [
+        "overview",
+        "c-lesson-01",
+        "c-lesson-13",
+        "c-lesson-24",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/routes-tablet-1024x768-01.png",
+      "sha256": "e9683d245af4054c493f0ebca4ca51d7d9a7b7ca0fc39c18e36337c7b94908ae",
+      "routes": [
+        "overview",
+        "c-lesson-01",
+        "c-lesson-13",
+        "c-lesson-24",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    },
+    {
+      "viewport": "mobile-390x844",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/routes-mobile-390x844-01.png",
+      "sha256": "3c33392d0aaa00facf95350775c83e193908cf46a47f555bc7939ed319e96770",
+      "routes": [
+        "overview",
+        "c-lesson-01",
+        "c-lesson-13",
+        "c-lesson-24",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    }
+  ],
+  "expectedFigureCount": 24,
+  "figures": [
+    {
+      "figureId": "c-lesson-01-concept-model",
+      "routeId": "c-lesson-01",
+      "title": "Chromosome state across the cell cycle",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/01-c-lesson-01-concept-model.png",
+      "screenshotSha256": "cbb88cde4d9c0b8608489602f6081850999ae974278c7c6b095ed5244846fe64"
+    },
+    {
+      "figureId": "c-lesson-02-concept-model",
+      "routeId": "c-lesson-02",
+      "title": "Mitosis mechanism",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/02-c-lesson-02-concept-model.png",
+      "screenshotSha256": "270ae036244863fa2632f71b25d3b4ae034ad5c0f144cd8d78610b78a6477724"
+    },
+    {
+      "figureId": "c-lesson-03-concept-model",
+      "routeId": "c-lesson-03",
+      "title": "Cell-cycle investigation chain",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/03-c-lesson-03-concept-model.png",
+      "screenshotSha256": "06795ddf6a351efa56e4ca0c77797391a93d80ee861e9a11cbed8f38bcfcbcba"
+    },
+    {
+      "figureId": "c-lesson-04-concept-model",
+      "routeId": "c-lesson-04",
+      "title": "Meiotic reduction pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/04-c-lesson-04-concept-model.png",
+      "screenshotSha256": "2659ddd03d47e166e69fe4c36a10c1642adb57b6932993ea292d0c645b33dc8c"
+    },
+    {
+      "figureId": "c-lesson-05-concept-model",
+      "routeId": "c-lesson-05",
+      "title": "Gamete-pathway comparison",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/05-c-lesson-05-concept-model.png",
+      "screenshotSha256": "5d16a90a7fa74a5ee0abb2052d397fcceb1992dcfd2b0c9e4d3ed77b4e0fc2f2"
+    },
+    {
+      "figureId": "c-lesson-06-concept-model",
+      "routeId": "c-lesson-06",
+      "title": "Chromosome-variation evidence",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/06-c-lesson-06-concept-model.png",
+      "screenshotSha256": "0ab4c2117a8f1f939d0b7ea02ce390a99abb2a399e6680da60ee2d9e9c6a2a6c"
+    },
+    {
+      "figureId": "c-lesson-07-concept-model",
+      "routeId": "c-lesson-07",
+      "title": "Life-cycle comparison",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/07-c-lesson-07-concept-model.png",
+      "screenshotSha256": "4748763674aa30f2c79f9fb697399e83756f68bf40e60542c868a778ec9c0bc7"
+    },
+    {
+      "figureId": "c-lesson-08-concept-model",
+      "routeId": "c-lesson-08",
+      "title": "Segregation evidence chain",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/08-c-lesson-08-concept-model.png",
+      "screenshotSha256": "3918f1f0ff1501789cb192a0bb0a185555748f1f9a72eef3e116eec969443a79"
+    },
+    {
+      "figureId": "c-lesson-09-concept-model",
+      "routeId": "c-lesson-09",
+      "title": "Monohybrid solution path",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/09-c-lesson-09-concept-model.png",
+      "screenshotSha256": "85c8d0ad3897b35903d0ade10b9219c947219dd0666a5d5f80f9643f1f610b4a"
+    },
+    {
+      "figureId": "c-lesson-10-concept-model",
+      "routeId": "c-lesson-10",
+      "title": "Probability evidence workflow",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/10-c-lesson-10-concept-model.png",
+      "screenshotSha256": "0038e7e0afeb026e68dc8465e26c95056838db159abff5f96b4a84b9ca2664d4"
+    },
+    {
+      "figureId": "c-lesson-11-concept-model",
+      "routeId": "c-lesson-11",
+      "title": "Allele-expression model selector",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/11-c-lesson-11-concept-model.png",
+      "screenshotSha256": "89e5fc1d786d6e4ae2dd59de7a5132a1a73f57e5b173e6b8bbe8e6f8d5f9f452"
+    },
+    {
+      "figureId": "c-lesson-12-concept-model",
+      "routeId": "c-lesson-12",
+      "title": "Dihybrid probability workflow",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/12-c-lesson-12-concept-model.png",
+      "screenshotSha256": "98be21d30334159243683a3e8dd73cddd1dd40341124bf2f98d50558614c0af9"
+    },
+    {
+      "figureId": "c-lesson-13-concept-model",
+      "routeId": "c-lesson-13",
+      "title": "Pedigree inference path",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/13-c-lesson-13-concept-model.png",
+      "screenshotSha256": "3c6b734808ef2e4885df60e92bacfc1f5a7bcc597415051ed90f759e4358719b"
+    },
+    {
+      "figureId": "c-lesson-14-concept-model",
+      "routeId": "c-lesson-14",
+      "title": "Linkage-map evidence",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/14-c-lesson-14-concept-model.png",
+      "screenshotSha256": "f394391c9c6dc2fd3408ef58f9454e119b8bfe953e2cdb3d59abb95b0f5413dc"
+    },
+    {
+      "figureId": "c-lesson-15-concept-model",
+      "routeId": "c-lesson-15",
+      "title": "Complex-trait evidence pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/15-c-lesson-15-concept-model.png",
+      "screenshotSha256": "f4e21aed7135a74a1077a7e306cd9dad2b34366d0c27a839b842aa6f958b1350"
+    },
+    {
+      "figureId": "c-lesson-16-concept-model",
+      "routeId": "c-lesson-16",
+      "title": "DNA model evidence convergence",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/16-c-lesson-16-concept-model.png",
+      "screenshotSha256": "391b53613278d8e4ad93335de39a0907e8e05f16c28c83073b17dc107255ea15"
+    },
+    {
+      "figureId": "c-lesson-17-concept-model",
+      "routeId": "c-lesson-17",
+      "title": "Replication fork mechanism",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/17-c-lesson-17-concept-model.png",
+      "screenshotSha256": "5253b4fed53bd3be4c9151e86c72069dd93abe136a0c0b5a36bd018bf36053a7"
+    },
+    {
+      "figureId": "c-lesson-18-concept-model",
+      "routeId": "c-lesson-18",
+      "title": "Transcription pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/18-c-lesson-18-concept-model.png",
+      "screenshotSha256": "eef4bb438530bf30afbd1ba7d0da54ba09e94c608ee25f24fa32a36ef76fc0c9"
+    },
+    {
+      "figureId": "c-lesson-19-concept-model",
+      "routeId": "c-lesson-19",
+      "title": "Translation mechanism",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/19-c-lesson-19-concept-model.png",
+      "screenshotSha256": "437b8d85d955a5a1b7380b58ee09bcddefebcd3d84f74120555a6914d528b426"
+    },
+    {
+      "figureId": "c-lesson-20-concept-model",
+      "routeId": "c-lesson-20",
+      "title": "Mutation consequence pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/20-c-lesson-20-concept-model.png",
+      "screenshotSha256": "aabe0608cfa012756ec6ada49b5fddebe74de04992066db6ec16fd2b36d2cd40"
+    },
+    {
+      "figureId": "c-lesson-21-concept-model",
+      "routeId": "c-lesson-21",
+      "title": "Recombinant-DNA workflow",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/21-c-lesson-21-concept-model.png",
+      "screenshotSha256": "0b6b10ec6413e5bd1832b04b6b7c401b6c4c5e8a89f81535a113f9388fe9e73c"
+    },
+    {
+      "figureId": "c-lesson-22-concept-model",
+      "routeId": "c-lesson-22",
+      "title": "DNA evidence decision pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/22-c-lesson-22-concept-model.png",
+      "screenshotSha256": "7526c709964928dd716e952875ab4d6c9ae6662e7c8f24bc89754ba1a92d28a0"
+    },
+    {
+      "figureId": "c-lesson-23-concept-model",
+      "routeId": "c-lesson-23",
+      "title": "Genetics investigation cycle",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/23-c-lesson-23-concept-model.png",
+      "screenshotSha256": "27a2bf792d503eed024bad177c9b5aaae1f9edf87018cb22733c8dd0053c378d"
+    },
+    {
+      "figureId": "c-lesson-24-concept-model",
+      "routeId": "c-lesson-24",
+      "title": "Integrated genetics case pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures/24-c-lesson-24-concept-model.png",
+      "screenshotSha256": "e60ca9a07d10350231fd40d257e2b454bf3984dc378a27265751b0e8eaaa34fa"
+    }
+  ],
+  "figureSheets": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures-contact-sheet-01.png",
+      "sha256": "d3493edb50ceea6532c9ff0607ac2055ae90117b7dd4d84fb12d3553d6e7eb4a",
+      "figureIds": [
+        "c-lesson-01-concept-model",
+        "c-lesson-02-concept-model",
+        "c-lesson-03-concept-model",
+        "c-lesson-04-concept-model",
+        "c-lesson-05-concept-model",
+        "c-lesson-06-concept-model",
+        "c-lesson-07-concept-model",
+        "c-lesson-08-concept-model",
+        "c-lesson-09-concept-model",
+        "c-lesson-10-concept-model",
+        "c-lesson-11-concept-model",
+        "c-lesson-12-concept-model"
+      ]
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-c/figures-contact-sheet-02.png",
+      "sha256": "f22f2d4e0dcde2dd38f6a4f7075f322d7e578b4ae6bb0bb0d1c999247be5d42c",
+      "figureIds": [
+        "c-lesson-13-concept-model",
+        "c-lesson-14-concept-model",
+        "c-lesson-15-concept-model",
+        "c-lesson-16-concept-model",
+        "c-lesson-17-concept-model",
+        "c-lesson-18-concept-model",
+        "c-lesson-19-concept-model",
+        "c-lesson-20-concept-model",
+        "c-lesson-21-concept-model",
+        "c-lesson-22-concept-model",
+        "c-lesson-23-concept-model",
+        "c-lesson-24-concept-model"
+      ]
+    }
+  ],
+  "geometry": {
+    "pass": true,
+    "findingCount": 0,
+    "findings": []
+  },
+  "visualInspection": {
+    "required": true,
+    "status": "pending",
+    "instruction": "Open every route and figure contact sheet. Inspect hierarchy, text fit, overlap, model arrows, responsive reflow, focus affordances, and scientific legibility. Record exact sheet hashes and unresolved findings in visual-review.json; do not set a human score or approval."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "unit": "C",
+  "status": "engine-verified-browser-pending",
+  "schemaSha256": "76c784babdceaa0a5e9505768e785c1feb04ed782b2a9dce9dfe2eb2c21699fd",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "fixtures": [
+    {
+      "fixture": "x",
+      "filledTextFields": 148,
+      "serializedCharacters": 43440,
+      "withinTarget": true,
+      "guardWouldAccept": true
+    },
+    {
+      "fixture": "漢",
+      "filledTextFields": 148,
+      "serializedCharacters": 43440,
+      "withinTarget": true,
+      "guardWouldAccept": true
+    },
+    {
+      "fixture": "🧬",
+      "filledTextFields": 148,
+      "serializedCharacters": 43440,
+      "withinTarget": true,
+      "guardWouldAccept": true
+    },
+    {
+      "fixture": "quotes",
+      "filledTextFields": 148,
+      "serializedCharacters": 85610,
+      "withinTarget": false,
+      "guardWouldAccept": false
+    },
+    {
+      "fixture": "JSON-escaped control",
+      "filledTextFields": 148,
+      "serializedCharacters": 254290,
+      "withinTarget": false,
+      "guardWouldAccept": false
+    }
+  ],
+  "policy": "Ordinary and Unicode all-field maximum states fit the target. Heavy JSON escaping and combined legacy work may exceed the guard; reject the write without truncation or replacing the last valid local/LMS payload. Preserve and expose the original legacy payload. This is not live LMS certification. Stage109: opt-in indexed choice/visited-route metadata, earlier v3 compatible. Longest-route maximum fixture. Final browser result recorded separately.",
+  "browserEvidence": null,
+  "liveLmsCertification": false
+}

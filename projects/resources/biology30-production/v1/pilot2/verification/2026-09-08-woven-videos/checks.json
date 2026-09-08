@@ -1,0 +1,32 @@
+[
+  {
+    "command": "npm run verify -- --project biology30-unit-b --mode workspace",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 verify\n> tsx scripts/verify-project.ts --project biology30-unit-b --mode workspace\n\nMetadata policy: passed\nMode: workspace\nEntry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-b/workspace/index.html\n\nMissing local assets (ERROR): none\n\nExternal dependencies (WARN): none\n\nMissing workspace embeds (ERROR): none\n\nMissing course-shell resources (ERROR): none\n\nDeclared missing course-shell resources (WARN): none\n"
+  },
+  {
+    "command": "npm run test:e2e:project -- --project biology30-unit-b",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 test:e2e:project\n> tsx scripts/run-e2e-project.ts --project biology30-unit-b\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 [chromium] \u203a e2e/specs/core-project-contract.spec.ts:160:1 \u203a @project core project contract: selected slug (14.4s)\n\n  1 passed (16.9s)\n\u001b[2m[WebServer] \u001b[22m(node:42967) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n\u001b[2m[WebServer] \u001b[22m(Use `node --trace-warnings ...` to show where the warning was created)\n(node:42969) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:42969) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  },
+  {
+    "command": "npm run verify -- --project biology30-unit-c --mode workspace",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 verify\n> tsx scripts/verify-project.ts --project biology30-unit-c --mode workspace\n\nMetadata policy: passed\nMode: workspace\nEntry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-c/workspace/index.html\n\nMissing local assets (ERROR): none\n\nExternal dependencies (WARN): none\n\nMissing workspace embeds (ERROR): none\n\nMissing course-shell resources (ERROR): none\n\nDeclared missing course-shell resources (WARN): none\n"
+  },
+  {
+    "command": "npm run test:e2e:project -- --project biology30-unit-c",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 test:e2e:project\n> tsx scripts/run-e2e-project.ts --project biology30-unit-c\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 [chromium] \u203a e2e/specs/core-project-contract.spec.ts:160:1 \u203a @project core project contract: selected slug (32.9s)\n\n  1 passed (34.7s)\n\u001b[2m[WebServer] \u001b[22m(node:43082) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n\u001b[2m[WebServer] \u001b[22m(Use `node --trace-warnings ...` to show where the warning was created)\n(node:43087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:43087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  },
+  {
+    "command": "npm run verify -- --project biology30-unit-d --mode workspace",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 verify\n> tsx scripts/verify-project.ts --project biology30-unit-d --mode workspace\n\nMetadata policy: passed\nMode: workspace\nEntry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-d/workspace/index.html\n\nMissing local assets (ERROR): none\n\nExternal dependencies (WARN): none\n\nMissing workspace embeds (ERROR): none\n\nMissing course-shell resources (ERROR): none\n\nDeclared missing course-shell resources (WARN): none\n"
+  },
+  {
+    "command": "npm run test:e2e:project -- --project biology30-unit-d",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 test:e2e:project\n> tsx scripts/run-e2e-project.ts --project biology30-unit-d\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 [chromium] \u203a e2e/specs/core-project-contract.spec.ts:160:1 \u203a @project core project contract: selected slug (10.3s)\n\n  1 passed (12.0s)\n\u001b[2m[WebServer] \u001b[22m(node:43194) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n\u001b[2m[WebServer] \u001b[22m(Use `node --trace-warnings ...` to show where the warning was created)\n(node:43196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:43196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  }
+]

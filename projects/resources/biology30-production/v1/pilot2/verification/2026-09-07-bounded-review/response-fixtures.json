@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "scope": "18 identified responses; authored student-style test examples, not observed student data",
+  "policy": "If the original limit accommodates the complete example leave it unchanged; otherwise ceil(example.length * 1.25 / 50) * 50. C capacity changes are an all-or-defer batch under 44000.",
+  "responses": [
+    {
+      "id": "b-review-seminar-connect",
+      "operations": "Separate movement, hormone influence and development mechanisms; retain separate sources.",
+      "example": "In the transport model, developing germ cells and testosterone are present, but a blocked duct prevents normal downstream passage. That is a movement problem; it does not by itself show that sperm were never produced. In the cycle model, the progesterone index falls from 10 to 1, reducing support for the endometrium and allowing shedding. In the development model, division has produced a blastocyst, but attachment still depends on suitable uterine conditions. These are three separate models, not successive observations of one person."
+    },
+    {
+      "id": "b-review-seminar-evaluate",
+      "operations": "Distinguish observations from inference; reject invented outcome; propose measurement.",
+      "example": "The claim is not supported. The observations are a blocked duct, two progesterone values and a blastocyst in three separate models. None records failed implantation. I can infer that the blockage limits transport in its own model, but cannot use it to explain the development model. I would measure attachment of comparable blastocysts under defined endometrial conditions, using repeated observations and a suitable comparison. This would address implantation more directly than combining unrelated results."
+    },
+    {
+      "id": "b-review-seminar-revise",
+      "operations": "Revise claim, propose comparison, address consent/privacy.",
+      "example": "I would revise the claim to say that each model supports a limited explanation of its own result; they do not establish one cause in a person. Next, compare attachment in the developmental model under matched conditions, recording both attachment and non-attachment. Keep the other model records separate. If real reproductive information were later proposed for use, obtain informed consent for that specific use and protect identifying information. The classroom evidence does not authorize a personal diagnosis."
+    },
+    {
+      "id": "c-review-seminar-connect",
+      "operations": "Three biological scales; expected genotype counts; fragment size versus sequence.",
+      "example": "At the chromosome scale, 46 chromosomes is a typical diploid count in the sampled metaphase cell, but it cannot exclude small sequence changes. At the inheritance scale, Aa × Aa predicts 1/4 AA, 1/2 Aa and 1/4 aa: in 100 offspring that is 25, 50 and 25, close to the observed 24, 51 and 25. At the molecular scale, GAA and GAG both code for glutamate in this frame. Equal 400- and 600-base fragment lengths do not show that every base is identical. The sources remain separate."
+    },
+    {
+      "id": "c-review-seminar-evaluate",
+      "operations": "Reject personal risk claim; identify unmeasured mechanism and discriminating test.",
+      "example": "The sources cannot prove anything about one person's risk because they are separate classroom models. The codon change preserves the encoded amino acid, but protein function was not measured. One possibility is altered RNA handling or abundance; another is no functional effect. Compare RNA abundance and protein activity in repeated matched reference and variant models, controlling the sample conditions and measurement method. That tests a missing link instead of assuming equal fragment lengths mean equal function."
+    },
+    {
+      "id": "c-review-seminar-revise",
+      "operations": "Revise evidence claim and next step; consent and participant/community control.",
+      "example": "I would withdraw the combined personal-risk claim and report each source at its own scale. Next, test the molecular hypothesis with matched fictional reference and variant data. The participant's original consent must not be treated as permission for secondary use. Explain the proposed purpose and let participants decide whether their data can be used. Where community data are involved, use the applicable community decision process as well. Keep identifying information private and do not proceed on assumed agreement."
+    },
+    {
+      "id": "d-review-seminar-connect",
+      "operations": "Abundance percentage, mark–recapture working/assumptions, marker versus diversity.",
+      "example": "The change is (210 - 420) / 420 × 100 = -50%, so adult abundance fell by half. Mark–recapture estimates N = 70 × 84 / 28 = 210 adults. This assumes a closed population during sampling, retained marks, mixing and comparable detection. The agreement with the later count supports that estimate but does not explain the decline. Hardy–Weinberg agreement at one marker concerns genotype proportions at that locus. Alleles can still be lost elsewhere, so it cannot rule out the reported decline in allelic richness."
+    },
+    {
+      "id": "d-review-seminar-evaluate",
+      "operations": "Use two percentages with correct scope; observational limitation; repeated controlled comparison.",
+      "example": "Without predator signs, nest success is 68% in dense vegetation and 42% in sparse vegetation. Habitat therefore deserves investigation even where signs were not recorded. These observations do not prove a habitat effect or exclude unobserved predators, and sample denominators are missing. Compare repeated similar plots under reference conditions, habitat improvement only, reduced predator access only, and both changes. Measure nest success and recruitment consistently to distinguish habitat, predator and combined explanations."
+    },
+    {
+      "id": "d-review-seminar-revise",
+      "operations": "Revise intervention, identify evidence step, time-bound monitoring and early stop.",
+      "example": "I would postpone moving birds as the sole response and first compare habitat and predator-access explanations with repeated reference plots. Habitat loss could limit recruitment even if new birds bring additional alleles. Record water level, vegetation and recruitment before and during the comparison. Review recruitment against reference plots after three years; revise the proposal if it has not improved. Stop earlier if monitoring detects unintended harm under the agreed welfare protocol. Any real action also needs appropriate governance."
+    },
+    {
+      "id": "b-investigation-structure-function-final-transfer-revision-v2",
+      "operations": "Prediction; two observations; repeated controlled comparison; counterclaim, alternative, revision and discriminating evidence.",
+      "example": "I predict that a transport obstruction leaves sperm upstream but reduces their delivery downstream. Case T has developing germ cells and hormonal support despite a blocked duct; case P has absent germ cells, disrupted support and an open duct. Thus low delivery can follow different failures. Compare repeated upstream and downstream samples from matched models, keeping developmental stage, sampling time and detection method consistent. The claim that every low-delivery result means failed production is too broad. Incomplete maturation could also reduce functional delivery. I would revise the conclusion to identify which step the evidence supports, leaving other causes open. Count germ-cell stages and mature sperm separately, and inspect duct passage to distinguish production, maturation and transport."
+    },
+    {
+      "id": "b-investigation-cycle-graphs-final-transfer-revision-v2",
+      "operations": "Temporal prediction; values/days/separate scales; repeated comparison; alternative, revision and independent ovulation evidence.",
+      "example": "I predict that repeated cycles in this model show rising estrogen before the LH maximum and higher progesterone later. Estrogen is 10 on day 12, LH is 18 on day 14, and progesterone reaches 10 on day 21. These are separate relative scales, so 18 does not mean more hormone than another index of 10. Compare repeated cycles with the same sampling times and consistent assay scales, adding more frequent samples around the apparent peak. The LH peak does not prove release occurred exactly on day 14: a signal without follicle rupture is possible, and sparse sampling can miss timing. I would revise the claim to say the pattern fits ovulatory signalling. Repeated independent observations of follicle rupture would test whether and when release actually occurred."
+    },
+    {
+      "id": "b-investigation-development-evidence-final-transfer-revision-v2",
+      "operations": "Two proportion contrasts; prediction; controlled randomized repeated comparison; alternative, limited claim and follow-up evidence.",
+      "example": "The early exposed-minus-control contrast is 20/40 - 4/40 = 0.40, or 40 percentage points. The later contrast is 9/40 - 5/40 = 0.10, or 10 percentage points. I predict a larger early contrast across repeated trials if developmental stage changes the response. Randomly assign exposure within each stage and repeat exposed/control comparisons with the same dose, duration, culture conditions and marker-detection rules. Unequal culture conditions could instead explain part of the difference. These non-human cell-model percentages cannot establish exact risk to a human embryo. I would revise the claim to a stage-related pattern in this model. Replicate the comparison and test whether the measured marker reliably corresponds to developmental change before extending the interpretation."
+    },
+    {
+      "id": "c-investigation-cell-observations-final-transfer-revision-v2",
+      "operations": "Visible image feature separate from counts; two calculations; prediction; controlled repeats; alternative/revision/discriminating measure.",
+      "example": "An image with chromosomes aligned at the equator supports a metaphase classification; this is separate from the synthetic phase counts. Those counts give mitotic index = 28/100 × 100 = 28%. Interphase is 72%, giving 0.72 × 20 = 14.4 hours only under the steady asynchronous 20-hour model. My question is whether a delay in mitosis raises the observed mitotic fraction. I predict more cells in that phase when it lasts longer. Compare repeated matched fields at consistent times using the same classification rules and retain uncertain cases. A high fraction need not mean rapid net growth: a prolonged mitotic phase or cell loss could alter the pattern. I would revise the claim to a phase-distribution observation. Track phase transitions and total cell counts over time to distinguish these explanations."
+    },
+    {
+      "id": "c-investigation-inheritance-data-final-transfer-revision-v2",
+      "operations": "Sample-size question/prediction; small and large observed/expected counts; controls; alternative; revision and test.",
+      "example": "Does increasing sample size reduce variation in genotype proportions across repeated Aa × Aa crosses? I predict less proportional variation on average, not that every larger sample is closer. The 10-offspring sample has 3 AA, 5 Aa and 2 aa, compared with expectations of 2.5, 5 and 2.5. The 100-offspring sample has 24, 51 and 25, compared with 25, 50 and 25. Repeat both sizes with the same parental genotypes, segregation/survival assumptions and scoring rules. Fractional expected counts describe a model average, not fractions of actual offspring. A departure can reflect random sampling, scoring error or differential survival. I would revise the claim because deviation alone does not disprove segregation. Check blinded genotype scoring and survival as well as variation across repeated samples."
+    },
+    {
+      "id": "c-investigation-molecular-evidence-final-transfer-revision-v2",
+      "operations": "Testable method question/prediction; sequence contrast and fragment totals; repeated controls; alternative, revision and discriminating evidence.",
+      "example": "Can sequencing distinguish a one-base insertion that appears unresolved on a gel? I predict reliable sequence reads can. In the short coding excerpt, inserting A after ATG shifts the following reading frame. Separately, the larger reference fragments total 400 + 600 = 1000 bp, while the insertion-model fragments total 401 + 600 = 1001 bp. These fragment measurements are not lengths of the short excerpt. Repeat reference and variant PCR/gel comparisons with consistent conditions, a size ladder, blank and positive controls. Limited gel resolution could make different fragments look equal; equal apparent bands do not prove identical sequences. I would revise the claim to agreement within the method's resolution. Compare repeated quality-checked sequence reads to test the actual base difference."
+    },
+    {
+      "id": "d-investigation-gene-pool-final-transfer-revision-v2",
+      "operations": "At least two p calculations; prediction and repeated sampling; causal limitation, alternative, revision and discriminating evidence.",
+      "example": "Each row represents 100 diploid organisms, so the denominator is 200 allele copies. Counting A copies gives p = 120/200 = 0.60 initially, 135/200 = 0.675 after the labelled movement, and 130/200 = 0.65 later. If gene flow is responsible, I predict a shift toward the frequency of migrants that actually contribute offspring. Repeat resident and migrant sampling at the same locus, season and life stage using the same method. The movement label does not establish how much of the change migration caused; random drift could also contribute. I would revise the claim to a measured frequency change with unresolved causes. Measure migrant allele frequencies and successful breeding contributions, then compare their predicted contribution with repeated resident samples."
+    },
+    {
+      "id": "d-investigation-competition-final-transfer-revision-v2",
+      "operations": "Two means/units; prediction; replicated controlled comparison; counterclaim, alternative, revision and mechanism test.",
+      "example": "Mean A mass is 3.0 g in ten-A pots and 2.4 g in mixed A/B pots at equal total starting density. I predict lower mean A mass with B under matched conditions. Randomize repeated A-only and mixed pots while keeping soil, water, light, initial plant stage and measurement time consistent. Lower mass alone does not show that B releases a toxin: competition for a shared nutrient or water could also reduce growth. I would revise the conclusion to an association between neighbour identity and A mass under these conditions, leaving mechanism unresolved. Measure resource availability, then compare resource-controlled treatments and independently tested candidate compounds to distinguish resource competition from a chemical effect."
+    },
+    {
+      "id": "d-investigation-population-growth-final-transfer-revision-v2",
+      "operations": "Range, density and area estimate; oversampling prediction; repeated controlled sampling; census claim, alternative and further evidence.",
+      "example": "The quadrat counts range from 2 to 10 plants and sum to 30. The five 1 m² samples give mean density = 30/5 = 6 plants/m². Multiplying by 200 m² gives an estimated 1200 plants if the samples represent the whole area. Oversampling dense patches predicts a higher estimate than representative random sampling. Compare repeated random and patch-focused samples with identical quadrat area, timing and plant-counting rules. Detection differences could also change counts. I would revise the census claim: 1200 is a conditional estimate, not a count of every plant. Additional randomly placed quadrats across the area and repeat counts would help assess spatial variation and detection uncertainty."
+    }
+  ]
+}

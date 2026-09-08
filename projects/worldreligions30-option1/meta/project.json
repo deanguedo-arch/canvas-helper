@@ -73,12 +73,17 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-22T15:18:22.260Z",
-  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "updatedAt": "2026-08-27T15:38:52.887Z",
   "workspaceApprovedAt": "2026-06-11T19:31:19.189Z",
   "authoring": {
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    },
     "learnerSurfaces": {
       "schemaVersion": 1,
       "mode": "static-pages-complete",
@@ -88,11 +93,6 @@
           "route": ""
         }
       ]
-    },
-    "studioEditing": {
-      "enabled": true,
-      "renameCourse": false,
-      "imageAssets": true
     }
   }
 }

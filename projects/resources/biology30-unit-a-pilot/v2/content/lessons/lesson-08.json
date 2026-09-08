@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-08",
+  "module": "Sensory Systems",
+  "title": "Sensory Receptors and Experimental Design",
+  "inquiry": "Why can the same physical world produce different sensations across body regions, moments, and people?",
+  "learningIntention": "I am learning to compare sensory receptor types and design a safe investigation that produces interpretable evidence.",
+  "requiredMinutes": 80,
+  "optionalMinutes": 15,
+  "outcomeIds": ["A1.6k", "A1.1s", "A1.2s", "A1.3s", "A1.4s"],
+  "materials": "Choose the supplied tactile dataset or a safe low-material design using two blunt cotton swabs. Temperature investigations use only comfortable, non-extreme materials.",
+  "safety": "Never use pins, sharp points, ice directly on skin, hot water, allergens, unknown chemicals, or testing near eyes. Participation is voluntary and the supplied dataset is equivalent.",
+  "targets": [
+    "Compare photoreceptors, mechanoreceptors, chemoreceptors, thermoreceptors, nociceptors, and proprioceptors by stimulus and transduction.",
+    "Design a safe sensory investigation with operational variables and repeated trials.",
+    "Interpret variation without claiming that a simple classroom task maps receptor number directly."
+  ],
+  "warmup": {
+    "title": "Sensation is constructed from signals",
+    "prompt": "After a few minutes, you may stop noticing clothing pressure or a room odour. Does the stimulus vanish? Propose one change in receptors or neural processing that could reduce awareness.",
+    "placeholder": "The stimulus may remain, while…"
+  },
+  "sections": [
+    {
+      "label": "Classify the input",
+      "title": "1. Receptors transduce particular forms of energy or chemistry",
+      "paragraphs": [
+        "Sensory receptors convert stimulus energy or chemical binding into changes in membrane potential. Photoreceptors respond to light. Mechanoreceptors respond to deformation such as pressure, stretch, vibration, sound, or fluid movement. Chemoreceptors respond to molecules in air, food, or internal fluids. Thermoreceptors respond across temperature ranges, and nociceptors respond to potentially damaging mechanical, thermal, or chemical conditions.",
+        "Proprioceptors in muscles, tendons, and joints provide information about body position and movement. Vestibular hair cells respond to head motion and orientation. Internal receptors monitor conditions such as blood-gas chemistry, pressure, and osmotic concentration. The nervous system combines these inputs rather than reading one receptor in isolation.",
+        "A receptor category describes the kind of stimulus transduced, not the conscious sensation by itself. Mechanoreceptors in skin can contribute to touch, while mechanoreceptors in the cochlea contribute to hearing. The pathway and brain processing help determine what the activity becomes perceptually."
+      ],
+      "figureIds": ["figure-sensory-receptor-families"]
+    },
+    {
+      "label": "Explain adaptation",
+      "title": "2. Receptor and central responses can change during a steady stimulus",
+      "paragraphs": [
+        "Some receptors respond strongly when a stimulus begins or changes, then fire less during a steady condition. This sensory adaptation emphasizes new information. Slowly adapting receptors continue signalling features such as sustained pressure or stretch. The rate and degree of adaptation vary by receptor and pathway.",
+        "Perceptual adaptation can also involve central filtering and attention. Failing to notice a familiar background odour does not prove that olfactory receptors have stopped responding completely. A sudden change, a new context, or deliberate attention may restore awareness.",
+        "Adaptation is useful, but it does not make harmful exposure safe. Odour fatigue cannot establish that air is free of hazardous chemicals. Reduced thermal sensation cannot establish that tissue is protected. Safety decisions must rely on appropriate instruments and procedures, not sensation alone."
+      ]
+    },
+    {
+      "label": "Design the test",
+      "title": "3. Operational definitions turn a question into evidence",
+      "paragraphs": [
+        "A tactile question could ask whether the minimum separation reported as two distinct blunt contacts differs between a fingertip and forearm. The body region is the independent variable. The measured separation in millimetres is the dependent variable. The contact pressure, contact duration, orientation, starting separation, trial order, and participant instructions should be controlled.",
+        "A stronger procedure mixes one-point and two-point trials so the participant cannot infer the answer from the sequence. Use blunt swabs, light comfortable contact, consent, and several trials at each separation. Do not mark skin or continue after discomfort. A supplied dataset avoids partner and materials requirements.",
+        "The measured threshold reflects the whole task: receptor distribution, receptive fields, pathway convergence, attention, response criterion, pressure consistency, and measurement error. It should not be described as a direct count of receptors. That distinction is essential when comparing body regions or participants."
+      ],
+      "table": {
+        "caption": "Synthetic tactile-discrimination results",
+        "headers": ["Separation", "Fingertip: two points reported", "Forearm: two points reported"],
+        "rows": [
+          ["4 mm", "4 of 5 trials", "0 of 5 trials"],
+          ["8 mm", "5 of 5 trials", "1 of 5 trials"],
+          ["16 mm", "5 of 5 trials", "3 of 5 trials"],
+          ["32 mm", "5 of 5 trials", "5 of 5 trials"]
+        ]
+      }
+    },
+    {
+      "label": "Interpret variation",
+      "title": "4. Evidence supports a bounded claim",
+      "paragraphs": [
+        "In the supplied data, the fingertip reached consistent two-point reports at a smaller separation than the forearm. The result supports a claim that this participant and procedure produced finer tactile discrimination at the fingertip. It is consistent with smaller receptive fields and denser sensory representation, but the classroom task does not measure either directly.",
+        "Order effects, inconsistent pressure, expectation, small trial number, and one synthetic participant limit generalization. A blinded releaser, randomized trials, pressure control, and more participants would improve the design. Report individual variation rather than hiding it behind a single average.",
+        "Scientific collaboration improves a design when peers challenge variable definitions, safety, and alternative explanations. It does not require another learner to be available for course completion. You may use the peer route if enabled or submit the same planning questions to a teacher for feedback."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-sensory-investigation-planner",
+    "title": "Strengthen a sensory investigation",
+    "intro": "Select one design decision. The readout explains how it changes validity, safety, or interpretation.",
+    "prompt": "Which revision most directly reduces expectation bias?",
+    "options": [
+      {"id": "randomize", "label": "Mix one-point and two-point trials in an unpredictable order", "evidence": "The participant cannot rely on a steadily increasing separation to guess the response.", "explanation": "Randomized trial type reduces expectation bias while preserving the same measured outcome."},
+      {"id": "sharp", "label": "Use sharper points to make the stimulus clearer", "evidence": "The proposed change increases discomfort and tissue risk.", "explanation": "This is unsafe and changes the stimulus. Use blunt, light contacts or the supplied dataset."},
+      {"id": "one-trial", "label": "Use one trial at each separation", "evidence": "A single uncertain report determines the threshold.", "explanation": "Repeated trials are needed to estimate consistency and identify variable responses."},
+      {"id": "public-rank", "label": "Rank classmates from best to worst", "evidence": "The proposal adds social pressure and overgeneralizes a narrow task.", "explanation": "Report anonymized patterns and limits. The task is not a measure of intelligence or general sensory ability."}
+    ],
+    "staticFallback": "Use blunt contacts, consent, mixed trial types, repeated measures, operational variables, anonymized results, and a supplied-data path."
+  },
+  "artifact": {
+    "id": "sensory-investigation",
+    "number": 4,
+    "prompt": "Design and analyze a safe tactile or comfortable-temperature investigation. Use collected or supplied data and distinguish the measured response from direct receptor counts.",
+    "evidenceRequirements": ["Name independent, dependent, and at least three controlled variables.", "Include repeated trials and a safe supplied-data alternative.", "State one mechanism-based interpretation and two limitations."]
+  },
+  "collaboration": {
+    "title": "Design feedback checkpoint",
+    "peerRoute": "Post the question, variables, and safety controls to the enabled class discussion. Ask a peer to identify one confounding variable.",
+    "teacherRoute": "Send the same design to the teacher or record a self-audit using the checklist. Waiting for a peer never blocks completion."
+  },
+  "exit": {
+    "title": "Bound the tactile claim",
+    "prompt": "In 2–3 sentences, write the strongest claim supported by the supplied fingertip and forearm data and one reason it is not a direct receptor count.",
+    "placeholder": "The data support… They do not directly measure…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 69–77, the class Sensory Reception lesson, CBE Module 1 Lesson 4, and OpenStax sensory-receptor cross-checking. Dataset values are synthetic instructional data.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-sensory-receptors", "class-day-sensory", "system-m1-l4", "openstax-a-and-p"]
+  }
+}

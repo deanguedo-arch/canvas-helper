@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "contractId": "science-comparison-v1",
+  "family": "biology30-unit-a-pilot",
+  "course": {
+    "code": "BIO 30",
+    "title": "Biology 30 Unit A"
+  },
+  "unitBoundary": {
+    "title": "Unit A",
+    "include": [
+      "Unit A learner-visible lessons and descriptions",
+      "Source-visible self-checks and check-your-work answers",
+      "Complete visible chapter quizzes converted to non-graded practice",
+      "Local files required to complete Unit A"
+    ],
+    "exclude": [
+      "Units B-D",
+      "Diploma preparation",
+      "Hidden unit tests, printable quizzes, hidden quiz keys, and teacher-only assessment material",
+      "Unrelated files and broken D2L launchers"
+    ]
+  },
+  "resources": [
+    {
+      "id": "class-2026-27",
+      "label": "2026-27 class course",
+      "kind": "brightspace-export",
+      "role": "primary",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+      "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "originalName": "D2LExport_156587_26-27 _ S1 _ Biology 30 _ Per 1(A) _ Sec 10_202682838.zip",
+      "manifestPath": "imsmanifest.xml",
+      "manifestIdentifier": "D2L_156587",
+      "manifestTitle": "26-27 | S1 | Biology 30 | Per 1(A) | Sec 10",
+      "verifiedAt": "2026-08-28T20:23:06.896Z"
+    },
+    {
+      "id": "system-2020",
+      "label": "CBE system course (2020)",
+      "kind": "brightspace-export",
+      "role": "reference",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "originalName": "D2LExport_6661_CBE System Biology 30 (Winter 2020)_202682803.zip",
+      "manifestPath": "imsmanifest.xml",
+      "manifestIdentifier": "D2L_6661",
+      "manifestTitle": "CBE System Biology 30 (Winter 2020)",
+      "verifiedAt": "2026-08-28T20:23:06.896Z"
+    }
+  ],
+  "variants": [
+    {
+      "slug": "biology30-unit-a-class-2026-faithful",
+      "label": "2026-27 class course — Faithful",
+      "treatment": "faithful",
+      "sourceResourceIds": [
+        "class-2026-27"
+      ],
+      "visibility": "blocked-preview"
+    },
+    {
+      "slug": "biology30-unit-a-class-2026-optimized",
+      "label": "2026-27 class course — Optimized",
+      "treatment": "optimized",
+      "sourceResourceIds": [
+        "class-2026-27"
+      ],
+      "visibility": "blocked-preview"
+    },
+    {
+      "slug": "biology30-unit-a-system-2020-faithful",
+      "label": "CBE system course (2020) — Faithful",
+      "treatment": "faithful",
+      "sourceResourceIds": [
+        "system-2020"
+      ],
+      "visibility": "blocked-preview"
+    },
+    {
+      "slug": "biology30-unit-a-system-2020-optimized",
+      "label": "CBE system course (2020) — Optimized",
+      "treatment": "optimized",
+      "sourceResourceIds": [
+        "system-2020"
+      ],
+      "visibility": "blocked-preview"
+    },
+    {
+      "slug": "biology30-unit-a-synthesis",
+      "label": "Outcome-led synthesis",
+      "treatment": "synthesis",
+      "sourceResourceIds": [
+        "class-2026-27",
+        "system-2020"
+      ],
+      "visibility": "blocked-preview"
+    }
+  ],
+  "visibilityPolicy": {
+    "include": [
+      "learner-visible instruction",
+      "learner-visible self-checks",
+      "learner-visible check-your-work answers",
+      "complete visible chapter quizzes as ungraded practice"
+    ],
+    "exclude": [
+      "hidden unit tests",
+      "printable quizzes",
+      "hidden quiz keys",
+      "teacher-only assessment material",
+      "broken D2L launchers"
+    ],
+    "duplicateRule": "A hidden instructional duplicate may be used only when source evidence proves that it replaces the same visible external lesson."
+  },
+  "synthesisStrategy": "outcome-led",
+  "optimizedOutcomeSequence": [
+    {
+      "id": "unit-inquiry-homeostasis",
+      "label": "Unit inquiry and homeostasis"
+    },
+    {
+      "id": "nervous-system-organization",
+      "label": "Nervous-system organization and reflexes"
+    },
+    {
+      "id": "neuron-action-potential",
+      "label": "Neurons and the action potential"
+    },
+    {
+      "id": "synapses-disruption",
+      "label": "Synapses, communication, and disruption"
+    },
+    {
+      "id": "sensory-investigation",
+      "label": "Sensory systems and investigation"
+    },
+    {
+      "id": "endocrine-feedback",
+      "label": "Endocrine communication and feedback"
+    },
+    {
+      "id": "glands-imbalances",
+      "label": "Glands, hormones, and imbalances"
+    },
+    {
+      "id": "integrated-application-review",
+      "label": "Integrated application and review"
+    }
+  ],
+  "evaluationRubric": {
+    "totalPoints": 100,
+    "criteria": [
+      {
+        "id": "outcome-coverage",
+        "label": "Outcome coverage",
+        "points": 20,
+        "reviewPrompt": "Does the version teach and practise the complete Unit A outcome set?"
+      },
+      {
+        "id": "learner-coherence",
+        "label": "Learner coherence",
+        "points": 20,
+        "reviewPrompt": "Can a learner understand the sequence, purpose, and next step without teacher repair?"
+      },
+      {
+        "id": "accessibility",
+        "label": "Accessibility",
+        "points": 15,
+        "reviewPrompt": "Are structure, contrast, keyboard access, labels, and responsive reading usable?"
+      },
+      {
+        "id": "practice-persistence",
+        "label": "Practice and persistence",
+        "points": 15,
+        "reviewPrompt": "Are meaningful learner responses and self-checks available and restored reliably?"
+      },
+      {
+        "id": "source-fidelity-provenance",
+        "label": "Source fidelity and provenance",
+        "points": 10,
+        "reviewPrompt": "Can each instructional section be traced to authorized source material?"
+      },
+      {
+        "id": "asset-health",
+        "label": "Self-contained asset health",
+        "points": 10,
+        "reviewPrompt": "Are required assets local, resolvable, and independent of optional external services?"
+      },
+      {
+        "id": "maintainability-editability",
+        "label": "Maintainability and editability",
+        "points": 10,
+        "reviewPrompt": "Is the version understandable, rebuildable, and suitable for later Direct promotion?"
+      }
+    ],
+    "promotion": "manual-selection-only"
+  },
+  "promotionPolicy": {
+    "comparisonStatus": "blocked",
+    "comparisonDriver": "proposal-only-v1",
+    "winnerDriver": "direct-workspace-v1",
+    "freezeWinnerBeforePromotion": true,
+    "nonWinnersBecome": "reference-only",
+    "exportOnlyWinner": true
+  },
+  "createdAt": "2026-08-28T20:23:06.896Z"
+}

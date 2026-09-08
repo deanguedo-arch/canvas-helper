@@ -1,0 +1,114 @@
+{
+  "stage": 82,
+  "checkedAt": "2026-09-07T06:19:12.137415+00:00",
+  "summary": "Owner media selection/Video Library/inline previews integrated; stable local walkthrough and same checkpoint links. Synthetic tests only; zero actual selected videos or learner candidates.",
+  "verification": {
+    "focusedSuite": {
+      "passed": 96,
+      "failed": 0
+    },
+    "latestMediaCaptureTests": {
+      "passed": 5,
+      "failed": 0
+    },
+    "browsers": [
+      "Chromium",
+      "Firefox",
+      "WebKit"
+    ],
+    "typecheck": {
+      "unrelatedDiagnostics": 25,
+      "ownedDiagnostics": 0
+    },
+    "draftContracts": "passed",
+    "sourceAndProtectedBaselines": "passed",
+    "testedMediaBehavior": [
+      "unreviewed selections rejected",
+      "all source occurrence identities retained; deduplicated selected library",
+      "complete reviewed local figure mapping required",
+      "no load before visibility and no autoplay",
+      "native provider cue of reviewed segment",
+      "provider error and API-script load failure open local option",
+      "offline local return and same checkpoint persists across reload",
+      "failure removes empty preview area",
+      "390px no horizontal overflow"
+    ]
+  },
+  "figureCounts": {
+    "total": 127,
+    "bound": 40,
+    "pending": 87,
+    "byUnit": {
+      "B": 17,
+      "C": 1,
+      "D": 22
+    }
+  },
+  "files": [
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "sha256": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+      "sha256": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "adf78480628db23997a52cee67cde44b4553544484440a6120b2b1bd9135e773"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "sha256": "ea2aa508421f543c74ce44f7295d8f6ae3a1886db03edd0bfd805da02af5bb3d"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "efe6aa590dcccdc11ed39538973d82d9d3e05b7e8e2255f782b652819a6b5139"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+      "sha256": "84836db5a1da36a46f1381a2492aa9ff5ce5a122c22c71514d1eab3cef6d8b6c"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-media.test.ts",
+      "sha256": "fd1b28c6e48da79e55fc94c480ea85ee52ac01829f918de06f96cccc80fa4ccf"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-inputs.test.ts",
+      "sha256": "d8f803d5bdfd9e39ee0fca1f6c871f2e592a3f951952f78ca59ec417b3f42426"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+      "sha256": "9df8d18cd588c7a35581e8b770090ff2f8e46d07215b9517e803bf265aac4908"
+    },
+    {
+      "path": "scripts/tests/fixtures/biology30-pilot2/renderer.ts",
+      "sha256": "1243468ef8a9f8e2786f18c595368bfb4505fe30fa5184eebf292a3d30e8dd71"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/media-component-comparison/chromium-media-fallback-390-v3.png",
+      "sha256": "c8fcd6a662b65e1618087e7b5225bc0f4dae9dda384a581a504d1795e5a9cb8f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/media-component-comparison/firefox-media-fallback-390-v3.png",
+      "sha256": "7a1c7cd18c950e9e0f105e1a8971edd12395af26a21f4d1d83a9dba33f1b02d0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/media-component-comparison/webkit-media-fallback-390-v3.png",
+      "sha256": "3ec96864dc962db87975a930310492b879e8c99ea0314ae804f76f3f0c6aff1e"
+    }
+  ],
+  "references": [
+    "https://developers.google.com/youtube/iframe_api_reference"
+  ],
+  "limitations": [
+    "Provider API tests use synthetic mocked native API; no actual clip caption/science review or selected video",
+    "All-unit gates remain6/13; actual learner rendering and production promotion pending",
+    "No teacher acceptance or LMS certification",
+    "Three-browser390px media component screenshots do not replace all-route exact-build visual review"
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false
+}

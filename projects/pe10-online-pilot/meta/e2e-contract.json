@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "pe10-online-pilot",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "PE10 Online"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": false
+  }
+}

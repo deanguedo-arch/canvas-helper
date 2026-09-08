@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "gateId": "gate-1",
+  "projectSlug": "biology30-unit-a",
+  "contractSha256": "f4fdf1e95aa3e80681b8aff15c2fb1af65705d28e663ea1ad2c3a2dbb8ae610d",
+  "approvedBuildSha256": "ef0b900b880cb705fd9b4e8000738b52fcf324ac2ba373d5d60aaf8760d3bf2a",
+  "approvedAt": "2026-08-30T02:48:45Z",
+  "approvedBy": "user",
+  "authorization": "gate-2-only",
+  "qualityFloorAmendment": {
+    "amendedAt": "2026-08-31T01:58:30Z",
+    "previousContractSha256": "cb773ee76a4c1a20f384a0edcbd764ee64a3af296ed87e0526d95e1ed940f3cc",
+    "change": "Raised only the later human promotion threshold from 90 to 95; the approved Gate 1 build and visual direction are byte-unchanged.",
+    "authorizedBy": "user",
+    "authorizationText": "lets do it and get 95+/100",
+    "authorizationBoundary": "quality-floor-only; gate-2 build remains the maximum authorized action"
+  },
+  "acceptedDirection": [
+    "scientific-editorial-visual-system",
+    "independent-learning-loop",
+    "native-web-explanation",
+    "evidence-first-practice",
+    "local-first-interactions",
+    "responsive-accessible-layout",
+    "bounded-scorm-persistence-foundation"
+  ],
+  "notAuthorized": [
+    "promotion",
+    "studio-direct-editing",
+    "commit",
+    "scorm-export",
+    "brightspace-upload",
+    "publication"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "pe10-online-pilot",
+  "storageKey": "canvas-helper:pe10-online-pilot:state:v1",
+  "characterGuard": 48000,
+  "maximumLogEntries": 60,
+  "textOnly": true,
+  "binaryOrFileStorage": false,
+  "serializedFields": [
+    "schemaVersion",
+    "projectSlug",
+    "logEntries",
+    "checkpoints",
+    "assignmentDrafts",
+    "alternateEvidence",
+    "completion",
+    "updatedAt"
+  ],
+  "completionFields": {
+    "safetyPlanningComplete": "boolean",
+    "lastRoute": "one of the eight known route identifiers",
+    "portfolioAssignmentIds": "zero to five unique recognized assignment identifiers in canonical assignment order; missing legacy v1 values default to an empty array"
+  },
+  "logEntryTuple": [
+    "id",
+    "date",
+    "activity",
+    "durationMinutes",
+    "dimension",
+    "intensity",
+    "learningFocus",
+    "progression",
+    "reflection",
+    "safetyConfirmed",
+    "verifierName",
+    "verifierRole"
+  ],
+  "fieldLimits": {
+    "activity": 48,
+    "learningFocus": 64,
+    "progression": 80,
+    "reflection": 100,
+    "verifierName": 40,
+    "verifierRole": 40,
+    "checkpointField": 180,
+    "assignmentField": 450,
+    "alternateEvidencePlanReference": 160
+  },
+  "restorePolicy": {
+    "rejectMalformedJson": true,
+    "rejectOversizedText": true,
+    "rejectWrongProject": true,
+    "rejectFutureSchema": true,
+    "replaceCurrentStateOnlyAfterFullValidation": true
+  },
+  "worstCaseFixture": {
+    "characters": 43378,
+    "headroom": 4622,
+    "calculatedWith": "60 maximum-length log entries, all checkpoint fields, all assignment fields, all five saved Portfolio assignment identifiers, and all alternate-evidence fields"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "git": {
+    "branch": "codex/studio-direct-editing-v1",
+    "commit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168"
+  },
+  "predecessor": {
+    "path": "projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168/baseline.json",
+    "sha256": "82a14d44afcd95f754683aefd58311e820231b459eb7a879eecbb6802fdd0db0"
+  },
+  "authority": "User approved focused A Pilot 2 and BCD instructional repair plan; only recorded A first-use passage and its owner changed.",
+  "trees": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace",
+      "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783",
+      "checkpointSha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace",
+      "sha256": "425c9978c10891b8b47e218c8697b5f631857b8631f0e5141ca846cd9aae1698",
+      "checkpointSha256": "3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a"
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace",
+      "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b",
+      "checkpointSha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b"
+    },
+    {
+      "path": "scripts/lib/biology30-unit-a-pilot-2",
+      "sha256": "4af4faac3bf714bef66879d903762ca0c0091c0b576d7fc33560de130124582e",
+      "checkpointSha256": "d6a9830891d7823cd5d27575607030bf83d2c2dde9e7ec307801ef2a770c3767"
+    }
+  ],
+  "teacherAcceptance": null
+}

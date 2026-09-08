@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-30T02:03:30.743Z",
+  "nativeLocalInteractionCount": 2,
+  "artifactCount": 2,
+  "interactions": [
+    {
+      "id": "interaction-action-potential-explorer",
+      "lessonId": "lesson-04",
+      "kind": "stage-evidence-explorer",
+      "responseIds": [
+        "biology30-unit-a:activity:action-potential:model-state"
+      ],
+      "completionRule": "Learner inspects all six membrane-potential stages.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "resetIsScoped": true,
+      "networkRequired": false
+    },
+    {
+      "id": "interaction-blood-glucose-simulator",
+      "lessonId": "lesson-15",
+      "kind": "synthetic-feedback-simulator",
+      "responseIds": [
+        "biology30-unit-a:activity:blood-glucose:scenario",
+        "biology30-unit-a:activity:blood-glucose:interpretation"
+      ],
+      "completionRule": "Learner runs at least two scenarios and records a mechanism-based interpretation.",
+      "fallbackType": "supplied-data",
+      "datasetId": "dataset-blood-glucose-gate-1",
+      "keyboardOperable": true,
+      "persistent": true,
+      "resetIsScoped": true,
+      "networkRequired": false
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "action-potential-evidence",
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "fields": [
+        {
+          "id": "biology30-unit-a:artifact:action-potential-evidence:claim",
+          "label": "Claim",
+          "maxLength": 550
+        },
+        {
+          "id": "biology30-unit-a:artifact:action-potential-evidence:evidence",
+          "label": "Graph evidence",
+          "maxLength": 700
+        },
+        {
+          "id": "biology30-unit-a:artifact:action-potential-evidence:reasoning",
+          "label": "Ion-channel reasoning",
+          "maxLength": 750
+        }
+      ],
+      "rubricId": "biology-scientific-evidence-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "glucose-urinalysis",
+      "lessonIds": [
+        "lesson-15"
+      ],
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.6k",
+        "A2.1sts",
+        "A2.2s",
+        "A2.3s"
+      ],
+      "fields": [
+        {
+          "id": "biology30-unit-a:artifact:glucose-urinalysis:pattern",
+          "label": "Data pattern",
+          "maxLength": 500
+        },
+        {
+          "id": "biology30-unit-a:artifact:glucose-urinalysis:mechanism",
+          "label": "Feedback mechanism",
+          "maxLength": 750
+        },
+        {
+          "id": "biology30-unit-a:artifact:glucose-urinalysis:limits",
+          "label": "Limits and next evidence",
+          "maxLength": 750
+        }
+      ],
+      "rubricId": "biology-scientific-evidence-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ]
+}

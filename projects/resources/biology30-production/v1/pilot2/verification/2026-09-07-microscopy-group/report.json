@@ -1,0 +1,81 @@
+{
+  "stage": 76,
+  "checkedAt": "2026-09-07T05:10:23.929289+00:00",
+  "status": "required five-photo source group and owner multi-panel renderer implemented; no actual learner lesson generated",
+  "figures": {
+    "B": 10,
+    "C": 1,
+    "D": 5,
+    "bound": 16,
+    "required": 127,
+    "pending": 111,
+    "teacherDecision": null
+  },
+  "verification": {
+    "focusedTests": 88,
+    "passed": 88,
+    "typecheckUnrelated": 25,
+    "typecheckOwned": 0,
+    "draftContracts": "pass",
+    "sourceProtection": "15 sources,8 textbook members,six learner trees and protected Unit A owner pass"
+  },
+  "browserProof": [
+    "Synthetic group originals and separate enlargement/focus return in Chromium,Firefox,WebKit",
+    "Actual five originalJPEGs independently enlarged and focus-return checked in authoring-only Chromium component",
+    "Native authoring screenshots at1440 and390 plusoriginal-sizeD inspected; these are not whole-lesson visual proof"
+  ],
+  "initialFailure": "Full run first had one Chromium screenshot scroll-position failure after a focused response was resized; existing focus return assertion passed. Static screenshot setup now blurs caret and stops smooth scrolling before waiting two layout frames and moving to top. Full rerun88passes. No learner controller changed for this fixture issue.",
+  "files": [
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "sha256": "616c5883aee69dd496a86ec2fc1f93a6207b05d499b48b7e9c07163faf6153f8"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "sha256": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-group.test.ts",
+      "sha256": "6028a63cc1d524710c752257fe97faaf0ee474f8573cdc28df7a4f1c03c78425"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "743000c83d5cff6408764c8c4ed5dccfa256f96020863135a0f21189284f216c"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+      "sha256": "295d2677a6ca789ccada16c23ce9ec20f57ac4b2f4f95eb71d56ad6051463c73"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+      "sha256": "437fa7511411621080bd003ba3add9bfb5f46e0b9af87ca486cdad6e538f0191"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/required-group-review.json",
+      "sha256": "f4ee82b9c9a2248762616913fb316c279694810a35d1f3c6127e74725f5a6575"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "7fc4fcb066bc94f5df0ece1bef7d4344052239f08a08fb2a57bfe6565ad7f5a9"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/screenshots/micrographs-390.png",
+      "sha256": "829a4aa50bc1e5ec34417ac0f798d511c0f46a28a902414e604bffeab450855c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/screenshots/micrograph-d-original-390.png",
+      "sha256": "f2c6778976a13fe543c3f538479fe720ffb65844e765a047c72b1ba8417a6d51"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/screenshots/micrographs-1440.png",
+      "sha256": "315585c38877ce32e60cf3f3236ed40986ef453b865c90347d6320807e929da9"
+    }
+  ],
+  "pending": [
+    "111 figure targets plus all-source/academic/first-use/media/timing/transfer review",
+    "Production asset/media/transaction and metadata integration, full code/asset closure",
+    "All-unit freeze, actual B then C then D builds and exact-build review"
+  ]
+}

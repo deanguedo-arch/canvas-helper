@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="gfl-title gfl-desc" data-figure-id="figure-generic-feedback-loop">
+  <title id="gfl-title">Generic negative-feedback loop</title>
+  <desc id="gfl-desc">A variable departs from a regulated range. A sensor detects the change, a coordinating centre sends a signal, and an effector response reduces the original departure. The reduced disturbance decreases the drive for the response.</desc>
+  <defs><marker id="gfl-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#39423d"/></marker></defs>
+  <style>.t{font:700 21px 'Work Sans',sans-serif;fill:#171b1b}.tw{font:700 18px 'Work Sans',sans-serif;fill:#171b1b}.s{font:500 15px 'Work Sans',sans-serif;fill:#48524c}.n{fill:#fff;stroke:#5b635d;stroke-width:2}.r{fill:#fff0ee;stroke:#a43f35;stroke-width:3}.g{fill:#edf7f3;stroke:#146c60;stroke-width:3}.l{fill:none;stroke:#39423d;stroke-width:3;marker-end:url(#gfl-a)}</style>
+  <rect width="960" height="540" fill="#fff"/>
+  <rect class="r" x="70" y="75" width="210" height="90" rx="9"/><text class="t" x="175" y="112" text-anchor="middle">Variable departs</text><text class="s" x="175" y="139" text-anchor="middle">direction and size matter</text>
+  <rect class="n" x="375" y="75" width="210" height="90" rx="9"/><text class="tw" x="480" y="112" text-anchor="middle">Sensor + integration</text><text class="s" x="480" y="139" text-anchor="middle">evidence becomes output</text>
+  <rect class="n" x="680" y="75" width="210" height="90" rx="9"/><text class="tw" x="785" y="112" text-anchor="middle">Signal reaches target</text><text class="s" x="785" y="139" text-anchor="middle">neural or endocrine route</text>
+  <rect class="g" x="650" y="330" width="240" height="95" rx="9"/><text class="t" x="770" y="368" text-anchor="middle">Effector response</text><text class="s" x="770" y="396" text-anchor="middle">changes the variable</text>
+  <rect class="g" x="245" y="330" width="240" height="95" rx="9"/><text class="t" x="365" y="368" text-anchor="middle">Departure is reduced</text><text class="s" x="365" y="396" text-anchor="middle">response drive decreases</text>
+  <path class="l" d="M280 120H367M585 120H672M785 165V322M650 377H493M245 377C139 366 111 263 154 174"/>
+  <text class="t" x="105" y="278" fill="#146c60">opposes</text><text class="s" x="105" y="302">the original change</text>
+</svg>

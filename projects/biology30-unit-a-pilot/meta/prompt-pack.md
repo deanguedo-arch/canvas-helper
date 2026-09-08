@@ -1,5 +1,9 @@
 # Biology 30 Unit A Pilot — improvement contract
 
+## Current B/C/D continuation
+
+For the newly authorized B/C/D rebuild, start with the [complete execution plan](../../../docs/plans/biology30-bcd-pilot2-rebuild.md), [pinned intake manifest](./bcd-rebuild-intake-manifest.json), [checkpoint](./bcd-rebuild-handoff-checkpoint.json) and [active handoff](../../../docs/ops/ACTIVE_HANDOFF.md). Use final A provisionally; do not mark it accepted or edit A learner content. B/C/D use their owning Biology builder and the saved local checkout. The old source-missing flags predate the newly supplied decks/plans; the new manifest establishes availability, not build readiness. The plan records all latest teacher-order, full-unit delivery, image-comparison and Astra High/Standard decisions. The Pilot 1 contract below remains historical/current guidance only for actual Pilot 1 edits, not the B/C/D owner.
+
 - Workflow: generated-course improvement pilot
 - Canonical learner page: `projects/biology30-unit-a-pilot/workspace/index.html`
 - Protected baseline: `projects/biology30-unit-a-pilot/raw/`

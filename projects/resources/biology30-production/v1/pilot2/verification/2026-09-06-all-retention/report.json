@@ -1,0 +1,52 @@
+{
+  "stage": "All196 original sections have authored retention comparisons",
+  "reviewed": {
+    "B": 56,
+    "C": 96,
+    "D": 44
+  },
+  "latestRestoredAdvancedTargets": {
+    "C": 41,
+    "D": 17
+  },
+  "focusedTests": 40,
+  "draftContracts": "passed;5of13 authored gates perunit",
+  "reading": "required-prose reading estimates pass; Advanced manual/layout review continues",
+  "state": {
+    "B": 32617,
+    "C": 43890,
+    "D": 25644,
+    "target": 44000,
+    "scope": "engine maxima; browser integration pending"
+  },
+  "protection": "15 original sources,8 textbook members,6 learner trees and protected A owner verified unchanged",
+  "typecheck": "Last B-retention run retains25 existing unrelated diagnostics; no new owner code since that run, retention test updated and passing",
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json": "efb74ea550da06d28951f3a30a1423e62ba82723240ee497051b426f2111e370",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-disposition.json": "bdf0265eb946e71b26eff9ba4ee1269d8b5c641e0b0be75a6bb916a60e71728c",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-review.json": "6d4b0c8e26a6f15a00a55049b967d67618636e56360d42a7f1ec2bda71bd7b90",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json": "b15768e06211cec20836dcea183f1faa683fc0acd5a2a873a15358bfd6dc78fd",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json": "cb3a1d8486df40ace31879350dbd8c7c0d5e17cb17064d1173754376951f163b",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json": "e6e9c4c86ed78c1456c137d8ed1a1177184aceb77d4f372326f553d83f9f2a14",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json": "b403e14b26b814a500f9605c944d98f5e18c318706a5d1448f5d5ddab43baed7",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json": "2585deff29ba00059357245b172f2f2122ceebcdafdff86e39ea2fe52d5a28f4",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-disposition.json": "147526008134c2de42e5b767aa77e4eb148c0423c6433fec81e862aef41754ba",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-review.json": "38a756fc22d45db41bd90899f429b60825fb1be2d275d5fc53b8ae45c4377a3f",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+    "scripts/lib/biology30-course/v1/pilot2-retention-audit.ts": "ca0a007327f191c89ce36e0a0c4b0ea91708c5f91a0dea4d2e4bc650d5457375",
+    "scripts/tests/biology30-pilot2-retention.test.ts": "80f998cac86bc06aad85d9bf91ba9e5ca34dfc2ab8da7e72006f79488bb6d533"
+  },
+  "logs": {
+    "reading.log": "388a5267e6f032b647bc44bbf013d87b87e36ce6933a978ec9dba5f3e08608ad",
+    "contracts.log": "da993a8038c4984368934065832b20ceb0e4742f0bf0e70916c2725637606d47",
+    "state.log": "d416de0a53f441f55f23f79a9c56ebd4b7caf96db18a5aa3996d13fc2842cb85",
+    "protection.log": "ef38ed1469e47a61236c037fc0ea8a5fbab06a67c9b38ba5597dba332626f179",
+    "tests.log": "6debf3caf25a471e598e1792c763ba8e9eace9053a3d0cc85b9cf7d227de6576"
+  },
+  "teacherAcceptance": null,
+  "rendered": false
+}

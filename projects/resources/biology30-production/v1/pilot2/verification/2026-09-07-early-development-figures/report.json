@@ -1,0 +1,137 @@
+{
+  "stage": 84,
+  "checkedAt": "2026-09-07T06:51:06.093134+00:00",
+  "summary": "Seven early-development B figure targets natively reviewed, compared side by side and provisionally bound.",
+  "verification": {
+    "focusedTests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "draftContracts": "passed",
+    "sourceAndProtectedBaselines": "passed",
+    "nativeSvgAndSideBySideReview": "seven each passed",
+    "latestFullOwnerSuite": "stage83:101passed; final9browserchecks passed"
+  },
+  "figureCounts": {
+    "total": 127,
+    "bound": 47,
+    "pending": 80,
+    "byUnit": {
+      "B": 24,
+      "C": 1,
+      "D": 22
+    }
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "a199f945dc4e4c61a3aa031ef8ddc0b7d68cdfe001f87d1d91cbad02d628fb4d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+      "sha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "5ec1d8b88115755d462d15fc1f998cc3b8d3412646b29c9017c5e59f9a6fdf10"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "abb1bfa965688dfaad3b9b50e96af0fbdda897324815bbb683c21c47f92f74b9"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-fertilization-interactions-v2.svg",
+      "sha256": "f7c040d75ae6d65b2a6a4c604a9d2c0c75a0aa89e991775b4144a2841677b0ef"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-pronuclei-and-ploidy-v1.svg",
+      "sha256": "f71d02f49fda3173d2e3211f6d3baff1e05b92737a7b8338e6c388e3d0d2e1b3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-cleavage-organization-v3.svg",
+      "sha256": "34b1a486331e93ee6bea936e99b79f25ece483e0d521fc7aa65384cc4670c356"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ivf-location-and-denominator-v1.svg",
+      "sha256": "61087ba1daae419a60af4ee169ff653042e5009c1096bf302eaefaeb98bf2c98"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hcg-source-target-transition-v1.svg",
+      "sha256": "9f4fdf9b8f540d66bc696e53763a2296e934d9b90174df82a44172a229cc8648"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-germ-layer-tissue-map-v1.svg",
+      "sha256": "d64b8ea3fcd1acef62422a3f16fbb02a2dff4694b1362f0880c2cf6d1d19ea39"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-evidence-timing-v1.svg",
+      "sha256": "33ed3de5192bcd4101f8f00898de40bef5043fd679dcf1bc3bbf0282c14d083f"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-fertilization-interactions-v2-native-stable.png",
+      "sha256": "48192b09811f61c9982b48b6b40425e39cf287f6aeaeebb9c77d9f70740a05a0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-fertilization-interactions-v2-side-by-side.png",
+      "sha256": "3142c147129c314975d21c227d00b982ec19bbb59424e374c7d232118b77493f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-pronuclei-and-ploidy-v1-native-stable.png",
+      "sha256": "a14e50508af7f44107d389af89bf6b6d265b5bfe784359f8a91826b58dee6d42"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-pronuclei-and-ploidy-v1-side-by-side.png",
+      "sha256": "ba07f4670a12cafcae71dc01ce17d4608537af604561bfffaef63c5a28a721d0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-cleavage-organization-v3-native-stable.png",
+      "sha256": "e145c8fba948c1da20d80ca06dfa685f1ddea478b0b571fc8bb173adfe197177"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-cleavage-organization-v3-side-by-side.png",
+      "sha256": "e6faf78d6db5ad772c881435fe22de5407d3a1c4fba034e0a15a18a36fff585b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-ivf-location-and-denominator-v1-native-stable.png",
+      "sha256": "f55af23ead8997473769f391e9bbb8c35b4c90a0e2deee758aed82e4964d800e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-ivf-location-and-denominator-v1-side-by-side.png",
+      "sha256": "39769877e52ac99468aa6178d81d91a6ea693e1fed5e5c6b4680b69337cb42c8"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-hcg-source-target-transition-v1-native-stable.png",
+      "sha256": "3b422bdc225219dea47877dcab787e7c8c7be4311c603e93ac5c789e8c1ee402"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-hcg-source-target-transition-v1-side-by-side.png",
+      "sha256": "c6c1ae2a69899892b7bfd2127784e78c1bbcac8f4852aa20c20543e06eda289e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-germ-layer-tissue-map-v1-native-stable.png",
+      "sha256": "6a11a996a17eaf5212c13273364f5234cded3a7f688b2dbf390c63872acad65d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-germ-layer-tissue-map-v1-side-by-side.png",
+      "sha256": "df98e40edbd2ed2e0e133e1f6f794c79d6a9f47928307aabdd712f18f52cb232"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-developmental-evidence-timing-v1-native-stable.png",
+      "sha256": "63adb89593c9b10c96e81477f95f195ec4d764c417c80881bd42f42f5a68b632"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-developmental-evidence-timing-v1-side-by-side.png",
+      "sha256": "5d03758a71b0a271e1904de30b1ca489532f335cfe6770a8fbef9787b0511384"
+    }
+  ],
+  "limitations": [
+    "All-unit academic gates remain6/13 each.",
+    "Actual learner placement, whole-course build and exact-build E2E remain pending.",
+    "Mac reported locked; ChatGPT Images unavailable in this batch.",
+    "Original SVG precision diagrams selected; no new raster comparison or teacher acceptance claimed."
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false
+}

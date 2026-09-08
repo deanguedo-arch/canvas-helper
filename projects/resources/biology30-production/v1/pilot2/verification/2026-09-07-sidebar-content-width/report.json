@@ -1,0 +1,38 @@
+{
+  "stage": 100,
+  "checkedAt": "2026-09-07T16:17:33.868838+00:00",
+  "status": "local-sidebar-width-repair-verified",
+  "change": "Remove fixed1120/1200px course-frame caps. Width follows the available main container with sidebar expanded, collapsed or in mobile overlay mode. Existing gutters retained.",
+  "owner": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "78f715a93a96cdf76e1c04f169cdeee9625905c7b3a82b4ca7fbd481236117da",
+      "contractSha256": "7c25f2ed2e7a92fc7c178ce2a98b7b380e28f610a73b6668ac4fdfb3cc6162b8",
+      "generatedAt": "2026-09-07T16:14:56.132Z",
+      "previousWorkspaceSha256": "615b9e55e6a575e23209f87c7852c9b1589b08c0b3320d3393121498165affd7"
+    },
+    "C": {
+      "buildSha256": "5d14c5bf7e28bdbc8f18384afc98f922b26bf279c9a92551c6257bdeda675ea2",
+      "contractSha256": "95a70da4b5aadc6792e973ea3d4de4168004204d5ef198125a8a427cecde6e67",
+      "generatedAt": "2026-09-07T16:15:02.065Z",
+      "previousWorkspaceSha256": "1dd7868178ea49a71341956fd2372866f20d44e257bfc2ca6c2c4c6e2b1b6193"
+    },
+    "D": {
+      "buildSha256": "c0d2b33dc800c4af025da3993f7d0cab36c5d883e2b8922b3cd7d9a1c31d156f",
+      "contractSha256": "e118008c05db61d1a3d694e2ea3a26f1ca786233ccdfbc25cf5808bf38589ee6",
+      "generatedAt": "2026-09-07T16:15:08.069Z",
+      "previousWorkspaceSha256": "077d4e988c131d779d32042d34ea62fdf3b9dd51d8a2fd9baac3e578853f7142"
+    }
+  },
+  "validation": {
+    "layout": "All-unit layout regression passes at1920/1440/1024/720/390px; content gains reclaimed sidebar space, aligns to main gutter, returns to prior width, fills viewport after collapsed-to-mobile resize and has no horizontal page overflow. Four resource/collection routes checked while collapsed.",
+    "workspace": "B/C/D passed",
+    "projectE2E": "B/C/D each1/1 passed",
+    "owner": "4/4 passed including cold inputs and all protected A baselines",
+    "native": "Actual B Process Collection inspected with collapsed sidebar; frame fills freed space"
+  },
+  "teacherAcceptance": null,
+  "unitAStatus": "provisional",
+  "protectedA": "unchanged",
+  "releaseActions": []
+}

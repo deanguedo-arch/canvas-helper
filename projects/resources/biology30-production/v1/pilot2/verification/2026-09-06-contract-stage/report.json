@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-09-06T20:00:00.338086+00:00",
+  "stage": "pre-render contracts",
+  "sourceDispositionTests": {
+    "command": "python3 -m unittest scripts/tests/test_biology30_source_dispositions.py",
+    "passed": 5,
+    "failed": 0
+  },
+  "focusedTypeScriptTests": {
+    "passed": 24,
+    "failed": 0
+  },
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exitCode": 2,
+    "diagnostics": 25,
+    "scope": "All reported diagnostics are outside the changed B/C/D files. Repository-wide typecheck is not passing; unrelated files were preserved."
+  },
+  "browser": {
+    "status": "blocked-Mac-locked",
+    "userUnlockRequested": true,
+    "toolMessage": "The Mac is locked and automatic unlock could not unlock it."
+  },
+  "files": {
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-contract-stage/focused-tests.txt": "128743bc46819d512e5a0db6a353660f8a09721844002fcdc41979019573ecdd",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-contract-stage/typecheck.txt": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-contract-stage/source-dispositions.json": "908607a225834edaa3d02e6c6c780d7fe583ec6b97fed67059e4c07c5797df0c",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-contract-stage/topic-contracts.json": "e29fb993bd80fd51a9904ceab97dcc206c81fae89afca0f58e9b201cb09e4376",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-contract-stage/protected-source-preflight.json": "2719b86a757ef769026da386662c25e836ff08949f9c66ea8d5eb364911eb1c8"
+  },
+  "learnerWorkspacesChanged": false,
+  "teacherAcceptance": null
+}

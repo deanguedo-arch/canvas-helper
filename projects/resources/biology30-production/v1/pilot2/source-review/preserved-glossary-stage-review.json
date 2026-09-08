@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "stage": "Preserved glossary wording author review",
+  "teacherDecision": null,
+  "status": "wording-reviewed-first-use-pending",
+  "reviewed": {
+    "B": 58,
+    "C": 133,
+    "D": 45
+  },
+  "corrections": {
+    "B": 7,
+    "C": 13,
+    "D": 7
+  },
+  "scope": "All236 complete preserved definitions read. Original definitions retained in per-entry history for27 revisions. No introduced definition, required prose, practice/key, response identity or limit changed. One exact-name nondisjunction overlap retains both provenance records for later single-term rendering.",
+  "authorities": [
+    {
+      "url": "https://www.hhs.gov/vaccines/basics/types/index.html",
+      "read": "Vaccine types and mRNA/subunit/toxoid sections",
+      "application": "Definition includes antigen or antigen-making instructions and harmful-product targets; no clinical schedule or advice."
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Centimorgan-cM",
+      "read": "Complete definition and narration",
+      "application": "Retain recombination-based map units and reject a fixed physical DNA conversion; course short-interval and sample qualifications retained."
+    },
+    {
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/driver-mutation",
+      "read": "Complete driver-mutation definition",
+      "application": "General definition focuses on causal contribution to cancer; no treatment guidance."
+    }
+  ],
+  "remaining": [
+    "surface-wide first-use placement and definition dependencies",
+    "source locator and alias resolution",
+    "rendered glossary and links"
+  ],
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "0705c37cbdb5b944748be8114ca41e6d46e1c31ecaca43ed212912a6ceaaa897",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json": "14b32472e4db07c1588a0e9ab0b777d5f8cbb69654db4c9a7018d7d8ae04a9ef",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json": "98728d857def6d732eec1b50167b21a4d73523ebe0471f3e1c41f908c62d8fae",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "1fdee1923fd65eaac58fa9428e6aa344f05e06e2004fad6f61eab73b9c150e17",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json": "390517453b26a98eddcac37805a5282d277d6d63bc021b3e6bde336b554fc9a9",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-activity-index.json": "073c59f3a47c9b2de40d912507d50520d1a6b86b15af1bb54b26e95af4c9a2e6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "ac17af06a1c6fbd019343076bac121489daede6b11fe159a52b200bfe9299e5e",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json": "b01043493159c657a18d6b9d31099f57a61fabd4399f7ae21ff0ec45da99dcad",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-activity-index.json": "40af43825f1fb1e29b6cdf046632cbf01a8f6c7f7ff8d498e5b6495ad23a0331"
+  },
+  "codeSha256": {
+    "scripts/lib/biology30-course/v1/pilot2-definition-review.ts": "a90d63fd06c2b05c75c70629a944a23a36bdba7bf2730848ce6ec181d73596f5",
+    "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts": "0674e41761a32315de15f1b8db98e2d5a72ddc77175778dda865f366b8b7493c",
+    "scripts/tests/biology30-pilot2-definition-review.test.ts": "954bf1fdd30805cbe885efb9361e279848eec2415b7738514a52b058a10f0610"
+  }
+}

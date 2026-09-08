@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-02",
+  "module": "Systems and Signals",
+  "title": "Two Control Systems and Feedback",
+  "inquiry": "If a sensor detects change, what must happen next for the result to be a true feedback loop?",
+  "learningIntention": "I am learning to model negative feedback and compare how nervous and endocrine signals coordinate a response.",
+  "requiredMinutes": 75,
+  "optionalMinutes": 25,
+  "outcomeIds": ["A2.1k", "A2.2k", "A2.4k", "A2.5k"],
+  "materials": "No special materials. Use the local feedback builder and supplied examples.",
+  "safety": "The examples describe normal regulation and simplified disorders; they are not tools for diagnosing personal symptoms.",
+  "targets": [
+    "Distinguish negative feedback from a one-way stimulus-response chain.",
+    "Trace hormone release, transport, receptor binding, target response, and feedback as separate events.",
+    "Predict what happens when a sensor, signal, receptor, or effector is disrupted."
+  ],
+  "warmup": {
+    "title": "Test the arrow",
+    "prompt": "A diagram says: body temperature rises → sweating increases. What additional relationship must be shown before you can call this negative feedback?",
+    "placeholder": "The diagram must also show that…"
+  },
+  "sections": [
+    {
+      "label": "Follow the loop",
+      "title": "1. Negative feedback is defined by direction of effect",
+      "paragraphs": [
+        "A feedback loop exists when the output of a system influences the condition that drove the system. In negative feedback, the response reduces the original departure. If body temperature rises above its usual range, increased heat loss opposes the rise. If blood glucose falls, responses that increase glucose availability oppose the fall. The word negative describes the direction of the correction, not the value or importance of the response.",
+        "The set point is often better understood as a regulated range rather than one unchanging number. It can shift with time of day, activity, development, illness, or other signals. Regulation also has delay. A response may continue briefly after a variable begins moving back toward its range because sensors, signals, and effectors do not update instantly.",
+        "Positive feedback amplifies an initiating change and is useful in bounded processes such as blood clotting or the contraction phase of childbirth. It does not usually maintain a variable near a stable range. A one-way chain—stimulus followed by response—cannot be classified until the effect of the response on the original change is known."
+      ],
+      "figureIds": ["figure-generic-feedback-loop"]
+    },
+    {
+      "label": "Separate the events",
+      "title": "2. Hormone signalling is more than release",
+      "paragraphs": [
+        "An endocrine gland or endocrine cell releases a hormone into extracellular fluid and then blood. Circulation transports the hormone. Reaching a tissue is not the same as affecting it: target cells must express an appropriate receptor. Receptor binding starts intracellular events that alter transport, enzyme activity, gene expression, secretion, or another cell response.",
+        "Hormone concentration depends on release, distribution, breakdown, and removal. Target response also depends on receptor number and downstream machinery. Therefore, a high hormone concentration can coexist with a weak response if receptors or intracellular pathways respond poorly. Conversely, an unusually low concentration can produce a strong effect if a tissue is highly sensitive.",
+        "Feedback may act at more than one level. A target-gland hormone can reduce signals from the pituitary and hypothalamus. A changing blood variable can act directly on endocrine cells, as glucose does on pancreatic islets. To reason accurately, name what is detected and where the return signal acts."
+      ],
+      "figureIds": ["figure-control-system-comparison"]
+    },
+    {
+      "label": "Compare pathways",
+      "title": "3. Neural and endocrine loops share logic but use different routes",
+      "paragraphs": [
+        "Both systems need information, integration, signalling, a responsive target, and a consequence. Nervous control uses membrane potentials, action potentials, synapses, and connected effectors. Endocrine control uses secretion, circulation, receptors, and target-cell responses. A diagram should not place a hormone arrow directly from a gland to an outcome while hiding transport and receptor binding.",
+        "The hypothalamus is an important bridge. It receives neural information about the internal and external environment and controls autonomic outputs. It also controls pituitary hormone release. During stress, sensory and cognitive input can activate sympathetic neural pathways quickly while hypothalamic-pituitary-adrenal signalling supports a slower cortisol response.",
+        "Control can fail at different points. Damaged sensory receptors reduce input. A blocked axon disrupts neural transmission. Low hormone production weakens a circulating signal. A receptor defect changes target response even when hormone release is normal. These failures can produce similar outward patterns, so concentration data and target-response evidence must be interpreted together."
+      ],
+      "table": {
+        "caption": "Troubleshooting a control system",
+        "headers": ["Possible disruption", "Evidence to seek", "Reasoning limit"],
+        "rows": [
+          ["Sensor provides weak input", "Variable changes but coordinating signal stays low", "The same pattern could reflect integration failure"],
+          ["Hormone release is low", "Low circulating hormone plus weak target response", "Release may be low because feedback is appropriate"],
+          ["Target receptor responds poorly", "Hormone is present or high but response remains weak", "Other target pathways may compensate"],
+          ["Effector cannot act", "Signal arrives but variable does not correct", "Measure the effector directly when possible"]
+        ]
+      }
+    },
+    {
+      "label": "Work an example",
+      "title": "4. Calcium regulation shows why paired evidence matters",
+      "paragraphs": [
+        "Suppose blood calcium falls. Parathyroid glands can increase parathyroid hormone release. PTH supports responses in bone, kidneys, and indirectly the intestine that raise blood calcium. As calcium rises toward its regulated range, the stimulus for PTH release decreases. The complete loop includes the variable after the response, not just the gland and its targets.",
+        "Now imagine that PTH is high while blood calcium remains low. That pattern does not support simple underproduction. It suggests that calcium supply, kidney response, vitamin D-dependent absorption, receptor action, or another part of the pathway may be limiting. The example illustrates a general rule: hormone values must be interpreted beside the regulated variable and target response.",
+        "Models are representations, not miniature bodies. A useful model makes its assumptions visible. In this course, a feedback diagram must identify the variable, direction of change, sensor or endocrine cell, signal route, target, response, and return effect. Later models will add interacting hormones and measured data."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-negative-feedback-builder",
+    "title": "Troubleshoot a negative-feedback loop",
+    "intro": "Select a broken version of a temperature-control loop and identify the missing causal link.",
+    "prompt": "Which explanation uses the direction of the response rather than the name of the response?",
+    "options": [
+      {"id": "missing-return", "label": "Sweating is shown, but its effect is missing", "evidence": "The diagram ends at sweat-gland activity.", "explanation": "Add increased evaporative heat loss and a reduction in the temperature disturbance. Only then does the return relationship establish negative feedback."},
+      {"id": "missing-receptor", "label": "Hormone reaches a tissue, but no receptor is shown", "evidence": "The diagram jumps from blood transport to an organ-level response.", "explanation": "Add receptor binding and a target-cell response. Transport alone does not establish that a tissue will react."},
+      {"id": "wrong-direction", "label": "The response increases the original change", "evidence": "Temperature rises and the proposed effector produces additional heat.", "explanation": "That response amplifies the disturbance. It cannot be labelled negative feedback unless another effect reverses the direction."}
+    ],
+    "staticFallback": "A complete negative-feedback loop must show that the response decreases the initiating departure. Release, transport, receptor binding, target action, and return effect are distinct steps."
+  },
+  "exit": {
+    "title": "Complete the return arrow",
+    "prompt": "In 2–3 sentences, turn this chain into a negative-feedback explanation: blood osmotic concentration rises → ADH release rises → kidney water reabsorption rises.",
+    "placeholder": "The response changes the original disturbance by… As the variable returns…"
+  },
+  "sources": {
+    "summary": "Built from Alberta Unit A endocrine-control outcomes, supplied notes pages 100–109, CBE endocrine Lessons 1 and 6, and OpenStax endocrine-signalling cross-checking.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-homeostasis", "notes-hormone-signalling", "system-m2-l1", "system-m2-l6", "openstax-a-and-p"]
+  }
+}

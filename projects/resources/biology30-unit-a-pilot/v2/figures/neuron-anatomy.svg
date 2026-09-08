@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="na-title na-desc" data-figure-id="figure-neuron-anatomy">
+  <title id="na-title">Neuron anatomy and direction of information flow</title>
+  <desc id="na-desc">Branching dendrites lead to a cell body with a nucleus, then an axon hillock, a long axon with myelin segments and nodes, and branching axon terminals. Arrows show typical information flow from receptive regions to terminals.</desc>
+  <defs><marker id="na-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#146c60"/></marker></defs>
+  <style>.t{font:650 18px 'Work Sans',sans-serif;fill:#171b1b}.s{font:500 14px 'Work Sans',sans-serif;fill:#48524c}.cell{fill:#edf7f3;stroke:#146c60;stroke-width:4}.axon{fill:none;stroke:#39423d;stroke-width:8;stroke-linecap:round}.my{fill:#fff8ed;stroke:#a15c00;stroke-width:3}.flow{fill:none;stroke:#146c60;stroke-width:4;marker-end:url(#na-a)}</style>
+  <rect width="960" height="540" fill="#fff"/>
+  <g class="cell" fill="none" stroke-linecap="round"><path d="M95 270 35 215M96 264 40 280M98 255 65 160M100 282 63 362M112 245 108 135M112 294 112 407"/><circle cx="175" cy="270" r="74"/></g>
+  <circle cx="175" cy="270" r="28" fill="#fff" stroke="#146c60" stroke-width="3"/><path class="axon" d="M246 270H865"/>
+  <g><rect class="my" x="300" y="238" width="100" height="64" rx="28"/><rect class="my" x="425" y="238" width="100" height="64" rx="28"/><rect class="my" x="550" y="238" width="100" height="64" rx="28"/><rect class="my" x="675" y="238" width="100" height="64" rx="28"/></g>
+  <g fill="none" stroke="#39423d" stroke-width="5" stroke-linecap="round"><path d="M865 270 925 210M865 270 925 270M865 270 925 330"/></g>
+  <path class="flow" d="M78 455C310 485 646 485 862 405"/><text class="t" x="450" y="510" text-anchor="middle" fill="#146c60">Typical information direction</text>
+  <text class="t" x="55" y="95">Dendrites</text><text class="s" x="55" y="118">receive many inputs</text><text class="t" x="145" y="176">Cell body</text><text class="s" x="145" y="198">integrates inputs</text><text class="t" x="285" y="176">Axon</text><text class="s" x="285" y="198">conducts action potentials</text><text class="t" x="430" y="345">Myelin</text><text class="s" x="430" y="369">insulates segments</text><text class="t" x="536" y="210">Node</text><text class="t" x="800" y="160">Axon terminals</text><text class="s" x="800" y="184">release transmitter</text>
+</svg>

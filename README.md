@@ -30,6 +30,9 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 
 ## Main Commands
 
+- Biology 30 continuation: [Unit A → B–D production recipe](projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe). `npm run audit:biology30-improvement-transfer` refreshes the cross-pilot rule index and per-unit materials lists; add `-- --check` for read-only drift validation. This does not rebuild or approve B–D.
+- Biology B/C/D rebuild preparation: `npm run prepare:biology30-course:resources -- --units B,C,D` verifies and preserves pinned inputs transactionally (Python 3 with `pypdf`); `--verify-only` performs read-only checks, and `--check-video-links` probes metadata without claiming caption review. `npm run verify:biology30-course:topic-contracts` validates draft structure; `-- --pre-render` refuses incomplete contracts. The Pilot 2 renderer is still pending; selecting its profile cannot fall back to the old renderer. See the [execution plan](docs/plans/biology30-bcd-pilot2-rebuild.md).
+- Biology draft-contract checks: `npm run test:biology30-course:pilot2-models` checks model calculations and shared investigation data; `npm run test:biology30-course:pilot2-learning` checks practice capacity and prerequisite order. `python3 scripts/audit-biology30-source-dispositions.py` verifies preserved plan, media and link inventories. These checks do not grant scientific, visual or teacher acceptance.
 - `npm run studio`
 - `npm run studio:auto` (optional advanced mode: Studio + watcher orchestration)
 - `npm run studio:codex` (Codex desktop app shortcut on macOS)
@@ -56,6 +59,21 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run lesson-packets -- --project <slug>`
 - `npm run intake:english-course -- --course <course> --brightspace-zip "<zip>" --teacher-resources-zip "<zip>"`
 - `npm run intake:science-pilot -- --project <slug> --course-code "<code>" --title "<title>" --mode <conversion|generated-course> --brightspace-zip "<zip>" [--teacher-resources-zip "<zip>"]`
+- `npm run intake:science-comparison -- --family <family> --course-code "<code>" --title "<title>" --unit-title "<unit>" --primary-id <id> --primary-label "<label>" --primary-zip "<zip>" --reference-id <id> --reference-label "<label>" --reference-zip "<zip>" --treatments "faithful,optimized" --synthesis "outcome-led"`
+- `npm run intake:biology30-unit-a-v2 -- --family biology30-unit-a-pilot --project biology30-unit-a` (transactional Gate 0 only; refuses existing targets)
+- `npm run build:biology30-unit-a-v2 -- --project biology30-unit-a --strict` (transactional Gate 1 or full Gate 2 candidate rebuild according to the accepted review state; refuses accepted/promoted/frozen projects)
+- `npm run promote:biology30-unit-a-v2 -- --project biology30-unit-a --acceptance projects/biology30-unit-a/meta/human-acceptance.json` (exact-build, human-scored, transactional Gate 4 promotion; freezes the five comparison pilots and converts the accepted workspace to Direct ownership)
+- `npm run audit:biology30-unit-a-v2:figures -- --project biology30-unit-a` (exact-build geometry audit plus contact sheets for every figure placement at course width)
+- `npm run verify:biology30-unit-a-v2:figure-review -- --project biology30-unit-a` (refuses stale or incomplete visual-inspection evidence)
+- `npm run build:biology30-unit-a-pilots -- --family biology30-unit-a-pilot`
+- `npm run prepare:biology30-unit-a-pilot:textbook -- --project biology30-unit-a-pilot` (idempotently normalizes only approved local textbook/review PDFs for the blocked direct-authored improvement pilot)
+- `npm run prepare:biology30-unit-a-pilot:media -- --project biology30-unit-a-pilot --chapter-11-pptx "<pptx>" --chapter-12-pptx "<pptx>" --chapter-13-pptx "<pptx>" --check-video-links` (transactionally inventories the three Unit A decks, media, and links without rewriting canonical HTML)
+- `npm run prepare:biology30-unit-a-pilot:visuals -- --project biology30-unit-a-pilot` (transactionally regenerates the nine contract-selected local source visuals without rewriting canonical HTML)
+- `npm run audit:biology30-unit-a-improvement-pilot:visual` (renders exact-workspace route, textbook-band, retrieval, representative-media, and Video Library contact sheets for required manual inspection)
+- `npm run intake:biology30-course -- --family biology30-production` (transactionally creates the blocked Unit B-D production family; refuses existing targets)
+- `npm run build:biology30-course -- --project biology30-unit-b --strict` (strictly rebuilds one blocked Unit B-D candidate through its Biology-owned contract)
+- `npm run record:biology30-course-acceptance -- --project biology30-unit-b --acceptance <submission.json>` (validates and transactionally records an explicit exact-build 95+/100 human decision while leaving promotion, Studio Edit, export, upload, and publication disabled)
+- `npm run audit:biology30-course-production:visual` (exact-build responsive route, scientific-model, and reasoning-interaction audit for Units B-D)
 - `npm run build:english-course -- --course <course>`
 - `npm run build:english-unit -- --project <unit-slug>`
 - `npm run build:social30 -- --resource <resource-id> --only <issue-slug>`
@@ -64,6 +82,13 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run test:english-transaction`
 - `npm run test:social-build`
 - `npm run test:science-pilot`
+- `npm run test:science-comparison`
+- `npm run test:biology30-unit-a-v2`
+- `npm run test:e2e:biology30-unit-a-v2`
+- `npm run test:biology30-unit-a-improvement-pilot`
+- `npm run test:e2e:biology30-unit-a-improvement-pilot`
+- `npm run test:biology30-course-production`
+- `npm run test:e2e:biology30-course-production`
 - `npm run test:studio-inspection`
 - `npm run validate:manifests`
 - `npm run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
@@ -331,7 +356,7 @@ Optional override flags for convert/export/deploy:
 - Studio does not call model providers. Annotate and Review Set never write course sources; Edit mode may write only an explicitly onboarded direct source or supported owning rebuild override through the transactional server workflow. Use the compact source contract for everything outside that boundary.
 - An English factory course is only `factory-ready` when both source archives named by its recipe are materialized (not missing or LFS pointers). Its owned workspace, resource copies/extractions, and generated metadata are rollback-safe; recipes and teacher-authored custom paths are preserved.
 - Social related-issues work is a proposal/rebuild workflow unless its manifest explicitly declares and enables the supported Studio adapter. In either case, name a checksum-verified resource in `projects/resources/social30-1-related-issues/resource-manifest.json`; never pass a personal `--zip` path or hand-edit the generated workspace.
-- Start a new Science course with `intake:science-pilot`, not a generic factory. It copies and hashes the real ZIP sources, creates a blocked planning contract, and gives the red-team / green-team review the same small set of metadata files before one representative unit is built.
+- Start a new Science course with `intake:science-pilot`, not a generic factory. It copies and hashes the real ZIP sources, creates a blocked planning contract, and gives the red-team / green-team review the same small set of metadata files before one representative unit is built. When two sources need faithful, optimized, and synthesized comparison builds, use `intake:science-comparison`. Biology 30 uses two staged, course-specific production boundaries: Unit A V2 under `biology30-unit-a-pilot/v2`, and Units B-D under `biology30-production/v1`. Never route either through the five-pilot builder; see [docs/workflows/science-pilot.md](docs/workflows/science-pilot.md).
 - Use `npm run headroom` only when you intentionally need to regenerate a prompt pack, with `--project <slug>` / `--all` for explicit targeting
 - Use `npm run headroom:all` only when you intentionally need Canvas Helper-wide prompt-pack refresh
 - If workflow is known, read [docs/workflows/README.md](docs/workflows/README.md) and the matching workflow guide before broad repo scans
@@ -423,3 +448,8 @@ Preference update behavior:
 - Agent operating rules: [`AGENTS.md`](./AGENTS.md)
 - Contribution rules: [`CONTRIBUTING.md`](./CONTRIBUTING.md)
 - Ops runbook: [`docs/ops/README.md`](./docs/ops/README.md)
+
+
+## Biology 30 teacher showcase
+
+The A Pilot2/B/C/D review site shares one unit selector at https://biology30pilot.web.app. After rebuilding changed units, redeploy with `npx tsx scripts/deploy-biology30-showcase.ts --deploy`. See [the showcase workflow](docs/ops/biology30-showcase.md). This does not build or publish SCORM packages.

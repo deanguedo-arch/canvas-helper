@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="resting-membrane-title resting-membrane-desc" data-figure-id="figure-resting-membrane">
+  <title id="resting-membrane-title">Ion distribution across a resting neuron membrane</title>
+  <desc id="resting-membrane-desc">A cross-section of an axon membrane shows more sodium ions outside, more potassium ions inside, a potassium leak channel, and a sodium-potassium pump that uses ATP to move three sodium ions out for every two potassium ions moved in. A bracket marks the approximately negative 70 millivolt resting potential across the membrane.</desc>
+  <defs>
+    <marker id="rm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 9 5 1 9Z" fill="#39423d"/>
+    </marker>
+  </defs>
+  <style>
+    .rm-label{font:700 22px 'Work Sans',sans-serif;fill:#171b1b}.rm-small{font:500 17px 'Work Sans',sans-serif;fill:#39423d}.rm-note{font:650 16px 'Work Sans',sans-serif;fill:#39423d}.rm-ion{font:700 18px 'Work Sans',sans-serif}.rm-line{stroke:#39423d;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.rm-flow{stroke:#39423d;stroke-width:3;fill:none;stroke-linecap:round;marker-end:url(#rm-arrow)}.rm-membrane{fill:#eef3ee;stroke:#5b635d;stroke-width:2}.rm-channel{fill:#fff;stroke:#146c60;stroke-width:3}.rm-pump{fill:#fff8ed;stroke:#a15c00;stroke-width:3}.rm-na{fill:#e6f4f1;stroke:#146c60;stroke-width:2}.rm-k{fill:#fff0ee;stroke:#a43f35;stroke-width:2}.rm-guide{stroke:#78817b;stroke-width:2;fill:none;stroke-linecap:round}
+  </style>
+  <rect width="960" height="600" fill="#fff"/>
+  <rect x="0" y="0" width="960" height="210" fill="#f7fbf9"/>
+  <rect x="0" y="350" width="960" height="250" fill="#fffaf8"/>
+
+  <text class="rm-label" x="48" y="48">Extracellular fluid</text>
+  <text class="rm-small" x="48" y="78">Higher Na⁺ concentration</text>
+  <text class="rm-label" x="48" y="404">Axon interior</text>
+  <text class="rm-small" x="48" y="434">Higher K⁺ concentration</text>
+  <text class="rm-small" x="48" y="460">Net negative at rest</text>
+
+  <g aria-hidden="true">
+    <circle class="rm-na" cx="126" cy="132" r="24"/><text class="rm-ion" x="126" y="139" text-anchor="middle" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="264" cy="154" r="24"/><text class="rm-ion" x="264" y="161" text-anchor="middle" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="520" cy="126" r="24"/><text class="rm-ion" x="520" y="133" text-anchor="middle" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="742" cy="136" r="24"/><text class="rm-ion" x="742" y="143" text-anchor="middle" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="882" cy="120" r="24"/><text class="rm-ion" x="882" y="127" text-anchor="middle" fill="#146c60">Na⁺</text>
+    <circle class="rm-k" cx="314" cy="520" r="24"/><text class="rm-ion" x="314" y="527" text-anchor="middle" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="448" cy="494" r="24"/><text class="rm-ion" x="448" y="501" text-anchor="middle" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="586" cy="532" r="24"/><text class="rm-ion" x="586" y="539" text-anchor="middle" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="726" cy="504" r="24"/><text class="rm-ion" x="726" y="511" text-anchor="middle" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="860" cy="530" r="24"/><text class="rm-ion" x="860" y="537" text-anchor="middle" fill="#a43f35">K⁺</text>
+  </g>
+
+  <rect class="rm-membrane" x="35" y="220" width="890" height="120" rx="6"/>
+  <text class="rm-note" x="58" y="269">Phospholipid</text>
+  <text class="rm-note" x="58" y="291">bilayer</text>
+  <path class="rm-guide" d="M157 280H196"/>
+
+  <g>
+    <text class="rm-note" x="420" y="188" text-anchor="middle">K⁺ leak channel</text>
+    <path class="rm-guide" d="M420 196V211"/>
+    <rect class="rm-channel" x="385" y="202" width="70" height="156" rx="18"/>
+    <path class="rm-flow" d="M420 325V236" data-qa-connector="potassium-leak"/>
+  </g>
+
+  <g>
+    <text class="rm-note" x="606" y="116" text-anchor="middle">3 Na⁺ out</text>
+    <path class="rm-flow" d="M606 205V139" data-qa-connector="sodium-out"/>
+    <path class="rm-pump" d="M606 205c54 0 79 31 69 75 10 44-15 75-69 75-54 0-79-31-69-75-10-44 15-75 69-75Z"/>
+    <text class="rm-small" x="606" y="266" text-anchor="middle">Na⁺/K⁺ pump</text>
+    <text class="rm-note" x="606" y="294" text-anchor="middle">uses ATP</text>
+    <text class="rm-note" x="690" y="414">2 K⁺ in</text>
+    <path class="rm-flow" d="M668 362V414" data-qa-connector="potassium-in"/>
+  </g>
+
+  <g>
+    <text class="rm-note" x="798" y="188" text-anchor="middle">Voltage across membrane</text>
+    <path class="rm-line" d="M784 214H812M798 214V346M784 346H812"/>
+    <text class="rm-small" x="812" y="270">Resting potential</text>
+    <text class="rm-label" x="812" y="302">≈ −70 mV</text>
+  </g>
+</svg>

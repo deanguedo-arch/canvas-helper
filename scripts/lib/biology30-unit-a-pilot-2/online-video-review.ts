@@ -1,0 +1,50 @@
+/** Full English transcripts inspected; excerpts avoid unnecessary or inaccurate segments.
+ * Transcript text is not redistributed. SHA identifies the inspected text export.
+ */
+export const ONLINE_VIDEO_REVIEW=[
+ {id:"A44brRGG4Ys",start:0,end:98,sha256:"6d8bae1e3bb794d0de337e79f59e29219570fa1114792c2d571e59010a51c382",captions:"auto-generated",sourceSeconds:355,
+  note:"Focus on the receiving and conducting parts. Myelin is wrapped glial-cell membrane; use the illustrated steps below for its full function.",
+  findings:"Later segments describe myelin as secreted fat, misdescribe neurilemma and overstate ion containment (2:06–4:24). Excluded from the lesson excerpt. Auto-captions misrecognize dendrite, Schwann, myelin and Ranvier; local labels are authoritative."},
+ {id:"oa6rvUJlg7o",start:441,end:565,sha256:"6cba5fc8e6f8b0805f153fcdd74fcffafd11dc8e19e04c674627a7296f2514e6",captions:"English track; authorship unspecified",sourceSeconds:791,
+  note:"Follow sodium entry, potassium exit and the undershoot. The pump maintains ion gradients; it does not rapidly reset each spike.",
+  findings:"Excerpt 7:21–9:25 shows channel/voltage phases. Exclude equilibrium-for-every-ion and fast-pump-reset claims earlier/later. Local graph correctly locates both refractory intervals. Full transcript read, not whole-video scientific endorsement."},
+ {id:"YcJy28Nnrb8",start:195,end:268,sha256:"4640c5b556bded733477e064686779be3040ab1f36260e89f1e74b221dc24742",captions:"auto-generated",sourceSeconds:480,
+  note:"Follow diffusion and receptor binding. The synaptic cleft is fluid-filled. Reuptake uses membrane transporters, not vesicles that scoop messengers from the gap.",
+  findings:"Excerpt uses diffusion and receptor specificity. Full source wrongly describes an empty synapse, calcium pushing vesicles, universal excitation/inhibition and reuptake vesicles (2:00–3:15, 4:44–5:53, 6:53–7:47). Those explanations are excluded and replaced locally."},
+ {id:"QY9NTVh-Awo",start:342,end:434,sha256:"69dd3279aecae33240f0ee79f6a9380e3ba2075fc62041d6607f4a5c3c0e2991",captions:"English track; authorship unspecified",sourceSeconds:601,
+  note:"Trace sensory input toward the CNS and motor output toward an effector. Observe the example only; do not test pain or a reflex on yourself.",
+  findings:"Selected 5:42–7:14 afferent/efferent spinal response. Excluded 3:50 universal pain-threshold claim, pain-as-single-message simplifications and later spindle terminology. Nociception and pain are not interchangeable; no demonstration is required."},
+ {id:"0-8PvNOdByc",start:75,end:167,sha256:"d65d856472ceed9b28e858e49d8a30dcce60bdf78856695892f9830f528a1bd6",captions:"English track; authorship unspecified",sourceSeconds:305,
+  note:"Locate lobes, thalamus, cerebellum, pons and medulla. A region contributes to a function; complex behaviour depends on connected networks.",
+  findings:"Selected 1:15–2:47 anatomy. Excluded smooth-brain/intelligence generalization (1:03), later reward/drug simplification and unqualified master-gland wording. Core text supplies hypothalamus and diagnostic limits."},
+ {id:"qPix_X-9t7E",start:86,end:136,sha256:"dbafe5a06d29872a219fc79c9790aa97748b09e6141482654ff7b30694179cf9",captions:"English track; authorship unspecified",sourceSeconds:635,
+  note:"Separate sensory input, integration and motor output. Then use the local receptor table to identify the kind of stimulus involved.",
+  findings:"Selected 1:26–2:16 three-function example. Later blanket 10:1 glia ratio, neuron replacement and broad anatomical percentages are not carried into teaching. This short excerpt is a sensory-input illustration, not coverage of every receptor family."},
+ {id:"o0DYP-u1rNM",start:285,end:340,sha256:"b78677a1acc24c4495464cb0dd51088a4a23a3eef58fa1a94f2e934dda0ed696",captions:"English track; authorship unspecified",sourceSeconds:579,
+  note:"Follow lens, retina and retinal neurons. Light reaches photoreceptors; neural signals—not light—continue through the optic nerve. No bright-light or eye test is needed.",
+  findings:"Selected 4:45–5:40 lens/retinal circuit. Excluded afterimage explanation claiming photoreceptor action potentials, universal one-cone/one-ganglion wiring, bright-flashlight activity and distracting injury advice. Local explanation distinguishes optical and neural paths."},
+ {id:"Ie2j7GpC4JU",start:136,end:252,sha256:"ff89a6808e873accc1f1e8a147840e552f639b82d20ba54731ee1cb266c66150",captions:"English track; authorship unspecified",sourceSeconds:640,
+  note:"Trace sound from the outer ear through the ossicles to the oval window. The local walkthrough then explains cochlear hair cells and balance without sound testing.",
+  findings:"Selected 2:16–4:12 mechanical anatomy. Excluded sodium-as-primary-hair-cell-influx claim (6:41), utricle/saccule-as-canal-widenings claim (8:15) and spinning demonstration. Local account uses graded hair-cell signalling and correctly separates vestibule from semicircular canals."},
+ {id:"eWHH9je2zG4",start:211,end:244,sha256:"6f19ecab2198ec4746b1950ef8ec9289c84310f07606beeb9b8d8694c43ae884",captions:"English track; authorship unspecified",sourceSeconds:625,
+  note:"Ask why a circulating hormone affects some cells but not others. A target needs the correct receptor. Not every gland is controlled by the pituitary.",
+  findings:"Selected 3:31–4:04 target specificity. Excluded pituitary control of parathyroid/pineal, unqualified master-gland claim, reproductive details and ACTH/mineralocorticoid/stress oversimplifications. Complete local source/target/feedback sequence supplies the wider lesson."},
+ {id:"QHkGG4TimvQ",start:21,end:93,sha256:"a01459d32f12b42541578c4e55db71b112d65b5d9b3bce509ce34303777ac277",captions:"auto-generated",sourceSeconds:248,
+  note:"Trace hypothalamus → anterior pituitary → thyroid, then the return feedback. TRH is a releasing hormone; the anterior-pituitary cells respond by releasing TSH.",
+  findings:"Selected 0:21–1:33 thyroid axis. Auto-caption errors in thyrotroph/TRH need local spelled labels. Excludes hormone-family taxonomy and later reproductive axes. hGH is fully taught locally because this excerpt is not its explanation."},
+ {id:"BYaR-JgbjCs",start:33,end:86,sha256:"c637020c5c8ec371c92aa0d38887a7956f00d96d8b9905b91554bfd1c976890c",captions:"auto-generated",sourceSeconds:217,
+  note:"Focus on ADH: it is made in hypothalamic neurons and released from the posterior pituitary. Other names in the clip are not new Unit A memorization targets.",
+  findings:"Selected 0:33–1:26 posterior route/ADH; the brief oxytocin mention is not assessed. Excludes the later childbirth discussion and anterior taxonomy. Captions misrecognize hypophysis; local vocabulary uses posterior pituitary."},
+ {id:"cDGmsR2ZILE",start:34,end:82,sha256:"a2fc9e4bb093d6760181807f608b851ebd7e851f178de1fdfabb58a4f1ac0f58",captions:"English track; authorship unspecified",sourceSeconds:243,
+  note:"Trace the TSH/thyroxine feedback loop and connect thyroid hormones with metabolic activity. The local section separately explains calcium regulation.",
+  findings:"Selected 0:34–1:22 feedback/metabolism. Excludes blanket winter-season claim, symptom lists and treatment recommendations; source does not teach parathyroid regulation, supplied completely locally."},
+ {id:"y9Bdi4dnSlg",start:50,end:122,sha256:"ebb0fa5afaaef450982b43b095bd01be17be297e4c5d206ca5a5d785abe355ef",captions:"auto-generated",sourceSeconds:130,
+  note:"Compare insulin-supported storage with glucagon-supported liver glucose release. Insulin effects differ among tissues; not every cell needs insulin to take in glucose.",
+  findings:"Selected 0:50–2:02 endocrine contrast. Local note corrects blanket body-cell uptake and static optimal-state language. Auto-caption at 1:40 says decrease instead of secretes and mangles liver/glycogen; the adjacent labelled hormone table supplies accurate words. Excludes all-carbohydrates-as-glucose-polymers claim."},
+ {id:"v-t1Z5-oPtU",start:8,end:35,sha256:"61fbb6c503c10bdf44f6a20d829d0e33cf4dca1edc8ab719e32765ed9ec7a795",captions:"English track; authorship unspecified",sourceSeconds:282,
+  note:"Use this brief introduction to distinguish a short response from a sustained demand. Continue with the illustrated steps to trace the medulla, cortex and water/salt pathways.",
+  findings:"Only the 0:08–0:35 introduction is used. Full source is a broad health-risk narrative, not complete Unit A pathway teaching; later hypertension, gastrointestinal, weight and telomere generalizations are excluded. The local three-panel stress sequence is the complete learning equivalent."}
+];
+export const videoReviewFor=(id:string)=>ONLINE_VIDEO_REVIEW.find(entry=>entry.id===id);
+export function reviewedEmbedUrl(id:string,original:string){const review=videoReviewFor(id);if(!review)return original;const url=new URL(original);url.searchParams.set("start",String(review.start));url.searchParams.set("end",String(review.end));url.searchParams.set("autoplay","0");url.searchParams.set("cc_load_policy","1");return url.href;}
+export function videoFocusText(id:string){const review=videoReviewFor(id);const time=(seconds:number)=>`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,"0")}`;return review?`Focus: ${time(review.start)}–${time(review.end)}. ${review.note}`:"";}

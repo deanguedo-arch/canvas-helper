@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "family": "biology30-production",
+  "reviewedAt": "2026-08-31T02:52:24Z",
+  "status": "complete-authoring-reference-review",
+  "scope": {
+    "sourceCount": 5,
+    "pageCount": 395,
+    "contactSheetCount": 35,
+    "allPagesRendered": true,
+    "allListedContactSheetsOpened": true,
+    "learnerDeliveryUsesRenderedSourcePages": false
+  },
+  "evidence": {
+    "auditIndexPath": ".runtime/biology30-source-pdf-audit/2026-08-31T02-45-00Z/audit-index.json",
+    "auditIndexSha256": "72034ae1f8d3bb6a6293bd3976e11d4b07ba1feec8a32d9d57655c5821d3a85d",
+    "orderedContactSheetHashListSha256": "f17acf32a79b3dd61b4697817f5e15fd1f3e421c0ffdcfe991fb9b1c0a7bdadc",
+    "evidenceRole": "Local QA evidence only; these renders are not learner assets or release dependencies."
+  },
+  "sources": [
+    {
+      "sourceId": "unit-b-notes",
+      "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+      "pageCount": 75,
+      "contactSheetCount": 7,
+      "reviewOutcome": "corrected-or-excluded-before-learner-delivery",
+      "correctionIds": [
+        "b-sex-development-precision",
+        "b-aging-and-contraception-precision",
+        "b-current-sti-and-fertility-guidance",
+        "b-current-reproductive-technology"
+      ],
+      "findings": "Teacher directions, external-video remnants, binary sex-development diagrams, universal andropause framing, and source-era contraception, STI, and fertility simplifications are not delivered as slides. Required concepts are rewritten with current, respectful, non-diagnostic boundaries."
+    },
+    {
+      "sourceId": "unit-c-cell-division-notes",
+      "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+      "pageCount": 79,
+      "contactSheetCount": 7,
+      "reviewOutcome": "corrected-or-excluded-before-learner-delivery",
+      "correctionIds": [
+        "c-cloning-aging-telomere-nuance",
+        "c-karyotype-and-chromosome-language",
+        "c-reproductive-strategy-teacher-notes"
+      ],
+      "findings": "Teacher notes, deterministic karyotype and chromosome language, cloning and telomere overclaims, and oversimplified reproductive-strategy framing are rewritten with model limits, respectful terminology, and evidence boundaries."
+    },
+    {
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+      "pageCount": 114,
+      "contactSheetCount": 10,
+      "reviewOutcome": "corrected-or-excluded-before-learner-delivery",
+      "correctionIds": [
+        "c-mendelian-human-example-limits",
+        "c-human-trait-model-limitations"
+      ],
+      "findings": "Single-gene eye-colour claims, simplified sickle-cell dominance framing, deterministic sex-linked examples, toy traits, and simplistic polygenic human examples are replaced by validated models with explicit limitations and respectful evidence language."
+    },
+    {
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+      "pageCount": 59,
+      "contactSheetCount": 5,
+      "reviewOutcome": "corrected-or-excluded-before-learner-delivery",
+      "correctionIds": [
+        "c-dna-history-credit",
+        "c-molecular-model-boundaries",
+        "c-current-genetic-technology"
+      ],
+      "findings": "Same-DNA and central-dogma shortcuts, incomplete historical credit, simplified organelle inheritance, and dated genetic-technology media are rewritten as evidence-bounded local instruction."
+    },
+    {
+      "sourceId": "unit-d-population-notes",
+      "sha256": "08ff6e3a4d59f3359413056a29226a15062d8ff9c6b17cf6a37a427002e74def",
+      "pageCount": 68,
+      "contactSheetCount": 6,
+      "reviewOutcome": "corrected-or-excluded-before-learner-delivery",
+      "correctionIds": [
+        "d-evolution-and-cultural-example-disposition",
+        "d-source-typos-and-formulas",
+        "d-r-k-continuum",
+        "d-community-language"
+      ],
+      "findings": "The ladder-like evolution silhouette and the source Métis/Indigenous gene-flow example are excluded. Corrupted formulas, r/K binaries, fixed-climax language, and teacher notes are replaced by verified calculations, continuum models, multiple succession pathways, and rights-aware synthetic cases."
+    }
+  ],
+  "checks": {
+    "sourceHashesMatchManifest": true,
+    "pageCountsMatchManifest": true,
+    "everyPageHasDisposition": true,
+    "sourceCorrectionsHaveExactLocators": true,
+    "slideImagesUsedAsLessons": false,
+    "teacherDirectionsDeliveredToLearners": false,
+    "externalMediaRequiredForCompletion": false,
+    "binaryBlockerFound": false,
+    "pass": true
+  },
+  "humanCourseAcceptance": null
+}

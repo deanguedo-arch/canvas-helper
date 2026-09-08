@@ -1,0 +1,17 @@
+[
+  {
+    "command": "npm run verify -- --project biology30-unit-b --mode workspace",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 verify\n> tsx scripts/verify-project.ts --project biology30-unit-b --mode workspace\n\nMetadata policy: passed\nMode: workspace\nEntry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-b/workspace/index.html\n\nMissing local assets (ERROR): none\n\nExternal dependencies (WARN): none\n\nMissing workspace embeds (ERROR): none\n\nMissing course-shell resources (ERROR): none\n\nDeclared missing course-shell resources (WARN): none\n"
+  },
+  {
+    "command": "npm run verify -- --project biology30-unit-c --mode workspace",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 verify\n> tsx scripts/verify-project.ts --project biology30-unit-c --mode workspace\n\nMetadata policy: passed\nMode: workspace\nEntry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-c/workspace/index.html\n\nMissing local assets (ERROR): none\n\nExternal dependencies (WARN): none\n\nMissing workspace embeds (ERROR): none\n\nMissing course-shell resources (ERROR): none\n\nDeclared missing course-shell resources (WARN): none\n"
+  },
+  {
+    "command": "npm run verify -- --project biology30-unit-d --mode workspace",
+    "exitCode": 0,
+    "output": "\n> canvas-helper@0.1.0 verify\n> tsx scripts/verify-project.ts --project biology30-unit-d --mode workspace\n\nMetadata policy: passed\nMode: workspace\nEntry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-d/workspace/index.html\n\nMissing local assets (ERROR): none\n\nExternal dependencies (WARN): none\n\nMissing workspace embeds (ERROR): none\n\nMissing course-shell resources (ERROR): none\n\nDeclared missing course-shell resources (WARN): none\n"
+  }
+]

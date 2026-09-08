@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "stage": 99,
+  "checkedAt": "2026-09-07T16:13:12.347992+00:00",
+  "status": "local-vocabulary-and-original-video-repair-verified",
+  "trigger": "User identified nonmatching Core Vocabulary controls and missing videos that were linked in the original PowerPoints.",
+  "cause": "All 80 original source videos were explicitly excluded by the earlier pending-review disposition. Vocabulary presentation existed but collect and compare controls were one-way and active concept was not persisted.",
+  "changes": [
+    "Frayer Add/Remove collection toggle; collection survives valid edits; Compare/Hide course model; active concept survives reload",
+    "Related ideas alongside common confusion; existing fixed/selectable family requirements and writing IDs preserved",
+    "Restore original optional source video library: B17/C48/D15, chapter/source-slide ordering, native provider controls, connected lesson links",
+    "Correct ten obvious original title-to-topic mapping errors; combined Chapter19-20 deck uses lesson chapter",
+    "No autoplay; leaving hidden panel removes player; offline message and local illustrated walkthrough links"
+  ],
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "615b9e55e6a575e23209f87c7852c9b1589b08c0b3320d3393121498165affd7",
+      "contractSha256": "d2e08b08321986fbf08949448c328477e2dfd2f42a959a559fc71b09443c330f",
+      "generatedAt": "2026-09-07T16:10:44.803Z",
+      "previousWorkspaceSha256": "1998c2014f9539dd9bddd1d7444975225735bc2ccbbcf48fb35377fb202dd0e1"
+    },
+    "C": {
+      "buildSha256": "1dd7868178ea49a71341956fd2372866f20d44e257bfc2ca6c2c4c6e2b1b6193",
+      "contractSha256": "dad84aebcc23ac78626a24c3a3c75cd05ed58161dd4c4f79ad7b755782b4d30f",
+      "generatedAt": "2026-09-07T16:10:52.022Z",
+      "previousWorkspaceSha256": "3d147fde78637af551e4f62080b7df906944f3140643a1859dd6a953df9e85a7"
+    },
+    "D": {
+      "buildSha256": "077d4e988c131d779d32042d34ea62fdf3b9dd51d8a2fd9baac3e578853f7142",
+      "contractSha256": "1eb89a67f50c23e1705ce39b1f6f4e9d7de32455f5f6a7499f3dcf9dce4bd993",
+      "generatedAt": "2026-09-07T16:10:58.021Z",
+      "previousWorkspaceSha256": "cc269852acd806086d9792500eb9067be0fa5d01d64d55e9b82f8a61c431d4c4"
+    }
+  },
+  "validation": {
+    "workspace": "B/C/D passed on final builds",
+    "projectE2E": "B/C/D each1/1 passed on final builds",
+    "focused": "18 tests passed before final source mapping/chapter corrections; final13 state/source/owner tests passed including exact80 IDs, both D chapters, corrected Chromosome mapping, maximum ordinary/Unicode state with longest active-concept ID and protected A baselines",
+    "browser": "All-unit A comparison/interaction regression passed including toggles, active family reload, source playlist/player, notes, model/textbook and292 route/width checks; final changes after that run were source mappings and combined-deck chapter grouping, covered by final source test",
+    "playerLifecycle": "Final actual B/C/D pass visible player, offline removal, online recovery and navigation removal",
+    "native": "Original provider poster/Play controls observed for B, C and D; not an exhaustive playback or caption review",
+    "typecheck": "25 unrelated baseline errors; zero touched Biology errors"
+  },
+  "videos": {
+    "originalUnique": 80,
+    "occurrences": 82,
+    "unitCounts": {
+      "B": 17,
+      "C": 48,
+      "D": 15
+    },
+    "metadataReachable": 77,
+    "unavailableMetadata": [
+      {
+        "videoId": "5bq1To_RKEo",
+        "status": "unavailable-or-probe-blocked",
+        "error": "HTTP Error 401: Unauthorized",
+        "playbackVerified": false
+      },
+      {
+        "videoId": "kQu6Yfrr6j0",
+        "status": "unavailable-or-probe-blocked",
+        "error": "HTTP Error 401: Unauthorized",
+        "playbackVerified": false
+      },
+      {
+        "videoId": "wrTXvrKBlbc",
+        "status": "unavailable-or-probe-blocked",
+        "error": "HTTP Error 404: Not Found",
+        "playbackVerified": false
+      }
+    ],
+    "reviewedClipSelection": 0,
+    "sourceResourceLane": "Original supplied optional PowerPoint resources; metadata reachability does not certify playback, captions, science or transcript equivalence.",
+    "captionReview": null,
+    "scienceReview": null,
+    "providerFilesDownloaded": false
+  },
+  "preserved": {
+    "protectedA": "All three A learner trees and A2 owner exact against pinned baseline",
+    "state": "Version3 and all response/flag/choice identities preserved; optional active-concept field is backward compatible",
+    "imagesRegenerated": 0
+  },
+  "teacherAcceptance": null,
+  "unitAStatus": "provisional",
+  "releaseActions": []
+}

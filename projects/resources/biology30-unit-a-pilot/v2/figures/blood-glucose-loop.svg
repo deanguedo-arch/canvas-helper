@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 700" role="img" aria-labelledby="blood-glucose-title blood-glucose-desc" data-figure-id="figure-blood-glucose-loop">
+  <title id="blood-glucose-title">Negative feedback regulation of blood glucose</title>
+  <desc id="blood-glucose-desc">Two pathways oppose changes in blood glucose. After a meal raises glucose, pancreatic beta cells release insulin and target tissues increase glucose uptake or storage. Between meals, falling glucose increases glucagon release from alpha cells and the liver releases glucose. Both responses move the variable back toward its regulated range.</desc>
+  <style>
+    .bg-box{fill:#fff;stroke:#d9ded8;stroke-width:3}.bg-center{fill:#f1f5ef;stroke:#154212;stroke-width:4}.bg-high{fill:#e8f5f2;stroke:#146c60;stroke-width:3}.bg-low{fill:#fff5e8;stroke:#a15c00;stroke-width:3}.bg-title{font:700 21px 'Hanken Grotesk',sans-serif;fill:#171b1b;text-anchor:middle}.bg-text{font:500 17px 'Work Sans',sans-serif;fill:#39423d;text-anchor:middle}.bg-note{font:600 16px 'Work Sans',sans-serif;fill:#4f5852;text-anchor:middle}.bg-step{font:700 18px 'Work Sans',sans-serif;fill:#fff;text-anchor:middle}.bg-step-node--high{fill:#146c60}.bg-step-node--low{fill:#a15c00}.bg-arrow{fill:none;stroke:#39423d;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#bg-arrow)}
+  </style>
+  <defs>
+    <marker id="bg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#39423d"/>
+    </marker>
+  </defs>
+  <rect width="1040" height="700" fill="#fff"/>
+
+  <g aria-label="High-glucose branch">
+    <rect class="bg-high" x="28" y="42" width="280" height="132" rx="8"/>
+    <text class="bg-title" x="168" y="90">Blood glucose rises</text>
+    <text class="bg-text" x="168" y="126">Example: after a meal</text>
+
+    <path class="bg-arrow" d="M316 108H368"/>
+    <circle class="bg-step-node--high" cx="342" cy="70" r="20"/>
+    <text class="bg-step" x="342" y="76">1</text>
+
+    <rect class="bg-box" x="380" y="42" width="280" height="132" rx="8"/>
+    <text class="bg-title" x="520" y="88">Beta cells release insulin</text>
+    <text class="bg-text" x="520" y="124">Hormone enters blood</text>
+    <text class="bg-text" x="520" y="150">and reaches target tissues</text>
+
+    <path class="bg-arrow" d="M668 108H720"/>
+    <circle class="bg-step-node--high" cx="694" cy="70" r="20"/>
+    <text class="bg-step" x="694" y="76">2</text>
+
+    <rect class="bg-box" x="732" y="42" width="280" height="132" rx="8"/>
+    <text class="bg-title" x="872" y="74">Target tissues</text>
+    <text class="bg-title" x="872" y="108">change activity</text>
+    <text class="bg-text" x="872" y="138">Muscle and adipose uptake rises;</text>
+    <text class="bg-text" x="872" y="162">the liver stores more glucose</text>
+  </g>
+
+  <text class="bg-note" x="520" y="226">Insulin-linked responses oppose the rise</text>
+  <path class="bg-arrow" d="M872 184C872 230 824 258 774 293"/>
+
+  <rect class="bg-center" x="280" y="305" width="480" height="150" rx="8"/>
+  <text class="bg-title" x="520" y="346">Regulated blood-glucose range</text>
+  <text class="bg-text" x="520" y="380">Feedback opposes the original change.</text>
+  <text class="bg-text" x="520" y="409">Example: after a meal, insulin-linked responses</text>
+  <text class="bg-text" x="520" y="436">reduce the rise toward the regulated range.</text>
+
+  <path class="bg-arrow" d="M872 516C872 470 824 444 774 410"/>
+  <text class="bg-note" x="520" y="494">Glucagon-linked responses oppose the fall</text>
+
+  <g aria-label="Low-glucose branch">
+    <rect class="bg-low" x="28" y="526" width="280" height="132" rx="8"/>
+    <text class="bg-title" x="168" y="574">Blood glucose falls</text>
+    <text class="bg-text" x="168" y="610">Example: between meals</text>
+
+    <path class="bg-arrow" d="M316 592H368"/>
+    <circle class="bg-step-node--low" cx="342" cy="554" r="20"/>
+    <text class="bg-step" x="342" y="560">1</text>
+
+    <rect class="bg-box" x="380" y="526" width="280" height="132" rx="8"/>
+    <text class="bg-title" x="520" y="564">Alpha cells release</text>
+    <text class="bg-title" x="520" y="598">glucagon</text>
+    <text class="bg-text" x="520" y="632">Hormone enters blood</text>
+
+    <path class="bg-arrow" d="M668 592H720"/>
+    <circle class="bg-step-node--low" cx="694" cy="554" r="20"/>
+    <text class="bg-step" x="694" y="560">2</text>
+
+    <rect class="bg-box" x="732" y="526" width="280" height="132" rx="8"/>
+    <text class="bg-title" x="872" y="570">Liver releases glucose</text>
+    <text class="bg-text" x="872" y="606">Glycogen breakdown and</text>
+    <text class="bg-text" x="872" y="632">glucose output increase</text>
+  </g>
+</svg>

@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T02:54:56.343Z",
+  "interactionCount": 11,
+  "artifactCount": 6,
+  "semanticFigureCount": 11,
+  "interactions": [
+    {
+      "id": "d-lesson-01:interaction",
+      "kind": "gene-pool-equilibrium-model",
+      "lessonId": "d-lesson-01",
+      "responseIds": [
+        "biology30-unit-d:activity:gene-pool-equilibrium-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-02:interaction",
+      "kind": "hardy-weinberg-assumption-lab",
+      "lessonId": "d-lesson-02",
+      "responseIds": [
+        "biology30-unit-d:activity:hardy-weinberg-assumption-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-03:interaction",
+      "kind": "hardy-weinberg-calculator",
+      "lessonId": "d-lesson-03",
+      "responseIds": [
+        "biology30-unit-d:activity:hardy-weinberg-calculator:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-04:interaction",
+      "kind": "microevolution-evidence-sort",
+      "lessonId": "d-lesson-04",
+      "responseIds": [
+        "biology30-unit-d:activity:microevolution-evidence-sort:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-05:interaction",
+      "kind": "species-interaction-model",
+      "lessonId": "d-lesson-05",
+      "responseIds": [
+        "biology30-unit-d:activity:species-interaction-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-06:interaction",
+      "kind": "predator-prey-evidence-model",
+      "lessonId": "d-lesson-06",
+      "responseIds": [
+        "biology30-unit-d:activity:predator-prey-evidence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-07:interaction",
+      "kind": "succession-evidence-timeline",
+      "lessonId": "d-lesson-07",
+      "responseIds": [
+        "biology30-unit-d:activity:succession-evidence-timeline:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-08:interaction",
+      "kind": "population-measures-lab",
+      "lessonId": "d-lesson-08",
+      "responseIds": [
+        "biology30-unit-d:activity:population-measures-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-09:interaction",
+      "kind": "population-growth-simulator",
+      "lessonId": "d-lesson-09",
+      "responseIds": [
+        "biology30-unit-d:activity:population-growth-simulator:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-10:interaction",
+      "kind": "management-evidence-matrix",
+      "lessonId": "d-lesson-10",
+      "responseIds": [
+        "biology30-unit-d:activity:management-evidence-matrix:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "d-lesson-11:interaction",
+      "kind": "integrated-population-case",
+      "lessonId": "d-lesson-11",
+      "responseIds": [
+        "biology30-unit-d:activity:integrated-population-case:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "d-hardy-weinberg-evidence",
+      "unitCode": "D",
+      "title": "Hardy Weinberg Evidence",
+      "lessonIds": [
+        "d-lesson-01",
+        "d-lesson-02",
+        "d-lesson-03"
+      ],
+      "outcomeIds": [
+        "D1.1k",
+        "D1.2sts",
+        "D1.1s",
+        "D1.3k",
+        "D1.3s",
+        "D1.4s"
+      ],
+      "fields": [
+        {
+          "id": "d-hardy-weinberg-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "d-hardy-weinberg-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "d-hardy-weinberg-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "d-hardy-weinberg-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "d-gene-pool-change-case",
+      "unitCode": "D",
+      "title": "Gene Pool Change Case",
+      "lessonIds": [
+        "d-lesson-04"
+      ],
+      "outcomeIds": [
+        "D1.2k",
+        "D1.4k",
+        "D1.1sts",
+        "D1.2s"
+      ],
+      "fields": [
+        {
+          "id": "d-gene-pool-change-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "d-gene-pool-change-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "d-gene-pool-change-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "d-gene-pool-change-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "d-community-investigation",
+      "unitCode": "D",
+      "title": "Community Investigation",
+      "lessonIds": [
+        "d-lesson-05",
+        "d-lesson-06",
+        "d-lesson-07"
+      ],
+      "outcomeIds": [
+        "D2.1k",
+        "D2.1s",
+        "D2.2s",
+        "D2.2k",
+        "D2.3s",
+        "D2.3k",
+        "D2.1sts",
+        "D2.4s"
+      ],
+      "fields": [
+        {
+          "id": "d-community-investigation:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "d-community-investigation:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "d-community-investigation:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "d-community-investigation:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "d-population-data-lab",
+      "unitCode": "D",
+      "title": "Population Data Lab",
+      "lessonIds": [
+        "d-lesson-08",
+        "d-lesson-09"
+      ],
+      "outcomeIds": [
+        "D3.1k",
+        "D3.2k",
+        "D3.1s",
+        "D3.2s",
+        "D3.3k",
+        "D3.3s"
+      ],
+      "fields": [
+        {
+          "id": "d-population-data-lab:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "d-population-data-lab:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "d-population-data-lab:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "d-population-data-lab:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "d-wildlife-management-brief",
+      "unitCode": "D",
+      "title": "Wildlife Management Brief",
+      "lessonIds": [
+        "d-lesson-10"
+      ],
+      "outcomeIds": [
+        "D3.4k",
+        "D3.1sts",
+        "D3.4s"
+      ],
+      "fields": [
+        {
+          "id": "d-wildlife-management-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "d-wildlife-management-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "d-wildlife-management-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "d-wildlife-management-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "d-integrated-case",
+      "unitCode": "D",
+      "title": "Integrated Case",
+      "lessonIds": [
+        "d-lesson-11"
+      ],
+      "outcomeIds": [
+        "D1.1k",
+        "D1.2k",
+        "D1.3k",
+        "D1.4k",
+        "D2.1k",
+        "D2.2k",
+        "D2.3k",
+        "D3.1k",
+        "D3.2k",
+        "D3.3k",
+        "D3.4k",
+        "D1.3s",
+        "D2.3s",
+        "D3.3s"
+      ],
+      "fields": [
+        {
+          "id": "d-integrated-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "d-integrated-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "d-integrated-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "d-integrated-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "pass": true
+}

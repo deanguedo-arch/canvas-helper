@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title description">
+  <title id="title">Male reproductive structures and connected ducts</title>
+  <desc id="description">Original simplified left-facing side view of one side of the paired system. The epididymal head lies near the upper testis, its body follows the posterior surface, and its lower tail continues into the ascending vas deferens. The vas curves around the pale bladder landmark and joins the seminal-vesicle duct. The resulting ejaculatory duct enters the urethra within the prostate. The urethra continues through the penis. A bulbourethral gland joins the urethra below the prostate. The testis lies inside the scrotum. Relative sizes and tissue detail are schematic.</desc>
+  <rect width="1200" height="880" fill="#fff"/>
+  <g stroke="#806d60" stroke-width="3" stroke-linejoin="round">
+    <!-- Tissue outlines are original schematic geometry, not traced source art. -->
+    <path id="penis-tissue" d="M525 375 C465 396 386 372 310 378 C242 381 196 402 181 441 C170 470 177 539 177 604 C175 634 189 660 216 668 C246 674 271 658 279 635 L284 473 C307 439 382 440 435 444 C481 450 525 433 555 410 Z" fill="#f2dfd3"/>
+    <path id="scrotum-tissue" d="M353 477 C337 543 324 601 337 675 C347 740 392 775 448 768 C510 766 551 724 559 661 C565 601 555 550 526 498 C467 473 411 475 353 477 Z" fill="#f6e8db"/>
+    <ellipse id="testis-tissue" cx="440" cy="625" rx="65" ry="95" fill="#ecd09e"/>
+    <path d="M407 555 C430 541 453 543 473 562 M396 580 C423 565 463 569 482 589 M389 613 C423 595 468 605 490 624 M392 650 C426 631 465 640 483 666 M404 685 C427 670 452 679 465 695" fill="none" stroke="#d5b47c" stroke-width="2"/>
+    <path id="bladder-landmark" d="M493 127 C536 100 617 106 655 138 C688 165 686 208 663 236 C644 262 610 274 588 286 L573 286 C561 272 525 263 501 239 C468 210 461 155 493 127 Z" fill="#edf1ef" stroke="#b1bfba"/>
+    <path id="prostate-tissue" d="M527 313 C550 293 607 294 635 320 C654 344 641 370 609 382 C575 390 530 377 518 351 C513 337 516 324 527 313 Z" fill="#e4cca4"/>
+    <path id="seminal-vesicle-tissue" d="M702 225 C697 211 718 203 729 216 C747 211 757 230 745 243 C760 255 746 272 735 269 C735 287 710 291 705 276 C687 278 680 261 693 252 C681 239 689 227 702 225 Z" fill="#dcaeb0"/>
+    <ellipse id="bulbourethral-tissue" cx="627" cy="413" rx="15" ry="12" fill="#c7d8ac"/>
+  </g>
+  <!-- All duct paths remain continuous. No vas-to-bladder opening is drawn. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path id="urethra" d="M581 277 L581 348 C581 386 555 409 518 414 C439 426 356 402 296 427 C253 445 245 470 246 511 L246 648" stroke="#526d82" stroke-width="12"/>
+    <path d="M581 277 L581 348 C581 386 555 409 518 414 C439 426 356 402 296 427 C253 445 245 470 246 511 L246 648" stroke="#fff" stroke-width="5"/>
+    <path id="epididymis" d="M488 544 C502 528 525 537 527 552 C507 545 507 565 526 561 C546 558 548 579 529 578 C512 578 517 596 534 591 C552 588 551 609 533 608 C517 608 520 628 535 623 C550 619 548 640 531 639 C516 638 514 657 527 655 C540 655 530 677 512 685 L503 691" stroke="#9c5650" stroke-width="11"/>
+    <path id="vas-deferens" d="M503 691 C481 730 426 734 390 697 C362 668 363 608 367 551 C371 477 391 419 422 350 C446 293 452 229 455 175 C458 117 491 78 549 75 C624 69 704 106 720 171 C729 209 708 254 683 283" stroke="#9c5650" stroke-width="11"/>
+    <path id="seminal-vesicle-duct" d="M710 270 Q706 285 683 283" stroke="#9c5650" stroke-width="8"/>
+    <path id="ejaculatory-duct" d="M683 283 Q647 302 623 317 L581 348" stroke="#9c5650" stroke-width="8"/>
+    <path id="bulbourethral-duct" d="M616 417 Q596 431 550 410" stroke="#6b8254" stroke-width="6"/>
+  </g>
+  <g fill="none" stroke="#394444" stroke-width="2">
+    <path d="M218 126 H350 L455 175"/>
+    <path d="M152 418 H184 L202 460"/>
+    <path d="M168 513 H211 L246 536"/>
+    <path d="M159 669 H272 L409 651"/>
+    <path d="M187 772 H273 L348 713"/>
+    <path d="M831 198 H802 L730 243"/>
+    <path d="M831 293 H769 L646 306"/>
+    <path d="M831 365 H723 L618 355"/>
+    <path d="M831 441 H746 L636 414"/>
+    <path d="M831 626 H735 L536 611"/>
+  </g>
+  <g fill="#394444">
+    <circle cx="455" cy="175" r="3"/><circle cx="202" cy="460" r="3"/>
+    <circle cx="246" cy="536" r="3"/><circle cx="409" cy="651" r="3"/>
+    <circle cx="348" cy="713" r="3"/><circle cx="730" cy="243" r="3"/>
+    <circle cx="646" cy="306" r="3"/><circle cx="618" cy="355" r="3"/>
+    <circle cx="636" cy="414" r="3"/><circle cx="536" cy="611" r="3"/>
+  </g>
+  <g fill="#202c2c" font-family="Arial, Helvetica, sans-serif" font-size="26">
+    <text x="40" y="134">Vas deferens</text>
+    <text x="40" y="426">Penis</text>
+    <text x="40" y="521">Urethra</text>
+    <text x="40" y="677">Testis</text>
+    <text x="40" y="780">Scrotum</text>
+    <text x="845" y="206">Seminal vesicle</text>
+    <text x="845" y="301">Ejaculatory duct</text>
+    <text x="845" y="373">Prostate</text>
+    <text x="845" y="449">Bulbourethral gland</text>
+    <text x="845" y="634">Epididymis</text>
+  </g>
+</svg>

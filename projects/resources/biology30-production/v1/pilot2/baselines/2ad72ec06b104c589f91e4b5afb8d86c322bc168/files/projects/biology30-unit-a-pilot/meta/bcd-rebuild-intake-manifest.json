@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "kind": "biology30-bcd-rebuild-intake-handoff-v1",
+  "recordedAt": "2026-09-06T15:11:41.239Z",
+  "status": "sources-supplied-hash-verified-pre-render-contracts-not-complete",
+  "sourceTaskId": "01a049cb-5d97-7212-96b0-fd9687a5624b",
+  "canonicalPlan": "docs/plans/biology30-bcd-pilot2-rebuild.md",
+  "scope": "Planning/intake handoff only; not a prepared learner resource library or approval record.",
+  "sourceWorkspaceSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+  "sources": [
+    {
+      "kind": "archive",
+      "unit": "BCD",
+      "path": "/Users/deanguedo/Downloads/D2LExport_6661_CBE System Biology 30 (Winter 2020)_202682803.zip",
+      "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "bytes": 109297116,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "sharedCopy": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "sharedCopySha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761"
+    },
+    {
+      "kind": "archive",
+      "unit": "BCD",
+      "path": "/Users/deanguedo/Downloads/D2LExport_156587_26-27 _ S1 _ Biology 30 _ Per 1(A) _ Sec 10_202682838.zip",
+      "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "bytes": 222036662,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "sharedCopy": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+      "sharedCopySha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5"
+    },
+    {
+      "kind": "powerpoint",
+      "unit": "B",
+      "path": "/Users/deanguedo/Downloads/Unit B Chapter 14 Notes (1).pptx",
+      "sha256": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+      "bytes": 5729234,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "chapter": 14,
+      "priorPlanningInventory": {
+        "slides": 35,
+        "embeddedMediaFiles": 28,
+        "youtubeOccurrences": 7,
+        "distinctYoutubeIds": 7
+      },
+      "inventoryEvidence": "Read-only planning pass in originating task; source hash rechecked during this handoff. Complete individual dispositions still to be generated."
+    },
+    {
+      "kind": "powerpoint",
+      "unit": "B",
+      "path": "/Users/deanguedo/Downloads/Unit B Chapter 15 Notes.pptx",
+      "sha256": "38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84",
+      "bytes": 6976589,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "chapter": 15,
+      "priorPlanningInventory": {
+        "slides": 42,
+        "embeddedMediaFiles": 42,
+        "youtubeOccurrences": 10,
+        "distinctYoutubeIds": 10
+      },
+      "inventoryEvidence": "Read-only planning pass in originating task; source hash rechecked during this handoff. Complete individual dispositions still to be generated."
+    },
+    {
+      "kind": "powerpoint",
+      "unit": "C",
+      "path": "/Users/deanguedo/Downloads/Unit C Chapter 16 Notes.pptx",
+      "sha256": "a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061",
+      "bytes": 28854026,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "chapter": 16,
+      "priorPlanningInventory": {
+        "slides": 79,
+        "embeddedMediaFiles": 104,
+        "youtubeOccurrences": 11,
+        "distinctYoutubeIds": 11
+      },
+      "inventoryEvidence": "Read-only planning pass in originating task; source hash rechecked during this handoff. Complete individual dispositions still to be generated."
+    },
+    {
+      "kind": "powerpoint",
+      "unit": "C",
+      "path": "/Users/deanguedo/Downloads/Unit C Part B Mendelian Genetics .pptx",
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+      "bytes": 10153531,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "chapter": 17,
+      "priorPlanningInventory": {
+        "slides": 114,
+        "embeddedMediaFiles": 111,
+        "youtubeOccurrences": 15,
+        "distinctYoutubeIds": 15
+      },
+      "inventoryEvidence": "Read-only planning pass in originating task; source hash rechecked during this handoff. Complete individual dispositions still to be generated."
+    },
+    {
+      "kind": "powerpoint",
+      "unit": "C",
+      "path": "/Users/deanguedo/Downloads/Unit C Part C Molecular Genetics.pptx",
+      "sha256": "bd9400705c1cd91d3d9ca6d383876e86898d3ce1ca40b340f8ae5aad4d5cae9d",
+      "bytes": 13503106,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "chapter": 18,
+      "priorPlanningInventory": {
+        "slides": 61,
+        "embeddedMediaFiles": 69,
+        "youtubeOccurrences": 23,
+        "distinctYoutubeIds": 22
+      },
+      "inventoryEvidence": "Read-only planning pass in originating task; source hash rechecked during this handoff. Complete individual dispositions still to be generated."
+    },
+    {
+      "kind": "powerpoint",
+      "unit": "D",
+      "path": "/Users/deanguedo/Downloads/Unit D Population Dynamics Notes.pptx",
+      "sha256": "5267cad1695357076458c22cce95c0709d414d9082db45f76e318271be5f22f3",
+      "bytes": 28716685,
+      "status": "supplied-hash-verified-not-academically-cleared",
+      "chapter": "19-20",
+      "priorPlanningInventory": {
+        "slides": 68,
+        "embeddedMediaFiles": 88,
+        "youtubeOccurrences": 16,
+        "distinctYoutubeIds": 15
+      },
+      "inventoryEvidence": "Read-only planning pass in originating task; source hash rechecked during this handoff. Complete individual dispositions still to be generated."
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "B",
+      "path": "/Users/deanguedo/Downloads/Chapter 14 Daily Plans.docx",
+      "sha256": "ec9ec83e713966a3ede8071e42b2121a14ab53a9ba469a6e7e4bc71760aa6691",
+      "bytes": 8266,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "B",
+      "path": "/Users/deanguedo/Downloads/Chapter 15 Daily Plans.docx",
+      "sha256": "6a55bb842c957ea1728125158261cbc6cebcbff862059019c20d65c8defb6dd6",
+      "bytes": 8464,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "C",
+      "path": "/Users/deanguedo/Downloads/Chapter 16 Daily Plans.docx",
+      "sha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "bytes": 8652,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "C",
+      "path": "/Users/deanguedo/Downloads/Chapter 17 Daily Plans.docx",
+      "sha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "bytes": 8991,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "C",
+      "path": "/Users/deanguedo/Downloads/Chapter 18 Daily Plans.docx",
+      "sha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "bytes": 8619,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "D",
+      "path": "/Users/deanguedo/Downloads/Chapter 19 Daily Plans.docx",
+      "sha256": "11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65",
+      "bytes": 8097,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    },
+    {
+      "kind": "daily-plan",
+      "unit": "D",
+      "path": "/Users/deanguedo/Downloads/Chapter 20 Daily Plans.docx",
+      "sha256": "239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa",
+      "bytes": 8067,
+      "status": "supplied-hash-verified-not-academically-cleared"
+    }
+  ],
+  "textbookMembers": [
+    {
+      "chapter": 14,
+      "part": "14",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_14_inquirybio_ch14.pdf",
+      "sha256": "a47073abdcd37cb37622aa6e2511c6d1f9a62e6f45310bd3dab163a944431975",
+      "bytes": 5982720,
+      "pdfHeaderOffset": 128,
+      "previousPlanningPageCount": 34,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 15,
+      "part": "15",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_15_inquirybio_ch15.pdf",
+      "sha256": "54fb666ce61a4be3795758ce1398f408df7ec92b4d7bd7f1e36ba07e55a7a28d",
+      "bytes": 6627840,
+      "pdfHeaderOffset": 128,
+      "previousPlanningPageCount": 38,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 16,
+      "part": "16a",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_16a_inquirybio_ch16.pdf",
+      "sha256": "3371ed6f71b6860dcd6be27b0638b830d56c0fad891f1c584ad2583e2be41430",
+      "bytes": 3147650,
+      "pdfHeaderOffset": 0,
+      "previousPlanningPageCount": 4,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 16,
+      "part": "16b",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_16b_inquirybio_ch16.pdf",
+      "sha256": "6122ba96ae6a82781571a6d79dd3e3d9f1584a48b6e81daa3d5e43988a98d309",
+      "bytes": 7254236,
+      "pdfHeaderOffset": 0,
+      "previousPlanningPageCount": 36,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 17,
+      "part": "17",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_17_inquirybio_ch17.pdf",
+      "sha256": "a562de531fbb0801314e34aaef5a4fe72efd68085bc328d6d7e1180d29b8f966",
+      "bytes": 5196032,
+      "pdfHeaderOffset": 128,
+      "previousPlanningPageCount": 38,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 18,
+      "part": "18",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_18_inquirybio_ch18.pdf",
+      "sha256": "6d64343a558d37567ab9969c5a4a6fb2ab615ade11ecffa2bc4d60dd95cba228",
+      "bytes": 6052736,
+      "pdfHeaderOffset": 128,
+      "previousPlanningPageCount": 50,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 19,
+      "part": "19",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_19_inquirybio_ch19.pdf",
+      "sha256": "8fc0293362874e45545166df618e6fa89b88b5064663eee5d98e443b70c14ca3",
+      "bytes": 8086784,
+      "pdfHeaderOffset": 128,
+      "previousPlanningPageCount": 30,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    },
+    {
+      "chapter": 20,
+      "part": "20",
+      "archive": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "member": "_20_inquirybio_ch20.pdf",
+      "sha256": "2512a9367c5ae9552eaf37cfb8125dcf94180e7c899d8f2ac8699a9401c8dd6e",
+      "bytes": 7088128,
+      "pdfHeaderOffset": 128,
+      "previousPlanningPageCount": 46,
+      "pageCountEvidence": "Prior read-only pypdf planning inspection; no derivative or page-level academic review created in this handoff pass."
+    }
+  ],
+  "totals": {
+    "standaloneSuppliedFiles": 15,
+    "brightspaceArchives": 2,
+    "powerpoints": 6,
+    "dailyPlans": 7,
+    "slides": 399,
+    "embeddedMediaFiles": 442,
+    "youtubeOccurrences": 82,
+    "distinctYoutubeIds": 80,
+    "priorPlanningExternalHyperlinkRelationships": 90,
+    "textbookFiles": 8,
+    "textbookChapters": 7,
+    "priorPlanningTextbookPages": 276
+  },
+  "normalization": {
+    "wrapperBytes": 128,
+    "wrappedChapters": [
+      14,
+      15,
+      17,
+      18,
+      19,
+      20
+    ],
+    "chapter16": {
+      "parts": [
+        "16a",
+        "16b"
+      ],
+      "combinedPages": 40,
+      "requirement": "Preserve both originals; normalize into one 40-page reading derivative with physical/original-part map."
+    },
+    "writesPerformed": false
+  },
+  "availabilityOverlayFor": "projects/biology30-unit-a-pilot/meta/bcd-material-readiness.json",
+  "availabilityPrecedence": "Use this manifest for newly supplied original decks/daily plans and identified textbook members; the old generated readiness report covers an earlier narrower inventory. Integrate this input into its generator during preparation. Do not hand-mark ready or accepted.",
+  "sourceDiscrepancies": [
+    {
+      "chapter": 16,
+      "issue": "Daily plan ends at slide 78; deck has 79.",
+      "action": "Inspect and map continuation on 79."
+    },
+    {
+      "chapter": 17,
+      "issue": "Slide 26 skipped; daily plan ends 111; deck has 114.",
+      "action": "Teach inheritance/Punnett introduction before dependent crosses; inspect and disposition 112–114. Textless does not prove blank."
+    },
+    {
+      "chapter": 18,
+      "issue": "Daily plan ends 59; deck has 61.",
+      "action": "Inspect and disposition 60–61 including biotechnology/gel material; correct scientific claims before reuse."
+    },
+    {
+      "chapter": 15,
+      "issue": "Review plan single-page reference versus complete question range.",
+      "action": "Verify assignment against printed pp. 536–537."
+    }
+  ],
+  "unitReviewLocators": [
+    {
+      "unit": "B",
+      "textbookUnit": 6,
+      "questions": "Q1–52",
+      "printedPages": [
+        540,
+        543
+      ],
+      "chapter": 15,
+      "physicalOpening": 35
+    },
+    {
+      "unit": "C",
+      "textbookUnit": 7,
+      "questions": "Q1–48",
+      "printedPages": [
+        668,
+        671
+      ],
+      "chapter": 18,
+      "physicalOpening": 47
+    },
+    {
+      "unit": "D",
+      "textbookUnit": 8,
+      "questions": "Q1–35",
+      "printedPages": [
+        744,
+        747
+      ],
+      "chapter": 20,
+      "physicalOpening": 43
+    }
+  ],
+  "stillRequired": [
+    "Transactional original preservation and normalized derivatives",
+    "Individual plan-row/slide/asset/hyperlink/old-section dispositions",
+    "Current curriculum/bulletin and actual performance-standard column audit",
+    "Exact page-level explanation and question relevance review",
+    "Transcript/caption/factual/pace and duration review for video selection",
+    "Image accuracy, reuse-rights review, prompts and teacher comparison decisions",
+    "Frozen unit-specific practice, vocabulary, time, evidence and state contracts",
+    "Per-unit complete-build technical and academic evidence",
+    "Separate full-unit teacher acceptance"
+  ],
+  "prohibitedLearnerInputs": [
+    "secure tests",
+    "hidden assessments",
+    "teacher-only quiz/exam keys",
+    "credentials",
+    "broken LMS launchers",
+    "private ChatGPT task links",
+    "whole slide screenshots as lessons"
+  ],
+  "teacherAcceptance": null,
+  "readyForRendering": false
+}

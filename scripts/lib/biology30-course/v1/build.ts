@@ -28,6 +28,9 @@ import {
 } from "./intake.js";
 import { renderBiology30ProductionUnit, type Biology30ProductionRenderResult } from "./render.js";
 import { serializeBiology30SuspendData } from "./suspend-data.js";
+import { BIOLOGY30_TOPIC_PROFILE, readBiology30TopicContract } from "./pilot2-contract.js";
+import { hashTopicBuildTree } from "./pilot2-build-transaction.js";
+import { buildTopicProductionUnit } from "./pilot2-build.js";
 
 const SOURCE_MANIFEST_PATH = "projects/resources/biology30-unit-a-pilot/resource-manifest.json";
 const SHARED_ASSET_ROOT = "projects/resources/biology30-unit-a-pilot/v2/assets";
@@ -44,6 +47,8 @@ export type Biology30ProductionBuildRequest = {
   project: string;
   strict: boolean;
   checkExternalLinks?: boolean;
+  profile?: string;
+  baselineWorkspaceSha256?: string;
   testHooks?: {
     afterStageWrite?: (stageWorkspaceDir: string, stageMetaDir: string) => void | Promise<void>;
     beforePromote?: (targetPath: string, index: number) => void | Promise<void>;
@@ -631,9 +636,22 @@ async function promoteStage(input: {
 }
 
 export async function buildBiology30ProductionUnit(request: Biology30ProductionBuildRequest): Promise<Biology30ProductionBuildResult> {
-  const repoRoot = path.resolve(request.repoRoot);
-  if (!(request.project in UNIT_BY_PROJECT)) throw new Error(`--project must be one of ${Object.keys(UNIT_BY_PROJECT).join(", ")}.`);
+  if (!Object.hasOwn(UNIT_BY_PROJECT, request.project)) throw new Error(`--project must be one of ${Object.keys(UNIT_BY_PROJECT).join(", ")}.`);
   if (!request.strict) throw new Error("Biology 30 production builds require --strict.");
+  // Never silently fall back to the old renderer when the new profile is requested.
+  if (request.profile) {
+    if (request.profile !== BIOLOGY30_TOPIC_PROFILE) throw new Error(`Unsupported Biology profile: ${request.profile}`);
+    const unit = UNIT_BY_PROJECT[request.project as SupportedProject];
+    if (!unit) throw new Error("Pilot 2 profile supports only the B/C/D production targets");
+    if (!request.strict || !request.baselineWorkspaceSha256) throw new Error("Pilot 2 profile requires --strict and --baseline-workspace-sha");
+    const actual = (await hashTopicBuildTree(path.join(request.repoRoot, "projects", request.project, "workspace"))).sha256;
+    if (actual !== request.baselineWorkspaceSha256) throw new Error("Pilot 2 workspace baseline drift; preserve and reconcile the changed candidate before rebuilding");
+    for (const plannedUnit of ["B", "C", "D"] as const) await readBiology30TopicContract(request.repoRoot, plannedUnit, true);
+    return buildTopicProductionUnit(request, unit);
+  }
+  const existingManifest = await readJson<ProjectManifest>(path.join(request.repoRoot, "projects", request.project, "meta/project.json"));
+  if (existingManifest.regenerateCommand?.includes(BIOLOGY30_TOPIC_PROFILE)) throw new Error("This unit requires its Pilot 2 regeneration profile; legacy rendering is prohibited");
+  const repoRoot = path.resolve(request.repoRoot);
   const project = request.project as SupportedProject;
   const verified = await verifyInputs(repoRoot, project);
   const generatedAt = new Date().toISOString();

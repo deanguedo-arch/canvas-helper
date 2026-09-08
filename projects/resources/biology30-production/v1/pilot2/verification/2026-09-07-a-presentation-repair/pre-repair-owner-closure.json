@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "profileId": "pilot2-topic-sequence-v1",
+  "status": "author-reviewed",
+  "teacherDecision": null,
+  "compiler": {
+    "name": "esbuild",
+    "version": "0.27.3"
+  },
+  "files": [
+    {
+      "file": "app/shared/course-editability.ts",
+      "sha256": "a86986948f1a6f85002181ddb058f65f3d8b522d97cccda1c21ebdaf8d297e51"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "c6fafbf71183f05459b294a2f3bc1e946f6e4bb2cc01748a114ea1b66a5b3c1a"
+    },
+    {
+      "file": "package.json",
+      "sha256": "607b7f854796b19495de65d52279fe8aca4a98108fbb10c171360e93186b5491"
+    },
+    {
+      "file": "projects/biology30-unit-a-pilot/meta/bcd-rebuild-handoff-checkpoint.json",
+      "sha256": "b48be5cd1d97124bbfc6970202a1fe6f7727081d04f0a2704798a4ab3bacdaee"
+    },
+    {
+      "file": "projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json",
+      "sha256": "7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13"
+    },
+    {
+      "file": "projects/resources/biology30-unit-a-pilot/v2/assets/brand/nxt-ce-logo-white-with-ce.png",
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "file": "scripts/build-biology30-course.ts",
+      "sha256": "11705b01adf84884d6f133faf91b05a3aa8361d057335d8f815ce92881db604e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/blueprint.ts",
+      "sha256": "26c714b5ea274ecc2f216a8b93c5ebe54e5f8ee3d0e86f3a55f7d3cc96ae27b6"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/build.ts",
+      "sha256": "fb2538240458cf7aeffc11b52810f932f7b7b89907ee7ca440513dc2b2fbad52"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-b.ts",
+      "sha256": "a1e85688c5d859e64dfd17d8437bd3fd356a0fedc517fcbe6f8be5532c0417b7"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-c.ts",
+      "sha256": "0fbb3a32b9a18298e84daa8e15e51d6e6d119e07f6aa8cf3ad370e173ec23deb"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-d.ts",
+      "sha256": "30a596de8ce9a72b5e4b6b724e9f2ab94460c0307cb3b079cda2782cc1152cc2"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-factory.ts",
+      "sha256": "b20bd7a18c5a496910b4afacbe16de7831cb674479605078750dd97a732de560"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-types.ts",
+      "sha256": "22642f7554da22dab701939d790173bf4a08f01ab41934c88ac3c8d558f814b3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/curriculum.ts",
+      "sha256": "40d6ed9ce9dd6305ce216e5a5248328f5d9bf0541b386a4de7620039c21f667f"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "sha256": "54ea8977b74d5f35c313d64738906f6aad80339dfd3d02d01c7da3fa86d4458d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/glossary-b.ts",
+      "sha256": "3b4cbe24175046ed4e389e1c473eab26ea371d3b5f8a53395e103746ddeb5a81"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/glossary-c.ts",
+      "sha256": "034a99a2e98f3290554263aef728ec97aa86bf9ef856b80fbfcdc8b235df94b9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/glossary-d.ts",
+      "sha256": "30f776476044bf22695cf28c7e300c788f515a02ef3de43749726ccff4bda6de"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/intake.ts",
+      "sha256": "fe90c22015a26d0471a28b8da01da3c243c407dc26b6506d9ac643a39cdfd30c"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "sha256": "e1f0b0db83a54d0ef5f9d7bc47a1d6f80a25a84e60c116f81557c0a0fbd4776a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-browser-bundle.ts",
+      "sha256": "ff7be5282d65f82f5f4b520cffa5b4d5839dfb9091792cd816a549a75d3b8f76"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-browser-entry.ts",
+      "sha256": "7ef3018ca5352b6d55882bb6e39e633f94e2c2e63c10ce09a650b3b366dc94ce"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-browser-environment.ts",
+      "sha256": "e6fee8d5ee0c8ec367077d6d88394582f3399eb0f68d65448d733aa229d4e228"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts",
+      "sha256": "20c982492ea69b9c59fa515f44a539ad975bb9b4511ce6819ba84909aebf4b30"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-build.ts",
+      "sha256": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+      "sha256": "9049b9b7317be37d2eb8f4d1d26ae52171a5d4326dfea9c59cf47b4a19f5efbf"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-contract.ts",
+      "sha256": "71d1704fa53dde9334809df9baa9d99e55c3205711b534f61f037b05f23c13c3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts",
+      "sha256": "65e46dfdda85cd5aa02912a65e52788030f1f598d231726b5e2837702d66c238"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "sha256": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+      "sha256": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+      "sha256": "8ba2bf03056b10c72543359b5c2ad134b1ab30b33affeb04c08cc4805ad7271f"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-controls.ts",
+      "sha256": "6806f7d0cead77630b371ad83bc57147fa9eff903c1dfdab76ee6aaaa5917a75"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-svg.ts",
+      "sha256": "f6c4f63c011ad9b2e909597b4f326ee792241821cd423aee723c42e008c8c9a2"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-work.ts",
+      "sha256": "d1e3aa53c44157876100b434adfa56e4181b14dbef38907921fec7ebfb9856d7"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "90fcbf28958be9c1c955f79e2f7667519fabba6539ab3126da3e8539c57bce75"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-instruction-audit.ts",
+      "sha256": "d907535e66a8728e0fdb7f0879e6fbbd19c4e0d84607ad73db37364407fb6cc6"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts",
+      "sha256": "ca67e039fa0cb691c4d1dcb4c5965452e9235efc97fff0e4140a11072e9e43d1"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-legacy-work.ts",
+      "sha256": "42e86be832db8c2b0453223c8f483d79fc8a402c91ddca3e5b8e0c881eef1b4a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+      "sha256": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "sha256": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-model-controls.ts",
+      "sha256": "af88645e22ce2fee467c3c64b9ac77a49590b2405c804e9abcc8bc6e73801678"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-model-plot.ts",
+      "sha256": "727b0e4634b89ed1663d2245ddf41170c8fa5a0e13a65f6df0d4423da2588c7b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts",
+      "sha256": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-practice-options.ts",
+      "sha256": "16777982c5f39ac50e173ef93a110c786392117f04ce3af84627e62637b3cf62"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-preflight.ts",
+      "sha256": "a9f999eaf91a7fbba33a534691d3c6414b84f7b8e3986fb5b3829bf914e94f5b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-recovery-view.ts",
+      "sha256": "63fea05c6b61f167b99b1aaf712234c860a5f41cfa8bb3a2d407bc069f0a48db"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-common.ts",
+      "sha256": "e1337022bf3d21579077f69d9c4d5e4149d959284968cf6521ade3188533431e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "sha256": "ad58e346fcac5f17445f121fe63f2f2b55dd7f09ffe2443eda0a81760b3da7e9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "fe328a910c8062dbea2cabf36f5296ba4c6bec1f1b706846d71d1a122e83afa0"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-graph.ts",
+      "sha256": "aa88dbab96bd3adefc9e663df1b885801135082a7aadc88df63bfdd4340c8373"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts",
+      "sha256": "c49bd05bf56ce76683d1e8f03fc46123652fd054634bd74fd6b38d819d00608d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-model-output.ts",
+      "sha256": "78017dee50579b6e7d16e07df184252d75b06f440a7d82296780928b80ba0fe8"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-model.ts",
+      "sha256": "ae7ff90814414b705e36b84b17918fa9736fc39f196c059b5309fdab21e7df51"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-reference.ts",
+      "sha256": "408a01fe9c975fb584a5d3fb966adb47c451c4687a88b659292e40851c08d903"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-review.ts",
+      "sha256": "5182c15ecb37bc3eb61b962cc5c282741bc17a60893c6c8dd5994443a23db370"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "sha256": "88d04165a32d478a125c344d93a498ba2cde6dbb415fab33fc5ff7b7c503d973"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "sha256": "ea2aa508421f543c74ce44f7295d8f6ae3a1886db03edd0bfd805da02af5bb3d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "sha256": "78edb73622998135f0bc1044e3e82fdf099407542f5058b31bc12f1b84879651"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+      "sha256": "d22b12f6d0a4e0c71f14ab8ccad71a31102d558b48c456bb0285cd7ae430db32"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-return-links.ts",
+      "sha256": "07d25556a980dab206ec78d78ca48c87ba0d46d9757724797598e8bd0b541bb3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+      "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+      "sha256": "84836db5a1da36a46f1381a2492aa9ff5ce5a122c22c71514d1eab3cef6d8b6c"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-startup.ts",
+      "sha256": "5b4f86c8fc8d7bd39effde9b66e031e545eee1a85e0af7e04996a7235e919d4e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-state.ts",
+      "sha256": "30dba1fc2545b6102cfa275893b5deba34cc131ebc78aa86a9a1d1ce522679c4"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/render.ts",
+      "sha256": "6797b17183c7b2595908c6dc88145609777e7eaf8783dbc0178d8a1f4fa8e86d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/suspend-data.ts",
+      "sha256": "bf427853afda49d328241405f38cffe6e752bed37df2c633969538deaef87745"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/source.ts",
+      "sha256": "1701b708b56fc43f5e94e6239e0608a52a8e0c9114fe471e9eeaac0af34605d0"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/v2/blueprint.ts",
+      "sha256": "c7e269aaca145470546587e4131be8eee287dd2822501beb9c6441ffbaff39bf"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/v2/gate2-build.ts",
+      "sha256": "5da6512aa44e827c199788eadea8cf613cc389fcd83e9bda54ade3a6ce10470d"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/v2/gate2-render.ts",
+      "sha256": "f2cc24da6c96eb769f3a9f126caa23ded3a54903d970f27eea6e3af34055c1a8"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/v2/intake.ts",
+      "sha256": "a061722cf22bac977db4ef02d7c4c485ec81967857114e7063ffd1fdd03b55db"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/v2/runtime.ts",
+      "sha256": "5c460bba9097b55e07843ea1d48c743cb21f34d8888352befb52d63a3e874554"
+    },
+    {
+      "file": "scripts/lib/biology30-unit-a/v2/styles.ts",
+      "sha256": "9e8da86a7ab3988d6ec6728e98aff96f60f11d827fbfd0e3e4e7f8bef60e56ea"
+    },
+    {
+      "file": "scripts/lib/english-unit/evidence-bank-core.ts",
+      "sha256": "2a1d12e0a37882fac5bcaefc3f5a2bbaa9ba4384add09bff845ff91e5f4f8fac"
+    },
+    {
+      "file": "scripts/lib/next-step-course-shell.ts",
+      "sha256": "9d6887dd503ad44d4a74e1dd3486900e5469906a4ef6e69c0aa29520b39eaf7e"
+    },
+    {
+      "file": "scripts/lib/project-manifest-policy.ts",
+      "sha256": "1244f889c1fdecc10e8931965589bbe07d8e578729aedbcaadd0b351d1083f06"
+    },
+    {
+      "file": "scripts/lib/science-comparison.ts",
+      "sha256": "d8611d3d96fda1ceaa3f8c2bc1df83af80b88d64047ab73a75c693754ed6acc5"
+    },
+    {
+      "file": "scripts/prepare-biology30-course-resources.py",
+      "sha256": "5608afff7b0e43e6bd5689f132ad1092f71806795f4971ab015a1f5043d36f96"
+    }
+  ]
+}

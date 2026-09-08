@@ -1,0 +1,88 @@
+{
+  "stage": 104,
+  "checkedAt": "2026-09-07T17:16:21.703912+00:00",
+  "status": "targeted-core-learning-level-repair-verified",
+  "cause": "Lesson averages hid32 dense core blocks; components existed without consistently matching A scaffolding.",
+  "changes": {
+    "coreBlocks": 33,
+    "units": {
+      "B": 7,
+      "C": 21,
+      "D": 5
+    },
+    "workedExamples": 3,
+    "localWalkthroughs": "Matching ordered steps updated alongside each example",
+    "buildGate": "Each core part now enforces grade<=12, average sentence<=20 words, paragraph<=100 words",
+    "preserved": "Required topic/part order, outcomes, term introductions, figures, assessments, answer keys, response IDs, optional work and existing state schemas"
+  },
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "a0b7857d10301805342abd6895665e0711a6ad0280fbad834604e8a539d27e9c",
+      "contractSha256": "8e9619e26fd84a729436b501ef9b3e7adcfb170d4913d63380dcac601965295d",
+      "generatedAt": "2026-09-07T17:10:44.264Z",
+      "previousWorkspaceSha256": "17a8b6eb5a6065dfee8494c6a6ce1ee9e0dacadea0c949330b0f98c487f68a7f"
+    },
+    "C": {
+      "buildSha256": "a9a88309cec4483052c496207bff9b11e6a1f5711f7acbc9f5136dd0a8f8435d",
+      "contractSha256": "b8bbd781ab6527c42a749f0c75563593606f86f923917fcebc0bbd576460a712",
+      "generatedAt": "2026-09-07T17:10:50.806Z",
+      "previousWorkspaceSha256": "fa37e871e151fd786ce5f8632d880943b818090955ed046d8b0f105cd7a08b29"
+    },
+    "D": {
+      "buildSha256": "95a7836d6a3ca1e936f9e83364d83b52b3f47b9e28d997400aeda5bb3053cdad",
+      "contractSha256": "5fb78e0713528af3d002121e6b27235855a4a7fbb42dc2b7d3bff6106dadebcd",
+      "generatedAt": "2026-09-07T17:10:56.657Z",
+      "previousWorkspaceSha256": "128685d6fe8a5f9cb37025869a8db72e8a0530bd61811f1aa432d3e310fd0131"
+    }
+  },
+  "reading": {
+    "B": {
+      "previousHighParts": 7,
+      "currentHighParts": 0,
+      "lessonGradeRange": [
+        8.8,
+        11.2
+      ]
+    },
+    "C": {
+      "previousHighParts": 20,
+      "currentHighParts": 0,
+      "lessonGradeRange": [
+        8,
+        10.7
+      ]
+    },
+    "D": {
+      "previousHighParts": 5,
+      "currentHighParts": 0,
+      "lessonGradeRange": [
+        9.6,
+        10.3
+      ]
+    }
+  },
+  "validation": {
+    "preflight": "4/4 before edits: original-source cold preflight and four protected A trees exact",
+    "ownerAndReading": "7/7 including frozen all-unit preflight, dense-block regression and all127 core parts",
+    "scienceAndModels": "9/9 existing calculations and model cases",
+    "rendered": "All127 generated core paragraph arrays equal canonical inputs; all3 revised worked sequences equal source; self-checks function with external requests blocked; all3 desktop1440/mobile390 checks pass",
+    "projectE2E": "B/C/D each1/1 pass on final builds",
+    "workspace": "B/C/D pass on final builds",
+    "visual": "All6 desktop/mobile screenshots opened and inspected; native B revised lesson inspected. Mobile capture waits for menu transition to finish.",
+    "typecheck": "25 unrelated baseline errors; zero touched Biology diagnostics",
+    "preservation": "37 B,38 C and38 D other authored JSON inputs semantically unchanged; instruction edits restricted to3 worked step arrays and matching framing/support text"
+  },
+  "evidence": [
+    "revision-report.json",
+    "rendered-checks.json",
+    "before/manifest.json"
+  ],
+  "limitations": [
+    "Reading estimates are diagnostics, not measured comprehension or student pacing",
+    "Broad teacher topics retain complete required content; no forced A word-count cap",
+    "Targeted33-block review does not claim all remaining text and Advanced work were newly reviewed",
+    "Unit A provisional; teacher acceptance and release/LMS certification remain pending"
+  ],
+  "teacherAcceptance": null,
+  "releaseActions": []
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a",
+  "buildSha256": "d5d97368a9813ebc62f444dbd011ebe7134e48204412ef03a9bf69cf01162847",
+  "reviewedAt": "2026-08-30T14:32:37Z",
+  "status": "visual-red-team-complete-awaiting-human-decision",
+  "originalFigureCount": 27,
+  "browserRenderedFigureCount": 27,
+  "allBrowserRendersOpened": true,
+  "figureFindingsResolved": [
+    "right-edge label clipping in brain-region and neuron-role figures",
+    "eye fovea label collision with the optic-nerve bar",
+    "retinal pathway title clipping and signal-label collisions",
+    "synaptic termination text overflow",
+    "return-effect and reflex-arrow label collisions",
+    "nervous/endocrine comparison text overflow",
+    "nervous-system hierarchy title and right-edge crowding",
+    "endocrine body-map caption collision",
+    "neuron-anatomy label collision"
+  ],
+  "representativeScreenshots": [
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-overview-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-lesson-04-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-lesson-09-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-lesson-15-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-investigation-notebook-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-practice-hub-chromium-darwin.png"
+  ],
+  "viewportsCovered": [
+    "1440x900 desktop",
+    "1024x768 tablet",
+    "390x844 mobile",
+    "200 percent text zoom"
+  ],
+  "automatedAccessibilityRoutes": [
+    "overview",
+    "lesson-04",
+    "lesson-09",
+    "lesson-15",
+    "investigation-notebook",
+    "practice-hub"
+  ],
+  "followUpReview": {
+    "changedScreenshotsRegeneratedAndOpened": true,
+    "changedRoutes": [
+      "overview",
+      "lesson-04",
+      "lesson-09",
+      "lesson-15"
+    ],
+    "finding": "The learning intention and success-criteria blocks retain the approved scientific editorial grid, readable wrapping, and hierarchy without clipping or overflow.",
+    "responsiveEvidence": "Tablet, 390 by 844 mobile, reduced-motion, and 200 percent text-zoom browser checks pass."
+  },
+  "binaryVisualBlockerFound": false,
+  "humanVisualAcceptance": null
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-d",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Formative practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "d-lesson-01",
+      "d-lesson-02",
+      "d-lesson-03",
+      "d-lesson-04",
+      "d-lesson-05",
+      "d-lesson-06",
+      "d-lesson-07",
+      "d-lesson-08",
+      "d-lesson-09",
+      "d-lesson-10",
+      "d-lesson-11",
+      "model-lab",
+      "investigation-notebook",
+      "practice-hub",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "investigation-notebook"
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "d-lesson-01",
+        "d-lesson-06",
+        "d-lesson-11",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    }
+  }
+}

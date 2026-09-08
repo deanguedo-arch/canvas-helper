@@ -9,6 +9,9 @@ import { chromium, type Locator, type Page } from "playwright";
 import sharp from "sharp";
 
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
+import { CHAPTER_11_STUDY_TASKS } from "./lib/biology30-unit-a-pilot-2/chapter-11-study.js";
+import { ONLINE_STUDIES } from "./lib/biology30-unit-a-pilot-2/online-studies.js";
+import { ONLINE_WALKTHROUGHS } from "./lib/biology30-unit-a-pilot-2/online-media.js";
 
 const PROJECT = "biology30-unit-a-pilot-2";
 const STORAGE_KEY = `${PROJECT}:state:v1`;
@@ -94,6 +97,7 @@ function contentType(filePath: string) {
     ".js": "text/javascript; charset=utf-8",
     ".json": "application/json",
     ".png": "image/png",
+    ".jpg": "image/jpeg",
     ".svg": "image/svg+xml",
     ".pdf": "application/pdf",
     ".ttf": "font/ttf",
@@ -173,7 +177,10 @@ async function captureFullPage(page: Page, filePath: string) {
 
 async function captureLocator(locator: Locator, filePath: string) {
   await locator.evaluate((node) => node.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" }));
-  await locator.screenshot({ path: filePath, animations: "disabled", caret: "hide", timeout: 90_000 });
+  // Detail captures exclude fixed chrome so it cannot obscure the element's heading.
+  // Full-page and viewport captures retain the actual header and save controls.
+  await locator.screenshot({ path: filePath, animations: "disabled", caret: "hide", timeout: 90_000,
+    style: ".course-topbar,.save-exit,.toast{visibility:hidden!important}" });
 }
 
 function escapeXml(value: string) {
@@ -384,6 +391,61 @@ async function main() {
     for (const viewport of processViewports) {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto(server.url, { waitUntil: "domcontentloaded" });
+      if (viewport.textZoom) await page.addStyleTag({ content: "html { font-size: 200% !important; }" });
+      await showRoute(page, "model-lab");
+      for (const task of CHAPTER_11_STUDY_TASKS) {
+        await page.locator(`[data-model-select="${task.modelId}"]`).click();
+        const panel = page.locator(`[data-study-task="${task.id}"]`);
+        await panel.evaluate(node => { (node as HTMLDetailsElement).open = true; });
+        await panel.locator("textarea").fill(`My draft for ${task.title}. I identify the labels and connect each to its function. I will compare this explanation before revising.`);
+        await panel.locator("[data-study-guide]").evaluate(node => { (node as HTMLDetailsElement).open = true; });
+        await inspectPage(page, viewport.id, `chapter-11-study-${task.id}`, findings);
+        const shot = path.join(screenshotDir, `chapter-11-study-${viewport.id}-${task.id}.png`);
+        await captureLocator(panel, shot);
+        stateItems.push({ label: task.title, subtitle: `Saved diagram draft and comparison · ${viewport.id}`, screenshotPath: shot });
+        if (viewport.id === "desktop-1440x900" && await panel.locator("[data-enlarge-figure]").count()) {
+          await panel.locator("[data-enlarge-figure]").click();
+          const enlarged = path.join(screenshotDir, `chapter-11-study-enlarged-${task.id}.png`);
+          await captureLocator(page.locator("[data-figure-dialog]"), enlarged);
+          stateItems.push({ label: task.title, subtitle: "Enlarged diagram", screenshotPath: enlarged });
+          await page.keyboard.press("Escape");
+        }
+      }
+      await showRoute(page, "process-collection");
+      const studyCollection = path.join(screenshotDir, `chapter-11-study-collection-${viewport.id}.png`);
+      await captureFullPage(page, studyCollection);
+      stateItems.push({ label: "Chapter 11 diagram drafts in Process Collection", subtitle: viewport.id, screenshotPath: studyCollection });
+      await showRoute(page, "model-lab");
+      for (const study of ONLINE_STUDIES) {
+        await page.locator(`[data-model-select="${study.modelId}"]`).click();
+        const panel=page.locator(`[data-online-study="${study.id}"]`);
+        await panel.evaluate(node=>{(node as HTMLDetailsElement).open=true;node.querySelectorAll<HTMLSelectElement>('[data-online-pick]').forEach(pick=>{pick.value='a';pick.dispatchEvent(new Event('change',{bubbles:true}))})});
+        await panel.locator('[data-online-compare]').click();
+        await inspectPage(page,viewport.id,`online-study-${study.id}`,findings);
+        const shot=path.join(screenshotDir,`online-study-${study.id}-${viewport.id}.png`);
+        await captureLocator(panel,shot);stateItems.push({label:study.title,subtitle:`Filled comparison · ${viewport.id}`,screenshotPath:shot});
+        const detail=path.join(screenshotDir,`online-study-detail-${study.id}-${viewport.id}.png`);
+        await captureLocator(panel.locator('.online-study-rows>li').first(),detail);stateItems.push({label:study.title,subtitle:`Native controls and row explanation · ${viewport.id}`,screenshotPath:detail});
+      }
+      await page.locator('[data-model-select="myelin"]').click();
+      const micro=page.locator('[data-online-microscopy]');await micro.evaluate(node=>{(node as HTMLDetailsElement).open=true});
+      await micro.locator('textarea').fill('Two stained profiles differ in shape. The section does not show whole neurons; no scale bar is supplied.');
+      await inspectPage(page,viewport.id,'online-microscopy',findings);
+      const microShot=path.join(screenshotDir,`online-microscopy-${viewport.id}.png`);await captureLocator(micro,microShot);stateItems.push({label:'Prepared-tissue observation',subtitle:viewport.id,screenshotPath:microShot});
+      if(!viewport.textZoom&&viewport.width===1440){await micro.locator('[data-enlarge-figure]').click();const shot=path.join(screenshotDir,'online-microscopy-enlarged.png');await captureLocator(page.locator('[data-figure-dialog]'),shot);stateItems.push({label:'Prepared tissue · enlarged',subtitle:viewport.id,screenshotPath:shot});await page.keyboard.press('Escape')}
+      await showRoute(page,'process-collection');
+      for(const id of ['reflex-response','sensory-receptors','endocrine-data']){
+        const panel=page.locator(`[data-investigation="${id}"]`);await panel.evaluate(node=>{(node as HTMLDetailsElement).open=true});await inspectPage(page,viewport.id,`online-investigation-${id}`,findings);
+        const shot=path.join(screenshotDir,`online-investigation-${id}-${viewport.id}.png`);await captureLocator(panel,shot);stateItems.push({label:`Online investigation · ${id}`,subtitle:viewport.id,screenshotPath:shot});
+      }
+      for(const walkthrough of ONLINE_WALKTHROUGHS){
+        await showRoute(page,walkthrough.lessonId);
+        const panel=page.locator(`[data-online-walkthrough="${walkthrough.youtubeId}"]`);await panel.evaluate(node=>{(node as HTMLDetailsElement).open=true});await inspectPage(page,viewport.id,`walkthrough-${walkthrough.youtubeId}`,findings);
+        // Inspect every illustrated panel, including narrow and enlarged-text contexts.
+        for(let index=0;index<3;index++){
+          const shot=path.join(screenshotDir,`online-panel-${walkthrough.youtubeId}-${index}-${viewport.id}.png`);await captureLocator(panel.locator('.walkthrough-panel').nth(index),shot);stateItems.push({label:`${walkthrough.lessonId} · illustrated step ${index+1}`,subtitle:viewport.id,screenshotPath:shot});
+        }
+      }
       for (const density of ["empty", "representative", "dense"] as const) {
         await seedProcessCollection(page, density);
         if (viewport.textZoom) await page.addStyleTag({ content: "html { font-size: 200% !important; }" });
@@ -641,6 +703,22 @@ async function main() {
       stateItems.push({ label: `${routeId.replace(/-/g, " ")} feedback`, subtitle: "Answer explanation and exact textbook repair link", screenshotPath: filePath });
     }
 
+    for (const viewport of [...VIEWPORTS, { id: "text-200-percent", width: 1440, height: 900 }]) {
+      await page.setViewportSize(viewport);
+      await page.evaluate(zoom => { document.documentElement.style.fontSize = zoom ? "200%" : ""; }, viewport.id === "text-200-percent");
+      for (const [routeId, key] of [["lesson-02", "lesson-02-guided-02"], ["chapter-12-practice", "chapter-12-practice-09"], ["final-practice", "final-practice-core-17"]]) {
+        await showRoute(page, routeId);
+        const item = page.locator(`[data-practice-id="${PROJECT}:practice:${key}"]`);
+        const correct = await item.locator("[data-practice-feedback]").getAttribute("data-answer");
+        await item.locator(`input:not([value="${correct}"])`).first().check();
+        await item.locator("[data-check-practice]").click();
+        const shot = path.join(screenshotDir, `state-corrected-${key}-${viewport.id}.png`);
+        await captureLocator(item, shot);
+        stateItems.push({ label: `Corrected practice · ${key}`, subtitle: `Specific feedback, local explanation and textbook support · ${viewport.id}`, screenshotPath: shot });
+      }
+    }
+    await page.evaluate(() => { document.documentElement.style.fontSize = ""; });
+    await page.setViewportSize({ width: 1440, height: 900 });
     await showRoute(page, "review-seminar");
     const seminarPath = path.join(screenshotDir, "state-review-seminar-sessions.png");
     await captureFullPage(page, seminarPath);

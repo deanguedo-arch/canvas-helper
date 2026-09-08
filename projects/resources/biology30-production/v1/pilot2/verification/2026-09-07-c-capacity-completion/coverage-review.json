@@ -1,0 +1,598 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen scoped findings",
+  "scope": "Eight skill groups only; mappings alone do not establish complete outcome coverage.",
+  "groups": [
+    {
+      "skill": "C: probability rules and conditional denominators",
+      "unit": "c",
+      "teachingTopicIds": [
+        "c-topic-single-and-two-trait-crosses",
+        "c-topic-pedigrees"
+      ],
+      "practiceIds": [
+        "c-topic-single-and-two-trait-crosses-guided-construct",
+        "c-topic-pedigrees-guided-construct",
+        "c-chapter-construct-05",
+        "c-application-genetic-information-and-perspectives"
+      ],
+      "independentOpportunity": "Independent multiplication and conditional-denominator responses exist, including unaffected-child and X-linked denominator changes. An independently chosen sum-rule operation is not clearly isolated by these examples.",
+      "finding": "Stage109 follow-up closed without a supported repair: required Mendelian guided work independently asks for genotype and phenotype probabilities, including aggregation of mutually exclusive AA and Aa classes. Isolated naming/selection of the sum rule is not separately assessed or claimed.",
+      "repair": "No addition. c-topic-mendelian-genetics-guided-construct asks students to predict genotype and phenotype probabilities for Aa × Aa; its model gives AA=1/4, Aa=1/2 and dominant phenotype=3/4. c-topic-single-and-two-trait-crosses-guided-construct also uses A_ including AA and Aa. No demonstrated missing operation justifies extra workload in this bounded pass.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "c-topic-single-and-two-trait-crosses-monohybrid-crosses",
+        "c-topic-single-and-two-trait-crosses-probability-rules",
+        "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+        "c-topic-single-and-two-trait-crosses-testing-a-model",
+        "c-topic-pedigrees-symbols-and-evidence",
+        "c-topic-pedigrees-autosomal-hypotheses",
+        "c-topic-pedigrees-sex-linked-hypotheses",
+        "c-topic-pedigrees-risk-and-information"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "c-topic-single-and-two-trait-crosses-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "For AaBb × AaBb with independently assorting loci and complete dominance, calculate P(aabb) and P(A_bb). Explain each multiplication."
+        },
+        {
+          "id": "c-topic-pedigrees-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Under a fully penetrant autosomal recessive model, two unaffected parents have an affected child. Give parent genotypes and the carrier probability for another child known to be unaffected."
+        },
+        {
+          "id": "c-chapter-construct-05",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "Cross a carrier mother XᴬXᵃ with an unaffected father XᴬY in a simple X-linked recessive model. Give risk among sons and among all children under equal sex probability."
+        },
+        {
+          "id": "c-application-genetic-information-and-perspectives",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "A fictional education service uses only invented Aa×Aa examples under a fully penetrant recessive model. Its draft report says, “Carrier probability is always one-half.” Correct that claim for a child known to be unaffected. Compare a short automatic report with an optional supported explanation using all five perspective rows. State an initial communication choice. A participant then says a shared device offers little privacy and technical wording is hard to understand. Revise the choice or justify retaining it with a specific adaptation. Do not request anyone’s personal or family genetic information."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "c-topic-single-and-two-trait-crosses-evidence",
+          "prompt": "Compare one supplied small and large offspring sample with expectations, preserving the denominator and sampling limitation."
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-media",
+          "prompt": "Can expected counts of 2.5/5/2.5 occur as literal offspring counts in one ten-offspring family?"
+        },
+        {
+          "id": "c-topic-pedigrees-evidence",
+          "prompt": "Use one pedigree observation to support or exclude a stated model, naming the assumption on which the inference depends."
+        },
+        {
+          "id": "c-topic-pedigrees-media",
+          "prompt": "Does an affected father and son alone prove direct X-linked transmission from father to son?"
+        }
+      ],
+      "investigationEvidence": [
+        {
+          "id": "c-investigation-inheritance-data",
+          "question": "How closely do simulated Aa × Aa offspring match the predicted ratio in different samples?",
+          "responseFields": [
+            {
+              "id": "c-investigation-inheritance-data-plan",
+              "label": "question and expected cross",
+              "prompt": "State your question, prediction and a controlled comparison."
+            },
+            {
+              "id": "c-investigation-inheritance-data-observations",
+              "label": "observed and expected counts",
+              "prompt": "Record the supplied observations, coordinates or calculations with labels and units."
+            },
+            {
+              "id": "c-investigation-inheritance-data-explanation",
+              "label": "replicate comparison",
+              "prompt": "Explain the pattern using evidence and the model assumptions."
+            },
+            {
+              "id": "c-investigation-inheritance-data-revision",
+              "label": "alternative model and revised conclusion",
+              "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "C: chromosome, chromatid and ploidy counts",
+      "unit": "c",
+      "teachingTopicIds": [
+        "c-topic-chromosomes-and-dna",
+        "c-topic-meiosis-part-a",
+        "c-topic-meiosis-part-b"
+      ],
+      "practiceIds": [
+        "c-topic-chromosomes-and-dna-guided-construct",
+        "c-topic-meiosis-part-a-guided-construct",
+        "c-topic-meiosis-part-b-guided-construct",
+        "c-application-complete-division-comparison"
+      ],
+      "independentOpportunity": "Students supply pre/post replication counts, track two divisions and compare seven division properties; final and chapter variants use different starting counts.",
+      "finding": "Already covered for this focused review.",
+      "repair": "No new question or wording change.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "c-topic-chromosomes-and-dna-dna-packaging",
+        "c-topic-chromosomes-and-dna-sets-and-copies",
+        "c-topic-chromosomes-and-dna-reading-karyotypes",
+        "c-topic-meiosis-part-a-pairing-and-exchange",
+        "c-topic-meiosis-part-a-first-meiotic-division",
+        "c-topic-meiosis-part-a-second-meiotic-division",
+        "c-topic-meiosis-part-a-comparing-divisions",
+        "c-topic-meiosis-part-b-gamete-development",
+        "c-topic-meiosis-part-b-sources-of-variation",
+        "c-topic-meiosis-part-b-nondisjunction",
+        "c-topic-meiosis-part-b-twins-and-early-development"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "c-topic-chromosomes-and-dna-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "A diploid cell has 8 chromosomes before DNA replication. Give chromosome, chromatid and set counts before and after replication, then distinguish homologues from sisters."
+        },
+        {
+          "id": "c-topic-meiosis-part-a-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Track a cell with two homologous chromosome pairs through meiosis I and II. Name what separates and give chromosome numbers in each product."
+        },
+        {
+          "id": "c-topic-meiosis-part-b-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Compare nondisjunction of one homologous pair in meiosis I with nondisjunction in only one meiosis II cell. Give the four product categories for the tracked chromosome."
+        },
+        {
+          "id": "c-application-complete-division-comparison",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "Compare mitosis and meiosis starting from an unreplicated diploid cell with 2n=6. Assume successful replication, division and cytoplasmic separation in a simplified model. Make seven labelled comparison rows: DNA replications, nuclear divisions, homologue pairing, structures separated, product number, product ploidy/chromosome count, and genetic similarity. Explain why “all products are guaranteed genetically identical” is too strong for either process."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "c-topic-chromosomes-and-dna-evidence",
+          "prompt": "Use a chromosome drawing or karyotype to support one count or structural claim and state a limit on what the image reveals."
+        },
+        {
+          "id": "c-topic-chromosomes-and-dna-media",
+          "prompt": "Does an X-shaped chromosome represent two homologues?"
+        },
+        {
+          "id": "c-topic-meiosis-part-a-evidence",
+          "prompt": "Follow a 2n = 4 model through both divisions and explain where reduction occurs."
+        },
+        {
+          "id": "c-topic-meiosis-part-a-media",
+          "prompt": "Is another DNA-replication phase normally inserted between meiosis I and II?"
+        },
+        {
+          "id": "c-topic-meiosis-part-b-evidence",
+          "prompt": "Use one variation or nondisjunction model to trace an event to its products, including a boundary on the prediction."
+        },
+        {
+          "id": "c-topic-meiosis-part-b-media",
+          "prompt": "Does a monozygotic origin guarantee identical traits throughout life?"
+        }
+      ],
+      "investigationEvidence": []
+    },
+    {
+      "skill": "C: recombination frequency and chromosome mapping",
+      "unit": "c",
+      "teachingTopicIds": [
+        "c-topic-chromosome-mapping"
+      ],
+      "practiceIds": [
+        "c-topic-chromosome-mapping-guided-construct",
+        "c-practice-final-c-lesson-12-c-lesson-12-bounded",
+        "c-practice-chapter-c-lesson-14-c-lesson-14-evidence",
+        "c-practice-final-c-lesson-14-c-lesson-14-bounded"
+      ],
+      "independentOpportunity": "Constructed response computes recombination and interprets gene order; separate chapter/final samples change counts and test inference limits.",
+      "finding": "Already covered; effectiveness of spacing is not established by this static review.",
+      "repair": "No addition.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "c-topic-chromosome-mapping-linkage-and-recombination",
+        "c-topic-chromosome-mapping-recombination-frequency",
+        "c-topic-chromosome-mapping-gene-order",
+        "c-topic-chromosome-mapping-limits-of-linkage-estimates"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "c-topic-chromosome-mapping-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "An AB/ab heterozygote is test-crossed with ab/ab, producing 40 AB, 40 ab, 10 Ab and 10 aB gamete-derived offspring. Calculate recombination frequency. In a separate mapping dataset, interpret distances A–B=14, B–C=6 and A–C=20 map units."
+        },
+        {
+          "id": "c-practice-final-c-lesson-12-c-lesson-12-bounded",
+          "role": "final",
+          "kind": "multiple-choice",
+          "prompt": "A test cross produces 42 AB, 38 ab, 12 Ab and 8 aB offspring. AB and ab are the parental combinations. What is the observed recombination frequency?"
+        },
+        {
+          "id": "c-practice-chapter-c-lesson-14-c-lesson-14-evidence",
+          "role": "chapter",
+          "kind": "multiple-choice",
+          "prompt": "A test cross has 92 recombinant offspring among 1,000 total. Which explanation best connects this evidence to the lesson mechanism?"
+        },
+        {
+          "id": "c-practice-final-c-lesson-14-c-lesson-14-bounded",
+          "role": "final",
+          "kind": "multiple-choice",
+          "prompt": "Two loci show 49% recombination in a large two-point cross. Which additional evidence would distinguish different chromosomes from widely separated loci on one chromosome?"
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "c-topic-chromosome-mapping-evidence",
+          "prompt": "Construct the 14/6/20 map, justify the middle locus and state one limit on extending the calculation."
+        },
+        {
+          "id": "c-topic-chromosome-mapping-media",
+          "prompt": "Does about 50% recombination prove the loci are on different chromosomes?"
+        }
+      ],
+      "investigationEvidence": []
+    },
+    {
+      "skill": "C: DNA/RNA strand direction and transcription",
+      "unit": "c",
+      "teachingTopicIds": [
+        "c-topic-transcription"
+      ],
+      "practiceIds": [
+        "c-topic-transcription-guided-construct",
+        "c-chapter-construct-07",
+        "c-topic-transcription-challenge"
+      ],
+      "independentOpportunity": "Required guided work converts coding DNA to aligned template/RNA; chapter work starts from a labelled template. Reverse-direction challenge is optional and not credited as required coverage.",
+      "finding": "Already covered by required guided and chapter operations.",
+      "repair": "No addition; retain optional challenge as optional.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "c-topic-transcription-selecting-a-template",
+        "c-topic-transcription-making-rna",
+        "c-topic-transcription-processing-and-expression",
+        "c-topic-transcription-checking-a-sequence-claim"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "c-topic-transcription-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Given coding DNA 5′-ATGGAATTTTAA-3′, write aligned template DNA and the mRNA 5′→3′. Explain which strand RNA polymerase reads."
+        },
+        {
+          "id": "c-chapter-construct-07",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "For template 3′-TAC CTT AAA ATT-5′, transcribe 5′→3′ and translate the indicated start frame."
+        },
+        {
+          "id": "c-topic-transcription-challenge",
+          "role": "challenge",
+          "kind": "constructed",
+          "prompt": "A sequence is now labelled TEMPLATE 5′-ATGGAATTTTAA-3′, rather than coding DNA. Write the RNA 5′→3′ and explain why simply replacing T with U gives the wrong result."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "c-topic-transcription-evidence",
+          "prompt": "Correct a strand-orientation or processing claim by showing the relevant sequence and explaining the error."
+        },
+        {
+          "id": "c-topic-transcription-media",
+          "prompt": "Can you copy a template strand unchanged and merely replace T with U?"
+        }
+      ],
+      "investigationEvidence": []
+    },
+    {
+      "skill": "D: allele frequencies and Hardy–Weinberg assumptions",
+      "unit": "d",
+      "teachingTopicIds": [
+        "d-topic-hardy-weinberg"
+      ],
+      "practiceIds": [
+        "d-topic-hardy-weinberg-guided-construct",
+        "d-chapter-construct-01",
+        "d-practice-chapter-d-lesson-03-square-root",
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "independentOpportunity": "Required constructed work counts observed alleles and calculates predictions; chapter practice infers frequencies from 9% recessive phenotype; final investigation compares changed rows.",
+      "finding": "Already covered; observed counting and assumption-dependent inference are distinct.",
+      "repair": "No new practice. Repair the final response capacity as listed below.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "d-topic-hardy-weinberg-populations-and-allele-counts",
+        "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+        "d-topic-hardy-weinberg-equilibrium-assumptions",
+        "d-topic-hardy-weinberg-solving-and-checking",
+        "d-topic-hardy-weinberg-a-model-and-its-limits"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "d-topic-hardy-weinberg-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "In 100 diploid organisms, AA=36, Aa=48 and aa=16. Calculate p and q from counts, calculate the Hardy–Weinberg expectations and state which calculation needs model assumptions."
+        },
+        {
+          "id": "d-chapter-construct-01",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "A fully expressed recessive phenotype occurs in 9% of a fictional two-allele population. Estimate allele and genotype frequencies under Hardy–Weinberg assumptions and check the sum."
+        },
+        {
+          "id": "d-practice-chapter-d-lesson-03-square-root",
+          "role": "chapter",
+          "kind": "multiple-choice",
+          "prompt": "Under Hardy–Weinberg assumptions at a two-allele locus, 9% of the modeled population is homozygous recessive. What is q?"
+        },
+        {
+          "id": "d-investigation-gene-pool-final-transfer-revision-v2",
+          "role": "final",
+          "kind": "constructed",
+          "prompt": "Using the three supplied genotype rows, test whether gene flow explains the change in p. Calculate p for at least two rows with the correct denominator. State a testable prediction and a repeated comparison with controlled sampling. A reviewer says, “The movement label proves that migration caused the whole change.” Respond with an alternative explanation and revise that claim; identify the additional observation that would distinguish the causes."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "d-topic-hardy-weinberg-evidence",
+          "prompt": "Solve one supplied population case and state whether its allele frequency was counted or inferred, including a relevant assumption."
+        },
+        {
+          "id": "d-topic-hardy-weinberg-media",
+          "prompt": "Does direct allele counting from observed diploid genotypes require equilibrium?"
+        }
+      ],
+      "investigationEvidence": []
+    },
+    {
+      "skill": "D: sampling, density and abundance estimates",
+      "unit": "d",
+      "teachingTopicIds": [
+        "d-topic-population-growth"
+      ],
+      "practiceIds": [
+        "d-topic-population-growth-guided-construct",
+        "d-chapter-construct-04",
+        "d-investigation-population-growth-final-transfer-revision-v2"
+      ],
+      "independentOpportunity": "Guided quadrat calculation, a separate mark–recapture problem and final investigation of spatial sampling provide independent responses.",
+      "finding": "Already covered. Reused quadrat data support consolidation, not proof of unfamiliar transfer.",
+      "repair": "No additional task. Repair final response capacity.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "d-topic-population-growth-size-and-density",
+        "d-topic-population-growth-sampling-populations",
+        "d-topic-population-growth-four-demographic-processes",
+        "d-topic-population-growth-rates-and-denominators",
+        "d-topic-population-growth-exponential-and-logistic-models",
+        "d-topic-population-growth-feedback-and-changing-limits"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "d-topic-population-growth-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Use the three explicitly separate datasets. For quadrats 2, 8, 4, 10 and 6 plants in five 1 m² samples from 200 m², calculate density and estimated abundance. For initial N=1000, B=120, I=30, D=70 and E=20 in ten days, calculate absolute rate and interval per-capita change. Then plot both supplied growth-model series on common labelled axes and explain why they diverge."
+        },
+        {
+          "id": "d-chapter-construct-04",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "Calculate a mark-recapture estimate when 40 organisms are initially marked, the second sample contains 50 and 10 are marked. State two assumptions."
+        },
+        {
+          "id": "d-investigation-population-growth-final-transfer-revision-v2",
+          "role": "final",
+          "kind": "constructed",
+          "prompt": "Use the five quadrat counts to test how spatial placement affects an abundance estimate. Report the count range, mean density and conditional whole-area estimate. Predict a result if dense patches are oversampled, then design a repeated comparison with controlled counting rules. A reviewer says, “The estimate of 1200 is an exact census.” Respond with an alternative sampling explanation and revise that claim; state what further observations would help."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "d-topic-population-growth-evidence",
+          "prompt": "Use a sampling or growth calculation to support a prediction, including units and one design/model limit."
+        },
+        {
+          "id": "d-topic-population-growth-media",
+          "prompt": "Are 6 individuals/day and 0.006 per day per initial individual the same numerical quantity?"
+        }
+      ],
+      "investigationEvidence": [
+        {
+          "id": "d-investigation-population-growth",
+          "question": "How sensitive is a population estimate to the sampled area and its spatial pattern?",
+          "responseFields": [
+            {
+              "id": "d-investigation-population-growth-plan",
+              "label": "sampling question and prediction",
+              "prompt": "State your question, prediction and a controlled comparison."
+            },
+            {
+              "id": "d-investigation-population-growth-observations",
+              "label": "density estimate with units",
+              "prompt": "Record the supplied observations, coordinates or calculations with labels and units."
+            },
+            {
+              "id": "d-investigation-population-growth-explanation",
+              "label": "four demographic calculations and graph",
+              "prompt": "Explain the pattern using evidence and the model assumptions."
+            },
+            {
+              "id": "d-investigation-population-growth-revision",
+              "label": "limitations and revised design",
+              "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "D: demographic balance, absolute rate and per-capita change",
+      "unit": "d",
+      "teachingTopicIds": [
+        "d-topic-population-growth"
+      ],
+      "practiceIds": [
+        "d-topic-population-growth-guided-construct"
+      ],
+      "independentOpportunity": "The guided task explicitly asks for absolute rate and interval per-capita change using N=1000, B=120, I=30, D=70, E=20 over ten days. The saved checkpoint separately asks whether differently normalized rates are the same quantity. The separate population-growth investigation also collects an explanation of four demographic calculations and a two-point population graph.",
+      "finding": "Already covered by guided work and a separate investigation response; diagnostic effectiveness is not measured.",
+      "repair": "No extra practice or prompt change justified.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "d-topic-population-growth-size-and-density",
+        "d-topic-population-growth-sampling-populations",
+        "d-topic-population-growth-four-demographic-processes",
+        "d-topic-population-growth-rates-and-denominators",
+        "d-topic-population-growth-exponential-and-logistic-models",
+        "d-topic-population-growth-feedback-and-changing-limits"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "d-topic-population-growth-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Use the three explicitly separate datasets. For quadrats 2, 8, 4, 10 and 6 plants in five 1 m² samples from 200 m², calculate density and estimated abundance. For initial N=1000, B=120, I=30, D=70 and E=20 in ten days, calculate absolute rate and interval per-capita change. Then plot both supplied growth-model series on common labelled axes and explain why they diverge."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "d-topic-population-growth-evidence",
+          "prompt": "Use a sampling or growth calculation to support a prediction, including units and one design/model limit."
+        },
+        {
+          "id": "d-topic-population-growth-media",
+          "prompt": "Are 6 individuals/day and 0.006 per day per initial individual the same numerical quantity?"
+        }
+      ],
+      "investigationEvidence": [
+        {
+          "id": "d-investigation-population-growth",
+          "question": "How sensitive is a population estimate to the sampled area and its spatial pattern?",
+          "responseFields": [
+            {
+              "id": "d-investigation-population-growth-plan",
+              "label": "sampling question and prediction",
+              "prompt": "State your question, prediction and a controlled comparison."
+            },
+            {
+              "id": "d-investigation-population-growth-observations",
+              "label": "density estimate with units",
+              "prompt": "Record the supplied observations, coordinates or calculations with labels and units."
+            },
+            {
+              "id": "d-investigation-population-growth-explanation",
+              "label": "four demographic calculations and graph",
+              "prompt": "Explain the pattern using evidence and the model assumptions."
+            },
+            {
+              "id": "d-investigation-population-growth-revision",
+              "label": "limitations and revised design",
+              "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "D: growth-model graph construction and interpretation",
+      "unit": "d",
+      "teachingTopicIds": [
+        "d-topic-population-growth"
+      ],
+      "practiceIds": [
+        "d-topic-population-growth-guided-construct",
+        "d-practice-final-d-lesson-09-model-choice",
+        "d-application-wetland-research-and-models"
+      ],
+      "independentOpportunity": "Students plot both supplied series on common axes in the guided activity, then interpret different growth patterns and a separate projection in final/chapter work.",
+      "finding": "Already covered for construction and interpretation; unfamiliar transfer is not certified.",
+      "repair": "No addition.",
+      "verification": "IDs and prompts checked in authored records; current renderer requires an attempt before opening comparison feedback. Checkpoints and evidence slips are separate; reveal-only stop checks do not count as collected independent work.",
+      "teachingPartIds": [
+        "d-topic-population-growth-size-and-density",
+        "d-topic-population-growth-sampling-populations",
+        "d-topic-population-growth-four-demographic-processes",
+        "d-topic-population-growth-rates-and-denominators",
+        "d-topic-population-growth-exponential-and-logistic-models",
+        "d-topic-population-growth-feedback-and-changing-limits"
+      ],
+      "practiceEvidence": [
+        {
+          "id": "d-topic-population-growth-guided-construct",
+          "role": "guided",
+          "kind": "constructed",
+          "prompt": "Use the three explicitly separate datasets. For quadrats 2, 8, 4, 10 and 6 plants in five 1 m² samples from 200 m², calculate density and estimated abundance. For initial N=1000, B=120, I=30, D=70 and E=20 in ten days, calculate absolute rate and interval per-capita change. Then plot both supplied growth-model series on common labelled axes and explain why they diverge."
+        },
+        {
+          "id": "d-practice-final-d-lesson-09-model-choice",
+          "role": "final",
+          "kind": "multiple-choice",
+          "prompt": "Under comparable conditions, populations starting at N=100, 200 and 300 grow by 40, 40 and 30 in equal intervals. Which pattern is consistent with density-dependent slowing?"
+        },
+        {
+          "id": "d-application-wetland-research-and-models",
+          "role": "chapter",
+          "kind": "constructed",
+          "prompt": "A fictional Canadian wetland project is choosing research priorities. Explain why scientific research and technological development can support each of the social, economic and environmental goals in the table. Use the separate growth-model projections to predict an observation that could challenge one model. State an initial research priority. A resident then argues that access restrictions could reduce local income. Revise the priority or justify retaining it with an adaptation; say what to monitor and what would trigger another revision. Do not present a model projection or a supplied perspective as community agreement."
+        }
+      ],
+      "otherRequiredEvidence": [
+        {
+          "id": "d-topic-population-growth-evidence",
+          "prompt": "Use a sampling or growth calculation to support a prediction, including units and one design/model limit."
+        },
+        {
+          "id": "d-topic-population-growth-media",
+          "prompt": "Are 6 individuals/day and 0.006 per day per initial individual the same numerical quantity?"
+        }
+      ],
+      "investigationEvidence": [
+        {
+          "id": "d-investigation-population-growth",
+          "question": "How sensitive is a population estimate to the sampled area and its spatial pattern?",
+          "responseFields": [
+            {
+              "id": "d-investigation-population-growth-plan",
+              "label": "sampling question and prediction",
+              "prompt": "State your question, prediction and a controlled comparison."
+            },
+            {
+              "id": "d-investigation-population-growth-observations",
+              "label": "density estimate with units",
+              "prompt": "Record the supplied observations, coordinates or calculations with labels and units."
+            },
+            {
+              "id": "d-investigation-population-growth-explanation",
+              "label": "four demographic calculations and graph",
+              "prompt": "Explain the pattern using evidence and the model assumptions."
+            },
+            {
+              "id": "d-investigation-population-growth-revision",
+              "label": "limitations and revised design",
+              "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "stage": "State, migration and unified collection author contracts",
+  "status": "passed-author-engine-and-draft-contract-checks; no learner rendering",
+  "tests": {
+    "focused": 52,
+    "passed": 52
+  },
+  "typecheck": {
+    "unrelatedDiagnostics": 25,
+    "changedOwnerDiagnostics": 0
+  },
+  "ordinaryMaximumCharacters": {
+    "B": 30391,
+    "C": 40269,
+    "D": 26164
+  },
+  "activityInventory": {
+    "B": {
+      "entries": 243,
+      "responses": 181,
+      "choices": 45,
+      "flags": 237
+    },
+    "C": {
+      "entries": 396,
+      "responses": 272,
+      "choices": 99,
+      "flags": 380
+    },
+    "D": {
+      "entries": 186,
+      "responses": 149,
+      "choices": 36,
+      "flags": 184
+    }
+  },
+  "authoredGatesPassed": {
+    "B": 6,
+    "C": 6,
+    "D": 6
+  },
+  "gateTotalPerUnit": 13,
+  "stateStageReview": "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json",
+  "sourceStageSha256": "4a4b8af9719227d617d32b0958c55efde4592ed0aad68dcaa0a7dcec4f3283b9",
+  "protectedSourcesAndLearnerTrees": "verification-only passed; see protection.log",
+  "remaining": "Seven all-unit authored gates, full renderer integration, B→C→D builds and exact candidate browser/academic/visual review. No teacher acceptance or LMS certification.",
+  "sourceFigureProgress": {
+    "record": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation.json",
+    "scope": "Full source page and native figure extraction reviewed; old-course pixel comparison, final selection, first-use and learner placement remain pending."
+  }
+}

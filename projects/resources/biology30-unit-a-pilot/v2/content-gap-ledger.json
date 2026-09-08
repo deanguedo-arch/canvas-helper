@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "gaps": [
+    {
+      "id": "current-biology-bulletin-refresh",
+      "lessonIds": [
+        "lesson-17"
+      ],
+      "gap": "Alberta has not published a discoverable Biology-specific 2026-27 bulletin at Gate 0; the current subject bulletin is 2025-26.",
+      "supplementationPlan": "Repeat the Alberta-domain search immediately before Gate 1 authoring and reconcile terminology, blueprint, or cognitive-demand changes before writing lessons.",
+      "requiredAuthorityIds": [
+        "alberta-biology-bulletin-2025-26",
+        "alberta-diploma-general-2026-27"
+      ],
+      "status": "planned-before-gate-1"
+    },
+    {
+      "id": "native-first-teach-explanations",
+      "lessonIds": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05",
+        "lesson-06",
+        "lesson-07",
+        "lesson-08",
+        "lesson-09",
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-16",
+        "lesson-17"
+      ],
+      "gap": "The supplied notes and course pages do not consistently provide independent, readable first-teach explanations.",
+      "supplementationPlan": "Rewrite each lesson as 900-1,600 words of native web instruction with worked models, scaffolded vocabulary, data, feedback, and local sources; never reproduce the slide sequence.",
+      "requiredAuthorityIds": [
+        "alberta-program-of-studies",
+        "alberta-performance-standards",
+        "openstax-anatomy-physiology-2e"
+      ],
+      "status": "planned-during-gate-2"
+    },
+    {
+      "id": "current-health-and-disorder-accuracy",
+      "lessonIds": [
+        "lesson-05",
+        "lesson-09",
+        "lesson-10",
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-16"
+      ],
+      "gap": "Several source-era disorder, treatment, regeneration, glucose, and technology statements require current authoritative cross-checking.",
+      "supplementationPlan": "Register page-specific official health sources with retrieval dates and rights status, then paraphrase and record every resulting claim in the factual-review ledger.",
+      "requiredAuthorityIds": [
+        "ninds-health-information",
+        "niddk-diabetes",
+        "nei-how-eyes-work",
+        "nidcd-how-hearing-works",
+        "health-canada"
+      ],
+      "status": "planned-before-gate-1"
+    },
+    {
+      "id": "safe-investigation-equivalents",
+      "lessonIds": [
+        "lesson-07",
+        "lesson-08",
+        "lesson-09",
+        "lesson-10",
+        "lesson-11",
+        "lesson-15",
+        "lesson-16"
+      ],
+      "gap": "Required investigation evidence needs safe independent procedures and complete local alternatives when materials, supervision, audio, or participation are unavailable.",
+      "supplementationPlan": "Author low-material procedures plus locally stored, clearly labelled synthetic instructional datasets and static/printable fallbacks for every required investigation.",
+      "requiredAuthorityIds": [
+        "alberta-performance-standards"
+      ],
+      "status": "planned-during-gate-2"
+    },
+    {
+      "id": "original-figures-and-models",
+      "lessonIds": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05",
+        "lesson-06",
+        "lesson-07",
+        "lesson-08",
+        "lesson-09",
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-16",
+        "lesson-17"
+      ],
+      "gap": "The source deck relies on crowded, clipped, linked, or rights-unclear presentation graphics rather than accessible course-native figures.",
+      "supplementationPlan": "Create the contracted original SVG/semantic figure inventory with title, description, equivalent text/table, provenance, contrast, keyboard behavior, and static fallback.",
+      "requiredAuthorityIds": [
+        "alberta-program-of-studies",
+        "openstax-anatomy-physiology-2e"
+      ],
+      "status": "planned-during-gate-2"
+    },
+    {
+      "id": "qti-practice-quality-audit",
+      "lessonIds": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05",
+        "lesson-06",
+        "lesson-07",
+        "lesson-08",
+        "lesson-09",
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-13",
+        "lesson-14",
+        "lesson-15",
+        "lesson-16",
+        "lesson-17"
+      ],
+      "gap": "The 75 visible source-QTI items are source material, not a validated 100-item practice bank.",
+      "supplementationPlan": "Deduplicate, fact-check, align, rewrite distractors, tag outcomes/cognitive level, and add rationales and misconception-specific feedback before any item enters learner practice.",
+      "requiredAuthorityIds": [
+        "alberta-program-of-studies",
+        "alberta-performance-standards",
+        "alberta-biology-bulletin-2025-26"
+      ],
+      "status": "planned-during-gate-2"
+    },
+    {
+      "id": "indigenous-neurotoxin-source-boundary",
+      "lessonIds": [
+        "lesson-11"
+      ],
+      "gap": "No Indigenous-led, rights-safe source has yet been approved for an Indigenous neurotoxin example.",
+      "supplementationPlan": "Include such an example only if an Indigenous-led source and appropriate use rights are documented; otherwise satisfy the outcome with sourced neurotoxin and sensory-technology evidence without appropriation.",
+      "requiredAuthorityIds": [
+        "alberta-program-of-studies"
+      ],
+      "status": "planned-during-gate-2"
+    }
+  ]
+}

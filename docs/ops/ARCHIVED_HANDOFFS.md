@@ -8422,3 +8422,5036 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner course content changed; user-owned duplicate, resource, transaction, handoff, report, test-result, and `ready-mind` worktree changes remained untouched and unstaged.
 - Fragile areas: the filesystem lock is cooperative for external writers; coverage proves ordinary authored-content breadth rather than arbitrary DOM mutation; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain external acceptance.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-28: Direct Editing remediation and Social/English snapshot recovery
+
+- Project: `repo-wide`.
+- Task: Complete PR #1 Direct Editing V1 remediation, then recover the Social 30-1 Option 2 and ELA 20/30 learner snapshots without adding inline editing.
+- Status: Direct Editing release validation, four Social snapshot recoveries, and eighteen ELA snapshot recoveries were locally complete and intentionally uncommitted when this handoff was superseded by the Biology 30 Unit A pilot.
+- Social recovery source: `/Users/deanguedo/Downloads/D2LExport_156476_ONLINE_202681940.zip` at SHA-256 `7bbefdc51c55eb6425dd404ba40cf98fed8b2998cf514d9d7e4fcafe9cab54b9`; exact pre-restore backup retained at `/tmp/canvas-helper-social30-restore.fQzWEg`.
+- English recovery sources: the supplied ELA 20-1/20-2 and ELA 30-1/30-2 SCORM archives in `/Users/deanguedo/Downloads/`; exact main-checkout backup retained at `/tmp/canvas-helper-ela-all-restore-main.i6UQou` and parallel-worktree backup at `/tmp/canvas-helper-ela-restore-inline.iSqaxH`.
+- Catalog state at archival time: the four Social projects and eighteen ELA projects were `legacy-snapshot-v1`; all exact package-tree checks, targeted doctor/workspace checks, onboarding verification, and Studio discovery passed. The rendered ELA census was conservatively complete for 12/18, with six runtime-heavy snapshots explicitly `snapshot-boundary-invalid`.
+- Direct Editing evidence at archival time: focused editing/onboarding/readiness/export suites, Studio release, fresh-course reversible proof, typecheck-baseline verification, and Studio build passed. Raw typecheck still contained only the ten established diagnostics.
+- Source of truth: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`, the restored project `meta/project.json` files, `.runtime/english-snapshot-restore-2026-08-21.json`, and `.runtime/english-editability-inventory-2026-08-21-main.json`.
+- Preserved boundary: do not stage, delete, or rebuild the restored Social/ELA snapshots until visually accepted; do not delete the Downloads archives or temporary backups; do not merge PR #1 or post review actions without explicit authorization.
+- Next command at archival time: `npm run export:scorm -- --project ela30-1-feature-film --version 2004` only after visual acceptance.
+
+## Archived Active Handoff — 2026-08-29: Biology 30 Unit A five-version comparison
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Build and compare five source-isolated Biology 30 Unit A prototypes from two Brightspace exports, with the complete local notes PDF recreated as native lesson content.
+- Status: ready for human comparison; all five projects are restored and visible in Studio, remain intentionally blocked, and no winner has been promoted or exported.
+
+## Summary
+
+- Transactional comparison intake and a Biology-30-specific Unit A builder are implemented.
+- Exactly five Studio projects exist: class faithful, class optimized, system faithful, system optimized, and outcome-led synthesis.
+- On 2026-08-29, numeric conflict-copy suffixes on the two class-course outputs caused Studio to show only three variants. The preserved sources were unchanged; the five-version builder restored the canonical filenames and Studio catalog.
+- The checksum-matched 139-page notes PDF is no longer presented as a slide viewer plus transcript. All 139 unique pages are mapped into class-derived lessons as semantic headings, paragraphs, lists, callouts, and responsive comparisons; original page images are closed optional source references.
+- Sixteen complex source pages are verified, source-specific manual recreations of tables or diagrams: `12, 44, 48, 55, 60, 72, 101, 102, 108, 112, 120, 128, 130, 131, 135, 136`.
+
+## Files changed
+
+- Intake and contracts: `scripts/lib/science-comparison.ts`, `scripts/intake-science-comparison.ts`, `scripts/lib/science-pilot-intake.ts`, and `package.json`.
+- Biology parser and renderer: `scripts/lib/biology30-unit-a/`, `scripts/build-biology30-unit-a-pilots.ts`.
+- Regression coverage: `scripts/tests/science-comparison.test.ts`, `scripts/tests/biology30-unit-a-pilot.test.ts`, and `e2e/lib/learner-course-assertions.ts`.
+- Shared source library and contract: `projects/resources/biology30-unit-a-pilot/`.
+- Generated blocked prototypes: `projects/biology30-unit-a-class-2026-faithful/`, `projects/biology30-unit-a-class-2026-optimized/`, `projects/biology30-unit-a-system-2020-faithful/`, `projects/biology30-unit-a-system-2020-optimized/`, and `projects/biology30-unit-a-synthesis/`.
+- Workflow documentation: `README.md`, `ARCHITECTURE.md`, `docs/workflows/README.md`, and `docs/workflows/science-pilot.md`.
+
+## What changed
+
+- `intake:science-comparison` accepts two named Brightspace resources, stores each checksum-addressed archive once, writes a versioned five-variant comparison contract, refuses duplicate targets, and rolls back all targets on failure.
+- The Biology builder parses manifest visibility/descriptions, QTI quiz metadata, resource paths, local files, and UTF-16 system HTML; it emits source, outcome, asset/link, content-disposition, provenance, and notes-content reports before transactional promotion.
+- Visible complete chapter quizzes become local non-graded practice. Hidden unit tests, printable quizzes, hidden keys, teacher-only assessment content, Units B-D, and unrelated content remain excluded.
+- The class ZIP notes PDF and the user-supplied PDF are byte-identical at SHA-256 `538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035`.
+- The PDF layout parser uses text position, font size, bullets, numbering, and columns to create semantic HTML. Complex diagrams/tables use checksum-gated manual source recreations; their page numbers are recorded in `meta/notes-content-report.json`.
+- All source-slide images remain closed under `View original source slide`; the complete local PDF remains a fallback. No Google Slides link is required for completion.
+- All five manifests remain `blocked` / `proposal-only-v1`, with Studio Edit and export disabled and Annotation available.
+
+## Why this changed
+
+- A slide screenshot with a raw `Read the slide text` transcript did not recreate the notes as usable course lessons. Native course structure is now the primary learner surface, while source slides are retained only for provenance and visual comparison.
+
+## Verification run
+
+- `npm run test:science-comparison` — 6/6 passed, including transactional intake, duplicate refusal, rollback, UTF-16 handling, exclusions, semantic notes rendering, and comparison-freeze refusal.
+- `npm run build:biology30-unit-a-pilots -- --family biology30-unit-a-pilot` — built exactly five blocked workspaces; no promotion or export.
+- Real-source audit — all five have zero unresolved local assets, zero D2L launchers, zero teacher-assessment leakage, and no legacy slide transcript. Class faithful, class optimized, and synthesis each report 139 semantic pages and 139 unique mapped pages; both system-only variants correctly exclude the class PDF.
+- `npm run validate:manifests` — passed for the full catalog, including all five Biology projects.
+- `npm run verify:typecheck-baseline` — passed with the established ten diagnostics and none in files changed since baseline capture.
+- `npm run build:studio` — passed.
+- `npm run test:e2e:project -- --project <slug>` — passed separately for all five Biology slugs.
+- Live Studio inspection — Edit disabled, Annotation available, semantic comparison content rendered in desktop and responsive single-column mobile layouts; the myelinated/unmyelinated recreation was visually checked.
+- Recovery verification — `npm run build:biology30-unit-a-pilots -- --family biology30-unit-a-pilot` rebuilt exactly five blocked workspaces, `npm run validate:manifests` passed, and a live Studio refresh showed both 2026–27 class variants, both CBE variants, and the synthesis. The class-faithful preview loaded successfully.
+- `git diff --check` — no whitespace errors; only unrelated existing CRLF conversion warnings were printed.
+- `npm run test:e2e:harness` — 6/7 passed. The remaining pre-existing assertion expects the older phrase `modulePassTargets or visibilityChecks`, while the current schema correctly reports `modulePassTargets, visibilityChecks, or enabled learnerCourse routes`; this unrelated test was not changed.
+
+## Source of truth
+
+- Shared immutable sources and hashes: `projects/resources/biology30-unit-a-pilot/resource-manifest.json` and `_sources/`.
+- Five-version boundary and review rubric: `projects/resources/biology30-unit-a-pilot/comparison-contract.json`.
+- Rebuild authority: `scripts/lib/biology30-unit-a/build.ts`, `notes.ts`, `source.ts`, `content.ts`, and `render.ts`.
+- Generated comparison workspaces are review outputs, not editable canonical winners. They remain rebuildable until one is explicitly frozen and promoted.
+
+## Fragile areas / watchouts
+
+- The sixteen manual semantic page recreations are intentionally gated to the exact verified PDF SHA. Replacing the PDF changes the hash and removes those source-specific overrides rather than applying them to unrelated material.
+- Running the comparison builder replaces all unfrozen generated comparison outputs. A selected winner must receive `meta/comparison-freeze.json` before any further comparison rebuild.
+- The system-only variants must never acquire class-course PDF content. Source-isolation assertions fail the build if that boundary leaks.
+- Optional external links are not completion dependencies. The legacy Alberta Disadvantage URL in the system source currently returns 404; local lesson content remains available.
+- Original Downloads ZIPs and PDF remain unchanged and should be preserved through winner acceptance.
+
+## Next prompt should assume
+
+- The five versions are ready to compare in Studio using the common 100-point matrix.
+- The notes now read as course content; slide images are closed references, not the lesson presentation.
+- The user must select one winner. No score automatically selects or promotes a project.
+- Do not enable Edit, run new-course readiness, export SCORM, or upload to Brightspace until the winner is named.
+
+## What still needs validation
+
+- Human review of all five prototypes and selection of one winner.
+- After selection: freeze the winner, mark the other four reference-only, establish the winner as a canonical Direct source with durable edit keys, and run doctor, workspace verification, new-course readiness, Studio Edit-map inspection, reversible Apply/reload/Undo, and winner-specific E2E.
+- Export only the accepted winner as SCORM 2004, validate the archive/runtime, then verify save/restore in Brightspace learner accounts and target browsers.
+
+## Known risks
+
+- Automated layout extraction cannot infer every visual relationship. The highest-value tables and diagrams are manually recreated and explicitly reported, but human subject-matter review remains required before promotion.
+- The workspace is broadly dirty with unrelated user-owned work. Do not broadly stage, clean, or rewrite outside the Biology paths listed above.
+
+## Exact next command
+
+`npm run studio`
+
+## Exact next file to open
+
+`projects/resources/biology30-unit-a-pilot/comparison-contract.json`
+
+## Do not do next / warnings
+
+- Do not run a comparison rebuild after freezing a winner.
+- Do not promote a course based only on an automated score.
+- Do not export or upload any of the five blocked comparison projects.
+- Do not edit `projects/**/raw/`, the original Downloads files, or unrelated dirty paths.
+
+## Archived Active Handoff — 2026-08-29: Biology 30 Unit A Production V2 Gate 0
+
+# Handoff
+
+- Project: `biology30-unit-a`
+- Task: Implement Biology 30 Unit A Production V2 through Gate 0, then stop for curriculum-map and correction-strategy approval.
+- Status: Gate 0 implementation and validation completed; superseded after the user explicitly approved the exact contract and authorized Gate 1 only.
+
+## Files changed
+
+- V2 contract types, blueprint, validation, and transactional intake: `scripts/lib/biology30-unit-a/v2/types.ts`, `blueprint.ts`, and `intake.ts`.
+- CLI and focused tests: `scripts/intake-biology30-unit-a-v2.ts`, `scripts/tests/biology30-unit-a-v2.test.ts`, and `package.json`.
+- Canonical Gate 0 production records: `projects/resources/biology30-unit-a-pilot/v2/`.
+- Blocked Studio proposal: `projects/biology30-unit-a/`.
+- Workflow and architecture documentation: `README.md`, `ARCHITECTURE.md`, and `docs/workflows/science-pilot.md`.
+
+## What changed
+
+- Added `intake:biology30-unit-a-v2`, which accepts only the fixed family/project IDs, refuses existing targets, verifies immutable source hashes, stages both roots, validates every Gate 0 contract, and rolls back both promoted roots if either final rename fails.
+- Verified the class and system archives at their required SHA-256 values and verified that the supplied notes PDF and the class-archive notes entry are byte-identical at `538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035`.
+- Parsed 58 class Unit A items, three visible quizzes containing 75 questions, 126 system Unit A items, and 114 UTF-16 system HTML files.
+- Created an exact 25-outcome teach/practice/evidence map, 17-lesson sequence totalling 1,505 required and 295 optional minutes, seven-artifact blueprint, 100-item practice blueprint, 17-interaction blueprint, 59 explicit source references, and 139 page dispositions.
+- Added correction regressions for myelin/regeneration, MS causation, hemispheric neuromyths, visual perception, hearing safety, negative feedback, hormone-signalling stages, synthetic-data labelling, insulin/glucose regulation, current terminology, diagnosis boundaries, and inherited slide defects.
+- Created a minimal local-only Studio review shell and recorded matching before/after hashes for all five historical comparison directories.
+
+## Why this changed
+
+- The prior synthesis was not a production-quality first-teach course. Production V2 requires an approved, exact curriculum/source/correction contract before visual or lesson authoring begins.
+
+## Source of truth
+
+- Production contract: `projects/resources/biology30-unit-a-pilot/v2/production-contract.json` at SHA-256 `cb773ee76a4c1a20f384a0edcbd764ee64a3af296ed87e0526d95e1ed940f3cc`.
+- Human-readable curriculum review: `projects/resources/biology30-unit-a-pilot/v2/curriculum-map.md`.
+- Source catalogue and rights: `projects/resources/biology30-unit-a-pilot/v2/source-catalog.json` and `source-and-rights-register.json`.
+- PDF disposition and corrections: `projects/resources/biology30-unit-a-pilot/v2/notes-page-disposition.md` and `factual-correction-ledger.md`.
+- Implementation ownership: `scripts/lib/biology30-unit-a/v2/`.
+
+## Fragile areas / watchouts
+
+- Gate 0 approval is tied to contract hash `cb773ee76a4c1a20f384a0edcbd764ee64a3af296ed87e0526d95e1ed940f3cc`; changing the contract invalidates approval.
+- No discoverable Biology-specific 2026-27 bulletin existed at Gate 0; the 2025-26 subject bulletin remained current and required refresh before authoring.
+- `biology30-unit-a-class-2026-faithful` lacked `meta/project.json` as a pre-existing catalog condition; V2 preserved its tree and did not repair it.
+- The repository was broadly dirty with unrelated user-owned work, requiring path-scoped edits.
+
+## Next prompt should assume
+
+- The user approved the exact Gate 0 contract and authorized only the Gate 1 vertical slice.
+- Gate 1 is limited to Overview, Lessons 4 and 15, visual/persistence foundations, and support-hub skeletons.
+- Direct editing, commit, promotion, SCORM export, and Brightspace upload remain unauthorized.
+
+## What still needs validation
+
+- Gate 1 visual and learning-loop review against the accepted reference courses.
+- Every full-course, promotion, SCORM, and Brightspace gate remains later work.
+
+## Known risks
+
+- Gate 0 establishes coverage and source strategy, not the correctness of lessons that had not yet been authored.
+- Current health and technology claims require page-specific authoritative sourcing during authoring.
+
+## Exact next command
+
+`npm run build:biology30-unit-a-v2 -- --project biology30-unit-a --strict`
+
+## Exact next file to open
+
+`projects/resources/biology30-unit-a-pilot/v2/gate-0-review.json`
+
+## Do not do next / warnings
+
+- Do not rerun `intake:biology30-unit-a-v2`.
+- Do not invoke the five-version builder as a V2 build path.
+- Do not change or promote the five historical prototypes.
+- Do not enable Direct editing, commit, export SCORM, or upload to Brightspace.
+
+---
+
+## 2026-08-29: Biology 30 Unit A Production V2 Gate 1 vertical slice
+
+# Handoff
+
+- Project: `biology30-unit-a`
+- Task: Implement the approved Biology 30 Unit A Production V2 Gate 1 vertical slice, then stop for exact-build visual and learning-loop approval.
+- Status: completed and accepted. The user approved exact Gate 1 build `ef0b900b880cb705fd9b4e8000738b52fcf324ac2ba373d5d60aaf8760d3bf2a` with “alright looks good.”
+
+## Files changed
+
+- `projects/resources/biology30-unit-a-pilot/v2/content/`, `activities/`, `datasets/`, `figures/`, `assets/`, and Gate 1 source/review records.
+- `scripts/lib/biology30-unit-a/v2/render.ts`, `runtime.ts`, `styles.ts`, and `build.ts`.
+- `scripts/build-biology30-unit-a-v2.ts`, Biology V2 unit/E2E tests, and shared authored-shell support.
+- Generated blocked candidate under `projects/biology30-unit-a/`.
+
+## What changed
+
+- Recorded Gate 0 approval for exact contract `cb773ee76a4c1a20f384a0edcbd764ee64a3af296ed87e0526d95e1ed940f3cc`.
+- Rechecked Alberta authority and retained the 2025-26 Biology-specific bulletin with the 2026-27 General Bulletin because no Biology-specific 2026-27 bulletin was discoverable.
+- Built Overview, Lessons 4 and 15, Model Lab, Investigation Notebook, and Practice Hub as a local-first semantic vertical slice.
+- Added local fonts, original figures, keyboard-operable models, formative practice, evidence artifacts, and versioned local/SCORM persistence.
+- Corrected the blood-glucose SVG after the first Canvas Helper Review Set and regenerated the blocked candidate.
+
+## Verification run
+
+- `npm run test:biology30-unit-a-v2` — 18/18 passed at the Gate 1 boundary.
+- `npm run test:e2e:biology30-unit-a-v2` — 6/6 passed at the Gate 1 boundary.
+- Project E2E, smoke, science-comparison, manifest, typecheck-baseline, and Studio build gates passed.
+
+## Source of truth
+
+- `projects/resources/biology30-unit-a-pilot/v2/production-contract.json`
+- `projects/resources/biology30-unit-a-pilot/v2/content/`
+- `scripts/lib/biology30-unit-a/v2/`
+
+## Fragile areas / watchouts
+
+- Gate 1 acceptance authorized Gate 2/3 full-course production only.
+- The candidate remained generated, blocked, and non-editable; workspace HTML was not a canonical hand-edit target.
+- Commit, promotion, SCORM export, Brightspace upload, and publication remained unauthorized.
+
+## Exact next command
+
+`npm run build:biology30-unit-a-v2 -- --project biology30-unit-a --strict`
+
+## Exact next file to open
+
+`projects/biology30-unit-a/meta/gate-1-review.json`
+
+---
+
+## Archived Active Handoff — 2026-08-31: Biology 30 A-D production candidates
+
+# Handoff
+
+- Project: `biology30-unit-a`, `biology30-unit-b`, `biology30-unit-c`, and `biology30-unit-d`
+- Task: Finish the full four-unit Biology 30 production course and prepare exact-build human scoring.
+- Status: Superseded when the user deliberately returned to a separate direct-authored Unit A improvement pilot. The production candidates remain complete, exact-hash verified, visually reviewed, and blocked; no human scores, promotion, Studio editing, commit, SCORM export, Brightspace upload, or publication occurred.
+
+## Exact candidate builds
+
+- Unit A: `4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0`
+- Unit B: `c810dd85af4ba82dc7f08ddf28ace20a7abe2cc5b731234f245b266e2111d23c`
+- Unit C: `0814f93c4d74bb6411045d649625ba2bd6c664cf6e98d8147a215c7014f9354a`
+- Unit D: `dcb35045a3a82d8be75b81f24c2649a38f3cbd21efbbcb53c9efafc530847392`
+
+## Source of truth
+
+- Unit A: `projects/resources/biology30-unit-a-pilot/v2/` and `scripts/lib/biology30-unit-a/v2/`.
+- Units B-D: `projects/resources/biology30-production/v1/` and `scripts/lib/biology30-course/v1/`.
+- Human review guide: `projects/resources/biology30-production/v1/human-review-guide.md`.
+
+## Preserved boundary
+
+- The production workspaces are generated review candidates and must not be hand-edited while proposal ownership is active.
+- A change to any candidate invalidates its exact-build visual and human-review evidence.
+- The separate `biology30-unit-a-pilot` may develop reusable rules, but none transfers to production Units A-D without explicit user review and a separately scoped adaptation.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/resources/biology30-production/v1/human-review-guide.md`
+
+---
+
+## 2026-08-31: Biology 30 Unit A pilot textbook/review integration before Review Set corrections
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Integrate the local Unit A textbook, corrected answer support, chapter navigation, and web-based review experience into the separate direct-authored improvement pilot.
+- Status: Superseded by the teacher's follow-up Review Set requesting plain section labels, exact reader-position jumps, and removal of administrative learner copy.
+
+## What changed
+
+- Added the three local Unit A textbook chapters, 17 lesson textbook bands, attempt-before-answer support, chapter-grouped lesson navigation, seven Review routes, point-of-use safety notes, and corrected retrieval layouts.
+- Completed automated and 17-sheet visual verification for workspace SHA-256 `6d1c381107aa7a18942d2bf5243afdbc33b22fb988a362190c7192203581f9a0`.
+
+## Source of truth
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/textbook-integration.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Fragile areas / watchouts
+
+- The old visual evidence at `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-08-31T18-12-26-012Z/visual-audit.json` became stale as soon as the follow-up learner-facing fixes changed the canonical HTML.
+- The pilot remained blocked, preview-only, Studio Edit disabled, and non-exportable.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+## 2026-09-01: Unit A pilot accepted generated-image integration checkpoint
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Integrate the teacher-selected resting-membrane and endocrine-system images into their academically correct lessons without leaving duplicate figures.
+- Status: Superseded by the authoring-only ChatGPT figure-comparison review. The learner workspace remains byte-identical at SHA-256 `62c0b099c2b279d3a591bb4963449bd647c3ea916e3d3aa8b5e8b85b92c4d5d7`.
+
+## Summary at archival time
+
+- The reviewed resting-membrane image was integrated into Lesson 4 and the reviewed endocrine-system image into Lesson 12.
+- The superseded course-native diagrams were hidden so neither concept appeared twice.
+- The pilot remained blocked, preview-only, Studio Edit disabled, non-exportable, and isolated from production Units A-D.
+- All focused static, E2E, manifest, workspace, Studio-build, and exact-build visual-audit checks passed; `course:doctor` reported only the intentional `not-active` diagnostic.
+
+## Why this was superseded
+
+- The teacher requested a separate side-by-side review of the other course-native diagrams against improved ChatGPT-generated candidates.
+- That comparison does not modify the learner workspace and requires explicit teacher selections before any further integration.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/generated-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Unit A Lesson 12 image-generation prompt checkpoint
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Prepare a scientifically constrained ChatGPT Images prompt for the selected Lesson 12 endocrine body map.
+- Status: Prompt complete and verified. No generated image had yet been inserted. The learner workspace was at SHA-256 `ae7f7d57455aafad399fc480472c37e6502fb2f5d2d0e3c375eaad2ee2ba8a04`; the pilot remained intentionally `blocked`, preview-only, Studio Edit disabled, and non-exportable.
+
+## Summary at archival time
+
+- Traced the review selection to `figure-endocrine-body-map`, titled “Principal Unit A endocrine glands and targets,” in Lesson 12.
+- Added an authoring-only ChatGPT Images prompt for an original, unlabeled endocrine anatomy base.
+- Constrained the hypothalamus-pituitary relationship, posterior parathyroid placement, adrenal position, pancreatic-islet treatment, Unit A scope, label space, palette, and prohibited content.
+- Kept all learner-facing labels, arrows, text equivalents, alt text, and keyboard enlargement outside the generated raster image.
+- Added a focused static regression and a pending improvement-ledger rule. No learner HTML, response ID, completion rule, visual evidence, or workspace hash changed.
+
+## Files changed at archival time
+
+- `projects/biology30-unit-a-pilot/meta/image-generation-prompts.md`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- `scripts/tests/biology30-unit-a-improvement-pilot.test.ts`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## Verification at archival time
+
+- `npm run test:biology30-unit-a-improvement-pilot` — 9/9 passed, including the new Lesson 12 prompt contract.
+- `npm run verify -- --project biology30-unit-a-pilot --mode workspace` — passed with no missing assets, unresolved embeds, or required external dependencies.
+- `npm run course:doctor -- --project biology30-unit-a-pilot` — intentionally exited 1 with only `ERROR not-active`; no additional diagnostic.
+- Scoped `git diff --check` — passed.
+- No new visual audit was required because canonical learner HTML had not been modified.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/image-generation-prompts.md`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Fragile areas / watchouts at archival time
+
+- Image generators may place parathyroids on the anterior thyroid, detach pancreatic islets from the pancreas, put adrenals inside the kidneys, merge the hypothalamus and pituitary, or add unwanted labels.
+- Do not rasterize the course's exact labels or accessibility information into generated art.
+- Any future learner-HTML change changes the workspace hash and requires a fresh responsive visual audit plus ledger rebinding.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/meta/image-generation-prompts.md`
+
+---
+
+## 2026-09-01: Unit A pilot Lesson 4 membrane-figure checkpoint
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Improve the Lesson 4 resting-neuron membrane model and prepare a scientifically constrained image-generation prompt.
+- Status: Superseded by the Lesson 12 endocrine body-map prompt task. The learner workspace remained at SHA-256 `ae7f7d57455aafad399fc480472c37e6502fb2f5d2d0e3c375eaad2ee2ba8a04`.
+
+## Summary at archival time
+
+- The Lesson 4 sodium and potassium markers used high-contrast fills, white chemical symbols, and distinct outlines without relying on colour alone.
+- The existing semantic explanation, equivalent table, alt text, and keyboard enlargement remained intact.
+- An authoring-only ChatGPT Images prompt specified a correct resting-membrane base illustration; no generated image entered learner delivery.
+- Focused static, browser, visual, manifest, Studio-build, and workspace checks passed. `course:doctor` reported only the intentional `not-active` diagnostic.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/image-generation-prompts.md`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/meta/image-generation-prompts.md`
+
+---
+
+## 2026-09-01: Unit A pilot generic negative-feedback figure checkpoint
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Correct the repeated generic negative-feedback figure after teacher annotations identified a label/connector collision and asked whether a stronger PowerPoint or textbook image should replace it.
+- Status: Superseded by the Lesson 4 membrane-contrast and image-generation-prompt review. The accepted checkpoint workspace SHA-256 was `61132d9a630e10e9f869ca657a6a2c70a71c985f6d53ab81c1056d32e0981095`.
+
+## Summary at archival time
+
+- Inspected the relevant Chapter 13 PowerPoint slides and textbook pages, rejected weaker source alternatives, and retained a corrected course-native five-stage feedback SVG in Lessons 2 and 12.
+- Separated labels from connectors, clarified the return path and arrowheads, added keyboard enlargement, and preserved the adjacent text equivalent.
+- All focused static, E2E, manifest, workspace, and visual-audit checks passed; `course:doctor` reported only the intentional `not-active` diagnostic.
+- The pilot remained blocked, preview-only, Studio Edit disabled, non-exportable, and isolated from production Units A-D.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Why this was superseded
+
+- The teacher identified a separate Lesson 4 figure whose colour treatment was difficult to read and asked for a ChatGPT image-generation prompt for a possible stronger visual.
+- That learner-HTML change produced a new exact workspace hash and required a fresh visual audit and handoff.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Unit A pilot practice-feedback textbook links before feedback-figure correction
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Add exact local textbook-page links to all Guided Practice and Final Practice answer feedback, and use `Final Practice` as the learner-facing name.
+- Status: Superseded by the teacher's targeted review of the repeated generic negative-feedback figure.
+
+## What changed
+
+- Added exact local textbook support to all 51 Guided Practice and 24 Final Practice answer panels.
+- Preserved all practice IDs, scoring, persistence, completion rules, and the blocked preview-only pilot boundary.
+- Bound the prior review evidence to workspace SHA-256 `686e2412f1739949d4b1f30daf10df173461a61db115999bc9f4383d7a3ac781` and visual report SHA-256 `84b2a7b482f62b29c9775da49f6c007bc1cde354594ca68ca351f8c871513188`.
+
+## Why this was superseded
+
+- Teacher annotations identified a connector crossing the learner-facing `opposes the original change` label and asked whether the PowerPoint or textbook contained a stronger replacement.
+- Correcting the canonical learner HTML invalidated the prior exact-build visual evidence and required a fresh audit.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/textbook-integration.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Remove the older course-made figures wherever an accepted source plate now teaches the same concept, without disturbing distinct figures or interactions.
+- Status: Ready for teacher review at workspace SHA-256 `9a0b1bb4503ed0c250266c2770764216a6d409bf26c8a47949a3bbb5874b3c43`. The pilot remains intentionally `blocked`, preview-only, Studio Edit disabled, non-exportable, and isolated from production Units A-D.
+
+## Files changed
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/source-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/source-visual-resource-report.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- `projects/biology30-unit-a-pilot/meta/prompt-pack.md`
+- `scripts/lib/biology30-unit-a/pilot-source-visuals.ts`
+- `scripts/tests/biology30-unit-a-source-visuals.test.ts`
+- `scripts/tests/biology30-unit-a-media-pilot.test.ts`
+- `e2e/specs/biology30-unit-a-improvement-pilot.spec.ts`
+- `scripts/audit-biology30-unit-a-improvement-pilot-visual.ts`
+- `docs/workflows/science-pilot.md`
+- `ARCHITECTURE.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+
+- Retired six exact duplicate course-made figures from learner view and made their stronger source plates the single visible treatment:
+  - Lesson 3 neuron anatomy -> `neuron-anatomy-source`
+  - Lesson 6 brain regions -> `brain-functional-regions`
+  - Lesson 7 reflex arc -> `reflex-arc-anatomy-source`
+  - Lesson 9 eye anatomy -> `eye-anatomy-source`
+  - Lesson 10 ear/hearing pathway -> `ear-anatomy-source`
+  - Lesson 13 hypothalamus-pituitary axes -> `hypothalamus-pituitary-source`
+- Kept three source visuals because they add different evidence rather than duplicating a figure: the neural-tissue micrograph, spinal-cord cross-section, and endocrine-capillary network.
+- Preserved all non-duplicated semantic figures, models, interactions, lesson IDs, response IDs, saved work, required minutes, artifacts, practice, and completion rules.
+- Kept each retired native block hidden and explicitly mapped in canonical HTML for reversible provenance; it is not rendered to learners.
+- Added strict source-contract validation and static/browser regression assertions for the exact six replacement mappings.
+- Updated the exact-build ledger and operating documentation to distinguish replacements from supplemental visuals.
+
+## Why this changed
+
+- The accepted source plates were being displayed immediately beside older figures that taught the same concept, creating visual duplication without adding instructional value.
+- The teacher requested one strongest image per concept while retaining genuinely different evidence and models.
+
+## Verification run
+
+- `npm run prepare:biology30-unit-a-pilot:visuals -- --project biology30-unit-a-pilot` — passed idempotently; nine existing assets verified with no file changes.
+- `npm run test:biology30-unit-a-improvement-pilot` — 7/7 passed.
+- `npm run test:biology30-unit-a-media-pilot` — 9/9 passed, including exact six-replacement validation, idempotence, replacement safety, and rollback.
+- `npm run test:e2e:biology30-unit-a-improvement-pilot` — final clean rerun 14/14 passed. Browser-computed visibility confirms every retired figure is hidden and every replacement source plate is visible.
+- An earlier full E2E attempt had one transient Studio-shell startup miss in the unrelated video-preview test; that exact test passed immediately on isolation, and the subsequent full rerun passed 14/14.
+- `npm run audit:biology30-unit-a-improvement-pilot:visual -- --project biology30-unit-a-pilot` — passed with 93 route viewports, 18 source-visual viewport states, and zero geometry findings.
+- All 28 contact sheets under `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-01T12-39-58-923Z/` were opened and inspected.
+- Visual report SHA-256: `9da1eba16bd763fab0744947cd58a0c38ae8f0f3da361517b3a796d5cb4d80a4`.
+- `npm run verify -- --project biology30-unit-a-pilot --mode workspace` — passed with no missing assets, unresolved embeds, or required external dependencies.
+- `npm run test:e2e:project -- --project biology30-unit-a-pilot` — 1/1 passed.
+- `npm run test:science-comparison` — 6/6 passed.
+- `npm run validate:manifests` — passed for the full catalog.
+- `npm run build:studio` — passed.
+- `npm run course:doctor -- --project biology30-unit-a-pilot` — intentionally exited 1 with only `ERROR not-active`; no additional diagnostic.
+- Scoped `git diff --check` — passed.
+
+## Source of truth
+
+- Direct canonical learner source: `projects/biology30-unit-a-pilot/workspace/index.html`.
+- Exact replacement/supplemental mapping, source relationships, rights, placement, accessibility, and release blockers: `projects/biology30-unit-a-pilot/meta/source-visual-integration.json`.
+- Generated-asset evidence: `projects/biology30-unit-a-pilot/meta/source-visual-resource-report.json`.
+- Pending review rules and exact visual evidence: `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`.
+- Immutable textbook and PowerPoint sources: `projects/resources/biology30-unit-a-pilot/_sources/`.
+
+## Fragile areas / watchouts
+
+- Keep the six `data-replaced-by-source-visual` mappings synchronized with `meta/source-visual-integration.json`; exposing a retired block recreates the duplicate treatment.
+- Preserve the three supplemental visuals because they teach distinct anatomy or evidence.
+- Any learner-HTML change changes the workspace hash and requires a fresh full visual audit, opening all generated contact sheets, and updating the ledger evidence.
+- Keep each visible source image's intrinsic sizing, nearby explanation, enlargement trigger, and exact textbook-page action intact.
+- Do not replace native action-potential, feedback-loop, data, or other interactive explanation figures with raster plates.
+
+## Known risks / follow-up
+
+- The neuron, spinal-cord, reflex-arc, and eye plates have unresolved original embedded-image provenance. They remain private-pilot visuals and release blockers until redrawn or rights-cleared.
+- Exact contact-sheet evidence is under ignored `.runtime/**`; deleting it invalidates the recorded manual-review artifact.
+- The repository remains broadly dirty with unrelated user-owned work. Keep future edits and staging path-scoped.
+- User acceptance is still pending; no improvement-ledger rule is accepted automatically.
+
+## Next prompt should assume
+
+- The learner now sees one visible treatment for each of the six replaced concepts and still sees the three distinct supplemental source images.
+- Review does not authorize production Unit A-D changes, additional source-image imports, Studio Edit, promotion, commit, push, SCORM export, Brightspace upload, or publication.
+- No visual rule transfers automatically to Units B-D.
+
+## What still needs validation
+
+- Explicit teacher acceptance or another concrete visual correction on workspace SHA-256 `9a0b1bb4503ed0c250266c2770764216a6d409bf26c8a47949a3bbb5874b3c43`.
+- A redraw or rights-clearance decision for each of the four pilot-only source plates before any future production release.
+
+## Exact next command
+
+`npm run studio`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+## Do not do next / warnings
+
+- Do not physically delete the hidden rollback/provenance blocks unless a separate canonical cleanup is explicitly requested.
+- Do not bulk-import remaining PowerPoint or textbook imagery.
+- Do not mark improvement-ledger rules accepted without explicit teacher review.
+- Do not edit production `biology30-unit-a`, Units B-D, `raw/**`, or immutable source decks.
+- Do not enable Studio Edit, promote, commit, push, export SCORM, upload to Brightspace, or publish without separate authorization.
+- Do not stage, reset, clean, or disturb unrelated dirty-worktree paths.
+
+---
+
+## 2026-09-01: Unit A pilot nine-image source-visual trial before duplicate retirement
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Complete the selective Chapter 11 PowerPoint image review and integrate only the strongest additional anatomical plates.
+- Status: Superseded after the teacher requested that six older course-made figures be removed from learner view where the accepted source plates teach the same content. The reviewed workspace SHA-256 was `c4fb29211262d634bb3d32011d7469c4260c0ee36a03556aa014aeba9cd2cdb2`.
+
+## Files changed
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/workspace/assets/source-visuals/`
+- `projects/biology30-unit-a-pilot/meta/source-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/source-visual-resource-report.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- `projects/biology30-unit-a-pilot/meta/prompt-pack.md`
+- `scripts/lib/biology30-unit-a/pilot-source-visuals.ts`
+- `scripts/tests/biology30-unit-a-source-visuals.test.ts`
+- `scripts/tests/biology30-unit-a-media-pilot.test.ts`
+- `scripts/tests/biology30-unit-a-improvement-pilot.test.ts`
+- `e2e/specs/biology30-unit-a-improvement-pilot.spec.ts`
+- `scripts/audit-biology30-unit-a-improvement-pilot-visual.ts`
+- `README.md`
+- `ARCHITECTURE.md`
+- `docs/ops/FAST_PATHS.md`
+- `docs/workflows/science-pilot.md`
+
+## What changed
+
+- Added three Chapter 11 source plates at exact teaching moments: labelled neuron anatomy in Lesson 3, spinal-cord cross-section in Lesson 6, and five-part reflex-arc anatomy in Lesson 7.
+- Brought the pilot to nine selective source visuals across Lessons 3, 6, 7, 9, 10, 12, and 13.
+- Added responsive intrinsic sizing, concise alternatives, nearby explanations, keyboard-accessible enlargement with focus return, and exact textbook-page links.
+- Extended the transactional preparer and focused static, E2E, and visual-audit coverage from six to nine source visuals.
+
+## Why this was superseded
+
+- The prior treatment kept every native figure and placed source plates beside them.
+- The teacher identified the resulting duplicate visual treatment and requested one strongest image per concept.
+
+## Verification run at archival time
+
+- `npm run prepare:biology30-unit-a-pilot:visuals -- --project biology30-unit-a-pilot` — passed idempotently.
+- `npm run test:biology30-unit-a-improvement-pilot` — 7/7 passed.
+- `npm run test:biology30-unit-a-media-pilot` — 9/9 passed.
+- `npm run test:e2e:biology30-unit-a-improvement-pilot` — 14/14 passed.
+- `npm run audit:biology30-unit-a-improvement-pilot:visual -- --project biology30-unit-a-pilot` — passed with zero geometry findings.
+- All 28 contact sheets under `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-01T03-42-33-325Z/` were opened and inspected; report SHA-256 `a206f59cbca73f69d50637f9e41787a6f92c1f8315d75de211d22160ae90730d`.
+- Workspace verification, project E2E, science-comparison tests, manifest validation, and Studio build passed.
+- `course:doctor` returned only the intentional `not-active` diagnostic.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/source-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/source-visual-resource-report.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Known risks at archival time
+
+- The neuron, spinal-cord, reflex-arc, and eye plates had unresolved original embedded-image provenance and remained private-pilot release blockers.
+- The pilot remained blocked, preview-only, Studio Edit disabled, non-exportable, and isolated from production Units A-D.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Unit A pilot six-image source-visual checkpoint
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Trial selected high-value textbook and PowerPoint images inside the existing Unit A lessons while preserving the stronger course-native figures and interactions.
+- Status: Superseded by the teacher-authorized Chapter 11 image review at workspace SHA-256 `5599667b7c5793b6064fce91ee23e34a5c18597cfca2f36175b5bc9550b51751`.
+
+## What changed at this checkpoint
+
+- Added six selective source visuals in Lessons 3, 6, 9, 10, 12, and 13.
+- Preserved native semantic and interactive figures as the explanation layer.
+- Added local derivatives, adjacent text equivalents, exact textbook-page links, and keyboard-accessible enlargement.
+- Kept the pilot blocked, preview-only, Studio Edit disabled, non-exportable, and isolated from production Units A-D.
+
+## Why this was superseded
+
+- The teacher explicitly approved reviewing and trying the strongest remaining Chapter 11 PowerPoint images.
+- The resulting neuron, spinal-cord, and reflex-arc placements changed canonical learner HTML and required a new workspace hash, full responsive audit, and handoff.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/source-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/source-visual-resource-report.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Unit A pilot automatic video-preview checkpoint
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Show real optional-video previews automatically in lessons and the Video Library, without a custom play button or autoplay.
+- Status: Superseded by the selective source-visual trial. The accepted checkpoint workspace hash was `d559c59ceae8817cdec066c5ed556505c4bc2d4ead8005e42013c2ab7f87ca89`.
+
+## Summary at archival time
+
+- The pilot automatically displayed privacy-enhanced YouTube previews when their lesson companion or selected Video Library panel became visible.
+- Hidden Video Library panels remained unloaded, videos did not autoplay, and local concept summaries remained complete when the network was blocked.
+- The unavailable nervous-system review entry was replaced by `qPix_X-9t7E` after availability and caption checks.
+- All focused static, E2E, manifest, Studio-build, workspace, and visual-audit checks passed; `course:doctor` reported only the intentional `not-active` diagnostic.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/media-integration.json`
+- `projects/biology30-unit-a-pilot/meta/media-resource-report.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Why this was superseded
+
+- The teacher approved trying selected high-value textbook and PowerPoint images in context while retaining the course-native interactive and semantic figures.
+- That learner-HTML change produced a new exact workspace hash and required a fresh visual audit and handoff.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-08-31: Unit A pilot textbook/review integration before media slice
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Finish the textbook/review integration and exact PDF-viewer page landing before beginning PowerPoint visual and video integration.
+- Status: Superseded by the approved representative media-slice task.
+
+## What changed
+
+- Completed the three-chapter local Library, exact lesson/review page links, native answer support, Review Seminar, retrieval-layout repair, and learner-language cleanup.
+- Bound the prior accepted implementation evidence to workspace SHA-256 `e674ca1c0dc6122520e19e5b45acdba5ccff6a4d147ce24a2beac2ff16619458` and visual report SHA-256 `f0ac475dc5404d430c04e3290009070ed5c383fd1c57612344991852c3f4d184`.
+- Kept the pilot blocked, preview-only, Studio Edit disabled, non-exportable, and isolated from production Units A-D.
+
+## Why this was superseded
+
+- The teacher supplied the original Chapter 11-13 PowerPoints and approved a new selective visual/video integration slice covering Lessons 4, 9, and 15 plus a Video Library.
+- Any canonical learner HTML change invalidated the prior exact-build visual evidence and required a fresh full audit.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/textbook-integration.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+
+## Exact next command at archival time
+
+`npm run prepare:biology30-unit-a-pilot:media -- --project biology30-unit-a-pilot --chapter-11-pptx "/Users/deanguedo/Downloads/Unit A Chapter 11 Notes.pptx" --chapter-12-pptx "/Users/deanguedo/Downloads/Unit A Chapter 12 Notes.pptx" --chapter-13-pptx "/Users/deanguedo/Downloads/Unit A Chapter 13 Notes.pptx" --check-video-links`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/meta/media-integration.json`
+
+---
+
+## Archived Active Handoff — 2026-08-31: Unit A pilot Review Set corrections before PDF-viewer repair
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Finish the Unit A pilot textbook/review integration and resolve the teacher's first follow-up Review Set for plain section labels, exact textbook-page landing, and student-facing language.
+- Status: Superseded after live browser evidence proved that updating an existing Chrome PDF iframe's URL fragment did not visibly move the embedded viewer, despite the DOM and automated URL assertions reporting the requested page.
+
+## What changed
+
+- Replaced learner-facing section symbols with plain `Section`/`Sections` wording.
+- Removed administrative and implementation-facing language from learner routes.
+- Added textbook-page routing, reader focus, printed/PDF-page status, responsive QA, and exact-build evidence for the 17 lesson bands and native review actions.
+- Preserved the blocked, preview-only pilot boundary and all existing lesson IDs, response IDs, saved work, required time, practice, artifacts, and completion rules.
+
+## Why this was superseded
+
+- The old implementation changed an existing iframe `src` from one `#page=` fragment to another. Chrome's PDF viewer retained its previously rendered page even though the DOM showed the new URL.
+- The teacher's browser annotation exposed the mismatch: the status text requested Chapter 13 PDF page 30 while the visible PDF toolbar remained at page 2.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/workspace/index.html`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- Workspace SHA-256 `e1179189ea84e502a706c05ccb628da4de10fcd04855ab724154436c028eaada`
+- Visual report `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-08-31T19-09-45-254Z/visual-audit.json`, SHA-256 `72bbed555dd3c487f3960fb7e3200388c8548a7b26c41e8a922747d3e0626a81`
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Unit A pilot generated-figure comparison before selection integration
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Compare ten course-native Unit A diagrams with scientifically reviewed ChatGPT-generated alternatives.
+- Status: Superseded after the teacher exported ten explicit `use-candidate` decisions and authorized their integration.
+
+## What changed
+
+- Built the authoring-only comparison surface and generated ten revised candidates for Lessons 1, 2, 3, 5, 8, 9, 10, 16, and 17.
+- Rejected scientifically flawed retina, vestibular, and integrated-regulation drafts before presenting the candidates.
+- Kept the learner workspace unchanged at comparison time and preserved the accepted Lesson 4 and Lesson 12 generated figures.
+
+## Why this was superseded
+
+- The teacher supplied `biology30-unit-a-figure-decisions.json` with all ten candidates selected.
+- Full-resolution originals were retrieved from the teacher's logged-in ChatGPT session and integrated into the pilot with accessible equivalents and hidden provenance fallbacks.
+
+## Source of truth at archival time
+
+- `projects/biology30-unit-a-pilot/meta/visual-comparison/index.html`
+- `projects/biology30-unit-a-pilot/meta/visual-comparison/manifest.json`
+- Comparison-time learner workspace SHA-256 `62c0b099c2b279d3a591bb4963449bd647c3ea916e3d3aa8b5e8b85b92c4d5d7`
+
+## Exact next command at archival time
+
+`npm run test:biology30-unit-a-improvement-pilot`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Unit A generated-figure integration before the living B-D playbook
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Integrate all ten teacher-selected generated figures into the Unit A improvement pilot and verify the exact learner build.
+- Status: Superseded only as the active handoff by creation of the living Unit A-to-B-D improvement playbook. The learner build and its pending-review status remain unchanged.
+
+## Summary at archival time
+
+- Applied every `use-candidate` decision from `/Users/deanguedo/Downloads/biology30-unit-a-figure-decisions.json`.
+- Retrieved the full-resolution originals from the teacher's logged-in ChatGPT session without reading or exporting session credentials.
+- Replaced ten matching course-native diagrams once in Lessons 1, 2, 3, 5, 8, 9, 10, 16, and 17.
+- Preserved each superseded semantic SVG as a hidden provenance fallback.
+- Added meaningful alt text, nearby text equivalents, responsive intrinsic sizing, and keyboard-accessible enlargement to every replacement.
+- Kept the accepted Lesson 4 resting-membrane and Lesson 12 endocrine-map images unchanged.
+- Corrected the selected retina, vestibular, stress-response, and integrated-regulation versions before learner use.
+
+## Source of truth at archival time
+
+- Learner course: `projects/biology30-unit-a-pilot/workspace/index.html`
+- Teacher decisions: `projects/biology30-unit-a-pilot/meta/visual-comparison/teacher-decisions.json`
+- Generated-asset contract: `projects/biology30-unit-a-pilot/meta/generated-visual-integration.json`
+- Improvement evidence: `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- Exact learner workspace SHA-256: `a0514893e20f2f345b2e5ca4b2f5604fc2ca0be2a7d7fc90324d0017d752a53c`
+- Exact visual report: `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-01T20-53-58-069Z/visual-audit.json`
+- Exact visual-report SHA-256: `db18a4c1663a4a1426a6316e2486fa05b6c84e68d0b8458fa47799bc948f6e7d`
+
+## Verification at archival time
+
+- Focused improvement-pilot tests passed 10 of 10.
+- Media-pilot tests passed 9 of 9.
+- Science-comparison tests passed 6 of 6.
+- Workspace verification, manifest validation, and Studio build passed.
+- Exact-build visual audit passed with zero geometry findings; all 38 contact sheets were opened and inspected.
+- `course:doctor` returned only the intentional `not-active` diagnostic.
+- Improvement-pilot E2E passed 17 of 17.
+
+## Known risks at archival time
+
+- The teacher selected all ten candidates but had not explicitly accepted the exact integrated learner build.
+- Raster labels were most readable through View larger; nearby text equivalents remained the accessible instructional source at narrow sizes.
+- Any learner-HTML or selected-image change would invalidate the exact build evidence.
+- No figure, rule, or acceptance status could transfer automatically to production Unit A or Units B-D.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/workspace/index.html`
+
+---
+
+## 2026-09-01: Initial Unit A-to-B-D living playbook before minute runbook expansion
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Establish the living Unit A improvement journal and decision-complete transfer playbook for later adaptation to Biology 30 Units B-D.
+- Status: Superseded as the active handoff by the minute operating-runbook expansion. The learner build, pending-review status, and all safety boundaries remain unchanged.
+
+## Summary at archival time
+
+- Created the canonical living playbook at `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+- Reconstructed the development chronology from source comparison through generated-figure integration.
+- Added a rolling transfer index for all 17 machine-readable improvement rules.
+- Recorded the direct-authored Unit A pilot versus builder-owned Units B-D boundary.
+- Linked the playbook from the pilot prompt pack and Science workflow documentation.
+- Left the Unit A learner workspace, Units B-D, exports, promotion state, Studio settings, Git history, and deployment state unchanged.
+
+## Verification at archival time
+
+- `npm run test:biology30-unit-a-improvement-pilot` passed 11 of 11.
+- `npm run validate:manifests` passed.
+- Unit A pilot and Units B-D learner workspace tree hashes remained unchanged.
+- Scoped `git diff --check` passed.
+
+## Source of truth at archival time
+
+- Human-readable history and transfer process: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Machine-readable rule evidence: `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- Canonical learner pilot: `projects/biology30-unit-a-pilot/workspace/index.html`
+- Exact learner workspace SHA-256: `a0514893e20f2f345b2e5ca4b2f5604fc2ca0be2a7d7fc90324d0017d752a53c`
+
+## Known risks at archival time
+
+- All 17 rules still required explicit teacher review.
+- The exact visual report remained under ignored `.runtime/**`.
+- Source plates with unresolved embedded-image provenance remained pilot-only release blockers.
+- The repository remained broadly dirty with unrelated user-owned work.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+
+# Archived handoff — Biology 30 Unit A one-based practice numbering — 2026-09-02
+
+- Project: `biology30-unit-a-pilot`
+- Task: Correct zero-based learner-facing practice numbering without changing durable learner state.
+- Status at archive: Implemented and Codex-verified; exact local build awaiting teacher review.
+- Canonical learner SHA-256 at stop: `d723fffb6290065cc93dce3c5acb2d02db3e8f831ee357b45887e494967397be`
+- Workspace-tree SHA-256 at stop: `6a7ea0e2a6f4ddfc6701d5644b664f52646719a3b83e279090c129f21ee52a22`
+- Result: Guided Practice displayed 1–3, Module Checks 1–5, and Final Practice 1–24 while durable practice identifiers and persistence state remained unchanged. Static, media, project E2E, full improvement E2E, workspace, manifest, Studio-build, visual-audit, and doctor expectations passed.
+- Continuing record: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Warning: the Firebase teacher-review deployment was stale and no deploy, promotion, export, commit, or push was authorized.
+
+---
+
+## 2026-09-02: Lesson 17 navigation separation before full optional-video rollout
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Move required Lesson 17 out of Review and into a final Lessons subgroup.
+- Status: Superseded by the complete optional-video rollout. The navigation decision remains implemented.
+
+## Source of truth at archival time
+
+- Learner course: `projects/biology30-unit-a-pilot/workspace/index.html`
+- Learner SHA-256: `54b948fb2b774ea0f46dbbea13289761651f206f4d3b8231dfbcdb21fd1e8380`
+- Visual report: `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-02T16-03-47-517Z/visual-audit.json`
+
+## Verification at archival time
+
+- All 38 exact-build contact sheets were inspected and the focused regression suites passed.
+- Lesson 17 retained its required time, responses, Final Practice, persistence, and completion role.
+
+## Known risks at archival time
+
+- The public teacher-review site was stale.
+- Source-image rights remained unresolved.
+- All transfer rules still awaited explicit teacher acceptance.
+
+---
+
+## 2026-09-02: Lesson 17 textbook-review deduplication before navigation separation
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Remove the redundant Lesson 17 textbook-review band while preserving the required capstone.
+- Status: Superseded by the teacher-approved navigation move. Lesson 17 had remained under Review at this checkpoint.
+
+## Source of truth at archival time
+
+- Learner course: `projects/biology30-unit-a-pilot/workspace/index.html`
+- Learner SHA-256: `dedd1223f084476982a8b2df334dcd23957f8a6907117d793b1ae048e430f47b`
+- Visual report: `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-02T15-18-49-029Z/visual-audit.json`
+
+## Verification at archival time
+
+- All 38 contact sheets were inspected and focused suites passed.
+- Lesson 17 retained its route, required time, responses, Final Practice, persistence, and completion role.
+
+## Known risk at archival time
+
+- Required Lesson 17 still appeared under optional Review, pending the teacher's explicit navigation decision.
+
+---
+
+## 2026-09-02: Minute Unit A-to-B-D operating runbook before Lesson 17 review deduplication
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot`
+- Task: Expand the Unit A-to-B-D playbook into a minute operating runbook, including the ChatGPT Images workflow.
+- Status: Superseded as the active handoff by the Lesson 17 review-deduplication cycle. The operating runbook remains canonical.
+
+## Summary at archival time
+
+- The playbook documented the 13-phase process from Brightspace intake through textbook, media, source-image, ChatGPT Images, exact-build review, and later B-D adaptation.
+- Exact prompts, generated-image provenance, teacher decisions, canonical-source metadata, tests, and review-deployment metadata were synchronized.
+- The learner workspace had not changed during that documentation cycle and all 17 then-current transfer rules awaited explicit teacher acceptance.
+
+## Source of truth at archival time
+
+- Operating manual: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Improvement evidence: `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- Learner course: `projects/biology30-unit-a-pilot/workspace/index.html`
+- Exact learner-file SHA-256: `a0514893e20f2f345b2e5ca4b2f5604fc2ca0be2a7d7fc90324d0017d752a53c`
+- Exact visual report: `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-01T20-53-58-069Z/visual-audit.json`
+
+## Verification at archival time
+
+- Focused static tests and manifest validation passed.
+- The learner workspace remained byte-identical to its previously reviewed build.
+
+## Known risks at archival time
+
+- The teacher had not accepted the whole exact build.
+- Public review, SCORM, Brightspace, promotion, Studio editing, Git commit, and Git push were not authorized.
+- Unit A remained direct-authored while Units B-D remained builder-owned.
+
+## Exact next command at archival time
+
+`npm run studio`
+
+## Exact next file to open at archival time
+
+`projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+# Archived handoff — Biology 30 Unit A optional-video rollout — 2026-09-02
+
+- Project: `biology30-unit-a-pilot`
+- Task: Expand optional lesson videos and the Video Library from the accepted slice to the full usable source inventory.
+- Status at archive: Implemented and Codex-verified; exact build awaiting teacher review.
+- Canonical learner SHA-256 at stop: `0642d072f1af73f1960e0f4eb4031a5ae667222fb5d854586c6967db85c9f9d7`
+- Result: Twelve primary lesson companions, 35 sorted learner-visible Video Library entries, ten documented exclusions, 54/54 contact sheets inspected, and zero automated geometry findings.
+- Continuing record: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+
+---
+
+# Archived handoff — Biology 30 Unit A Process Collection — 2026-09-02
+
+- Project: `biology30-unit-a-pilot`
+- Task: Rename the learner-facing notebook as Process Collection and derive a collected view of all saved lesson exits without duplicating learner state.
+- Status at archive: Implemented and Codex-verified; exact build awaiting teacher review.
+- Canonical learner SHA-256 at stop: `fe147931e3f6c44ac4ad7ec44e1226b6d7a758daf4ab23b30d9da13669e5b77a`
+- Workspace-tree SHA-256 at stop: `aededcb6305c1f382b8eb2e6d569c15f09601d73045a40e8b4b37cc43d589ad5`
+- Result: All 17 saved lesson exits appear in lesson order beside separate learner-created notes and artifacts; response ownership, removal isolation, print/copy behavior, reload restoration, completion, and persistence remained intact.
+- Exact visual report: `.runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-02T18-48-28-003Z/visual-audit.json`; all 54 sheets were opened and geometry reported zero findings.
+- Continuing record: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Warning: The Firebase teacher-review deployment was stale and no deploy, promotion, export, commit, or push was authorized.
+
+---
+
+# Archived handoff — Biology 30 Unit A Core Vocabulary Stage 1 — 2026-09-02
+
+- Project: `biology30-unit-a-pilot`
+- Task: Build and verify a five-family representative Core Vocabulary slice before authoring the complete Unit A route.
+- Status at archive: The exact Stage 1 slice was Codex-verified and then explicitly teacher-accepted, authorizing Stage 2 only.
+- Canonical learner SHA-256 at acceptance: `1b283ef4795a01ecefdbfbeb1bdd290e77210967fd1f0012b7b5f71a35bd2c47`
+- Workspace-tree SHA-256 at acceptance: `2f2b7b3d80332ba073a6dbd6bccedb98d575e7f343c2e4106fe53ba0abbc4c70`
+- Exact visual report: `.runtime/biology30-unit-a-core-vocabulary-pilot-visual-audit/2026-09-02T20-18-11-917Z/visual-audit.json`; all seven sheets were opened and geometry reported zero findings.
+- Result: The five representative concepts, five lesson Word Lens placements, Frayer/model flow, Process Collection integration, version-3 state, and bounded persistence established the accepted design direction.
+- Continuing record: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Warning: Stage 1 acceptance did not accept the complete Stage 2 build, authorize B-D transfer, or authorize deploy, export, promotion, Studio editing, commit, or push.
+
+---
+
+# Archived handoff — Biology 30 Unit A Core Vocabulary Stage 2 — 2026-09-03
+
+- Project: `biology30-unit-a-pilot`
+- Task: Complete and verify all 28 Core Vocabulary families, all 17 Word Lens mappings, six fixed and two learner-choice Frayer models, and Process Collection integration.
+- Status at archive: Complete and Codex-verified; exact build awaiting teacher review.
+- Canonical learner SHA-256 at stop: `b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee`
+- Workspace-tree SHA-256 at stop: `61396aee1fec5e4c35fd408a2629ca05abda82df584a2db47e46444c37e361dc`
+- Exact visual report: `.runtime/biology30-unit-a-core-vocabulary-pilot-visual-audit/2026-09-03T01-08-03-419Z/visual-audit.json`; all seven contact sheets were opened and geometry reported zero findings.
+- Result: Stage 1 acceptance was preserved separately; the complete Stage 2 build remained optional, non-gating, blocked, preview-only, Studio Edit disabled, and non-exportable.
+- Continuing record: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Warning: Stage 2 was not teacher-accepted and nothing transferred to Units B-D.
+
+---
+
+## Archived Active Handoff — 2026-09-03: Biology 30 Unit A Pilot 2 Gate 0 and Gate 1
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Build and verify Gate 0 plus the Gate 1 representative slice for the student-ready, teacher-topic-sequence Unit A rebuild.
+- Status: Gate 0 and Gate 1 are complete and Codex-verified against the exact local learner build. The candidate awaits explicit teacher review and remains blocked, preview-only, Studio Edit disabled, and non-exportable.
+
+## Summary
+
+- Created a completely separate Pilot 2 while preserving Pilot 1 and production Units A-D against recorded tree hashes.
+- Added a transactional, duplicate-refusing, rollback-tested creation command with exact source-hash verification.
+- Created complete Gate 0 contracts for all 25 Unit A outcomes, 53 acceptable-standard behaviours, 17 teacher-plan rows, 138 PowerPoint slides, 470 Pilot 1 section dispositions, vocabulary dependencies, practice, figures, media, response mappings, reading level, and persistence budget.
+- Built only the approved Gate 1 slice: Overview; Lessons 1, 3, and 13; Chapter 11 Practice; Process Collection; Core Vocabulary; Textbook Library; Video Library; Model Lab; Glossary and Data; Sources and Credits.
+- Reordered each lesson around prerequisite-first teaching: short Learn sections with adjacent visuals, Stop and Check, worked example, post-teaching retrieval, two guided questions, saved Evidence Slip, and optional Advanced Learning.
+- Explicitly taught myelin function in Lesson 1, defined neurotransmitter before acetylcholine in Lesson 3, and chunked the pancreas/adrenal load in Lesson 13.
+- Preserved exact textbook, vocabulary, model, and video deep links. Optional video previews do not autoplay and retain complete local concept summaries.
+- Added guarded cross-origin SCORM API discovery and shared-shell compatibility hooks so the learner runtime works in Studio's embedded preview without creating a second Evidence Slip workflow.
+- Generated 36 route captures, 30 learner-state captures, and 11 contact sheets. All 11 sheets were opened and manually passed with zero geometry findings.
+- Stopped before Gate 2 as required. No commit, push, deploy, export, promotion, or LMS upload occurred.
+
+## Files changed
+
+- `package.json`
+- `scripts/create-biology30-unit-a-pilot-2.ts`
+- `scripts/lib/biology30-unit-a-pilot-2/contracts.ts`
+- `scripts/lib/biology30-unit-a-pilot-2/create.ts`
+- `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`
+- `scripts/tests/biology30-unit-a-pilot-2.test.ts`
+- `scripts/audit-biology30-unit-a-pilot-2-visual.ts`
+- `e2e/specs/biology30-unit-a-pilot-2.spec.ts`
+- `projects/biology30-unit-a-pilot-2/**`
+- `docs/workflows/science-pilot.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## Verification run
+
+- `npm run test:biology30-unit-a-pilot-2`: 7/7 passed on the final candidate, including protected-source equality, duplicate refusal, and simulated rollback.
+- `npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace`: passed with no unresolved local asset or required external dependency.
+- `npm run test:e2e:biology30-unit-a-pilot-2`: 8/8 passed across all Gate 1 routes, three viewports, 200% zoom, keyboard use, prerequisite order, persistence, exact deep links, video fallback, figure enlargement, and axe checks.
+- `npm run test:e2e:project -- --project biology30-unit-a-pilot-2`: 1/1 shared embedded-preview contract passed.
+- `npm run test:science-comparison`: 6/6 passed.
+- `npm run validate:manifests`: passed, including Pilot 2.
+- `npm run build:studio`: passed.
+- Visual audit: 36 route screenshots, 30 state screenshots, 11/11 contact sheets opened, zero geometry findings, manual decision `pass`.
+- `npm run course:doctor -- --project biology30-unit-a-pilot-2`: intentionally exits 1 with only `not-active`, because the project is blocked.
+- `npm run test:biology30-unit-a-improvement-pilot`: 11/12 passed. Its one failure predates Pilot 2: Pilot 1's `meta/review-deployment.json` contains the literal `Entry:` where a 64-character deployment hash is expected. Pilot 2 did not alter that protected file.
+
+## Known risks / follow-up
+
+- The Gate 1 slice is not teacher-accepted. Any learner-content correction changes the workspace hash and requires fresh focused tests and visual evidence.
+- Ten lessons, Chapter 12 and 13 Practices, Review Seminar, Final Practice, the complete practice bank, six Diploma Challenge items, and full investigation implementations remain intentionally unrendered until Gate 1 approval.
+- Optional YouTube frames may be unavailable offline; local summaries are the required fallback and must remain academically complete.
+- Pilot 1 has a pre-existing malformed review-deployment hash. Do not repair it as part of Pilot 2 or weaken Pilot 2's protected-tree guard.
+- Pilot 2 is direct-authored but currently has a project-specific Gate 1 renderer. Do not run a later rebuild over teacher edits without first reconciling ownership and the accepted exact hash.
+
+## Source of truth
+
+- Canonical learner file: `projects/biology30-unit-a-pilot-2/workspace/index.html`
+- Gate 1 renderer: `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`
+- Project/timing contract: `projects/biology30-unit-a-pilot-2/meta/pilot-2-contract.json`
+- Curriculum map: `projects/biology30-unit-a-pilot-2/meta/curriculum-performance-map.json`
+- Teacher source crosswalk: `projects/biology30-unit-a-pilot-2/meta/teacher-source-crosswalk.json`
+- Gate record: `projects/biology30-unit-a-pilot-2/meta/gate-1-review.json`
+- Visual report: `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-03T18-10-49-425Z/report.json`
+- Learner SHA-256: `8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe`
+- Workspace-tree SHA-256: `a2f5dd4ff3cf3d2806949e4075b8e498ae102a309414d5f5d82489eca737d481`
+- Visual-report SHA-256: `b8f9cc70c7f7e9803dd7502b62bbf53893860964e715d1ce229830eb4b11797b`
+
+## Fragile areas / what might drift
+
+- Keep all Pilot 2 learner-state IDs in the `biology30-unit-a-pilot-2:` namespace.
+- Do not change the 18-route completion contract, 1,505 required minutes, or 295 optional minutes while completing Gate 2.
+- Required terminology must remain prerequisite-ordered; future vocabulary definitions and Frayer controls stay locked until the connected teaching lesson is visited.
+- Evidence Bank compatibility derives from the existing Evidence Slip response. Removing a collection entry must never erase the underlying learner response.
+- Keep static-equivalent disclosures separate from Advanced Learning.
+- Use one strongest visible figure per teaching purpose; do not reintroduce duplicate diagrams.
+- Preserve the current course completion, response restoration, scoped reset, blocked status, and export-disabled metadata.
+
+## Next prompt assumptions
+
+- Gate 0 is complete.
+- Gate 1 is complete and Codex-verified, but the teacher has not accepted it.
+- Review should focus on student readability, prerequisite order, myelin completeness, neurotransmitter sequencing, Lesson 13 manageability, visual rhythm, navigation, chapter practice, Process Collection, resource deep links, and the core/Advanced split.
+- A clear teacher approval of this exact build authorizes Gate 2 only. It does not authorize transfer to Units B-D, Studio editing, promotion, deployment, export, commit, or push.
+
+## Exact next command
+
+`npm run studio`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot-2/workspace/index.html`
+
+## Do not do next / warnings
+
+- Do not begin Gate 2 until the teacher explicitly accepts workspace SHA-256 `8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe`.
+- Do not edit, rebuild, or repair Pilot 1 or production Units A-D as part of this approval cycle.
+- Do not deploy, promote, export, enable Studio Edit, commit, or push without separate authorization.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 Gate 1 — 2026-09-03
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Build and verify the student-ready Gate 1 representative slice.
+- Status at archive: Explicitly teacher-accepted by the statement `approve pilot 2 gate 1`.
+- Accepted learner SHA-256: `8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe`
+- Accepted workspace-tree SHA-256: `a2f5dd4ff3cf3d2806949e4075b8e498ae102a309414d5f5d82489eca737d481`
+- Exact acceptance record: `projects/biology30-unit-a-pilot-2/meta/gate-1-review.json`
+- Exact visual report: `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-03T18-10-49-425Z/report.json`
+- Result: Gate 1 acceptance authorized Gate 2 full-course production only. It did not authorize teacher acceptance of Gate 2, Pilot 1 or Units B-D changes, deployment, export, promotion, Studio editing, commit, or push.
+
+---
+
+# Archived handoff — Physical Education 10 Online teacher-review revision — 2026-09-03
+
+- Project: `pe10-online-pilot`
+- Task: Apply five initial PE10 teacher-review changes and redeploy the exact canonical workspace.
+- Status at archive: All five review notes were implemented, Codex-verified, and deployed for public teacher/stakeholder review at `https://nxtpe10.web.app`. The course remained blocked, Studio Edit disabled, and non-exportable while awaiting teacher approval.
+- Canonical learner HTML SHA-256 at stop: `d55a91e7f1ed99be08cadcea135c2b497adfc65728bb5eea0e6c8960f2f064d4`
+- Workspace-tree SHA-256 at stop: `9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33`
+- Result: The learner-facing name, navigation, assignment/portfolio workflow, privacy-minimized activity log, checkpoint reflections, saved-only portfolio collection, persistence, health/safety wording, and public review deployment were completed and verified. Five placeholder Brightspace submission controls were removed, while final submissions, grades, uploaded evidence, and teacher feedback remained Brightspace-owned.
+- Verification: 15/15 PE10 tests, 5/5 Codex-course tests, 10/10 new-course-readiness tests, 1/1 project E2E, 3/3 PE10 E2E, workspace verification, Studio build, visual inspection, Firebase file checks, and live browser checks passed. `course:doctor` returned only the intentional `not-active` diagnostic.
+- Source of truth: `projects/pe10-online-pilot/workspace/index.html`, `projects/pe10-online-pilot/workspace/styles.css`, `projects/pe10-online-pilot/workspace/course.js`, and `projects/pe10-online-pilot/meta/pilot-review.json`.
+- Exact next command at archive: `open https://nxtpe10.web.app`
+- Exact next file at archive: `projects/pe10-online-pilot/meta/pilot-review.json`
+- Warning: Public review did not authorize production release, Brightspace links, SCORM export, Studio Edit, commit, or push.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 Revision Gate A — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Apply the first science-teacher depth revision and build the representative Revision Gate A slice.
+- Status at archive: Explicitly accepted when the user said `K let’s go to the next step then` after reviewing the deployed candidate.
+- Accepted learner SHA-256: `3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff`
+- Exact acceptance record: `projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json`
+- Exact visual report: `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-03T22-32-35-753Z/report.json`
+- Public review URL at archive: `https://biology30pilot.web.app`
+- Result: Revision Gate A acceptance authorized Revision Gate B implementation and verification only. It did not authorize another deployment, teacher acceptance of Gate B, changes to Pilot 1 or Units B-D, export, promotion, Studio editing, commit, or push.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 initial Revision Gate B candidate — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Complete the full-course science-teacher depth revision after accepted Revision Gate A.
+- Status at archive: The initial Gate B candidate was Codex-verified at learner SHA-256 `cc968289c232ebeee5db0572426ea519806da8920c44dc4a3de008597e85a261`, but the user requested navigation and Process Collection changes before teacher acceptance.
+- Result: The candidate was preserved as an immutable `changes-requested` baseline under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/cc968289c232ebeee5db0572426ea519806da8920c44dc4a3de008597e85a261/` before the next transactional rebuild.
+- Superseding work: Restore the collapsible desktop sidebar, group Core Vocabulary and Model Lab under Process Collection, expand Model Lab to one useful model per lesson, and allow model results to be collected as non-gating evidence.
+- Warning: This archived candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 navigation and Process Collection iteration — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Restore desktop navigation collapse, regroup Core Vocabulary and Model Lab under Process Collection, and make all 13 lesson models collectable.
+- Status at archive: Codex-verified at learner SHA-256 `b280c64e8eb144590bce5fcb3bf984de43ae1fc9fef5dfdc0f28ba051fac4161`, then marked `changes-requested` after the user identified cramped Model Lab mechanism cards at 1117×902.
+- Result: The navigation, 13 model records, Process Collection integration, and state-v3 migration were retained. The exact candidate was preserved under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/b280c64e8eb144590bce5fcb3bf984de43ae1fc9fef5dfdc0f28ba051fac4161/` before the responsive-layout rebuild.
+- Superseding work: Replace the forced four-column mechanism row with reader-width-aware two-column and one-column layouts, then visually inspect the user-annotated viewport.
+- Warning: This candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+# Archived handoff — Biology 30 Unit A Pilot 2 responsive Model Lab fit — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Repair Model Lab mechanism-card fit at the annotated medium-desktop width and explain the Pilot 1/Pilot 2 Model Lab difference.
+- Status at archive: Codex-verified at learner SHA-256 `bcb522c4ea0626a4c666a85ce71d1d40d73afe57143408112037190431e4586d`, then marked `changes-requested` when the user authorized restoring Pilot 1-style interaction depth.
+- Result: The responsive two-column/one-column Model Lab layout, collapsible sidebar, 13 lesson model records, and Process Collection integration were retained. The exact candidate is preserved under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/bcb522c4ea0626a4c666a85ce71d1d40d73afe57143408112037190431e4586d/`.
+- Superseding work: Replace shallow condition cards with 49 authored graph, pathway, data, and evidence scenarios while retaining Pilot 2's accessible lesson sequence and state budget.
+- Verification at archive: 10/10 Pilot 2 static tests, 15/15 dedicated E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 science-comparison tests, workspace verification, manifest validation, Studio build, and a 28-sheet visual audit passed. `course:doctor` returned only intentional `not-active`.
+- Warning: This candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 interaction-depth candidate — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Restore Pilot 1-style graph, pathway, data, and evidence depth inside Pilot 2's student-ready structure.
+- Status at archive: Codex-verified at learner SHA-256 `2ea73014993b01e6cd64b0000d1c59d21d03ff3ed4c5af4617f009599babc3ae`, then marked `changes-requested` when the user found the Model Lab purpose and instructions too vague.
+- Result: Thirteen lesson-linked models, 49 authored scenarios, richer Pilot 1 interaction mappings, responsive layouts, scoped reset, and Process Collection integration were retained. The exact candidate is preserved under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/2ea73014993b01e6cd64b0000d1c59d21d03ff3ed4c5af4617f009599babc3ae/`.
+- Superseding work: Rename the learner surface to Models and Data Lab and make every model an explicit Predict, Test, Explain, and Save mini-investigation with a stated purpose, variables, evidence focus, and complete saved reasoning record.
+- Verification at archive: 10/10 Pilot 2 static tests, 16/16 dedicated E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 science-comparison tests, workspace verification, manifest validation, Studio build, and a 29-sheet visual audit passed. `course:doctor` returned only intentional `not-active`.
+- Warning: This candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 guided-investigation candidate — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Make all 13 lesson-linked models understandable as explicit `Predict -> Test -> Explain -> Save` investigations.
+- Status at archive: Codex-verified at learner SHA-256 `e5398f56cdba93f5c57e681d6c21b6b4a5c19bd75985ce63babe6d6cde0a3916`, then marked `changes-requested` when the user identified cramped four-column illustrated-walkthrough steps at 1265x902.
+- Result: The guided investigation structure, 49 authored scenarios, state-v4 migration, Process Collection records, and responsive Models and Data Lab were retained. The exact candidate is preserved under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/e5398f56cdba93f5c57e681d6c21b6b4a5c19bd75985ce63babe6d6cde0a3916/`.
+- Superseding work: Make all 14 local illustrated walkthroughs respond to their own available width, using two columns when readable and one column before headings or explanations become cramped.
+- Verification at archive: 10/10 Pilot 2 static tests, 17/17 dedicated E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 science-comparison tests, workspace verification, manifest validation, Studio build, and a 29-sheet visual audit passed. `course:doctor` returned only intentional `not-active`.
+- Warning: This candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 responsive media walkthrough candidate — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Make all 14 required-media illustrated walkthroughs respond to their available lesson width.
+- Status at archive: Codex-verified at learner SHA-256 `b6eaba5b1f543a62e8971a55b36e5705df01e0f14adc7eaddafcd81989da0e8f`, then marked `changes-requested` when the user found future Core Vocabulary rows that accepted focus but did not update the reader.
+- Result: The responsive two-column/one-column walkthrough behavior and all prior course behavior were retained. The exact candidate is preserved under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/b6eaba5b1f543a62e8971a55b36e5705df01e0f14adc7eaddafcd81989da0e8f/`.
+- Superseding work: Make the `Learned so far` filter truly hide future entries and make future entries in `All term names` open an explanatory locked preview with the exact teaching-lesson link.
+- Verification at archive: 10/10 Pilot 2 static tests, 18/18 dedicated E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 science-comparison tests, workspace verification, manifest validation, Studio build, and a 29-sheet visual audit passed. `course:doctor` returned only intentional `not-active`.
+- Warning: This candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 Core Vocabulary interaction repair — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Repair Core Vocabulary entries that appeared clickable but did not update the concept reader.
+- Status at archive: Codex-verified at learner SHA-256 `24e18ca81a7bf33a0182825be95472fa2a3f6ac55b779f90f14855e25ee9c66c`, then marked `changes-requested` when the user requested Pilot 1-style textbook review assignments and native answer guides in the three Chapter Practice routes and Final Practice.
+- Result: The corrected `Learned so far` filtering, operable locked previews for future vocabulary terms, exact teaching-lesson links, responsive media walkthroughs, guided Models and Data Lab investigations, and all existing learner state were retained. The exact candidate is preserved under `projects/biology30-unit-a-pilot-2/raw/revision-gate-b-review-baselines/24e18ca81a7bf33a0182825be95472fa2a3f6ac55b779f90f14855e25ee9c66c/`.
+- Superseding work: Add four optional, non-graded textbook review supports with exact-page links, attempt-gated native answers, persisted attempt flags, and no effect on route completion or scoring.
+- Verification at archive: 10/10 Pilot 2 static tests, 18/18 dedicated E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 science-comparison tests, workspace verification, manifest validation, Studio build, and a 29-sheet visual audit passed. `course:doctor` returned only intentional `not-active`.
+- Warning: This candidate was never teacher-accepted and was not deployed, exported, promoted, committed, or pushed.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 textbook-review candidate — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Maintain the complete Revision Gate B candidate with four optional, attempt-gated textbook review guides and its canonical Unit A-to-B-D playbook.
+- Status at archive: Codex-verified at learner SHA-256 `912a213fd62e503b99d9c42f28b1094f8a4f4e31d9772513013adbc02ef4707e`, publicly deployed for teacher review, then preserved as the strict `changes-requested` baseline when the user authorized an explicit Pilot 1-to-Pilot 2 Advanced Learning bridge.
+- Result: Four exact-page textbook review assignments, 120 native answers, version-5 persistence, and all prior Pilot 2 learning and evidence features were retained. The public review site still serves this exact pre-bridge build.
+- Superseding work: Build and review eight representative Advanced Learning blocks, the complete forty-block manifest and Process Collection checklist, a 470-section Pilot 1 difference audit, and non-gating version-6 state before authoring the remaining thirty-two blocks.
+- Verification at archive: 10/10 Pilot 2 static tests, 20/20 dedicated E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 science-comparison tests, workspace verification, manifest validation, Studio build, and a 30-sheet exact-build visual audit passed. `course:doctor` returned only intentional `not-active`.
+- Warning: This candidate was not teacher-accepted as a complete course. Its public URL is stale relative to the newer canonical Advanced Bridge Gate A build and must not be described as current without redeployment authorization and live verification.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 Advanced Bridge Gate A — 2026-09-04
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Prove the Pilot 1-to-Pilot 2 Advanced Learning bridge with eight representative blocks and a complete forty-block architecture.
+- Status at archive: Teacher-accepted at learner SHA-256 `3d81ce61d56abdad611ee287a4c5db4e31ab5d9e2197610818b08a79f223b5f6` after the project owner explicitly said “aprove and go.”
+- Result: Eight representative blocks, forty stable IDs, adjacency after Learn sections, the synchronized Process Collection checklist, exact deep links, a compact version-6 bitset, and the 470-section Pilot 1 difference audit were accepted as authorization to author and verify the remaining thirty-two blocks.
+- Superseding work: Advanced Bridge Gate B now renders all forty blocks at learner SHA-256 `11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c` and requires separate exact-build teacher review.
+- Verification at archive: 11/11 Pilot 2 static tests, 22/22 specialized E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 Science comparison tests, workspace verification, manifest validation, Studio build, and all 29 Gate A contact sheets passed. `course:doctor` returned only intentional `not-active`.
+- Warning: Gate A acceptance did not approve Gate B, deployment, export, publication, promotion, Studio editing, commit, push, or any B-D transfer.
+
+---
+
+# Archived handoff — Biology 30 Unit A Pilot 2 Advanced Bridge Gate B — 2026-09-05
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Complete and verify all forty optional Advanced Learning blocks and the Pilot 1-to-Pilot 2 difference audit.
+- Status at archive: Codex-verified at learner SHA-256 `11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c`, with `teacherDecision: null`.
+- Result: All forty blocks, their synchronized checklist, version-6 persistence, 245 lesson-block minutes, and the 470-record source disposition were retained unchanged as the baseline for the contained Process Collection enhancement.
+- Superseding work: The unified Process Collection Index now presents 178 possible saved-work records, allowlisted return links, complete copy/print output, and truthful local/SCORM save reporting without adding learner state or changing course content.
+- Verification at archive: 11/11 Pilot 2 static tests, 22/22 specialized E2E tests, 1/1 project E2E, 12/12 Pilot 1 regression tests, 6/6 Science comparison tests, workspace verification, manifests, Studio build, and all 30 exact-build contact sheets passed. `course:doctor` returned only intentional `not-active`.
+- Warning: Gate B remains unaccepted and undeployed. The newer Process Collection candidate has its own exact hash, evidence, and teacher decision; reviewing it must not silently accept this preserved bridge build.
+
+
+# Archived handoff — Process Collection index and toolbar fit — 2026-09-05
+
+Archived verbatim before the Git-checkpoint/final-academic-audit handoff. Its build hashes and test claims remain historical, not evidence for the superseding candidate.
+
+# Handoff
+
+## Current follow-up — 2026-09-05
+
+The Process Collection toolbar fit annotation is repaired through `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`. Two equal-width filters sit above a separate Copy/Print row, stacking at narrow container widths. Current learner SHA is `219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc`; current tree SHA is `bf5de61f7b01bd8431b853c53d4468b30baf790007bc64e21201290f918f0dc6`. Static tests pass 13/13 and workspace verification passes; doctor reports only intentional `not-active`. Targeted screenshots are under `/tmp/bio-collection-fit-nSOYY1/`. The full-suite results and 34-sheet audit below describe the preceding candidate, not this CSS-only revision. Next file: `projects/biology30-unit-a-pilot-2/workspace/index.html`, route `#process-collection`; next command: `npm run studio`. Teacher review is pending and no deployment occurred.
+
+## Prior completed index handoff
+
+- Project: `biology30-unit-a-pilot-2`
+- Task: Review the contained Process Collection Index enhancement.
+- Status: Codex-verified and ready for explicit teacher/user review at learner SHA-256 `a195fb28ad233efcb8814e6e5f5bb5fe18fb976924814808e886704cb7101e5f`. The project remains blocked, preview-only, Studio Edit disabled, non-exportable, and undeployed at this hash.
+
+## Summary
+
+- Preserved Advanced Bridge Gate B SHA-256 `11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c` as the strict pre-index baseline.
+- Replaced separate duplicate saved-work displays with one state-derived **All My Work** index.
+- Added an authored, validated registry of exactly 178 possible activity records across retrieval, Evidence Slips, practice, media checkpoints, Frayer models, Models and Data Lab, investigations, Review Seminar, textbook-review confirmations, and the process note.
+- Rendered only work that the learner has started or saved, with the original prompt, current response or result, accurate status, relevant course feedback, and an exact return link.
+- Added chapter and activity-type filters without changing saved state.
+- Made copy and print use the complete structured collection even when the visible index is filtered.
+- Kept the three investigations and process note under **Continue your work**, with Core Vocabulary, Models and Data Lab, and Advanced Learning available from the same Process Collection group.
+- Added allowlisted `#<route>/work/<work-id>` links that open ancestor disclosures, restore the relevant resource selection, scroll to the source, and focus its heading.
+- Replaced generic persistence claims with independent local-browser and SCORM checks and the four required learner messages.
+- Kept learner state at version 6 and 39,061 worst-case characters. No course content, questions, Advanced Learning blocks, required routes, completion rules, scoring, or time changed.
+- No deployment, commit, push, export, publication, promotion, Studio editing, Pilot 1 edit, or Unit B-D edit occurred.
+
+## Files changed
+
+- `scripts/lib/biology30-unit-a-pilot-2/process-collection-content.ts`
+- `scripts/lib/biology30-unit-a-pilot-2/build-process-collection-index.ts`
+- `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`
+- `scripts/build-biology30-unit-a-pilot-2.ts`
+- `scripts/tests/biology30-unit-a-pilot-2.test.ts`
+- `e2e/specs/biology30-unit-a-pilot-2.spec.ts`
+- `scripts/audit-biology30-unit-a-pilot-2-visual.ts`
+- `projects/biology30-unit-a-pilot-2/workspace/index.html`
+- `projects/biology30-unit-a-pilot-2/meta/process-collection-index.json`
+- `projects/biology30-unit-a-pilot-2/meta/process-collection-index-review.json`
+- `projects/biology30-unit-a-pilot-2/meta/process-collection-index-audit.json`
+- `projects/biology30-unit-a-pilot-2/meta/pilot-2-improvement-ledger.json`
+- `projects/biology30-unit-a-pilot-2/meta/pilot-2-improvement-journal.md`
+- `projects/biology30-unit-a-pilot-2/meta/prompt-pack.md`
+- `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+- `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T03-25-55-745Z/**`
+
+## What changed
+
+- `process-collection-content.ts` owns stable record IDs, source-state references, sequence, labels, prompts, evidence, exact return routes, and exact focus targets. Its validation rejects duplicate or incomplete records and totals other than 178.
+- The Process Collection route derives one display model from current canonical learner state; it creates no second response store.
+- Statuses now reflect the underlying record: **Draft**, **Attempted**, **Checkpoint saved**, or **Collected**.
+- Practice rows show the retained choice and submitted feedback. Textbook-review rows explicitly describe self-reported attempts. Media rows distinguish selected path from completed checkpoint.
+- The runtime accepts only route/work pairs declared by the authored registry. Unknown pairs cannot become arbitrary selectors.
+- Local save success is verified by reading the stored value back. SCORM `SetValue` and `Commit` are evaluated independently. The learner sees **Saved to course**, **Saved on this device**, **Saved on this device only**, or **Not saved—copy your work before leaving**.
+- The print control retains its Process Collection-specific selector and now also exposes the shared `data-worksheet-print` hook required by the project E2E contract.
+
+## Why this changed
+
+- Pilot 2 already saved much more work than its former Process Collection presentation showed.
+- A single derived index makes that evidence findable without changing persistence, adding completion requirements, or duplicating learner data.
+- Exact return links turn the collection into a useful learning index rather than a detached archive.
+- Independent save outcomes avoid telling learners their work is safe when local or LMS persistence actually failed.
+
+## Verification run
+
+- Transactional Process Collection build passed from exact baseline `11f9508f...` and preserved the prior candidate.
+- `npm run test:biology30-unit-a-pilot-2`: 13/13 passed.
+- `npm run test:e2e:project -- --project biology30-unit-a-pilot-2`: 1/1 passed.
+- `npm run test:e2e:biology30-unit-a-pilot-2`: 24/24 passed.
+- `npm run audit:biology30-unit-a-pilot-2:visual -- --project biology30-unit-a-pilot-2`: passed with 81 route screenshots, 140 learner-state screenshots, 34 contact sheets, and zero geometry findings.
+- All 34 exact-build contact sheets were opened and inspected.
+- `npm run test:biology30-unit-a-improvement-pilot`: 12/12 passed.
+- `npm run test:science-comparison`: 6/6 passed.
+- `npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace`: passed with no missing assets or unresolved required dependencies.
+- `npm run validate:manifests`: passed.
+- `npm run build:studio`: passed.
+- `npm run course:doctor -- --project biology30-unit-a-pilot-2`: returned only the intentional `not-active` diagnostic.
+- Learner SHA-256: `a195fb28ad233efcb8814e6e5f5bb5fe18fb976924814808e886704cb7101e5f`.
+- Workspace-tree SHA-256: `c7abaed3497d16fac32eee5f661d0e9641691e483b6b50290e6583846bcd0c5d`.
+- Visual-report SHA-256: `612fe1b33f466d3404276c357a6991240e90b467ce2bd2bc479978ab0b082d3a`.
+
+## Source of truth
+
+- Authored activity registry: `scripts/lib/biology30-unit-a-pilot-2/process-collection-content.ts`
+- Course renderer and version-6 runtime: `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`
+- Transactional contained builder: `scripts/lib/biology30-unit-a-pilot-2/build-process-collection-index.ts`
+- Generated registry contract: `projects/biology30-unit-a-pilot-2/meta/process-collection-index.json`
+- Exact review record: `projects/biology30-unit-a-pilot-2/meta/process-collection-index-review.json`
+- Implementation audit: `projects/biology30-unit-a-pilot-2/meta/process-collection-index-audit.json`
+- Reviewable learner candidate: `projects/biology30-unit-a-pilot-2/workspace/index.html`
+- Exact visual evidence: `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T03-25-55-745Z/report.json`
+- Cross-pilot operating record: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- Preserved Advanced Bridge Gate B review: `projects/biology30-unit-a-pilot-2/meta/advanced-bridge-gate-b-review.json`
+
+## Fragile areas / what might drift
+
+- Generate learner HTML through the authored TypeScript sources. Directly patching `workspace/index.html` will be overwritten.
+- Keep all 178 work IDs, source-state references, and focus targets stable unless an explicit migration accompanies a change.
+- Keep the registry-derived display, copy, and print views on one formatter so filtered rows do not disappear from exports.
+- Keep Advanced Learning completion outside All My Work; those self-check flags are an availability/completion checklist, not a saved evidence response.
+- Keep local and SCORM save checks independent. A successful browser write must not conceal a failed LMS commit.
+- The prior Gate B visual report remains exact only for preserved SHA `11f9508f...`; the current candidate uses the newer 34-sheet report.
+- The public teacher-review site still serves pre-bridge SHA `912a213f...` and is stale. Do not identify it as this candidate.
+- The repository contains extensive unrelated user-owned changes and untracked files. Never broadly stage, clean, reset, format, commit, or push them.
+
+## Next prompt should assume
+
+- Gate 1, teacher-feedback Revision Gate A, and Advanced Bridge Gate A are accepted only within their named scopes.
+- Advanced Bridge Gate B is Codex-verified at preserved SHA `11f9508f...`, but its `teacherDecision` remains null.
+- The Process Collection Index is a separate Codex-verified candidate at SHA `a195fb28...`, also with `teacherDecision: null`.
+- Reviewing or accepting the Process Collection candidate does not automatically accept the forty-block Advanced Bridge, the whole course, deployment, export, publication, Studio editing, promotion, commit, push, or B-D transfer.
+
+## What still needs validation
+
+- Explicit teacher/user review of the unified index with empty, representative, and dense saved-work states.
+- Teacher/user confirmation that status wording, original-prompt context, feedback display, exact return links, filtering, and copy/print presentation are useful and understandable.
+- Explicit acceptance or changes requested against learner SHA `a195fb28ad233efcb8814e6e5f5bb5fe18fb976924814808e886704cb7101e5f`.
+
+## Known risks / follow-up
+
+- The candidate is automated- and Codex-verified, not teacher-accepted.
+- Textbook confirmations are necessarily self-reported; the index does not claim that individual textbook answers were recorded.
+- A selected media path is not proof that a learner watched a whole video. Only the checkpoint is reported as saved.
+- The audit's comparison, showcase, multiple-model-run, error-repair, and visual-annotation proposals remain intentionally unimplemented.
+- The current public review URL is stale and could mislead a reviewer if shared as the current build.
+
+## Exact next command
+
+`npm run studio`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot-2/workspace/index.html`
+
+## Do not do next / warnings
+
+- Do not mark the Process Collection Index accepted until the user or teacher explicitly accepts learner SHA `a195fb28ad233efcb8814e6e5f5bb5fe18fb976924814808e886704cb7101e5f`.
+- Do not infer acceptance of Advanced Bridge Gate B from any Process Collection decision.
+- Do not deploy, commit, push, export, publish, promote, enable Studio Edit, modify Pilot 1 learner content, or modify Units A-D without separate authorization.
+
+---
+
+## Archived 2026-09-05 — pre-Chapter-11 academic repair handoff
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-2` and the Unit A → B–D operating record.
+- Task: Create a Git recovery checkpoint, make the initial final-audit corrections, and complete the repeatable B–D build/materials recipe.
+- Status: Contained checkpoint, initial repairs and documentation complete and technically verified; academic gaps open. Complete-course teacher acceptance remains unresolved.
+
+## Summary
+
+- Local recovery commit: `2ad72ec06b104c589f91e4b5afb8d86c322bc168` on `codex/studio-direct-editing-v1`; parent `98f481b06ce304ccc79e236f3b45b6ffcd99bb41`.
+- The checkpoint includes 317 scoped Biology files. Private source archives, exports, runtime captures, numeric duplicates and unrelated dirty changes were excluded. No push or later commit.
+- Preserved pre-audit learner SHA `219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc` under `raw/final-academic-baselines/`.
+- Current learner SHA: `b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652`.
+- Current workspace-tree SHA: `06f4fe274d8f702e9ed5c32a1b5a9ab608b8e684909075e912b1dabb6b5202f2`.
+- Pilot 2 remains blocked, preview-only, Studio Edit disabled and non-exportable. No deployment, export, promotion or production A–D implementation.
+
+## Files changed
+
+- `scripts/lib/biology30-unit-a-pilot-2/{academic-evidence,atomic-contract,final-academic-audit,review-history,full-content,render-gate1,build-full,build-process-collection-index}.ts`
+- `scripts/build-biology30-unit-a-pilot-2.ts`
+- `scripts/audit-biology30-improvement-transfer.ts`
+- `scripts/tests/{biology30-unit-a-pilot-2,biology30-improvement-transfer}.test.ts`
+- `e2e/specs/biology30-unit-a-pilot-2.spec.ts`
+- `package.json`, scoped command addition in `README.md`, `docs/workflows/science-pilot.md`.
+- Generated Pilot 2 learner candidate and current contracts under `projects/biology30-unit-a-pilot-2/{workspace,meta}/`.
+- New Pilot 2 `meta/final-academic-review.json` and `meta/final-academic-verification.json`; updated journal, ledger and prompt pack.
+- `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- New Pilot 1 operational `meta/biology30-improvement-transfer-contract.json` and `meta/bcd-material-readiness.json`.
+- `docs/ops/ACTIVE_HANDOFF.md`, append-only archive, exact-build visual report manual-inspection record.
+
+## What changed
+
+- Removed unrelated-route/first-question fallbacks from academic evidence mapping. All 53 behaviours and skill/STS outcomes now use explicit authored targets and reasons.
+- Inventoried 25 outcomes, 53 behaviours, 86 questions, 14 media checkpoints and 165 term links. Recorded 45 gap records, including aggregate/detailed versions of some gaps.
+- Introduced Lesson 1 dependencies before their mechanisms; corrected first-use controls to exact static passages or honestly labelled definitions.
+- Fixed compressed lesson and complete-vocabulary columns using available-width reflow, not smaller text. Required media stacks when its reader is narrow.
+- Prevented generated Markdown replacement from erasing later historical journal entries.
+- Added 52 explicitly mapped transfer rules with verified evidence/implementation/target-owner paths and separate B/C/D material-readiness inventories.
+- The canonical playbook preserves the detailed source/PDF/PPT/media/ChatGPT Images/comparison/teacher-decision/Frayer/model/state/SCORM/review/verification history, with a seven-package final-A queue and an operative full-unit B–D recipe at the top.
+
+## Why this changed
+
+The goal is to avoid rediscovering the Unit A process when target-unit resources arrive. Structural tests previously overstated academic completeness. The recipe now separates presence, scientific sufficiency, technical verification and teacher acceptance. The full B–D build still requires source readiness and complete Unit A clearance.
+
+## Verification run
+
+Read `projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json` for current exact command results and retained failure evidence.
+
+- Current static: Pilot 2 13/13; transfer tests 4/4; Pilot 1 regression 12/12; science comparison 6/6.
+- Workspace verification, manifests, Studio build and transfer `--check` passed.
+- Doctor exits 1 only for intentional `not-active`.
+- Focused save/readable-column E2E 2/2 passed; fresh-server specialized E2E 26/26 and project E2E 1/1 passed on the current learner hash. An earlier failed/timeout run remains recorded, not silently counted as a pass. No timeout increase, forced click or learner-code change was used to obtain the rerun.
+- Scoped diff whitespace checks and all 92 relative file links in the playbook/prompt pack passed. See the exact verification record; SCORM persistence checks used LMS mocks, not a live Brightspace certification.
+- Exact visual report: `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T15-31-21-658Z/report.json`; report SHA `570ff603b3140b96762ef72f51f09f001219b61a0c7b4641bde5b23c50baed85`.
+- 81 route captures, 140 state captures, all 34 sheets opened/inspected, zero geometry findings, plus six desktop/tablet/mobile close-ups. Scope is layout, not every scientific label or media transcript.
+- Counts/state unchanged: 13 lessons, five review routes, 18 required routes, 1,505/295 minutes, 86 practice items, 14 media checkpoints, 28 vocabulary families, 40 advanced blocks, 178 potential collection records; schema 6, worst case 39,061 characters.
+
+## Source of truth
+
+- Start with `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe`.
+- Current academic findings: `projects/biology30-unit-a-pilot-2/meta/final-academic-review.json`.
+- Explicit evidence bindings: `scripts/lib/biology30-unit-a-pilot-2/academic-evidence.ts`.
+- Authored learner content/behaviour: `scripts/lib/biology30-unit-a-pilot-2/full-content.ts`, `render-gate1.ts`, plus their named authored contracts.
+- `workspace/index.html` is generated review output; never patch it directly.
+- B–D owner: `scripts/lib/biology30-course/v1/`, target records `projects/resources/biology30-production/v1/units/`. No B–D source changed.
+
+## Fragile areas / watchouts
+
+- The historical Gate B “atomic coverage” claims mean mapped references, not academic clearance. Required practical tasks cannot be proved by a labelled picture or an unrelated multiple-choice question.
+- Preserve all writing and version materially replaced practice IDs. No response, question ID or completion change occurred in this cycle.
+- Derived collection evidence, optional advanced flags, media checkpoints, Frayers and required progress are distinct.
+- Any learner rebuild invalidates exact-build visual/technical evidence. Regenerate transfer JSON and update the current verification record; do not silently reuse the old hash.
+- Keep prior dated entries and teacher decisions; generated summaries must use bounded replacement.
+- Existing public deployment record is pre-bridge `912a213f...`; not fetched or redeployed this cycle.
+- Repository-wide dirty changes are user-owned. Never broad-stage, clean, reset or push. The checkpoint is not a backup of excluded archives or unrelated dependencies.
+
+## Next prompt should assume
+
+- This task completed the checkpoint, initial repairs and operating recipe, not all final academic work.
+- User's B–D workflow choice: full-unit build after complete intake, then complete review; no intermediate slice approval pauses. Do not interpret this as skipping materials, science or final teacher acceptance.
+- Remap genuinely aligned practice first; replace one-for-one second; add necessary skills evidence only when those cannot meet the behaviour. Preserve writing and audit any completion/time/state impact.
+- All 21 Pilot 1 rules and 31 Pilot 2 rules remain ineligible for automatic B–D transfer. Five Pilot 2 slice approvals retain their limited historical scopes.
+- Existing shared archives and five B–D notes PDFs were hash-verified. Consult the material lists before asking the teacher to resend resources.
+
+## What still needs validation
+
+- Close the seven work packages in the playbook: diagram/graph responses; practical skills and accommodations; actual scientific exchange/revision; full endocrine/published-data evidence; all 86 questions and prerequisite language; 14 media transcripts/local equivalents/time-on-task; complete exact-build acceptance.
+- Resolve microscope/prepared-slide and reflex-procedure materials with the teacher. Do not relabel ruler-drop reaction time as a reflex experiment.
+- Inspect action-potential refractory shading and replace generic distractor feedback during the academic pass.
+- Obtain independent item/key and media reviews; neither was completed by this structural audit.
+- No complete Unit A teacher acceptance or student usability trial is claimed.
+
+## Known risks
+
+- The 45 gap records overlap; count underlying issues, not 45 independent defects.
+- Contact sheets and automated readability/geometry cannot establish academic sufficiency.
+- Browser runs can fail on Studio preview/setup timing; retained failure traces and fresh-run results are in the verification record. Do not bypass controls or increase timeouts to manufacture a pass.
+- Source rights, current teacher sequence, source-specific video facts and actual skill demonstrations still need target-unit decisions.
+
+## Exact next command
+
+`npm run audit:biology30-improvement-transfer -- --check`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md` — start at “Current production recipe,” then the final Unit A work queue.
+
+## Do not do next / warnings
+
+- Do not mark Unit A academically complete or any B–D unit ready merely because technical tests pass.
+- Do not run B–D builds, deploy, export, push, promote, enable Studio Edit or make another commit without the required authorization.
+- Do not edit Pilot 1 learner content or production A–D as part of this contained pass.
+- Do not copy Unit A text, topic counts, vocabulary, diagrams, video/page IDs, answer keys, acceptance or state formats directly into another unit.
+
+
+## Archived 2026-09-05 — Chapter 11 academic repair; superseded by remaining academic review
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-2` and the Unit A → B–D operating record.
+- Task: Complete the next contained Chapter 11 academic repair batch after the user's “ok go.”
+- Status: Six study tasks, graph correction and detailed reproduction record implemented and technically verified. Academic gaps and complete-course teacher acceptance remain open.
+
+## Summary
+
+- Branch: `codex/studio-direct-editing-v1`. Existing recovery commit: `2ad72ec06b104c589f91e4b5afb8d86c322bc168`; no new commit or push.
+- Immutable pre-Chapter-11 SHA: `b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652`, preserved by the transactional builder under `raw/chapter-11-academic-baselines/`, including prior verification/contracts.
+- Current learner SHA: `21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5`.
+- Current workspace-tree SHA: `e9f39a3171ec6365fdd90863a268b0383e065d95efd64b1915d410a57f02c59a`.
+- Pilot 2 remains blocked, preview-only, Studio Edit disabled and non-exportable. Pilot 1 learner content and production A–D remain unchanged.
+
+## Files changed
+
+- New authored `scripts/lib/biology30-unit-a-pilot-2/chapter-11-study.ts`.
+- Authored `academic-evidence.ts`, `final-academic-audit.ts`, `render-gate1.ts`, `process-collection-content.ts`, `build-full.ts`, `build-process-collection-index.ts` in the same directory.
+- `scripts/audit-biology30-improvement-transfer.ts`, the Pilot 2 and transfer static tests, Pilot 2 E2E spec and visual-audit script.
+- Generated Pilot 2 learner HTML/contracts, new `meta/chapter-11-academic-repair.json`, current academic/verification records, journal, ledger and prompt pack.
+- Pilot 1 operational playbook and derived transfer/material-readiness JSON only; no Pilot 1 learner changes.
+- Active handoff, append-only archive and exact-build visual inspection record.
+
+## What changed
+
+- Six native collapsed study activities inside four existing Models and Data Lab panels: neuron parts, reflex pathway, voltage-graph labels, transport/propagation reasoning, grey/white matter and brain structures.
+- Each has an exact prompt, diagram or table, text equivalent, short response frame, autosaved notes and an explanation revealed after a non-empty attempt. Revealing never marks correctness or overwrites writing.
+- The same action-potential graph renderer serves Lesson 2 and the graph study task: numeric time/voltage scales, threshold, correct approximate refractory placement, matching data and a 105 mV worked change.
+- Six stable `:chapter-11-study:<id>:v1` response IDs are normalized in the existing responses map. Their writing joins four existing model collection records, copy and print. The 178-parent-record registry and schema 6 remain unchanged.
+- Updated exact evidence bindings remove eight broad/insufficient mappings. The audit now has 36 overlapping gap records, not nine newly teacher-certified outcomes.
+- Playbook journal entry 33 records materials, source locators, prompts, SVG/semantic choices, state limits, reveal/reset behaviour, builder changes, failures, checks and B–D adaptation in detail. The machine-readable transfer rule links to these implementation files and the exact review candidate.
+
+## Why this changed
+
+Existing recognition questions and diagrams could not demonstrate that a learner could identify all required structures, explain their functions or label a graph. The new response opportunities make those operations explicit without raising core reading difficulty, replacing questions or adding completion gates. Task presence is still not proof of mastery or physical skill performance.
+
+## Verification run
+
+Exact command results and retained failures: `projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json`.
+
+- Pilot 2 static 14/14; transfer tests 4/4; Pilot 1 regression 12/12; science comparison 6/6.
+- Specialized E2E 27/27 (10.9 minutes), project E2E 1/1, corrected focused pair 2/2. All on the current learner hash using isolated port 4182.
+- Workspace verification, manifests, Studio build, transfer generation and freshness check passed. Doctor reported only intentional `not-active`.
+- Earlier full run: 25 passed, two failed (reload fixture and Studio preview setup). Fixture corrected at document initialization; focused and full reruns passed without changing learner behaviour or increasing existing timeouts. The failed run is retained.
+- Exact visual report: `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T21-41-12-016Z/report.json`; SHA `35239dce56c040c29a9a344df7c44bfa1e77050773d0cd32ddde87e293b4ab7c`.
+- 81 route captures, 172 state captures, all 38 sheets opened/inspected, zero automated geometry findings. New tasks checked inline at four sizes; four SVGs enlarged; two actual-viewport neuron close-ups checked readability.
+- 102 relative Markdown file links resolved. File checks do not certify every anchor, scientific claim or external source.
+- Authored-source, metadata and documentation whitespace checks passed. The broader check reports nine whitespace-only generated blank lines in panels with no study task; this cosmetic warning is recorded without replacing the exact learner build already verified.
+- Unchanged: 13 lessons, five review routes, 18 required routes, 1,505/295 minutes, 86 practice items, 14 media checkpoints, 28 vocabulary families, 40 advanced blocks and all existing question semantics/IDs.
+- Worst-case state increased from 39,061 to **42,284** characters; schema 6, at most 73 persisted response fields, six newly added IDs. Only **1,716 characters** remain under the 44,000 target.
+
+## Source of truth
+
+- Start with `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`: current recipe, final-A queue and journal entry 33.
+- Current gaps: `projects/biology30-unit-a-pilot-2/meta/final-academic-review.json`.
+- This batch: `meta/chapter-11-academic-repair.json`; authored task contract `scripts/lib/biology30-unit-a-pilot-2/chapter-11-study.ts`.
+- Authored learner inputs remain `full-content.ts`, `render-gate1.ts` and their named contracts. Generated `workspace/index.html` is not a direct edit target.
+- Future B–D owner remains `scripts/lib/biology30-course/v1/` with `projects/resources/biology30-production/v1/units/`; no transfer implementation occurred.
+
+## Fragile areas / watchouts
+
+- New saved tasks must first pass another worst-case storage audit. Reuse or restructure evidence thoughtfully; do not silently raise the guard or truncate existing writing.
+- Study notes are independent of model scenario reset. Collection return links focus the parent model heading, not the child disclosure. These are documented limits, not exact-child navigation claims.
+- Draft notes do not self-mark correctness. Optional study notes, model collection, advanced flags and required completion remain separate.
+- Changing learner HTML invalidates the exact visual/verification hashes. Regenerate figure inventory and transfer records as well as the HTML hash.
+- Guide helper must live in the actually emitted runtime, not an unused legacy runtime function. Static HTML tests alone missed that intermediate mistake.
+- The transfer test now asserts the graph-labelling task and its stable response ID, not an outdated recognition-question mapping.
+- Concurrent review-deployment metadata and review ZIP are separately owned, preserved and not certified by this task. No hosted page was fetched or deployed here.
+- Dirty worktree is user-owned. No broad staging, cleaning, resetting, source archive moves or extra checkpoint commits.
+
+## Next prompt should assume
+
+- This is a completed Chapter 11 repair batch, not a finished Unit A academic review.
+- Continue remaining Chapter 12/13 needs from exact audit records; do not add generic tasks merely to reduce the gap count.
+- The user wants full-unit B–D builds after complete material intake, followed by complete review. This does not waive source, scientific or final teacher acceptance gates.
+- All 52 combined ledger rules remain ineligible for automatic B–D transfer. Historical slice approvals retain only their original scope.
+- Existing shared archives and five B–D notes were verified. Consult the material-readiness inventory before asking the teacher to resend resources.
+
+## What still needs validation
+
+- Chapter 12 eye/ear identification and independent graph construction; later endocrine structure/function, complete hormone and published-data evidence.
+- Teacher-approved microscopy/prepared-slide access and safe reflex procedure or explicit accommodations. A schematic is not microscopy; ruler-drop reaction time is not a reflex experiment.
+- Actual scientific exchange/revision, all 86 question keys/distractors/prerequisites, all 14 required media transcripts/local equivalents and full time-on-task.
+- Independent complete-build teacher acceptance and student usability. Visual geometry/readability scores are not substitutes.
+- LMS outcomes used mocks; no live Brightspace certification or no-write impersonation guard was added.
+
+## Known risks
+
+- The 36 gaps overlap; count underlying issues, not 36 independent defects.
+- Prior “atomic coverage” means mapped references, not universal academic sufficiency.
+- New diagrams and opportunities still require teacher review in context.
+- Browser tests can fail in Studio setup before reaching learner assertions; preserve failure evidence and rerun honestly.
+
+## Exact next command
+
+`npm run audit:biology30-improvement-transfer -- --check`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md` — “Final Unit A work queue,” then journal entry 33 and the linked current academic review.
+
+## Do not do next / warnings
+
+- Do not mark Unit A complete, teacher-accepted or B–D-ready because technical tests passed.
+- Do not build B–D, deploy, export, publish, promote, enable Studio Edit, commit or push without the required authorization.
+- Do not patch generated learner HTML or change Pilot 1/production A–D.
+- Do not automatically copy Unit A labels, response IDs, page/video references, diagrams, counts, acceptance or state budgets to another unit.
+
+## Archived 2026-09-05 — Source-grounded remaining academic review before corrective implementation
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-2` and the Unit A → B–D operating record.
+- Task: Carry out the user's remaining academic reviews; record source-grounded findings and an exact repair queue.
+- Status: Review findings recorded. Academic clearance remains blocked; thirteen transcript reviews, practical delivery decisions and corrective implementation are unfinished.
+
+## Summary
+
+- Branch: `codex/studio-direct-editing-v1`; existing checkpoint `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. No new commit or push.
+- Learner SHA unchanged: `21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5`.
+- Workspace tree unchanged: `e9f39a3171ec6365fdd90863a268b0383e065d95efd64b1915d410a57f02c59a`, 22 files, 29,628,699 bytes.
+- This pass did not rebuild or alter any learner course. Pilot 2 stays blocked, preview-only, Studio Edit disabled and non-exportable. Pilot 1 learner content and production A–D remain protected.
+- Earlier Chapter 11 work and its 38-sheet visual/browser evidence remain attached to this same learner build; those checks were not repeated in this report-only pass.
+
+## Files changed
+
+- New authored judgments: `scripts/lib/biology30-unit-a-pilot-2/remaining-academic-review.ts`.
+- New read-only source collector: `scripts/lib/biology30-unit-a-pilot-2/review-academic-source-evidence.py`.
+- New generator/checker: `scripts/review-biology30-unit-a-pilot-2-academic.ts`; new seven-test suite `scripts/tests/biology30-unit-a-academic-review.test.ts`.
+- New Pilot 2 metadata: `remaining-academic-review.json`, `remaining-academic-review.md`, `remaining-academic-review-verification.json`.
+- Pilot 2 improvement journal, ledger and prompt pack; canonical Pilot 1 operational playbook, journal entry 34.
+- Transfer-audit generator/test and derived transfer/readiness JSON; no B–D builder or production-record changes.
+- This active handoff and append-only archive. The previous Chapter 11 handoff was archived before replacement.
+
+## What changed
+
+- All 86 prompts, choices, keys and rationales received source-grounded item judgments with exact local teaching selectors/hashes, outcome/prerequisite references and actual textbook page recommendations.
+- No answer key reversal recommended. However: 68 generic-feedback items; 62 first/21 second/3 third/0 fourth correct positions; all 24 Final Practice keys appear first; weak distractors and unprepared terms remain.
+- Twelve Final Practice links wrongly use Chapter 13 for Chapter 11/12 content, yielding negative physical pages. Root: mixed sets call `practiceItems` with one chapter-13 argument. Separately, 22 printed-page selections target unrelated teaching. Counts overlap.
+- All 14 local paths are four-step text summaries, not complete illustrated equivalents. Each has an individual objective/visual repair recommendation and checkpoint review.
+- Public metadata reports fourteen available clips with English tracks, totaling 6,131 seconds. Every direct timed-text fetch returned HTTP 200 with an empty body. One complete NIH brain publisher transcript was reviewed with scope/wording concerns; thirteen actual transcript reviews remain pending. No playback/caption-accuracy or full pacing claim.
+- Standards PDF physical pages 6–10 were rendered and opened to inspect the two columns. The 53 stored rows comprise 47 acceptable examples, five excellence examples and one locally authored communication criterion. Earlier blanket “53 acceptable behaviours” claims are corrected in the operative playbook, not silently rewritten out of historical entries.
+- All 36 overlapping gaps now have authored dispositions. Independent action-potential graph drawing and the particular environmental-endocrine published-data hypothesis example are excellence examples, not automatic extra core requirements. Broad curriculum analysis/inquiry/communication outcomes remain.
+- The detailed playbook records extraction, page checking, source errors, review failures, caption-access limits, exact reproduction commands, ownership and B–D prevention measures. The existing academic-evidence rule carries this new review without changing acceptance.
+
+## Why this changed
+
+Technical coverage tags, valid selectors, video metadata and attractive layouts had been treated too readily as academic completeness. Reviewing actual teaching, every question, source-page contents and standards columns revealed concrete defects. Correct those while preserving the accessible lesson direction, rather than raising core difficulty again.
+
+## Verification run
+
+Full current record: `projects/biology30-unit-a-pilot-2/meta/remaining-academic-review-verification.json`.
+
+- Focused academic-review tests 7/7; Pilot 2 static 14/14; transfer 4/4; science comparison 6/6.
+- Pilot 1 regression 12/12 on rerun. First run was 11/12 because the newly linked verification file was not yet written; that failure is retained.
+- Academic review freshness, transfer generation/freshness, manifests, scoped whitespace and 132 local Markdown file links passed.
+- Doctor exited 1 with only intentional `not-active`.
+- Pilot 2 protected-tree test passed; independent learner/workspace hash check matches the preceding build.
+- No learner build, new UI/browser/E2E run, visual audit, deployment, export or Studio build was necessary/performed for these authoring-only review changes. The previous technical/visual record remains separate, not relabelled as this pass.
+- Passing tests mean review records match the current known defects, not that those defects were repaired.
+
+## Source of truth
+
+- Start: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`, current recipe and journal entry 34.
+- Current source-grounded review: `projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.md` and JSON.
+- Earlier structural inventory: `meta/final-academic-review.json`. Retain it; the supplemental review reconciles its source-level/scope errors.
+- Learner authoring remains `scripts/lib/biology30-unit-a-pilot-2/full-content.ts`, `render-gate1.ts` and their contracts. Never patch generated `workspace/index.html`.
+- B–D remain owned by `scripts/lib/biology30-course/v1/` and unit records under `projects/resources/biology30-production/v1/units/`.
+
+## Fragile areas / watchouts
+
+- The review checker binds to the learner SHA and hashes of its authored judgments, generator and reviewed contracts. After any learner or reviewed-contract change, rerun the affected academic review before regenerating the report. Do not just replace its hash to make tests pass.
+- Printed-page arithmetic is not enough: choose the document per item, reject out-of-range physical pages and inspect the actual explanation. Page 440's erroneous thyroxine classification must not undo corrected local science.
+- Reordering visible choices should preserve stored option values/meaning; version materially replaced questions. Do not discard unaffected answers.
+- State remains schema 6, storage key `biology30-unit-a-pilot-2:state:v1`, ordinary-text estimate 42,284; only 1,716 characters under 44,000. No new saved fields this pass. This is not an adversarial escaping/Unicode worst-case proof.
+- The 178 parent collection records, 40 Advanced Learning flags, 86 practice items, 14 media checkpoints, 28 vocabulary families, 18 required routes and 1,505/295 minutes remain unchanged.
+- The collector used `/tmp/biology30-academic-review-0xcqhs`. It contains inspection text/PDFs, not durable canonical assets. Retained metadata records source checksums/URLs. Never publish extracted source/transcript scratch or private URLs.
+- Public watch metadata and empty caption responses are not transcript approval. Publisher authority alone does not make the whole clip suitable.
+- Concurrent review-deployment metadata remains separately owned. No hosted build was fetched or certified here.
+- The user owns the existing dirty tree; no broad staging, cleanup or additional checkpoint.
+
+## Next prompt should assume
+
+- The user's latest request authorized academic review, not silent course fixes. Ask for/act on the next explicit correction instruction before rebuilding.
+- Suggested first repair batch: per-item textbook document/page selection and bounds, key-position presentation, misconception-specific feedback, coherent introduced distractors and standards-level contract correction.
+- Then finish objective-mapped illustrated media paths and transcript/segment review; address eye/ear/gland/hormone and inquiry evidence using existing saved tasks where possible.
+- Do not auto-close gaps, mark the course accepted or begin B–D because review-data tests pass.
+- All 52 combined rules remain ineligible for automatic B–D transfer. Historical slice approvals retain only their original scope.
+- B–D full-unit builds remain contingent on complete unit-specific intake and complete Unit A acceptance, not another automatic copy of A's labels/counts/references.
+
+## What still needs validation
+
+- Thirteen actual video transcripts/captions plus displayed caption accuracy and segment pacing; the NIH brain transcript has unresolved scope/wording qualifications.
+- Teacher practical-delivery choice: fully online, supervised or mixed. An asynchronous question was sent; no reply received at handoff.
+- Actual student workload/comprehension, complete teacher acceptance and eventual live LMS validation.
+- Repairs to the current known links, feedback, assessment balance, local media parity, and remaining response-operation gaps.
+- Whole-course scientific review is not reduced to readability scores; review any modified content on its exact new build.
+
+## Known risks
+
+- The old 36 gaps overlap; some reasons over-prescribe illustrative/excellence examples. Use the new individual judgments rather than adding 36 activities.
+- Reading level and longer explanations are strengths; fixes should add precision and usable evidence, not revert to Pilot 1's dense required prose.
+- Local media summaries can answer their checkpoints yet still fail the promised instructional parity.
+- Current technical test titles may retain old standards terminology; they prove structural presence, not 53 acceptable-source classifications.
+
+## Exact next command
+
+`npx tsx scripts/review-biology30-unit-a-pilot-2-academic.ts --check`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.md` — findings AR-01 through AR-12, per-item recommendations and every-gap dispositions; then playbook entry 34.
+
+## Do not do next / warnings
+
+- Do not mark the course academically cleared, teacher-accepted, exported, deployed or B–D-ready.
+- Do not change Pilot 1 learner content, production Units A–D, secure-source archives or unrelated work.
+- Do not deploy, publish, commit, push, promote or enable Studio Edit without explicit authorization.
+- Do not certify unviewed transcripts, practical skills or real student performance.
+
+## 2026-09-06: docs/ops/ACTIVE_HANDOFF.md (pre-complete-online-finalization)
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-2` and the canonical Unit A → B–D operating record.
+- Task: Implement the authorized first academic correction batch after the remaining-review findings.
+- Status: Bounded correction batch implemented; focused/project verification passed with broad-suite preview startup failures retained. Academic clearance remains blocked and teacher acceptance is unresolved.
+
+## Summary
+
+- Branch `codex/studio-direct-editing-v1`; checkpoint `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. No new commit, push or deployment.
+- Current learner SHA `f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865`; tree `982c883f92a51cd5176b9561745ed3a1b8496b5866c3d9614612ed54fac9db27`.
+- Pre-correction `21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5` HTML and reviewed metadata are preserved under `raw/academic-correction-baselines/<sha>/`.
+- The historical source-grounded review still binds to that preserved baseline. Do not replace its hash with the corrected candidate hash.
+- Pilot 2 stays blocked, preview-only, Studio Edit disabled and non-exportable. Five protected Pilot 1/production A–D learner trees remain unchanged.
+
+## Files changed
+
+- New authored overlay `scripts/lib/biology30-unit-a-pilot-2/practice-corrections.ts`; independent report logic `academic-corrections.ts`.
+- New `scripts/check-biology30-unit-a-academic-corrections.ts` and `scripts/tests/biology30-unit-a-academic-corrections.test.ts`; the standard Pilot 2 npm test now includes the four new correction tests.
+- Authored renderer/types/Process Collection mapping: `render-gate1.ts`, `full-content.ts`, `process-collection-content.ts`.
+- Standards/evidence/build ownership: `contracts.ts`, `atomic-contract.ts`, `academic-evidence.ts`, `final-academic-audit.ts`, `build-process-collection-index.ts`.
+- Historical review checker/tests now resolve the immutable source snapshot rather than treating the new candidate as the old reviewed build.
+- E2E and visual-audit extensions; generated learner HTML and scoped Pilot 2 contracts/reports.
+- New `meta/academic-corrections.json`, Markdown report and verification; updated final verification, Pilot 2 ledger/journal/prompt pack.
+- Canonical Pilot 1 operational playbook entry 35/current recipe, transfer generator/test/derived records, science workflow, this handoff and archive. No Pilot 1 learner change.
+
+## What changed
+
+- 49 item-level textbook locators repaired; all current controls have valid document/physical-page bounds. Mixed Final Practice no longer inherits one Chapter 13 document for nervous/sensory items.
+- All 86 feedback panels offer exact local teaching links. Limited textbook support is labelled background.
+- 188 weak wrong alternatives replaced; all 258 visible wrong choices have specific feedback. Correct-answer displayed positions: 21/22/22/21.
+- Every prompt, correct answer value/text and rationale is preserved. Unchanged choice values keep their meaning; changed alternatives get fresh values while retired values/text/feedback remain readable in old saved responses and Process Collection.
+- Standards contracts now distinguish 47 acceptable examples, five excellence examples and one local criterion; five excellence records bind to exact existing optional work. Required core instruction stays unchanged.
+- The structural queue now has 35 overlapping gap records (32 required-scope, three optional-scope); a classification/existing-comparison correction explains the reduction from 36. This is not another certified core learning outcome.
+- Full minutely reproducible source/implementation/state/test process is in playbook entry 35. All 52 transfer rules remain ineligible until complete Unit A acceptance.
+
+## Why this changed
+
+The academic review found valid-looking links to wrong pages, generic or implausible distractors, nearly all-first key positions and flattened standards columns. The correction batch repairs those concrete defects without raising core reading difficulty, replacing the accepted shell or losing saved work.
+
+## Verification run
+
+Authoritative current record: `projects/biology30-unit-a-pilot-2/meta/academic-corrections-verification.json`; the latest `final-academic-verification.json` points to the same scope.
+
+- Standard Pilot 2 static 18/18; combined correction/historical/Pilot 2 suites 25/25.
+- Pilot 1 regression 12/12; science comparison 6/6; transfer 4/4 and generation/freshness passed.
+- Workspace verification, manifests, Studio build, 148 local Markdown file links and scoped authored/metadata whitespace checks passed.
+- Doctor exits 1 with only intentional `not-active`.
+- New focused browser checks passed 3/3: previous-answer compatibility, all 86 current keys/feedback/exact links, and all save-message cases.
+- Project E2E passed 1/1. The second full browser run passed 27/29; both failures were Studio preview-readiness timeouts before course interaction. Final targeted recheck passed both cases (2/2, 57.4 seconds) under `/tmp/biology30-correction-e2e-cejY32/preview-recheck`. All 29 distinct cases passed across recorded runs, but there is no clean single full-suite pass. No timeout/assertion/forced-control workaround was used.
+- First full run: 24/29, four Studio preview-readiness failures before learner interaction and one save-scenario navigation timeout. Retain traces in `test-results`; focused fresh run passed under `/tmp/biology30-correction-e2e-cejY32/focused`.
+- Visual report `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-06T01-17-16-990Z/report.json`, SHA `aa6a11c60a75e329553bf7de08c043a9080827cf63682c1b6bc76ed02b3f9903`: 81 route captures, 184 state captures, all 39 contact sheets opened and inspected, zero automated geometry findings, three full-size feedback close-ups.
+- New feedback reviewed at desktop, tablet, mobile and 200-percent text size. Blank cross-origin PDF/video panes in headless captures are not certification of playback or captions.
+
+## Source of truth
+
+- Start: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`, current recipe and entry 35.
+- Implemented item-level decisions: `scripts/lib/biology30-unit-a-pilot-2/practice-corrections.ts`.
+- Current report: `projects/biology30-unit-a-pilot-2/meta/academic-corrections.md` and JSON.
+- Historical remaining findings: `meta/remaining-academic-review.md`; current structural/evidence queue: `meta/final-academic-review.json`.
+- Learner source remains the authored TypeScript under `scripts/lib/biology30-unit-a-pilot-2/`, not generated `workspace/index.html`.
+- B–D remain owned by `scripts/lib/biology30-course/v1/` and unit records under `projects/resources/biology30-production/v1/units/`.
+
+## Fragile areas / watchouts
+
+- A valid physical page is not necessarily relevant. Inspect the actual explanation and qualify limited support. Keep corrected local science over source neuromyths or outdated shorthand.
+- Stored choice values are meanings, not positions. Never reuse a retired value for a different answer. Materially changed prompts/keys need versioned question IDs and a separate migration.
+- Retired answers display as previous responses, not selected new options. New attempts replace only that item's saved answer; no duplicate history state is introduced.
+- Historical checker self-hash comparison is excluded only for its archived mode because archive-resolution code changed. Other archived source hashes and report bytes remain checked; the new live correction checker is separate.
+- Ordinary-text state estimate remains 42,284 across at most 73 persisted fields; 1,716 target characters remain. No new fields, limits, schema or completion rules changed. Not adversarial Unicode/escaping certification.
+- Totals stay 13 lessons + five reviews, 18 required routes, 1,505/295 minutes, 86 questions, 40 advanced blocks, 14 media checks, 28 vocabulary families and 178 Process Collection parents.
+- External deployment metadata and unrelated dirty changes are separately owned; preserve them. Do not broad-stage, clean or commit.
+- The review scratch directory `/tmp/biology30-academic-review-0xcqhs` contains inspection sources, not publishable assets. Never add private transcripts, source archives or authoring URLs to learner content.
+
+## Next prompt should assume
+
+- The latest user authorized this bounded corrective implementation. It does not automatically authorize a rebuild of every remaining skills/media task or B–D.
+- Next substantive batch: full objective-mapped local illustrated media equivalents and actual transcript/segment review. Thirteen transcripts remain unreviewed; fourteen local summaries still need illustrated parity.
+- Obtain the teacher's online/supervised/mixed practical-delivery decision before prescribing new physical requirements.
+- Then address appropriately scoped Chapter 12/13 structure-function, hormone, inquiry/communication evidence and the final assessment topic/cognitive-demand blueprint.
+- Preserve accessible core and existing state, reuse saved fields where possible, update the journal/index/ledger after verification, and obtain complete exact-build teacher acceptance before B–D.
+
+## What still needs validation
+
+- Broad-suite Studio startup instability remains a technical limitation, separate from the passing project gate and demonstrated learner behaviours; investigate separately if repeated in future runs.
+- Actual media content/captions, illustrated parity, practical delivery, whole-course academic sufficiency, measured student workload/comprehension and separate teacher acceptance.
+- Eventual live Brightspace save/restore and delivery validation. Mock SCORM tests are not LMS certification.
+
+## Known risks
+
+- Thirty-five gaps overlap and include optional examples; do not automatically add 35 core activities.
+- Improved feedback and balanced keys do not establish perfect topic weighting or appropriate cognitive demand.
+- The current build is not necessarily the hosted teacher-review build; no hosted inspection or deployment occurred.
+- Successful technical tests mean verified implementation, not teacher acceptance or B–D transfer permission.
+
+## Exact next command
+
+`npx tsx scripts/check-biology30-unit-a-academic-corrections.ts`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot-2/meta/academic-corrections-verification.json`, then playbook entry 35 and the remaining-media findings in `meta/remaining-academic-review.md`.
+
+## Do not do next / warnings
+
+- Do not mark Unit A academically cleared, teacher-accepted, deployed, exported or B–D-ready.
+- Do not change Pilot 1 learner content, production A–D, secure archives or unrelated work.
+- Do not deploy, publish, commit, push, promote, enable Studio Edit or automatically transfer rules without explicit authorization.
+- Do not certify unviewed transcripts, classroom practical skills or real student outcomes.
+
+
+## 2026-09-06 — Unit A online-finalization handoff before B/C/D planning restart
+
+Preserved verbatim below. The subsequent B/C/D restart records a separate provisional-use authorization; it does not change this Unit A candidate's acceptance or deployment status.
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-2` and the canonical Unit A → B–D operating record.
+- Task: Finish the complete Unit A online candidate and its reproducible transfer documentation for one final teacher clearance.
+- Status: Implementation and scoped verification complete; awaiting explicit complete-build teacher review. Not deployed, academically accepted or released.
+
+## Summary
+
+- The user asked to finish rather than pause for another slice, then confirmed: “This is all online.” The finished candidate has no equipment, body-testing or required-partner dependency.
+- Branch `codex/studio-direct-editing-v1`; existing checkpoint `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. No new commit or push.
+- Current learner SHA `ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105`; tree `f9b0f45627d8deba6bc4bb72c9608c1ff3a2d0252272c8187e4f58a82444807d`.
+- Pre-online SHA `f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865` and its metadata are preserved under `raw/online-finalization-baselines/<sha>/`. Earlier correction and review reports remain bound to their historical builds.
+- Pilot 2 remains blocked, preview-only, Studio Edit disabled and non-exportable. Pilot 1 and production A–D learner trees passed byte-preservation checks. Operational Pilot 1 playbook/transfer records alone were updated.
+
+## Files changed
+
+- New authored Pilot 2 owners: `online-media.ts`, `online-studies.ts`, `online-investigations.ts`, `online-video-review.ts`, `render-online.ts`, `online-finalization.ts` and `practice-academic-review.ts` under `scripts/lib/biology30-unit-a-pilot-2/`.
+- Integration: `render-gate1.ts`, `process-collection-content.ts`, `academic-evidence.ts`, `final-academic-audit.ts`, `build-process-collection-index.ts` and the owning build command.
+- Generated Pilot 2 learner, online/academic/state/collection contracts, ledger, journal and prompt pack; local CDC prepared-tissue image and provenance.
+- New operational `meta/final-clearance-review.md`, `meta/final-practice-blueprint-review.md`, `meta/online-finalization-verification.json`; refreshed current `meta/final-academic-verification.json`.
+- Static, specialized E2E and visual-audit coverage; historical correction checker resolves its preserved baseline.
+- Scoped shared `app/server/lib/preview-inspection.ts` performance fix and `scripts/tests/preview-inspection.test.ts` exact-output/performance tests.
+- Canonical playbook current recipe and entry 36, transfer generator/test and 53-rule generated records, science workflow and this handoff/archive.
+- Do not confuse unrelated pre-existing dirty files (including other course assets and deployment metadata) with this task's changes.
+
+## What changed
+
+- Fourteen complete local illustrated media paths with 42 ordered panels, a worked example and exact model link. All 14 full English caption texts were read; lesson embeds now use reviewed excerpts with local corrections. No custom Play control or autoplay.
+- Five saved structure/function matrices: eye, ear, endocrine glands, hormone source/target/effect and imbalance comparisons; real public-domain CDC prepared-tissue observation. No new required scores or completion conditions.
+- All three investigations now contain online supplied-data/model observation, variables, calculations/comparisons, limitations, sentence frames and revised conclusions. Asynchronous feedback is optional; independent comparison does not claim actual teamwork.
+- Five compact matrix response IDs and one 260-character observation ID added within existing state version 6. Decoded wording appears under existing Process Collection parents and in copy/print.
+- All 86 practice items have specific authored concept-operation mappings. A recognition answer is not claimed as graph construction, experimental performance or communication evidence.
+- The former 35 overlapping implementation-gap records have explicit online destinations. That is an implementation finding, not observed mastery or teacher acceptance.
+- The shared preview decorator's repeated full-HTML insertion was replaced with equivalent slice assembly: the 72,001-node fixture fell from about 30.6 seconds to 283 ms. Exact bytes and edit ownership remain tested.
+- Visual review caught obsolete descendant grid rules squeezing nested ADH/thyroid labels. Removed in authored source before the final rebuild; current complete visual and browser runs use the repaired SHA.
+- Detailed materials, caption review, CDC provenance, encoding, normalizers, online inquiry adaptations, scientific limits, failures, commands, recovery and B–D adaptations are recorded in playbook entry 36.
+
+## Why this changed
+
+The earlier academic pass fixed questions and sources but still had text-only media fallbacks, incomplete structure/function evidence and unresolved practical-delivery assumptions. The user's online clarification enabled a complete digital-learning implementation while preserving accessible core teaching and saved work.
+
+## Verification run
+
+Authoritative current record: `projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json` (matching `online-finalization-verification.json`).
+
+- Pilot 2 static 19/19.
+- Specialized E2E 31/31 in a single clean 11.1-minute run on the current SHA, output `/tmp/biology30-online-final-complete`.
+- Project E2E 1/1; platform smoke 1/1. Outputs `/tmp/biology30-online-final-project` and `/tmp/biology30-online-final-smoke`.
+- Pilot 1 regression 12/12; science comparison 6/6; transfer 4/4 and 53-rule freshness.
+- Workspace verification, manifest validation and Studio build passed; doctor exits 1 with only intentional `not-active`.
+- Exact visual report `.runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-06T05-09-30-087Z/report.json`, SHA `a89bd47f58f5d08b136515887b963e2482b426a7f4bf0cb3d01d4c17845533ae`: 81 route captures, 409 state captures, all 68 sheets opened and inspected, zero automated geometry findings.
+- Three Lesson 11 data/comparison regions verified with keyboard horizontal scrolling at 390×844 and external network blocked; no document overflow.
+- Four directly relevant preview-inspection tests passed. The full preview suite has two unrelated stale Social/English fixture expectations: those fixtures already declare legacy-snapshot workspace ownership, while old assertions expect generated sources. Do not reactivate a legacy builder to make a test pass.
+- Repository typecheck remains red with 25 errors in out-of-scope English/Cheerio, Forensics, Social, Pilot 1 test metadata and PE10 code. No touched Pilot 2 or preview implementation error was reported.
+- Historical failed runs and superseded layout findings are retained, not presented as current passes. Contact sheets are structural overviews; full-size samples supplement them. Text-size tests do not certify every browser zoom mode; video frames do not certify complete playback or live LMS persistence.
+
+## Source of truth
+
+- Start: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`, current recipe and journal entry 36.
+- Final decision sheet: `projects/biology30-unit-a-pilot-2/meta/final-clearance-review.md`.
+- Current implementation/evidence: `meta/online-finalization.json`, `meta/final-academic-review.json`, `meta/final-academic-verification.json`.
+- Authoring remains TypeScript under `scripts/lib/biology30-unit-a-pilot-2/`; `workspace/index.html` is generated. Never patch only the learner candidate.
+- B–D: `scripts/lib/biology30-course/v1/` and unit records under `projects/resources/biology30-production/v1/units/`. The 53-rule transfer contract and per-unit readiness record are in Pilot 1 `meta/`; no unit is marked ready without its source gates.
+
+## Fragile areas / watchouts
+
+- Counts remain 13 lessons + five reviews, 18 required routes, 1,505 required / 295 optional minutes, 86 questions, 40 advanced blocks, 14 media checkpoints, 28 vocabulary families and 178 collection parent records.
+- State remains version 6 and the existing storage key. Ordinary-text worst-case fixture: 42,738 characters across at most 79 response fields, six new. The 44,000 target/48,000 guard and last-valid-state recovery remain; this is not adversarial Unicode certification.
+- Any learner-byte change invalidates current visual, verification and acceptance references. Regenerate from authored source and verify a new exact SHA; do not rebind historical reports.
+- Review videos by actual content, not just title/oEmbed. Focused excerpts have corrections and complete local counterparts; full sources remain supplementary, not wholesale endorsements.
+- Retain old response meanings/values. A materially changed Final Practice prompt requires a versioned item ID/migration; never attach old answers to a new prompt.
+- Reuse study responses within existing Collection parents; do not persist a duplicate decoded index or claim the 178 parents count every child control.
+- Wide data tables scroll in labelled keyboard-focusable regions. Do not restore blanket descendant grids for `.illustrated-equivalent li`.
+- Historical user-selected generated images remain recorded in the playbook; this pass created semantic visuals and used a real source micrograph, not a new ChatGPT-image batch.
+
+## Next prompt should assume
+
+- The whole authoring pass is done; do not restart an old slice gate or another generic academic audit.
+- The next user decision concerns this exact complete candidate and the single clearance sheet. Prior “go/finish” requests are not acceptance.
+- One explicit assessment decision remains: current core Final Practice is 6 nervous / 3 sensory / 7 endocrine including homeostasis / 2 integrated, versus the originally planned 6/4/6/2. All meanings and IDs were preserved. Accept the variance or request a scoped versioned sensory replacement.
+- Accepting the candidate would not automatically approve B–D content, publication, deployment, LMS certification or Studio editing.
+- B–D work begins only with the accepted rule scope and each unit's material gap audit. Known archives/notes are indexed; inventory missing material instead of requesting everything again.
+
+## What still needs validation
+
+- Explicit teacher clearance of the complete build, including clip choice/illustrated parity, online inquiry sufficiency, assessment weighting and practical workload.
+- Real learner comprehension, time and any required interpersonal/performance evidence cannot be inferred from code tests.
+- Actual Brightspace save/restore and cross-device delivery require a separate authorized release validation. Mock SCORM tests are not LMS certification.
+
+## Known risks
+
+- The hosted review site was not redeployed and must not be assumed to contain this SHA. “All online” described instructional delivery, not deployment authority.
+- The 47 acceptable examples, five excellence examples and one local criterion must not be flattened back into “53 acceptable behaviours.”
+- Teacher/student outcomes, physical microscope handling, unobserved collaboration and full-source audiovisual accuracy are not certified.
+- Shared repository typecheck/legacy-fixture failures remain explicit; the clean Pilot 2 gates do not make the entire repository green.
+
+## Exact next command
+
+`shasum -a 256 projects/biology30-unit-a-pilot-2/workspace/index.html`
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot-2/meta/final-clearance-review.md`
+
+## Do not do next / warnings
+
+- Do not mark teacher accepted, released, deployed, exported, Studio editable or B–D ready without the corresponding explicit authorization and evidence.
+- Do not change Pilot 1 learner files, production A–D, protected archives or unrelated dirty work.
+- Do not deploy, publish, commit, push, export, promote or auto-transfer.
+- Do not delete historical reports, failed-run evidence or numeric duplicate files during this work.
+
+
+# Handoff
+
+- Project: `biology30-unit-b`, `biology30-unit-c`, `biology30-unit-d`; final Unit A Pilot 2 is a protected provisional reference.
+- Task: Carry the final Unit A learning/process design into complete B/C/D candidates through their owning Biology builder.
+- Status: Detailed plan and restart package saved and verified; B/C/D rebuild not started. Ready for the fresh local execution task.
+- Start here: [Full implementation plan](../plans/biology30-bcd-pilot2-rebuild.md).
+- Next-task setup: **same saved local checkout**, Astra / High / Standard. [Copyable prompt](biology30-bcd-next-task-prompt.md).
+
+## Summary
+
+The user supplied the two Brightspace archives, six editable decks and seven daily plans, then chose the full-unit B → C → D approach. The complete prior plan is preserved in sections 1–5 of the linked document, with the subsequently requested model-effort and fresh-task rules in section 0.
+
+Unit A Pilot 2 remains technically verified but not completely teacher-accepted. The user explicitly authorized using it **provisionally** to begin B/C/D preparation; this supersedes the older wait-for-A-acceptance process gate for this separate rebuild only. No accepted flag, source clearance, unit score or release approval is fabricated.
+
+Branch: `codex/studio-direct-editing-v1`. HEAD: `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. There are extensive pre-existing dirty/untracked files; a clean worktree or the old checkpoint alone would omit current work.
+
+## Files changed
+
+Documentation/operational records only in this cycle:
+
+- [Complete B/C/D plan](../plans/biology30-bcd-pilot2-rebuild.md).
+- [Pinned source inventory](../../projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json).
+- [Branch, source-owner and learner-tree checkpoint](../../projects/biology30-unit-a-pilot/meta/bcd-rebuild-handoff-checkpoint.json).
+- [Next-task prompt](biology30-bcd-next-task-prompt.md).
+- [Canonical playbook](../../projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md), [pilot prompt pack](../../projects/biology30-unit-a-pilot/meta/prompt-pack.md) and [science workflow](../workflows/science-pilot.md).
+- This handoff; its preceding complete Unit A handoff was appended verbatim to [Archived Handoffs](ARCHIVED_HANDOFFS.md).
+
+No learner HTML, builder, production contract, source archive, image, deployment, export, acceptance record or Git history changed.
+
+## What changed and why
+
+- Recovered the full previously presented B/C/D plan rather than reducing it to a summary.
+- Rechecked all 15 supplied-file hashes and both shared archive copies. Located/checksummed all eight textbook members. Six have 128-byte wrappers; Chapter 16 comprises four and 36 pages. Page counts and teaching findings are explicitly attributed to the earlier read-only planning inspection.
+- Saved the actual teacher topic order: B eight lessons, C eighteen, D four, plus reviews for 12/23/8 required routes.
+- Preserved unit times B 1,200/240, C 2,400/480 and D 900/180 required/optional minutes.
+- Preserved unit-specific practice sizing, online investigations, required video-or-illustrated-path checkpoints, Frayer collection, advanced learning, exact textbook guides, interactive models, unified collection, truthful save messages and state migration requirements.
+- Recorded the full ChatGPT image prompting/correction/download/comparison workflow, with scientifically checked provisional choices and later teacher selection.
+- Added Astra High/Standard as the main policy; Medium for actually configured bounded routine work; Max only for a named, explicitly approved escalation. Documentation does not switch a running model.
+
+## Source of truth
+
+- Execute [the full plan](../plans/biology30-bcd-pilot2-rebuild.md), not this summary alone.
+- Use [the intake manifest](../../projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json) for the newly supplied originals and textbook members.
+- [The earlier generated materials readiness](../../projects/biology30-unit-a-pilot/meta/bcd-material-readiness.json) covers the older archive/notes stage. Its standalone-source missing flags are superseded by the new availability overlay, not manually changed to ready. Integrate the manifest into that generator during preparation.
+- Use [the playbook](../../projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md), including the new B/C/D restart addendum and detailed historical procedures, and [all 53 rules](../../projects/biology30-unit-a-pilot/meta/biology30-improvement-transfer-contract.json). Per-rule acceptance remains unchanged.
+- B/C/D owners: `scripts/lib/biology30-course/v1/` and `projects/resources/biology30-production/v1/units/unit-{b,c,d}/`. Existing generated workspaces are not direct authoring inputs.
+- A owners/reference: `scripts/lib/biology30-unit-a-pilot-2/`, [final verification](../../projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json) and [clearance sheet](../../projects/biology30-unit-a-pilot-2/meta/final-clearance-review.md). Do not rebuild A.
+
+## Verified learner checkpoints
+
+| Workspace | SHA-256 |
+| --- | --- |
+| Pilot 2 reference | `ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105` |
+| B pre-rebuild | `87e8db1578ae2f44edce4114ed093adbff63ec8fb0031ffead3ec3eedf7204c1` |
+| C pre-rebuild | `ffe8fdf35d1ee00e4788a8655baa4060838d06ac0e8433371abb88fcc4df07dd` |
+| D pre-rebuild | `f1c0755e5d65f951b3401ccd8b181f2e32625485d52fe9446edc96015c8e8760` |
+
+The checkpoint JSON also pins Pilot 1, production A, every relevant learner tree, both builder directories, and the production-record tree. Its tree algorithm is documented; do not confuse it with historical tree-hash formats.
+
+## Verification run
+
+- `npm run test:biology30-unit-a-improvement-pilot`: 12/12 passed; non-failing PDF font warnings.
+- `npm run test:biology30-improvement-transfer`: 4/4 passed.
+- `npm run validate:manifests`: passed.
+- `npm run audit:biology30-improvement-transfer -- --check`: passed, 53 rules; old generated reports/acceptance remain unchanged.
+- All 15 supplied hashes and both shared ZIP copies matched; eight textbook-member checksums recorded; 169 local Markdown links resolved.
+- The entire original five-section B/C/D plan is preserved; prior active handoff archived exactly; prior archive bytes and playbook history preserved.
+- Nine protected tree hashes match: six learner workspaces, two builder directories and the canonical production-record tree. Branch/HEAD unchanged.
+- Scoped `git diff --check`: passed.
+- Full details and packet hashes are in the checkpoint JSON. No learner build, browser/E2E, visual audit, deployment or LMS run was performed for this documentation-only cycle. Historical A evidence remains separately hash-bound.
+
+## Fragile areas / watchouts
+
+- A's complete teacher decision is still null. Its core Final Practice uses 6/3/7/2 versus original 6/4/6/2; do not resolve that by changing A in this task.
+- The older 53-rule register still says awaiting complete-A acceptance. That is an acceptance statement, not a denial of the user's separate provisional-build authorization.
+- The new resource command/profile/strict baseline flags in the plan are **not implemented yet**. Do not execute them as if available.
+- All-unit atomic maps, actual practice/vocabulary/advanced counts, per-route timing, media review and migration proof still have to be produced before rendering.
+- Do not copy A counts or response IDs. Its ordinary-text state fixture is 42,738 characters, not arbitrary-Unicode certification. B/C/D need their own measured maximum-escaping and Unicode fixtures.
+- Original sources remain in Downloads or shared archives. Checksums are not a backup; do not delete/move originals. Temporary browser exports and tab IDs may expire.
+- Keep new learner assets free of private ChatGPT links, teacher keys, credentials, technical provenance and administration text.
+- Historical repository typecheck had 25 unrelated errors and two preview-suite legacy-fixture failures. These are not claimed as refreshed results; distinguish new failures from historical baseline noise.
+
+## Next prompt should assume
+
+- Use the **local saved project directly** at `/Users/deanguedo/Documents/GitHub/canvas-helper`; do not create a clean worktree, clone or unrelated project.
+- Begin with preflight, transactional intake/baselines and all-unit planning contracts. Continue into implementation in B → C → D order once those contracts validate.
+- No new slice approval pauses. Stop for genuine authority, source, science or technical blockers. Complete-unit teacher review is still required separately.
+- Use the user's ChatGPT browser for actual image gaps; inspect the current tab and availability instead of assuming the old session survives.
+- Update the work queue, exact hashes, failures and next command in this handoff after each stage and before stopping. Do not restart discovery after compaction.
+
+## What still needs validation
+
+Every implementation stage in plan section 6 remains unstarted. The source inventory establishes availability, not academic, rights, transcript or curriculum clearance. Final B/C/D technical, scientific, visual and teacher reviews and any later live LMS certification remain pending.
+
+## Known risks
+
+The large dirty checkout includes necessary untracked authored files and assets. The Git checkpoint is not the final A candidate or a complete source backup. Prior A deployment is not proof of current local bytes. Model/image limits or authentication may block specific work; preserve resumable queues and never silently substitute a paid API.
+
+## Exact next command
+
+`shasum -a 256 projects/biology30-unit-a-pilot-2/workspace/index.html projects/biology30-unit-b/workspace/index.html projects/biology30-unit-c/workspace/index.html projects/biology30-unit-d/workspace/index.html`
+
+## Exact next file to open
+
+`docs/plans/biology30-bcd-pilot2-rebuild.md`
+
+## Do not do next / warnings
+
+- Do not rebuild A or begin another generic A academic audit.
+- Do not call sources missing without reading the new availability manifest.
+- Do not skip all-unit source/curriculum/state contracts or fake readiness to force a one-shot render.
+- Do not patch generated learner HTML, change protected A trees, or apply historical/superseded patterns blindly.
+- Do not mark teacher acceptance, deploy, publish, export, upload, commit, push, promote, enable Studio Edit or redeem usage credits.
+- Do not delete dirty files, numeric duplicate files, source archives, old prompts, or historical reports.
+
+
+## Archived before all-practice passage checkpoint (2026-09-06)
+
+# Handoff
+
+- Project: `biology30-unit-b`, `biology30-unit-c`, `biology30-unit-d`.
+- Task: Execute the saved Pilot-2-equivalent B → C → D rebuild.
+- Status: in progress — stage 0 passed; transactional source intake complete; all-unit academic contracts in progress; 136 atomic criteria, nine data investigations, 243 textbook guides, 484 introduced-term records, 92 concept families, 245 practice items and 127 core teaching parts drafted. No learner rendering yet.
+
+## Summary
+
+Read the full [saved plan](../plans/biology30-bcd-pilot2-rebuild.md). Restart instructions remain authoritative. All 15 supplied files, two shared archives, eight textbook members, nine checkpoint trees, branch and HEAD matched before editing. Existing source/workspace/metadata bytes are now preserved in an immutable baseline. The prepared inventory reproduces 399 slides, 442 embedded media files, 82 YouTube occurrences and 80 distinct IDs. Seven normalized textbook derivatives preserve all 276 pages, including Chapter 16's 4 + 36 mapping.
+
+## Files changed
+
+- Owning builder CLI/profile guards; `pilot2-contract.ts` and validation tests.
+- Unit resource contracts: 30 teacher topics, 127 planned parts, 43 required routes, all 92 outcome IDs with proposed part targets; 196 old-section and 159 transfer-rule proposed dispositions. These remain drafts.
+- Pinned authority PDFs and visual standards-column register; source-discrepancy review for seven omitted/continued slides; supplemental package relationships (90 external links including speaker notes).
+- Transfer/readiness generator and tests; README, architecture and science workflow documentation.
+
+- `scripts/prepare-biology30-course-resources.py`, `scripts/tests/biology30-resource-preparation.test.py`, `package.json`.
+- `projects/resources/biology30-production/v1/pilot2/`: immutable baseline, immutable source-intake packet, execution checkpoint.
+- Active handoff, archive and chronological playbook.
+
+## What changed and why
+
+Implemented source verification, unsafe-archive rejection, checksum-preserved originals, explicit slide/media/plan inventories, normalized reading derivatives, transaction rollback and idempotent packet verification before authoring. Individual academic/rights/visual dispositions remain pending; presence is not clearance.
+
+## Source of truth
+
+- Plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+- Intake: `projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/`.
+- Baseline: `projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168/`.
+- Owner: `scripts/lib/biology30-course/v1/`; authored contracts remain under the owning production resource tree.
+- Progress: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+
+## Verification run
+
+- Preflight: all pinned sources, textbook members, nine trees, branch and HEAD matched.
+- `npm run test:biology30-course-resources`: 7/7 passed (expected duplicate-ZIP fixture warning).
+- Transactional intake completed; exact counts matched; normalized PDFs reopen with expected page totals.
+- Official Program of Studies, performance standards and Biology bulletin fetched via web. Bulletin remains 2025–2026; no official successor found in current search. Visual standards-column audit completed for all B/C/D pages (190 Acceptable, 155 Excellence examples). All 92 required outcomes now have 136 atomic operational criteria and exact proposed teaching targets; authored/rendered evidence remains pending.
+- Topic/supporting contract tests 4/4 and transfer tests 4/4 passed.
+- Production suite: 14 passed, 3 failed on inherited stale exact-build hashes, proven against the immutable pre-edit baseline. See `pilot2/inherited-verification-findings.json`.
+
+## Fragile areas / watchouts
+
+- Do not regenerate old B/C/D workspaces while academic contracts are incomplete. New renderer/profile and migration are not implemented.
+- Immutable packets include `packet-files.json`; validate rather than overwrite them. They contain authoring-only source material.
+- All 276 PDF folios are mapped and all 26 assigned review pages visually inspected. Initial guides include source corrections; second key audit, exact passage binding, rights, captions and full source disposition remain pending.
+- Generated readiness now incorporates verified intake; all one-pass-ready/teacher-acceptance flags remain false/null.
+- Unit A provisional teacher decision remains null. All A learner trees and its builder remain protected.
+
+## Next prompt should assume
+
+Same dirty checkout, `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Continue completed intake; do not restart discovery. No representative-slice approval pauses. No settings change, Max escalation, credit reset or paid API fallback was performed.
+
+## What still needs validation
+
+Complete stage 1: all-unit atomic curriculum/skills, source/old-section dispositions, exact practice/vocabulary/advanced/time/state contracts and video/figure review. Then implement profile/state tests, build and validate B, C, D sequentially, and consolidate exact-build evidence, image comparisons and separate teacher checklists.
+
+## Known risks
+
+No newly rebuilt learner candidate exists yet. Technical intake passes do not prove academic readiness, human acceptance, visual quality or LMS certification. Preserve prior dirty files, source originals and historical evidence.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json`
+
+## Do not do next / warnings
+
+No Unit A rebuild, direct generated-HTML patches, commit, push, deployment, export, publication, acceptance flags, promotion or Studio Edit enablement.
+
+## Latest saved work — source and academic contracts
+
+The exact Program register preserves 92 required outcomes and 116 separately labelled illustrative examples. Nine investigations have required core skill operations and separate optional extensions; digital work does not certify physical laboratory or teamwork performance. All 243 teacher-assigned textbook questions have original native guides with explicit scientific qualifications. All 276 textbook folios are verified; Chapter 16 Figure 16.8 authentic cell micrographs were inspected, but extraction/placement remains pending. Vocabulary inventories contain B145/C246/D93 introduced terms, with old glossary extras preserved separately. These are authored drafts, not readiness passes. See `pilot2-textbook.json`, `pilot2-textbook-guides.json`, `pilot2-academic-contract.json`, `pilot2-investigations.json`, and `pilot2-vocabulary.json` in each unit resource directory.
+
+## Latest saved work — learning and persistence contracts
+
+- Vocabulary: 28 B / 40 C / 24 D concept families, scored with explicit mechanism, confusion and morphology treatment; four anchor terms per topic; six fixed Frayers plus two choices; authored models for every eligible family. Source/rendered second review remains pending.
+- Practice drafts: B16 guided +26 chapter +17 final +4 optional challenge; C36+63+27+6; D8+24+14+4. Counts derive from retained original authored seeds plus constructed operations and three general-outcome dataset tasks. Exact prerequisite/passage review and independent key audit remain pending; challenge guides need specific alternative-model expansion.
+- Textbook: 243 passage destinations reviewed; 46 visible pre-attempt correction notices. Actual passage matching remains pending.
+- Time: required and optional route allocations balance to B1200/240, C2400/480, D900/180, including one Advanced allocation per part and 20/30-minute seminar/challenge reserves. Authored workload realism remains pending.
+- State: new browser-safe v3 engine, unit schemas and explicit preserve-only legacy maps. Six tests pass for original-byte backup, scoped choice replacement, Unicode, unknown/corrupt entries, overflow, quota and separate local/SetValue/Commit results. Ordinary all-field maxima B26277/C38190/D22124 fit 44000; heavy escaping/mixed legacy can exceed 48000 and must reject without replacing prior saves. Browser integration and readable legacy collection are pending.
+- Scientific calculation owner: four tests pass for allele counts, population denominators, ploidy, crosses, recombination, strand direction, translation and mutation examples. This is deterministic key support, not independent human acceptance.
+
+Next: author complete core content and local figures/walkthroughs against the exact atomic targets, finish source/media dispositions and second key/workload reviews, then freeze evidence-bound contracts before rendering. Do not rerun `/tmp` authoring scripts blindly: canonical JSON has subsequent corrections.
+
+## Latest saved work — core teaching and reading audit
+
+All 127 declared core parts now have original explanatory prose (B34/C71/D22), with correct source/data qualifications retained. The topic-level reading estimate passes the grade-12 ceiling in all 30 topics; individual passages above that estimate remain flagged for manual review. The report excludes navigation, glossary and control text and does not establish comprehension. Original first drafts and the plain-word revision record are preserved in `pilot2/source-review/`. Six article-agreement errors introduced during simplification were corrected. Source/first-use review, figures, worked examples, checks, Advanced teaching and local walkthroughs remain required before contract freeze. No learner workspaces were rendered or changed in this stage.
+
+Next work: complete the instructional companions, beginning with Unit B's 34 parts, then C and D; bind them to actual source and question prerequisites, review workload and media, and freeze only verified evidence.
+
+## Latest saved work — 127 instructional companions
+
+B34/C71/D22 worked examples, stop checks and optional closed Advanced explanations are now authored in each unit's `pilot2-instruction.json`. The all-unit contract command reads their exact hashes and reports actual core/worked/Advanced word counts. Two adversarial tests pass for inventory/order, outcome ownership, empty worked operations and optional-work gating. This establishes structural completeness of the draft companions, not independent key acceptance, old-section retention, visual quality or realistic elapsed learning time. The actual core prose is shorter than the earlier provisional 300–450-word-per-part timing assumption; workload must be reassessed against explicit activities rather than padded reading time.
+
+Next: exact first-use vocabulary and prerequisite review, source/old-section and media/figure dispositions, complete local walkthroughs and task-specific independent practice; then evidence-bound contract freeze. All learner trees remain at the baseline.
+
+## Latest saved work — first-use and definition corrections
+
+Advanced 106 definition introductions (B32/C56/D18) to earlier authored required uses, keeping later full-mechanism teaching destinations. Canonical core parts now declare visible `termIntroductionIds` for the future renderer. Corrected five definitions: uterine/Fallopian tube wording, genetic versus phenotypic variation, multiple crossovers, and p²/q² notation. Original glossary extras remain historical references, not automatically learner-ready definitions. The canonical first-use audit reports 11 earlier phrase matches needing contextual review and 87 terms needing alias/plural or missing-teaching review. It deliberately does not call exact matching a semantic or rendered pass.
+
+All-unit contract validation and the core reading ceiling still pass. Source/figure/video review, implicit prerequisites and rendered introductions remain pending. Next file: `projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-review.json`; repeat queue command: `python3 scripts/audit-biology30-first-use.py`.
+
+## Latest saved work — topic paths and complete B slide-text review
+
+All 30 topics have observable questions, goals, prior-knowledge support, retrieval prompts, Evidence Slip criteria and ordered narration through their core worked examples. Checkpoint guides fit their existing 120/180-character response limits; narration is not yet an illustrated-equivalence pass. Three instruction tests pass, including missing/reordered frames, stale narration, omitted definition introductions, oversized response guides and skipping chapter practice.
+
+Read all 77 B slide texts and recorded 48 specific scientific qualifications in `unit-b/pilot2-slide-dispositions.json`; every image remains separately pending. Added core explanations of outside-androgen feedback (hGH is not a steroid), qualified age-related hormone changes, menopause, neurulation and local prostaglandin action. B now has 152 introduced terms; C246/D93 remain unchanged. The source review register keeps supplemental authority URLs and claim scope. The reading ceiling and all-unit contracts still pass; science 4/4, state 6/6 and instruction 3/3 tests pass. Verify-only protection check passed again: originals, six learner workspaces and the A owner match their protected baselines.
+
+Continue the individual C and D slide-text/visual reviews and all-source dispositions, then close alias/prerequisite, figure/media, old-section, key and workload evidence before any contract freeze. No learner rendering, teacher acceptance, Studio Edit enablement or release action occurred.
+
+## Latest saved work — D slide-text audit
+
+All 68 D slide texts are reviewed, with 54 specific qualification records in `unit-d/pilot2-slide-dispositions.json`. Corrected source calculations include the frog expectation 306.832… → about 307, and beaver final density 253/70 rather than 251/70. Source wording about producers creating energy, fixed climax communities, p/q as alleles, universal q² shortcuts, and sexual selection equalling all nonrandom mating is explicitly dispositioned. The gene-flow example is rewritten with fictional non-human populations rather than reducing Métis identity to genetic mixture.
+
+Added required core sexual-selection and survivorship teaching and six definitions; D now has 99 introduced terms (B152/C246). Reading and structural contract checks still pass. Full individual C text review, all visual/media/rights review and exact rendered/source evidence remain pending. No gate was promoted.
+
+## Latest saved work — complete C slide-text review and source corrections
+
+All 254 C slide texts are reviewed, completing all 399 B/C/D slide texts. C has 150 specific qualification records. Full-resolution source checks resolved the Chapter 17 slide 80 pedigree father as XᴿY (affected son 1/4 of all offspring, 1/2 of sons) and slide 96 parental/recombinant summary as some:most:most:some in its printed order. The two inspected source PNGs are retained under `pilot2/source-review/slide-audits/`; complete individual visual/media/rights review remains pending.
+
+Added the missing B artificial-insemination/IVF distinction and C binary-fission/conjugation distinction. C already contained nuclear-transfer teaching; it was retained. Expanded optional explanations to repair the supplied stem-cell potency, telomere countdown, Dolly ageing, X-inactivation and epigenetic claims using qualified mechanisms and reviewed primary/official sources. Introduced terms now B153/C249/D99. The 30-topic reading ceiling and structural contract checks pass; instruction tests 3/3 pass. No readiness gate or teacher acceptance was promoted.
+
+Next: finish source visual/media dispositions and exact coverage/prerequisite/key/workload reviews, then freeze hash-bound evidence before rendering. All six learner workspaces and Unit A owner remain protected; no rebuilt candidate exists yet.
+
+## Latest saved work — source visual survey and first ChatGPT illustration
+
+Surveyed all 399 slide compositions and visual purposes; contact sheets and individual slide references are preserved under `pilot2/source-review/visual-survey/`. This is explicitly not full-resolution clearance of every embedded asset. Recorded additional concerns including the diploid/haploid video thumbnail, meiosis-I daughter-cell label, underspecified midpoint linkage map, mixed DNA table and evolutionary ladder illustration.
+
+The authenticated ChatGPT browser generated one human trilaminar-disc illustration for a genuine gap identified in the old text concept map, spherical slide diagrams and small textbook implantation figure. Downloaded the original 1536×1024 PNG and inspected it at original resolution: five labels and leader endpoints, germ-layer order and amniotic/yolk-sac orientation pass the stated scientific checklist. Saved a provisional recommendation with schematic limitations; teacher decision remains null. Exact prompt, authoring-only chat URL, image hash and review are in `pilot2/source-review/image-queue.json`. No publisher artwork was uploaded. Placement, inline/enlarged testing and batch comparison remain pending.
+
+Continue exact source/media/prerequisite/key/workload reviews and hash-bound contract freezing. Do not treat the visual survey or the single image as a complete candidate.
+
+## Latest saved work — calculation, assessment and freeze integrity
+
+The nine model engines now produce all 27 selected cases and enforce 51 shared model/investigation data bindings. Exact model outputs and input hashes are saved per unit in `pilot2-model-outputs.json`; graph/controls/save/browser verification remains pending. Five model tests pass. The contract reader now verifies hashes for passed review evidence and requires a frozen design digest plus unit-input receipt. Five contract tests pass, including stale evidence/input, design drift and path escape cases. Asset and renderer dependency closure still needs implementation before the freeze mechanism is complete.
+
+Replaced 14 generic alternative-assumption challenges with specific biological changes and worked answers. Rewrote 49 final selected-response items (B14/C24/D11) into applied mechanisms, calculations and experimental comparisons with option-specific feedback and narrower teaching-part destinations. Semantic item IDs, source metadata and previous prompt/option history are retained; legacy answer equivalence remains false. Exact passage and independent key review are still pending.
+
+All 74 constructed practice fields now fit their full model answers with at least 20% plus 20 characters of working room (minimum 240). The learning validator rejects capacity drift; one focused test passes. Ordinary all-field state maxima are now B30117/C43550/D24864, below 44000; the 48000 guard still rejects heavy escaping or combined-legacy overflow without truncation or replacing the last valid save. All six state tests pass. Unit C has only 450 characters of ordinary-target headroom, so new saved fields require a fresh budget audit.
+
+Next: review the rewritten final items against the actual required passages, finish remaining practice/source/first-use/media/workload evidence, and complete figures before contract freeze. No learner candidate has been rendered and no gate or acceptance flag has been promoted.
+
+## Latest saved work — exact prerequisites and source inventory; browser blocked
+
+### Summary
+
+The separate required-passage review now covers the 49 rewritten final selected-response items. Added missing denominator, mitochondrial-source, protein-abundance and multiple-marker support in canonical required prose. Each reviewed item records the exact paragraphs and worked-example hashes in `pilot2-practice-passage-review.json`. The route validator rejects missing or later required prerequisites. Remaining items, independent key review and rendered order are still pending.
+
+Read all 44 daily-plan rows and recorded their exact source cells and local topic/practice destinations. All 442 embedded files remain preserved authoring references with 476 exact media relationships; none is silently cleared for learner redistribution. All 226 external package relationships are dispositioned, including 82 YouTube occurrences deduplicated to 80 candidates. No clip is learner-selected before factual/caption/segment review. Original figure replacements remain pending; inventory accounting is not a scientific/visual pass.
+
+### Files changed
+
+Owning `scripts/lib/biology30-course/v1/pilot2-{contract,learning-audit,models,model-audit}.ts`; model/state/content/source audit scripts and focused tests; unit B/C/D `pilot2-*.json` contracts, outputs, practice history, passage reviews, source dispositions and reading queues; `package.json`, `README.md`, the execution plan/checkpoint, this handoff and Unit A operational playbook. No learner workspace or protected A owner changed.
+
+### Verification run
+
+24 focused TypeScript tests and five source-disposition tests pass. All-unit draft contracts, state budget, source inventory, reading ceiling and protected-source verify-only checks pass. Repository `npm run typecheck` fails with 25 diagnostics outside the changed B/C/D files; it is not a clean typecheck pass. Exact outputs and hashes are preserved in `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-contract-stage/report.json`. No learner/browser E2E is claimed because no new learner candidate exists.
+
+### Known risks / follow-up
+
+The CUA browser tool reports: “The Mac is locked and automatic unlock could not unlock it.” Manual unlock was requested through the user-input tool. This blocks the required authenticated ChatGPT image workflow; no API fallback was attempted. The existing scientifically reviewed provisional germ-layer PNG is preserved. Source/archive/old-section, first-use (12 earlier exact matches and 90 unmatched phrases), remaining keys, figures, caption/local-path equivalence and workload reviews also remain unfinished. In particular, required online graph/model construction needs a usable learner operation, not multiple-choice recognition or an unsupported drawing instruction. No pre-render gate was promoted by these inventory passes.
+
+### Source of truth
+
+`projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json` and `scripts/lib/biology30-course/v1/`. Intake/baselines remain immutable. Unit A is provisional; all teacher decisions remain null.
+
+### Fragile areas / what might drift
+
+C's full ordinary state uses 43550 characters, only 450 below the target. New saved operations require budget review. Passage hashes become stale when required text or worked examples change. Do not rerun temporary authoring scripts, which would duplicate revision history or reset corrected canonical content. The frozen-input mechanism still needs complete figure/renderer dependency closure.
+
+### Next prompt assumptions
+
+Resume this same dirty checkout. Keep B → C → D order and all-unit contract freeze before learner HTML. Unlocking the Mac only restores browser access; it does not imply teacher acceptance, release authority or completion of the other pending reviews. Continue with no commit/push/deploy/export/publication/Studio Edit enablement.
+
+### Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+After manual unlock, use CUA to resume the existing authenticated ChatGPT image task; do not use a paid API or change account/model settings.
+
+### Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json`
+
+## 51. Browser restored; exact passage, graph and image contracts advanced (2026-09-06)
+
+### Summary
+
+Authenticated ChatGPT browser access is restored after the user unlocked the Mac. Two original image candidates now have full-resolution scientific reviews and an author-only source/candidate comparison page: the existing trilaminar disc and the new female reproductive tract. Both remain provisional, with teacher decisions null and learner placement untested. The intact CC BY-SA 3.0 staticd onion-root micrograph is separately recorded for Unit C observation, with attribution and limits; it does not supply the synthetic cell-count dataset.
+
+All 63 Unit B practice items now have exact required-paragraph and worked-example review receipts (98 across B/C/D; 147 remain pending). Twenty-eight B feedback sets were made option-specific, ambiguous chromosome/hormone prompts were repaired, and three final written guides now address alternative explanations and next evidence. New receipt validation rejects question, passage, worked-example and inventory drift without claiming independent scientific acceptance.
+
+Six required graph constructions with 39 plotted values now have source-bound contracts, readable work collection, strict save codecs and comparison logic. Draft blanks, zero, incorrect values and legacy prose remain distinct. No learner graph controls or lesson HTML exist yet. Ordinary maximum state is B 30857, C 43650, D 25224 characters; C has only 350 characters of target headroom.
+
+A contextual vocabulary pass recorded 102 target dispositions and 16 definition moves. Nine earlier exact matches and three earlier explicit aliases are different-sense candidates; implicit prerequisites and rendered first use remain open. No pre-render gate was promoted.
+
+### Files changed
+
+Owning `pilot2-{passage-audit,graph-work,graph-audit}.ts`, learning/graph tests and the all-unit verifier; B/C/D graph, practice, passage, vocabulary and state contracts; Unit C observation/investigation manifest; image queue/candidates/comparison generator and author page; checkpoint, playbook, handoff and plan. Protected learner workspaces and Unit A owner remain unchanged.
+
+### Verification run
+
+29 focused TypeScript tests pass. Refreshed state/model audits pass. Protected-source verify-only passes. Typecheck and final draft-contract output are being refreshed; previous typecheck had 25 unrelated diagnostics. Author comparison images loaded at full natural dimensions and received a desktop visual check. This is not learner browser or LMS evidence.
+
+### Known risks / follow-up
+
+Complete C/D passage reviews and independent practice/textbook keys, source/old-section retention, first-use and figure/media coverage, and realistic workload. Implement graph controls and persistence only after the all-unit contracts are frozen with complete code/asset dependency closure. Then build B → C → D through the owner and complete exact-candidate academic, technical and visual evidence.
+
+### Source of truth
+
+`projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json` and `scripts/lib/biology30-course/v1/`. The local comparison page is author-only. Unit A stays provisional; teacher acceptance is null.
+
+### Fragile areas / what might drift
+
+Canonical receipts are hash-bound. Temporary authoring writers must not be rerun because they can reset corrections or duplicate history. New code/assets still need frozen-input dependency closure. C's state budget has 350 characters of ordinary headroom.
+
+### Next prompt assumptions
+
+Continue this dirty checkout with the restored authenticated browser; do not ask for another unlock. No commit, push, deployment, export, publication, Studio Edit enablement or teacher-acceptance claim.
+
+### Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+### Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json`
+
+
+---
+Archived textbook-review in-progress handoff
+
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+The saved B → C → D plan is still being executed in the original dirty checkout. Source/baseline verification passes and authenticated ChatGPT browser access is restored. All **245 practice items** now have exact required-paragraph and worked-example author reviews: B63, C132, D50. No learner lesson HTML has been rendered. All-unit freeze remains pending; author receipt integrity is not independent scientific approval.
+
+Three ChatGPT candidates are preserved: two are provisionally usable; the male anatomy candidate was rejected for epididymis/vas continuity and its requested correction was declined by ChatGPT. That anatomy gap remains open, with no alternate provider used. Two originals have full-resolution provisional scientific reviews and an author-only comparison page. Unit C also has an unchanged CC BY-SA 3.0 onion-root micrograph with attribution and observation limits. Six required graph constructions cover 39 plotted values; source binding, draft serialization and readable collection functions are tested, while learner controls and browser integration remain pending.
+
+## Files changed
+
+- Owner `scripts/lib/biology30-course/v1/pilot2-{passage-audit,graph-work,graph-audit}.ts`, graph/learning tests and all-unit contract verifier. The graph audit's new Set type error was found and fixed.
+- Canonical unit B/C/D practice, passage-review, graph-work, vocabulary, content, state and audit JSON. Unit C's 72 nonfinal selected-response items now have option-specific feedback; missing cross/phase assumptions, overlapping options and unsupported prerequisites were repaired with original source IDs and prior wording retained.
+- Unit D required teaching now explicitly explains community scale, resource partitioning and crossed ecological comparisons. The community definition moved before its new first use. Three B, two C and three D final written guides were completed to answer their requested alternative/next-evidence operations.
+- Image queue/candidates and comparison generator; C microscopy/investigation manifests; checkpoint, this handoff, archive, plan and Unit A operational playbook. Protected learner trees and Unit A owner remain unchanged.
+
+## Verification run
+
+29 focused TypeScript tests pass. All-unit draft contracts, state/model audits, reading ceiling and refreshed source/baseline verify-only checks pass. Typecheck fails with **25 existing diagnostics outside the changed B/C/D files**; it is not a clean repository pass. Exact outputs and input hashes: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/report.json`.
+
+Ordinary maximum serialized state: **B30857 / C43830 / D25504** characters against a 44000 target. C has only **170 characters** of target headroom. Heavy JSON escaping still invokes the nontruncating last-valid-payload guard. No learner/browser/LMS E2E claim is made. The image comparison has desktop author review only.
+
+## Known risks / follow-up
+
+Complete the independent scientific practice keys and remaining 91 Unit C textbook-guide keys/prerequisites (B84/D68 second-author reviews complete), remaining implicit vocabulary/first-use checks, old-section/archive/transfer retention, 127 required figure targets and illustrated local media equivalence, and a realistic 75-hour workload audit. The 9 earlier exact-phrase matches and 90 unmatched phrases remain a non-gating sense/alias queue. No video has been selected from the 80 candidates. Do not mark any unfinished pre-render review passed merely because inventory counts agree.
+
+Then close renderer/asset dependencies in the freeze receipt, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete all exact-candidate academic, technical and visual evidence including required routes, viewports, migration and protected A regression. The browser unlock is resolved; there is no current external blocker.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`. Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`. Canonical authored inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Owning builder: `scripts/lib/biology30-course/v1/`. Progress: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake and baselines are immutable. Unit A remains provisional; teacher decisions/acceptance stay null.
+
+## Fragile areas / what might drift
+
+Passage receipts bind exact question/key fields, required prose and full worked examples. Content edits require genuine rereview and receipt refresh. C has 170 characters of ordinary state headroom. Do not rerun temporary authoring writers: they can reset corrected text or duplicate revision histories. Current freeze dependency closure and selected image placement are incomplete. The owner `--profile pilot2` still refuses unfrozen contracts and its renderer is not implemented.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`, preserving the entire dirty checkout. Follow the saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses; no commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue the all-unit figure inventory/source comparisons and independent academic review before freezing and rendering. The existing authenticated ChatGPT image conversation is `https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519`.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json`
+
+## Current textbook stage
+
+B84 second-author source/key and required-passage reviews pass the new textbook receipt auditor (2 tests). Fourteen guides now answer missing requested operations; nine optional reinforcement context notes must render before the attempt. D68 also reviewed; C91 remain pending. No required prose or learner tree changed. Do not rerun `/tmp/bcd-b-textbook-review.py`.
+
+D68 textbook second-author review is complete with independent arithmetic records, 13 guide revisions, 8 optional pre-attempt contexts and source-graph checks. B has 11 optional contexts after route-order review. Five B/D guide mappings were narrowed to previously taught parts; later teaching is explicitly further reading. The auditor now rejects future prerequisites.
+
+
+---
+
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+Continue the saved B → C → D plan in the original dirty checkout. All-unit contracts remain draft; no learner HTML has been rendered. Source/baseline verification passes. All 245 practice items have author passage receipts, and all 243 textbook guides now have a separate source-first answer and exact required-passage review (B84/C91/D68). The **authored textbook pre-render gate passes** alongside the prior performance-column gate. Other gates remain pending; do not infer readiness from inventory or receipt integrity.
+
+Authenticated ChatGPT browser access is restored. Two original images are scientifically usable provisionally; a third male-anatomy candidate was rejected for epididymal-tail/vas continuity. ChatGPT declined its correction. That specific anatomy gap remains open, no alternate provider was used, and all three candidates remain in the author-only comparison. Unit C has an unchanged licensed onion-root micrograph with attribution and observation limits.
+
+## Files changed
+
+- Owner `pilot2-textbook-audit.ts`, two textbook tests, all-unit contract verifier; B/C/D textbook guides and exact review receipts. 47 guides were completed, 32 optional background notes must precede attempts, and 50 source notices remain visible before attempts. Required teaching prose and saved-state schema did not change during this stage.
+- `source-review/textbook-stage-review.json`, correction register (62 qualifications), D independent arithmetic record and all three textbook pre-render gate evidence hashes.
+- Image queue and generated author comparison record the rejected male candidate and declined correction. Execution checkpoint, this handoff/archive, plan and Unit A operational playbook updated.
+
+## Verification run
+
+31 focused tests pass; 7 contract/textbook tests pass again after the gate update. Draft contracts pass. Refreshed source/baseline verify-only passes. Typecheck retains 25 existing diagnostics outside changed B/C/D files. Exact logs and canonical input hashes: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-textbook-guides/report.json`.
+
+Ordinary maximum state remains B30857/C43830/D25504 against a44000 target; C has170 characters of headroom. Six graph contracts/39 plotted values remain tested as pure source-bound codecs, with learner controls and persistence integration pending. No learner/browser/LMS E2E claim is made.
+
+## Known risks / follow-up
+
+Next complete independent practice-key derivation, full implicit vocabulary/alias review, source archive/old-section/transfer retention, 127 figure targets and illustrated local media equivalence, and a realistic75-hour required-workload audit. No video has been selected. The male anatomy provider correction is declined; preserve the rejected image rather than treating it as usable. Other independent work can continue.
+
+Then close all-unit renderer/asset dependencies in freeze receipts, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete exact-candidate academic/technical/visual evidence across all required routes/viewports, migration and protected A regression. Textbook optional context and source notices must be visible before attempts; guides remain attempt-gated and nonrequired. Later-lesson links are explicitly further reading, never represented as previously taught prerequisites.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owner `scripts/lib/biology30-course/v1/`; progress `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake/baselines immutable. Unit A remains provisional; all teacher decisions null.
+
+## Fragile areas / what might drift
+
+Practice and textbook receipts bind actual question/guide fields and required prose. Any content edit requires genuine rereview before refreshing a receipt. The textbook stage report and each passed gate bind exact evidence hashes. All-unit freeze closure is still incomplete. C state has little room. Never rerun temporary authoring writers, including `/tmp/bcd-{b,d}-textbook-review.py` or `/tmp/bcd-c-textbook-*.py`: they may duplicate reviews or reset corrected route links. The owner Pilot2 renderer is still unimplemented and refuses unfrozen contracts.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Preserve all dirty files and six protected learner baselines. Follow the saved AI-effort and authenticated ChatGPT image process. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue independent practice-key review against source and required teaching, then the remaining pre-render gates. Reuse completed textbook/source findings.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json`
+
+
+<!-- Archived before graph and B applications stage update -->
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+Continue the saved B → C → D plan in the original dirty checkout. All-unit contracts remain draft; no learner HTML has been rendered. Source/baseline verification passes. All 245 practice items have author passage receipts, and all 243 textbook guides now have a separate source-first answer and exact required-passage review (B84/C91/D68). All245 practice items also have separate prompt-first author key derivations; two written guides were completed. The **authored practice/key and textbook pre-render gates pass** alongside the prior performance-column gate (3 of13). Other gates remain pending; do not infer readiness from inventory or receipt integrity.
+
+Authenticated ChatGPT browser access is restored. Two original images are scientifically usable provisionally; a third male-anatomy candidate was rejected for epididymal-tail/vas continuity. ChatGPT declined its correction. That specific anatomy gap remains open, no alternate provider was used, and all three candidates remain in the author-only comparison. Unit C has an unchanged licensed onion-root micrograph with attribution and observation limits.
+
+## Files changed
+
+- Latest stage: owner `pilot2-practice-review.ts`, `pilot2-practice-options.ts`, two practice review tests; all245 key derivations, B/C corrected written guides/passages and capacities, three practice gates and stage report. Option helper still needs renderer integration; canonical key indices remain0.
+
+- Owner `pilot2-textbook-audit.ts`, two textbook tests, all-unit contract verifier; B/C/D textbook guides and exact review receipts. 47 guides were completed, 32 optional background notes must precede attempts, and 50 source notices remain visible before attempts. Required teaching prose and saved-state schema did not change during this stage.
+- `source-review/textbook-stage-review.json`, correction register (62 qualifications), D independent arithmetic record and all three textbook pre-render gate evidence hashes.
+- Image queue and generated author comparison record the rejected male candidate and declined correction. Execution checkpoint, this handoff/archive, plan and Unit A operational playbook updated.
+
+## Verification run
+
+33 focused tests pass, including full-item key drift, derivation disagreement and stable canonical-value option ordering. Draft contracts pass. Refreshed source/baseline verify-only passes. Typecheck retains 25 existing diagnostics outside changed B/C/D files. Exact logs and canonical input hashes: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-keys/report.json`.
+
+Ordinary maximum state remains B30917/C43890/D25504 against a44000 target; C has110 characters of headroom. Six graph contracts/39 plotted values remain tested as pure source-bound codecs, with learner controls and persistence integration pending. No learner/browser/LMS E2E claim is made.
+
+## Known risks / follow-up
+
+Latest vocabulary pass advanced21 definitions after required inflection/alias review and synchronized topic new/reused inventories; the33 earlier matched occurrences have contextual decisions. True-breeding now specifies within-line/self crosses. Paragraphs and worked examples remain unchanged. The vocabulary gate remains pending for definition wording, all surfaces and rendered use. Next complete full implicit vocabulary review and atomic teaching proof, source archive/old-section/transfer retention, 127 figure targets and illustrated local media equivalence, and a realistic75-hour required-workload audit. No video has been selected. The male anatomy provider correction is declined; preserve the rejected image rather than treating it as usable. Other independent work can continue.
+
+Then close all-unit renderer/asset dependencies in freeze receipts, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete exact-candidate academic/technical/visual evidence across all required routes/viewports, migration and protected A regression. Textbook optional context and source notices must be visible before attempts; guides remain attempt-gated and nonrequired. Later-lesson links are explicitly further reading, never represented as previously taught prerequisites.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owner `scripts/lib/biology30-course/v1/`; progress `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake/baselines immutable. Unit A remains provisional; all teacher decisions null.
+
+## Fragile areas / what might drift
+
+Practice and textbook receipts bind actual question/guide fields and required prose. Any content edit requires genuine rereview before refreshing a receipt. The textbook stage report and each passed gate bind exact evidence hashes. All-unit freeze closure is still incomplete. C state has little room. Never rerun temporary authoring writers, including `/tmp/bcd-{b,d}-textbook-review.py` or `/tmp/bcd-c-textbook-*.py`: they may duplicate reviews or reset corrected route links. The owner Pilot2 renderer is still unimplemented and refuses unfrozen contracts.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Preserve all dirty files and six protected learner baselines. Follow the saved AI-effort and authenticated ChatGPT image process. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue semantic vocabulary first-use review, actual atomic teaching proof and remaining pre-render gates. Reuse completed textbook/practice/source findings.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-review.json`
+
+
+<!-- Archived before investigation contract stage -->
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+Continue the saved B → C → D plan in the original dirty checkout. All-unit contracts remain draft; no learner HTML has been rendered. Source/baseline verification passes. All 247 practice items have author passage receipts, and all 243 textbook guides now have a separate source-first answer and exact required-passage review (B84/C91/D68). All247 practice items also have separate prompt-first author key derivations; two written guides were completed. The **authored practice/key and textbook pre-render gates pass** alongside the prior performance-column gate (3 of13). Other gates remain pending; do not infer readiness from inventory or receipt integrity.
+
+Authenticated ChatGPT browser access is restored. Two original images are scientifically usable provisionally; a third male-anatomy candidate was rejected for epididymal-tail/vas continuity. ChatGPT declined its correction. The plan-authorized original male SVG v3 now provides a provisional schematic after three native visual revisions; the rejected raster and refusal remain in the comparison history. No alternate image generator was used. Unit C has an unchanged licensed onion-root micrograph with attribution and observation limits.
+
+## Files changed
+
+- Latest stage: `pilot2-graph-svg.ts`, graph SVG tests and `prepare-biology30-graph-figures.ts`; six graph assets/manifest/author review. Male SVG v1–v3 and comparison generator/queue. Two B STS application items, exact key/passage receipts, academic practice bindings and state registry. Full136-component proof remains pending.
+
+- Latest stage: owner `pilot2-practice-review.ts`, `pilot2-practice-options.ts`, two practice review tests; all247 key derivations, B/C corrected written guides/passages and capacities, three practice gates and stage report. Option helper still needs renderer integration; canonical key indices remain0.
+
+- Owner `pilot2-textbook-audit.ts`, two textbook tests, all-unit contract verifier; B/C/D textbook guides and exact review receipts. 47 guides were completed, 32 optional background notes must precede attempts, and 50 source notices remain visible before attempts. Required teaching prose and saved-state schema did not change during this stage.
+- `source-review/textbook-stage-review.json`, correction register (62 qualifications), D independent arithmetic record and all three textbook pre-render gate evidence hashes.
+- Image queue and generated author comparison record the rejected male candidate and declined correction. Execution checkpoint, this handoff/archive, plan and Unit A operational playbook updated.
+
+## Verification run
+
+35 focused tests pass, including full-item key drift, derivation disagreement and stable canonical-value option ordering. Draft contracts pass. Refreshed source/baseline verify-only passes. Typecheck retains 25 existing diagnostics outside changed B/C/D files. Exact logs and canonical input hashes: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-graph-and-b-applications/report.json`.
+
+Ordinary maximum state remains B32617/C43890/D25504 against a44000 target; C has110 characters of headroom. Six graph contracts/39 values now have a tested SVG drawing kernel and intrinsically reviewed author model figures; learner controls, responsive enlargement and persistence integration remain pending. No learner/browser/LMS E2E claim is made.
+
+## Known risks / follow-up
+
+Latest vocabulary pass advanced21 definitions after required inflection/alias review and synchronized topic new/reused inventories; the33 earlier matched occurrences have contextual decisions. True-breeding now specifies within-line/self crosses. Paragraphs and worked examples remain unchanged. The vocabulary gate remains pending for definition wording, all surfaces and rendered use. Next complete full implicit vocabulary review and atomic teaching proof, source archive/old-section/transfer retention, 127 figure targets and illustrated local media equivalence, and a realistic75-hour required-workload audit. No video has been selected. The male anatomy provider correction was declined; preserve the rejected raster and use only the separately reviewed authored SVG provisionally. Other independent work can continue.
+
+Then close all-unit renderer/asset dependencies in freeze receipts, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete exact-candidate academic/technical/visual evidence across all required routes/viewports, migration and protected A regression. Textbook optional context and source notices must be visible before attempts; guides remain attempt-gated and nonrequired. Later-lesson links are explicitly further reading, never represented as previously taught prerequisites.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owner `scripts/lib/biology30-course/v1/`; progress `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake/baselines immutable. Unit A remains provisional; all teacher decisions null.
+
+## Fragile areas / what might drift
+
+Practice and textbook receipts bind actual question/guide fields and required prose. Any content edit requires genuine rereview before refreshing a receipt. The textbook stage report and each passed gate bind exact evidence hashes. All-unit freeze closure is still incomplete. C state has little room. Never rerun temporary authoring writers, including `/tmp/bcd-{b,d}-textbook-review.py` or `/tmp/bcd-c-textbook-*.py`: they may duplicate reviews or reset corrected route links. The owner Pilot2 renderer is still unimplemented and refuses unfrozen contracts.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Preserve all dirty files and six protected learner baselines. Follow the saved AI-effort and authenticated ChatGPT image process. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue actual atomic teaching proof, complete figure binding and semantic vocabulary first-use review, then remaining pre-render gates. Reuse completed textbook/practice/source findings.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`
+
+
+<!-- Archived before definition wording pass -->
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+Continue the saved B → C → D plan in the original dirty checkout. All-unit contracts remain draft; no learner HTML has been rendered. The most recent full source/baseline verification passed before this investigation-only stage. All 247 practice items have author passage receipts, and all 243 textbook guides now have a separate source-first answer and exact required-passage review (B84/C91/D68). All247 practice items also have separate prompt-first author key derivations; two written guides were completed. The **authored practice/key and textbook pre-render gates pass** alongside the prior performance-column gate (4 of13). The authored investigation gate now passes after9 separate method/data reviews and36 bounded response examples. Other gates remain pending; do not infer readiness from inventory or receipt integrity.
+
+Authenticated ChatGPT browser access is restored. Two original images are scientifically usable provisionally; a third male-anatomy candidate was rejected for epididymal-tail/vas continuity. ChatGPT declined its correction. The plan-authorized original male SVG v3 now provides a provisional schematic after three native visual revisions; the rejected raster and refusal remain in the comparison history. No alternate image generator was used. Unit C has an unchanged licensed onion-root micrograph with attribution and observation limits.
+
+## Files changed
+
+- New investigation owner audit and2 tests; all9 source/data/method receipts,36 four-field models, C codon subset, D completed expected frequencies and optional two-point graph contract. Five unchanged textbook photo streams matched to Fig16.8 labels; original testis-compartment SVG v2 and four-section comparison.
+
+- Latest stage: `pilot2-graph-svg.ts`, graph SVG tests and `prepare-biology30-graph-figures.ts`; six graph assets/manifest/author review. Male SVG v1–v3 and comparison generator/queue. Two B STS application items, exact key/passage receipts, academic practice bindings and state registry. Full136-component proof remains pending.
+
+- Latest stage: owner `pilot2-practice-review.ts`, `pilot2-practice-options.ts`, two practice review tests; all247 key derivations, B/C corrected written guides/passages and capacities, three practice gates and stage report. Option helper still needs renderer integration; canonical key indices remain0.
+
+- Owner `pilot2-textbook-audit.ts`, two textbook tests, all-unit contract verifier; B/C/D textbook guides and exact review receipts. 47 guides were completed, 32 optional background notes must precede attempts, and 50 source notices remain visible before attempts. Required teaching prose and saved-state schema did not change during this stage.
+- `source-review/textbook-stage-review.json`, correction register (62 qualifications), D independent arithmetic record and all three textbook pre-render gate evidence hashes.
+- Image queue and generated author comparison record the rejected male candidate and declined correction. Execution checkpoint, this handoff/archive, plan and Unit A operational playbook updated.
+
+## Verification run
+
+37 focused tests pass, including full-item key drift, derivation disagreement and stable canonical-value option ordering. Draft contracts pass. Refreshed source/baseline verify-only passes. Typecheck retains 25 existing diagnostics outside changed B/C/D files. Latest exact stage logs and receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-investigation-contracts/report.json`.
+
+Ordinary maximum state remains B32617/C43890/D25644 against a44000 target; C has110 characters of headroom. Six graph contracts/39 values now have a tested SVG drawing kernel and intrinsically reviewed author model figures; learner controls, responsive enlargement and persistence integration remain pending. No learner/browser/LMS E2E claim is made.
+
+## Known risks / follow-up
+
+Latest vocabulary pass advanced21 definitions after required inflection/alias review and synchronized topic new/reused inventories; the33 earlier matched occurrences have contextual decisions. True-breeding now specifies within-line/self crosses. Paragraphs and worked examples remain unchanged. The vocabulary gate remains pending for definition wording, all surfaces and rendered use. Next complete full implicit vocabulary review and atomic teaching proof, source archive/old-section/transfer retention, 127 figure targets and illustrated local media equivalence, and a realistic75-hour required-workload audit. No video has been selected. The male anatomy provider correction was declined; preserve the rejected raster and use only the separately reviewed authored SVG provisionally. Other independent work can continue.
+
+Then close all-unit renderer/asset dependencies in freeze receipts, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete exact-candidate academic/technical/visual evidence across all required routes/viewports, migration and protected A regression. Textbook optional context and source notices must be visible before attempts; guides remain attempt-gated and nonrequired. Later-lesson links are explicitly further reading, never represented as previously taught prerequisites.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owner `scripts/lib/biology30-course/v1/`; progress `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake/baselines immutable. Unit A remains provisional; all teacher decisions null.
+
+## Fragile areas / what might drift
+
+Practice and textbook receipts bind actual question/guide fields and required prose. Any content edit requires genuine rereview before refreshing a receipt. The textbook stage report and each passed gate bind exact evidence hashes. All-unit freeze closure is still incomplete. C state has little room. Never rerun temporary authoring writers, including `/tmp/bcd-{b,d}-textbook-review.py` or `/tmp/bcd-c-textbook-*.py`: they may duplicate reviews or reset corrected route links. The owner Pilot2 renderer is still unimplemented and refuses unfrozen contracts.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Preserve all dirty files and six protected learner baselines. Follow the saved AI-effort and authenticated ChatGPT image process. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue actual atomic teaching proof, complete figure binding and semantic vocabulary first-use review, then remaining pre-render gates. Reuse completed textbook/practice/source findings.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`
+
+
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+Continue the saved B → C → D plan in the original dirty checkout. All-unit contracts remain draft; no learner HTML has been rendered. The most recent full source/baseline verification passed before this investigation-only stage. All 247 practice items have author passage receipts, and all 243 textbook guides now have a separate source-first answer and exact required-passage review (B84/C91/D68). All247 practice items also have separate prompt-first author key derivations; two written guides were completed. The **authored practice/key and textbook pre-render gates pass** alongside the prior performance-column gate (4 of13). The authored investigation gate now passes after9 separate method/data reviews and36 bounded response examples. Other gates remain pending; do not infer readiness from inventory or receipt integrity.
+
+Authenticated ChatGPT browser access is restored. Two original images are scientifically usable provisionally; a third male-anatomy candidate was rejected for epididymal-tail/vas continuity. ChatGPT declined its correction. The plan-authorized original male SVG v3 now provides a provisional schematic after three native visual revisions; the rejected raster and refusal remain in the comparison history. No alternate image generator was used. Unit C has an unchanged licensed onion-root micrograph with attribution and observation limits.
+
+## Files changed
+
+- Latest: all501 introduced definitions read,48 wording revisions and exact review receipts; owner definition verifier and1 regression test. Distinct glossary senses (ratio/probability, pair/homologue, confounder/confounding) retain separate meanings. No vocabulary gate promotion.
+
+- New investigation owner audit and2 tests; all9 source/data/method receipts,36 four-field models, C codon subset, D completed expected frequencies and optional two-point graph contract. Five unchanged textbook photo streams matched to Fig16.8 labels; original testis-compartment SVG v2 and four-section comparison.
+
+- Latest stage: `pilot2-graph-svg.ts`, graph SVG tests and `prepare-biology30-graph-figures.ts`; six graph assets/manifest/author review. Male SVG v1–v3 and comparison generator/queue. Two B STS application items, exact key/passage receipts, academic practice bindings and state registry. Full136-component proof remains pending.
+
+- Latest stage: owner `pilot2-practice-review.ts`, `pilot2-practice-options.ts`, two practice review tests; all247 key derivations, B/C corrected written guides/passages and capacities, three practice gates and stage report. Option helper still needs renderer integration; canonical key indices remain0.
+
+- Owner `pilot2-textbook-audit.ts`, two textbook tests, all-unit contract verifier; B/C/D textbook guides and exact review receipts. 47 guides were completed, 32 optional background notes must precede attempts, and 50 source notices remain visible before attempts. Required teaching prose and saved-state schema did not change during this stage.
+- `source-review/textbook-stage-review.json`, correction register (62 qualifications), D independent arithmetic record and all three textbook pre-render gate evidence hashes.
+- Image queue and generated author comparison record the rejected male candidate and declined correction. Execution checkpoint, this handoff/archive, plan and Unit A operational playbook updated.
+
+## Verification run
+
+38 focused tests pass, including full-item key drift, derivation disagreement and stable canonical-value option ordering. Draft contracts pass. Refreshed source/baseline verify-only passes. Typecheck retains 25 existing diagnostics outside changed B/C/D files. Latest exact stage logs and receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-definition-wording/report.json`.
+
+Ordinary maximum state remains B32617/C43890/D25644 against a44000 target; C has110 characters of headroom. Six graph contracts/39 values now have a tested SVG drawing kernel and intrinsically reviewed author model figures; learner controls, responsive enlargement and persistence integration remain pending. No learner/browser/LMS E2E claim is made.
+
+## Known risks / follow-up
+
+Latest vocabulary pass advanced21 definitions after required inflection/alias review and synchronized topic new/reused inventories; the33 earlier matched occurrences have contextual decisions. True-breeding now specifies within-line/self crosses. Paragraphs and worked examples remain unchanged. The vocabulary gate remains pending for definition wording, all surfaces and rendered use. Next complete full implicit vocabulary review and atomic teaching proof, source archive/old-section/transfer retention, 127 figure targets and illustrated local media equivalence, and a realistic75-hour required-workload audit. No video has been selected. The male anatomy provider correction was declined; preserve the rejected raster and use only the separately reviewed authored SVG provisionally. Other independent work can continue.
+
+Then close all-unit renderer/asset dependencies in freeze receipts, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete exact-candidate academic/technical/visual evidence across all required routes/viewports, migration and protected A regression. Textbook optional context and source notices must be visible before attempts; guides remain attempt-gated and nonrequired. Later-lesson links are explicitly further reading, never represented as previously taught prerequisites.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owner `scripts/lib/biology30-course/v1/`; progress `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake/baselines immutable. Unit A remains provisional; all teacher decisions null.
+
+## Fragile areas / what might drift
+
+Practice and textbook receipts bind actual question/guide fields and required prose. Any content edit requires genuine rereview before refreshing a receipt. The textbook stage report and each passed gate bind exact evidence hashes. All-unit freeze closure is still incomplete. C state has little room. Never rerun temporary authoring writers, including `/tmp/bcd-{b,d}-textbook-review.py` or `/tmp/bcd-c-textbook-*.py`: they may duplicate reviews or reset corrected route links. The owner Pilot2 renderer is still unimplemented and refuses unfrozen contracts.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Preserve all dirty files and six protected learner baselines. Follow the saved AI-effort and authenticated ChatGPT image process. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue actual atomic teaching proof, complete figure binding and semantic vocabulary first-use review, then remaining pre-render gates. Reuse completed textbook/practice/source findings.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`
+
+
+# Handoff — Biology 30 B/C/D rebuild
+
+## Summary
+
+Continue the saved B → C → D plan in the original dirty checkout. All-unit contracts remain draft; no learner HTML has been rendered. The most recent full source/baseline verification passed before this investigation-only stage. All 247 practice items have author passage receipts, and all 243 textbook guides now have a separate source-first answer and exact required-passage review (B84/C91/D68). All247 practice items also have separate prompt-first author key derivations; two written guides were completed. The **authored practice/key and textbook pre-render gates pass** alongside the prior performance-column gate (4 of13). The authored investigation gate now passes after9 separate method/data reviews and36 bounded response examples. Other gates remain pending; do not infer readiness from inventory or receipt integrity.
+
+Authenticated ChatGPT browser access is restored. Two original images are scientifically usable provisionally; a third male-anatomy candidate was rejected for epididymal-tail/vas continuity. ChatGPT declined its correction. The plan-authorized original male SVG v3 now provides a provisional schematic after three native visual revisions; the rejected raster and refusal remain in the comparison history. No alternate image generator was used. Unit C has an unchanged licensed onion-root micrograph with attribution and observation limits.
+
+## Latest stage
+
+All56 B source sections have actual authored retention receipts and corrected deeper teaching. B now passes5of13 authored gates; C/D4of13. C96/D44 retention comparisons remain pending. Two B required paragraphs expanded, eight practice and15 textbook passage receipts rereviewed, and the B review seminar authored within existing state fields. Full source/baseline verification passed again. Continue C/D section retention before atomic proof, all figures, all-surface vocabulary, media, workload and freeze.
+
+## Files changed
+
+- Latest: all501 introduced definitions read,48 wording revisions and exact review receipts; owner definition verifier and1 regression test. Distinct glossary senses (ratio/probability, pair/homologue, confounder/confounding) retain separate meanings. No vocabulary gate promotion.
+
+- New investigation owner audit and2 tests; all9 source/data/method receipts,36 four-field models, C codon subset, D completed expected frequencies and optional two-point graph contract. Five unchanged textbook photo streams matched to Fig16.8 labels; original testis-compartment SVG v2 and four-section comparison.
+
+- Latest stage: `pilot2-graph-svg.ts`, graph SVG tests and `prepare-biology30-graph-figures.ts`; six graph assets/manifest/author review. Male SVG v1–v3 and comparison generator/queue. Two B STS application items, exact key/passage receipts, academic practice bindings and state registry. Full136-component proof remains pending.
+
+- Latest stage: owner `pilot2-practice-review.ts`, `pilot2-practice-options.ts`, two practice review tests; all247 key derivations, B/C corrected written guides/passages and capacities, three practice gates and stage report. Option helper still needs renderer integration; canonical key indices remain0.
+
+- Owner `pilot2-textbook-audit.ts`, two textbook tests, all-unit contract verifier; B/C/D textbook guides and exact review receipts. 47 guides were completed, 32 optional background notes must precede attempts, and 50 source notices remain visible before attempts. Required teaching prose and saved-state schema did not change during this stage.
+- `source-review/textbook-stage-review.json`, correction register (62 qualifications), D independent arithmetic record and all three textbook pre-render gate evidence hashes.
+- Image queue and generated author comparison record the rejected male candidate and declined correction. Execution checkpoint, this handoff/archive, plan and Unit A operational playbook updated.
+
+## Verification run
+
+40 focused tests pass, including full-item key drift, derivation disagreement and stable canonical-value option ordering. Draft contracts pass. Refreshed source/baseline verify-only passes. Typecheck retains 25 existing diagnostics outside changed B/C/D files. Latest exact stage logs and receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-b-retention/report.json`.
+
+Ordinary maximum state remains B32617/C43890/D25644 against a44000 target; C has110 characters of headroom. Six graph contracts/39 values now have a tested SVG drawing kernel and intrinsically reviewed author model figures; learner controls, responsive enlargement and persistence integration remain pending. No learner/browser/LMS E2E claim is made.
+
+## Known risks / follow-up
+
+Latest vocabulary pass advanced21 definitions after required inflection/alias review and synchronized topic new/reused inventories; the33 earlier matched occurrences have contextual decisions. True-breeding now specifies within-line/self crosses. Paragraphs and worked examples remain unchanged. The vocabulary gate remains pending for definition wording, all surfaces and rendered use. Next complete full implicit vocabulary review and atomic teaching proof, source archive/old-section/transfer retention, 127 figure targets and illustrated local media equivalence, and a realistic75-hour required-workload audit. No video has been selected. The male anatomy provider correction was declined; preserve the rejected raster and use only the separately reviewed authored SVG provisionally. Other independent work can continue.
+
+Then close all-unit renderer/asset dependencies in freeze receipts, implement the transactional owner renderer and required graph/persistence/collection controls, and build B → C → D. Complete exact-candidate academic/technical/visual evidence across all required routes/viewports, migration and protected A regression. Textbook optional context and source notices must be visible before attempts; guides remain attempt-gated and nonrequired. Later-lesson links are explicitly further reading, never represented as previously taught prerequisites.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owner `scripts/lib/biology30-course/v1/`; progress `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Intake/baselines immutable. Unit A remains provisional; all teacher decisions null.
+
+## Fragile areas / what might drift
+
+Practice and textbook receipts bind actual question/guide fields and required prose. Any content edit requires genuine rereview before refreshing a receipt. The textbook stage report and each passed gate bind exact evidence hashes. All-unit freeze closure is still incomplete. C state has little room. Never rerun temporary authoring writers, including `/tmp/bcd-{b,d}-textbook-review.py` or `/tmp/bcd-c-textbook-*.py`: they may duplicate reviews or reset corrected route links. The owner Pilot2 renderer is still unimplemented and refuses unfrozen contracts.
+
+## Next prompt assumptions
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Preserve all dirty files and six protected learner baselines. Follow the saved AI-effort and authenticated ChatGPT image process. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API or acceptance claims.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue actual atomic teaching proof, complete figure binding and semantic vocabulary first-use review, then remaining pre-render gates. Reuse completed textbook/practice/source findings.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json`
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; contracts draft, learner renderer unimplemented.
+
+## Summary / what changed
+
+All196 original sections now have author-reviewed, SHA-bound teaching destinations: B56/C96/D44. C41 and D17 Advanced companions restore omitted content; all three review seminars are authored with three attempt-gated responses within existing240-character fields. Five of13 authored pre-render gates pass perunit: performance columns, old-section retention, practice/keys, textbook guides and investigations. No learner HTML has been rendered. UnitA remains provisional with teacherDecision/teacherAcceptance null.
+
+## Files changed
+
+Canonical `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; latest C/D changes are instruction, old-section disposition/review, review-seminar and gate contracts. Owner `scripts/lib/biology30-course/v1/pilot2-retention-audit.ts` plus retention tests. Operational evidence `pilot2/source-review/{b,c,d}-retention-authorities.json`, updated practice/investigation container receipts, execution checkpoint, playbook, plan and handoff archive.
+
+## Why this changed
+
+Mapping an old section to a topic did not prove preservation. Actual comparison exposed missing molecular/ecological detail, quantitative examples and seminar operations. Restored substantive teaching before recording receipts. Required C/D prose and worked examples, practice/textbook/investigation prompts and keys remain unchanged in this latest retention stage.
+
+## Verification run
+
+40 focused tests and draft contracts pass. Required-prose reading estimates and engine state checks pass; ordinary maxima B32617/C43890/D25644, target44000. C has110 characters of headroom. Refreshed15-source/8-textbook-member verification, six protected learner trees and UnitA owner hashes pass. Last repository typecheck retains25 unrelated diagnostics; no new owner code since that B-retention run, updated retention test passes. Exact current receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-retention/report.json`.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical all-unit inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owning builder `scripts/lib/biology30-course/v1/`; checkpoint `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Immutable source/intake/baseline receipts remain unchanged.
+
+## What still needs validation / next work
+
+Complete actual136-component teaching and observable-operation proof,127 figure bindings with science/rights review, all-surface first-use/dependency and preserved-only glossary review, source/media/archive disposition, local illustrated equivalents and caption review,75-hour workload realism,159 UnitA transfer decisions, complete state/migration contracts and transitive freeze closure. Eight pre-render gates perunit remain pending. No video has been selected.
+
+Then implement the transactional owning renderer, including graph controls, stable option permutation, prior-state recovery and unified collection. Build B→C→D and complete43-route responsive/zoom, save/reload/migration/cross-browser, image-enlargement, technical/academic/visual and protectedA regression evidence. No count-based gate promotion.
+
+## Fragile areas / known risks
+
+All247 practice keys,243 textbook guides and9 investigations have separate author source/operation reviews;501 introduced definitions have exact wording receipts. These are author passes, not a second human reviewer or teacher acceptance. Passage receipts bind exact required prose and full worked examples; genuine content changes require rereview before hash refresh. Added Advanced content requires surface-wide vocabulary and rendered review. C state is close to target. Current freeze dependency closure is incomplete; owner Pilot2 refuses unfrozen contracts.
+
+ChatGPT browser is authenticated and unlocked. Two original raster candidates are provisionally usable; male raster rejected and correction declined. Preserve that history. Plan-authorized male-duct SVGv3 and testis-compartment SVGv2 are provisional original schematics, not alternate-provider image generation. Four comparison sections exist. Seven graph model SVGs (six required/39values, one optional/twopoints) were inspected natively. Five unchanged textbook mitosis photo streams and one licensed supplemental onion-root image are reviewed with provenance/limits. Full learner/responsive placements remain pending.
+
+Never rerun temporary authoring writers: they can duplicate additions or reset corrections. Recent files `/tmp/bcd-c-retention-{additions,seminar,receipts}.py` and `/tmp/bcd-d-retention-{additions,seminar,receipts}.py` have already run. Temporary complete comparison text views are `/tmp/bcd-{c,d}-retention-reading.txt` (pre-addition snapshots). `/tmp/bcd-{b,c,d}-academic-review.json` contains current compact criteria/targets; requiredPracticeIds is often empty and broad practice.componentIds overclaim coverage, so inspect actual prompt operations.
+
+## Next prompt assumptions
+
+Continue the original dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored computer use. Their “how much is left?” was answered as a status question; it did not cancel the rebuild. Substantial contracts plus renderer and validation remain. Execute, do not reopen planning.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Then continue actual atomic teaching/operation proof; allD37 criteria and22 coreparts have now been read during retention/academic pass, but required operations still need narrower mappings and omissions repaired. Reuse the completed source/key reviews.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json`
+
+## Do not do next / warnings
+
+Preserve dirty checkout and all protected UnitA files. Follow saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, usage reset or teacher-acceptance claim. No subagent delegation currently authorized.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; contracts draft; owning transaction infrastructure implemented, learner renderer unimplemented.
+
+## Summary / what changed
+
+All196 original sections now have author-reviewed, SHA-bound teaching destinations: B56/C96/D44. C41 and D17 Advanced companions restore omitted content; all three review seminars are authored with three attempt-gated responses within existing240-character fields. Five of13 authored pre-render gates pass perunit: performance columns, old-section retention, practice/keys, textbook guides and investigations. D now has52 practice items: two new STS chapter cases and three replacement final operations with new IDs, explicit predictions, controlled comparisons and supplied-perspective revision. All50 prior D component tags were narrowed; full atomic coverage still pending. No learner HTML has been rendered. UnitA remains provisional with teacherDecision/teacherAcceptance null.
+
+## Files changed
+
+Canonical `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; latest C/D changes are instruction, old-section disposition/review, review-seminar and gate contracts. Owner `pilot2-build-transaction.ts`, build.ts full-tree baseline guard, transaction tests, and retention Map type correction. D practice/key/passage/academic/time/state contracts changed. All-unit contract baseline hashes now use full immutable-baseline workspace trees; former index hashes retained as baselineEntrySha256. Operational evidence `pilot2/source-review/{b,c,d}-retention-authorities.json`, updated practice/investigation container receipts, execution checkpoint, playbook, plan and handoff archive.
+
+## Why this changed
+
+Broad curriculum tags did not prove an operation was asked. D repairs explicitly assess identified omissions while retaining exact unchanged required teaching. Builder input checks must cover assets as well as HTML. Synthetic transaction tests establish safe staging and rollback before real promotion.
+
+## Verification run
+
+45 focused tests and draft contracts pass. Required-prose reading estimates and engine state checks pass; ordinary maxima B32617/C43890/D27874, target44000. C has110 characters of headroom. Refreshed15-source/8-textbook-member verification, six protected learner trees and UnitA owner hashes pass. Latest typecheck retains25 unrelated diagnostics after correcting the owned retention Map-key inference error; zero in changed owner/Pilot2 tests. Exact current receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-d-operations-and-builder/report.json`.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical all-unit inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owning builder `scripts/lib/biology30-course/v1/`; checkpoint `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Immutable source/intake/baseline receipts remain unchanged.
+
+## What still needs validation / next work
+
+Complete actual136-component teaching and observable-operation proof,127 figure bindings with science/rights review, all-surface first-use/dependency and preserved-only glossary review, source/media/archive disposition, local illustrated equivalents and caption review,75-hour workload realism,159 UnitA transfer decisions, complete state/migration contracts and transitive freeze closure. Eight pre-render gates perunit remain pending. No video has been selected.
+
+The owner transaction helper is tested (not yet integrated with a real renderer); the profile still refuses unfrozen contracts and then explicitly reports its renderer unimplemented. Implement the owning renderer, including graph controls, stable option permutation, prior-state recovery and unified collection. Build B→C→D and complete43-route responsive/zoom, save/reload/migration/cross-browser, image-enlargement, technical/academic/visual and protectedA regression evidence. No count-based gate promotion.
+
+## Fragile areas / known risks
+
+All249 practice keys,243 textbook guides and9 investigations have separate author source/operation reviews;501 introduced definitions have exact wording receipts. These are author passes, not a second human reviewer or teacher acceptance. Passage receipts bind exact required prose and full worked examples; genuine content changes require rereview before hash refresh. Added Advanced content requires surface-wide vocabulary and rendered review. C state is close to target. Current freeze dependency closure is incomplete; owner Pilot2 refuses unfrozen contracts.
+
+ChatGPT browser is authenticated and unlocked. Two original raster candidates are provisionally usable; male raster rejected and correction declined. Preserve that history. Plan-authorized male-duct SVGv3 and testis-compartment SVGv2 are provisional original schematics, not alternate-provider image generation. Four comparison sections exist. Seven graph model SVGs (six required/39values, one optional/twopoints) were inspected natively. Five unchanged textbook mitosis photo streams and one licensed supplemental onion-root image are reviewed with provenance/limits. Full learner/responsive placements remain pending.
+
+Never rerun temporary authoring writers: they can duplicate additions or reset corrections. Recent files `/tmp/bcd-c-retention-{additions,seminar,receipts}.py` and `/tmp/bcd-d-retention-{additions,seminar,receipts}.py` have already run. Temporary complete comparison text views are `/tmp/bcd-{c,d}-retention-reading.txt` (pre-addition snapshots). `/tmp/bcd-{b,c,d}-academic-review.json` contains current compact criteria/targets; requiredPracticeIds is often empty and broad practice.componentIds overclaim coverage, so inspect actual prompt operations.
+
+## Next prompt assumptions
+
+Continue the original dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored computer use. Their “how much is left?” was answered as a status question; it did not cancel the rebuild. Substantial contracts plus renderer and validation remain. Execute, do not reopen planning.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue remaining all-unit contracts plus owner implementation. AllD37 criteria/22 coreparts and52 current practice operations are reviewed at the sub-operation level. Full criterion/figure bindings remain pending. The main profile still generates no learner HTML. Shared NextStep shell can be reused; own response selectors must avoid its legacy data-response-id storage, and completion must derive from Pilot2 state. No shared-shell or UnitA files were changed.
+
+## Exact next file to open
+
+`scripts/lib/biology30-course/v1/build.ts` (Pilot2 branch aroundline640), then `pilot2-build-transaction.ts`; remaining D academic proof remains in pilot2-academic-contract.json.
+
+## Do not do next / warnings
+
+Preserve dirty checkout and all protected UnitA files. Follow saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, usage reset or teacher-acceptance claim. No subagent delegation currently authorized.
+
+Temporary one-shot writer `/tmp/bcd-d-observable-operations.py` has run; do not rerun it. Three prior final IDs are archived inside replacement revisionHistory. No complete curriculum gate was promoted.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; contracts draft; owning transaction infrastructure implemented, learner renderer unimplemented.
+
+## Summary / what changed
+
+All196 original sections now have author-reviewed, SHA-bound teaching destinations: B56/C96/D44. C41 and D17 Advanced companions restore omitted content; all three review seminars are authored with three attempt-gated responses within existing240-character fields. Six of13 authored pre-render gates pass perunit: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. D now has52 practice items: two new STS chapter cases and three replacement final operations with new IDs, explicit predictions, controlled comparisons and supplied-perspective revision. All50 prior D component tags were narrowed; full atomic coverage still pending. No learner HTML has been rendered. UnitA remains provisional with teacherDecision/teacherAcceptance null.
+
+## Files changed
+
+Canonical `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; latest C/D changes are instruction, old-section disposition/review, review-seminar and gate contracts. Owner `pilot2-build-transaction.ts`, build.ts full-tree baseline guard, transaction tests, and retention Map type correction. D practice/key/passage/academic/time/state contracts changed. All-unit contract baseline hashes now use full immutable-baseline workspace trees; former index hashes retained as baselineEntrySha256. Operational evidence `pilot2/source-review/{b,c,d}-retention-authorities.json`, updated practice/investigation container receipts, execution checkpoint, playbook, plan and handoff archive.
+
+## Why this changed
+
+Broad curriculum tags did not prove an operation was asked. D repairs explicitly assess identified omissions while retaining exact unchanged required teaching. Builder input checks must cover assets as well as HTML. Synthetic transaction tests establish safe staging and rollback before real promotion.
+
+## Verification run
+
+52 focused tests and draft contracts pass. Required-prose reading estimates and engine state checks pass; ordinary maxima B30391/C40269/D26164, target44000. C has3731 characters of headroom; writing limits are unchanged. Refreshed15-source/8-textbook-member verification, six protected learner trees and UnitA owner hashes pass. Latest typecheck retains25 unrelated diagnostics after correcting the owned retention Map-key inference error; zero in changed owner/Pilot2 tests. Exact current receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-state-and-collection/report.json`.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical all-unit inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owning builder `scripts/lib/biology30-course/v1/`; checkpoint `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Immutable source/intake/baseline receipts remain unchanged.
+
+## What still needs validation / next work
+
+Complete actual136-component teaching and observable-operation proof,127 figure bindings with science/rights review, all-surface first-use/dependency and preserved-only glossary review, source/media/archive disposition, local illustrated equivalents and caption review,75-hour workload realism,159 UnitA transfer decisions, browser state/migration integration and transitive freeze closure. Seven pre-render gates perunit remain pending. No video has been selected.
+
+The owner transaction helper is tested (not yet integrated with a real renderer); the profile still refuses unfrozen contracts and then explicitly reports its renderer unimplemented. Implement the owning renderer, including graph controls, stable option permutation, prior-state recovery and unified collection. Build B→C→D and complete43-route responsive/zoom, save/reload/migration/cross-browser, image-enlargement, technical/academic/visual and protectedA regression evidence. No count-based gate promotion.
+
+## Fragile areas / known risks
+
+All249 practice keys,243 textbook guides and9 investigations have separate author source/operation reviews;501 introduced definitions have exact wording receipts. These are author passes, not a second human reviewer or teacher acceptance. Passage receipts bind exact required prose and full worked examples; genuine content changes require rereview before hash refresh. Added Advanced content requires surface-wide vocabulary and rendered review. Compact marker storage creates C headroom; escaping and mixed legacy work can still exceed the guard and must remain recoverable. Current freeze dependency closure is incomplete; owner Pilot2 refuses unfrozen contracts.
+
+ChatGPT browser is authenticated and unlocked. Two original raster candidates are provisionally usable; male raster rejected and correction declined. Preserve that history. Plan-authorized male-duct SVGv3 and testis-compartment SVGv2 are provisional original schematics, not alternate-provider image generation. Four comparison sections exist. Seven graph model SVGs (six required/39values, one optional/twopoints) were inspected natively. Five unchanged textbook mitosis photo streams and one licensed supplemental onion-root image are reviewed with provenance/limits. Full learner/responsive placements remain pending.
+
+Never rerun temporary authoring writers: they can duplicate additions or reset corrections. Recent files `/tmp/bcd-c-retention-{additions,seminar,receipts}.py` and `/tmp/bcd-d-retention-{additions,seminar,receipts}.py` have already run. Temporary complete comparison text views are `/tmp/bcd-{c,d}-retention-reading.txt` (pre-addition snapshots). `/tmp/bcd-{b,c,d}-academic-review.json` contains current compact criteria/targets; requiredPracticeIds is often empty and broad practice.componentIds overclaim coverage, so inspect actual prompt operations.
+
+## Next prompt assumptions
+
+Continue the original dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored computer use. Their “how much is left?” was answered as a status question; it did not cancel the rebuild. Substantial contracts plus renderer and validation remain. Execute, do not reopen planning.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue remaining all-unit contracts plus owner implementation. AllD37 criteria/22 coreparts and52 current practice operations are reviewed at the sub-operation level. Full criterion/figure bindings remain pending. The main profile still generates no learner HTML. Shared NextStep shell can be reused; own response selectors must avoid its legacy data-response-id storage, and completion must derive from Pilot2 state. No shared-shell or UnitA files were changed.
+
+## Exact next file to open
+
+`scripts/lib/biology30-course/v1/build.ts` (Pilot2 branch aroundline640), then `pilot2-build-transaction.ts`; remaining D academic proof remains in pilot2-academic-contract.json.
+
+## Do not do next / warnings
+
+Preserve dirty checkout and all protected UnitA files. Follow saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, usage reset or teacher-acceptance claim. No subagent delegation currently authorized.
+
+Temporary one-shot writer `/tmp/bcd-d-observable-operations.py` has run; do not rerun it. Three prior final IDs are archived inside replacement revisionHistory. No complete curriculum gate was promoted.
+
+Latest owner work: `pilot2-activity-index.ts` derives825 entries (B243/C396/D186) covering602 registered responses,180 choices and801 flags; these include inactive Frayer fields, so active maximum fixtures use fewer text fields. `pilot2-legacy-work.ts` handles all five legacy envelope/store shapes and readable preserved-only recovery. `pilot2-state.ts` now packs marker flags with a fingerprinted hex-v1 bitset; prior token arrays remain readable. `audit-biology30-topic-activities.ts --write` regenerates each unit’s derived activity-index.json. All-work copy/print and43-route completion are tested as pure engines; no browser controls exist yet.
+
+New source figure: `pilot2/source-review/source-figures/b-placental-circulation.json` records Figure15.11A, Chapter15 physical12/printed517. Full page and1410×1455 crop inspected; SHA8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462. It distinguishes maternal spaces and fetal capillaries; the original diffusion-only caption is excluded. Supplied textbook use is restricted to local blocked review, with no public redistribution clearance. Chapter15 slide21’s image was inspected and is a developmental vulnerability timeline, not a placental figure; its early-insensitivity shorthand needs qualification. Old-course figure markup inspected; native old-course comparison and final slot binding remain pending.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; contracts draft; owning transaction infrastructure implemented, learner renderer unimplemented.
+
+## Summary / what changed
+
+All196 original sections now have author-reviewed, SHA-bound teaching destinations: B56/C96/D44. C41 and D17 Advanced companions restore omitted content; all three review seminars are authored with three attempt-gated responses within existing240-character fields. Six of13 authored pre-render gates pass perunit: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. D now has52 practice items: two new STS chapter cases and three replacement final operations with new IDs, explicit predictions, controlled comparisons and supplied-perspective revision. All50 prior D component tags were narrowed; full atomic coverage still pending. No learner HTML has been rendered. UnitA remains provisional with teacherDecision/teacherAcceptance null.
+
+## Files changed
+
+Canonical `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; latest C/D changes are instruction, old-section disposition/review, review-seminar and gate contracts. Owner `pilot2-build-transaction.ts`, build.ts full-tree baseline guard, transaction tests, and retention Map type correction. D practice/key/passage/academic/time/state contracts changed. All-unit contract baseline hashes now use full immutable-baseline workspace trees; former index hashes retained as baselineEntrySha256. Operational evidence `pilot2/source-review/{b,c,d}-retention-authorities.json`, updated practice/investigation container receipts, execution checkpoint, playbook, plan and handoff archive.
+
+## Why this changed
+
+Broad curriculum tags did not prove an operation was asked. D repairs explicitly assess identified omissions while retaining exact unchanged required teaching. Builder input checks must cover assets as well as HTML. Synthetic transaction tests establish safe staging and rollback before real promotion.
+
+## Verification run
+
+52 focused tests and draft contracts pass. Required-prose reading estimates and engine state checks pass; ordinary maxima B30391/C40269/D26164, target44000. C has3731 characters of headroom; writing limits are unchanged. Refreshed15-source/8-textbook-member verification, six protected learner trees and UnitA owner hashes pass. Latest typecheck retains25 unrelated diagnostics after correcting the owned retention Map-key inference error; zero in changed owner/Pilot2 tests. Exact current receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-preserved-glossary/report.json`.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical all-unit inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owning builder `scripts/lib/biology30-course/v1/`; checkpoint `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Immutable source/intake/baseline receipts remain unchanged.
+
+## What still needs validation / next work
+
+Complete actual136-component teaching and observable-operation proof,127 figure bindings with science/rights review, all-surface first-use/dependency review, source/media/archive disposition, local illustrated equivalents and caption review,75-hour workload realism,159 UnitA transfer decisions, browser state/migration integration and transitive freeze closure. Seven pre-render gates perunit remain pending. No video has been selected.
+
+The owner transaction helper is tested (not yet integrated with a real renderer); the profile still refuses unfrozen contracts and then explicitly reports its renderer unimplemented. Implement the owning renderer, including graph controls, stable option permutation, prior-state recovery and unified collection. Build B→C→D and complete43-route responsive/zoom, save/reload/migration/cross-browser, image-enlargement, technical/academic/visual and protectedA regression evidence. No count-based gate promotion.
+
+## Fragile areas / known risks
+
+All249 practice keys,243 textbook guides and9 investigations have separate author source/operation reviews;501 introduced and236 preserved definitions have exact wording receipts. These are author passes, not a second human reviewer or teacher acceptance. Passage receipts bind exact required prose and full worked examples; genuine content changes require rereview before hash refresh. Added Advanced content requires surface-wide vocabulary and rendered review. Compact marker storage creates C headroom; escaping and mixed legacy work can still exceed the guard and must remain recoverable. Current freeze dependency closure is incomplete; owner Pilot2 refuses unfrozen contracts.
+
+ChatGPT browser is authenticated and unlocked. Two original raster candidates are provisionally usable; male raster rejected and correction declined. Preserve that history. Plan-authorized male-duct SVGv3 and testis-compartment SVGv2 are provisional original schematics, not alternate-provider image generation. Four comparison sections exist. Seven graph model SVGs (six required/39values, one optional/twopoints) were inspected natively. Five unchanged textbook mitosis photo streams and one licensed supplemental onion-root image are reviewed with provenance/limits. Full learner/responsive placements remain pending.
+
+Never rerun temporary authoring writers: they can duplicate additions or reset corrections. Recent files `/tmp/bcd-c-retention-{additions,seminar,receipts}.py` and `/tmp/bcd-d-retention-{additions,seminar,receipts}.py` have already run. Temporary complete comparison text views are `/tmp/bcd-{c,d}-retention-reading.txt` (pre-addition snapshots). `/tmp/bcd-{b,c,d}-academic-review.json` contains current compact criteria/targets; requiredPracticeIds is often empty and broad practice.componentIds overclaim coverage, so inspect actual prompt operations.
+
+## Next prompt assumptions
+
+Continue the original dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored computer use. Their “how much is left?” was answered as a status question; it did not cancel the rebuild. Substantial contracts plus renderer and validation remain. Execute, do not reopen planning.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue remaining all-unit contracts plus owner implementation. AllD37 criteria/22 coreparts and52 current practice operations are reviewed at the sub-operation level. Full criterion/figure bindings remain pending. The main profile still generates no learner HTML. Shared NextStep shell can be reused; own response selectors must avoid its legacy data-response-id storage, and completion must derive from Pilot2 state. No shared-shell or UnitA files were changed.
+
+## Exact next file to open
+
+`scripts/lib/biology30-course/v1/build.ts` (Pilot2 branch aroundline640), then `pilot2-build-transaction.ts`; remaining D academic proof remains in pilot2-academic-contract.json.
+
+## Do not do next / warnings
+
+Preserve dirty checkout and all protected UnitA files. Follow saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, usage reset or teacher-acceptance claim. No subagent delegation currently authorized.
+
+Temporary one-shot writer `/tmp/bcd-d-observable-operations.py` has run; do not rerun it. Three prior final IDs are archived inside replacement revisionHistory. No complete curriculum gate was promoted.
+
+Latest owner work: `pilot2-activity-index.ts` derives825 entries (B243/C396/D186) covering602 registered responses,180 choices and801 flags; these include inactive Frayer fields, so active maximum fixtures use fewer text fields. `pilot2-legacy-work.ts` handles all five legacy envelope/store shapes and readable preserved-only recovery. `pilot2-state.ts` now packs marker flags with a fingerprinted hex-v1 bitset; prior token arrays remain readable. `audit-biology30-topic-activities.ts --write` regenerates each unit’s derived activity-index.json. All-work copy/print and43-route completion are tested as pure engines; no browser controls exist yet.
+
+New source figure: `pilot2/source-review/source-figures/b-placental-circulation.json` records Figure15.11A, Chapter15 physical12/printed517. Full page and1410×1455 crop inspected; SHA8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462. It distinguishes maternal spaces and fetal capillaries; the original diffusion-only caption is excluded. Supplied textbook use is restricted to local blocked review, with no public redistribution clearance. Chapter15 slide21’s image was inspected and is a developmental vulnerability timeline, not a placental figure; its early-insensitivity shorthand needs qualification. Old-course figure markup inspected; native old-course comparison and final slot binding remain pending.
+
+Latest completed stage64: all236 preserved definitions read;27 corrections (B7/C13/D7) retain original wording history. The existing definition auditor now verifies both introduced and preserved inventories, with duplicate/missing/stale negative tests. No new gate:6of13 perunit. Current exact first-use and actual B/C component-operation mappings remain pending. One-shot `/tmp/bcd-preserved-glossary-review.py` has run; do not rerun it. Snapshot top-level test/count fields were reconciled with the current52 tests, D52 practice and state maxima30391/40269/26164.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; contracts draft; owning transaction infrastructure implemented, learner renderer unimplemented.
+
+## Summary / what changed
+
+All196 original sections now have author-reviewed, SHA-bound teaching destinations: B56/C96/D44. C41 and D17 Advanced companions restore omitted content; all three review seminars are authored with three attempt-gated responses within existing240-character fields. Six of13 authored pre-render gates pass perunit: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. D now has52 practice items: two new STS chapter cases and three replacement final operations with new IDs, explicit predictions, controlled comparisons and supplied-perspective revision. All50 prior D component tags were narrowed; full atomic coverage still pending. No learner HTML has been rendered. UnitA remains provisional with teacherDecision/teacherAcceptance null.
+
+## Files changed
+
+Canonical `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; latest C/D changes are instruction, old-section disposition/review, review-seminar and gate contracts. Owner `pilot2-build-transaction.ts`, build.ts full-tree baseline guard, transaction tests, and retention Map type correction. D practice/key/passage/academic/time/state contracts changed. All-unit contract baseline hashes now use full immutable-baseline workspace trees; former index hashes retained as baselineEntrySha256. Operational evidence `pilot2/source-review/{b,c,d}-retention-authorities.json`, updated practice/investigation container receipts, execution checkpoint, playbook, plan and handoff archive.
+
+## Why this changed
+
+Broad curriculum tags did not prove an operation was asked. D repairs explicitly assess identified omissions while retaining exact unchanged required teaching. Builder input checks must cover assets as well as HTML. Synthetic transaction tests establish safe staging and rollback before real promotion.
+
+## Verification run
+
+53 focused tests and draft contracts pass. Required-prose reading estimates and engine state checks pass; ordinary maxima B30391/C40269/D26164, target44000. C has3731 characters of headroom; writing limits are unchanged. Refreshed15-source/8-textbook-member verification, six protected learner trees and UnitA owner hashes pass. Latest typecheck retains25 unrelated diagnostics after correcting the owned retention Map-key inference error; zero in changed owner/Pilot2 tests. Exact current receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-bc-operation-mappings/report.json`.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical all-unit inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owning builder `scripts/lib/biology30-course/v1/`; checkpoint `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Immutable source/intake/baseline receipts remain unchanged.
+
+## What still needs validation / next work
+
+Complete actual136-component teaching and observable-operation proof,127 figure bindings with science/rights review, all-surface first-use/dependency review, source/media/archive disposition, local illustrated equivalents and caption review,75-hour workload realism,159 UnitA transfer decisions, browser state/migration integration and transitive freeze closure. Seven pre-render gates perunit remain pending. No video has been selected.
+
+The owner transaction helper is tested (not yet integrated with a real renderer); the profile still refuses unfrozen contracts and then explicitly reports its renderer unimplemented. Implement the owning renderer, including graph controls, stable option permutation, prior-state recovery and unified collection. Build B→C→D and complete43-route responsive/zoom, save/reload/migration/cross-browser, image-enlargement, technical/academic/visual and protectedA regression evidence. No count-based gate promotion.
+
+## Fragile areas / known risks
+
+All249 practice keys,243 textbook guides and9 investigations have separate author source/operation reviews;501 introduced and236 preserved definitions have exact wording receipts. These are author passes, not a second human reviewer or teacher acceptance. Passage receipts bind exact required prose and full worked examples; genuine content changes require rereview before hash refresh. Added Advanced content requires surface-wide vocabulary and rendered review. Compact marker storage creates C headroom; escaping and mixed legacy work can still exceed the guard and must remain recoverable. Current freeze dependency closure is incomplete; owner Pilot2 refuses unfrozen contracts.
+
+ChatGPT browser is authenticated and unlocked. Two original raster candidates are provisionally usable; male raster rejected and correction declined. Preserve that history. Plan-authorized male-duct SVGv3 and testis-compartment SVGv2 are provisional original schematics, not alternate-provider image generation. Four comparison sections exist. Seven graph model SVGs (six required/39values, one optional/twopoints) were inspected natively. Five unchanged textbook mitosis photo streams and one licensed supplemental onion-root image are reviewed with provenance/limits. Full learner/responsive placements remain pending.
+
+Never rerun temporary authoring writers: they can duplicate additions or reset corrections. Recent files `/tmp/bcd-c-retention-{additions,seminar,receipts}.py` and `/tmp/bcd-d-retention-{additions,seminar,receipts}.py` have already run. Temporary complete comparison text views are `/tmp/bcd-{c,d}-retention-reading.txt` (pre-addition snapshots). `/tmp/bcd-{b,c,d}-academic-review.json` contains current compact criteria/targets; those snapshots predate narrowed mappings: use current unit academic/practice JSON instead.
+
+## Next prompt assumptions
+
+Continue the original dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored computer use. Their “how much is left?” was answered as a status question; it did not cancel the rebuild. Substantial contracts plus renderer and validation remain. Execute, do not reopen planning.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue remaining all-unit contracts plus owner implementation. AllD37 criteria/22 coreparts and52 current practice operations are reviewed at the sub-operation level. Full criterion/figure bindings remain pending. The main profile still generates no learner HTML. Shared NextStep shell can be reused; own response selectors must avoid its legacy data-response-id storage, and completion must derive from Pilot2 state. No shared-shell or UnitA files were changed.
+
+## Exact next file to open
+
+`scripts/lib/biology30-course/v1/build.ts` (Pilot2 branch aroundline640), then `pilot2-build-transaction.ts`; remaining D academic proof remains in pilot2-academic-contract.json.
+
+## Do not do next / warnings
+
+Preserve dirty checkout and all protected UnitA files. Follow saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, usage reset or teacher-acceptance claim. No subagent delegation currently authorized.
+
+Temporary one-shot writer `/tmp/bcd-d-observable-operations.py` has run; do not rerun it. Three prior final IDs are archived inside replacement revisionHistory. No complete curriculum gate was promoted.
+
+Latest owner work: `pilot2-activity-index.ts` derives825 entries (B243/C396/D186) covering602 registered responses,180 choices and801 flags; these include inactive Frayer fields, so active maximum fixtures use fewer text fields. `pilot2-legacy-work.ts` handles all five legacy envelope/store shapes and readable preserved-only recovery. `pilot2-state.ts` now packs marker flags with a fingerprinted hex-v1 bitset; prior token arrays remain readable. `audit-biology30-topic-activities.ts --write` regenerates each unit’s derived activity-index.json. All-work copy/print and43-route completion are tested as pure engines; no browser controls exist yet.
+
+New source figure: `pilot2/source-review/source-figures/b-placental-circulation.json` records Figure15.11A, Chapter15 physical12/printed517. Full page and1410×1455 crop inspected; SHA8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462. It distinguishes maternal spaces and fetal capillaries; the original diffusion-only caption is excluded. Supplied textbook use is restricted to local blocked review, with no public redistribution clearance. Chapter15 slide21’s image was inspected and is a developmental vulnerability timeline, not a placental figure; its early-insensitivity shorthand needs qualification. Old-course figure markup inspected; native old-course comparison and final slot binding remain pending.
+
+Latest completed stage64: all236 preserved definitions read;27 corrections (B7/C13/D7) retain original wording history. The existing definition auditor now verifies both introduced and preserved inventories, with duplicate/missing/stale negative tests. No new gate:6of13 perunit. Current exact first-use and actual B/C component-operation mappings remain pending. One-shot `/tmp/bcd-preserved-glossary-review.py` has run; do not rerun it. Snapshot top-level test/count fields were reconciled with the current52 tests, D52 practice and state maxima30391/40269/26164.
+
+Latest completed stage65: B65/C132 prompts and all99 criteria read, mappings narrowed with exact per-item operation records; D52 prior mappings retained. B5/C15/D2 questions are prerequisite-only. New owner `pilot2-practice-operations.ts` checks all249 required-link inventories and is invoked by draft-contract verification;53 focused tests pass. B7/C11 empty-link criteria require other evidence or focused repair, listed in `pilot2-practice-operation-review.json` perunit. All11 C stops/retrieval/evidence inspected and insufficient for full listed criteria. B accessory-gland, developmental-clock/trimester and infertility-reversal full core/worked passages reread; questions not yet repaired. No learner question, key or state capacity changed at stage65. One-shot B/C mapping writers have run; never rerun.
+
+Next content work: repair required B inquiry finals to explicitly ask predictions, controlled repeated comparisons and response to a supplied alternative, using new semantic IDs if meaning changes. Review B’s remaining location/time/cause-matched technology tasks and C’s11 gaps. Prefer replacing redundant questions before adding; preserve old snapshots and learner writing capacities. UnitC ordinary maximum40269 leaves3731 target characters, so evaluate any new writing honestly before schema changes. Do not count any nonempty component link as full curriculum proof.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; contracts draft; owning transaction infrastructure implemented, learner renderer unimplemented.
+
+## Summary / what changed
+
+All196 original sections now have author-reviewed, SHA-bound teaching destinations: B56/C96/D44. C41 and D17 Advanced companions restore omitted content; all three review seminars are authored with three attempt-gated responses within existing240-character fields. Six of13 authored pre-render gates pass perunit: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. D now has52 practice items: two new STS chapter cases and three replacement final operations with new IDs, explicit predictions, controlled comparisons and supplied-perspective revision. All50 prior D component tags were narrowed; full atomic coverage still pending. No learner HTML has been rendered. UnitA remains provisional with teacherDecision/teacherAcceptance null.
+
+## Files changed
+
+Canonical `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; latest C/D changes are instruction, old-section disposition/review, review-seminar and gate contracts. Owner `pilot2-build-transaction.ts`, build.ts full-tree baseline guard, transaction tests, and retention Map type correction. D practice/key/passage/academic/time/state contracts changed. All-unit contract baseline hashes now use full immutable-baseline workspace trees; former index hashes retained as baselineEntrySha256. Operational evidence `pilot2/source-review/{b,c,d}-retention-authorities.json`, updated practice/investigation container receipts, execution checkpoint, playbook, plan and handoff archive.
+
+## Why this changed
+
+Broad curriculum tags did not prove an operation was asked. D repairs explicitly assess identified omissions while retaining exact unchanged required teaching. Builder input checks must cover assets as well as HTML. Synthetic transaction tests establish safe staging and rollback before real promotion.
+
+## Verification run
+
+53 focused tests and draft contracts pass. Required-prose reading estimates and engine state checks pass; ordinary maxima B30851/C40269/D26164, target44000. C has3731 characters of headroom; writing limits are unchanged. Refreshed15-source/8-textbook-member verification, six protected learner trees and UnitA owner hashes pass. Latest typecheck retains25 unrelated diagnostics after correcting the owned retention Map-key inference error; zero in changed owner/Pilot2 tests. Exact current receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-b-required-inquiry/report.json`.
+
+## Source of truth
+
+Restart `docs/ops/biology30-bcd-next-task-prompt.md`; full plan `docs/plans/biology30-bcd-pilot2-rebuild.md`; canonical all-unit inputs `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`; owning builder `scripts/lib/biology30-course/v1/`; checkpoint `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`. Immutable source/intake/baseline receipts remain unchanged.
+
+## What still needs validation / next work
+
+Complete actual136-component teaching and observable-operation proof,127 figure bindings with science/rights review, all-surface first-use/dependency review, source/media/archive disposition, local illustrated equivalents and caption review,75-hour workload realism,159 UnitA transfer decisions, browser state/migration integration and transitive freeze closure. Seven pre-render gates perunit remain pending. No video has been selected.
+
+The owner transaction helper is tested (not yet integrated with a real renderer); the profile still refuses unfrozen contracts and then explicitly reports its renderer unimplemented. Implement the owning renderer, including graph controls, stable option permutation, prior-state recovery and unified collection. Build B→C→D and complete43-route responsive/zoom, save/reload/migration/cross-browser, image-enlargement, technical/academic/visual and protectedA regression evidence. No count-based gate promotion.
+
+## Fragile areas / known risks
+
+All249 practice keys,243 textbook guides and9 investigations have separate author source/operation reviews;501 introduced and236 preserved definitions have exact wording receipts. These are author passes, not a second human reviewer or teacher acceptance. Passage receipts bind exact required prose and full worked examples; genuine content changes require rereview before hash refresh. Added Advanced content requires surface-wide vocabulary and rendered review. Compact marker storage creates C headroom; escaping and mixed legacy work can still exceed the guard and must remain recoverable. Current freeze dependency closure is incomplete; owner Pilot2 refuses unfrozen contracts.
+
+ChatGPT browser is authenticated and unlocked. Two original raster candidates are provisionally usable; male raster rejected and correction declined. Preserve that history. Plan-authorized male-duct SVGv3 and testis-compartment SVGv2 are provisional original schematics, not alternate-provider image generation. Four comparison sections exist. Seven graph model SVGs (six required/39values, one optional/twopoints) were inspected natively. Five unchanged textbook mitosis photo streams and one licensed supplemental onion-root image are reviewed with provenance/limits. Full learner/responsive placements remain pending.
+
+Never rerun temporary authoring writers: they can duplicate additions or reset corrections. Recent files `/tmp/bcd-c-retention-{additions,seminar,receipts}.py` and `/tmp/bcd-d-retention-{additions,seminar,receipts}.py` have already run. Temporary complete comparison text views are `/tmp/bcd-{c,d}-retention-reading.txt` (pre-addition snapshots). `/tmp/bcd-{b,c,d}-academic-review.json` contains current compact criteria/targets; those snapshots predate narrowed mappings: use current unit academic/practice JSON instead.
+
+## Next prompt assumptions
+
+Continue the original dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored computer use. Their “how much is left?” was answered as a status question; it did not cancel the rebuild. Substantial contracts plus renderer and validation remain. Execute, do not reopen planning.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+Continue remaining all-unit contracts plus owner implementation. AllD37 criteria/22 coreparts and52 current practice operations are reviewed at the sub-operation level. Full criterion/figure bindings remain pending. The main profile still generates no learner HTML. Shared NextStep shell can be reused; own response selectors must avoid its legacy data-response-id storage, and completion must derive from Pilot2 state. No shared-shell or UnitA files were changed.
+
+## Exact next file to open
+
+`scripts/lib/biology30-course/v1/build.ts` (Pilot2 branch aroundline640), then `pilot2-build-transaction.ts`; remaining D academic proof remains in pilot2-academic-contract.json.
+
+## Do not do next / warnings
+
+Preserve dirty checkout and all protected UnitA files. Follow saved AI-effort and authenticated ChatGPT image-comparison policy. No slice acceptance pauses, commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, usage reset or teacher-acceptance claim. No subagent delegation currently authorized.
+
+Temporary one-shot writer `/tmp/bcd-d-observable-operations.py` has run; do not rerun it. Three prior final IDs are archived inside replacement revisionHistory. No complete curriculum gate was promoted.
+
+Latest owner work: `pilot2-activity-index.ts` derives825 entries (B243/C396/D186) covering602 registered responses,180 choices and801 flags; these include inactive Frayer fields, so active maximum fixtures use fewer text fields. `pilot2-legacy-work.ts` handles all five legacy envelope/store shapes and readable preserved-only recovery. `pilot2-state.ts` now packs marker flags with a fingerprinted hex-v1 bitset; prior token arrays remain readable. `audit-biology30-topic-activities.ts --write` regenerates each unit’s derived activity-index.json. All-work copy/print and43-route completion are tested as pure engines; no browser controls exist yet.
+
+New source figure: `pilot2/source-review/source-figures/b-placental-circulation.json` records Figure15.11A, Chapter15 physical12/printed517. Full page and1410×1455 crop inspected; SHA8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462. It distinguishes maternal spaces and fetal capillaries; the original diffusion-only caption is excluded. Supplied textbook use is restricted to local blocked review, with no public redistribution clearance. Chapter15 slide21’s image was inspected and is a developmental vulnerability timeline, not a placental figure; its early-insensitivity shorthand needs qualification. Old-course figure markup inspected; native old-course comparison and final slot binding remain pending.
+
+Latest completed stage64: all236 preserved definitions read;27 corrections (B7/C13/D7) retain original wording history. The existing definition auditor now verifies both introduced and preserved inventories, with duplicate/missing/stale negative tests. No new gate:6of13 perunit. Current exact first-use and actual B/C component-operation mappings remain pending. One-shot `/tmp/bcd-preserved-glossary-review.py` has run; do not rerun it. Snapshot top-level test/count fields were reconciled with the current52 tests, D52 practice and state maxima30391/40269/26164.
+
+Latest completed stage65: B65/C132 prompts and all99 criteria read, mappings narrowed with exact per-item operation records; D52 prior mappings retained. B5/C15/D2 questions are prerequisite-only. New owner `pilot2-practice-operations.ts` checks all249 required-link inventories and is invoked by draft-contract verification;53 focused tests pass. B7/C11 empty-link criteria require other evidence or focused repair, listed in `pilot2-practice-operation-review.json` perunit. All11 C stops/retrieval/evidence inspected and insufficient for full listed criteria. B accessory-gland, developmental-clock/trimester and infertility-reversal full core/worked passages reread; questions not yet repaired. No learner question, key or state capacity changed at stage65. One-shot B/C mapping writers have run; never rerun.
+
+Next content work: repair required B inquiry finals to explicitly ask predictions, controlled repeated comparisons and response to a supplied alternative, using new semantic IDs if meaning changes. Review B’s remaining location/time/cause-matched technology tasks and C’s11 gaps. Prefer replacing redundant questions before adding; preserve old snapshots and learner writing capacities. UnitC ordinary maximum40269 leaves3731 target characters, so evaluate any new writing honestly before schema changes. Do not count any nonempty component link as full curriculum proof.
+
+Latest completed stage66: all three B required inquiry finals now have new `-revision-v2` IDs,600-character response fields and full prior draft snapshots. Required prediction/control/supplied-claim revision is explicit. Guides470/467/479 chars; B ordinary max30851.53 focused tests and draft contracts pass. Initial full-state test failed only because it compared semantic flag-set insertion order; assertion now sorts only flags, leaving all other fields exact. No runtime codec change. The successful one-shot `/tmp/bcd-b-inquiry-repairs.py` must not be rerun. Current B remaining empty-link criteria are accessory glands, development time and infertility reversal; C11 remain. Full nonempty component coverage still unproved.
+
+Exact next content files: B `pilot2-content.json` parts `semen-and-accessory-glands`, `organ-formation-across-development` and `technologies-infertility-and-perspectives`, and B `pilot2-practice.json`. Their full teaching/worked text was read at stage65/66. Prefer focused replacements of redundant chapter recognition items with actual location/function, developmental-clock/sequence and cause-matched mechanism operations. Do not author new anatomy positions without checking the supplied sources: current gland prose identifies prostate and Cowper positions but does not explicitly locate seminal vesicles. No such chapter replacements have been made yet. Preserve current new inquiry IDs and all source/state receipts.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; six of13 authored pre-render gates perunit pass; learner renderer unimplemented; zero new learner candidates.
+
+## Summary / what changed
+
+Through playbook67: all196 original teaching sections have exact author retention receipts;501 introduced and236 preserved glossary definitions are reviewed.27 preserved-wording corrections retain original history. All249 practice prompts now map to actual sub-operations. B’s three inquiry finals and three chapter replacements explicitly ask previously missing operations, with new IDs and prior whole drafts preserved. D’s earlier two STS additions/three inquiry replacements remain. C’s132 question mappings were narrowed;11 criteria still need other required-operation evidence or repair. Nonempty links never establish full coverage.
+
+B has65 questions (39MC/26written), C132 (96MC/36written), D52 (33MC/19written):249 total,168MC/81written. B’s chapter counts remain14/14, C18/21/24, D10/16. All two-guided-per-topic requirements and43 required routes remain. UnitA remains provisional and all teacher decisions null.
+
+## Files changed
+
+Canonical all-unit `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Latest B changes: practice/key/passage/operation/academic/state/index resources, one gland-location sentence in core, five textbook-passage receipts and one retention target. Latest owner work: transaction helper, full-tree build guard, activity index, legacy recovery, compact flags, preserved-definition and practice-operation integrity checks. Latest tests correct first-item-is-MC and semantic-flag-order assumptions while retaining corruption checks. Operational source/verification receipts, execution checkpoint, plan, playbook and handoff archive updated.
+
+## Why this changed
+
+Broad topic tags hid missing requested operations. Required tasks must actually ask for predictions, comparisons, construction and revision. The B gland layout needed an explicit seminal-vesicle location before the task; supplied Chapter14 Figure14.2 confirms it. Existing learner questions and state IDs are preserved only for equivalent meanings. New meaningful responses use new IDs.
+
+## Verification run
+
+53 focused tests, draft-contract validation, required-prose reading and refreshed15-source/8-textbook-member protection pass. Six learner trees and protected UnitA owner remain unchanged. Typecheck has25 unrelated diagnostics, none in changed Pilot2 files. Latest exact receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-b-required-chapter/report.json`. Initial mapping/type-assumption test failures and corrected passes are retained there.
+
+Ordinary/Unicode maximum state: B32498/C40269/D26164, target44000/hard48000. C has3731 characters of target headroom. Heavy escaping or combined legacy content can exceed the guard and must be recoverable without truncation. B new written limits550/600/500; three inquiry finals600 each. No existing writing field was shortened.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+Complete136-component actual teaching, figures and requested-operation proof;127 figure bindings with science/rights; all-surface first-use/dependencies; source/media/archive dispositions, selected caption review and complete illustrated local equivalents;75-hour workload realism;159 UnitA transfer dispositions; full transitive code/asset freeze closure. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven gates remain pending. No video selected among80 unique candidates.
+
+Next focus is C’s11 missing required-practice links, listed in `unit-c/pilot2-practice-operation-review.json`. All56 C criteria,132 prompts/full correct answers and relevant stops/retrieval/evidence have been read. Several remaining activities ask only a small part of a criterion. C’s four STS criteria have explicit required prose at reproductive-strategies/evidence-and-applications, pedigrees/risk-and-information, and genetic-technologies/applications-and-uncertainty; those full paragraphs were read. Prefer replacing redundant questions before additions. C required inquiry finals still need explicit prediction/control/supplied-claim revision. Other gaps include cytokinesis, complete division comparison, twinning and actual aligned-sequence relatedness. Preserve all reviewed questions/receipts unless intentionally revised, with new IDs for new meanings.
+
+B/D now have no empty required-practice links. This is not full criterion proof: audit the remainder of each compound criterion and required graphical/identification/construction work before any curriculum gate passes.
+
+After all-unit contracts freeze, implement/integrate the owner renderer and build B→C→D. Complete43-route1440/1024/390/200% review, offline/cross-browser/save/reload/legacy recovery, whole collection and enlargement, exact-build academic/technical/visual evidence and protectedA regression. No slice approval pauses.
+
+## Fragile areas / known risks
+
+All reviews are author passes, not independent human review or teacher acceptance. Exact practice keys, passages,243 textbook guides,9 investigations and196 retention receipts reject stale bytes. Completed historical stage receipts retain their old container hashes/measurements; scoped later reviews document changes. Do not indiscriminately refresh historical evidence.
+
+The owner transaction helper is tested but no real candidate has been promoted. The Pilot2 profile still refuses unfrozen contracts, then explicitly reports its renderer unimplemented. Whole-workspace guard uses sorted path-NUL-fileSHA-LF. Former index-only hashes remain as baselineEntrySha256. Do not reuse the legacy promoter’s unsafe rollback cleanup.
+
+The activity index has825 entries,605 responses,177 choices and801 flags. Copy/Print and43-route completion are tested pure engines; rendered focus/control proof is pending. Shared NextStep shell may be reused, but its legacy data-response-id persistence must not capture Pilot2 answers. Use distinct selectors/storage and explicit overview-route aliasing. Browser/LMS integration remains unproved.
+
+Flags use a fingerprinted hex-v1 manifest; semantic set order is not click chronology. New draft response meanings changed map IDs/fingerprint deliberately; no old marker is silently reassigned. Earlier token-array payloads are supported. All five legacy envelopes/stores preserve original bytes and readable work without assigning old completions to new tasks.
+
+ChatGPT is authenticated/unlocked. Two raster candidates are provisionally usable; male raster rejected and correction declined. Original plan-authorized male SVGv3 and testis SVGv2 are provisional. Four comparison sections exist. Seven native graph models, five original textbook mitosis photos and one open-license onion-root image were reviewed; final placements pending. Placental Figure15.11A crop is reviewed for local blocked use, excluding its inaccurate diffusion-only caption. New Chapter14 physical8/printed479 rendering checks gland locations only; no learner asset/rights selection claim. Keep source use local; no public redistribution clearance claimed.
+
+## Next prompt assumptions
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored browser access; “how much is left?” asked status and did not cancel the rebuild. Main policy Astra High/Standard; no claim that prompt text changes settings. No agents currently authorized.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json`, then current C academic/practice JSON. Continue known gaps rather than rediscovering completed source/key reviews.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, reset or teacher-acceptance claim. Preserve all dirty work, source originals and UnitA learner/owner files.
+
+Never rerun completed one-shot author writers: `/tmp/bcd-b-required-chapter-repairs.py`, `/tmp/bcd-b-inquiry-repairs.py`, `/tmp/bcd-{b,c}-practice-mappings.py`, `/tmp/bcd-preserved-glossary-review.py`, `/tmp/bcd-d-observable-operations.py`, prior B/C/D retention and practice/definition/textbook writers. They can duplicate additions or reset corrections. Old `/tmp/bcd-{b,c,d}-academic-review.json` snapshots predate current mappings. Current canonical resources and latest exact receipts control.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; six of13 authored pre-render gates perunit pass; learner renderer unimplemented; zero new learner candidates.
+
+## Summary / what changed
+
+Through playbook68: all196 original teaching sections have exact author retention receipts;501 introduced and236 preserved glossary definitions are reviewed.27 preserved-wording corrections retain original history. All249 practice prompts now map to actual sub-operations. B’s three inquiry finals and three chapter replacements explicitly ask previously missing operations, with new IDs and prior whole drafts preserved. D’s earlier two STS additions/three inquiry replacements remain. C’s132 question mappings were narrowed and three chapter items replaced with explicit STS cases;7 criteria still need other required-operation evidence or repair. Nonempty links never establish full coverage.
+
+B has65 questions (39MC/26written), C132 (93MC/39written), D52 (33MC/19written):249 total,165MC/84written. B’s chapter counts remain14/14, C18/21/24, D10/16. All two-guided-per-topic requirements and43 required routes remain. UnitA remains provisional and all teacher decisions null.
+
+## Files changed
+
+Canonical all-unit `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Latest B changes: practice/key/passage/operation/academic/state/index resources, one gland-location sentence in core, five textbook-passage receipts and one retention target. Latest owner work: transaction helper, full-tree build guard, activity index, legacy recovery, compact flags, preserved-definition and practice-operation integrity checks. Latest tests correct first-item-is-MC and semantic-flag-order assumptions while retaining corruption checks. Operational source/verification receipts, execution checkpoint, plan, playbook and handoff archive updated.
+
+## Why this changed
+
+Broad topic tags hid missing requested operations. Required tasks must actually ask for predictions, comparisons, construction and revision. The B gland layout needed an explicit seminal-vesicle location before the task; supplied Chapter14 Figure14.2 confirms it. Existing learner questions and state IDs are preserved only for equivalent meanings. New meaningful responses use new IDs.
+
+## Verification run
+
+53 focused tests, draft-contract validation, required-prose reading and refreshed15-source/8-textbook-member protection pass. Six learner trees and protected UnitA owner remain unchanged. Typecheck has25 unrelated diagnostics, none in changed Pilot2 files. Latest exact receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-sts/report.json`. Initial mapping/type-assumption test failures and corrected passes are retained there.
+
+Ordinary/Unicode maximum state: B32498/C42616/D26164, target44000/hard48000. C has1384 characters of target headroom. Heavy escaping or combined legacy content can exceed the guard and must be recoverable without truncation. B new written limits550/600/500; three inquiry finals600 each. No existing writing field was shortened.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+Complete136-component actual teaching, figures and requested-operation proof;127 figure bindings with science/rights; all-surface first-use/dependencies; source/media/archive dispositions, selected caption review and complete illustrated local equivalents;75-hour workload realism;159 UnitA transfer dispositions; full transitive code/asset freeze closure. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven gates remain pending. No video selected among80 unique candidates.
+
+Next focus is C’s7 missing required-practice links, listed in `unit-c/pilot2-practice-operation-review.json`. All56 C criteria,132 prompts/full correct answers and relevant stops/retrieval/evidence have been read. Several remaining activities ask only a small part of a criterion. C’s four STS criteria have explicit required prose at reproductive-strategies/evidence-and-applications, pedigrees/risk-and-information, and genetic-technologies/applications-and-uncertainty; those full paragraphs were read. Prefer replacing redundant questions before additions. C required inquiry finals still need explicit prediction/control/supplied-claim revision. Other gaps include cytokinesis, complete division comparison, twinning and actual aligned-sequence relatedness. Preserve all reviewed questions/receipts unless intentionally revised, with new IDs for new meanings.
+
+B/D now have no empty required-practice links. This is not full criterion proof: audit the remainder of each compound criterion and required graphical/identification/construction work before any curriculum gate passes.
+
+After all-unit contracts freeze, implement/integrate the owner renderer and build B→C→D. Complete43-route1440/1024/390/200% review, offline/cross-browser/save/reload/legacy recovery, whole collection and enlargement, exact-build academic/technical/visual evidence and protectedA regression. No slice approval pauses.
+
+## Fragile areas / known risks
+
+All reviews are author passes, not independent human review or teacher acceptance. Exact practice keys, passages,243 textbook guides,9 investigations and196 retention receipts reject stale bytes. Completed historical stage receipts retain their old container hashes/measurements; scoped later reviews document changes. Do not indiscriminately refresh historical evidence.
+
+The owner transaction helper is tested but no real candidate has been promoted. The Pilot2 profile still refuses unfrozen contracts, then explicitly reports its renderer unimplemented. Whole-workspace guard uses sorted path-NUL-fileSHA-LF. Former index-only hashes remain as baselineEntrySha256. Do not reuse the legacy promoter’s unsafe rollback cleanup.
+
+The activity index has825 entries,608 responses,174 choices and801 flags. Copy/Print and43-route completion are tested pure engines; rendered focus/control proof is pending. Shared NextStep shell may be reused, but its legacy data-response-id persistence must not capture Pilot2 answers. Use distinct selectors/storage and explicit overview-route aliasing. Browser/LMS integration remains unproved.
+
+Flags use a fingerprinted hex-v1 manifest; semantic set order is not click chronology. New draft response meanings changed map IDs/fingerprint deliberately; no old marker is silently reassigned. Earlier token-array payloads are supported. All five legacy envelopes/stores preserve original bytes and readable work without assigning old completions to new tasks.
+
+ChatGPT is authenticated/unlocked. Two raster candidates are provisionally usable; male raster rejected and correction declined. Original plan-authorized male SVGv3 and testis SVGv2 are provisional. Four comparison sections exist. Seven native graph models, five original textbook mitosis photos and one open-license onion-root image were reviewed; final placements pending. Placental Figure15.11A crop is reviewed for local blocked use, excluding its inaccurate diffusion-only caption. New Chapter14 physical8/printed479 rendering checks gland locations only; no learner asset/rights selection claim. Keep source use local; no public redistribution clearance claimed.
+
+## Next prompt assumptions
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored browser access; “how much is left?” asked status and did not cancel the rebuild. Main policy Astra High/Standard; no claim that prompt text changes settings. No agents currently authorized.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json`, then current C academic/practice JSON. Continue known gaps rather than rediscovering completed source/key reviews.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, reset or teacher-acceptance claim. Preserve all dirty work, source originals and UnitA learner/owner files.
+
+Never rerun completed one-shot author writers: `/tmp/bcd-b-required-chapter-repairs.py`, `/tmp/bcd-b-inquiry-repairs.py`, `/tmp/bcd-{b,c}-practice-mappings.py`, `/tmp/bcd-preserved-glossary-review.py`, `/tmp/bcd-d-observable-operations.py`, prior B/C/D retention and practice/definition/textbook writers. They can duplicate additions or reset corrections. Old `/tmp/bcd-{b,c,d}-academic-review.json` snapshots predate current mappings. Current canonical resources and latest exact receipts control.
+
+Latest completed stage68: C three chapter STS replacements use new IDs and capacities650/850/850; full guides499/610/630 chars. All four STS criteria now ask the named dimensions and perspective revision. Full required core/worked examples were reread and remain unchanged. C ordinary max42616; additional work must respect1384 target headroom, retaining full explanations and writing. C inquiry finals still use their original IDs/limits480/420/480 and need explicit prediction/control/supplied-claim revision. Remaining non-inquiry gaps are cytokinesis, full division comparison, twinning and aligned-sequence relatedness. No C inquiry or those construction repairs have been authored yet. The one-shot `/tmp/bcd-c-required-sts-repairs.py` completed; never rerun. Latest tests53 and draft contracts pass; stage67 typecheck/protection receipts remain explicitly inherited.
+
+
+---
+Archived before Biology B/C/D stage70 update
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; six of13 authored pre-render gates perunit pass; learner renderer unimplemented; zero new learner candidates.
+
+## Summary / what changed
+
+Through playbook69: all196 original teaching sections have exact author retention receipts;501 introduced and236 preserved glossary definitions are reviewed.27 preserved-wording corrections retain original history. All249 practice prompts now map to actual sub-operations. B’s three inquiry finals and three chapter replacements explicitly ask previously missing operations, with new IDs and prior whole drafts preserved. D’s earlier two STS additions/three inquiry replacements remain. C’s132 question mappings were narrowed and three chapter items replaced with explicit STS cases;7 criteria still need other required-operation evidence or repair. Nonempty links never establish full coverage.
+
+B has65 questions (39MC/26written), C132 (93MC/39written), D52 (33MC/19written):249 total,165MC/84written. B’s chapter counts remain14/14, C18/21/24, D10/16. All two-guided-per-topic requirements and43 required routes remain. UnitA remains provisional and all teacher decisions null.
+
+## Files changed
+
+Canonical all-unit `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Latest B changes: practice/key/passage/operation/academic/state/index resources, one gland-location sentence in core, five textbook-passage receipts and one retention target. Latest owner work: transaction helper, full-tree build guard, activity index, legacy recovery, compact flags, preserved-definition and practice-operation integrity checks. Latest tests correct first-item-is-MC and semantic-flag-order assumptions while retaining corruption checks. Operational source/verification receipts, execution checkpoint, plan, playbook and handoff archive updated.
+
+## Why this changed
+
+Broad topic tags hid missing requested operations. Required tasks must actually ask for predictions, comparisons, construction and revision. The B gland layout needed an explicit seminal-vesicle location before the task; supplied Chapter14 Figure14.2 confirms it. Existing learner questions and state IDs are preserved only for equivalent meanings. New meaningful responses use new IDs.
+
+## Verification run
+
+53 focused tests, draft-contract validation, required-prose reading and refreshed15-source/8-textbook-member protection pass. Six learner trees and protected UnitA owner remain unchanged. Typecheck has25 unrelated diagnostics, none in changed Pilot2 files. Latest exact receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-inquiry/report.json`. Initial mapping/type-assumption test failures and corrected passes are retained there.
+
+Ordinary/Unicode maximum state: B32498/C43186/D26164, target44000/hard48000. C has814 characters of target headroom. Heavy escaping or combined legacy content can exceed the guard and must be recoverable without truncation. B new written limits550/600/500; three inquiry finals600 each. No existing writing field was shortened.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+Complete136-component actual teaching, figures and requested-operation proof;127 figure bindings with science/rights; all-surface first-use/dependencies; source/media/archive dispositions, selected caption review and complete illustrated local equivalents;75-hour workload realism;159 UnitA transfer dispositions; full transitive code/asset freeze closure. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven gates remain pending. No video selected among80 unique candidates.
+
+Next focus is C’s4 missing required-practice links, listed in `unit-c/pilot2-practice-operation-review.json`. All56 C criteria,132 prompts/full correct answers and relevant stops/retrieval/evidence have been read. Several remaining activities ask only a small part of a criterion. C’s four STS criteria have explicit required prose at reproductive-strategies/evidence-and-applications, pedigrees/risk-and-information, and genetic-technologies/applications-and-uncertainty; those full paragraphs were read. Prefer replacing redundant questions before additions. C required inquiry finals still need explicit prediction/control/supplied-claim revision. Other gaps include cytokinesis, complete division comparison, twinning and actual aligned-sequence relatedness. Preserve all reviewed questions/receipts unless intentionally revised, with new IDs for new meanings.
+
+B/D now have no empty required-practice links. This is not full criterion proof: audit the remainder of each compound criterion and required graphical/identification/construction work before any curriculum gate passes.
+
+After all-unit contracts freeze, implement/integrate the owner renderer and build B→C→D. Complete43-route1440/1024/390/200% review, offline/cross-browser/save/reload/legacy recovery, whole collection and enlargement, exact-build academic/technical/visual evidence and protectedA regression. No slice approval pauses.
+
+## Fragile areas / known risks
+
+All reviews are author passes, not independent human review or teacher acceptance. Exact practice keys, passages,243 textbook guides,9 investigations and196 retention receipts reject stale bytes. Completed historical stage receipts retain their old container hashes/measurements; scoped later reviews document changes. Do not indiscriminately refresh historical evidence.
+
+The owner transaction helper is tested but no real candidate has been promoted. The Pilot2 profile still refuses unfrozen contracts, then explicitly reports its renderer unimplemented. Whole-workspace guard uses sorted path-NUL-fileSHA-LF. Former index-only hashes remain as baselineEntrySha256. Do not reuse the legacy promoter’s unsafe rollback cleanup.
+
+The activity index has825 entries,608 responses,174 choices and801 flags. Copy/Print and43-route completion are tested pure engines; rendered focus/control proof is pending. Shared NextStep shell may be reused, but its legacy data-response-id persistence must not capture Pilot2 answers. Use distinct selectors/storage and explicit overview-route aliasing. Browser/LMS integration remains unproved.
+
+Flags use a fingerprinted hex-v1 manifest; semantic set order is not click chronology. New draft response meanings changed map IDs/fingerprint deliberately; no old marker is silently reassigned. Earlier token-array payloads are supported. All five legacy envelopes/stores preserve original bytes and readable work without assigning old completions to new tasks.
+
+ChatGPT is authenticated/unlocked. Two raster candidates are provisionally usable; male raster rejected and correction declined. Original plan-authorized male SVGv3 and testis SVGv2 are provisional. Four comparison sections exist. Seven native graph models, five original textbook mitosis photos and one open-license onion-root image were reviewed; final placements pending. Placental Figure15.11A crop is reviewed for local blocked use, excluding its inaccurate diffusion-only caption. New Chapter14 physical8/printed479 rendering checks gland locations only; no learner asset/rights selection claim. Keep source use local; no public redistribution clearance claimed.
+
+## Next prompt assumptions
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored browser access; “how much is left?” asked status and did not cancel the rebuild. Main policy Astra High/Standard; no claim that prompt text changes settings. No agents currently authorized.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json`, then current C academic/practice JSON. Continue known gaps rather than rediscovering completed source/key reviews.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, reset or teacher-acceptance claim. Preserve all dirty work, source originals and UnitA learner/owner files.
+
+Never rerun completed one-shot author writers: `/tmp/bcd-b-required-chapter-repairs.py`, `/tmp/bcd-b-inquiry-repairs.py`, `/tmp/bcd-{b,c}-practice-mappings.py`, `/tmp/bcd-preserved-glossary-review.py`, `/tmp/bcd-d-observable-operations.py`, prior B/C/D retention and practice/definition/textbook writers. They can duplicate additions or reset corrections. Old `/tmp/bcd-{b,c,d}-academic-review.json` snapshots predate current mappings. Current canonical resources and latest exact receipts control.
+
+Latest completed stage68: C three chapter STS replacements use new IDs and capacities650/850/850; full guides499/610/630 chars. All four STS criteria now ask the named dimensions and perspective revision. Full required core/worked examples were reread and remain unchanged. C ordinary max42616; additional work must respect1384 target headroom, retaining full explanations and writing. C inquiry finals still use their original IDs/limits480/420/480 and need explicit prediction/control/supplied-claim revision. Remaining non-inquiry gaps are cytokinesis, full division comparison, twinning and aligned-sequence relatedness. No C inquiry or those construction repairs have been authored yet. The one-shot `/tmp/bcd-c-required-sts-repairs.py` completed; never rerun. Latest tests53 and draft contracts pass; stage67 typecheck/protection receipts remain explicitly inherited.
+
+Latest completed stage69: all three C inquiry finals now have `-revision-v2` IDs,650-character capacities and full guides495/501/506 chars. Full mapped prose/worked examples reread; molecular task additionally binds the existing applications/uncertainty part. Core/data unchanged. C ordinary max43186, headroom814. All53 tests and draft contracts pass. Four C empty-link components remain (cytokinesis, full division comparison, twinning, aligned-sequence relatedness). Prior paragraphs describing seven/eleven gaps and original final limits are historical; this latest stage controls. No further C construction replacements authored yet. Completed one-shot `/tmp/bcd-c-inquiry-repairs.py` must not be rerun.
+
+
+---
+Archived before Biology stage71 renderer update
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; six of13 authored pre-render gates perunit pass; learner renderer unimplemented; zero new learner candidates.
+
+## Summary / what changed
+
+Through playbook69: all196 original teaching sections have exact author retention receipts;501 introduced and236 preserved glossary definitions are reviewed.27 preserved-wording corrections retain original history. All249 practice prompts now map to actual sub-operations. B’s three inquiry finals and three chapter replacements explicitly ask previously missing operations, with new IDs and prior whole drafts preserved. D’s earlier two STS additions/three inquiry replacements remain. C’s132 question mappings were narrowed and three chapter items replaced with explicit STS cases;7 criteria still need other required-operation evidence or repair. Nonempty links never establish full coverage.
+
+B has65 questions (39MC/26written), C132 (93MC/39written), D52 (33MC/19written):249 total,165MC/84written. B’s chapter counts remain14/14, C18/21/24, D10/16. All two-guided-per-topic requirements and43 required routes remain. UnitA remains provisional and all teacher decisions null.
+
+## Files changed
+
+Canonical all-unit `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Latest B changes: practice/key/passage/operation/academic/state/index resources, one gland-location sentence in core, five textbook-passage receipts and one retention target. Latest owner work: transaction helper, full-tree build guard, activity index, legacy recovery, compact flags, preserved-definition and practice-operation integrity checks. Latest tests correct first-item-is-MC and semantic-flag-order assumptions while retaining corruption checks. Operational source/verification receipts, execution checkpoint, plan, playbook and handoff archive updated.
+
+## Why this changed
+
+Broad topic tags hid missing requested operations. Required tasks must actually ask for predictions, comparisons, construction and revision. The B gland layout needed an explicit seminal-vesicle location before the task; supplied Chapter14 Figure14.2 confirms it. Existing learner questions and state IDs are preserved only for equivalent meanings. New meaningful responses use new IDs.
+
+## Verification run
+
+54 focused tests, draft-contract validation, required-prose reading and refreshed15-source/8-textbook-member protection pass. Six learner trees and protected UnitA owner remain unchanged. Typecheck has25 unrelated diagnostics, none in changed Pilot2 files. Latest exact receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json`. Initial mapping/type-assumption test failures and corrected passes are retained there.
+
+Ordinary/Unicode maximum state: B31386/C42988/D25272, target44000/hard48000. C has1012 characters of target headroom. Heavy escaping or combined legacy content can exceed the guard and must be recoverable without truncation. B new written limits550/600/500; three inquiry finals600 each. No existing writing field was shortened.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+Complete136-component actual teaching, figures and requested-operation proof;127 figure bindings with science/rights; all-surface first-use/dependencies; source/media/archive dispositions, selected caption review and complete illustrated local equivalents;75-hour workload realism;159 UnitA transfer dispositions; full transitive code/asset freeze closure. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven gates remain pending. No video selected among80 unique candidates.
+
+Next focus is the remaining explicit all-unit build blockers: complete136-component compound teaching/operation/figure proof,127 figure placements/science/rights, all-surface first-use, source/media dispositions and local illustrated equivalents, realistic timing,159 transfer dispositions and transitive freeze closure. All B/C/D components now have a required-practice link; a nonempty link does not prove the full compound criterion. The four C comparison repairs are complete. Avoid further repeat passes over already completed question/key inventories unless a concrete coverage gap requires a change.
+
+After all-unit contracts freeze, implement/integrate the owner renderer and build B→C→D. Complete43-route1440/1024/390/200% review, offline/cross-browser/save/reload/legacy recovery, whole collection and enlargement, exact-build academic/technical/visual evidence and protectedA regression. No slice approval pauses.
+
+## Fragile areas / known risks
+
+All reviews are author passes, not independent human review or teacher acceptance. Exact practice keys, passages,243 textbook guides,9 investigations and196 retention receipts reject stale bytes. Completed historical stage receipts retain their old container hashes/measurements; scoped later reviews document changes. Do not indiscriminately refresh historical evidence.
+
+The owner transaction helper is tested but no real candidate has been promoted. The Pilot2 profile still refuses unfrozen contracts, then explicitly reports its renderer unimplemented. Whole-workspace guard uses sorted path-NUL-fileSHA-LF. Former index-only hashes remain as baselineEntrySha256. Do not reuse the legacy promoter’s unsafe rollback cleanup.
+
+The activity index has825 entries,609 responses,173 choices and801 flags. Copy/Print and43-route completion are tested pure engines; rendered focus/control proof is pending. Shared NextStep shell may be reused, but its legacy data-response-id persistence must not capture Pilot2 answers. Use distinct selectors/storage and explicit overview-route aliasing. Browser/LMS integration remains unproved.
+
+Flags use a fingerprinted hex-v1 manifest; semantic set order is not click chronology. New draft response meanings changed map IDs/fingerprint deliberately; no old marker is silently reassigned. Earlier token-array payloads are supported. All five legacy envelopes/stores preserve original bytes and readable work without assigning old completions to new tasks.
+
+ChatGPT is authenticated/unlocked. Two raster candidates are provisionally usable; male raster rejected and correction declined. Original plan-authorized male SVGv3 and testis SVGv2 are provisional. Four comparison sections exist. Seven native graph models, five original textbook mitosis photos and one open-license onion-root image were reviewed; final placements pending. Placental Figure15.11A crop is reviewed for local blocked use, excluding its inaccurate diffusion-only caption. New Chapter14 physical8/printed479 rendering checks gland locations only; no learner asset/rights selection claim. Keep source use local; no public redistribution clearance claimed.
+
+## Next prompt assumptions
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored browser access; “how much is left?” asked status and did not cancel the rebuild. Main policy Astra High/Standard; no claim that prompt text changes settings. No agents currently authorized.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`, with the exact figure/source register it references. Complete the known remaining build blockers; do not rediscover completed key reviews.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, reset or teacher-acceptance claim. Preserve all dirty work, source originals and UnitA learner/owner files.
+
+Never rerun completed one-shot author writers: `/tmp/bcd-b-required-chapter-repairs.py`, `/tmp/bcd-b-inquiry-repairs.py`, `/tmp/bcd-{b,c}-practice-mappings.py`, `/tmp/bcd-preserved-glossary-review.py`, `/tmp/bcd-d-observable-operations.py`, prior B/C/D retention and practice/definition/textbook writers. They can duplicate additions or reset corrections. Old `/tmp/bcd-{b,c,d}-academic-review.json` snapshots predate current mappings. Current canonical resources and latest exact receipts control.
+
+Latest completed stage68: C three chapter STS replacements use new IDs and capacities650/850/850; full guides499/610/630 chars. All four STS criteria now ask the named dimensions and perspective revision. Full required core/worked examples were reread and remain unchanged. C ordinary max42616; additional work must respect1384 target headroom, retaining full explanations and writing. C inquiry finals still use their original IDs/limits480/420/480 and need explicit prediction/control/supplied-claim revision. Remaining non-inquiry gaps are cytokinesis, full division comparison, twinning and aligned-sequence relatedness. No C inquiry or those construction repairs have been authored yet. The one-shot `/tmp/bcd-c-required-sts-repairs.py` completed; never rerun. Latest tests53 and draft contracts pass; stage67 typecheck/protection receipts remain explicitly inherited.
+
+Latest completed stage69: all three C inquiry finals now have `-revision-v2` IDs,650-character capacities and full guides495/501/506 chars. Full mapped prose/worked examples reread; molecular task additionally binds the existing applications/uncertainty part. Core/data unchanged. C ordinary max43186, headroom814. All53 tests and draft contracts pass. Four C empty-link components remain (cytokinesis, full division comparison, twinning, aligned-sequence relatedness). Prior paragraphs describing seven/eleven gaps and original final limits are historical; this latest stage controls. No further C construction replacements authored yet. Completed one-shot `/tmp/bcd-c-inquiry-repairs.py` must not be rerun.
+
+
+Latest completed stage70 (supersedes all stage68/69 remaining-gap and state counts): four C comparison replacements complete, no empty required-practice links. Allunits249 items164MC/85written; C92MC/40written. Maximum B31386/C42988/D25272. Owner lossless response packing and54 tests pass; protection/typecheck refreshed. Six of13 gates perunit still pass and zero learner candidates exist; renderer remains unimplemented. Full compound criteria and figures are not yet proved. No short ETA. New response IDs/capacities and exact source/code evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json`. No learner UI change; no E2E claim. Do not rerun completed `/tmp/bcd-c-four-construction-repairs.py` or `/tmp/bcd-stage70-receipts.py`.
+
+
+---
+
+# Handoff — Biology30 B/C/D rebuild
+
+- Project: Biology30 production B/C/D
+- Task: Execute saved all-unit contracts, then owning-builder B→C→D learner rebuild.
+- Status: in progress; six of13 authored pre-render gates perunit pass; owning renderer components implemented; whole-course assembly pending; zero new learner candidates.
+
+## Summary / what changed
+
+Through playbook69: all196 original teaching sections have exact author retention receipts;501 introduced and236 preserved glossary definitions are reviewed.27 preserved-wording corrections retain original history. All249 practice prompts now map to actual sub-operations. B’s three inquiry finals and three chapter replacements explicitly ask previously missing operations, with new IDs and prior whole drafts preserved. D’s earlier two STS additions/three inquiry replacements remain. C’s132 question mappings were narrowed and three chapter items replaced with explicit STS cases;7 criteria still need other required-operation evidence or repair. Nonempty links never establish full coverage.
+
+B has65 questions (39MC/26written), C132 (93MC/39written), D52 (33MC/19written):249 total,165MC/84written. B’s chapter counts remain14/14, C18/21/24, D10/16. All two-guided-per-topic requirements and43 required routes remain. UnitA remains provisional and all teacher decisions null.
+
+## Files changed
+
+Canonical all-unit `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Latest B changes: practice/key/passage/operation/academic/state/index resources, one gland-location sentence in core, five textbook-passage receipts and one retention target. Latest owner work: transaction helper, full-tree build guard, activity index, legacy recovery, compact flags, preserved-definition and practice-operation integrity checks. Latest tests correct first-item-is-MC and semantic-flag-order assumptions while retaining corruption checks. Operational source/verification receipts, execution checkpoint, plan, playbook and handoff archive updated.
+
+## Why this changed
+
+Broad topic tags hid missing requested operations. Required tasks must actually ask for predictions, comparisons, construction and revision. The B gland layout needed an explicit seminal-vesicle location before the task; supplied Chapter14 Figure14.2 confirms it. Existing learner questions and state IDs are preserved only for equivalent meanings. New meaningful responses use new IDs.
+
+## Verification run
+
+54 focused tests, draft-contract validation, required-prose reading and refreshed15-source/8-textbook-member protection pass. Six learner trees and protected UnitA owner remain unchanged. Typecheck has25 unrelated diagnostics, none in changed Pilot2 files. Latest exact receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json`. Initial mapping/type-assumption test failures and corrected passes are retained there.
+
+Ordinary/Unicode maximum state: B31386/C42988/D25272, target44000/hard48000. C has1012 characters of target headroom. Heavy escaping or combined legacy content can exceed the guard and must be recoverable without truncation. B new written limits550/600/500; three inquiry finals600 each. No existing writing field was shortened.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+Complete136-component actual teaching, figures and requested-operation proof;127 figure bindings with science/rights; all-surface first-use/dependencies; source/media/archive dispositions, selected caption review and complete illustrated local equivalents;75-hour workload realism;159 UnitA transfer dispositions; full transitive code/asset freeze closure. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven gates remain pending. No video selected among80 unique candidates.
+
+Next focus is the remaining explicit all-unit build blockers: complete136-component compound teaching/operation/figure proof,127 figure placements/science/rights, all-surface first-use, source/media dispositions and local illustrated equivalents, realistic timing,159 transfer dispositions and transitive freeze closure. All B/C/D components now have a required-practice link; a nonempty link does not prove the full compound criterion. The four C comparison repairs are complete. Avoid further repeat passes over already completed question/key inventories unless a concrete coverage gap requires a change.
+
+After all-unit contracts freeze, implement/integrate the owner renderer and build B→C→D. Complete43-route1440/1024/390/200% review, offline/cross-browser/save/reload/legacy recovery, whole collection and enlargement, exact-build academic/technical/visual evidence and protectedA regression. No slice approval pauses.
+
+## Fragile areas / known risks
+
+All reviews are author passes, not independent human review or teacher acceptance. Exact practice keys, passages,243 textbook guides,9 investigations and196 retention receipts reject stale bytes. Completed historical stage receipts retain their old container hashes/measurements; scoped later reviews document changes. Do not indiscriminately refresh historical evidence.
+
+The owner transaction helper is tested but no real candidate has been promoted. The Pilot2 profile still refuses unfrozen contracts, then explicitly reports its renderer unimplemented. Whole-workspace guard uses sorted path-NUL-fileSHA-LF. Former index-only hashes remain as baselineEntrySha256. Do not reuse the legacy promoter’s unsafe rollback cleanup.
+
+The activity index has825 entries,609 responses,173 choices and801 flags. Copy/Print and43-route completion are tested pure engines; rendered focus/control proof is pending. Shared NextStep shell may be reused, but its legacy data-response-id persistence must not capture Pilot2 answers. Use distinct selectors/storage and explicit overview-route aliasing. Browser/LMS integration remains unproved.
+
+Flags use a fingerprinted hex-v1 manifest; semantic set order is not click chronology. New draft response meanings changed map IDs/fingerprint deliberately; no old marker is silently reassigned. Earlier token-array payloads are supported. All five legacy envelopes/stores preserve original bytes and readable work without assigning old completions to new tasks.
+
+ChatGPT is authenticated/unlocked. Two raster candidates are provisionally usable; male raster rejected and correction declined. Original plan-authorized male SVGv3 and testis SVGv2 are provisional. Four comparison sections exist. Seven native graph models, five original textbook mitosis photos and one open-license onion-root image were reviewed; final placements pending. Placental Figure15.11A crop is reviewed for local blocked use, excluding its inaccurate diffusion-only caption. New Chapter14 physical8/printed479 rendering checks gland locations only; no learner asset/rights selection claim. Keep source use local; no public redistribution clearance claimed.
+
+## Next prompt assumptions
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s “its unlocked now” restored browser access; “how much is left?” asked status and did not cancel the rebuild. Main policy Astra High/Standard; no claim that prompt text changes settings. No agents currently authorized.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`, with the exact figure/source register it references. Complete the known remaining build blockers; do not rediscover completed key reviews.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit enablement, paid API, reset or teacher-acceptance claim. Preserve all dirty work, source originals and UnitA learner/owner files.
+
+Never rerun completed one-shot author writers: `/tmp/bcd-b-required-chapter-repairs.py`, `/tmp/bcd-b-inquiry-repairs.py`, `/tmp/bcd-{b,c}-practice-mappings.py`, `/tmp/bcd-preserved-glossary-review.py`, `/tmp/bcd-d-observable-operations.py`, prior B/C/D retention and practice/definition/textbook writers. They can duplicate additions or reset corrections. Old `/tmp/bcd-{b,c,d}-academic-review.json` snapshots predate current mappings. Current canonical resources and latest exact receipts control.
+
+Latest completed stage68: C three chapter STS replacements use new IDs and capacities650/850/850; full guides499/610/630 chars. All four STS criteria now ask the named dimensions and perspective revision. Full required core/worked examples were reread and remain unchanged. C ordinary max42616; additional work must respect1384 target headroom, retaining full explanations and writing. C inquiry finals still use their original IDs/limits480/420/480 and need explicit prediction/control/supplied-claim revision. Remaining non-inquiry gaps are cytokinesis, full division comparison, twinning and aligned-sequence relatedness. No C inquiry or those construction repairs have been authored yet. The one-shot `/tmp/bcd-c-required-sts-repairs.py` completed; never rerun. Latest tests53 and draft contracts pass; stage67 typecheck/protection receipts remain explicitly inherited.
+
+Latest completed stage69: all three C inquiry finals now have `-revision-v2` IDs,650-character capacities and full guides495/501/506 chars. Full mapped prose/worked examples reread; molecular task additionally binds the existing applications/uncertainty part. Core/data unchanged. C ordinary max43186, headroom814. All53 tests and draft contracts pass. Four C empty-link components remain (cytokinesis, full division comparison, twinning, aligned-sequence relatedness). Prior paragraphs describing seven/eleven gaps and original final limits are historical; this latest stage controls. No further C construction replacements authored yet. Completed one-shot `/tmp/bcd-c-inquiry-repairs.py` must not be rerun.
+
+
+Latest completed stage70 (supersedes all stage68/69 remaining-gap and state counts): four C comparison replacements complete, no empty required-practice links. Allunits249 items164MC/85written; C92MC/40written. Maximum B31386/C42988/D25272. Owner lossless response packing and54 tests pass; protection/typecheck refreshed. Six of13 gates perunit still pass and zero learner candidates exist; renderer remains unimplemented. Full compound criteria and figures are not yet proved. No short ETA. New response IDs/capacities and exact source/code evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json`. No learner UI change; no E2E claim. Do not rerun completed `/tmp/bcd-c-four-construction-repairs.py` or `/tmp/bcd-stage70-receipts.py`.
+
+
+Latest completed stage71: owning topic/practice/textbook/graph renderer components and controllers implemented;59 focused tests include Chromium/Firefox/WebKit synthetic browser proof. No real Biology learner lesson HTML was generated. All-unit freeze guard is retained/strengthened to all three contracts. Whole-course assembly, optional pages, collection/recovery/bootstrap and transaction integration remain. Code lives in `scripts/lib/biology30-course/v1/pilot2-render-*.ts`, `pilot2-controls-runtime.ts`, `pilot2-graph-controls.ts`, `pilot2-figure-viewer.ts`, `pilot2-return-links.ts`. Exact evidence `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/report.json`. Model/Frayer/investigation/collection page integration is the next bounded owner implementation. Follow with remaining all-unit figure/academic/media/time/transfer contracts. No gate promotion; teacher decisions null. Earlier “renderer unimplemented” entries are historical; components now exist, whole-course builder still refuses.
+
+
+Latest completed stage72 supersedes stage71 optional-component status: Models/Frayers/AllMyWork/investigation/seminar/practice-route/glossary/textbook-hub/Advanced-index/notes renderers implemented.67 focused tests and final six browser fixtures pass. Textbook guide collapsed-on-reload restored; attempt persists. Typecheck25 unrelated,0 owned; all protected learner/Aowner/source checks pass. Exact receipt `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/report.json`. Whole-course recovery/bootstrap, shell/asset/transaction integration and seven all-unit authored gates remain. No learner candidates, no acceptance, no actual export/print action.
+
+
+## Superseded by stage74 — 2026-09-07T04:43:10.856072+00:00
+
+# Handoff
+
+- Project: Biology30 B/C/D in existing canvas-helper checkout
+- Task: Execute the saved Pilot2 rebuild through the owning builder, B then C then D.
+- Status: in progress; real learner candidates remain unbuilt
+
+## What changed
+
+Latest stage73 completes tested owner topic, practice, graph, textbook, Models, Frayer, investigation, seminar, glossary, Advanced, notes, whole-collection, recovery and session components, plus a pure shared-NextStep whole-course assembler. All77 focused tests pass. This is now connected implementation, not only planning. Only synthetic courses have been rendered; no real learner lesson HTML or candidate was generated. All-unit contracts remain6of13 gates per unit and must freeze before real rendering.
+
+The pure assembler validates route/response/return targets, places textbook guides once beside their practice, and preserves interleaved required chapter/seminar navigation without increasing teacher topic counts. Owner-only CSS fixes shared-shell radio/checkbox sizing. Recovery preserves exact originals before changing a chosen local version, detects intervening edits and backup failures, and never assigns old completion to new work. Ordinary reload does not repeatedly ask a recovery question. Copy/Print includes filtered-out and oversized current writing; invalid graph drafts and recovery versions remain readable. Live LMS startup/source capture is not implemented or certified.
+
+## Files changed
+
+Owner `scripts/lib/biology30-course/v1/pilot2-render-*.ts`, `pilot2-controls-runtime.ts`, `pilot2-graph-controls.ts`, `pilot2-model-{controls,plot}.ts`, `pilot2-frayer-controls.ts`, `pilot2-collection-view.ts`, `pilot2-figure-viewer.ts`, `pilot2-return-links.ts`, `pilot2-restore.ts`, `pilot2-recovery-view.ts`, `pilot2-session.ts`, `pilot2-startup.ts`. `build.ts` retains strengthened all-three-unit freeze guard and still throws incomplete production integration afterward. Tests `scripts/tests/biology30-pilot2-*.test.ts` and synthetic fixture `scripts/tests/fixtures/biology30-pilot2/renderer.ts`. Updated plan/playbook/checkpoint and exact verification receipts. No canonical academic JSON changed during renderer stages71–73.
+
+## Why this changed
+
+Owner code must exist before transitive code/asset freeze closure. Synthetic fixtures permit implementation without bypassing the required all-unit freeze or rendering real learner lessons. User is frustrated by a day of preparation and wants execution; do not reopen completed inventories or ask another planning/permission question.
+
+## Verification run
+
+77 focused tests: `node --import tsx --test scripts/tests/biology30-topic-contract.test.ts scripts/tests/biology30-pilot2-*.test.ts`. Full synthetic course and recovery tests pass in Chromium, Firefox and WebKit. Whole shell widths1440/1024/390 checked; earlier components also have200% text-resize proof, not full browser zoom certification. Source verification15files/8textbookmembers and six learner/protectedA-owner hashes pass. Typecheck25 unrelated diagnostics,0 owned. Latest three course-browser tests reran after final header/save-status placement. No real project E2E or LMS certification claim.
+
+Latest receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/report.json`.
+Earlier component receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/report.json`.
+Stage70 academic/state receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json`.
+Do not rehash historical stage receipts when later code changes.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical input: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md` and its53-rule transfer register.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+1. Actual127 figure bindings with scientific review, provenance/rights and local asset paths. No `pilot2-figures.json`/asset manifest exists yet. Current TopicFigure type expects reviewed local asset descriptors, but only fixture descriptors have been used. Reuse previously reviewed provisional images and graphs; do not invent passed bindings.
+2. Full136 compound criteria teaching/operation/figure proof, all-surface first use, source/archive/media dispositions, selected caption review and complete local illustrated equivalents,75-hour workload realism and159 UnitA transfer dispositions. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven pending gates remain.
+3. Production asset loader, real Video Library renderer (pure assembler currently accepts temporary `videoLibraryHtml`), production browser entry that captures local/LMS/legacy sources and supplies adapters, owner transaction/metadata integration, and full transitive code/asset freeze. `pilot2-render-course.ts` is a pure assembler, not a complete production builder. Startup accepts captured sources; it does not discover/init LMS.
+4. After all-unit freeze, actual B→C→D builds,43-route1440/1024/390/200% browser-zoom/offline/save/collection/enlargement review, exact-build academic/technical/visual evidence, project E2E, separate teacher checklists and protectedA regression.
+
+No empty required-practice links remain. 30topics B8/C18/D4;127parts34/71/22;43required routes12/23/8;249practice164MC/85written. All501 introduced and236 preserved definitions reviewed,196oldsections retained,243textbookguides and9investigations/36models author-reviewed. Do not repeat those inventories without a concrete new gap.
+
+Ordinary/Unicode maximum state: B31386/C42988/D25272, target44000/hard48000. C has1012 target headroom. Heavy escaping or combined legacy payloads can still exceed the guard; preserve/copy, never truncate. Activity index825entries/609responses/173choices/801flags. No existing writing field was shortened.
+
+## Fragile areas / known risks
+
+All evidence is author review, not teacher acceptance or independent human review. UnitA provisional, teacher decisions null. No actual transaction promotion; tested rollback helper `pilot2-build-transaction.ts` must replace the legacy unsafe promoter only after frozen input/asset validation. `build.ts` still deliberately refuses production integration after its all-unit guard.
+
+ChatGPT authenticated/unlocked. Two raster candidates provisionally usable; male raster rejected/correction declined, retained as history. Plan-authorized original male SVGv3 and testis SVGv2 provisional. Four side-by-side sections exist. Seven native graph models, five original MHR mitosis photos and open-license onion-root image reviewed; placements pending. Placental Figure15.11A crop reviewed only for local blocked use, excluding its inaccurate diffusion-only caption.80unique/82occurrence YouTube candidates,0selected; do not claim caption review. All399slides/442media purposes surveyed, selected final native review/clearance remains.
+
+Whole shell proof uses synthetic content and fixture logo; it is not final course visual/scientific proof. Recovery and collection use local backups; production LMS read/init/commit connection is still separate. Shared shell legacy selectors/storage must stay isolated. Do not patch protected UnitA or shared shell to solve a B/C/D-only rendering issue.
+
+## Next prompt should assume
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s latest “well lets get going then” authorizes continuing execution. Main policy Astra High/Standard, no setting-change claim. No agents authorized. Preserve all dirty files and six learner baselines. No approval pause for routine implementation. No short ETA or percent-complete claim.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json` with reviewed candidate/graph manifests; begin actual all-unit figure binding and source/academic closure rather than another question-key inventory.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API/reset or teacher-acceptance claim. Preserve UnitA learner/owner files, source originals and all unrelated dirty work.
+
+Never rerun completed one-shot authoring writers under `/tmp`: B/C/D retention, textbook/definition, practice/key/mapping writers, `bcd-b-required-chapter-repairs.py`, `bcd-b-inquiry-repairs.py`, `bcd-c-required-sts-repairs.py`, `bcd-c-inquiry-repairs.py`, `bcd-c-four-construction-repairs.py`, `bcd-stage70-receipts.py`. They can duplicate additions or reset reviewed corrections. Canonical current JSON and latest scoped receipts control; old academic-review snapshots are stale.
+
+
+<!-- Archived before stage85 concise active handoff, 2026-09-07T12:58:35.958415+00:00 -->
+# Handoff
+
+- Project: Biology30 B/C/D in existing canvas-helper checkout
+- Task: Execute the saved Pilot2 rebuild through the owning builder, B then C then D.
+- Status: in progress; real learner candidates remain unbuilt
+
+## What changed
+
+Stage73 completes tested owner topic, practice, graph, textbook, Models, Frayer, investigation, seminar, glossary, Advanced, notes, whole-collection, recovery and session components, plus a pure shared-NextStep whole-course assembler. All101 focused tests pass as of stage83; final9 browser checks pass after the final cancellation guard. This is now connected implementation, not only planning. Only synthetic courses have been rendered; no real learner lesson HTML or candidate was generated. All-unit contracts remain6of13 gates per unit and must freeze before real rendering. Stage74 adds figure binding validation and the actual browser entry; stage75 adds nine original scientific SVGs.47of127 figure slots are now bound (B24,C1,D22); learner candidates still0of3.
+
+The pure assembler validates route/response/return targets, places textbook guides once beside their practice, and preserves interleaved required chapter/seminar navigation without increasing teacher topic counts. Owner-only CSS fixes shared-shell radio/checkbox sizing. Recovery preserves exact originals before changing a chosen local version, detects intervening edits and backup failures, and never assigns old completion to new work. Ordinary reload does not repeatedly ask a recovery question. Copy/Print includes filtered-out and oversized current writing; invalid graph drafts and recovery versions remain readable. Production browser source capture and SCORM2004 adapter are now implemented and tested against mocks; no live LMS certification.
+
+## Files changed
+
+Owner `scripts/lib/biology30-course/v1/pilot2-render-*.ts`, `pilot2-controls-runtime.ts`, `pilot2-graph-controls.ts`, `pilot2-model-{controls,plot}.ts`, `pilot2-frayer-controls.ts`, `pilot2-collection-view.ts`, `pilot2-figure-viewer.ts`, `pilot2-return-links.ts`, `pilot2-restore.ts`, `pilot2-recovery-view.ts`, `pilot2-session.ts`, `pilot2-startup.ts`. `build.ts` now connects its all-three-unit freeze guard to `pilot2-build.ts`; production remains blocked by actual incomplete academic contracts. Tests `scripts/tests/biology30-pilot2-*.test.ts` and synthetic fixture `scripts/tests/fixtures/biology30-pilot2/renderer.ts`. Updated plan/playbook/checkpoint and exact verification receipts. No canonical academic JSON changed during renderer stages71–73.
+
+## Why this changed
+
+Owner code must exist before transitive code/asset freeze closure. Synthetic fixtures permit implementation without bypassing the required all-unit freeze or rendering real learner lessons. User is frustrated by a day of preparation and wants execution; do not reopen completed inventories or ask another planning/permission question.
+
+## Verification run
+
+101 focused tests: `node --import tsx --test scripts/tests/biology30-topic-contract.test.ts scripts/tests/biology30-pilot2-*.test.ts`. Full synthetic course and recovery tests pass in Chromium, Firefox and WebKit. Whole shell widths1440/1024/390 checked; earlier components also have200% text-resize proof, not full browser zoom certification. Source verification15files/8textbookmembers and six learner/protectedA-owner hashes pass. Typecheck25 unrelated diagnostics,0 owned. Latest three course-browser tests reran after final header/save-status placement. No real project E2E or LMS certification claim.
+
+Previous receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/report.json`. Stage76:88 tests pass,25 unrelated typecheck/0 owned, fresh protection passes. Five original C photos now form one required group with separate enlargement and a closed interpretation comparison; actual lesson placement remains pending.
+Previous receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-hormone-hwe-figures/report.json`. Stage75:2 binding tests and draft contracts pass;9 added original SVG selections.
+Previous receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-figures-browser-entry/report.json`. Stage74:83 focused tests; expanded4 browser/payload and6 binding/capture checks pass;25 unrelated typecheck errors,0 owned.
+Previous receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/report.json`.
+Earlier component receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/report.json`.
+Stage70 academic/state receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json`.
+Do not rehash historical stage receipts when later code changes.
+
+Stage77 receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-owner-inputs/report.json`. Read-only actual input assembly and in-memory browser bundler now implemented; all7 graph activities and825 activity entries retained. Whole-course three-browser tests use this bundler.
+
+Stage78 receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-mechanisms-figures/report.json`. Five D mechanism figures natively reviewed and provisionally bound; six focused checks, contracts and protection pass. Continue remaining D population-growth and ecology figures.
+
+Stage79 receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-population-figures/report.json`. Six D population figures reviewed and provisionally bound; six focused checks, contracts and protection pass. Continue six remaining D ecology figures, then B/C/source/academic gates.
+
+Stage80 receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-ecology-figures/report.json`. Nine D ecology diagrams in six groups provisionally bound; all22 D targets have figures. Six focused checks, contracts and protection pass. Continue B24/C70 remaining figures and the pending all-unit gates.
+
+Stage81 receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-gamete-cycle-figures/report.json`. Eight B diagrams in seven targets reviewed and bound;40/127 covered,87pending. Six focused checks, contracts and protection pass. Continue owner Video Library integration, B17/C70 figures and all-unit closure.
+
+Latest stage82 receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-media-owner/report.json`. Owner Video Library and native visible-only media controls integrated.96 tests pass, latest5 media checks pass, typecheck25 unrelated/0 owned, contracts/protection pass. All candidates still unselected; no real learner HTML.
+
+Stage83 in progress: `scripts/lib/biology30-course/v1/pilot2-owner-closure.ts` now discovers62 current transitive CLI/browser/shared-code dependencies in memory (no learner writes). It is not yet integrated into the production builder, reviewed/frozen or covered by new focused tests. Full production metadata/transaction/source guards remain unfinished. The graph correctly includes `app/shared/course-editability.ts` as a read-only dependency; do not edit it. No `owner-closure.json` frozen manifest has been written.
+
+## Source of truth
+
+Restart: `docs/ops/biology30-bcd-next-task-prompt.md`.
+Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md`.
+Canonical input: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`.
+Owner: `scripts/lib/biology30-course/v1/`.
+Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md` and its53-rule transfer register.
+Immutable intake: `pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13`.
+Baseline: `pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168`.
+
+## What still needs validation / next work
+
+1. All127 targets now exist in unit `pilot2-figures.json` manifests;40 bound,87 pending. Thirty-eight original illustration/diagram targets, one restricted placental source and one five-photo source group are provisionally selected. Actual first-use/placement remains pending. Completed B hormone and D Hardy–Weinberg batches; remaining B/C/D targets still explicit. Keep graph answer models distinct from pre-attempt teaching figures.
+2. Full136 compound criteria teaching/operation/figure proof, all-surface first use, source/archive/media dispositions, selected caption review and complete local illustrated equivalents,75-hour workload realism and159 UnitA transfer dispositions. Passed gates: performance columns, old-section retention, practice/keys, textbook guides, investigations and authored state/migration. Seven pending gates remain.
+3. Production input/asset loader and in-memory browser bundler now implemented/tested. Video Library, inline vetted-media rendering and native API controls are implemented; current candidates remain unselected. Remaining: owner transaction/metadata integration and full transitive code/asset freeze. `pilot2-render-course.ts` is a pure assembler, not a complete production builder. The actual `pilot2-browser-entry.ts` captures exact local/legacy keys, discovers/initializes the platform API and supplies adapters. Whole-shell tests now use that entry. Browser bundling now exists; real owner transaction/metadata integration remains.
+4. After all-unit freeze, actual B→C→D builds,43-route1440/1024/390/200% browser-zoom/offline/save/collection/enlargement review, exact-build academic/technical/visual evidence, project E2E, separate teacher checklists and protectedA regression.
+
+No empty required-practice links remain. 30topics B8/C18/D4;127parts34/71/22;43required routes12/23/8;249practice164MC/85written. All501 introduced and236 preserved definitions reviewed,196oldsections retained,243textbookguides and9investigations/36models author-reviewed. Do not repeat those inventories without a concrete new gap.
+
+Ordinary/Unicode maximum state: B31386/C42988/D25272, target44000/hard48000. C has1012 target headroom. Heavy escaping or combined legacy payloads can still exceed the guard; preserve/copy, never truncate. Activity index825entries/609responses/173choices/801flags. No existing writing field was shortened.
+
+## Fragile areas / known risks
+
+All evidence is author review, not teacher acceptance or independent human review. UnitA provisional, teacher decisions null. No actual transaction promotion; tested rollback helper `pilot2-build-transaction.ts` must replace the legacy unsafe promoter only after frozen input/asset validation. The production owner is connected; actual production staging/promotion remains unexercised pending all-unit freeze.
+
+ChatGPT authenticated/unlocked. Three raster candidates provisionally usable; male raster rejected/correction declined, retained as history. Plan-authorized original male SVGv3 and testis SVGv2 provisional. Forty-six side-by-side sections exist. Seven native graph models, five original MHR mitosis photos and open-license onion-root image reviewed; placements pending. Placental Figure15.11A crop reviewed only for local blocked use, excluding its inaccurate diffusion-only caption.80unique/82occurrence YouTube candidates,0selected; do not claim caption review. All399slides/442media purposes surveyed, selected final native review/clearance remains.
+
+Whole shell proof uses synthetic content and fixture logo; it is not final course visual/scientific proof. Recovery and collection use local backups; production LMS read/init/commit adapters now have mocked three-browser proof only. Shared shell legacy selectors/storage must stay isolated. Do not patch protected UnitA or shared shell to solve a B/C/D-only rendering issue.
+
+## Next prompt should assume
+
+Continue dirty checkout `/Users/deanguedo/Documents/GitHub/canvas-helper`, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. User’s latest “well lets get going then” authorizes continuing execution. Main policy Astra High/Standard, no setting-change claim. No agents authorized. Preserve all dirty files and six learner baselines. No approval pause for routine implementation. No short ETA or percent-complete claim.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json`; continue the remaining source/academic and figure closure, using the completed B hormone and D Hardy–Weinberg reviews. New owner entry: `scripts/lib/biology30-course/v1/pilot2-browser-entry.ts`.
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit, paid API/reset or teacher-acceptance claim. Preserve UnitA learner/owner files, source originals and all unrelated dirty work.
+
+Never rerun completed one-shot authoring writers under `/tmp`: B/C/D retention, textbook/definition, practice/key/mapping writers, `bcd-b-required-chapter-repairs.py`, `bcd-b-inquiry-repairs.py`, `bcd-c-required-sts-repairs.py`, `bcd-c-inquiry-repairs.py`, `bcd-c-four-construction-repairs.py`, `bcd-stage70-receipts.py`. They can duplicate additions or reset reviewed corrections. Canonical current JSON and latest scoped receipts control; old academic-review snapshots are stale.
+
+
+## Stage83 — connected production owner (2026-09-07)
+
+The strict Pilot 2 profile now invokes the production owner after all three frozen contracts pass. The owner verifies transitive code/package/external-branding hashes, immutable source packets, branch/HEAD and all protected Unit A trees; assembles exact academic inputs; stages the browser bundle, assets and blocked metadata; validates bytes before transactional replacement. Cold source verification deliberately excludes original B/C/D workspace checks so B does not prevent the later C/D builds; the transaction separately requires the exact current target workspace. No actual candidate was rendered or promoted. No owner-closure.json has been frozen.
+
+Generated project checks now use Pilot 2 response/collection routes, with synthetic preview save/reload/return-focus/mobile proof. Return links wait for the shell's route-change event before focusing the original activity, removing the earlier two-frame timing assumption. All101 focused tests passed; final9 browser checks passed after the final cancellation guard. Typecheck25 unrelated/0 owned; source15/member8, all original learner/protected hashes and draft contracts passed. Receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-production-owner/report.json`. Actual production staging/promotion and real project E2E remain unexercised pending all-unit freeze.
+
+Next: stage84 remaining B17/C70 teaching figure targets and academic closure; D22 targets are provisionally bound. Figure total40/127, all-unit gates6/13, teacher decisions null. Computer-control tool again reports the Mac locked, so ChatGPT raster work waits for unlock while original scientific SVG/source review continues. No deployment/export/commit/push/publication/Edit.
+
+
+## Stage84 — early development figures (2026-09-07)
+
+Seven original SVG targets bound in B: functional fertilization steps(v2), two pronuclei/ploidy(v1), cleavage/morula/blastocyst(v3), IVF location/denominators(v1), hCG source/target/placental transition(v1), germ-layer tissue map(v1), and fictional developmental evidence timing(v1). Native source media, existing B08/B10/B11 figures, all seven final native SVGs and seven side-by-side sections reviewed. Earlier cleavage ring and oocyte inner-circle ambiguities were corrected before selection. Source fast-block, whole-organ germ-layer and uncalibrated hCG-curve claims are not transferred.
+
+Totals47/127 targets: B24,C1,D22;80 pending(B10,C70).55 selected asset files;46 gallery sections. All-unit gates remain6/13 each. Ten focused binding/input/closure/project-metadata tests, contracts and full source/protected verification pass. Receipt: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-early-development-figures/report.json`. No real learner HTML, teacher acceptance, export or deployment.
+
+Continue stage85 remaining B support/development/health/technology/evidence figures, then C. Computer-control reports Mac locked; user was asked to unlock, while source-based work continues. Never rerun the completed one-shot writers `/tmp/bcd-early-development-svg-drafts.py` or `/tmp/bcd-early-development-bindings.py`; they are historical construction steps.
+
+
+---
+
+Archived before stage95 actual B/C/D completion.
+
+# Biology30 B/C/D active handoff
+
+## Summary
+
+Execute the saved rebuild in the existing dirty checkout through the owning builder. Stage92 complete: **127/127 figure targets bound (B34,C71,D22),115 selected files;10/13 academic gates passed per unit. Actual learner candidates:0/3.** All figures are author-reviewed provisional local selections; teacher choices and acceptance remain null. The user approved keeping reviewed work and using ChatGPT for new illustrations, precise SVGs for graphs/grids/sequences/pathways. Do not redo figures or restart inventories.
+
+## Files changed
+
+Stages88–89: all three figure manifests and figure review gates,32 new selected assets (two ChatGPT illustrations plus30 precise SVGs), scientific receipts, gallery, figure/input test expectations and operational records. Exact hashes and checks: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-complete-figure-selection/report.json`. Source/code owner remains `scripts/lib/biology30-course/v1/`; no learner workspace or protected A owner changed.
+
+## Verification run
+
+Six final focused binding/input checks pass (`/tmp/bcd-stage89-tests-final-v2.log`). Draft contracts pass (`/tmp/bcd-stage89-contracts-final.log`). Cold source/protected-baseline verification passes (`/tmp/bcd-stage89-protection.log`).127 targets,115 unique files,18 scientific receipts,126 gallery sections and540 local references verified. Native asset reviews and narrow corrections recorded in `c-reproduction-inheritance-mapping-review.json` and `c-molecular-genetics-technology-review.json`. Codon-table accessible explanation includes all64 entries. Initial count/status expectation failures retained; no evidence hash bypass.
+
+Last full owner suite stage83:101/101 and final9 browser checks after return-focus guard; typecheck25 unrelated/0 owned. These are synthetic proof, not actual-course or LMS proof. No reason to rerun broad suites for unchanged code.
+
+## Known risks and follow-up
+
+1. Three pending academic gates: atomic curriculum map, vocabulary/first use, Unit A transfer rules. Stages90–92 closed source/local paths and authored Advanced/timing; see appended plan/playbook entries and checkpoint. Figure/rights gate covers authored local review only; actual inline/enlarged placement remains pending after building.
+2. Source inventories already complete:399 slides,442 media purposes,82 YouTube occurrences/80 IDs. All embedded deck artwork is authoring-only; now link preserved instructional purposes to the actual reviewed replacement figures. Do not repeat all contact-sheet inventories. Video candidates remain unreviewed and explicitly excluded from this local candidate; no caption-review claim. All127 local frames exactly match reviewed worked examples and bind reviewed figures; source/media gates passed.
+3.136 compound academic criteria need complete operation proof beyond existing practice mapping.501 introduced and236 preserved glossary definitions have wording reviews; all-surface first use (including new figures and Advanced) remains.75-hour authored workload estimates passed;159 transfer implementation dispositions remain.73 definition placements moved earlier including grouped panels; finish remaining surfaces/dependencies before vocabulary closure.
+4. All3 contracts must be frozen with transitive owner/code/input/asset hashes and13/13 gates before actual learner HTML. No frozen `owner-closure.json` yet. Build B→C→D through `pilot2-build.ts`; no routine permission pause. Actual transaction/promotion and project E2E are unexercised.
+5. Then inspect43 required routes at1440/1024/390/200% zoom and verify offline/save/reload/collection/enlargement, actual academic/visual evidence, project E2E, doctor/workspace checks, separate teacher checklists and A regression.
+
+## Source of truth
+
+- Restart: `docs/ops/biology30-bcd-next-task-prompt.md` (already read completely).
+- Full plan: `docs/plans/biology30-bcd-pilot2-rebuild.md` (execute, do not restart discussion).
+- Owner: `scripts/lib/biology30-course/v1/`; production entry `pilot2-build.ts`.
+- Academic inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/`.
+- Checkpoint: `projects/resources/biology30-production/v1/pilot2/execution-checkpoint.json`.
+- Playbook: `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`.
+- Figure closure: `projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json`.
+
+## Fragile areas / what might drift
+
+Preserve branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`, dirty checkout, all3 Unit A learner trees and A2 owner. All6 original learner baselines still match. After actual B build use the cold build-input verifier for C/D, not original B workspace verification. State bytes B31386/C42988/D25272; C1012 bytes below target44000/hard48000. Never truncate saved writing. Passed gate receipts pin academic files; changing those inputs requires a scoped re-review, not blind hash repinning. Early B queue-dependent evidence was moved to an exact immutable prior-byte snapshot, preserving its original hash.
+
+Browser is authenticated and idle at the existing ChatGPT conversation. Six selected ChatGPT rasters total. Newest expression v1 was rejected for duplicated exported exon regions; v2 is selected. A supported reload restored an empty pageAssets inventory; no fetch bypass or local raster edits. Original/revision prompts remain in the linked conversation; browser content export is unsupported. Keep provenance locations and science checklists. No generation running.
+
+## Next prompt assumptions
+
+User wants execution and is frustrated by usage/time. Batch work and reuse reviews. Astra High/Standard recorded; Medium only if actually configured for bounded work; approval before Max. No agents authorized, settings-change claims, commits, pushes, deployment, export/package, publication, LMS upload, Studio Edit, paid API/reset, teacher acceptance or memory writes. Unit A stays provisional. Do not rerun one-shot `/tmp/bcd-stage*-bindings.py` or construction writers; they are complete and can duplicate/reset work.
+
+## Exact next command
+
+`python3 -m json.tool projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json`: finish operation-level coverage evidence for all136 B/C/D criteria using authored required teaching, reviewed worked examples, figures and already-reviewed sub-operation practice. Remaining vocabulary and159 transfer implementation mappings next. Do not rerun completed one-shot stage90/91/91b/92 writers.
+
+
+<!-- Archived before stage97 presentation repair handoff -->
+# Biology30 B/C/D active handoff
+
+## Current correction — Unit A design and organization transfer failed (2026-09-07)
+
+The user rejected the B/C/D presentation as substantially different from final Unit A Pilot 2. Direct native-browser comparison confirms this finding. Stage95 technical passes remain historical evidence; they do not establish faithful Unit A transfer or task completion. The earlier assistant assurance based on 53 mapped rules was too broad.
+
+Observed differences: Unit A has Start / Learn (chapter groups) / Practice & Review / Process Collection / Resources navigation; B/C/D use the generic shell's Lessons group plus a flat list. Unit A has an authored question-led overview, route explanation and chapter map; B/C/D use a plain title, outcome bullets and ordered route list. Unit A uses framed lesson sections, local typography, time labels, learning-goal/prior-knowledge panels, textbook strip, four anchor words and expandable term inventory. B/C/D use a narrow generic content column, omit the anchor/inventory opening, and render retrieval before teaching. Unit A vocabulary uses search/filter plus concept navigation and a detail pane; B uses a long stacked family page and choice dropdowns. C/D overview screenshots confirm the same replacement design.
+
+Cause: `scripts/lib/biology30-course/v1/pilot2-render-course.ts` calls `renderNextStepCourseShell` with newly assembled flat navigation and a basic overview. `pilot2-render-topic.ts` independently defines lesson markup and minimal CSS. Final Unit A's authored presentation is in `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts` and its associated styles/renderers. Feature inventories, generic owner mappings, and technical tests did not enforce visual/organizational equivalence to that reference. Speed/usage steering did not authorize a new design.
+
+This turn inspected and diagnosed the mismatch; no learner or owner files were changed. Preserve existing B/C/D academic inputs, assets and saved-state identities. The required correction is to adapt Unit A's actual presentation and organization into the B/C/D owning builder, including lesson sequence and vocabulary workspace, then compare representative matching surfaces directly with A and run focused behavior checks. Do not regenerate images or repeat source intake. Unit A remains protected and provisional; all publication/Edit prohibitions remain.
+
+Exact next file: `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts` (final navigation/assembly around line1330), then B/C/D `pilot2-render-course.ts`, `pilot2-render-topic.ts`, and `pilot2-render-vocabulary.ts`. Exact next command: `sed -n '1328,1370p' scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`.
+
+## Previous stage95 technical summary
+
+**All3 local learner courses are built and essential verification passes.** B8topics/65practice; C18/132; D4/52.43 required routes,127 reviewed figure targets. All3 contracts frozen with13/13 provisional authored gates. User directed stopping broad review because of time/usage: do not restart inventories, images or a general review cycle. Unit A remains provisional; teacher acceptance null. No release or Studio Edit authorized.
+
+## Files changed
+
+Owning renderer fixes: `scripts/lib/biology30-course/v1/pilot2-render-textbook.ts` accepts absent null continuation pages; `pilot2-render-course.ts` adds Pilot2-only mobile header layout. Input/owner tests updated for frozen production contracts; actual C/D continuation regression added. Canonical B/C/D resources, frozen contracts/owner closure and generated B/C/D workspaces/meta updated through their owner. Plan/playbook/checkpoint and per-unit teacher checklists updated. Preserve all unrelated dirty files.
+
+## Verification run
+
+Final actual project E2E B/C/D each1/1 pass. Workspace verifies3/3, no missing assets/external dependencies.172 required-route/layout checks pass at1440/1024/390/720 CSS widths; no broken images/page overflow. Fresh local-file launches with network offline3/3 pass. Exact127 core blocks,501 definition placements,819 declared academic targets and required practice IDs checked. Frozen pre-render/cold source/protected verification pass. Typecheck25 unrelated/0 touched Biology diagnostics. Focused test assertion-message mismatch corrected; input3/3 final, other owner tests passed. Doctor rejects `not-active` because all3 intentionally remain blocked/proposal-only.
+
+Evidence and retained logs: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-actual-courses/report.json`.
+
+## Known risks / follow-up
+
+Teacher acceptance/pacing and release/LMS tests remain unclaimed. Actual browser UI200% zoom was not exercised;720px reflow was checked instead. Full exhaustive visual acceptance is not claimed. Original unreviewed external clips stay excluded; every topic has an illustrated local path. Legacy skill-task planning aliases are not claimed as rendered IDs; current required practice IDs and reviewed teaching targets are checked. Respond to specific findings next; no generic new review round.
+
+## Source-of-truth location
+
+Owner: `scripts/lib/biology30-course/v1/`. Frozen authored inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Workspaces are generated. Regenerate using the exact per-project `meta/project.json` command and current workspace SHA. Read-only live previews use `/tmp/bcd-local-preview.mjs` on127.0.0.1:4180: `/b/`, `/c/`, `/d/`; the persistent local preview server session is98072. These are not deployments. Offline entries are each project `workspace/index.html`.
+
+## Fragile areas / what might drift
+
+Branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`; dirty checkout preserved. All3 protected A learner trees and A2 owner remain exact. B/C/D original baseline workspace hashes are now historical: use `--verify-build-inputs`, not original-baseline `--verify-only`. Frozen source/code changes require a scoped delta receipt and updated all-unit closure, then exact owner rebuild. Never manually patch generated HTML. C state remains near its44KB target; never truncate saved writing.
+
+Current workspace SHAs:
+- B: `096f3331beb887484404e51a31269ca27ba7b11d4a6d1314ab3653f9de42836e`
+- C: `ff179e7d6c392b61df160b07efc9d87de6bc2cf469b95dbc2d465b97589e7caa`
+- D: `ca76045399b8d477256968c12539dcb056575cbe3453718469e7334fc711a0d8`
+
+## Next prompt assumptions
+
+User wanted the courses made, not additional broad review. They now exist locally. Keep6 selected ChatGPT rasters and precise reviewed SVGs; no generation pending. Keep all courses blocked, Studio Edit disabled, teacher acceptance null. No commit/push/deployment/export/publication/LMS upload/reset/paid API/memory write. No agents authorized. Do not rerun completed stage writers or freeze/construction scripts.
+
+## Exact next command
+
+`npm run verify:biology30-course:topic-contracts -- --pre-render` (read-only only if needed; already passed).
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-actual-courses/report.json` for the exact finished candidate evidence, or the user-named topic in its owning authored resource when a specific correction arrives.
+
+
+<!-- Before stage98 hub repair -->
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Repair the user-reported failure to transfer final Unit A presentation and organization.
+- Status: In progress. Stage97 technical checks passed, but user reports Practice & Review, Process Collection and Resources still differ from A. Correct their actual page structures and controls before claiming this repair complete.
+
+## What changed and why
+
+The user correctly identified that generic-shell B/C/D differed substantially from A despite earlier transfer-rule claims. Stage97 adapts A's actual CSS/fonts, five navigation groups, chapter organization, overview, lesson openings, teaching/retrieval sequence, vocabulary reader and model/textbook tools through the B/C/D owner. Existing academic content, figures, routes and saved-state identities are retained. Saved-work return focus and Studio progress compatibility are repaired. This replaces stage95's overbroad presentation completion claim.
+
+## Files changed
+
+Owner: `scripts/lib/biology30-course/v1/pilot2-{a-presentation,presentation-shell,presentation-runtime,lesson-header,render-course,render-topic,render-vocabulary,render-reference,inputs,session,return-links,collection-view}.ts`. New focused static/browser tests under `scripts/tests/biology30-pilot2-a-presentation*.test.ts`. Canonical font copies under `projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts/`; scoped source-review receipts, owner closure and all-unit contract pins updated. Generated B/C/D workspaces and metadata rebuilt through the owner. Plan, playbook, checkpoint and restart prompt updated. Unrelated dirty work preserved.
+
+## Verification run
+
+Final project E2E B/C/D each 1/1 passed; workspace verification 3/3 passed. Focused tests 11/11 passed. All-unit browser regression passed, including 244 route/width checks (1440/1024/720/390), A typography, vocabulary unlock/search, Frayer collection/save/reload/return focus, model test, textbook reader/attempt/reload and mobile menu. Actual local B/C/D inspected natively. All 127 core paragraphs and 825 indexed activities retained. Cold sources and all protected A baseline checks pass. Typecheck: 25 unrelated baseline diagnostics, zero touched Biology diagnostics.
+
+Report and logs: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-presentation-repair/report.json`.
+
+## Source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/`. Authored inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Workspaces are generated; use the exact current `meta/project.json` regenerate command. Final A reference remains `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts` and `projects/biology30-unit-a-pilot-2/workspace/` (read-only).
+
+## Fragile areas / watchouts
+
+Branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Huge dirty checkout preserved. All three A learner trees and A2 owner remain exact. Frozen owner/source changes require scoped delta evidence and all-unit closure updates. Do not rerun one-shot stage writers. C state remains near its 44KB target; never truncate writing. Feature inventories alone do not establish visual equivalence to A.
+
+Current workspace SHAs:
+- B: `54122aec1f200185072eebefc32044eeda2bac552950320ca32faab868caef27`
+- C: `b2c71bd2718e2ffdae95b1098497c7a6ff850862857440fc98ecff70e83e3f6d`
+- D: `bdb71a83e2166bc4ee3e850aa29f09fee1c9133e7df28aa1065136408de4db7d`
+
+## What still needs validation / known risks
+
+Teacher acceptance and measured student pacing remain pending. Native browser 200% zoom, fresh offline launch and LMS/release checks were not repeated for this presentation repair; 720px reflow and local assets were checked. Exhaustive visual acceptance is not claimed. Review metadata identifies the exact candidate and distinguishes previous evidence. No new images or source-review round is needed.
+
+## Next prompt should assume
+
+User wanted this concrete repair, not more broad reviews. B/C/D are built locally with A presentation. Address specific findings next. Unit A stays provisional, all candidates blocked/proposal-only and Studio Edit disabled. The persistent local preview server serves http://127.0.0.1:4180/b/ , /c/ , /d/ . The Studio SPA URL /preview/workspace/... can show the selected Studio course instead; use these direct learner previews for visual comparison.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-presentation-repair/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-presentation-repair/report.json`
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit, resets, paid APIs, image regeneration, agents or memory writes. Do not alter protected A or manually patch generated HTML. Keep the existing local checkout and completed evidence.
+
+
+---
+Archived at 2026-09-07T16:13:12.347992+00:00 before stage99
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Repair the user-reported failure to transfer final Unit A presentation and organization.
+- Status: Reported section repair complete and locally verified; blocked candidates, teacher acceptance pending.
+
+## Current stage98 result
+
+Practice & Review, Process Collection and Resources now use A's subordinate organization and page structures. Optional challenge is inside Final Practice; investigations and notes are inside Process Collection. Collection chapter/type filters, grouped records, checklist synchronization, textbook tabs/mobile selector and separate Sources page work. Original response/state IDs and academic content are retained. `pilot2-a-hubs.ts` owns these adaptations; `pilot2-render-controls.ts` owns the practice markup. Empty archives remain stored and are hidden only when they contain no work.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-hub-repair/report.json`. Final workspace and project E2E B/C/D pass; 7 focused plus 4 protected/preflight checks pass; browser regression passes with 292 route/width checks including all corrected resource pages.
+
+## What changed and why (stage97 history)
+
+The user correctly identified that generic-shell B/C/D differed substantially from A despite earlier transfer-rule claims. Stage97 adapts A's actual CSS/fonts, five navigation groups, chapter organization, overview, lesson openings, teaching/retrieval sequence, vocabulary reader and model/textbook tools through the B/C/D owner. Existing academic content, figures, routes and saved-state identities are retained. Saved-work return focus and Studio progress compatibility are repaired. This replaces stage95's overbroad presentation completion claim.
+
+## Files changed
+
+Owner: `scripts/lib/biology30-course/v1/pilot2-{a-presentation,presentation-shell,presentation-runtime,lesson-header,render-course,render-topic,render-vocabulary,render-reference,inputs,session,return-links,collection-view}.ts`. New focused static/browser tests under `scripts/tests/biology30-pilot2-a-presentation*.test.ts`. Canonical font copies under `projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts/`; scoped source-review receipts, owner closure and all-unit contract pins updated. Generated B/C/D workspaces and metadata rebuilt through the owner. Plan, playbook, checkpoint and restart prompt updated. Unrelated dirty work preserved.
+
+## Verification run
+
+Final project E2E B/C/D each 1/1 passed; workspace verification 3/3 passed. Focused tests 11/11 passed. All-unit browser regression passed, including 244 route/width checks (1440/1024/720/390), A typography, vocabulary unlock/search, Frayer collection/save/reload/return focus, model test, textbook reader/attempt/reload and mobile menu. Actual local B/C/D inspected natively. All 127 core paragraphs and 825 indexed activities retained. Cold sources and all protected A baseline checks pass. Typecheck: 25 unrelated baseline diagnostics, zero touched Biology diagnostics.
+
+Report and logs: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-presentation-repair/report.json`.
+
+## Source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/`. Authored inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Workspaces are generated; use the exact current `meta/project.json` regenerate command. Final A reference remains `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts` and `projects/biology30-unit-a-pilot-2/workspace/` (read-only).
+
+## Fragile areas / watchouts
+
+Branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Huge dirty checkout preserved. All three A learner trees and A2 owner remain exact. Frozen owner/source changes require scoped delta evidence and all-unit closure updates. Do not rerun one-shot stage writers. C state remains near its 44KB target; never truncate writing. Feature inventories alone do not establish visual equivalence to A.
+
+Current workspace SHAs:
+- B: `df99ca9de0c5db9ddb31b447db3094e3a71c68958ed0a8491f63c2c53ac98ec3`
+- C: `ee292eb52d9fb7a1013b977271efda8299dcb1a8f7285794875d7a7804ed5aca`
+- D: `00c643bd8392e05e68607bf85ea279d302d55509e4e5d5887c270f3120720c9c`
+
+## What still needs validation / known risks
+
+Teacher acceptance and measured student pacing remain pending. Native browser 200% zoom, fresh offline launch and LMS/release checks were not repeated for this presentation repair; 720px reflow and local assets were checked. Exhaustive visual acceptance is not claimed. Review metadata identifies the exact candidate and distinguishes previous evidence. No new images or source-review round is needed.
+
+## Next prompt should assume
+
+User wanted this concrete repair, not more broad reviews. B/C/D are built locally with A presentation. Address specific findings next. Unit A stays provisional, all candidates blocked/proposal-only and Studio Edit disabled. The persistent local preview server serves http://127.0.0.1:4180/b/ , /c/ , /d/ . The Studio SPA URL /preview/workspace/... can show the selected Studio course instead; use these direct learner previews for visual comparison.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-hub-repair/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-hub-repair/report.json`
+
+## Do not do next / warnings
+
+No commit, push, deployment, export, publication, LMS upload, Studio Edit, resets, paid APIs, image regeneration, agents or memory writes. Do not alter protected A or manually patch generated HTML. Keep the existing local checkout and completed evidence.
+
+
+---
+Archived before stage100 at 2026-09-07T16:17:33.868838+00:00
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Fix nonmatching Core Vocabulary behavior and restore original PowerPoint videos.
+- Status: Specific local repair complete and verified; all candidates remain blocked, teacher acceptance pending.
+
+## What changed and why
+
+Earlier review dispositions excluded every original video. Stage99 restores all80 original optional source links: B17/C48/D15. Library has chapter/slide playlist, native player, lesson connections and original direct links. Ten erroneous topic connections corrected.77 public metadata checks succeeded;3 links unavailable. Reviewed-clip selection remains0; original resources have separate recorded user authority. Captions/science/playback are not certified by metadata.
+
+Core Vocabulary now supports Add/Remove from Process Collection, Compare/Hide model, collected-state retention during valid edits, and selected-concept persistence. Existing responses and Frayer keys retained. Optional active-concept field fits maximum state target. Stage97/98 presentation and hub repairs remain in place.
+
+## Files changed / source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/pilot2-source-videos.ts`, `pilot2-{state,presentation-runtime,render-vocabulary,controls-runtime,frayer-controls,render-course,a-hubs,inputs,session,presentation-shell}.ts`. Authored unit inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-link-dispositions.json`; scoped source receipts, owner closure and contract pins. Focused state/source/browser tests updated. Generated BCD workspaces rebuilt through current metadata commands. Review metadata, plan, playbook, restart prompt and execution checkpoint updated.
+
+## Verification run
+
+Final workspace and project E2E B/C/D each pass. Final13 state/source/owner checks pass; earlier18 focused including media pass. All-unit browser regression passed vocabulary, save/reload, source playlist/player, model/textbook and292 route/width checks; subsequent mapping/chapter-only corrections covered by final source tests. Final actual-player lifecycle checks pass for B/C/D (offline removal, online recovery, navigation stop). Provider poster/Play controls observed natively in all3 units; full playback/caption review not claimed. Typecheck has25 unrelated baseline errors and zero touched Biology diagnostics. Protected A trees/owner exact.
+
+Report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`.
+
+## Current workspace SHAs
+- B: `615b9e55e6a575e23209f87c7852c9b1589b08c0b3320d3393121498165affd7`
+- C: `1dd7868178ea49a71341956fd2372866f20d44e257bfc2ca6c2c4c6e2b1b6193`
+- D: `077d4e988c131d779d32042d34ea62fdf3b9dd51d8a2fd9baac3e578853f7142`
+
+## Fragile areas / known risks
+
+Preserve dirty checkout, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Frozen edits need narrow delta receipts and updated contract pins; never rerun one-shot writers. Original optional source-video lane must not become reviewed-clip acceptance. Provider availability changes;3 failed metadata links retained with clear unavailable status. Do not call every video playable. Existing state IDs and payload limits must remain compatible.
+
+## Next prompt should assume / what still needs validation
+
+Address specific user findings in current local candidates. Unit A remains provisional. Teacher acceptance, measured student pacing, exhaustive clip/caption review and release/LMS certification remain pending. No new broad review or image cycle. Open learner tabs require a full reload after rebuild; changing only their hash leaves older course code loaded.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. Do not patch generated HTML or protected A. Preserve original sources. Direct local previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview paths can display the selected Studio course rather than the URL's slug.
+
+
+---
+Archived before stage101 at 2026-09-07T16:29:16.488236+00:00
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Make course content use the space released by collapsing navigation.
+- Status: Specific local repair complete and verified; all candidates remain blocked, teacher acceptance pending.
+
+## Current stage100 result
+
+Content now fills the main container beside either expanded or collapsed navigation. Removed the fixed frame caps through the BCD presentation adapter; gutters remain. No A or academic/state changes.
+
+Final all-unit width/position/overflow tests pass at1920/1440/1024/720/390px, including expanded/collapsed restoration and mobile resizing. Workspace and project E2E B/C/D pass;4 owner/protected checks pass. Actual B inspected natively.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json`. Owning file: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Regression: `scripts/tests/biology30-pilot2-sidebar-layout.test.ts`.
+
+## Prior stage99 changes and evidence
+
+Earlier review dispositions excluded every original video. Stage99 restores all80 original optional source links: B17/C48/D15. Library has chapter/slide playlist, native player, lesson connections and original direct links. Ten erroneous topic connections corrected.77 public metadata checks succeeded;3 links unavailable. Reviewed-clip selection remains0; original resources have separate recorded user authority. Captions/science/playback are not certified by metadata.
+
+Core Vocabulary now supports Add/Remove from Process Collection, Compare/Hide model, collected-state retention during valid edits, and selected-concept persistence. Existing responses and Frayer keys retained. Optional active-concept field fits maximum state target. Stage97/98 presentation and hub repairs remain in place.
+
+## Files changed / source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/pilot2-source-videos.ts`, `pilot2-{state,presentation-runtime,render-vocabulary,controls-runtime,frayer-controls,render-course,a-hubs,inputs,session,presentation-shell}.ts`. Authored unit inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-link-dispositions.json`; scoped source receipts, owner closure and contract pins. Focused state/source/browser tests updated. Generated BCD workspaces rebuilt through current metadata commands. Review metadata, plan, playbook, restart prompt and execution checkpoint updated.
+
+## Verification run
+
+Final workspace and project E2E B/C/D each pass. Final13 state/source/owner checks pass; earlier18 focused including media pass. All-unit browser regression passed vocabulary, save/reload, source playlist/player, model/textbook and292 route/width checks; subsequent mapping/chapter-only corrections covered by final source tests. Final actual-player lifecycle checks pass for B/C/D (offline removal, online recovery, navigation stop). Provider poster/Play controls observed natively in all3 units; full playback/caption review not claimed. Typecheck has25 unrelated baseline errors and zero touched Biology diagnostics. Protected A trees/owner exact.
+
+Report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`.
+
+## Current workspace SHAs
+- B: `78f715a93a96cdf76e1c04f169cdeee9625905c7b3a82b4ca7fbd481236117da`
+- C: `5d14c5bf7e28bdbc8f18384afc98f922b26bf279c9a92551c6257bdeda675ea2`
+- D: `c0d2b33dc800c4af025da3993f7d0cab36c5d883e2b8922b3cd7d9a1c31d156f`
+
+## Fragile areas / known risks
+
+Preserve dirty checkout, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Frozen edits need narrow delta receipts and updated contract pins; never rerun one-shot writers. Original optional source-video lane must not become reviewed-clip acceptance. Provider availability changes;3 failed metadata links retained with clear unavailable status. Do not call every video playable. Existing state IDs and payload limits must remain compatible.
+
+## Next prompt should assume / what still needs validation
+
+Address specific user findings in current local candidates. Unit A remains provisional. Teacher acceptance, measured student pacing, exhaustive clip/caption review and release/LMS certification remain pending. No new broad review or image cycle. Open learner tabs require a full reload after rebuild; changing only their hash leaves older course code loaded.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. Do not patch generated HTML or protected A. Preserve original sources. Direct local previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview paths can display the selected Studio course rather than the URL's slug.
+
+
+---
+Archived before stage102 at 2026-09-07T16:34:10.668760+00:00
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Put original PowerPoint video players directly into the lessons.
+- Status: Specific local repair complete and verified; all candidates remain blocked, teacher acceptance pending.
+
+## Current stage101 result
+
+Stage99 had lesson links only. Original source players are now embedded after teaching and before each mapped lesson's existing walkthrough/checkpoint. Header links jump to inline videos; library entries remain unique. State/work IDs unchanged; videos remain original optional resources, not newly certified clips.
+
+Final5 source/owner tests, actual B/C/D inline player/header jump/library handoff checks, all3 workspace checks and all3 project E2E checks pass. Native B provider player inspected in the lesson. Protected A unchanged.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-inline-powerpoint-videos/report.json`. Owner: `scripts/lib/biology30-course/v1/pilot2-render-course.ts`; static regression in `scripts/tests/biology30-pilot2-vocabulary-source-videos.test.ts`.
+
+## Prior stage100 result
+
+Content now fills the main container beside either expanded or collapsed navigation. Removed the fixed frame caps through the BCD presentation adapter; gutters remain. No A or academic/state changes.
+
+Final all-unit width/position/overflow tests pass at1920/1440/1024/720/390px, including expanded/collapsed restoration and mobile resizing. Workspace and project E2E B/C/D pass;4 owner/protected checks pass. Actual B inspected natively.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json`. Owning file: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Regression: `scripts/tests/biology30-pilot2-sidebar-layout.test.ts`.
+
+## Prior stage99 changes and evidence
+
+Earlier review dispositions excluded every original video. Stage99 restores all80 original optional source links: B17/C48/D15. Library has chapter/slide playlist, native player, lesson connections and original direct links. Ten erroneous topic connections corrected.77 public metadata checks succeeded;3 links unavailable. Reviewed-clip selection remains0; original resources have separate recorded user authority. Captions/science/playback are not certified by metadata.
+
+Core Vocabulary now supports Add/Remove from Process Collection, Compare/Hide model, collected-state retention during valid edits, and selected-concept persistence. Existing responses and Frayer keys retained. Optional active-concept field fits maximum state target. Stage97/98 presentation and hub repairs remain in place.
+
+## Files changed / source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/pilot2-source-videos.ts`, `pilot2-{state,presentation-runtime,render-vocabulary,controls-runtime,frayer-controls,render-course,a-hubs,inputs,session,presentation-shell}.ts`. Authored unit inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-link-dispositions.json`; scoped source receipts, owner closure and contract pins. Focused state/source/browser tests updated. Generated BCD workspaces rebuilt through current metadata commands. Review metadata, plan, playbook, restart prompt and execution checkpoint updated.
+
+## Verification run
+
+Final workspace and project E2E B/C/D each pass. Final13 state/source/owner checks pass; earlier18 focused including media pass. All-unit browser regression passed vocabulary, save/reload, source playlist/player, model/textbook and292 route/width checks; subsequent mapping/chapter-only corrections covered by final source tests. Final actual-player lifecycle checks pass for B/C/D (offline removal, online recovery, navigation stop). Provider poster/Play controls observed natively in all3 units; full playback/caption review not claimed. Typecheck has25 unrelated baseline errors and zero touched Biology diagnostics. Protected A trees/owner exact.
+
+Report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`.
+
+## Current workspace SHAs
+- B: `1ed22657ab22df6a2bb0d4e0bae4600d32e2d51129a54822218cdc5652d9b891`
+- C: `42f7d4dcd83d68f4deaae90ed41913a715dd37ed264dcffbd3cba7cd01e0b1ef`
+- D: `5718251d9e516d3ae4234cd5035ba934da9b08d46e93fa03d8fac7491a8100ca`
+
+## Fragile areas / known risks
+
+Preserve dirty checkout, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Frozen edits need narrow delta receipts and updated contract pins; never rerun one-shot writers. Original optional source-video lane must not become reviewed-clip acceptance. Provider availability changes;3 failed metadata links retained with clear unavailable status. Do not call every video playable. Existing state IDs and payload limits must remain compatible.
+
+## Next prompt should assume / what still needs validation
+
+Address specific user findings in current local candidates. Unit A remains provisional. Teacher acceptance, measured student pacing, exhaustive clip/caption review and release/LMS certification remain pending. No new broad review or image cycle. Open learner tabs require a full reload after rebuild; changing only their hash leaves older course code loaded.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-inline-powerpoint-videos/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-inline-powerpoint-videos/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. Do not patch generated HTML or protected A. Preserve original sources. Direct local previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview paths can display the selected Studio course rather than the URL's slug.
+
+
+---
+Archived before stage103 at 2026-09-07T16:47:50.903966+00:00
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Correct user-marked Advanced Learning heading and row spacing.
+- Status: Specific local repair complete and verified; all candidates remain blocked, teacher acceptance pending.
+
+## Current stage102 result
+
+Advanced Learning now has desktop/mobile outer padding, a wider lesson-name column, separated row controls and responsive stacking. Only the BCD presentation adapter CSS changed. No content or state IDs changed. Final12 spacing/overflow checks at1667/1280/900/390px plus checklist reload and exact lesson return pass;4 owner/protected tests and all3 workspace/project E2E checks pass. Actual B inspected natively.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-advanced-spacing/report.json`. Source: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Regression: `scripts/tests/biology30-pilot2-advanced-layout.test.ts`.
+
+## Prior stage101 result
+
+Stage99 had lesson links only. Original source players are now embedded after teaching and before each mapped lesson's existing walkthrough/checkpoint. Header links jump to inline videos; library entries remain unique. State/work IDs unchanged; videos remain original optional resources, not newly certified clips.
+
+Final5 source/owner tests, actual B/C/D inline player/header jump/library handoff checks, all3 workspace checks and all3 project E2E checks pass. Native B provider player inspected in the lesson. Protected A unchanged.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-inline-powerpoint-videos/report.json`. Owner: `scripts/lib/biology30-course/v1/pilot2-render-course.ts`; static regression in `scripts/tests/biology30-pilot2-vocabulary-source-videos.test.ts`.
+
+## Prior stage100 result
+
+Content now fills the main container beside either expanded or collapsed navigation. Removed the fixed frame caps through the BCD presentation adapter; gutters remain. No A or academic/state changes.
+
+Final all-unit width/position/overflow tests pass at1920/1440/1024/720/390px, including expanded/collapsed restoration and mobile resizing. Workspace and project E2E B/C/D pass;4 owner/protected checks pass. Actual B inspected natively.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json`. Owning file: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Regression: `scripts/tests/biology30-pilot2-sidebar-layout.test.ts`.
+
+## Prior stage99 changes and evidence
+
+Earlier review dispositions excluded every original video. Stage99 restores all80 original optional source links: B17/C48/D15. Library has chapter/slide playlist, native player, lesson connections and original direct links. Ten erroneous topic connections corrected.77 public metadata checks succeeded;3 links unavailable. Reviewed-clip selection remains0; original resources have separate recorded user authority. Captions/science/playback are not certified by metadata.
+
+Core Vocabulary now supports Add/Remove from Process Collection, Compare/Hide model, collected-state retention during valid edits, and selected-concept persistence. Existing responses and Frayer keys retained. Optional active-concept field fits maximum state target. Stage97/98 presentation and hub repairs remain in place.
+
+## Files changed / source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/pilot2-source-videos.ts`, `pilot2-{state,presentation-runtime,render-vocabulary,controls-runtime,frayer-controls,render-course,a-hubs,inputs,session,presentation-shell}.ts`. Authored unit inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-link-dispositions.json`; scoped source receipts, owner closure and contract pins. Focused state/source/browser tests updated. Generated BCD workspaces rebuilt through current metadata commands. Review metadata, plan, playbook, restart prompt and execution checkpoint updated.
+
+## Verification run
+
+Final workspace and project E2E B/C/D each pass. Final13 state/source/owner checks pass; earlier18 focused including media pass. All-unit browser regression passed vocabulary, save/reload, source playlist/player, model/textbook and292 route/width checks; subsequent mapping/chapter-only corrections covered by final source tests. Final actual-player lifecycle checks pass for B/C/D (offline removal, online recovery, navigation stop). Provider poster/Play controls observed natively in all3 units; full playback/caption review not claimed. Typecheck has25 unrelated baseline errors and zero touched Biology diagnostics. Protected A trees/owner exact.
+
+Report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`.
+
+## Current workspace SHAs
+- B: `da07614ed20e335cb563cc23eef1569b3ef4642b6b1bddae025639d6be8c1b6c`
+- C: `6d2e6b78d6b45e94c60158e46ab511cf5afec81d972f4bde74a6a2684c15ce74`
+- D: `c983ac6a5d3f9dbb25d2d416bdc900ae89af4b18d9366b14d9464dc2fd510a5f`
+
+## Fragile areas / known risks
+
+Preserve dirty checkout, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Frozen edits need narrow delta receipts and updated contract pins; never rerun one-shot writers. Original optional source-video lane must not become reviewed-clip acceptance. Provider availability changes;3 failed metadata links retained with clear unavailable status. Do not call every video playable. Existing state IDs and payload limits must remain compatible.
+
+## Next prompt should assume / what still needs validation
+
+Address specific user findings in current local candidates. Unit A remains provisional. Teacher acceptance, measured student pacing, exhaustive clip/caption review and release/LMS certification remain pending. No new broad review or image cycle. Open learner tabs require a full reload after rebuild; changing only their hash leaves older course code loaded.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-advanced-spacing/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-advanced-spacing/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. Do not patch generated HTML or protected A. Preserve original sources. Direct local previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview paths can display the selected Studio course rather than the URL's slug.
+
+
+---
+Archived before stage104 at 2026-09-07T17:16:21.703912+00:00
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Transfer A Models and Data Lab presentation and investigation workflow.
+- Status: Specific local repair complete and verified; all candidates remain blocked, teacher acceptance pending.
+
+## Current stage103 result
+
+Model lab now uses chapter navigation, source-grounded question/goal/comparison orientation, base-support text, case buttons and4 distinct workflow panels. Prediction requires a selected case; explanation requires a tested result. Existing9 BCD model calculations/datasets/plots and all state IDs are unchanged. Case changes preserve writing but invalidate old tested/collected results. Native B inspected; selected-case contrast corrected.
+
+Final all9 actual model workflows and mobile checks pass;3 component browser tests and9 owner/science tests pass. B/C/D workspace and project E2E each pass on final builds. Typecheck:25 unrelated baseline errors, zero pilot2 diagnostics. Protected A exact. Existing model count and subject-specific operations retained; no claim of every A-only feature matching.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-model-lab-process/report.json`. Owners: `scripts/lib/biology30-course/v1/pilot2-{render-model,model-controls,render-course,a-hubs,presentation-shell}.ts`. Tests: `biology30-pilot2-model-lab-browser.test.ts`, updated synthetic study and presentation browser tests. Scoped owner receipts/contracts updated. Do not revive the generic dropdown presentation or alter scientific model operations for styling.
+
+## Prior stage102 result
+
+Advanced Learning now has desktop/mobile outer padding, a wider lesson-name column, separated row controls and responsive stacking. Only the BCD presentation adapter CSS changed. No content or state IDs changed. Final12 spacing/overflow checks at1667/1280/900/390px plus checklist reload and exact lesson return pass;4 owner/protected tests and all3 workspace/project E2E checks pass. Actual B inspected natively.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-advanced-spacing/report.json`. Source: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Regression: `scripts/tests/biology30-pilot2-advanced-layout.test.ts`.
+
+## Prior stage101 result
+
+Stage99 had lesson links only. Original source players are now embedded after teaching and before each mapped lesson's existing walkthrough/checkpoint. Header links jump to inline videos; library entries remain unique. State/work IDs unchanged; videos remain original optional resources, not newly certified clips.
+
+Final5 source/owner tests, actual B/C/D inline player/header jump/library handoff checks, all3 workspace checks and all3 project E2E checks pass. Native B provider player inspected in the lesson. Protected A unchanged.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-inline-powerpoint-videos/report.json`. Owner: `scripts/lib/biology30-course/v1/pilot2-render-course.ts`; static regression in `scripts/tests/biology30-pilot2-vocabulary-source-videos.test.ts`.
+
+## Prior stage100 result
+
+Content now fills the main container beside either expanded or collapsed navigation. Removed the fixed frame caps through the BCD presentation adapter; gutters remain. No A or academic/state changes.
+
+Final all-unit width/position/overflow tests pass at1920/1440/1024/720/390px, including expanded/collapsed restoration and mobile resizing. Workspace and project E2E B/C/D pass;4 owner/protected checks pass. Actual B inspected natively.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json`. Owning file: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Regression: `scripts/tests/biology30-pilot2-sidebar-layout.test.ts`.
+
+## Prior stage99 changes and evidence
+
+Earlier review dispositions excluded every original video. Stage99 restores all80 original optional source links: B17/C48/D15. Library has chapter/slide playlist, native player, lesson connections and original direct links. Ten erroneous topic connections corrected.77 public metadata checks succeeded;3 links unavailable. Reviewed-clip selection remains0; original resources have separate recorded user authority. Captions/science/playback are not certified by metadata.
+
+Core Vocabulary now supports Add/Remove from Process Collection, Compare/Hide model, collected-state retention during valid edits, and selected-concept persistence. Existing responses and Frayer keys retained. Optional active-concept field fits maximum state target. Stage97/98 presentation and hub repairs remain in place.
+
+## Files changed / source of truth
+
+Canonical owner: `scripts/lib/biology30-course/v1/pilot2-source-videos.ts`, `pilot2-{state,presentation-runtime,render-vocabulary,controls-runtime,frayer-controls,render-course,a-hubs,inputs,session,presentation-shell}.ts`. Authored unit inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-link-dispositions.json`; scoped source receipts, owner closure and contract pins. Focused state/source/browser tests updated. Generated BCD workspaces rebuilt through current metadata commands. Review metadata, plan, playbook, restart prompt and execution checkpoint updated.
+
+## Verification run
+
+Final workspace and project E2E B/C/D each pass. Final13 state/source/owner checks pass; earlier18 focused including media pass. All-unit browser regression passed vocabulary, save/reload, source playlist/player, model/textbook and292 route/width checks; subsequent mapping/chapter-only corrections covered by final source tests. Final actual-player lifecycle checks pass for B/C/D (offline removal, online recovery, navigation stop). Provider poster/Play controls observed natively in all3 units; full playback/caption review not claimed. Typecheck has25 unrelated baseline errors and zero touched Biology diagnostics. Protected A trees/owner exact.
+
+Report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json`.
+
+## Current workspace SHAs
+- B: `17a8b6eb5a6065dfee8494c6a6ce1ee9e0dacadea0c949330b0f98c487f68a7f`
+- C: `fa37e871e151fd786ce5f8632d880943b818090955ed046d8b0f105cd7a08b29`
+- D: `128685d6fe8a5f9cb37025869a8db72e8a0530bd61811f1aa432d3e310fd0131`
+
+## Fragile areas / known risks
+
+Preserve dirty checkout, branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Frozen edits need narrow delta receipts and updated contract pins; never rerun one-shot writers. Original optional source-video lane must not become reviewed-clip acceptance. Provider availability changes;3 failed metadata links retained with clear unavailable status. Do not call every video playable. Existing state IDs and payload limits must remain compatible.
+
+## Next prompt should assume / what still needs validation
+
+Address specific user findings in current local candidates. Unit A remains provisional. Teacher acceptance, measured student pacing, exhaustive clip/caption review and release/LMS certification remain pending. No new broad review or image cycle. Open learner tabs require a full reload after rebuild; changing only their hash leaves older course code loaded.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-model-lab-process/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-model-lab-process/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. Do not patch generated HTML or protected A. Preserve original sources. Direct local previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview paths can display the selected Studio course rather than the URL's slug.
+
+
+---
+Archived before Stage105 2026-09-07T17:38:54.985841+00:00
+
+# Biology30 B/C/D active handoff
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Match A's core learning level and scaffold the identified reasoning jumps.
+- Status: Targeted local repair complete and verified. All candidates remain blocked/proposal-only, teacher acceptance pending.
+
+## Summary
+
+Revised33 core blocks (B7/C21/D5), including all32 previously over Grade12 and C probability rules. Preserved required content and existing teacher topic/part boundaries. Expanded3 worked examples and corresponding local walkthrough steps: B hormone graph, C probability, D Hardy-Weinberg. New owner guard checks each core block independently: grade<=12, average sentence<=20 words, paragraph<=100 words. All127 pass. Current lesson-grade ranges B8.8–11.2, C8.0–10.7, D9.6–10.3.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/report.json`.
+
+## Files changed / source of truth
+
+Canonical authored inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-{content,instruction,topic-teaching,reading-report,contract}.json`. Owners: `scripts/lib/biology30-course/v1/pilot2-reading.ts` and `pilot2-instruction-audit.ts`; CLI `scripts/audit-biology30-topic-content.ts`. Regression tests: `biology30-pilot2-reading.test.ts`, `biology30-pilot2-learning-level-browser.test.ts`. New scoped source-review receipt and owner closure pins; before-input copies retained under the report's `before/` directory. BCD workspaces regenerated sequentially through current metadata commands. No generated HTML patches.
+
+## Verification run
+
+4/4 pre-edit cold-source/protection checks. Final7 owner/reading checks,9 science/model checks,1 rendered browser check pass. Every127 generated core paragraph array equals its authored source. Three revised worked examples match their sources and local walkthroughs; self-checks function offline. Desktop1440/mobile390 screenshots for all3 units inspected after menu transitions. Native B inspected. All3 workspace checks and project E2E pass on exact final builds. Typecheck25 unrelated baseline errors, zero touched Biology diagnostics. Protected A trees/owner exact. Assessment, state, figure, vocabulary and optional-work inputs unchanged.
+
+## Current workspace SHAs
+- B: `a0b7857d10301805342abd6895665e0711a6ad0280fbad834604e8a539d27e9c`
+- C: `a9a88309cec4483052c496207bff9b11e6a1f5711f7acbc9f5136dd0a8f8435d`
+- D: `95a7836d6a3ca1e936f9e83364d83b52b3f47b9e28d997400aeda5bb3053cdad`
+
+## Known risks / follow-up
+
+Reading scores are diagnostics, not measured comprehension. The user authorized a targeted repair: remaining core text and Advanced work were not given a new exhaustive manual review. Broad topics can remain longer than A; content was not removed to meet an arbitrary word count. Student pacing, full-unit teacher acceptance, exhaustive clip/caption review and release/LMS certification remain pending. Unit A remains provisional.
+
+## Fragile areas / what might drift
+
+Preserve stages97–103: A shell/hubs, vocabulary workflow,80 original optional PowerPoint videos and inline players, full-width sidebar response, Advanced spacing and9 model workflows. Original videos must not become certified clips by implication. Existing question/answer/response IDs and state schemas are unchanged. Source/owner edits need narrow delta receipts and all affected frozen pins updated. Never rerun one-shot closure or docs writers.
+
+## Next prompt assumptions
+
+Use current saved local checkout and existing dirty work. Branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Address specific user findings. Full reload required in open learner tabs after builds; hash-only navigation can leave old code. Actual previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview path may display its selected course instead of URL slug.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. No protected A edits, new image cycle or broad replanning. Preserve source originals and unrelated dirty changes.
+
+
+## 2026-09-07: Stage108 superseded by completed C repair
+
+# Biology 30 bounded review corrections — Stage108
+
+- Project: biology30-unit-a-pilot-2 / biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Correct A–D review packages and implement demonstrated response-capacity repairs.
+- Status: Complete within the approved bounded scope; all candidates remain blocked/preview-only. Six C capacity increases explicitly deferred.
+
+## What changed and why
+
+A packaging now uses the unchanged 13-lesson Pilot 2; B/C/D current teaching topics are 8/18/4. Practice banks are 86/65/132/52. The earlier 17-lesson A and stale planning counts are no longer the comparison reference. Twelve B/D response limits now fit full authored examples plus 25% rounded margin. C batch would be 45,462 against 44,000, so all six limits remain unchanged. All 18 fields display live limits and non-destructive oversized-draft warnings. A mobile verification failure justified constraining the existing practice grid; the final check passes. Eight practice groups have documented dispositions; no added questions or changed workload was justified. C isolated sum-rule practice is an unresolved hypothesis only.
+
+## Files changed / source of truth
+
+- scripts/package-biology30-review.ts: existing packager, correct reference/current inventories/provenance, individual and combined ZIPs from the same assembled contents. Partial selections cannot overwrite the complete-set master.
+- scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts and pilot2-presentation-shell.ts: capacity guidance and bounded grid correction.
+- projects/resources/biology30-production/v1/units/unit-{b,d}/pilot2-{state-schema,practice,review-seminar,state-budget,practice-key-review}.json: canonical response limits and affected source-review digests only.
+- All three pilot2-contract.json dependent pins; pilot2/owner-closure.json and pilot2/source-review/bounded-response-review-delta.json.
+- scripts/tests/biology30-review-package.test.ts, biology30-bounded-response.test.ts, biology30-bounded-response-browser.test.ts.
+- projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-bounded-review/: baseline, authored fixtures, frozen decisions, coverage evidence, gap-and-repair.md, verification.json, browser results and 18 screenshots/three contact sheets.
+- Generated B/C/D workspace and owner metadata rebuilt from current declared commands. A learner files unchanged.
+- Corrected master: projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-packages.zip; individual ZIPs under each current project meta. Final external integrity receipt: projects/biology30-unit-a/meta/archive-verification.json.
+
+## Verification run
+
+14 focused tests, all three workspace checks and project E2E checks, shared smoke and the dedicated 18-control browser test pass on final candidates. Twelve complete B/D examples reload; C uses six short persistence fixtures, not falsely claimed full examples. Boundary/oversize writes preserve visible drafts and last valid stored data. All 18 route/viewport screenshots inspected. Maximum ordinary/Unicode states: B 33,957; C 43,032; D 27,698. Four individual archives and the 90,065,039-byte master pass CRC and unzip integrity; 315 master entries, exact four roots, all learner hashes and individual/master bytes match, excluded archives absent. One final packaging run after source settlement. One extra rebuild per unit was necessary after the failed mobile check.
+
+## Final candidate tree hashes
+
+- A: `3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a`
+- B: `d4cf08ea78aef44a8bf9bf16a150148e6256e9f8b9f1b14c978d7a459cdbb031`
+- C: `ff18aab5165799b1c3c06033c3a977a02b2c392b99d3bb95c6a665bf633075b7`
+- D: `de168e03a88aeac6c5531a677341760c59e1fc7c4dec70c0edac7b0048508427`
+
+## Known risks / what still needs validation
+
+C separate storage work remains required for its six complete responses. Historical C source budget 42,988 is superseded by the current 43,032 maximum fixture; old browser-pending source receipts are not current browser status. No live LMS, curriculum certification, deployment, Studio activation, or teacher acceptance. Existing unrelated typecheck errors and stale draft/passage assertions remain explicitly separated in verification.json. Legacy production visual auditor is incompatible with Pilot2 receipts; current-profile browser visual checks plus project E2E were used instead.
+
+## Fragile areas / watchouts
+
+Any learner/source/owner change invalidates the recorded build or package evidence. Edit canonical inputs and use the owning builder, never patch generated workspaces. Preserve IDs and state mappings. The checkout contains unrelated existing work; no cleanup, broad staging or commit was performed.
+
+## Next prompt should assume
+
+This bounded pass is finished. Do not restart the full review or expand practice. C storage changes require their separate scoped task; the sum-rule hypothesis is not a confirmed gap.
+
+## Exact regeneration commands
+
+- `npm run build:biology30-course -- --project biology30-unit-b --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha d4cf08ea78aef44a8bf9bf16a150148e6256e9f8b9f1b14c978d7a459cdbb031`
+- `npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha ff18aab5165799b1c3c06033c3a977a02b2c392b99d3bb95c6a665bf633075b7`
+- `npm run build:biology30-course -- --project biology30-unit-d --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha de168e03a88aeac6c5531a677341760c59e1fc7c4dec70c0edac7b0048508427`
+
+## Exact next command
+
+`npm run package:biology30-review` (only if a later authorized candidate change requires refreshed packages; not needed now).
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-bounded-review/gap-and-repair.md`
+
+## Do not do next / warnings
+
+Do not substitute older A, shrink unrelated C fields, raise storage thresholds, add workload, deploy, or claim full alignment from these sampled findings.
+
+
+## 2026-09-07: prior Stage107 handoff, superseded by bounded Stage108
+
+# Biology30 A-D active handoff
+
+- Project: biology30-unit-a / biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Prepare four ChatGPT review packages for learner-level and cross-unit alignment review.
+- Status: Four review-only ZIPs plus one combined master ZIP generated and verified. All candidates remain blocked/proposal-only; teacher acceptance and release remain pending.
+
+## Current Stage107 summary
+
+Bundled the four unit review packages into `projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-packages.zip`. The master archive expands each package under its own `biology30-unit-{a,b,c,d}/` root and includes `MASTER_REVIEW_README.md` plus a self-contained `MASTER_REVIEW_INDEX.json`, so ChatGPT can review the full A-D set from one upload.
+
+## Stage107 verification
+
+The master archive passes `unzip -t`, contains 302 entries across exactly four unit roots, and includes each unit's brief, alignment review, learner entry, assessment review, and learning-level report. No `raw/`, `teacher-sources/`, or numbered historical learner entries were found.
+
+## Stage107 exact next command
+
+`npm run package:biology30-review`
+
+## Stage107 exact next file to open
+
+`projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-packages.zip`
+
+## Current Stage106 summary
+
+Created `scripts/package-biology30-review.ts` and the reusable `npm run package:biology30-review` command. Each package contains the canonical learner candidate under `course/`, selected canonical alignment and learning-level evidence under `metadata/`, a unit review brief, a cross-unit alignment review, and local preview instructions. Raw imports, teacher-only source archives, historical duplicate learner entries, and answer-key fields in the assessment review metadata are excluded. Unit A's learner inventory is 100 items versus 94 across its older source-file breakdown; B/C/D learner-versus-contract count differences are retained as explicit review findings.
+
+## Stage106 verification
+
+All four ZIPs pass `unzip -t`. Archive checks found no `raw/`, `teacher-sources/`, or numbered historical `course/index N.html` entries. Assessment metadata contains no answer-key fields in its item records. The combined index is `projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-index.json`.
+
+## Stage106 current candidate SHAs
+- A: `4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0`
+- B: `7308adce02d142a24196e314c2e4a66f79370eaab3a4e2814480ccc99adc8f79`
+- C: `f317656fc3cb0a030b3c6201b990ed5dc82d633cf6458d87a19ef72e57772ee9`
+- D: `d8698293a7f0490568fe8ae2115dd2304a6c4d1c378243ae8d81a39f2cd66c34`
+
+## Stage106 known risks / follow-up
+
+The B/C/D reading-level reports are diagnostic text analyses, not measured comprehension or pacing studies. Unit A has content-density evidence rather than a directly comparable FK reading report. The packages are for review only and are not SCORM exports, LMS-certified releases, or teacher-accepted courses. Any learner-tree change makes these package hashes stale; rerun the package command before review.
+
+## Stage106 exact next command
+
+`npm run package:biology30-review`
+
+## Stage106 exact next file to open
+
+`projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-index.json`
+
+- Project: biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Correct optional explanation completion-label spacing across B/C/D.
+- Status: Targeted local repair complete and verified. All candidates remain blocked/proposal-only, teacher acceptance pending.
+
+## Current Stage105 summary
+
+Optional-completion labels now have clear divider spacing, aligned checkboxes and hanging text wraps on mobile. User initially identified C and then explicitly extended to B/D. No academic content, state IDs or logic changed. All127 labels use the same owned CSS fix. B→C→D rebuilt.5 focused tests and all3 workspace/project E2E checks pass. Requested C doctor returns expected not-active only. Native C and six final desktop/mobile captures inspected. Protected A unchanged.
+
+Source: `scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts`. Test: `scripts/tests/biology30-pilot2-c-optional-label.test.ts` now covers all3 units. Narrow C receipt followed by explicit BCD extension receipt, shared owner closure and all-unit contract pins updated. Current evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-c-optional-label/report.json`.
+
+## Prior Stage104 summary
+
+Revised33 core blocks (B7/C21/D5), including all32 previously over Grade12 and C probability rules. Preserved required content and existing teacher topic/part boundaries. Expanded3 worked examples and corresponding local walkthrough steps: B hormone graph, C probability, D Hardy-Weinberg. New owner guard checks each core block independently: grade<=12, average sentence<=20 words, paragraph<=100 words. All127 pass. Current lesson-grade ranges B8.8–11.2, C8.0–10.7, D9.6–10.3.
+
+Latest report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/report.json`.
+
+## Files changed / source of truth
+
+Canonical authored inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-{content,instruction,topic-teaching,reading-report,contract}.json`. Owners: `scripts/lib/biology30-course/v1/pilot2-reading.ts` and `pilot2-instruction-audit.ts`; CLI `scripts/audit-biology30-topic-content.ts`. Regression tests: `biology30-pilot2-reading.test.ts`, `biology30-pilot2-learning-level-browser.test.ts`. New scoped source-review receipt and owner closure pins; before-input copies retained under the report's `before/` directory. BCD workspaces regenerated sequentially through current metadata commands. No generated HTML patches.
+
+## Prior Stage104 verification
+
+4/4 pre-edit cold-source/protection checks. Final7 owner/reading checks,9 science/model checks,1 rendered browser check pass. Every127 generated core paragraph array equals its authored source. Three revised worked examples match their sources and local walkthroughs; self-checks function offline. Desktop1440/mobile390 screenshots for all3 units inspected after menu transitions. Native B inspected. All3 workspace checks and project E2E pass on exact final builds. Typecheck25 unrelated baseline errors, zero touched Biology diagnostics. Protected A trees/owner exact. Assessment, state, figure, vocabulary and optional-work inputs unchanged.
+
+## Current workspace SHAs
+- B: `7308adce02d142a24196e314c2e4a66f79370eaab3a4e2814480ccc99adc8f79`
+- C: `f317656fc3cb0a030b3c6201b990ed5dc82d633cf6458d87a19ef72e57772ee9`
+- D: `d8698293a7f0490568fe8ae2115dd2304a6c4d1c378243ae8d81a39f2cd66c34`
+
+## Known risks / follow-up
+
+Reading scores are diagnostics, not measured comprehension. The user authorized a targeted repair: remaining core text and Advanced work were not given a new exhaustive manual review. Broad topics can remain longer than A; content was not removed to meet an arbitrary word count. Student pacing, full-unit teacher acceptance, exhaustive clip/caption review and release/LMS certification remain pending. Unit A remains provisional.
+
+## Fragile areas / what might drift
+
+Preserve stages97–103: A shell/hubs, vocabulary workflow,80 original optional PowerPoint videos and inline players, full-width sidebar response, Advanced spacing and9 model workflows. Original videos must not become certified clips by implication. Existing question/answer/response IDs and state schemas are unchanged. Source/owner edits need narrow delta receipts and all affected frozen pins updated. Never rerun one-shot closure or docs writers.
+
+## Next prompt assumptions
+
+Use current saved local checkout and existing dirty work. Branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. All3 A learner trees and A2 owner are protected. Address specific user findings. Full reload required in open learner tabs after builds; hash-only navigation can leave old code. Actual previews: http://127.0.0.1:4180/b/ , /c/ , /d/ . Studio SPA preview path may display its selected course instead of URL slug.
+
+## Exact next command
+
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-c-optional-label/report.json`
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-c-optional-label/report.json`
+
+## Do not do next
+
+No commit, push, deployment, export, publication, Studio Edit, paid API/reset, agents or memory writes. No protected A edits, new image cycle or broad replanning. Preserve source originals and unrelated dirty changes.
+
+
+# Biology 30 bounded repairs — Stage109 complete
+
+- Project: biology30-unit-a-pilot-2 / biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Finish the six deferred C response-capacity repairs and refresh the A–D review ZIP.
+- Status: Complete for the current bounded repair task. No further repair pass planned. Candidates remain blocked/preview-only.
+
+## What changed / why
+
+C seminar fields now allow 600/650/700 characters; all three extended final-investigation fields allow 1,050. Opt-in choices-routes-v1 packs repeated choice/visited-route metadata, not student writing. Older v3 saves remain readable. The largest ordinary/Unicode maximum fixture is 43,440, leaving 560 below the unchanged 44,000 target. Hard guard remains 48,000. All optional Frayer pairs and longest route were tested. The narrow sum-rule check closed without a supported new activity; required genotype/phenotype work already aggregates AA and Aa. Isolated rule naming is not separately asserted. No lesson/question/explanation/ID/completion/workload changes.
+
+## Files changed / source of truth
+
+- scripts/lib/biology30-course/v1/pilot2-state.ts: opt-in indexed metadata and backward-compatible decoder.
+- scripts/lib/biology30-course/v1/pilot2-learning-audit.ts: reject changed map identities before build.
+- projects/resources/biology30-production/v1/units/unit-c/pilot2-{state-schema,practice,practice-key-review,review-seminar,state-budget}.json: canonical six limits and dependent review records.
+- Shared owner-closure.json, source-review/c-capacity-completion.json, and all B/C/D contract pins. Shared owner changed, so each B/C/D candidate rebuilt once; only C uses new encoding.
+- scripts/tests/biology30-c-indexed-state.test.ts; existing bounded response engine/browser tests now exercise all 18 full examples.
+- scripts/package-biology30-review.ts selects Stage109 review evidence; docs/workflows/science-pilot.md documents the storage compatibility boundary.
+- projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-c-capacity-completion/ contains complete fixtures, previous C schema, decisions, focused coverage, source changes, gap-and-repair.md, verification.json, browser results/screenshots/contact sheets. Stage108 evidence remains historical.
+- Four refreshed individual review ZIPs and projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-packages.zip. Final archive receipt: projects/biology30-unit-a/meta/archive-verification.json.
+
+## Verification
+
+17 focused tests pass, plus the 18-response browser test including an older C save restored before writing. All 18 complete examples survive reload; boundary and oversized drafts preserve last valid storage. B/C/D workspace and project E2E checks and shared smoke pass. All 18 desktop/tablet/mobile captures inspected. A protected learner entries unchanged. All five archives pass CRC/unzip checks, source hashes and individual/master byte comparisons. Master: 90,061,813 bytes, 315 entries, four unit roots, excluded source archives absent. One build per affected unit and one final packaging run.
+
+## Candidate tree hashes
+
+- A: `3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a`
+- B: `06cdd0ca1245c331f5be6fd854d0fee844a318384be600ae2a4c225f8c52f9b8`
+- C: `3903f1136f1fadf806e933b89a3c33c96afa88d2e7c92090ff467ab3849a90e8`
+- D: `2ec3333db5d1d838b7c489a06754f10082d8420834facea8d33412abcb5ed540`
+
+## Risks / validation not claimed
+
+The 560-character C headroom is limited: future added required writing needs a new budget check. Heavy escaping or combined legacy overflow still rejects safely without truncation. Older runtimes cannot decode new indexed saves; do not downgrade after new writing without a conversion path. Existing 25 unrelated typecheck errors remain (zero touched diagnostics); historical draft/passage assertions are not claimed fixed. Local checks do not certify a live LMS or full curriculum alignment. No deployment, teacher acceptance, promotion, release, commit/push, or Studio activation.
+
+## Fragile areas
+
+Choice token/value/order and route order are hash-bound; changes require compatibility work, not silent repinning. Any candidate change invalidates current review/package evidence. Edit canonical inputs and use the owning builder, not generated workspace HTML. Preserve unrelated dirty-checkout work.
+
+## Next prompt assumptions
+
+Current repair task is finished. Do not reopen a broad review. C is no longer deferred. Any curriculum-wide or live LMS task is separate.
+
+## Exact regeneration commands
+
+- `npm run build:biology30-course -- --project biology30-unit-b --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha 06cdd0ca1245c331f5be6fd854d0fee844a318384be600ae2a4c225f8c52f9b8`
+- `npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha 3903f1136f1fadf806e933b89a3c33c96afa88d2e7c92090ff467ab3849a90e8`
+- `npm run build:biology30-course -- --project biology30-unit-d --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha 2ec3333db5d1d838b7c489a06754f10082d8420834facea8d33412abcb5ed540`
+
+## Exact next command
+
+`npm run package:biology30-review` — only after a later authorized candidate change; the delivered package is current.
+
+## Exact next file to open
+
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-c-capacity-completion/gap-and-repair.md`
+
+## Do not do next
+
+Do not reduce fields, raise thresholds, overwrite student saves, substitute older A, broaden review, or deploy without authorization.
+
+
+---
+
+# Biology 30 A–D — Stage110 implemented local repair candidate
+
+## Summary
+Implemented seven first-use repairs in the correct 13-lesson A Pilot2, two in C, and numbered presentation stages for eight existing B/C/D guided tasks. Preserved the existing architecture, diagrams, scientific demands, Stage109 capacities and saved-state schemas. No required activity, response field or operation added, removed or reclassified. Full independent curriculum-demand verification and human/LMS acceptance remain unverified; this is not a claim of full brief completion or student readiness.
+
+## Files changed / source of truth
+- A canonical owner: `scripts/lib/biology30-unit-a-pilot-2/{first-use-repair,render-gate1,full-content,online-finalization}.ts`. Seven exact authorized replacements only; all other core preservation assertions remain strict.
+- BCD canonical inputs: `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-practice.json` and matching key-review receipts/contracts. C content, vocabulary, reading report and passage-review records synchronized for gene-expression/reading-frame definitions.
+- Shared owners: `scripts/lib/biology30-production/pilot2-render-controls.ts`, `pilot2-learning-audit.ts`, `pilot2-preflight.ts`; owning builders regenerated all four workspaces.
+- Regression tests: `scripts/tests/biology30-instructional-staging{,-browser}.test.ts`; packaging source `scripts/package-biology30-review.ts` now includes Stage110 review records.
+- One living repair map, starting baseline, verification and human-review script: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-instructional-repairs/`.
+- Before snapshots are evidence only, not authoring inputs. Preserve all dirty checkout work.
+
+## Verification run
+All four workspace checks and Chromium project-contract E2E checks pass. Focused source/owner/response/indexed-state suite10/10 passed; final expanded staging test3/3 passed; browser/package suite3/3 passed. Sixteen staged-task desktop/mobile save/reload flows and18 screenshot frames inspected. State schemas, original prompts, response IDs and limits are unchanged; prior18 capacity fixtures and C legacy indexed-state compatibility remain passing. A state estimate42,738 chars/178 records; C full-valid-state43,440 against44,000 target/48,000 guard.
+
+Known failures remain visible: A full suite has one historical Pilot1 metadata fixture mismatch (98 versus100 files); typecheck has25 existing unrelated diagnostics and zero changed-source diagnostics. Doctor returns only not-active for each deliberately blocked course. No acceptance flags changed. Exact commands, hashes and limits are in verification.json; refreshed package integrity is in archive-verification.json.
+
+## Working versions
+- A2 entry `aa28a6548d89a283530ddc49229473f32cbb03c6bd06ac46ed7bf72a27e3d9ee`
+- B entry `490dc244e94a614c4d8579c684beede69b06184a80d7a8ed2c280d7a2f9e5d70`
+- C entry `0ae6586219836a0392c3b1fe13f106715cfe2fb1b5935a3a7eea3cd334077231`
+- D entry `d6f9882003b188003050ff713f3852fe526a711bc2169d486afaff8592c97ed4`
+Branch `codex/studio-direct-editing-v1`, HEAD `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. Master review ZIP: `projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-packages.zip`; its A entry comes from Pilot2, not production A. Individual ZIPs remain in each current project's meta directory.
+
+## Known risks / follow-up
+The living map accounts for214 source/criterion records,335 bank items,43 teaching sequences and existing response/activity inventories. Retained author reviews and source references are not a fresh independent judgment of every assessed demand. A source references include outcome-matched candidate mappings. Do not equate trace coverage with full curricular alignment. No unsupported assessment deletion or mandatory practice addition was made.
+Teacher scope/content review, observed student understanding/pacing, physical/collaborative performance equivalence and actual LMS round-trips remain open. Use human-review.md for one substantial repaired sequence per unit. The current visual pass covers A channels plus eight staged tasks, not a complete scientific re-review of all figures or a fresh full-course accessibility audit.
+
+## Fragile areas / what might drift
+BCD protection now pins `pilot2/baselines/2026-09-07-instructional-repairs/baseline-2.json`; predecessors remain immutable. Original production A and Pilot1 learner trees are unchanged. A2 changes were specifically authorized by the latest brief. Never rerun one-shot /tmp baseline/closure writers. Additional source changes require narrow reviewed receipts and owning regeneration. C indexed-state saves require the current runtime; do not downgrade without a converter. Review packages become stale after any learner change.
+
+## Next prompt assumptions
+Resume from implemented Stage110, not the older review snapshots. Preserve Stage104/105/109 repairs and the existing visual design. Source-grounded decisions may use the living map, but unresolved candidate mappings need actual source-demand judgment before any removal/reclassification. No commit, push, deployment, publication, Studio Edit enablement or approval flags. Review ZIP generation was authorized by the latest brief; learner release was not.
+
+## Exact next file to open
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-instructional-repairs/repair-map.json`
+
+## Exact next command
+`npm run package:biology30-review -- --check` — read-only current-source/package prerequisite verification; do not rebuild unchanged units merely to restart.
+
+
+---
+
+# Biology 30 B/C/D — answer-feedback follow-up, 2026-09-08
+
+## Summary
+Reopened teacher request used A Pilot2 feedback as reference and explicitly named B/C/D. Matched check/compare button styling, feedback link spacing and lesson-return behavior. Routine status remains accessible without a duplicate visible box; save failures remain visible. Removed duplicate Correct prefix. A Pilot2 unchanged.
+
+## Files changed / source of truth
+Shared canonical owners under `scripts/lib/biology30-course/v1/`: `pilot2-render-controls.ts`, `pilot2-render-course.ts`, `pilot2-presentation-shell.ts`, `pilot2-controls-runtime.ts`. Owning closure and all three contract owner pins updated only for these four files. Generated all B/C/D workspaces through the strict owning builder. Canonical academic input, response schema and keys were not edited. Regression: `scripts/tests/biology30-answer-feedback.test.ts`.
+
+## Verification run
+Evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-answer-feedback/report.json`. Final focused tests5/5; workspace B/C/D pass; project E2E1/1 each. B/C project checks preceded the final CSS specificity correction; final six desktop/mobile feedback flows cover all three units after it. All249 practice feedback lesson/book links validated. Six screenshot frames inspected. Requested A2 doctor reports only expected not-active. A entry exact against initial baseline; full A protected owner preflight passes.
+
+## Known risks / follow-up
+Review ZIPs from Stage110 are now stale and were not regenerated for this UI request. Links use the existing mapped lesson reading start, with honest wording; do not call these newly verified item-exact textbook pages. Previously authored uncommitted source changes were preserved and built as current inputs. This styling task does not certify curriculum alignment, human understanding or an actual LMS. Teacher acceptance remains null and candidates blocked.
+
+## Fragile areas / what might drift
+Generic topic button selectors previously overrode the secondary style. Keep the feedback-specific selector strong enough and test computed colors. Routine status is visually hidden, but failed-save notices must stay visible. Use original source IDs and exact lesson return destinations; no saved-state migration is introduced. Do not rerun one-shot /tmp closure writers. Do not directly patch generated workspaces.
+
+## Next prompt assumptions
+Preserve all dirty checkout work, A learner trees and prior instructional repairs. No commit, push, deployment, publication or Studio Edit enablement. Use the current meta/project.json regeneration command; historical baseline hashes are stale after each build.
+
+## Exact next file
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-answer-feedback/report.json`
+
+## Exact next command
+`npx tsx --test scripts/tests/biology30-answer-feedback.test.ts` only if another feedback change requires verification; current run passed.
+
+
+---
+
+# Biology 30 B/C/D — videos woven into teaching, 2026-09-08
+
+## Summary
+Teacher selected A Pilot2's Watch and make sense of it section as the desired pattern. B/C/D now place27 selected existing PowerPoint videos beside related core explanations, after their diagram and before the worked example. Each has a specific watch-for cue and the existing illustrated fallback. Removed the end-of-lesson collection of inline videos. All80 source videos remain in the Video Library. No required activity, state-schema or A change.
+
+## Files changed / source of truth
+`scripts/lib/biology30-course/v1/pilot2-video-placement.ts` owns the27 explicit video/part/cue bindings; `pilot2-render-course.ts` renders them within the teaching sequence. Source video inventory remains canonical in each unit's pilot2-link-dispositions.json and existing metadata. Updated only the owner closure and matching three contract pins; rebuilt B/C/D through current strict regeneration commands. Tests: `scripts/tests/biology30-pilot2-vocabulary-source-videos.test.ts` and `scripts/tests/biology30-woven-videos-browser.test.ts`.
+
+## Verification run
+Evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-woven-videos/report.json`. Final structural/owner/inventory5/5 pass; final browser1/1 with6 desktop/mobile flows passes. All27 inline bindings and80 library entries accounted for. Fallback and library return links work; hidden iframe removed. Six final frames inspected. B/C/D workspace/project E2E passed before the final cue-only wording refinement; final regenerated sources/owner/browser checks pass afterward. A remains exact; requested doctor not-active only. One combined browser run timed out during smooth-scroll setup; final deterministic instant-scroll test passes, no runtime assertions disabled.
+
+## Known risks / follow-up
+Provider requests were blocked in automated browser tests. This is integration evidence, not actual YouTube playback, complete clip review or timestamp verification. No clip timestamps invented. Selected sources use existing metadata/topic bindings; other sources remain library-only. No new required watching or fields. Review ZIPs remain stale; no deployment or acceptance flags changed.
+
+## Fragile areas / what might drift
+Placement references an explicit topic and part index, protected by frozen contracts; review semantic placement if topics reorder. Do not force every source video into a lesson or pile all clips before retrieval. Keep watching alternatives and existing checkpoint identities. Preserve the previous answer-feedback fixes and all unrelated dirty work. No rerunning one-shot /tmp closure writers or direct generated edits.
+
+## Next prompt assumptions
+Current local workspace is the review candidate. No A edits, commit, push, publication, Studio Edit or release. Rebuild only after source edits through the exact current regenerateCommand in project metadata. Do not use historical hashes.
+
+## Exact next file
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-woven-videos/report.json`
+
+## Exact next command
+`npx tsx --test scripts/tests/biology30-woven-videos-browser.test.ts` only if another video-placement change needs verification; current final run passed.
+
+
+# Biology 30 shared Firebase teacher showcase — 2026-09-08
+
+## Summary
+User explicitly requested implementing and deploying one Firebase unit selector and repeatable updates. Published A Pilot2/B/C/D together at https://biology30pilot.web.app. This authorization supersedes the earlier no-deployment boundary only for this teacher showcase. Individual learner workspaces and SCORM behavior remain unchanged; no commit/push or acceptance flags.
+
+## Files changed / source of truth
+`scripts/templates/biology30-showcase/` owns header/select/route memory; `scripts/deploy-biology30-showcase.ts` owns isolated staging and fixed-site deploy/verification. `scripts/tests/biology30-showcase.test.ts` verifies wrapper flows. Operational workflow: `docs/ops/biology30-showcase.md`; last verified deployment: `docs/ops/biology30-showcase-deployment.json`. README command documented. Historical A deployment metadata points to the shared receipt rather than falsely claiming single-unit freshness.
+
+## Verification run
+Local browser test passes: all four units retain synthetic responses, unit lesson locations, reload, Back, legacy A links and fresh C deep links. Desktop/mobile header inspected. Workspaces verify before every deploy. Firebase deployment completed to existing site biology30pilot/project calm-module-one. All172 course/selector payload files match staging SHA-256; release.json is the additional generated manifest. Live browser switches all four units successfully with zero page errors. Evidence under `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-showcase/`.
+
+## Known risks / follow-up
+The deploy command copies current workspace outputs; rebuild an edited generated unit through its owning workflow first. It does not regenerate academic content, mark teacher acceptance, export SCORM or enable Edit. Provider playback and real LMS behavior remain external checks. Prior review ZIPs remain separate and stale. No auth model change or external student-data service. Firebase login must remain available; failures do not rewrite successful deployment receipt.
+
+## Fragile areas / what might drift
+Unit selector uses iframe location.replace to avoid duplicate browser history on unit switches. Keep origin and existing course storage keys unchanged. Preserve explicit A Pilot2 selection. Only index.html/assets are staged, never raw/meta/review archives. The small wrapper is outside course workspaces. New source files are not connected to the BCD owner graph; package.json was not modified. Live freshness must be checked against the shared receipt, not historical A deployment metadata.
+
+## Next prompt assumptions
+When user says redeploy Biology showcase, use the saved command below after rebuilding any changed unit. Publish only this review site; do not deploy another Firebase target or modify release/acceptance flags. Preserve dirty checkout and all earlier repairs.
+
+## Exact next command
+`npx tsx scripts/deploy-biology30-showcase.ts --deploy` when a new update is requested; current deployment is verified.
+
+## Exact next file
+`docs/ops/biology30-showcase.md`
+
+
+---
+
+## Archived before fresh-chat handoff refresh — 2026-09-08
+
+# Handoff — Biology 30 inline vocabulary and Advanced Learning
+
+- Project: biology30-unit-a-pilot-2 / biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Implement the approved in-lesson vocabulary and 127 A-style B–D Advanced Learning blocks.
+- Status: in progress — source implementation built; final acceptance checks outstanding.
+
+## Latest deployment — 2026-09-08
+User explicitly requested “now deploy.” Ran `npx tsx scripts/deploy-biology30-showcase.ts --deploy`: all four workspace checks passed, existing `biology30pilot` site deployed, and all 172 course/selector files matched staged hashes. Receipt: `docs/ops/biology30-showcase-deployment.json`. Live browser verified B's bold, unpadded, transparent vocabulary terms and popup, then switched successfully to A/C/D with no page errors. Hosted review is now current; review ZIPs remain stale. This does not grant learner release or teacher acceptance.
+
+The previously running actual-candidate browser suite completed successfully: 2/2 tests passed in 325.6 seconds, including all 127 Advanced blocks and A–D adapter interactions. Its earlier pending status below is superseded by this result. Remaining broader acceptance checks below are separate from this completed deployment. Exact deployment continuation file: `docs/ops/biology30-showcase.md`; repeat deployment command only on a new user request.
+
+## What changed
+A–D use one shared vocabulary dialog with adapters over existing Frayer controls and persistence. B–D's 34/71/22 Advanced blocks now have developed explanations, evidence tables and exact related destinations. Unit A Advanced content is unchanged. A owning-builder metadata now identifies generated output without enabling Studio Edit or learner release.
+
+Latest teacher correction: B–D clickable terms are bold (700), dotted-underlined inline text, not padded green action buttons. The owning shell excludes `.bio-term` from general button dimensions/backgrounds and adds bold weight. All 2,983 B–D term links passed computed-style checks; Unit B spermatogenesis screenshot visually inspected.
+
+## Files changed / source of truth
+- `scripts/lib/biology30-vocabulary/{panel,a-entry,a-bridge,render-a}.ts`: shared panel and A adapter.
+- `scripts/lib/biology30-unit-a-pilot-2/{render-gate1,build-process-collection-index}.ts`: A owning renderer/build metadata.
+- `scripts/lib/biology30-course/v1/pilot2-{presentation-shell,vocabulary-panel,session,frayer-controls,render-advanced,render-topic,instruction-audit,browser-bundle,preflight}.ts`: B–D owning implementation.
+- `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-{instruction,old-section-review,contract}.json`: canonical content and dependent pins.
+- `projects/resources/biology30-production/v1/pilot2/owner-closure.json`, `baselines/2026-09-08-inline-vocabulary/baseline.json`, `source-review/inline-vocabulary-advanced-learning.json`: ownership/freeze evidence.
+- Focused tests: `scripts/tests/biology30-{vocabulary-panel,inline-vocabulary-candidates,pilot2-renderer}.test.ts` plus renderer fixture.
+- Workspaces are generated: never patch their HTML directly. Exact current regeneration commands are in each `meta/project.json`.
+
+## Verification run
+Latest A–D workspace verification passes. B–D strict owning builds pass after bold-format correction. Focused vocabulary tests pass; previous focused state/render tests passed (16 total), including C indexed migration and maximum Unicode/ordinary states. Shared smoke passed in `/tmp/biology-vocabulary-shared-smoke.log`. Static delivered inventory confirms 127 blocks, valid exact destinations, unchanged A Advanced text and B–D saved schemas.
+
+Actual candidate browser suite was launched after the last rebuild; inspect `/tmp/biology-inline-candidates-final.log` and its process before rerunning. It covers drafts, reload, collection/comparison, limits, failed saves, route/scroll, mobile/zoom and every Advanced block at two widths. Evidence goes to `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/`; only a passing complete run writes `browser-results.json`.
+
+## What still needs validation
+Finish actual-candidate browser suite; run final affected project E2E; inspect current-profile screenshots. Add/check locked-definition access, multi-family ordering and actual adapter choice replacement/clearing. Record final candidate hashes, refreshed state budgets and one concise final change/verification report. Do not call the full approved task complete yet.
+
+## Fragile areas / known risks
+Browser button computed display can be inline-block despite authored inline; check spacing/background/typography rather than rejecting that native computed value. Panel status is deferred to the next task so owner bubbling save handlers finish first. A and B–D share actual controls, not cloned save records. Preserve all response IDs and C's existing target. Old-section retention audit currently fails on unchanged core `b-topic-menstrual-cycle-follicle-growth-and-changing-feedback`; do not silently refresh unrelated evidence. Repository typecheck has baseline errors, none identified in feature files. Legacy BCD visual audit is not a current Pilot2 profile. No teacher acceptance or live LMS certification implied.
+
+## Next prompt should assume
+The latest bold/underline formatting request is implemented and locally/live checked. The broader feature task still needs remaining acceptance checks other than the now-passing candidate browser suite. Preserve dirty checkout and all prior response repairs. Hosted showcase is current after the explicitly requested deployment above; review ZIPs remain stale. No ZIP regeneration was requested.
+
+## Exact next command
+`tail -60 /tmp/biology-inline-candidates-final.log`
+
+## Exact next file to open
+`scripts/tests/biology30-inline-vocabulary-candidates.test.ts`
+
+## Do not do next / warnings
+Do not rebuild unchanged units merely to repeat passing checks; read current manifest hashes before a necessary rebuild. A build must not overlap B–D builds. Do not alter freeze evidence after building without refreshing the affected pins. Previous showcase deployment handoff is archived; its successful receipt is historical, not current freshness evidence.
+
+
+---
+
+# Handoff — Biology 30 inline vocabulary and Advanced Learning
+
+- Project: biology30-unit-a-pilot-2 / biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Implement the approved in-lesson vocabulary and 127 A-style B–D Advanced Learning blocks.
+- Status: in progress — source implementation built; final acceptance checks outstanding.
+
+## Fresh-chat checkpoint — verified 2026-09-08
+
+Continue the latest inline-vocabulary/Advanced Learning work below; do not restart the older B/C/D rebuild, feedback or video-placement tasks. This is a handoff update only: no learner edits, builds, tests rerun or deployment during this update.
+
+- Checkout: `/Users/deanguedo/Documents/GitHub/canvas-helper`
+- Branch: `codex/studio-direct-editing-v1`
+- HEAD: `2ad72ec06b104c589f91e4b5afb8d86c322bc168`
+- Working tree:677 status entries at handoff; preserve all unrelated/uncommitted work.
+- Shared teacher showcase: https://biology30pilot.web.app
+- Last verified deployment receipt time: `2026-09-08T16:28:56.091Z`;172 payload files verified by the saved deploy receipt. All four current entry hashes were independently compared with that receipt at handoff and match. This refresh did not repeat network verification.
+- Actual candidate browser suite log inspected:2/2 passed in325.6 seconds. Do not rerun it merely because older paragraphs called it pending. Durable evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/browser-results.json`.
+
+| Unit | Working project | Current/deployed entry SHA-256 |
+|---|---|---|
+| A | `biology30-unit-a-pilot-2` | `aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544` |
+| B | `biology30-unit-b` | `7760892ef8764bc804bee7f8b16c99c7188af4abe1daa9254b142b1d5102e37b` |
+| C | `biology30-unit-c` | `43b0cbe3ba7912ca5f2db15b21e8c0e25e452aa2807415a07209c2fcb8a3b0ea` |
+| D | `biology30-unit-d` | `37c17e18f9e0f70181b9317b4891e187116bde37f1508b16dd7917df0e152adc` |
+
+Redeploy workflow: `docs/ops/biology30-showcase.md`. On a new redeploy request, after any necessary owning rebuild, use `npx tsx scripts/deploy-biology30-showcase.ts --deploy`. Do not deploy automatically just because a new chat starts. This wrapper stays separate from future SCORM packages.
+
+## Latest deployment — 2026-09-08
+User explicitly requested “now deploy.” Ran `npx tsx scripts/deploy-biology30-showcase.ts --deploy`: all four workspace checks passed, existing `biology30pilot` site deployed, and all 172 course/selector files matched staged hashes. Receipt: `docs/ops/biology30-showcase-deployment.json`. Live browser verified B's bold, unpadded, transparent vocabulary terms and popup, then switched successfully to A/C/D with no page errors. Hosted review is now current; review ZIPs remain stale. This does not grant learner release or teacher acceptance.
+
+The previously running actual-candidate browser suite completed successfully: 2/2 tests passed in 325.6 seconds, including all 127 Advanced blocks and A–D adapter interactions. Its earlier pending status below is superseded by this result. Remaining broader acceptance checks below are separate from this completed deployment. Exact deployment continuation file: `docs/ops/biology30-showcase.md`; repeat deployment command only on a new user request.
+
+## What changed
+A–D use one shared vocabulary dialog with adapters over existing Frayer controls and persistence. B–D's 34/71/22 Advanced blocks now have developed explanations, evidence tables and exact related destinations. Unit A Advanced content is unchanged. A owning-builder metadata now identifies generated output without enabling Studio Edit or learner release.
+
+Latest teacher correction: B–D clickable terms are bold (700), dotted-underlined inline text, not padded green action buttons. The owning shell excludes `.bio-term` from general button dimensions/backgrounds and adds bold weight. All 2,983 B–D term links passed computed-style checks; Unit B spermatogenesis screenshot visually inspected.
+
+## Files changed / source of truth
+- `scripts/lib/biology30-vocabulary/{panel,a-entry,a-bridge,render-a}.ts`: shared panel and A adapter.
+- `scripts/lib/biology30-unit-a-pilot-2/{render-gate1,build-process-collection-index}.ts`: A owning renderer/build metadata.
+- `scripts/lib/biology30-course/v1/pilot2-{presentation-shell,vocabulary-panel,session,frayer-controls,render-advanced,render-topic,instruction-audit,browser-bundle,preflight}.ts`: B–D owning implementation.
+- `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-{instruction,old-section-review,contract}.json`: canonical content and dependent pins.
+- `projects/resources/biology30-production/v1/pilot2/owner-closure.json`, `baselines/2026-09-08-inline-vocabulary/baseline.json`, `source-review/inline-vocabulary-advanced-learning.json`: ownership/freeze evidence.
+- Focused tests: `scripts/tests/biology30-{vocabulary-panel,inline-vocabulary-candidates,pilot2-renderer}.test.ts` plus renderer fixture.
+- Workspaces are generated: never patch their HTML directly. Exact current regeneration commands are in each `meta/project.json`.
+
+## Verification run
+Latest A–D workspace verification passes. B–D strict owning builds pass after bold-format correction. Focused vocabulary tests pass; previous focused state/render tests passed (16 total), including C indexed migration and maximum Unicode/ordinary states. Shared smoke passed in `/tmp/biology-vocabulary-shared-smoke.log`. Static delivered inventory confirms 127 blocks, valid exact destinations, unchanged A Advanced text and B–D saved schemas.
+
+Actual candidate browser suite completed successfully (2/2). It covers drafts, reload, collection/comparison, limits, failed saves, route/scroll, mobile/zoom and every Advanced block at two widths. Evidence is in `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/browser-results.json`; the completed log was reread during this handoff refresh.
+
+## What still needs validation
+The candidate suite is complete. Remaining from the implementation handoff: run final affected project E2E and inspect current-profile screenshots. Add/check locked-definition access, multi-family ordering and actual adapter choice replacement/clearing. Record final candidate hashes, refreshed state budgets and one concise final change/verification report. Do not call the full approved task complete yet.
+
+## Fragile areas / known risks
+Browser button computed display can be inline-block despite authored inline; check spacing/background/typography rather than rejecting that native computed value. Panel status is deferred to the next task so owner bubbling save handlers finish first. A and B–D share actual controls, not cloned save records. Preserve all response IDs and C's existing target. Old-section retention audit currently fails on unchanged core `b-topic-menstrual-cycle-follicle-growth-and-changing-feedback`; do not silently refresh unrelated evidence. Repository typecheck has baseline errors, none identified in feature files. Legacy BCD visual audit is not a current Pilot2 profile. No teacher acceptance or live LMS certification implied.
+
+## Next prompt should assume
+The latest bold/underline formatting request is implemented and locally/live checked. The broader feature task still needs remaining acceptance checks other than the now-passing candidate browser suite. Preserve dirty checkout and all prior response repairs. Hosted showcase is current after the explicitly requested deployment above; review ZIPs remain stale. No ZIP regeneration was requested.
+
+## Exact next command
+`npm run test:e2e:project -- --project biology30-unit-a-pilot-2` — first outstanding project check; then check B/C/D without rebuilding unchanged units.
+
+## Exact next file to open
+`scripts/tests/biology30-inline-vocabulary-candidates.test.ts`
+
+## Do not do next / warnings
+Do not rebuild unchanged units merely to repeat passing checks; read current manifest hashes before a necessary rebuild. A build must not overlap B–D builds. Do not alter freeze evidence after building without refreshing the affected pins. Previous showcase deployment handoff is archived; its successful receipt is historical, not current freshness evidence.
+
+
+## Paste into the new chat
+
+Continue in `/Users/deanguedo/Documents/GitHub/canvas-helper`. Read `docs/ops/ACTIVE_HANDOFF.md` completely first, then the exact next file and linked current evidence. Preserve the dirty checkout and all completed Biology work. Finish only the remaining vocabulary/Advanced Learning validation recorded there; do not restart the course rebuild or repeat the passing candidate browser suite. The shared Firebase showcase is current at this handoff. Do not redeploy, regenerate ZIPs, commit, push or change teacher-acceptance/learner-release flags without a new request.
+
+
+---
+
+# Handoff — Biology 30 inline vocabulary and Advanced Learning
+
+- Project: biology30-unit-a-pilot-2 / biology30-unit-b / biology30-unit-c / biology30-unit-d
+- Task: Finish only the remaining recorded technical validation.
+- Status: complete — scoped technical validation passed; teacher acceptance and release remain separate.
+
+## What changed / why
+Completed the outstanding A–D project E2E checks, reviewed all 18 current-profile screenshots, added actual-adapter locked-definition/family-ordering/choice-clearing acceptance tests, and refreshed state budgets. No learner content, owning runtime, workspace, deployment or release flags changed. Preserved the dirty checkout and earlier completed work.
+
+## Files changed
+- `scripts/tests/biology30-inline-vocabulary-acceptance.test.ts`
+- `scripts/tests/biology30-final-state-budgets.test.ts`
+- `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/{supplemental-results,final-state-budgets,final-verification}.json`
+- Same evidence directory: `FINAL_REPORT.md`, four `final-project-e2e-*.log` files, `final-state-tests.log`, `final-budgets.log`, `supplemental-tests.log`.
+- `docs/ops/ACTIVE_HANDOFF.md`, `docs/ops/ARCHIVED_HANDOFFS.md`.
+
+## Verification run
+- `npm run test:e2e:project -- --project <slug>` for each A–D slug: 4/4 passed.
+- `npx tsx --test scripts/tests/biology30-inline-vocabulary-acceptance.test.ts`: passed across all four actual adapters, 64 multi-family/route orderings, locked definitions, two-choice protection, explicit clearing through the inline panel, replacement/reload and unrelated-writing preservation.
+- `npx tsx --test scripts/tests/biology30-pilot2-state.test.ts scripts/tests/biology30-c-indexed-state.test.ts`: 11/11 passed.
+- `npx tsx --test scripts/tests/biology30-final-state-budgets.test.ts`: passed. A 42,738; B 34,012; C 43,471; D 27,747 characters against 44,000. B–D include 2,835 ordinary/Unicode optional-family-pair cases; A uses its owning ordinary-character estimator.
+- Visually inspected all 18 saved current-profile screenshots. No blocking layout issue observed; mid-scroll captures include existing sticky header/status overlays.
+- Existing 2/2 actual-candidate suite retained, not rerun. All 127 Advanced blocks already covered by it.
+- Current entry hashes compared with saved deployment receipt and unchanged. No network recheck or deployment.
+
+## Exact current/deployed entry hashes
+- A: `aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544`
+- B: `7760892ef8764bc804bee7f8b16c99c7188af4abe1daa9254b142b1d5102e37b`
+- C: `43b0cbe3ba7912ca5f2db15b21e8c0e25e452aa2807415a07209c2fcb8a3b0ea`
+- D: `37c17e18f9e0f70181b9317b4891e187116bde37f1508b16dd7917df0e152adc`
+
+## Source of truth
+Shared feature: `scripts/lib/biology30-vocabulary/`. A: `scripts/lib/biology30-unit-a-pilot-2/`. B–D: `scripts/lib/biology30-course/v1/` and `projects/resources/biology30-production/v1/units/unit-{b,c,d}/pilot2-*.json`. Workspaces are generated, never direct-edit targets. Final report: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/FINAL_REPORT.md`.
+
+## What still needs validation / known risks
+No technical check remains from this scoped handoff. Teacher acceptance, live LMS certification and learner release are not granted. The unrelated old-section-retention audit failure on `b-topic-menstrual-cycle-follicle-growth-and-changing-feedback` remains unchanged. Repository typecheck baseline errors were not rerun. Review ZIPs remain stale. Unit C has only 529 characters of target headroom in the maximum fixture; escaping and mixed legacy overflow are separately rejected atomically.
+
+## Fragile areas / watchouts
+A and B–D share actual controls, not cloned save records. Preserve response IDs, state schema/packing identities, and C's 44,000 target / 48,000 hard guard. Saved deployment receipt is evidence of the earlier deployment, not a new live check. Source/workspace changes invalidate exact-hash verification.
+
+## Next prompt should assume
+Scoped technical verification is complete. The hosted teacher showcase was last deployed under explicit authorization; this continuation changed no learner payload. Preserve the dirty checkout. Await a new user-scoped review or change request; do not repeat passing checks merely because earlier archived notes called them pending.
+
+## Exact next command
+`cat projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/FINAL_REPORT.md`
+
+## Exact next file to open
+`projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-inline-vocabulary/FINAL_REPORT.md`
+
+## Do not do next / warnings
+Do not rebuild, redeploy, regenerate ZIPs, commit, push, enable Studio Edit or change teacher-acceptance/learner-release flags without a new request. Do not refresh unrelated freeze/retention evidence. The prior handoff is archived in `docs/ops/ARCHIVED_HANDOFFS.md`.

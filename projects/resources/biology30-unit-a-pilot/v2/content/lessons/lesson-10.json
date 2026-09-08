@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-10",
+  "module": "Sensory Systems",
+  "title": "Hearing and Equilibrium",
+  "inquiry": "How can pressure waves in air and movement of fluid become both sound and a sense of balance?",
+  "learningIntention": "I am learning to explain how the ear transduces sound and motion into hearing and equilibrium signals.",
+  "requiredMinutes": 95,
+  "optionalMinutes": 10,
+  "outcomeIds": ["A1.5k", "A1.2s", "A1.3s", "A1.3sts"],
+  "materials": "No sound playback is required. Use the local pathway model and synthetic audiogram.",
+  "safety": "Do not use high-volume tones, headphones as a hearing test, spinning, or balance challenges. The audiogram is synthetic and not diagnostic.",
+  "targets": [
+    "Trace sound through outer, middle, and inner ear structures to the auditory nerve.",
+    "Explain hair-cell transduction and frequency mapping in the cochlea.",
+    "Use semicircular canals and vestibular structures to explain equilibrium evidence."
+  ],
+  "warmup": {
+    "title": "One inner ear, two kinds of information",
+    "prompt": "Predict what sound and head movement have in common at the receptor level, even though one becomes hearing and the other becomes equilibrium information.",
+    "placeholder": "Both involve… but the pathways differ because…"
+  },
+  "sections": [
+    {
+      "label": "Transmit the wave",
+      "title": "1. Outer and middle ear structures deliver mechanical energy",
+      "paragraphs": [
+        "The pinna collects sound and helps provide location cues. Sound travels through the auditory canal to the tympanic membrane, causing it to vibrate. The malleus, incus, and stapes transmit the vibration through the air-filled middle ear and concentrate force onto the oval window.",
+        "The Eustachian tube connects the middle ear to the throat region and helps equalize pressure across the tympanic membrane. It is not part of the sound-transduction chain. Middle-ear pressure differences or fluid can change how efficiently vibration is transmitted.",
+        "Movement at the oval window creates pressure waves in cochlear fluid. The round window allows pressure displacement. This route transfers energy from air to membrane, bone, and fluid before receptor cells convert it to neural information."
+      ],
+      "figureIds": ["figure-ear-hearing-pathway"]
+    },
+    {
+      "label": "Transduce in the cochlea",
+      "title": "2. Hair-cell deflection changes receptor signalling",
+      "paragraphs": [
+        "Within the cochlea, fluid movement produces a travelling wave along the basilar membrane. Different frequencies produce maximum displacement at different locations. High frequencies are represented nearer the base and lower frequencies nearer the apex. This tonotopic organization continues through auditory pathways.",
+        "Hair cells in the organ of Corti bend relative to surrounding structures as the basilar membrane moves. Deflection opens mechanically gated channels, changing the receptor potential and neurotransmitter release onto auditory-nerve fibres. Hair cells do not send sound waves through the nerve; they translate mechanical movement into neural activity.",
+        "Frequency relates mainly to where and how auditory fibres respond. Intensity relates to vibration size, recruitment, and firing patterns. Hearing perception also depends on bilateral pathways, timing, context, attention, and cortical processing."
+      ]
+    },
+    {
+      "label": "Maintain equilibrium",
+      "title": "3. Vestibular receptors encode motion and orientation",
+      "paragraphs": [
+        "The three semicircular canals are oriented in different planes and respond primarily to angular acceleration. When the head rotates, fluid movement bends a gelatinous structure and hair cells in the canal's ampulla. The direction of bending changes receptor signalling.",
+        "The utricle and saccule contain otolith organs that respond to linear acceleration and head position relative to gravity. Small calcium carbonate crystals add inertia and weight to a gelatinous layer over hair cells. The brain integrates vestibular information with vision and proprioception.",
+        "A mismatch among these sources can contribute to motion sickness or dizziness, but classroom activities cannot identify the cause of symptoms. The cerebellum and brainstem use vestibular input to coordinate posture, eye movements, and balance."
+      ],
+      "figureIds": ["figure-equilibrium-apparatus"]
+    },
+    {
+      "label": "Interpret evidence",
+      "title": "4. An audiogram shows thresholds, not a complete diagnosis",
+      "paragraphs": [
+        "An audiogram plots the quietest tones detected at several frequencies under standardized conditions. Lower hearing-level values near the top indicate quieter thresholds; larger values lower on the graph indicate that a louder tone was required. Air- and bone-conduction patterns can help separate transmission from inner-ear or neural patterns, but expert assessment uses additional evidence.",
+        "In the synthetic dataset, thresholds are near 10–20 dB HL at low frequencies and slope to 45–60 dB HL at higher frequencies. The supported claim is a high-frequency threshold elevation in this instructional profile. The graph does not establish cause, daily communication impact, or treatment.",
+        "Hearing technologies solve different problems. Hearing aids amplify and process sound when usable hair-cell and neural function remains. Cochlear implants bypass damaged hair-cell transduction and electrically stimulate auditory-nerve pathways for selected candidates. Neither restores typical hearing in every context, and outcomes depend on individual factors and support."
+      ],
+      "table": {
+        "caption": "Synthetic audiogram thresholds for the right ear",
+        "headers": ["Frequency (Hz)", "250", "500", "1000", "2000", "4000", "8000"],
+        "rows": [["Threshold (dB HL)", "10", "15", "15", "25", "45", "60"]]
+      }
+    }
+  ],
+  "interaction": {
+    "id": "interaction-audiogram-evidence-explorer",
+    "title": "Read the pattern before naming a cause",
+    "intro": "Choose a frequency region. The readout separates graph evidence, mechanism possibilities, and diagnostic limits.",
+    "prompt": "Which statement is fully supported by the synthetic values?",
+    "options": [
+      {"id": "low", "label": "250–1000 Hz", "evidence": "Thresholds are 10–15 dB HL.", "explanation": "The profile shows relatively low thresholds in this frequency range. It does not establish perfect real-world hearing."},
+      {"id": "high", "label": "4000–8000 Hz", "evidence": "Thresholds rise from 45 to 60 dB HL.", "explanation": "The supported pattern is elevated high-frequency thresholds. Cause requires air/bone comparison, history, examination, and other tests."},
+      {"id": "diagnosis", "label": "Name the disease from the graph", "evidence": "Only one synthetic threshold series is available.", "explanation": "The evidence is insufficient for diagnosis. Several peripheral, middle-ear, inner-ear, neural, and procedural factors can affect thresholds."}
+    ],
+    "staticFallback": "Read frequency along the horizontal axis and hearing level vertically. Describe the threshold pattern first; then identify possible mechanisms and the evidence still needed."
+  },
+  "artifact": {
+    "id": "sensory-evidence-case",
+    "number": 5,
+    "prompt": "Use the synthetic audiogram or a vision-pathway case to make a bounded evidence claim. Connect at least two observations to anatomy and identify the next evidence needed.",
+    "evidenceRequirements": ["Describe the pattern before explaining it.", "Use named sensory structures and a plausible mechanism.", "State why the classroom evidence is not diagnostic."]
+  },
+  "exit": {
+    "title": "Separate threshold from cause",
+    "prompt": "In 2–3 sentences, state what the synthetic audiogram supports and why it cannot identify the cause by itself.",
+    "placeholder": "The graph supports… Cause remains uncertain because…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 88–96, the class Hearing and Balance lesson, CBE Module 1 Lesson 6, OpenStax anatomy, and NIDCD's explanation of hearing. Audiogram values are synthetic instructional data.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-hearing", "class-day-ear", "system-m1-l6", "openstax-a-and-p", "nidcd-how-hearing-works"]
+  }
+}

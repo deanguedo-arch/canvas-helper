@@ -1,0 +1,1549 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "sources": [
+    {
+      "id": "chapter-11-daily-plans",
+      "filename": "Chapter 11 Daily Plans.docx",
+      "sha256": "92cd8a88a72accaf2d26a7cab7004884864ebaaddd13f001c11c684dc6432697",
+      "kind": "teacher-daily-plan",
+      "originalFilename": "Chapter 11 Daily Plans.docx",
+      "verifiedSha256": "92cd8a88a72accaf2d26a7cab7004884864ebaaddd13f001c11c684dc6432697",
+      "storageRole": "immutable-raw-source"
+    },
+    {
+      "id": "chapter-12-daily-plans",
+      "filename": "Chapter 12 Daily Plans.docx",
+      "sha256": "ca0ddd6cb21ba4e99329ddc466fe4b3a326126715f11fb885c9962c9afa944d8",
+      "kind": "teacher-daily-plan",
+      "originalFilename": "Chapter 12 Daily Plans.docx",
+      "verifiedSha256": "ca0ddd6cb21ba4e99329ddc466fe4b3a326126715f11fb885c9962c9afa944d8",
+      "storageRole": "immutable-raw-source"
+    },
+    {
+      "id": "chapter-13-daily-plans",
+      "filename": "Chapter 13 Daily Plans.docx",
+      "sha256": "2007a5641da07c7e7f4a4f2136ca1e3d38ca0e26d6c9a32538806a8600544129",
+      "kind": "teacher-daily-plan",
+      "originalFilename": "Chapter 13 Daily Plans.docx",
+      "verifiedSha256": "2007a5641da07c7e7f4a4f2136ca1e3d38ca0e26d6c9a32538806a8600544129",
+      "storageRole": "immutable-raw-source"
+    },
+    {
+      "id": "unit-a-review-plan",
+      "filename": "Unit A Review Plan.docx",
+      "sha256": "6afddd745f8f2a3d37383ea4bbc08734c5a2e86014fea93fc53154e790edc531",
+      "kind": "teacher-review-plan",
+      "originalFilename": "Unit A Review Plan.docx",
+      "verifiedSha256": "6afddd745f8f2a3d37383ea4bbc08734c5a2e86014fea93fc53154e790edc531",
+      "storageRole": "immutable-raw-source"
+    },
+    {
+      "id": "class-2026-27",
+      "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "extension": "zip",
+      "originalFilename": null,
+      "verifiedSha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "canonicalPath": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+      "storageRole": "shared-source-reference"
+    },
+    {
+      "id": "system-2020",
+      "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "extension": "zip",
+      "originalFilename": null,
+      "verifiedSha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "canonicalPath": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "storageRole": "shared-source-reference"
+    },
+    {
+      "id": "chapter-11-notes",
+      "sha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1",
+      "extension": "pptx",
+      "originalFilename": "Unit A Chapter 11 Notes.pptx",
+      "verifiedSha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1",
+      "canonicalPath": "projects/resources/biology30-unit-a-pilot/_sources/74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1.pptx",
+      "storageRole": "shared-source-reference"
+    },
+    {
+      "id": "chapter-12-notes",
+      "sha256": "4162d8b6bc3ebe94a11b53ed2694932adccf41622a4473e785a46d57cd2184ea",
+      "extension": "pptx",
+      "originalFilename": "Unit A Chapter 12 Notes.pptx",
+      "verifiedSha256": "4162d8b6bc3ebe94a11b53ed2694932adccf41622a4473e785a46d57cd2184ea",
+      "canonicalPath": "projects/resources/biology30-unit-a-pilot/_sources/4162d8b6bc3ebe94a11b53ed2694932adccf41622a4473e785a46d57cd2184ea.pptx",
+      "storageRole": "shared-source-reference"
+    },
+    {
+      "id": "chapter-13-notes",
+      "sha256": "05947fe3a4712c7465e9bb370acbeef6897651eae7cac40c2af54d4839bcc482",
+      "extension": "pptx",
+      "originalFilename": "Unit A Chapter 13 Notes.pptx",
+      "verifiedSha256": "05947fe3a4712c7465e9bb370acbeef6897651eae7cac40c2af54d4839bcc482",
+      "canonicalPath": "projects/resources/biology30-unit-a-pilot/_sources/05947fe3a4712c7465e9bb370acbeef6897651eae7cac40c2af54d4839bcc482.pptx",
+      "storageRole": "shared-source-reference"
+    }
+  ],
+  "teacherPlanRows": [
+    {
+      "id": "ch11-day-1",
+      "sourceId": "chapter-11-daily-plans",
+      "row": 2,
+      "day": "1",
+      "topic": "Neuron Structure",
+      "sourceRange": "Chapter 11 slides 1–20",
+      "textbook": "pp. 367–372 and 384",
+      "destinationRoutes": [
+        "lesson-01"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch11-day-2",
+      "sourceId": "chapter-11-daily-plans",
+      "row": 3,
+      "day": "2",
+      "topic": "Action Potentials",
+      "sourceRange": "Chapter 11 slides 21–30",
+      "textbook": "pp. 374–377 and 384",
+      "destinationRoutes": [
+        "lesson-02"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch11-day-3",
+      "sourceId": "chapter-11-daily-plans",
+      "row": 4,
+      "day": "3",
+      "topic": "Synaptic Transmission",
+      "sourceRange": "Chapter 11 slides 31–42",
+      "textbook": "pp. 380–382 and 384",
+      "destinationRoutes": [
+        "lesson-03"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch11-day-4",
+      "sourceId": "chapter-11-daily-plans",
+      "row": 5,
+      "day": "4",
+      "topic": "PNS and CNS",
+      "sourceRange": "Chapter 11 slides 43–53",
+      "textbook": "pp. 389 and 396–399",
+      "destinationRoutes": [
+        "lesson-04"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch11-day-5",
+      "sourceId": "chapter-11-daily-plans",
+      "row": 6,
+      "day": "5",
+      "topic": "The Brain",
+      "sourceRange": "Chapter 11 slides 54–65",
+      "textbook": "pp. 389–395 and 399",
+      "destinationRoutes": [
+        "lesson-05"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch11-days-6-7",
+      "sourceId": "chapter-11-daily-plans",
+      "row": 7,
+      "day": "6–7",
+      "topic": "Chapter 11 review",
+      "sourceRange": "Chapter 11 slide 66",
+      "textbook": "pp. 402–403",
+      "destinationRoutes": [
+        "chapter-11-practice"
+      ],
+      "treatment": "move-to-review",
+      "exclusion": "Secure chapter quiz and key are excluded."
+    },
+    {
+      "id": "ch12-day-8",
+      "sourceId": "chapter-12-daily-plans",
+      "row": 2,
+      "day": "8",
+      "topic": "Sensory Reception",
+      "sourceRange": "Chapter 12 slides 1–11",
+      "textbook": "pp. 406–409 and 426–429",
+      "destinationRoutes": [
+        "lesson-06"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch12-day-9",
+      "sourceId": "chapter-12-daily-plans",
+      "row": 3,
+      "day": "9",
+      "topic": "Photoreception and the Eye",
+      "sourceRange": "Chapter 12 slides 12–21",
+      "textbook": "pp. 412–418",
+      "destinationRoutes": [
+        "lesson-07"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch12-day-10",
+      "sourceId": "chapter-12-daily-plans",
+      "row": 4,
+      "day": "10",
+      "topic": "Hearing and Balance",
+      "sourceRange": "Chapter 12 slides 22–29",
+      "textbook": "pp. 421–425 and 429",
+      "destinationRoutes": [
+        "lesson-08"
+      ],
+      "treatment": "core-rewrite",
+      "correction": "The deck has 29 slides; the source plan's slide 30 endpoint is corrected to slide 29."
+    },
+    {
+      "id": "ch12-days-11-12",
+      "sourceId": "chapter-12-daily-plans",
+      "row": 5,
+      "day": "11–12",
+      "topic": "Chapter 12 review",
+      "sourceRange": null,
+      "textbook": "pp. 432–433",
+      "destinationRoutes": [
+        "chapter-12-practice"
+      ],
+      "treatment": "move-to-review",
+      "correction": "The source plan's Chapter 11 page reference is corrected to Chapter 12 pp. 432–433.",
+      "exclusion": "Secure chapter quiz and key are excluded."
+    },
+    {
+      "id": "ch13-day-13",
+      "sourceId": "chapter-13-daily-plans",
+      "row": 2,
+      "day": "13",
+      "topic": "Homeostasis",
+      "sourceRange": "Chapter 13 slides 1–13",
+      "textbook": "pp. 437–442",
+      "destinationRoutes": [
+        "lesson-09"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch13-day-14",
+      "sourceId": "chapter-13-daily-plans",
+      "row": 3,
+      "day": "14",
+      "topic": "Pituitary Hormones Part 1",
+      "sourceRange": "Chapter 13 slides 13–19",
+      "textbook": "pp. 442–446",
+      "destinationRoutes": [
+        "lesson-10"
+      ],
+      "treatment": "core-rewrite",
+      "correction": "Slides 12–24 are divided by concept rather than taught twice; out-of-unit pituitary hormones are excluded."
+    },
+    {
+      "id": "ch13-day-15",
+      "sourceId": "chapter-13-daily-plans",
+      "row": 4,
+      "day": "15",
+      "topic": "Pituitary Hormones Part 2",
+      "sourceRange": "Chapter 13 slides 20–24",
+      "textbook": "pp. 442–446",
+      "destinationRoutes": [
+        "lesson-11"
+      ],
+      "treatment": "core-rewrite",
+      "correction": "Slides 12–24 are divided by concept rather than taught twice; oxytocin is excluded from required Unit A instruction."
+    },
+    {
+      "id": "ch13-day-16",
+      "sourceId": "chapter-13-daily-plans",
+      "row": 5,
+      "day": "16",
+      "topic": "Thyroid and Parathyroid Glands",
+      "sourceRange": "Chapter 13 slides 25–32",
+      "textbook": "pp. 449–450",
+      "destinationRoutes": [
+        "lesson-12"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch13-day-17",
+      "sourceId": "chapter-13-daily-plans",
+      "row": 6,
+      "day": "17",
+      "topic": "Pancreas and Adrenal Glands",
+      "sourceRange": "Chapter 13 slides 33–41",
+      "textbook": "pp. 453–462",
+      "destinationRoutes": [
+        "lesson-13"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "id": "ch13-days-18-19",
+      "sourceId": "chapter-13-daily-plans",
+      "row": 7,
+      "day": "18–19",
+      "topic": "Chapter 13 review",
+      "sourceRange": "Chapter 13 slides 42–43",
+      "textbook": "pp. 464–465",
+      "destinationRoutes": [
+        "chapter-13-practice"
+      ],
+      "treatment": "move-to-review",
+      "exclusion": "Secure chapter quiz and key are excluded."
+    },
+    {
+      "id": "unit-a-days-20-23",
+      "sourceId": "unit-a-review-plan",
+      "row": 2,
+      "day": "20–23",
+      "topic": "Unit A Review",
+      "sourceRange": "Review Seminar source",
+      "textbook": "Unit 5 review at actual printed pp. 468–471",
+      "destinationRoutes": [
+        "review-seminar",
+        "final-practice"
+      ],
+      "treatment": "move-to-review",
+      "correction": "The source plan's pp. 466–469 label is corrected to the actual review on pp. 468–471.",
+      "exclusion": "External credentials, secure exam access, prior secure quizzes, and teacher-only keys are excluded."
+    }
+  ],
+  "slideDispositions": [
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 1,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title, index, or teacher-facing outcome framing is replaced by the course overview and lesson goals."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 2,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title, index, or teacher-facing outcome framing is replaced by the course overview and lesson goals."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 3,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title, index, or teacher-facing outcome framing is replaced by the course overview and lesson goals."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 4,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title, index, or teacher-facing outcome framing is replaced by the course overview and lesson goals."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 5,
+      "treatment": "reference-only",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Overview/video reference supports the topic but does not control the lesson explanation."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 6,
+      "treatment": "reference-only",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Overview/video reference supports the topic but does not control the lesson explanation."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 7,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 8,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 9,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 10,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 11,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 12,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 13,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 14,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "The multiple-sclerosis claims require current, non-diagnostic correction."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 15,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 16,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Morphology examples are useful extension material but are not required neuron-role knowledge."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 17,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 18,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 19,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 20,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-01"
+      ],
+      "reason": "Re-authored in prerequisite order for Neuron Structure."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 21,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 22,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 23,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 24,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 25,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 26,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 27,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 28,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 29,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 30,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-02"
+      ],
+      "reason": "Re-authored as the Action Potentials lesson."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 31,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Re-authored after defining neurotransmitter and synapse."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 32,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Re-authored after defining neurotransmitter and synapse."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 33,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Re-authored after defining neurotransmitter and synapse."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 34,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Excitatory/inhibitory signalling and summation are optional depth after the required synaptic sequence."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 35,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Excitatory/inhibitory signalling and summation are optional depth after the required synaptic sequence."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 36,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Excitatory/inhibitory signalling and summation are optional depth after the required synaptic sequence."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 37,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Excitatory/inhibitory signalling and summation are optional depth after the required synaptic sequence."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 38,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Excitatory/inhibitory signalling and summation are optional depth after the required synaptic sequence."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 39,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Re-authored after defining neurotransmitter and synapse."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 40,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Drug and toxin mechanisms remain optional, corrected, and non-diagnostic."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 41,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Drug and toxin mechanisms remain optional, corrected, and non-diagnostic."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 42,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-03"
+      ],
+      "reason": "Drug and toxin mechanisms remain optional, corrected, and non-diagnostic."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 43,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 44,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 45,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 46,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 47,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 48,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 49,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 50,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 51,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 52,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 53,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-04"
+      ],
+      "reason": "Re-authored as PNS and CNS organization; self-help media remains excluded by the media contract."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 54,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 55,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 56,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 57,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 58,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 59,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 60,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 61,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 62,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Re-authored as required brain and spinal-cord structure and function."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 63,
+      "treatment": "exclude-noncurricular",
+      "destinations": [],
+      "reason": "The source topic is outside the Unit A instructional focus."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 64,
+      "treatment": "advanced-rewrite",
+      "destinations": [
+        "lesson-05"
+      ],
+      "reason": "Brain-disorder evidence is optional and must avoid diagnosis or neuromyths."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 65,
+      "treatment": "exclude-noncurricular",
+      "destinations": [],
+      "reason": "The source topic is outside the Unit A instructional focus."
+    },
+    {
+      "deckId": "chapter-11-notes",
+      "slideNumber": 66,
+      "treatment": "move-to-review",
+      "destinations": [
+        "chapter-11-practice"
+      ],
+      "reason": "Recap content is represented by aligned non-graded practice; unavailable media is not delivered."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 1,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title or index is replaced by course navigation."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 2,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title or index is replaced by course navigation."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 3,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 4,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 5,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 6,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 7,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 8,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 9,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 10,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 11,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-06"
+      ],
+      "reason": "Re-authored as Sensory Reception."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 12,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 13,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 14,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 15,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 16,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 17,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 18,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 19,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 20,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 21,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-07"
+      ],
+      "reason": "Re-authored as Photoreception and the Eye; inaccurate image-flipping language is prohibited."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 22,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 23,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 24,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 25,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 26,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 27,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 28,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-12-notes",
+      "slideNumber": 29,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-08"
+      ],
+      "reason": "Re-authored as Hearing and Balance with safe, non-diagnostic treatment."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 1,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title or index is replaced by course navigation."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 2,
+      "treatment": "exclude-duplicate",
+      "destinations": [],
+      "reason": "Presentation title or index is replaced by course navigation."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 3,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 4,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 5,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 6,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 7,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 8,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 9,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 10,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 11,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-09"
+      ],
+      "reason": "Re-authored as dynamic homeostasis and endocrine signalling."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 12,
+      "treatment": "exclude-noncurricular",
+      "destinations": [],
+      "reason": "Teacher study directions and study-skills videos are outside the Unit A learning content."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 13,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-10"
+      ],
+      "reason": "Re-authored as the hypothalamus-pituitary relationship and hGH."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 14,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-10"
+      ],
+      "reason": "Re-authored as the hypothalamus-pituitary relationship and hGH."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 15,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-10"
+      ],
+      "reason": "Re-authored as the hypothalamus-pituitary relationship and hGH."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 16,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-10"
+      ],
+      "reason": "Re-authored as the hypothalamus-pituitary relationship and hGH."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 17,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-10"
+      ],
+      "reason": "Re-authored as the hypothalamus-pituitary relationship and hGH."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 18,
+      "treatment": "exclude-noncurricular",
+      "destinations": [],
+      "reason": "Prolactin, FSH, LH, and oxytocin are not required Unit A pituitary content."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 19,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-10",
+        "lesson-12",
+        "lesson-13"
+      ],
+      "reason": "TSH and ACTH are introduced as links to their target-gland lessons."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 20,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-11"
+      ],
+      "reason": "Re-authored as ADH, water balance, and source-target-effect reasoning."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 21,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-11"
+      ],
+      "reason": "The caffeine/ADH oversimplification is corrected; the required mechanism remains local."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 22,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-11"
+      ],
+      "reason": "Re-authored as ADH, water balance, and source-target-effect reasoning."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 23,
+      "treatment": "exclude-noncurricular",
+      "destinations": [],
+      "reason": "Prolactin, FSH, LH, and oxytocin are not required Unit A pituitary content."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 24,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-11"
+      ],
+      "reason": "Re-authored as ADH, water balance, and source-target-effect reasoning."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 25,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 26,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 27,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 28,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 29,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 30,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 31,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 32,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-12"
+      ],
+      "reason": "Re-authored as thyroid, parathyroid, metabolism, and calcium feedback."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 33,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 34,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 35,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 36,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 37,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Outdated and single-cause diabetes language is corrected using current authoritative health information."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 38,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 39,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 40,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 41,
+      "treatment": "core-rewrite",
+      "destinations": [
+        "lesson-13"
+      ],
+      "reason": "Re-authored as pancreas and adrenal control."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 42,
+      "treatment": "move-to-review",
+      "destinations": [
+        "chapter-13-practice",
+        "review-seminar"
+      ],
+      "reason": "Reviewed media supports optional recap; secure quizzes remain excluded."
+    },
+    {
+      "deckId": "chapter-13-notes",
+      "slideNumber": 43,
+      "treatment": "move-to-review",
+      "destinations": [
+        "chapter-13-practice",
+        "review-seminar"
+      ],
+      "reason": "Reviewed media supports optional recap; secure quizzes remain excluded."
+    }
+  ],
+  "prohibitedMaterialPolicy": [
+    "credentials",
+    "secure quizzes",
+    "tests",
+    "teacher-only keys",
+    "broken LMS launchers"
+  ]
+}

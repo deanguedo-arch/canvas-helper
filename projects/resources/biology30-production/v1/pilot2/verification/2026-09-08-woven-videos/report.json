@@ -1,0 +1,44 @@
+{
+  "status": "implemented and locally verified",
+  "units": {
+    "b": {
+      "entrySha256": "a5a7fddc930ffb206db33140d22f49d1230d3e1f65b4880e7ba67f46861be108",
+      "buildSha256": "4754a4bc6b71db0fcc352f2d1ca585ad1f58b112ae40480be8ce6d6d9f011eb1"
+    },
+    "c": {
+      "entrySha256": "a599ef821d1384bdb7e681ac357af653006bc72302538c1cd0a6c814dbc1be6e",
+      "buildSha256": "14622f42c4fdf2e9a3b34789db017e10acb41216a4c7bad182b50d128d80f39b"
+    },
+    "d": {
+      "entrySha256": "7833e839bb5771ad22282862b00dca8e9515381ba9213406722299623b108d1d",
+      "buildSha256": "74360aa507f901bb7997cd87e5021dcd7281b70de8f30bdb03865647bf016c4c"
+    }
+  },
+  "changes": "27 existing source videos placed after their matching core explanation/diagram and before the worked example, with specific watch-for cues and illustrated alternatives; previous end-of-lesson video pile removed",
+  "inlineCounts": {
+    "B": 7,
+    "C": 16,
+    "D": 4
+  },
+  "sourceLibraryCount": 80,
+  "newRequiredActivities": 0,
+  "stateSchemaChanges": 0,
+  "AUnchanged": true,
+  "checks": {
+    "structuralOwnerAndInventory": "5/5 final tests pass; all27 placements, all80 library entries, protected A and owner closure",
+    "browser": "final1/1 pass with6 desktop/mobile flows; fallback/library navigation, hidden iframe removal; external providers blocked",
+    "E2E": "B/C/D1/1 pass before final cue-only wording refinement",
+    "workspace": "B/C/D pass before final cue-only wording refinement; final builds and owner checks pass",
+    "screenshots": "6 final frames in contact.png inspected",
+    "doctor": "A2 expected not-active only"
+  },
+  "testCorrection": "Combined run encountered unstable smooth-scroll timing after fallback return. Final browser test uses instant programmatic scrolling for capture/navigation setup and all flows pass in4.1seconds. No course runtime assertion disabled.",
+  "limitations": [
+    "Selected source anchors use existing topic mappings and metadata, not a new full-clip scientific review",
+    "No invented start/end timestamps; actual external playback not tested",
+    "Other supplied videos remain library resources; not every topic has a matching available source anchor",
+    "No required watching, no checkpoint or assessment additions",
+    "Review ZIPs remain stale, not regenerated",
+    "No teacher/LMS approval or deployment"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "pe10-online-pilot",
+  "status": "approved-public-review-only",
+  "authorizedAt": "2026-09-03T19:38:11Z",
+  "authorization": "Project owner explicitly authorized deployment to Firebase Hosting site nxtpe10 in this Codex conversation.",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "nxtpe10",
+    "url": "https://nxtpe10.web.app"
+  },
+  "source": {
+    "canonicalEntry": "projects/pe10-online-pilot/workspace/index.html",
+    "publicRoot": "projects/pe10-online-pilot/workspace",
+    "workspaceTreeSha256": "9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33",
+    "indexSha256": "d55a91e7f1ed99be08cadcea135c2b497adfc65728bb5eea0e6c8960f2f064d4",
+    "currentLocalWorkspaceTreeSha256": "9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33",
+    "deploymentFresh": true,
+    "freshnessNote": "The public teacher-review site contains the exact canonical workspace recorded here."
+  },
+  "supersededDeployment": {
+    "deployedAt": "2026-09-03T19:40:51Z",
+    "workspaceTreeSha256": "4f09d53badaf18351735360bab133aa4eb978900898766ac59010db689300e07",
+    "indexSha256": "50ea9fee11126e28ab8a97be7f1f2da21ac90dd4d0506240887f539d3e410886",
+    "status": "stale-replaced-by-current-review-build"
+  },
+  "deployedAt": "2026-09-03T21:15:39Z",
+  "liveVerification": {
+    "verifiedAt": "2026-09-03T21:15:39Z",
+    "hostedIndexSha256": "d55a91e7f1ed99be08cadcea135c2b497adfc65728bb5eea0e6c8960f2f064d4",
+    "allEightFilesSha256MatchedCanonical": true,
+    "httpChecks": {
+      "index": 200,
+      "styles": 200,
+      "runtime": 200,
+      "logo": 200,
+      "fonts": 200,
+      "fontLicenses": 200
+    },
+    "browser": "Title, learner heading, all eight routes, removed Brightspace controls, the readiness save gate, saved Portfolio reload and live-link behavior, desktop and 390 by 844 layouts without horizontal overflow, and zero browser warnings or errors verified."
+  },
+  "scope": {
+    "purpose": "Teacher and stakeholder review only",
+    "learnerRelease": false,
+    "doesNotAuthorize": [
+      "Studio editing",
+      "HTML or SCORM export",
+      "Brightspace upload",
+      "promotion to production"
+    ]
+  },
+  "knownRisks": [
+    "Firebase Hosting is publicly accessible at the listed URL; share it only with intended reviewers.",
+    "Do not enter real learner data in the public review build.",
+    "Current safety, concussion, privacy, accommodation, and health-resource wording still requires division review before learner release."
+  ]
+}

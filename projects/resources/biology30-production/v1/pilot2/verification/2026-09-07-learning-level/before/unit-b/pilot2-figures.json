@@ -1,0 +1,986 @@
+{
+  "schemaVersion": 1,
+  "unit": "B",
+  "status": "complete-author-review",
+  "teacherDecision": null,
+  "targets": [
+    {
+      "partId": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+      "figureId": "b-topic-male-reproductive-structures-compartments-of-the-testes-figure",
+      "assetId": "b-testis-compartments-v2",
+      "purpose": "Identify each compartment and connect its location to sperm support or testosterone production",
+      "bindingReview": "Existing exact native-resolution author review reused at its originally requested teaching target. Caption and text equivalent retain the recorded limits; responsive learner placement and teacher review remain pending."
+    },
+    {
+      "partId": "b-topic-male-reproductive-structures-the-transport-pathway",
+      "figureId": "b-topic-male-reproductive-structures-the-transport-pathway-figure",
+      "assetId": "b-male-tract-vector-v3",
+      "purpose": "Trace sperm movement in order and distinguish production from transport",
+      "bindingReview": "Existing exact native-resolution author review reused at its originally requested teaching target. Caption and text equivalent retain the recorded limits; responsive learner placement and teacher review remain pending."
+    },
+    {
+      "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+      "figureId": "b-topic-male-reproductive-structures-semen-and-accessory-glands-figure",
+      "assetId": "b-semen-contribution-map-v1",
+      "purpose": "Match each secretion to its source and role without calling semen a sperm cell",
+      "bindingReview": "Gland contributions are separate from sperm development. Converging functional arrows are not an anatomical duct map or secretion-percentage chart. Fluid alone does not prove sperm production or transport. Native author review passed; actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+      "figureId": "b-topic-male-reproductive-structures-reproductive-development-and-health-figure",
+      "assetId": "b-reproductive-signal-targets-v1",
+      "purpose": "Explain one bounded pathway from a developmental signal or infection to reproductive function",
+      "bindingReview": "SRY is upstream of a developmental network. Testosterone, DHT target conversion and AMH have different effects; timing and receptor response matter. Active ovarian networks and limits of chromosome-only inference remain visible. Native author review passed; actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-spermatogenesis-gametes-and-chromosome-sets",
+      "figureId": "b-topic-spermatogenesis-gametes-and-chromosome-sets-figure",
+      "assetId": "b-chromosome-sets-copies-v1",
+      "purpose": "Track chromosome sets before and after meiotic reduction",
+      "bindingReview": "Native2n=4 symbolic set model has two long/two short unduplicated chromosomes, the same four duplicated chromosomes, then one long/one short duplicated in one meiotic-I product. Human count row46/46,46/92,23/46 matches chromosomes/DNA molecules per cell; picture and human counts are explicitly distinct."
+    },
+    {
+      "partId": "b-topic-spermatogenesis-division-and-differentiation",
+      "figureId": "b-topic-spermatogenesis-division-and-differentiation-figure",
+      "assetId": "b-meiosis-differentiation-v2",
+      "purpose": "Sequence gamete development and distinguish meiosis from differentiation",
+      "bindingReview": "One→two→four cell inventory and46 duplicated→23 duplicated→23 unduplicated per-cell counts verified. v2 moves tree right to separate labels from circles. Differentiation does not halve counts; no replication between divisions."
+    },
+    {
+      "partId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "figureId": "b-topic-spermatogenesis-hormone-sources-and-targets-figure",
+      "assetId": "b-hormone-sources-v1",
+      "purpose": "Construct a source-signal-target-response pathway",
+      "bindingReview": "Exact required core and worked explanation reread; final native SVG matches the named source, signal, target and bounded response. Native1200x900 reviewed: hypothalamic GnRH enters anterior pituitary; split FSH/Sertoli and LH/interstitial branches are distinct; testosterone joins local developmental support. All labels and arrows fit with no crossing interpreted as a junction. Actual first-use and placement remain separate checks."
+    },
+    {
+      "partId": "b-topic-spermatogenesis-feedback-and-evidence",
+      "figureId": "b-topic-spermatogenesis-feedback-and-evidence-figure",
+      "assetId": "b-feedback-pathways-v3",
+      "purpose": "Use supplied hormone values to predict and qualify a downstream response",
+      "bindingReview": "Exact required core and worked explanation reread; final native SVG matches the named source, signal, target and bounded response. Native finalv3 reviewed: LH source explicitly anterior pituitary, not hypothalamus. Separate testosterone/upstream and inhibin/FSH return paths end in blunt inhibition marks; no upward arrow presents inhibition as stimulation. Labels clear. v1 compressed GnRH/LH label and v2 combined-source wording were clarified without changing biology. Actual first-use and placement remain separate checks."
+    },
+    {
+      "partId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+      "figureId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+      "assetId": "b-ovarian-follicle-v1",
+      "purpose": "Identify an oocyte separately from its supporting follicle and later corpus luteum",
+      "bindingReview": "Native candidate directly distinguishes the single oocyte from supporting follicular tissue and the post-ovulation corpus luteum. Use with the exact adjacent cell-versus-tissue qualification; actual rendered placement remains pending."
+    },
+    {
+      "partId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+      "figureId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-figure",
+      "assetId": "b-female-tract-v1",
+      "purpose": "Trace oocyte transport and distinguish fertilization site from implantation site",
+      "bindingReview": "Existing exact native-resolution author review reused at its originally requested teaching target. Caption and text equivalent retain the recorded limits; responsive learner placement and teacher review remain pending."
+    },
+    {
+      "partId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+      "figureId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure",
+      "assetId": "b-oocyte-pauses-v2",
+      "purpose": "Compare unequal cytoplasmic division and pause points with spermatogenesis",
+      "bindingReview": "Prophase-I prenatal and metaphase-II ovulatory pauses,46 duplicated→23 duplicated→23 unduplicated maternal counts, and unequal polar-body branches verified. v2 routes both branches clear of text. Final count excludes sperm; no three-polar-body inevitability or completed meiosis at ovulation."
+    },
+    {
+      "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+      "figureId": "b-topic-female-reproductive-structures-structure-and-reproductive-function-figure",
+      "assetId": "b-production-transport-case-comparison-v2",
+      "purpose": "Interpret a fictional structural case with one supported prediction and one limitation; compare a supplied alternative interpretation and revise the explanation (independent communication evidence, not observed collaboration)",
+      "bindingReview": "The existing cross-system investigation uses exact model cases P/T: absent/present germ cells, disrupted/present Sertoli support, present/present LH and open/blocked duct. No downstream delivery measurement was invented. This is not labelled as ovarian tissue or a personal diagnosis. Native author review passed; actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-menstrual-cycle-two-coordinated-cycles",
+      "figureId": "b-topic-menstrual-cycle-two-coordinated-cycles-figure",
+      "assetId": "b-coordinated-cycles-v1",
+      "purpose": "Align ovarian events with endometrial changes on separate tracks",
+      "bindingReview": "Separate ovarian/uterine tracks align on one explicit illustrative1–28day axis. Day1 starts bleeding; follicular phase includes early shedding on the separate uterine track. Event overlap and individual variability explicit; not universal day14 ovulation."
+    },
+    {
+      "partId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+      "figureId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure",
+      "assetId": "b-context-feedback-v1",
+      "purpose": "Explain how sustained high estrogen can produce the mid-cycle surge",
+      "bindingReview": "Both forward and return arrows inspected with explicit negative/positive signs. Sustained high estrogen and suitable context qualify positive feedback. Sparse peak values do not prove a universal threshold or exact ovulation time."
+    },
+    {
+      "partId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+      "figureId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure",
+      "assetId": "b-luteal-withdrawal-v1",
+      "purpose": "Explain endometrial maintenance and withdrawal when luteal function declines",
+      "bindingReview": "Ovarian corpus luteum→steroid support→uterine maintenance chain distinct from conditional withdrawal. hCG maintains early ovarian support, progesterone supports lining; menstrual tissue is not the oocyte."
+    },
+    {
+      "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+      "figureId": "b-topic-menstrual-cycle-graphs-and-cycle-variation-figure",
+      "assetId": "b-sparse-sampling-v1",
+      "purpose": "Construct and interpret a hormone graph with named axes and timing limits",
+      "bindingReview": "Sample dots2/2,4/8,6/4 share a0–10relative axis. Two paths pass all three and peak before versus after day4, demonstrating unmeasured uncertainty. Illustration distinct from required six-day keyed graph and from actual measured concentration. Qualitative follicular decline, changed ovarian support, end of recurring cycles and possible higher pituitary FSH retain feedback direction. No fixed age, individual diagnosis or assertion that all hormones fall.",
+      "panelAssetIds": [
+        "b-sparse-sampling-v1",
+        "b-menopause-feedback-v1"
+      ],
+      "groupCaption": "Distinguish sampling uncertainty from changing cycle physiology.",
+      "groupEquivalentExplanation": "Three fictional samples on a zero-to10 relative-index axis occur at day2/index2,day4/index8 andday6/index4. Two different possible paths pass through all three points but place the unsampled maximum on different sides of day4. The lines are possibilities, not measured interpolation. This separate teaching example does not show the answer to the required six-day graph. More frequent sampling can improve timing resolution. Equal relative indices from different hormones do not establish equal concentrations or predict an individual fertile interval. A qualitative mechanism connects natural loss of ovarian follicular function to changing ovarian hormone support and the eventual end of recurring menstrual cycles. Reduced ovarian negative feedback can permit pituitary FSH to rise, so not all hormones decline together. The transition can involve variable cycles. No individual diagnosis, numerical threshold, treatment recommendation or fixed age is inferred."
+    },
+    {
+      "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+      "figureId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-figure",
+      "assetId": "b-hormonal-methods-and-perspectives-v1",
+      "purpose": "Compare mechanism, evidence and perspectives without giving personal treatment advice",
+      "bindingReview": "Possible pituitary and mucus pathways are formulation-dependent. Biological endpoints are distinguished from five-perspective service decisions and from STI prevention. No named treatment regimen or effectiveness rate. Native author review passed; actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-gametes-meet",
+      "figureId": "b-topic-fertilization-to-implantation-gametes-meet-figure",
+      "assetId": "b-fertilization-interactions-v2",
+      "purpose": "Sequence the interactions needed for fertilization in a uterine tube",
+      "bindingReview": "Readiness, covering interactions, fusion and activation are distinct. The simplified oocyte inset labels the whole cell rather than an apparent nucleus. No universal acrosome timing or human electrical fast-block claim. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+      "figureId": "b-topic-fertilization-to-implantation-combining-chromosome-sets-figure",
+      "assetId": "b-pronuclei-and-ploidy-v1",
+      "purpose": "Explain restoration of diploidy and why extra sperm entry is prevented",
+      "bindingReview": "After maternal meiosis II, the usual two 23-chromosome contributions establish a diploid zygote within one cell. Separate pronuclei remain separate in the drawing. Cortical coat changes and later DNA copying retain their different roles. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+      "figureId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-figure",
+      "assetId": "b-cleavage-organization-v3",
+      "purpose": "Order stages and distinguish rising cell number from overall growth",
+      "bindingReview": "Two, four and eight drawn blastomeres are counted separately within similar-sized coats. Eight-cell packing does not suggest a blastocoel. Continued cleavage/compaction explicitly links to morula, then the blastocyst distinguishes inner mass, outer trophoblast and cavity. Blastocyst symbols are not a cell-count assay. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+      "figureId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-figure",
+      "assetId": "b-ivf-location-and-denominator-v1",
+      "purpose": "Compare fertilization and implantation and locate IVF steps in the sequence",
+      "bindingReview": "In-body and laboratory fertilization differ in location; transfer does not establish implantation. Fictional15 cycles/10transfers/6pregnancies gives40%percycle and60%pertransfer with the same endpoint. Neither is a live-birth rate or treatment recommendation. Artificial insemination is distinguished. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+      "figureId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-figure",
+      "assetId": "b-hcg-source-target-transition-v1",
+      "purpose": "Explain the early hCG-to-progesterone chain and later placental transition",
+      "bindingReview": "Trophoblast hCG signals to ovarian corpus luteum; steroid support acts downstream on uterine tissue. Later placental steroid production is qualified by maternal/fetal starting materials. No fixed switch week, diagnostic value or uncalibrated source-curve tracing. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+      "figureId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-figure",
+      "assetId": "b-human-trilaminar-disc-v1",
+      "purpose": "Sequence cell reorganization and distinguish it from cleavage",
+      "bindingReview": "Existing exact native-resolution author review reused at its originally requested teaching target. Caption and text equivalent retain the recorded limits; responsive learner placement and teacher review remain pending."
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "figureId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-figure",
+      "assetId": "b-germ-layer-tissue-map-v1",
+      "purpose": "Classify named tissue origins while retaining qualifications about different glands",
+      "bindingReview": "Origins attach to tissues: epidermis/nervous/pituitary, muscle/blood/adrenal cortex, and inner linings/pancreatic endocrine/thyroid follicular tissue. Gut wall combines endodermal lining and mesodermal muscle/support. The cross-section is an origin model, not detailed histology. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-developmental-evidence",
+      "figureId": "b-topic-hcg-and-gastrulation-developmental-evidence-figure",
+      "assetId": "b-developmental-evidence-timing-v1",
+      "purpose": "Use a supplied timeline to support a developmental explanation",
+      "bindingReview": "Fictional culture days2/4/6 distinguish earlier observed initiation, later exposure and subsequent marker change. Later exposure cannot prevent the recorded earlier event. Alternative cell-count, expression and measurement explanations remain; no human gestational timeline or individual risk value. Native SVG author review passed; final learner placement pending."
+    },
+    {
+      "partId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes",
+      "figureId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-figure",
+      "assetId": "b-extraembryonic-membranes-chatgpt-v1",
+      "purpose": "Identify each support structure and explain its contribution",
+      "bindingReview": "Chorion is the outer membrane, amnion surrounds the blue amniotic space and embryo, and the separate yolk sac lies outside that space but inside the chorion. The yolk-sac stalk and caudal connecting region remain distinct. The inset locates a small allantoic extension within the connecting region; no maternal blood transfer or full-term anatomy is shown. Leaders terminate on the named membrane, space or structure. Colours and relative sizes are schematic; the orange yolk-sac appearance does not imply stored yolk, and the inset is a magnified relationship rather than a measured lumen. See projects/resources/biology30-production/v1/pilot2/source-review/extraembryonic-membranes-chatgpt-review.json. Actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+      "figureId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-figure",
+      "assetId": "b-placental-circulation-source-15-11a",
+      "purpose": "Trace oxygen and nutrients across separate circulations without showing normal bulk mixing",
+      "bindingReview": "Native existing text comparison and full source crop reviewed. Selected local blocked-use figure supports the actual required core/worked explanation of separated circulations and directional umbilical vessels. Retain the authored equivalent and exclude the source diffusion-only caption. All-surface first-use and actual responsive placement remain separate pending checks.",
+      "remainingReview": [
+        "Bind exact first-use terms before learner display",
+        "Inspect responsive inline and keyboard enlargement/focus return",
+        "Compare original course figure visually before completing selection receipt"
+      ]
+    },
+    {
+      "partId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+      "figureId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-figure",
+      "assetId": "b-developmental-clocks-v1",
+      "purpose": "Place major organ-system events on an explicit developmental timeline",
+      "bindingReview": "Approximate post-fertilization and obstetric ages stay distinct. The embryonic/fetal distinction and overlapping trimester patterns accompany a schematic plate-to-groove-to-tube sequence; closure varies across time and position. These are explanatory models, not clinical schedules or microscopic observations. Author review: projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json. Actual learner placement pending.",
+      "panelAssetIds": [
+        "b-developmental-clocks-v1",
+        "b-neurulation-sequence-v1"
+      ],
+      "groupCaption": "Relate developmental clocks to changing tissue structure.",
+      "groupEquivalentExplanation": "Approximate post-fertilization and obstetric ages stay distinct. The embryonic/fetal distinction and overlapping trimester patterns accompany a schematic plate-to-groove-to-tube sequence; closure varies across time and position. These are explanatory models, not clinical schedules or microscopic observations.",
+      "groupComparisonGuide": "Read the models together while retaining the age convention, count boundary and biological process named in each panel."
+    },
+    {
+      "partId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+      "figureId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-figure",
+      "assetId": "b-exposure-confounding-comparison-v1",
+      "purpose": "Compare supplied exposure evidence and state why a model cannot predict an individual outcome",
+      "bindingReview": "Fictional qualitative groups differ in both agent exposure and culture temperature. Their marker difference cannot isolate a single cause. This separate example does not alter the required four-count investigation dataset or supply its answer graph. Author review: projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json. Actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-parturition-labour-and-positive-feedback",
+      "figureId": "b-topic-parturition-labour-and-positive-feedback-figure",
+      "assetId": "b-labour-loop-v1",
+      "purpose": "Construct the stimulus-response feedback loop and identify its stopping event",
+      "bindingReview": "Exact required core and worked explanation reread; final native SVG matches the named source, signal, target and bounded response. Native1200x900 reviewed: sensory signal enters hypothalamic stage, synthesis is distinct from posterior storage/release, blood route reaches responsive uterine tissue, return reinforces cervical stretch, and delivery endpoint is explicit. Labels do not cross arrows. Actual first-use and placement remain separate checks."
+    },
+    {
+      "partId": "b-topic-parturition-birth-and-the-transition",
+      "figureId": "b-topic-parturition-birth-and-the-transition-figure",
+      "assetId": "b-birth-exchange-transition-v2",
+      "purpose": "Sequence the major events and relate them to changing support systems",
+      "bindingReview": "Dilation, delivery and placental delivery are broad events. Oxygen arrows distinguish placental exchange between distinct bloodstreams from newborn lung exchange. Effective ventilation and circulatory adaptation are required; the illustration does not show maternal blood flowing into fetal blood. Author review: projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json. Actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-parturition-milk-synthesis-and-release",
+      "figureId": "b-topic-parturition-milk-synthesis-and-release-figure",
+      "assetId": "b-lactation-pathways-v2",
+      "purpose": "Distinguish the two hormone pathways in lactation",
+      "bindingReview": "Exact required core and worked explanation reread; final native SVG matches the named source, signal, target and bounded response. Native finalv2 reviewed: anterior prolactin synthesis route and posterior oxytocin ejection route remain distinct with correct responding cells. Full labels fit; hormone labels moved off their arrows after v1 collisions. Both are simplified sensory-control pathways rather than direct anatomical nerve connections. Actual first-use and placement remain separate checks."
+    },
+    {
+      "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "figureId": "b-topic-parturition-technologies-infertility-and-perspectives-figure",
+      "assetId": "b-technology-step-comparison-v1",
+      "purpose": "Compare mechanisms, uncertainty, access and perspectives in a fictional supplied case",
+      "bindingReview": "Barrier, hormonal, transport and outside-body fertilization mechanisms have different targets. Mechanism alone does not guarantee pregnancy outcomes. Denominator, time interval and five perspectives remain explicit; no personal recommendation or ranking of families. Author review: projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json. Actual learner placement pending."
+    },
+    {
+      "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+      "figureId": "b-topic-parturition-investigating-and-communicating-a-claim-figure",
+      "assetId": "b-developmental-study-design-v1",
+      "purpose": "Evaluate a supplied investigation and revise a reasoned explanation after a contrasting interpretation",
+      "bindingReview": "Two-by-two early/later and unexposed/exposed comparison retains dose/duration/method/culture controls and fictional marker M. No answer bars or human-risk interpretation. The required learner counts remain in the original supplied task. Native author review passed; actual learner placement pending."
+    }
+  ],
+  "assets": [
+    {
+      "id": "b-human-trilaminar-disc-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-human-trilaminar-disc-v1.png",
+      "destination": "assets/figures/b-human-trilaminar-disc-v1.png",
+      "sha256": "8d4aee5d920523b7946acbf9178bcdc5f0a121cf7984c327322491b6c62a6cce",
+      "width": 1536,
+      "height": 1024,
+      "alt": "spatial relationship of human trilaminar disc",
+      "caption": "An original schematic of the three germ layers in a representative region of the early human embryonic disc. Ectoderm faces the amniotic side, mesoderm lies between, and definitive endoderm faces the yolk-sac side. During gastrulation, epiblast cells give rise to these three layers; this still image does not show that movement. Colours, cell shapes and layer thicknesses are simplified.",
+      "equivalentExplanation": "A shallow human embryonic disc contains three cellular sheets: blue ectoderm above, coral mesoderm between, and gold definitive endoderm below. The upper face is toward the amniotic space; the lower face is toward the yolk-sac space. Epiblast cells form all three germ layers during gastrulation. This representative still image shows the resulting layer arrangement, not cell migration or complete embryo anatomy.",
+      "provenance": "Original prompt requests original illustration; source comparison retained authoring-only; no publisher artwork uploaded.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json",
+        "evidenceSha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0",
+        "finding": "Full original-resolution PNG inspected: all five labels correct and leader points correct; blue upper ectoderm, coral middle mesoderm and gold lower definitive endoderm; amniotic/yolk-sac orientations correct; no spherical invagination or formed fetal structures."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-female-tract-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-female-tract-v1.png",
+      "destination": "assets/figures/b-female-tract-v1.png",
+      "sha256": "9829fa5e21332ba3bf82f1648e0eb2b86bf5aed7566e9f0e79e74a94f970b825",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Spatial recognition of uterine tubes, open fimbrial ends, endometrial lining and continuous uterine-cervical-vaginal route",
+      "caption": "An original frontal schematic of the internal reproductive tract. The open fimbrial end of each uterine tube lies near an ovary; it is not sealed to the ovarian surface. The tubes enter the uterus above its inner endometrial lining. The uterine cavity continues through the cervical canal into the vagina. The pale supporting bands between ovaries and uterus are ligaments, not an oocyte route. Relative size and cavity width are simplified.",
+      "equivalentExplanation": "Two ovaries lie beside the open fimbrial ends of the uterine tubes. There is a gap between each ovary and tube. Each tube enters the upper uterus; its cavity continues downward through the cervix into the vagina. Endometrium is the inner uterine lining, distinct from the thicker muscle wall. The pale supporting bands are ligaments and do not carry the oocyte. This frontal view is schematic and does not show external genital anatomy.",
+      "provenance": "Original illustration requested; no publisher artwork uploaded; source comparison authoring only.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json",
+        "evidenceSha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0",
+        "finding": "Original 1536 by 1024 PNG inspected at full resolution. Paired ovaries/tubes and open fimbrial gaps are visible; both tubes enter upper uterine cavity; uterine-cervical-vaginal lumen is continuous. All seven labels are spelled correctly and leader endpoints identify the named structures. Endometrium leader identifies the inner lining boundary rather than muscle. No fetus or scan/clinical imagery."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-male-tract-vector-v3",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v3.svg",
+      "destination": "assets/figures/b-male-tract-vector-v3.svg",
+      "sha256": "0979a2f87a30311555cb94ce1d07bd5ad6ecc872d7e1ffe630a42109b00b3dcc",
+      "width": 1200,
+      "height": 880,
+      "alt": "Anatomical recognition of sperm transport and accessory-gland junctions",
+      "caption": "Original schematic side view of one side of the paired reproductive pathway. Small ducts connect the testis to the epididymal head; its coiled body leads to a lower tail that continues into the vas deferens. The vas joins the seminal-vesicle duct to form an ejaculatory duct entering the urethra within the prostate. A bulbourethral duct joins below. The urethra opens through the penis. The pale bladder is a landmark: sperm do not enter its cavity. Ducts are separated for visibility; their projected crossing is not a junction, and proportions and fine tissue detail are simplified.",
+      "equivalentExplanation": "Trace the continuous route from the testis through small ducts into the epididymal head, along its body to its lower tail, then up the vas deferens. A seminal-vesicle duct joins the vas to form an ejaculatory duct. That duct opens into the urethra within the prostate; a bulbourethral duct enters the urethra below. The urethra continues through the penis to the exterior. The bladder cavity is separate from sperm transport, and a projected crossing of drawn ducts is not a junction.",
+      "provenance": "Original text prompt; no publisher artwork uploaded. Source pixels stay authoring-only.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json",
+        "evidenceSha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0",
+        "finding": "Native-size browser SVG inspected against the supplied slide anatomy and the prior rejected image. Lower epididymal tail continuously enters the ascending vas; small upper ducts connect testis to head. Vas stays outside bladder and joins the seminal-vesicle duct. Ejaculatory duct enters the urethra within prostate; bulbourethral duct joins below. The urethra opens at the exterior; ten leaders point to named tissues/ducts. Distinct crossing clearance prevents treating a projected crossing as a duct junction."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-testis-compartments-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-testis-compartments-v2.svg",
+      "destination": "assets/figures/b-testis-compartments-v2.svg",
+      "sha256": "82cebd4ec89b4da61c3cfe64285ab63ee7765b738c66894473af9f7547b3bf25",
+      "width": 1100,
+      "height": 760,
+      "alt": "Distinguish germ cells, tubule support and interstitial hormone release",
+      "caption": "Within a testis, germ cells develop among Sertoli supporting cells in a seminiferous tubule. Interstitial cells between tubules release testosterone into blood. A hormone measurement does not establish complete sperm development.",
+      "equivalentExplanation": "The round inset is a seminiferous tubule, not the whole testis. Germ cells develop among Sertoli supporting cells inside it. The open central lumen receives later sperm stages. Interstitial cells lie outside the tubule and release testosterone into a nearby blood vessel. These locations separate sperm development, cellular support and hormone secretion.",
+      "provenance": "Original author-drawn SVG schematic; source comparison remains authoring-only. No publisher pixels copied.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json",
+        "evidenceSha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0",
+        "finding": "Native full-size v2 inspected: leader endpoints distinguish supporting and germ cells, lumen and outside compartment; labels fit, hormone arrow ends at the blood vessel."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-placental-circulation-source-15-11a",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation-textbook-15-11a.png",
+      "destination": "assets/figures/b-placental-circulation-textbook-15-11a.png",
+      "sha256": "8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462",
+      "width": 1410,
+      "height": 1455,
+      "alt": "Section of a placenta showing maternal blood around branching villi and fetal capillaries inside them, connected to the umbilical vessels.",
+      "caption": "Maternal blood surrounds chorionic villi while fetal blood remains inside their capillaries. The two blood supplies are separated by tissue; gas diffusion and other selective transport processes allow exchange. Supplied Biology textbook, Chapter15, p.517, Figure15.11A, MHR.",
+      "equivalentExplanation": "Chorionic villi are branching projections of placental tissue. Fetal capillaries are small blood vessels inside these projections; maternal blood occupies spaces around them. Tissue separates the two blood supplies. Umbilical arteries carry fetal blood to the placenta. The umbilical vein returns blood toward the fetus. Oxygen commonly moves toward fetal blood and carbon dioxide toward maternal blood; other substances use different selective transfer processes. Blood-vessel direction and the exchange boundary matter more than red or blue colouring. The placenta is not an absolute filter against harmful exposures.",
+      "provenance": "supplied textbook; restricted local blocked-review use; public redistribution and export are not cleared.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation.json",
+        "evidenceSha256": "5dab70cebfd453a24404af55dc4f26fb034e3d1f97156da6f78f53aeb09dcd2b",
+        "finding": "Fetal umbilical vessels lead to capillaries within villi; maternal vessels open to blood spaces outside the fetal capillaries. Inset distinguishes fetal and maternal portions and shows their boundary; no direct merged maternal/fetal blood tube is drawn. Labels for uterus, placenta, cord and amniotic fluid are readable at native extraction size. Use an authored equivalent to explain directional names: umbilical arteries carry blood away from the fetus; the umbilical vein carries blood toward it. Colour is illustrative and cannot replace direction labels. This is a section through a complex branching interface, not a complete vessel count or to-scale reconstruction. Original caption oversimplifies all nutrient transfer as diffusion; it is excluded. Adjacent teaching must distinguish gas diffusion from other selective transport processes."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-ovarian-follicle-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ovarian-follicle-v1.png",
+      "destination": "assets/figures/b-ovarian-follicle-v1.png",
+      "sha256": "1a7a865497483ac62d35e1c8c4fd98a8b857aceeeb55202a84e7eb6b77ed3efb",
+      "width": 1536,
+      "height": 1024,
+      "alt": "A growing follicle contains one oocyte supported by smaller cells beside a fluid-filled space. A separate corpus luteum contains folded glandular tissue without an oocyte.",
+      "caption": "Original schematic comparison of a growing follicle and the corpus luteum after ovulation. The oocyte is one large cell supported by many smaller follicular cells; the fluid-filled space is the antrum. After the oocyte is released, remaining follicular tissue forms the corpus luteum, which secretes hormones including progesterone. The oocyte does not become the corpus luteum. Colours, relative sizes and cellular detail are simplified; this is not microscopy evidence or a diagram of exact meiotic stages.",
+      "equivalentExplanation": "Original schematic comparison of a growing follicle and the corpus luteum after ovulation. The oocyte is one large cell supported by many smaller follicular cells; the fluid-filled space is the antrum. After the oocyte is released, remaining follicular tissue forms the corpus luteum, which secretes hormones including progesterone. The oocyte does not become the corpus luteum. Colours, relative sizes and cellular detail are simplified; this is not microscopy evidence or a diagram of exact meiotic stages.",
+      "provenance": "Original illustration generated in authenticated ChatGPT from the recorded original prompt, after native source comparison; no publisher pixels uploaded.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-image-request.json",
+        "evidenceSha256": "a725e98279f1c39764f18a33037d9fa04bbeb571ec742c8e67887f052f1f8c8b",
+        "finding": "Original 1536 by 1024 PNG inspected at native resolution. One large oocyte lies within a mound of smaller supporting cells continuous with the follicle wall. The antrum is separate. The folded corpus luteum has no retained oocyte. All six requested labels are legible; three leaders terminate within their correct cell, supporting-cell group and fluid compartment. No arrow implies that the oocyte becomes luteal tissue."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-hormone-sources-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormone-sources-v1.svg",
+      "destination": "assets/figures/b-hormone-sources-v1.svg",
+      "sha256": "712add8a56dab35a7ddbc5d4c76c74eabcfb2bcd3b8fba3f809eeb2aaa2da85f",
+      "width": 1200,
+      "height": 900,
+      "alt": "A branching diagram links GnRH to pituitary FSH and LH, then to different testicular cells.",
+      "caption": "Original schematic. FSH and LH act on different testicular targets; local testosterone also supports germ-cell development.",
+      "equivalentExplanation": "GnRH from the hypothalamus reaches the anterior pituitary through connecting blood vessels. FSH travels in blood to Sertoli cells and supports their contribution to germ-cell development. LH travels in blood to interstitial cells, which release testosterone. Local testosterone also supports sperm development. These arrows indicate signalling and support; FSH and LH do not become testosterone.",
+      "provenance": "Original authored SVG after the recorded native-source and existing-course comparison. No source pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json",
+        "evidenceSha256": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf",
+        "finding": "Native1200x900 reviewed: hypothalamic GnRH enters anterior pituitary; split FSH/Sertoli and LH/interstitial branches are distinct; testosterone joins local developmental support. All labels and arrows fit with no crossing interpreted as a junction."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-feedback-pathways-v3",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v3.svg",
+      "destination": "assets/figures/b-feedback-pathways-v3.svg",
+      "sha256": "5bb67f4486644c7d3b9469b8423667c8e0c7a79e4d31cc7acd503adb206ae193",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate testosterone and inhibin loops use blunt line ends for inhibition.",
+      "caption": "Original schematic. Testosterone and inhibin reduce different upstream signals. Arrowheads show support; blunt ends show inhibition.",
+      "equivalentExplanation": "The upper loop combines hypothalamic input with anterior-pituitary LH release. LH stimulates interstitial cells; testosterone can reduce upstream hypothalamic and pituitary signalling. The lower loop isolates FSH support of Sertoli cells and inhibin feedback that reduces pituitary FSH release. Arrowheads show support; blunt ends show inhibition. Lower testosterone action can permit increased LH when upstream tissues respond, but one measurement does not establish a unique cause.",
+      "provenance": "Original authored SVG after the recorded native-source and existing-course comparison. No source pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json",
+        "evidenceSha256": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf",
+        "finding": "Native finalv3 reviewed: LH source explicitly anterior pituitary, not hypothalamus. Separate testosterone/upstream and inhibin/FSH return paths end in blunt inhibition marks; no upward arrow presents inhibition as stimulation. Labels clear. v1 compressed GnRH/LH label and v2 combined-source wording were clarified without changing biology."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-labour-loop-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-labour-loop-v1.svg",
+      "destination": "assets/figures/b-labour-loop-v1.svg",
+      "sha256": "a939294786df7a4c38d0e250f4681cc37fea92b96145d15e049cbedbd07076f1",
+      "width": 1200,
+      "height": 900,
+      "alt": "A loop connects cervical stretch, oxytocin release and uterine contraction, with delivery as its endpoint.",
+      "caption": "Original schematic. Oxytocin supports contractions that can reinforce cervical stretch during labour. Delivery removes the main stretch stimulus.",
+      "equivalentExplanation": "Cervical stretch during labour sends sensory signals associated with oxytocin release. Hypothalamic neurons make oxytocin; it is stored and released through the posterior pituitary into blood. Responsive uterine tissue contracts, which can increase cervical stretch and reinforce this loop. Delivery removes the main stretch stimulus. This is one mechanism within labour; it does not claim that fetal size alone starts labour or that the loop explains all timing and tissue responses.",
+      "provenance": "Original authored SVG after the recorded native-source and existing-course comparison. No source pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json",
+        "evidenceSha256": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf",
+        "finding": "Native1200x900 reviewed: sensory signal enters hypothalamic stage, synthesis is distinct from posterior storage/release, blood route reaches responsive uterine tissue, return reinforces cervical stretch, and delivery endpoint is explicit. Labels do not cross arrows."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-lactation-pathways-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-lactation-pathways-v2.svg",
+      "destination": "assets/figures/b-lactation-pathways-v2.svg",
+      "sha256": "696c29769e845a2e9cc84b83905c264736d36a5b7f6e303dfa00bc0c74df0211",
+      "width": 1200,
+      "height": 900,
+      "alt": "Parallel pathways distinguish prolactin-supported milk synthesis from oxytocin-supported milk ejection.",
+      "caption": "Original schematic. Milk-producing cells and contractile supporting cells have different responses: making milk and moving existing milk.",
+      "equivalentExplanation": "Suckling provides sensory input supporting both pathways. Anterior-pituitary prolactin supports milk synthesis by milk-producing cells. Oxytocin, made in hypothalamic neurons and released through posterior pituitary, supports contraction of myoepithelial cells around secretory tissue, helping eject existing milk. After placental delivery, falling steroid levels support greater synthesis; prolactin is not first created only after birth. Synthesis, ejection and effective transfer are related but distinct outcomes.",
+      "provenance": "Original authored SVG after the recorded native-source and existing-course comparison. No source pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json",
+        "evidenceSha256": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf",
+        "finding": "Native finalv2 reviewed: anterior prolactin synthesis route and posterior oxytocin ejection route remain distinct with correct responding cells. Full labels fit; hormone labels moved off their arrows after v1 collisions. Both are simplified sensory-control pathways rather than direct anatomical nerve connections."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-chromosome-sets-copies-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-chromosome-sets-copies-v1.svg",
+      "destination": "assets/figures/b-chromosome-sets-copies-v1.svg",
+      "sha256": "d6aaf81c066c25e8f6e36d308862ae899122733957c17373f690239bca828386",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate chromosome sets from DNA-copy state",
+      "caption": "Separate chromosome sets from DNA-copy state.",
+      "equivalentExplanation": "Three cells show a simplified two-chromosome-type model before replication, after replication and in one product after meiosis I. Long and short symbols identify types; colours distinguish homologues. The first two cells each have two homologous sets, while the final cell has one. X-like symbols denote duplication, not diploidy. A separate human count row gives46 chromosomes/46 DNA molecules,46/92,then23/46 per cell. The picture uses2n=4; the count row uses typical human2n=46.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Native2n=4 symbolic set model has two long/two short unduplicated chromosomes, the same four duplicated chromosomes, then one long/one short duplicated in one meiotic-I product. Human count row46/46,46/92,23/46 matches chromosomes/DNA molecules per cell; picture and human counts are explicitly distinct."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-meiosis-differentiation-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-meiosis-differentiation-v2.svg",
+      "destination": "assets/figures/b-meiosis-differentiation-v2.svg",
+      "sha256": "ac3b09c7f51a9166c300a5d04d72019e9bd898e5e927896914a6c3c70f8bc773",
+      "width": 1200,
+      "height": 900,
+      "alt": "Follow the divisions, then distinguish differentiation",
+      "caption": "Follow the divisions, then distinguish differentiation.",
+      "equivalentExplanation": "A branching sequence follows one primary spermatocyte with46 duplicated chromosomes to two secondary spermatocytes each with23 duplicated chromosomes and then four spermatids each with23 unduplicated chromosomes. Meiosis I separates homologues; meiosis II separates sister chromatids without intervening replication. A separate differentiation panel names nuclear compaction, acrosome, flagellum and mitochondrial organization. Differentiation and later maturation support function without another chromosome-number reduction. The circles are symbolic cells, not microscopy.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "One→two→four cell inventory and46 duplicated→23 duplicated→23 unduplicated per-cell counts verified. v2 moves tree right to separate labels from circles. Differentiation does not halve counts; no replication between divisions."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-oocyte-pauses-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-oocyte-pauses-v2.svg",
+      "destination": "assets/figures/b-oocyte-pauses-v2.svg",
+      "sha256": "dbe8fcf928b94dd8f0b63ebc8cbe5306ebe085f787753505c52dd94b138758e2",
+      "width": 1200,
+      "height": 900,
+      "alt": "Locate the two oocyte pauses and unequal divisions",
+      "caption": "Locate the two oocyte pauses and unequal divisions.",
+      "equivalentExplanation": "Three symbolic stages show a primary oocyte with46 duplicated chromosomes paused in prophase I before birth, a secondary oocyte with23 duplicated chromosomes paused in metaphase II at ovulation, and the maternal product with23 unduplicated chromosomes after meiosis II. Sperm entry normally triggers the second completion. Unequal divisions give a large cell and small polar bodies. The final maternal count excludes paternal chromosomes; it is not the total zygote count. The first polar body can have its own fate, not depicted. A typical spermatocyte instead makes four similarly sized spermatids.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Prophase-I prenatal and metaphase-II ovulatory pauses,46 duplicated→23 duplicated→23 unduplicated maternal counts, and unequal polar-body branches verified. v2 routes both branches clear of text. Final count excludes sperm; no three-polar-body inevitability or completed meiosis at ovulation."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-coordinated-cycles-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-coordinated-cycles-v1.svg",
+      "destination": "assets/figures/b-coordinated-cycles-v1.svg",
+      "sha256": "475e55642f44046108e5a5eb6dc5402be01ac36442326b0f950782b186e9ad75",
+      "width": 1200,
+      "height": 900,
+      "alt": "Align ovarian and uterine events on two tracks",
+      "caption": "Align ovarian and uterine events on two tracks.",
+      "equivalentExplanation": "A shared illustrative day1-to28 axis aligns separate ovarian and uterine tracks. The ovarian track shows follicular development, ovulation at the illustrated day14 boundary and luteal corpus-luteum function. The uterine track shows illustrative shedding near the start, rebuilding and later secretory maintenance. Follicular estrogen supports rebuilding; luteal progesterone supports secretory function. Day1 begins bleeding. Real timing varies and events can overlap; day14 and the pictured durations are examples, not predictions or universal boundaries.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Separate ovarian/uterine tracks align on one explicit illustrative1–28day axis. Day1 starts bleeding; follicular phase includes early shedding on the separate uterine track. Event overlap and individual variability explicit; not universal day14 ovulation."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-context-feedback-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-context-feedback-v1.svg",
+      "destination": "assets/figures/b-context-feedback-v1.svg",
+      "sha256": "874942a8890ef18a76efa23572a532640a7a3364cdc9f181568a5eedb94694e7",
+      "width": 1200,
+      "height": 900,
+      "alt": "Show why the same hormone can change its feedback effect",
+      "caption": "Show why the same hormone can change its feedback effect.",
+      "equivalentExplanation": "Two panels compare ovarian feedback contexts. At many stages ovarian steroids reduce hypothalamic–pituitary gonadotropin signalling, shown by an explicitly negative return arrow. Near ovulation sustained high estrogen in suitable physiological context supports a positive upstream response, including an LH surge and events leading to ovulation. Forward gonadotropin arrows support ovarian activity. Signs label effects, and context is part of the mechanism. One sparse sample cannot establish a universal threshold or exact event time.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Both forward and return arrows inspected with explicit negative/positive signs. Sustained high estrogen and suitable context qualify positive feedback. Sparse peak values do not prove a universal threshold or exact ovulation time."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-luteal-withdrawal-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-luteal-withdrawal-v1.svg",
+      "destination": "assets/figures/b-luteal-withdrawal-v1.svg",
+      "sha256": "aa7b9e30adbfa87df9b1391a92892d8f9c3cd025556d481161d36a797ad9bb36",
+      "width": 1200,
+      "height": 900,
+      "alt": "Connect luteal function with maintenance and withdrawal",
+      "caption": "Connect luteal function with maintenance and withdrawal.",
+      "equivalentExplanation": "A downward chain connects functioning ovarian corpus luteum to progesterone and estrogen support and then to maintenance of secretory uterine endometrium. A separate conditional withdrawal chain shows luteal regression, falling steroid support and functional lining breakdown when early pregnancy does not sustain support. Reduced negative feedback permits signalling changes supporting the next follicular cycle. Progesterone acts on the lining, whereas early hCG helps maintain the ovarian source. The oocyte is not the source of menstrual tissue.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Ovarian corpus luteum→steroid support→uterine maintenance chain distinct from conditional withdrawal. hCG maintains early ovarian support, progesterone supports lining; menstrual tissue is not the oocyte."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-sparse-sampling-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-sparse-sampling-v1.svg",
+      "destination": "assets/figures/b-sparse-sampling-v1.svg",
+      "sha256": "2b11df89658d0e2b2620f86cd6b905b74788e03bbab860748465752c44058928",
+      "width": 1200,
+      "height": 900,
+      "alt": "Keep uncertainty between hormone samples visible",
+      "caption": "Keep uncertainty between hormone samples visible.",
+      "equivalentExplanation": "Three fictional samples on a zero-to10 relative-index axis occur at day2/index2,day4/index8 andday6/index4. Two different possible paths pass through all three points but place the unsampled maximum on different sides of day4. The lines are possibilities, not measured interpolation. This separate teaching example does not show the answer to the required six-day graph. More frequent sampling can improve timing resolution. Equal relative indices from different hormones do not establish equal concentrations or predict an individual fertile interval.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Sample dots2/2,4/8,6/4 share a0–10relative axis. Two paths pass all three and peak before versus after day4, demonstrating unmeasured uncertainty. Illustration distinct from required six-day keyed graph and from actual measured concentration."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-menopause-feedback-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-menopause-feedback-v1.svg",
+      "destination": "assets/figures/b-menopause-feedback-v1.svg",
+      "sha256": "3e4ac45fdee4e448b5e0e1859d048a489df191801a7509f49a8fad8f2f56741f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Distinguish follicular change from a fall in every hormone",
+      "caption": "Distinguish follicular change from a fall in every hormone.",
+      "equivalentExplanation": "A qualitative mechanism connects natural loss of ovarian follicular function to changing ovarian hormone support and the eventual end of recurring menstrual cycles. Reduced ovarian negative feedback can permit pituitary FSH to rise, so not all hormones decline together. The transition can involve variable cycles. No individual diagnosis, numerical threshold, treatment recommendation or fixed age is inferred.",
+      "provenance": "Original authored SVG from reviewed canonical teaching/worked examples and gamete-cycle-diagram-review.json source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Qualitative follicular decline, changed ovarian support, end of recurring cycles and possible higher pituitary FSH retain feedback direction. No fixed age, individual diagnosis or assertion that all hormones fall."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-fertilization-interactions-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-fertilization-interactions-v2.svg",
+      "destination": "assets/figures/b-fertilization-interactions-v2.svg",
+      "sha256": "f7c040d75ae6d65b2a6a4c604a9d2c0c75a0aa89e991775b4144a2841677b0ef",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate the steps that lead to fertilization",
+      "caption": "Separate the steps that lead to fertilization.",
+      "equivalentExplanation": "Four functional stages distinguish capacitation and readiness, interaction with coverings including acrosomal changes, membrane fusion, and oocyte activation with completion of meiosis II and cortical granule release. A small stylized sperm approaches an oocyte with surrounding coverings. The inset is schematic and not to scale. Arrival alone does not prove fusion or activation. The usual location is a uterine tube. Acrosomal events are not assigned an exact universal time or location; the sequence is a functional teaching model.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "Readiness, covering interactions, fusion and activation are distinct. The simplified oocyte inset labels the whole cell rather than an apparent nucleus. No universal acrosome timing or human electrical fast-block claim."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-pronuclei-and-ploidy-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-pronuclei-and-ploidy-v1.svg",
+      "destination": "assets/figures/b-pronuclei-and-ploidy-v1.svg",
+      "sha256": "f71d02f49fda3173d2e3211f6d3baff1e05b92737a7b8338e6c388e3d0d2e1b3",
+      "width": 1200,
+      "height": 900,
+      "alt": "Two parental sets establish the diploid zygote",
+      "caption": "Two parental sets establish the diploid zygote.",
+      "equivalentExplanation": "One large cell boundary contains two separate pronuclei labelled23 maternal and23 paternal chromosomes. The depicted usual human stage is after completion of maternal meiosis II and before the next DNA-copying step. Together the sets establish46 chromosomes and diploidy; pronuclei are not drawn as already fused. Activation and cortical granule release change the coat to reduce further sperm interaction and help limit polyspermy. The figure does not portray a sea-urchin electrical fast block as the human mechanism. Later DNA replication precedes first mitosis without adding another parental set.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "After maternal meiosis II, the usual two 23-chromosome contributions establish a diploid zygote within one cell. Separate pronuclei remain separate in the drawing. Cortical coat changes and later DNA copying retain their different roles."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-cleavage-organization-v3",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-cleavage-organization-v3.svg",
+      "destination": "assets/figures/b-cleavage-organization-v3.svg",
+      "sha256": "34b1a486331e93ee6bea936e99b79f25ece483e0d521fc7aa65384cc4670c356",
+      "width": 1200,
+      "height": 900,
+      "alt": "More cells first; then a change in organization",
+      "caption": "More cells first; then a change in organization.",
+      "equivalentExplanation": "Three similar-sized surrounding coats contain2,4 and8 schematic blastomeres; cell number increases as each cell becomes smaller during early cleavage. Below, a morula is a compact cluster and a blastocyst has an outer trophoblast, an inner cell mass and a fluid-filled cavity. The blastocyst is an organizational comparison, not an exact total cell count. Inner cell mass contributes to the embryo proper; trophoblast contributes to support tissues and the placental interface. Early cell division is distinguished from later growth; stage drawings are schematic rather than photographs or measured size data.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "Two, four and eight drawn blastomeres are counted separately within similar-sized coats. Eight-cell packing does not suggest a blastocoel. Continued cleavage/compaction explicitly links to morula, then the blastocyst distinguishes inner mass, outer trophoblast and cavity. Blastocyst symbols are not a cell-count assay."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-ivf-location-and-denominator-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ivf-location-and-denominator-v1.svg",
+      "destination": "assets/figures/b-ivf-location-and-denominator-v1.svg",
+      "sha256": "61087ba1daae419a60af4ee169ff653042e5009c1096bf302eaefaeb98bf2c98",
+      "width": 1200,
+      "height": 900,
+      "alt": "Locate fertilization, transfer and implantation",
+      "caption": "Locate fertilization, transfer and implantation.",
+      "equivalentExplanation": "Two four-stage pathways distinguish usual in-body gamete meeting and fertilization in a uterine tube from IVF fertilization in a laboratory. Both require further development and uterine implantation; transfer places an embryo in the uterus but does not establish implantation or continuing pregnancy. A fictional cohort of15 started cycles,10 transfers and6 detected pregnancies gives60 percent per transfer and40 percent per started cycle. The denominator changes while the cohort and pregnancy endpoint stay the same. Neither is a live-birth rate. Artificial insemination places sperm inside the reproductive tract rather than moving fertilization to a laboratory. No treatment recommendation or real success-rate estimate is given.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "In-body and laboratory fertilization differ in location; transfer does not establish implantation. Fictional15 cycles/10transfers/6pregnancies gives40%percycle and60%pertransfer with the same endpoint. Neither is a live-birth rate or treatment recommendation. Artificial insemination is distinguished."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-hcg-source-target-transition-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hcg-source-target-transition-v1.svg",
+      "destination": "assets/figures/b-hcg-source-target-transition-v1.svg",
+      "sha256": "9f4fdf9b8f540d66bc696e53763a2296e934d9b90174df82a44172a229cc8648",
+      "width": 1200,
+      "height": 900,
+      "alt": "Trace early hCG support through its actual targets",
+      "caption": "Trace early hCG support through its actual targets.",
+      "equivalentExplanation": "A clockwise pathway connects trophoblast as early hCG source to ovarian corpus luteum as receiving tissue, continued progesterone and estrogen release, and support of responsive uterine endometrium. hCG and progesterone have distinct immediate targets. A separate note explains that later placental steroid production supplies much of the support and can use maternal and fetal starting materials. No unsupported fixed switch week or diagnostic hCG threshold is supplied. hCG can act at the LH receptor but is not LH, and a concentration alone does not identify its tissue source.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "Trophoblast hCG signals to ovarian corpus luteum; steroid support acts downstream on uterine tissue. Later placental steroid production is qualified by maternal/fetal starting materials. No fixed switch week, diagnostic value or uncalibrated source-curve tracing."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-germ-layer-tissue-map-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-germ-layer-tissue-map-v1.svg",
+      "destination": "assets/figures/b-germ-layer-tissue-map-v1.svg",
+      "sha256": "d64b8ea3fcd1acef62422a3f16fbb02a2dff4694b1362f0880c2cf6d1d19ea39",
+      "width": 1200,
+      "height": 900,
+      "alt": "Map tissue origins without flattening whole organs",
+      "caption": "Map tissue origins without flattening whole organs.",
+      "equivalentExplanation": "Three columns map ectoderm to epidermis, nervous system and pituitary tissues; mesoderm to muscle, much of skeleton, blood vessels and adrenal cortex; and endoderm to digestive and airway linings, pancreatic endocrine tissue and thyroid follicular cells. A simplified digestive-wall cross-section shows endodermal inner lining and mesodermal muscle/support surrounding a lumen. It is an origin diagram, not histological layer detail. Whole organs can combine tissue origins. Endocrine glands are not assigned wholesale to one germ layer.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "Origins attach to tissues: epidermis/nervous/pituitary, muscle/blood/adrenal cortex, and inner linings/pancreatic endocrine/thyroid follicular tissue. Gut wall combines endodermal lining and mesodermal muscle/support. The cross-section is an origin model, not detailed histology."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-developmental-evidence-timing-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-evidence-timing-v1.svg",
+      "destination": "assets/figures/b-developmental-evidence-timing-v1.svg",
+      "sha256": "33ed3de5192bcd4101f8f00898de40bef5043fd679dcf1bc3bbf0282c14d083f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Use time and alternatives to bound a causal claim",
+      "caption": "Use time and alternatives to bound a causal claim.",
+      "equivalentExplanation": "A fictional model-culture timeline records a precursor structure on day2, applies exposure on day4 and measures lower marker signal than comparison cultures on day6. These are laboratory days, not human developmental ages. The later exposure cannot prevent the already recorded initiation but may affect subsequent growth, survival or function. Lower marker signal can reflect fewer relevant cells, altered gene expression or measurement differences. Cell counts, suitable controls and additional functional observations help distinguish alternatives. The model does not provide an individual human risk estimate.",
+      "provenance": "Original authored SVG from governed teaching and early-development source comparisons; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "evidenceSha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+        "finding": "Fictional culture days2/4/6 distinguish earlier observed initiation, later exposure and subsequent marker change. Later exposure cannot prevent the recorded earlier event. Alternative cell-count, expression and measurement explanations remain; no human gestational timeline or individual risk value."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-semen-contribution-map-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-semen-contribution-map-v1.svg",
+      "destination": "assets/figures/b-semen-contribution-map-v1.svg",
+      "sha256": "9e1bfea0559e5e3500bdccbe496b6738a5adcfcc2328679b690ea260759efa58",
+      "width": 1200,
+      "height": 900,
+      "alt": "Trace separate contributions to semen",
+      "caption": "Trace separate contributions to semen.",
+      "equivalentExplanation": "Four rows distinguish sperm development in testicular tubules and subsequent duct transport, seminal-vesicle fluid including fructose, prostatic fluid including enzymes, and bulbourethral mucus that lubricates the urethra. Converging arrows indicate contributions to the reproductive passage and mixed sample; they do not depict anatomical distances or exact secretion fractions. Accessory glands do not produce sperm. A sample containing fluid without observed sperm supports some secretion and delivery but cannot distinguish reduced sperm production from impaired sperm transport.",
+      "provenance": "Original authored SVG from governed teaching, exact shared model data and reproductive-function source comparison.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+        "evidenceSha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a",
+        "finding": "Gland contributions are separate from sperm development. Converging functional arrows are not an anatomical duct map or secretion-percentage chart. Fluid alone does not prove sperm production or transport."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-reproductive-signal-targets-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-reproductive-signal-targets-v1.svg",
+      "destination": "assets/figures/b-reproductive-signal-targets-v1.svg",
+      "sha256": "668f900be1e078d52b63a853b627652ef75d5ce42d110e5a1a3ea969638c0921",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate developmental genes, hormones and targets",
+      "caption": "Separate developmental genes, hormones and targets.",
+      "equivalentExplanation": "A typical XY pathway places SRY activity upstream of a testis-development gene network, not as a direct instruction to build every structure. Testicular tissues supply testosterone and AMH. Testosterone supports specific internal ducts; conversion in responsive targets to DHT contributes to typical external development. AMH promotes regression of a different embryonic duct system. Each action depends on target response and timing. Ovarian development uses active gene networks too. Chromosomes alone do not establish every anatomical feature, fertility outcome, health need or identity. The map gives a bounded typical pathway rather than an exhaustive account of variation.",
+      "provenance": "Original authored SVG from governed teaching, exact shared model data and reproductive-function source comparison.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+        "evidenceSha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a",
+        "finding": "SRY is upstream of a developmental network. Testosterone, DHT target conversion and AMH have different effects; timing and receptor response matter. Active ovarian networks and limits of chromosome-only inference remain visible."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-production-transport-case-comparison-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-production-transport-case-comparison-v2.svg",
+      "destination": "assets/figures/b-production-transport-case-comparison-v2.svg",
+      "sha256": "67bac62c44a447989253a930d37ff4077c6c13ade337626df9c2d96ebd30900f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Compare tissue evidence before naming the cause",
+      "caption": "Compare tissue evidence before naming the cause.",
+      "equivalentExplanation": "The exact saved fictional model compares P and T. Developing germ cells are absent in P and present in T; Sertoli support is disrupted in P and present in T; LH is present in both; the duct is open in P and blocked in T. These observations distinguish support/production from transport hypotheses. Reduced delivery is a possible consequence to investigate, not an additional measured row. The values match b-model-signal-pathway outputs, including case identifiers. A present LH signal does not prove all downstream functions. The case is a reasoning model, not an individual diagnosis or a physical laboratory certification.",
+      "provenance": "Original authored SVG from governed teaching, exact shared model data and reproductive-function source comparison.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+        "evidenceSha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a",
+        "finding": "The existing cross-system investigation uses exact model cases P/T: absent/present germ cells, disrupted/present Sertoli support, present/present LH and open/blocked duct. No downstream delivery measurement was invented. This is not labelled as ovarian tissue or a personal diagnosis."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-hormonal-methods-and-perspectives-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormonal-methods-and-perspectives-v1.svg",
+      "destination": "assets/figures/b-hormonal-methods-and-perspectives-v1.svg",
+      "sha256": "950ab1f272c0937553b0f7bd5b93660e5e0c16b3e49f53e92619e75bc4841a6b",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate a mechanism claim from a service decision",
+      "caption": "Separate a mechanism claim from a service decision.",
+      "equivalentExplanation": "Two qualified mechanism pathways show that a hormonal formulation may alter pituitary signals supporting ovulation or change cervical mucus affecting transport. Formulations differ; the diagram does not assign every method every effect or offer treatment advice. A separate information-service comparison asks about social/cultural access and understanding, environmental resources, ethical privacy and informed choice, and economic costs. Pregnancy and STI prevention are different outcomes; suppressing ovulation does not block pathogen transfer. A biological effect alone does not settle a service decision.",
+      "provenance": "Original authored SVG from governed teaching, exact shared model data and reproductive-function source comparison.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+        "evidenceSha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a",
+        "finding": "Possible pituitary and mucus pathways are formulation-dependent. Biological endpoints are distinguished from five-perspective service decisions and from STI prevention. No named treatment regimen or effectiveness rate."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-developmental-study-design-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-study-design-v1.svg",
+      "destination": "assets/figures/b-developmental-study-design-v1.svg",
+      "sha256": "1917a94ce730e19dd9b6d0da80f14280fa3b2d31a7864bde2545eb1dfd646644",
+      "width": 1200,
+      "height": 900,
+      "alt": "Make the comparison explicit before reading the counts",
+      "caption": "Make the comparison explicit before reading the counts.",
+      "equivalentExplanation": "A two-by-two non-human model design crosses early/later developmental stage with unexposed/agent-X conditions. Each cell measures fictional marker M. Exposure dose and duration, measurement method and culture conditions should remain comparable within the intended comparisons. Learners compare exposed and unexposed proportions within each stage and then compare those contrasts while retaining sample sizes and uncertainty. No outcome bars or answer graph are supplied. Marker M is an indirect fictional indicator, not a diagnosed human condition or a precise human risk value; this digital reasoning model does not certify laboratory performance.",
+      "provenance": "Original authored SVG from governed teaching, exact shared model data and reproductive-function source comparison.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+        "evidenceSha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a",
+        "finding": "Two-by-two early/later and unexposed/exposed comparison retains dose/duration/method/culture controls and fictional marker M. No answer bars or human-risk interpretation. The required learner counts remain in the original supplied task."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "b-developmental-clocks-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-clocks-v1.svg",
+      "destination": "assets/figures/b-developmental-clocks-v1.svg",
+      "sha256": "77b5c25f8299412fe8dcfe971718e0f070e88e6c3eea6b4358baedb74760c4e3",
+      "width": 1200,
+      "height": 900,
+      "alt": "Use an explicit clock for developmental change",
+      "caption": "Use an explicit clock for developmental change.",
+      "equivalentExplanation": "A horizontal axis marks0,3,8,20 and38 weeks since fertilization. A matched approximate obstetric-age row gives2,5,10,22 and40 weeks; obstetric age starts from the last menstrual period. Bars distinguish the embryonic period through roughly eight weeks from subsequent fetal growth and maturation. Neurulation begins around post-fertilization week3. Broad trimester descriptions retain overlapping nervous, heart, blood-vessel, limb, bone, lung and brain development. Fetal development does not end at week12. The approximate two-week relation is a typical convention, not an individual schedule or a viability prediction.",
+      "provenance": "Original authored scientific SVG from governed teaching and source comparison; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "teacherDecision": null,
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "Approximate post-fertilization and obstetric ages stay distinct. The embryonic/fetal distinction and overlapping trimester patterns accompany a schematic plate-to-groove-to-tube sequence; closure varies across time and position. These are explanatory models, not clinical schedules or microscopic observations."
+      }
+    },
+    {
+      "id": "b-neurulation-sequence-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-neurulation-sequence-v1.svg",
+      "destination": "assets/figures/b-neurulation-sequence-v1.svg",
+      "sha256": "47d309855a197a9523ccf544dffdb64270cee2b3e026c1cacc95aab425d1432d",
+      "width": 1200,
+      "height": 900,
+      "alt": "Follow folding from neural plate to neural tube",
+      "caption": "Follow folding from neural plate to neural tube.",
+      "equivalentExplanation": "Three schematic transverse views show a thickened neural plate in ectoderm, rising folds surrounding an open neural groove, and a closed neural tube below rejoined surface ectoderm. Other tissues are omitted. Dark blue identifies the neural region; lighter blue identifies neighbouring surface ectoderm. The neural tube contributes to brain and spinal cord, with later growth, differentiation and connectivity still required. Closure is a process across time and body position, not a simultaneous event everywhere. These drawings are shape models, not microscopy or a clinical timeline.",
+      "provenance": "Original authored scientific SVG from governed teaching and source comparison; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "teacherDecision": null,
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "Approximate post-fertilization and obstetric ages stay distinct. The embryonic/fetal distinction and overlapping trimester patterns accompany a schematic plate-to-groove-to-tube sequence; closure varies across time and position. These are explanatory models, not clinical schedules or microscopic observations."
+      }
+    },
+    {
+      "id": "b-exposure-confounding-comparison-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-exposure-confounding-comparison-v1.svg",
+      "destination": "assets/figures/b-exposure-confounding-comparison-v1.svg",
+      "sha256": "479f550f0f13f14168c54402885eacaf6a0d5bb9d7673d023505db78256286a0",
+      "width": 1200,
+      "height": 900,
+      "alt": "Identify the extra difference between comparison groups",
+      "caption": "Identify the extra difference between comparison groups.",
+      "equivalentExplanation": "An explicitly fictional qualitative comparison gives Group A agent X, a warmer culture temperature and a higher proportion positive for marker M; Group B has no agent X, cooler temperature and a lower marker proportion. The values are qualitative and do not duplicate or alter the separate required four-count dataset. Because exposure and temperature vary together, the comparison cannot isolate the effect of one factor. Matching temperature or crossing both factors can help distinguish alternatives. The biological system, developmental time and indirect endpoint limit inference; no individual human risk estimate is provided.",
+      "provenance": "Original authored scientific SVG from governed teaching and source comparison; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "teacherDecision": null,
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "Fictional qualitative groups differ in both agent exposure and culture temperature. Their marker difference cannot isolate a single cause. This separate example does not alter the required four-count investigation dataset or supply its answer graph."
+      }
+    },
+    {
+      "id": "b-birth-exchange-transition-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-birth-exchange-transition-v2.svg",
+      "destination": "assets/figures/b-birth-exchange-transition-v2.svg",
+      "sha256": "bca184f45827b2c3edb2a578b06eea44b2c826863e4c650d4d6f6e6070cc3f1f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Connect birth stages with changing sources of support",
+      "caption": "Connect birth stages with changing sources of support.",
+      "equivalentExplanation": "Three broad stages show cervical dilation, delivery of the fetus and placental delivery. A separate before/after comparison traces oxygen transfer at the maternal-fetal placental interface before birth and from ventilated newborn lungs to newborn blood afterward. The two prenatal bloodstreams remain distinct; arrows indicate an exchange relationship, not direct maternal blood flow into fetal vessels. Effective ventilation and circulatory adaptation are required as placental exchange ends. Placental steroid contributions decline after placental delivery. The diagram is a conceptual sequence, not clinical instructions or a timed schedule.",
+      "provenance": "Original authored scientific SVG from governed teaching and source comparison; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "teacherDecision": null,
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "Dilation, delivery and placental delivery are broad events. Oxygen arrows distinguish placental exchange between distinct bloodstreams from newborn lung exchange. Effective ventilation and circulatory adaptation are required; the illustration does not show maternal blood flowing into fetal blood."
+      }
+    },
+    {
+      "id": "b-technology-step-comparison-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-technology-step-comparison-v1.svg",
+      "destination": "assets/figures/b-technology-step-comparison-v1.svg",
+      "sha256": "d017547f642c7af8064f74787bac652ae46ac30977f7ba2d9f20c3856c917523",
+      "width": 1200,
+      "height": 900,
+      "alt": "Locate what each reproductive technology changes",
+      "caption": "Locate what each reproductive technology changes.",
+      "equivalentExplanation": "Four rows connect barrier methods to chances for gametes to meet, hormonal methods to signals or tissue conditions, duct surgery to transport, and IVF to fertilization outside the body. Mechanisms do not guarantee effectiveness or later implantation and development. A comparison needs a defined outcome, denominator and time interval, alongside access, cultural views, environmental resources, ethics and cost. Genetic contribution, gestation and social-parent roles can overlap without ranking families or making universal legal claims. The figure gives no named treatment regimen or individual recommendation.",
+      "provenance": "Original authored scientific SVG from governed teaching and source comparison; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "teacherDecision": null,
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "Barrier, hormonal, transport and outside-body fertilization mechanisms have different targets. Mechanism alone does not guarantee pregnancy outcomes. Denominator, time interval and five perspectives remain explicit; no personal recommendation or ranking of families."
+      }
+    },
+    {
+      "id": "b-extraembryonic-membranes-chatgpt-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-extraembryonic-membranes-chatgpt-v1.png",
+      "destination": "assets/figures/b-extraembryonic-membranes-chatgpt-v1.png",
+      "sha256": "da7778d1762bcbcc3462b93b037ee023e4304efdd2978520853a97cb75025224",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Early human embryo with outer chorion, inner amnion, amniotic cavity, separate yolk sac, connecting stalk and inset allantoic extension.",
+      "caption": "Human extraembryonic relationships: an original explanatory illustration. Colours, sizes and inset magnification are schematic.",
+      "equivalentExplanation": "Chorion is the outer membrane, amnion surrounds the blue amniotic space and embryo, and the separate yolk sac lies outside that space but inside the chorion. The yolk-sac stalk and caudal connecting region remain distinct. The inset locates a small allantoic extension within the connecting region; no maternal blood transfer or full-term anatomy is shown. Leaders terminate on the named membrane, space or structure. Colours and relative sizes are schematic; the orange yolk-sac appearance does not imply stored yolk, and the inset is a magnified relationship rather than a measured lumen. The human yolk sac contributes to early blood formation and germ-cell development rather than a large stored yolk supply. The small human allantois differs from a large waste-storage sac in some egg-laying vertebrates. Maternal and mature placental structures are not depicted.",
+      "provenance": "Original ChatGPT browser image; no source artwork uploaded; returned1536×1024 PNG retained unchanged.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/extraembryonic-membranes-chatgpt-review.json",
+        "evidenceSha256": "2cd8fdba9a939302f46b6beefe7e94d1760b649eea5a2b10cd9c495b275c0deb",
+        "finding": "Chorion is the outer membrane, amnion surrounds the blue amniotic space and embryo, and the separate yolk sac lies outside that space but inside the chorion. The yolk-sac stalk and caudal connecting region remain distinct. The inset locates a small allantoic extension within the connecting region; no maternal blood transfer or full-term anatomy is shown. Leaders terminate on the named membrane, space or structure. Colours and relative sizes are schematic; the orange yolk-sac appearance does not imply stored yolk, and the inset is a magnified relationship rather than a measured lumen."
+      },
+      "teacherDecision": null
+    }
+  ]
+}

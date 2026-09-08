@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "biology30-unit-c",
+  "buildSha256": "4427dd5974c0f095084ed1c892cb21bf80e96bd062f5601d9a37d908dd675617",
+  "status": "automated-and-visual-red-team-passed-awaiting-human-score-and-decision",
+  "decision": null,
+  "generatedAt": "2026-08-31T01:39:45.922Z",
+  "reviewedAt": "2026-08-31T01:59:33Z",
+  "promotionAuthorized": false,
+  "exportAuthorized": false,
+  "evidenceSummary": {
+    "learnerRoutes": 30,
+    "lessons": 24,
+    "practiceItems": 160,
+    "interactions": 24,
+    "artifacts": 12,
+    "scientificModels": 24,
+    "worstCaseSuspendDataCharacters": 43081,
+    "remainingBuildGuardCharacters": 4919
+  },
+  "checks": [
+    { "command": "npm run test:biology30-course-production", "result": "passed", "details": "10 parser, curriculum, source-isolation, exclusion, rendering, compact-persistence, transactional intake, and rollback tests passed." },
+    { "command": "npm run audit:biology30-course-production:visual", "result": "passed", "details": "All 24 scientific models and seven required routes passed exact-build desktop, tablet, and mobile geometry checks; all five contact sheets were opened with no unresolved findings." },
+    { "command": "npm run test:e2e:biology30-course-production", "result": "passed", "details": "The shared three-contract run passed route inventory, representative axe scans, local-first operation, mobile reflow, exact hub landing, and compact LMS restoration for Units B-D." },
+    { "command": "npm run test:e2e:project -- --project biology30-unit-c", "result": "passed", "details": "The independent project contract passed save, update, reload, Evidence Bank removal, and source-draft preservation." },
+    { "command": "npm run verify -- --project biology30-unit-c --mode workspace", "result": "passed", "details": "Metadata, workspace entry, local assets, and dependency checks passed with no required external dependency." },
+    { "command": "npm run validate:manifests", "result": "passed" },
+    { "command": "npm run verify:typecheck-baseline", "result": "passed" },
+    { "command": "npm run build:studio", "result": "passed" },
+    { "command": "npm run test:e2e:smoke", "result": "passed" }
+  ],
+  "prePromotionAuthoringGuard": {
+    "command": "npm run course:doctor -- --project biology30-unit-c",
+    "result": "expected-block",
+    "details": "Authoring context is correctly refused while the candidate remains blocked under proposal-only-v1."
+  },
+  "remainingHumanGate": "A human must score and accept this exact build at 95/100 or higher with no category below its minimum and no binary blocker. Automated evidence cannot populate scores or authorize promotion."
+}

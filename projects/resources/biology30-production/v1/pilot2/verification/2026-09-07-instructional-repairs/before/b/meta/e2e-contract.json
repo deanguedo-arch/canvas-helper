@@ -1,0 +1,80 @@
+{
+  "projectSlug": "biology30-unit-b",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Male Reproductive Structures"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "b-topic-male-reproductive-structures",
+      "b-topic-spermatogenesis",
+      "b-topic-female-reproductive-structures",
+      "b-topic-menstrual-cycle",
+      "b-chapter-14-practice",
+      "b-topic-fertilization-to-implantation",
+      "b-topic-hcg-and-gastrulation",
+      "b-topic-extraembryonic-structures-and-organogenesis",
+      "b-topic-parturition",
+      "b-chapter-15-practice",
+      "b-review-seminar",
+      "b-final-practice",
+      "b-core-vocabulary",
+      "b-glossary",
+      "b-models",
+      "b-investigations",
+      "b-all-my-work",
+      "b-advanced",
+      "b-video-library",
+      "b-textbook",
+      "b-notes",
+      "b-diploma-challenge"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "resourceChecks": [],
+    "evidenceScenario": {
+      "kind": "pilot2",
+      "route": "b-topic-male-reproductive-structures",
+      "responseId": "b-topic-male-reproductive-structures-evidence",
+      "collectionFlag": "b-topic-male-reproductive-structures-evidence-collected",
+      "collectionRoute": "b-all-my-work"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "b-topic-male-reproductive-structures",
+        "b-topic-spermatogenesis",
+        "b-topic-female-reproductive-structures",
+        "b-topic-menstrual-cycle",
+        "b-chapter-14-practice",
+        "b-topic-fertilization-to-implantation",
+        "b-topic-hcg-and-gastrulation",
+        "b-topic-extraembryonic-structures-and-organogenesis",
+        "b-topic-parturition",
+        "b-chapter-15-practice",
+        "b-review-seminar",
+        "b-final-practice",
+        "b-all-my-work"
+      ]
+    }
+  }
+}

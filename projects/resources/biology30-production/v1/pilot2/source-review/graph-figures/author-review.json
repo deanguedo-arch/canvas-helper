@@ -1,0 +1,69 @@
+{
+  "status": "author source/value and intrinsic desktop visual review passed; learner placement pending",
+  "method": "Read exact source values and native browser screenshots for six core model SVGs plus one optional demographic model. Author review, not teacher selection or learner viewport verification.",
+  "teacherDecision": null,
+  "records": [
+    {
+      "id": "b-cycle-fsh",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/b-cycle-fsh.svg",
+      "sha256": "f96781238f5b46685b4556f699d5a19ffdfeffb20dfbe228abf15c9aea877649",
+      "source": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+      "sourceSha256": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+      "review": "Six markers match 5,4,3,4,2,4. Days12 and14 are correctly closer than days2 and7. Axis maximum10, relative index and cycle-day labels legible; no clinical normal-range claim."
+    },
+    {
+      "id": "b-cycle-lh",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/b-cycle-lh.svg",
+      "sha256": "df1a946038d9fc24ca7ce12d03190f24c8613d4bd57cbd3cefa4455f059b75ca",
+      "source": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+      "sourceSha256": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+      "review": "Six markers match3,3,6,18,2,3, including day14 below the20 maximum. Relative index is not a hormone concentration in clinical units; discrete illustrative samples only."
+    },
+    {
+      "id": "b-cycle-estrogen",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/b-cycle-estrogen.svg",
+      "sha256": "e2b4e2fb88d8fb50ed16122d31a567c927965614252b4997d305739c036a6d11",
+      "source": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+      "sourceSha256": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+      "review": "Day12 marker reaches10 before the day14 LH maximum; the four supplied later/earlier changes are visible. Axis and legend fit within the intrinsic960x560 drawing."
+    },
+    {
+      "id": "b-cycle-progesterone",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/b-cycle-progesterone.svg",
+      "sha256": "bf25bf4a174d765e73085005794e1746523fd66272c4028dfb87f1271f8898c4",
+      "source": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+      "sourceSha256": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+      "review": "Low early samples and day21 value10 shown correctly. Day28 returns to1. Connecting segments do not imply measured intermediate points or universal timing."
+    },
+    {
+      "id": "c-stage-counts",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/c-stage-counts.svg",
+      "sha256": "68355be5caea76c783a90ec6533f9fd804cb760ba71bf7d9036dec1b2587ebec",
+      "source": "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json",
+      "sourceSha256": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a",
+      "review": "Five bars correspond to72,12,6,4,6 on a zero-to100 axis. Telophase/cytokinesis wraps to two readable lines. Synthetic counts must remain separate from the licensed observation image."
+    },
+    {
+      "id": "d-growth-comparison",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/d-growth-comparison.svg",
+      "sha256": "212b8cb3dcffcc7caab8e82974c32beba749fe4e344cd64aeaca8632d4351f4a",
+      "source": "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json",
+      "sourceSha256": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c",
+      "review": "Both series start100; values end207.4 and174.7. Solid circles versus dashed squares distinguish series without colour alone; both full recurrence legends fit. Four intervals do not establish an eventual carrying-capacity plateau."
+    },
+    {
+      "id": "d-demographic-two-points",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/d-demographic-two-points.svg",
+      "sha256": "b4b9ccf8479a8d3862ff57074d9610f633bccc9e02563094666e8c9541983890",
+      "source": "projects/resources/biology30-production/v1/units/unit-d/pilot2-demographic-graph-work.json",
+      "sourceSha256": "53973bf7358dcc57dd3b0bdf3292fcd893a8f1899e9f17113b5c22f4998cc0cb",
+      "review": "Native browser graph inspected: axes days and individuals, points(0,1000),(10,1060), zero-to1200 scale. The source model is separate from quadrat density; connecting line does not establish continuous observations or a curve mechanism."
+    }
+  ],
+  "remaining": [
+    "Responsive inline and enlarged learner placement",
+    "Keyboard enlargement and focus return",
+    "Saved learner draft integration and complete collection text",
+    "Overflow warning visibility in learner controls"
+  ]
+}

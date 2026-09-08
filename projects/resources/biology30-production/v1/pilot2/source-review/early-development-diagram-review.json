@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "unit": "B",
+  "status": "author-reviewed-provisional",
+  "checkedAt": "2026-09-07T06:49:22.213594+00:00",
+  "teacherDecision": null,
+  "scope": "Seven original scientific SVG teaching targets; actual learner placement remains pending.",
+  "sourceReview": {
+    "canonicalTeaching": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+    "deck15Slides": [
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      36,
+      37,
+      39
+    ],
+    "nativeMediaViewed": [
+      "deca931470201567f59c4015f382fe49f2153f1986330af67cf455907bc20390.png",
+      "00d8deaad7a4a3d0cf96151ee6f1fdd5f4655896374c1dc671fa6cde71848ca8.png",
+      "e29ac4bee71b44867a114a0af92e74fc97713827560b8339c7db24e42165557f.png",
+      "5dce4b85bd2f02fb49e839795b283b0b3806bccf8eb2c2732d566f760931be5a.png",
+      "5963fb7f443b0dcc46d39173a7108ccb2d74baec50c9af2e623d68268d6b9cc9.png"
+    ],
+    "existingCourseFiguresViewed": [
+      "b-lesson-08",
+      "b-lesson-10",
+      "b-lesson-11"
+    ],
+    "sourceCorrectionsRetained": [
+      "Source photographs label cleavage stages as multicell zygotes; new diagrams call the cells blastomeres.",
+      "Source electrical depolarization is not used as the primary human polyspermy explanation.",
+      "Source week1 gestational hCG curve has no calibrated vertical scale; not traced as measured hormone data.",
+      "Whole digestive/respiratory organs are not assigned to endoderm; named epithelial/endocrine tissues are traced.",
+      "No claim that hCG presence uniquely establishes a normal pregnancy; no pregnancy-testing advice."
+    ]
+  },
+  "comparisonProcess": "Native original SVG inspection plus source and existing-course comparison. Raster generation was not needed for these precision/count/mechanism models; the computer-control tool reported the Mac locked during this batch.",
+  "revisions": [
+    "Fertilization v1 rejected: nested inner circle could read as a nucleus labelled oocyte; v2 removes it.",
+    "Cleavage v1 rejected: eight-cell ring could suggest a cavity; v2 compacts cells; v3 adds explicit continued-cleavage route to morula."
+  ],
+  "assets": [
+    {
+      "partId": "b-topic-fertilization-to-implantation-gametes-meet",
+      "id": "b-fertilization-interactions-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-fertilization-interactions-v2.svg",
+      "destination": "assets/figures/b-fertilization-interactions-v2.svg",
+      "sha256": "f7c040d75ae6d65b2a6a4c604a9d2c0c75a0aa89e991775b4144a2841677b0ef",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate the steps that lead to fertilization",
+      "caption": "Separate the steps that lead to fertilization.",
+      "equivalentExplanation": "Four functional stages distinguish capacitation and readiness, interaction with coverings including acrosomal changes, membrane fusion, and oocyte activation with completion of meiosis II and cortical granule release. A small stylized sperm approaches an oocyte with surrounding coverings. The inset is schematic and not to scale. Arrival alone does not prove fusion or activation. The usual location is a uterine tube. Acrosomal events are not assigned an exact universal time or location; the sequence is a functional teaching model.",
+      "finding": "Readiness, covering interactions, fusion and activation are distinct. The simplified oocyte inset labels the whole cell rather than an apparent nucleus. No universal acrosome timing or human electrical fast-block claim.",
+      "reference": "early-development-comparison/existing-b-lesson-08.png"
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+      "id": "b-pronuclei-and-ploidy-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-pronuclei-and-ploidy-v1.svg",
+      "destination": "assets/figures/b-pronuclei-and-ploidy-v1.svg",
+      "sha256": "f71d02f49fda3173d2e3211f6d3baff1e05b92737a7b8338e6c388e3d0d2e1b3",
+      "width": 1200,
+      "height": 900,
+      "alt": "Two parental sets establish the diploid zygote",
+      "caption": "Two parental sets establish the diploid zygote.",
+      "equivalentExplanation": "One large cell boundary contains two separate pronuclei labelled23 maternal and23 paternal chromosomes. The depicted usual human stage is after completion of maternal meiosis II and before the next DNA-copying step. Together the sets establish46 chromosomes and diploidy; pronuclei are not drawn as already fused. Activation and cortical granule release change the coat to reduce further sperm interaction and help limit polyspermy. The figure does not portray a sea-urchin electrical fast block as the human mechanism. Later DNA replication precedes first mitosis without adding another parental set.",
+      "finding": "After maternal meiosis II, the usual two 23-chromosome contributions establish a diploid zygote within one cell. Separate pronuclei remain separate in the drawing. Cortical coat changes and later DNA copying retain their different roles.",
+      "reference": "early-development-comparison/existing-b-lesson-08.png"
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+      "id": "b-cleavage-organization-v3",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-cleavage-organization-v3.svg",
+      "destination": "assets/figures/b-cleavage-organization-v3.svg",
+      "sha256": "34b1a486331e93ee6bea936e99b79f25ece483e0d521fc7aa65384cc4670c356",
+      "width": 1200,
+      "height": 900,
+      "alt": "More cells first; then a change in organization",
+      "caption": "More cells first; then a change in organization.",
+      "equivalentExplanation": "Three similar-sized surrounding coats contain2,4 and8 schematic blastomeres; cell number increases as each cell becomes smaller during early cleavage. Below, a morula is a compact cluster and a blastocyst has an outer trophoblast, an inner cell mass and a fluid-filled cavity. The blastocyst is an organizational comparison, not an exact total cell count. Inner cell mass contributes to the embryo proper; trophoblast contributes to support tissues and the placental interface. Early cell division is distinguished from later growth; stage drawings are schematic rather than photographs or measured size data.",
+      "finding": "Two, four and eight drawn blastomeres are counted separately within similar-sized coats. Eight-cell packing does not suggest a blastocoel. Continued cleavage/compaction explicitly links to morula, then the blastocyst distinguishes inner mass, outer trophoblast and cavity. Blastocyst symbols are not a cell-count assay.",
+      "reference": "../intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/deca931470201567f59c4015f382fe49f2153f1986330af67cf455907bc20390.png"
+    },
+    {
+      "partId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+      "id": "b-ivf-location-and-denominator-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ivf-location-and-denominator-v1.svg",
+      "destination": "assets/figures/b-ivf-location-and-denominator-v1.svg",
+      "sha256": "61087ba1daae419a60af4ee169ff653042e5009c1096bf302eaefaeb98bf2c98",
+      "width": 1200,
+      "height": 900,
+      "alt": "Locate fertilization, transfer and implantation",
+      "caption": "Locate fertilization, transfer and implantation.",
+      "equivalentExplanation": "Two four-stage pathways distinguish usual in-body gamete meeting and fertilization in a uterine tube from IVF fertilization in a laboratory. Both require further development and uterine implantation; transfer places an embryo in the uterus but does not establish implantation or continuing pregnancy. A fictional cohort of15 started cycles,10 transfers and6 detected pregnancies gives60 percent per transfer and40 percent per started cycle. The denominator changes while the cohort and pregnancy endpoint stay the same. Neither is a live-birth rate. Artificial insemination places sperm inside the reproductive tract rather than moving fertilization to a laboratory. No treatment recommendation or real success-rate estimate is given.",
+      "finding": "In-body and laboratory fertilization differ in location; transfer does not establish implantation. Fictional15 cycles/10transfers/6pregnancies gives40%percycle and60%pertransfer with the same endpoint. Neither is a live-birth rate or treatment recommendation. Artificial insemination is distinguished.",
+      "reference": "early-development-comparison/existing-b-lesson-08.png"
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+      "id": "b-hcg-source-target-transition-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hcg-source-target-transition-v1.svg",
+      "destination": "assets/figures/b-hcg-source-target-transition-v1.svg",
+      "sha256": "9f4fdf9b8f540d66bc696e53763a2296e934d9b90174df82a44172a229cc8648",
+      "width": 1200,
+      "height": 900,
+      "alt": "Trace early hCG support through its actual targets",
+      "caption": "Trace early hCG support through its actual targets.",
+      "equivalentExplanation": "A clockwise pathway connects trophoblast as early hCG source to ovarian corpus luteum as receiving tissue, continued progesterone and estrogen release, and support of responsive uterine endometrium. hCG and progesterone have distinct immediate targets. A separate note explains that later placental steroid production supplies much of the support and can use maternal and fetal starting materials. No unsupported fixed switch week or diagnostic hCG threshold is supplied. hCG can act at the LH receptor but is not LH, and a concentration alone does not identify its tissue source.",
+      "finding": "Trophoblast hCG signals to ovarian corpus luteum; steroid support acts downstream on uterine tissue. Later placental steroid production is qualified by maternal/fetal starting materials. No fixed switch week, diagnostic value or uncalibrated source-curve tracing.",
+      "reference": "../intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/e29ac4bee71b44867a114a0af92e74fc97713827560b8339c7db24e42165557f.png"
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "id": "b-germ-layer-tissue-map-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-germ-layer-tissue-map-v1.svg",
+      "destination": "assets/figures/b-germ-layer-tissue-map-v1.svg",
+      "sha256": "d64b8ea3fcd1acef62422a3f16fbb02a2dff4694b1362f0880c2cf6d1d19ea39",
+      "width": 1200,
+      "height": 900,
+      "alt": "Map tissue origins without flattening whole organs",
+      "caption": "Map tissue origins without flattening whole organs.",
+      "equivalentExplanation": "Three columns map ectoderm to epidermis, nervous system and pituitary tissues; mesoderm to muscle, much of skeleton, blood vessels and adrenal cortex; and endoderm to digestive and airway linings, pancreatic endocrine tissue and thyroid follicular cells. A simplified digestive-wall cross-section shows endodermal inner lining and mesodermal muscle/support surrounding a lumen. It is an origin diagram, not histological layer detail. Whole organs can combine tissue origins. Endocrine glands are not assigned wholesale to one germ layer.",
+      "finding": "Origins attach to tissues: epidermis/nervous/pituitary, muscle/blood/adrenal cortex, and inner linings/pancreatic endocrine/thyroid follicular tissue. Gut wall combines endodermal lining and mesodermal muscle/support. The cross-section is an origin model, not detailed histology.",
+      "reference": "../intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/5dce4b85bd2f02fb49e839795b283b0b3806bccf8eb2c2732d566f760931be5a.png"
+    },
+    {
+      "partId": "b-topic-hcg-and-gastrulation-developmental-evidence",
+      "id": "b-developmental-evidence-timing-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-evidence-timing-v1.svg",
+      "destination": "assets/figures/b-developmental-evidence-timing-v1.svg",
+      "sha256": "33ed3de5192bcd4101f8f00898de40bef5043fd679dcf1bc3bbf0282c14d083f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Use time and alternatives to bound a causal claim",
+      "caption": "Use time and alternatives to bound a causal claim.",
+      "equivalentExplanation": "A fictional model-culture timeline records a precursor structure on day2, applies exposure on day4 and measures lower marker signal than comparison cultures on day6. These are laboratory days, not human developmental ages. The later exposure cannot prevent the already recorded initiation but may affect subsequent growth, survival or function. Lower marker signal can reflect fewer relevant cells, altered gene expression or measurement differences. Cell counts, suitable controls and additional functional observations help distinguish alternatives. The model does not provide an individual human risk estimate.",
+      "finding": "Fictional culture days2/4/6 distinguish earlier observed initiation, later exposure and subsequent marker change. Later exposure cannot prevent the recorded earlier event. Alternative cell-count, expression and measurement explanations remain; no human gestational timeline or individual risk value.",
+      "reference": "early-development-comparison/existing-b-lesson-11.png"
+    }
+  ],
+  "rights": "Original authored SVG geometry/text; no publisher pixels in selected learner assets. Source images remain comparison references, not newly cleared learner copies.",
+  "limitations": [
+    "Provisional author review, not teacher acceptance.",
+    "Actual responsive learner placement, all-unit first-use closure and rights gate remain pending."
+  ]
+}

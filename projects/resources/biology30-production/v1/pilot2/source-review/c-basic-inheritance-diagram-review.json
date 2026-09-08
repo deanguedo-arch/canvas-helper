@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "unit": "C",
+  "status": "author-reviewed-provisional",
+  "teacherDecision": null,
+  "checkedAt": "2026-09-07T13:21:58.534426+00:00",
+  "scope": "Eight teaching targets with five new original SVGs and the existing meiosis count model.",
+  "canonicalTeachingSha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+  "sourceReview": "Current core parts read in full; targeted Chapter17 text including slide26 compared. Existing native C08/C09/C10/C12 concept figures inspected; they describe workflows without enumerating the new pictured genotypes. Simple source human-eye-colour assumptions are not transferred.",
+  "nativeReview": "All five final SVGs inspected; no text outside1200×900. Conditional probability v2 identifies parents in exclusive gamete paths. All sixteen dihybrid genotypes,9/3/3/1 category counts and1/16 weights reviewed.",
+  "comparisonProcess": "Eight batch side-by-side sections prepared; no ChatGPT generation claimed for these precise code-authored diagrams.",
+  "bindings": [
+    {
+      "partId": "c-topic-genes-alleles-and-traits-inheritance-language",
+      "assetIds": [
+        "c-allele-genotype-phenotype-v1"
+      ],
+      "finding": "Corresponding loci and AA/Aa/aa distinguish allele combination from phenotype under the stated fictional autosomal model."
+    },
+    {
+      "partId": "c-topic-genes-alleles-and-traits-trait-expression",
+      "assetIds": [
+        "c-allele-genotype-phenotype-v1"
+      ],
+      "finding": "The same complete-dominance map shows AA/Aa sharing a scored phenotype while aa differs; dominance does not imply frequency, value or universal mechanism."
+    },
+    {
+      "partId": "c-topic-mendelian-genetics-segregation",
+      "assetIds": [
+        "c-allele-genotype-phenotype-v1",
+        "c-meiotic-count-model-v1",
+        "c-monohybrid-gamete-square-v1"
+      ],
+      "finding": "Follow the heterozygous locus in the Aa panel. For this comparison, assign A to the long teal homologue and a to the long orange homologue of the2n=4 count model; the short chromosome type does not carry the tracked locus. Homologue separation and later sister separation put one tracked allele in each final product, two A and two a in this no-crossing-over model. The Punnett square then combines independently contributed gametes from two Aa parents. This explains one-locus segregation without claiming independence of every pair of loci."
+    },
+    {
+      "partId": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+      "assetIds": [
+        "c-testcross-alternative-models-v1"
+      ],
+      "finding": "Parents, tester gamete and expression assumptions precede the1:1 Aa/aa prediction. This supports the restored source-slide26 model/notation requirement without the source simplistic human-trait examples."
+    },
+    {
+      "partId": "c-topic-mendelian-genetics-probability-and-test-crosses",
+      "assetIds": [
+        "c-testcross-alternative-models-v1"
+      ],
+      "finding": "AA and Aa alternatives have different predictions with aa. An aa offspring identifies the unknown as Aa under assumptions; four dominant offspring remain possible from Aa with probability1/16."
+    },
+    {
+      "partId": "c-topic-single-and-two-trait-crosses-monohybrid-crosses",
+      "assetIds": [
+        "c-monohybrid-gamete-square-v1"
+      ],
+      "finding": "Each cell combines one gamete from each parent, at weight1/4. Aa and aA are one unphased genotype reached by different parental paths. Complete dominance yields3/4 versus1/4 phenotypes; it is not a four-offspring schedule."
+    },
+    {
+      "partId": "c-topic-single-and-two-trait-crosses-probability-rules",
+      "assetIds": [
+        "c-probability-comparison-set-v2"
+      ],
+      "finding": "Unequal genotype weights are retained when excluding aa in a fully penetrant recessive model, yielding2/3 carrier probability conditional on unaffected. Product-rule independence and exclusive parent-identified paths are distinguished. v2 explicitly uses parent subscripts so Aa/aA are not mistakenly treated as different unphased genotypes."
+    },
+    {
+      "partId": "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+      "assetIds": [
+        "c-dihybrid-gamete-square-v1"
+      ],
+      "finding": "All16 genotypes and1/16 weights are explicit for AaBb×AaBb. Category counts9/3/3/1 match complete dominance and independence. The model is distinct from the two-locus recessive-tester cross and is not universal under linkage."
+    }
+  ],
+  "assets": [
+    {
+      "id": "c-allele-genotype-phenotype-v1",
+      "sha256": "57781810cb1470e043e84a9a8ef824fa2176a809f04b29cbd16dd985c9d608ea"
+    },
+    {
+      "id": "c-meiotic-count-model-v1",
+      "sha256": "0851bd01b48de75398e8c9c355052b795d3975251efd535cacf80e188513e744",
+      "priorReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "The 2n=4 starting cell has four duplicated chromosomes. Each product after meiosis I has two duplicated chromosomes and one homologous set. Counts refer to the outlined products, not an undivided anaphase cell. Long/short marks denote types and colours distinguish homologues; crossing over is explicitly omitted. The same count model continues meiosis I products through sister separation to four haploid products with two unduplicated chromosomes each. There is no intervening S phase. Crossing over is omitted in this model, so its matching final symbols must not imply that actual meiosis II products are always genetically identical or four equally functional gametes."
+      }
+    },
+    {
+      "id": "c-monohybrid-gamete-square-v1",
+      "sha256": "a1121c233c300ed21936d8f13bd5582fbe05412b255de829529cfee82fdd8ea3"
+    },
+    {
+      "id": "c-testcross-alternative-models-v1",
+      "sha256": "cd9e680a994bd9eca4cf706fc82d135ea83ea8e6ad1d936e5fa3917d1d48e29a"
+    },
+    {
+      "id": "c-probability-comparison-set-v2",
+      "sha256": "5177558aa16bc63755fee58ecc1d7d6226b321a9f8bc673b5c9464b0466d474d"
+    },
+    {
+      "id": "c-dihybrid-gamete-square-v1",
+      "sha256": "0de8a04a3393adeec250805240036ad4f4b7e099e191f8392f603bbea8259e55"
+    }
+  ],
+  "limitations": [
+    "Provisional author review; no teacher acceptance.",
+    "Required practice, observations and graph construction remain separate from these existing worked teaching examples.",
+    "Rendered placement and all-unit freeze remain pending."
+  ]
+}

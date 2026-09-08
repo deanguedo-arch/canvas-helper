@@ -1,0 +1,42 @@
+✔ owner assembles the full academic inventory without rendering a draft learner course (329.618292ms)
+✖ production inputs use all-unit frozen contracts and still reject a draft or pending review (258.685459ms)
+✔ actual browser bundle is self-contained and captures precisely the source bytes compiled (23.704167ms)
+✔ production closure follows the connected owner, browser and cold source verifier without writing (53.02575ms)
+✔ input closure refuses uncovered academic inputs, assets and changed external branding (0.253ms)
+✔ protected A baseline is exact and frozen contracts pass cold production preflight (3005.277458ms)
+✔ generated project checks target actual Pilot 2 routes and collection controls (298.495583ms)
+✔ actual C/D absent continuation pages render no phantom link; real pages retain their exact link (5.572875ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3621.096417
+
+✖ failing tests:
+
+test at scripts/tests/biology30-pilot2-inputs.test.ts:1:2302
+✖ production inputs use all-unit frozen contracts and still reject a draft or pending review (258.685459ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /review|gate|pending/i. Input:
+  
+  'Error: Biology B pre-render contract is not frozen; incomplete: figuresAndRights'
+  
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-inputs.test.ts:38:10)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Biology B pre-render contract is not frozen; incomplete: figuresAndRights
+        at validateBiology30TopicContract (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/biology30-course/v1/pilot2-contract.ts:110:11)
+        at <anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-inputs.test.ts:38:21)
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-inputs.test.ts:38:10)
+        at async Test.run (node:internal/test_runner/test:1125:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:787:7),
+    expected: /review|gate|pending/i,
+    operator: 'throws',
+    diff: 'simple'
+  }

@@ -1,0 +1,1046 @@
+
+> canvas-helper@0.1.0 verify:biology30-course:topic-contracts
+> tsx scripts/verify-biology30-topic-contracts.ts
+
+{
+  "scope": "Planning structure only unless --pre-render is requested; draft validation never proves academic readiness.",
+  "reports": [
+    {
+      "practiceOperations": {
+        "unit": "B",
+        "reviewedItems": 65,
+        "prerequisiteOnly": 3,
+        "withoutRequiredPractice": [],
+        "proof": "Mapping integrity only. Links identify author-reviewed sub-operations; missing links require other required evidence or repair. Neither nonempty links nor this pass establish complete curriculum coverage."
+      },
+      "retention": {
+        "report": {
+          "unit": "B",
+          "reviewed": 56,
+          "pending": 0,
+          "proof": "Authored source-to-teaching retention receipt integrity. Rendered placement and whole-unit scientific review remain separate."
+        },
+        "files": {
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-disposition.json": "bdf0265eb946e71b26eff9ba4ee1269d8b5c641e0b0be75a6bb916a60e71728c",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-review.json": "9a84f6a46e2301271907d194ef2adc6017a60f1c32d7688265ed42ceb1f10f0a",
+          "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "c59af0cff37d0e0e8e7056cb3c8b030942e633339578929557ae54faa0853ad9",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4"
+        }
+      },
+      "definitions": {
+        "reviewedDefinitions": 153,
+        "reviewedPreserved": 58,
+        "proof": "Author-reviewed wording integrity only; all-surface first use and dependency placement remain separate."
+      },
+      "investigations": {
+        "report": {
+          "unit": "B",
+          "reviewed": 3,
+          "pending": 0,
+          "proof": "Exact authored method/data/operation review integrity; rendered interactions and teacher acceptance remain separate."
+        },
+        "graphResponses": [
+          {
+            "id": "b-investigation-cycle-graphs",
+            "responseId": "b-topic-menstrual-cycle-guided-construct",
+            "maximumEncodedLength": 728
+          }
+        ],
+        "files": {
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "c59af0cff37d0e0e8e7056cb3c8b030942e633339578929557ae54faa0853ad9",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigation-review.json": "f9a836cc41cdc870d0ec5fe6ceb414c53514051172adf693a664deba2179a2d6",
+          "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v3.svg": "0979a2f87a30311555cb94ce1d07bd5ad6ecc872d7e1ffe630a42109b00b3dcc",
+          "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-testis-compartments-v2.svg": "82cebd4ec89b4da61c3cfe64285ab63ee7765b738c66894473af9f7547b3bf25",
+          "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e"
+        }
+      },
+      "practiceKeys": {
+        "report": {
+          "unit": "B",
+          "reviewedItems": 65,
+          "pendingItems": 0,
+          "proof": "Exact prompt-first author derivation and key receipt integrity. This is not independent human review, rendered prerequisite proof or teacher acceptance."
+        },
+        "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json",
+        "sha256": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6"
+      },
+      "textbookReview": {
+        "report": {
+          "unit": "B",
+          "reviewedItems": 84,
+          "pendingItems": 0,
+          "proof": "Exact guide, required-passage and source receipt integrity; author judgments remain separate from rendered proof and teacher acceptance."
+        },
+        "files": [
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json",
+            "sha256": "01ba05ea683fbafa0437bf591c294200c29b69aefed0fa6d418687a9c7c1d481"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook.json",
+            "sha256": "62f2847ebf58218f05d146605a07d15a1741aadd11e032303d836a396f042751"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-passage-review.json",
+            "sha256": "654dbcf66b6cca3ef983abe763d474f20c4d4bbf72d9f5f7e89a128ae34c72e9"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json",
+            "sha256": "c9f15f1cc116b6f32a39e21ac840b900583f690b4e2894124e6d116052bb1e9b"
+          }
+        ],
+        "sources": [
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-14.pdf",
+            "sha256": "864ea82ed9960000c20e887250997d2f5e8455155f018dd2bf41865461b5365b"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-15.pdf",
+            "sha256": "fba888617f5066ceb1a46a5759d4523c063d0c20091a1ac3e6b673d5a5c41038"
+          }
+        ]
+      },
+      "graphWork": {
+        "unit": "B",
+        "graphs": 4,
+        "points": 24,
+        "maximumResponseCharacters": 728,
+        "proof": "Shared source values, complete authored graph operations and saved-field capacity only. Keyboard graph controls, full collection rendering and browser evidence remain pending."
+      },
+      "graphWorkSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+          "sha256": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+          "sha256": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65"
+        }
+      ],
+      "passages": {
+        "unit": "B",
+        "reviewedItems": 65,
+        "pendingItems": 0,
+        "proof": "Exact question and required-passage receipt integrity only; independent scientific key review and rendered prerequisites remain separate evidence."
+      },
+      "models": {
+        "unit": "B",
+        "models": 3,
+        "cases": 8,
+        "sharedDataBindings": 21,
+        "proof": "Deterministic outputs and source/state consistency; scientific source review, graph accessibility and browser interaction remain separate gates."
+      },
+      "modelSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-models.json",
+          "sha256": "a307f98f05d445b43255303dcba1f5f2c57f2dee339cef41748624c9aa0898a4"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+          "sha256": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+          "sha256": "c59af0cff37d0e0e8e7056cb3c8b030942e633339578929557ae54faa0853ad9"
+        },
+        {
+          "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+          "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+        },
+        {
+          "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+          "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+        }
+      ],
+      "instruction": {
+        "unit": "B",
+        "coreParts": 34,
+        "workedExamples": 34,
+        "stopChecks": 34,
+        "advancedExplanations": 34,
+        "topics": [
+          {
+            "topicId": "b-topic-male-reproductive-structures",
+            "coreWords": 853,
+            "workedWords": 347,
+            "advancedWords": 536,
+            "requiredExplanatoryWords": 1200
+          },
+          {
+            "topicId": "b-topic-spermatogenesis",
+            "coreWords": 922,
+            "workedWords": 305,
+            "advancedWords": 356,
+            "requiredExplanatoryWords": 1227
+          },
+          {
+            "topicId": "b-topic-female-reproductive-structures",
+            "coreWords": 768,
+            "workedWords": 358,
+            "advancedWords": 287,
+            "requiredExplanatoryWords": 1126
+          },
+          {
+            "topicId": "b-topic-menstrual-cycle",
+            "coreWords": 1050,
+            "workedWords": 442,
+            "advancedWords": 490,
+            "requiredExplanatoryWords": 1492
+          },
+          {
+            "topicId": "b-topic-fertilization-to-implantation",
+            "coreWords": 786,
+            "workedWords": 341,
+            "advancedWords": 348,
+            "requiredExplanatoryWords": 1127
+          },
+          {
+            "topicId": "b-topic-hcg-and-gastrulation",
+            "coreWords": 730,
+            "workedWords": 341,
+            "advancedWords": 399,
+            "requiredExplanatoryWords": 1071
+          },
+          {
+            "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+            "coreWords": 827,
+            "workedWords": 382,
+            "advancedWords": 422,
+            "requiredExplanatoryWords": 1209
+          },
+          {
+            "topicId": "b-topic-parturition",
+            "coreWords": 1042,
+            "workedWords": 455,
+            "advancedWords": 490,
+            "requiredExplanatoryWords": 1497
+          }
+        ],
+        "proof": "Complete ordered authored companions and non-gating Advanced flags only. Figures, first-use teaching, source/key review, old-section coverage, local walkthroughs, workload realism and rendered evidence remain separate requirements.",
+        "framing": {
+          "topics": 8,
+          "definitionIntroductions": 153,
+          "narrationFrames": 34,
+          "illustratedWalkthroughsVerified": false,
+          "proof": "Framing, response capacity, ordered narration and definition placement declarations only; actual illustrations, semantic prerequisites and rendered equivalence are pending."
+        }
+      },
+      "instructionSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "sha256": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "sha256": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json",
+          "sha256": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+          "sha256": "c59af0cff37d0e0e8e7056cb3c8b030942e633339578929557ae54faa0853ad9"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+          "sha256": "0705c37cbdb5b944748be8114ca41e6d46e1c31ecaca43ed212912a6ceaaa897"
+        }
+      ],
+      "learning": {
+        "unit": "B",
+        "practiceCounts": {
+          "guided": 16,
+          "chapter": 28,
+          "final": 17,
+          "challenge": 4
+        },
+        "terms": 153,
+        "conceptFamilies": 28,
+        "fixedFrayers": 6,
+        "choiceFrayers": 2,
+        "requiredMinutes": 1200,
+        "optionalMinutes": 240,
+        "proof": "Authored topology and arithmetic only; item independence, instruction, scientific review, timing realism and rendered state remain separate gates."
+      },
+      "learningSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json",
+          "sha256": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+          "sha256": "0705c37cbdb5b944748be8114ca41e6d46e1c31ecaca43ed212912a6ceaaa897"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-time.json",
+          "sha256": "ca209d11ee39965a6cc1d19ad611e4a66b17a6072b046dcbd323685d1f61b026"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+          "sha256": "c59af0cff37d0e0e8e7056cb3c8b030942e633339578929557ae54faa0853ad9"
+        }
+      ],
+      "unit": "B",
+      "topicCount": 8,
+      "partCount": 34,
+      "requiredRouteCount": 12,
+      "readyForRendering": false,
+      "pending": [
+        "sourceDispositions",
+        "curriculumAtomicMap",
+        "vocabularyAndFirstUse",
+        "figuresAndRights",
+        "captionsAndLocalPaths",
+        "advancedAndTiming",
+        "transferRules"
+      ],
+      "evidence": {
+        "evidenceFiles": 49,
+        "frozenInputs": 0
+      },
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json",
+      "sha256": "c9f15f1cc116b6f32a39e21ac840b900583f690b4e2894124e6d116052bb1e9b",
+      "planning": {
+        "unit": "B",
+        "outcomes": 30,
+        "components": 43,
+        "investigations": 3,
+        "nativeTextbookGuides": 84,
+        "proof": "planning topology only; authored explanations, exact passage matches, keys and rendered operations require their separate reviews"
+      },
+      "planningSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json",
+          "sha256": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+          "sha256": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json",
+          "sha256": "01ba05ea683fbafa0437bf591c294200c29b69aefed0fa6d418687a9c7c1d481"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json",
+          "sha256": "269f2b834477f4abf6afa1b96ebc362e472eee565cab1e4248d78c4ac01f88d4"
+        }
+      ]
+    },
+    {
+      "practiceOperations": {
+        "unit": "C",
+        "reviewedItems": 132,
+        "prerequisiteOnly": 14,
+        "withoutRequiredPractice": [
+          "c1-2k-cytokinesis",
+          "c1-4k-compare-divisions",
+          "c1-6k-twinning",
+          "c3-7k-sequence-relatedness"
+        ],
+        "proof": "Mapping integrity only. Links identify author-reviewed sub-operations; missing links require other required evidence or repair. Neither nonempty links nor this pass establish complete curriculum coverage."
+      },
+      "retention": {
+        "report": {
+          "unit": "C",
+          "reviewed": 96,
+          "pending": 0,
+          "proof": "Authored source-to-teaching retention receipt integrity. Rendered placement and whole-unit scientific review remain separate."
+        },
+        "files": {
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json": "cb3a1d8486df40ace31879350dbd8c7c0d5e17cb17064d1173754376951f163b",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json": "e6e9c4c86ed78c1456c137d8ed1a1177184aceb77d4f372326f553d83f9f2a14",
+          "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json": "b403e14b26b814a500f9605c944d98f5e18c318706a5d1448f5d5ddab43baed7",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "3f6ee8a28d6609090be729263804f2718cf3dc36bac44cf6e073bbc04945089f"
+        }
+      },
+      "definitions": {
+        "reviewedDefinitions": 249,
+        "reviewedPreserved": 133,
+        "proof": "Author-reviewed wording integrity only; all-surface first use and dependency placement remain separate."
+      },
+      "investigations": {
+        "report": {
+          "unit": "C",
+          "reviewed": 3,
+          "pending": 0,
+          "proof": "Exact authored method/data/operation review integrity; rendered interactions and teacher acceptance remain separate."
+        },
+        "graphResponses": [
+          {
+            "id": "c-investigation-cell-observations",
+            "responseId": "c-topic-the-cell-cycle-guided-construct",
+            "maximumEncodedLength": 410
+          }
+        ],
+        "files": {
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "3f6ee8a28d6609090be729263804f2718cf3dc36bac44cf6e073bbc04945089f",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigation-review.json": "4a5d6dac3b36373f29bae7638eb89c5cf2a8eec2b8d3b9fffb125bd64f5dc1b2",
+          "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im1.jpg": "bd1122c6654b1fcbe923a508d0eb464bf20d26aaf178d7728333f1de90a93f37",
+          "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im2.jpg": "b72d76aa6f78899a3e2f8f8800b6bf06aac391196c597193ff59a266c587c474",
+          "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im3.jpg": "a6715b30d11fd7a9129baaa1ecce0933b2f49c6575628dea78158c6e1bb5bee6",
+          "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im4.jpg": "bff6e0bdaf3f3e31043d78bbcd75cbdf83ee08ec0e67aa877306d62a17fdab1c",
+          "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im5.jpg": "c36dae801b8da3af269245c7d1cfa1a3616841af0c89d44e32e6acb6f1e2e077",
+          "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/extraction.json": "fb3355ebe07fa6d4b49a18c94e49c73d61beca5ad834671b411e07e1b0dd9b16",
+          "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a"
+        }
+      },
+      "practiceKeys": {
+        "report": {
+          "unit": "C",
+          "reviewedItems": 132,
+          "pendingItems": 0,
+          "proof": "Exact prompt-first author derivation and key receipt integrity. This is not independent human review, rendered prerequisite proof or teacher acceptance."
+        },
+        "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json",
+        "sha256": "ed4887f6050306720be03ba809c796df1ebafc46fd5117dd009384065ca3612d"
+      },
+      "textbookReview": {
+        "report": {
+          "unit": "C",
+          "reviewedItems": 91,
+          "pendingItems": 0,
+          "proof": "Exact guide, required-passage and source receipt integrity; author judgments remain separate from rendered proof and teacher acceptance."
+        },
+        "files": [
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+            "sha256": "7645d2ac98c6ed403810fb31ba08e6bdea5c9ef3619488847b10ce86a938ebf1"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+            "sha256": "259304032519fb951e1f65e0d744ff2d3a95da843bc08bebfe55edd31fdf8959"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json",
+            "sha256": "8b1e2daee60ff39962c59a0af1f56adf0a94b8b7f9f907a6956f64c71a881c17"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+            "sha256": "6073337db149f533af47cb58858b4559867befc1aa555c98688d88c87a7ce6d2"
+          }
+        ],
+        "sources": [
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-16.pdf",
+            "sha256": "cf8928524eb1535bb25342bdfdba5a5268f632b2d4048b796af7a992aaf4bb66"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-17.pdf",
+            "sha256": "13f3aa36bb4c71d73320fa07e034ae2cf36b6d8bd803e1df6ec9e661b71f9dfc"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-18.pdf",
+            "sha256": "58af07b1d65f0d67949ae77588eb77c0b65891a715749fcf6b2db4f74d0dd711"
+          }
+        ]
+      },
+      "graphWork": {
+        "unit": "C",
+        "graphs": 1,
+        "points": 5,
+        "maximumResponseCharacters": 410,
+        "proof": "Shared source values, complete authored graph operations and saved-field capacity only. Keyboard graph controls, full collection rendering and browser evidence remain pending."
+      },
+      "graphWorkSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json",
+          "sha256": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+          "sha256": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321"
+        }
+      ],
+      "passages": {
+        "unit": "C",
+        "reviewedItems": 132,
+        "pendingItems": 0,
+        "proof": "Exact question and required-passage receipt integrity only; independent scientific key review and rendered prerequisites remain separate evidence."
+      },
+      "models": {
+        "unit": "C",
+        "models": 3,
+        "cases": 10,
+        "sharedDataBindings": 3,
+        "proof": "Deterministic outputs and source/state consistency; scientific source review, graph accessibility and browser interaction remain separate gates."
+      },
+      "modelSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+          "sha256": "19a4c975ebfaf91c0434dc79362a2258ca646acaa4450b5fa21d4abf5625b648"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+          "sha256": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+          "sha256": "3f6ee8a28d6609090be729263804f2718cf3dc36bac44cf6e073bbc04945089f"
+        },
+        {
+          "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+          "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+        },
+        {
+          "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+          "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+        }
+      ],
+      "instruction": {
+        "unit": "C",
+        "coreParts": 71,
+        "workedExamples": 71,
+        "stopChecks": 71,
+        "advancedExplanations": 71,
+        "topics": [
+          {
+            "topicId": "c-topic-chromosomes-and-dna",
+            "coreWords": 562,
+            "workedWords": 248,
+            "advancedWords": 289,
+            "requiredExplanatoryWords": 810
+          },
+          {
+            "topicId": "c-topic-the-cell-cycle",
+            "coreWords": 545,
+            "workedWords": 230,
+            "advancedWords": 681,
+            "requiredExplanatoryWords": 775
+          },
+          {
+            "topicId": "c-topic-mitosis",
+            "coreWords": 711,
+            "workedWords": 325,
+            "advancedWords": 400,
+            "requiredExplanatoryWords": 1036
+          },
+          {
+            "topicId": "c-topic-meiosis-part-a",
+            "coreWords": 699,
+            "workedWords": 300,
+            "advancedWords": 246,
+            "requiredExplanatoryWords": 999
+          },
+          {
+            "topicId": "c-topic-meiosis-part-b",
+            "coreWords": 725,
+            "workedWords": 332,
+            "advancedWords": 395,
+            "requiredExplanatoryWords": 1057
+          },
+          {
+            "topicId": "c-topic-reproductive-strategies",
+            "coreWords": 805,
+            "workedWords": 345,
+            "advancedWords": 533,
+            "requiredExplanatoryWords": 1150
+          },
+          {
+            "topicId": "c-topic-genes-alleles-and-traits",
+            "coreWords": 557,
+            "workedWords": 225,
+            "advancedWords": 325,
+            "requiredExplanatoryWords": 782
+          },
+          {
+            "topicId": "c-topic-mendelian-genetics",
+            "coreWords": 729,
+            "workedWords": 330,
+            "advancedWords": 242,
+            "requiredExplanatoryWords": 1059
+          },
+          {
+            "topicId": "c-topic-single-and-two-trait-crosses",
+            "coreWords": 699,
+            "workedWords": 278,
+            "advancedWords": 343,
+            "requiredExplanatoryWords": 977
+          },
+          {
+            "topicId": "c-topic-other-modes-of-inheritance",
+            "coreWords": 935,
+            "workedWords": 406,
+            "advancedWords": 691,
+            "requiredExplanatoryWords": 1341
+          },
+          {
+            "topicId": "c-topic-pedigrees",
+            "coreWords": 732,
+            "workedWords": 335,
+            "advancedWords": 379,
+            "requiredExplanatoryWords": 1067
+          },
+          {
+            "topicId": "c-topic-chromosome-mapping",
+            "coreWords": 716,
+            "workedWords": 285,
+            "advancedWords": 348,
+            "requiredExplanatoryWords": 1001
+          },
+          {
+            "topicId": "c-topic-dna-and-its-history",
+            "coreWords": 706,
+            "workedWords": 320,
+            "advancedWords": 380,
+            "requiredExplanatoryWords": 1026
+          },
+          {
+            "topicId": "c-topic-dna-replication",
+            "coreWords": 707,
+            "workedWords": 358,
+            "advancedWords": 394,
+            "requiredExplanatoryWords": 1065
+          },
+          {
+            "topicId": "c-topic-transcription",
+            "coreWords": 766,
+            "workedWords": 276,
+            "advancedWords": 341,
+            "requiredExplanatoryWords": 1042
+          },
+          {
+            "topicId": "c-topic-translation",
+            "coreWords": 745,
+            "workedWords": 294,
+            "advancedWords": 389,
+            "requiredExplanatoryWords": 1039
+          },
+          {
+            "topicId": "c-topic-mutations",
+            "coreWords": 727,
+            "workedWords": 342,
+            "advancedWords": 490,
+            "requiredExplanatoryWords": 1069
+          },
+          {
+            "topicId": "c-topic-genetic-technologies",
+            "coreWords": 994,
+            "workedWords": 468,
+            "advancedWords": 584,
+            "requiredExplanatoryWords": 1462
+          }
+        ],
+        "proof": "Complete ordered authored companions and non-gating Advanced flags only. Figures, first-use teaching, source/key review, old-section coverage, local walkthroughs, workload realism and rendered evidence remain separate requirements.",
+        "framing": {
+          "topics": 18,
+          "definitionIntroductions": 249,
+          "narrationFrames": 71,
+          "illustratedWalkthroughsVerified": false,
+          "proof": "Framing, response capacity, ordered narration and definition placement declarations only; actual illustrations, semantic prerequisites and rendered equivalence are pending."
+        }
+      },
+      "instructionSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+          "sha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+          "sha256": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+          "sha256": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+          "sha256": "3f6ee8a28d6609090be729263804f2718cf3dc36bac44cf6e073bbc04945089f"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+          "sha256": "1fdee1923fd65eaac58fa9428e6aa344f05e06e2004fad6f61eab73b9c150e17"
+        }
+      ],
+      "learning": {
+        "unit": "C",
+        "practiceCounts": {
+          "guided": 36,
+          "chapter": 63,
+          "final": 27,
+          "challenge": 6
+        },
+        "terms": 249,
+        "conceptFamilies": 40,
+        "fixedFrayers": 6,
+        "choiceFrayers": 2,
+        "requiredMinutes": 2400,
+        "optionalMinutes": 480,
+        "proof": "Authored topology and arithmetic only; item independence, instruction, scientific review, timing realism and rendered state remain separate gates."
+      },
+      "learningSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+          "sha256": "a383cfd3a4f452e7bb7259b327f622697ba517027f327855e9b1cf38547266c8"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+          "sha256": "1fdee1923fd65eaac58fa9428e6aa344f05e06e2004fad6f61eab73b9c150e17"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json",
+          "sha256": "d4ddb7d030ab9c3cfd1b6c39270ef7ac6f37a1d3b97242cd803250a0f52e515f"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+          "sha256": "3f6ee8a28d6609090be729263804f2718cf3dc36bac44cf6e073bbc04945089f"
+        }
+      ],
+      "unit": "C",
+      "topicCount": 18,
+      "partCount": 71,
+      "requiredRouteCount": 23,
+      "readyForRendering": false,
+      "pending": [
+        "sourceDispositions",
+        "curriculumAtomicMap",
+        "vocabularyAndFirstUse",
+        "figuresAndRights",
+        "captionsAndLocalPaths",
+        "advancedAndTiming",
+        "transferRules"
+      ],
+      "evidence": {
+        "evidenceFiles": 49,
+        "frozenInputs": 0
+      },
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "sha256": "6073337db149f533af47cb58858b4559867befc1aa555c98688d88c87a7ce6d2",
+      "planning": {
+        "unit": "C",
+        "outcomes": 35,
+        "components": 56,
+        "investigations": 3,
+        "nativeTextbookGuides": 91,
+        "proof": "planning topology only; authored explanations, exact passage matches, keys and rendered operations require their separate reviews"
+      },
+      "planningSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+          "sha256": "5132a3f7fa3d278ee286f06bc3b43d1c3753d15127d7bb7ba558d045b0c3d373"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+          "sha256": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+          "sha256": "7645d2ac98c6ed403810fb31ba08e6bdea5c9ef3619488847b10ce86a938ebf1"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json",
+          "sha256": "269f2b834477f4abf6afa1b96ebc362e472eee565cab1e4248d78c4ac01f88d4"
+        }
+      ]
+    },
+    {
+      "practiceOperations": {
+        "unit": "D",
+        "reviewedItems": 52,
+        "prerequisiteOnly": 2,
+        "withoutRequiredPractice": [],
+        "proof": "Mapping integrity only. Links identify author-reviewed sub-operations; missing links require other required evidence or repair. Neither nonempty links nor this pass establish complete curriculum coverage."
+      },
+      "retention": {
+        "report": {
+          "unit": "D",
+          "reviewed": 44,
+          "pending": 0,
+          "proof": "Authored source-to-teaching retention receipt integrity. Rendered placement and whole-unit scientific review remain separate."
+        },
+        "files": {
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-disposition.json": "147526008134c2de42e5b767aa77e4eb148c0423c6433fec81e862aef41754ba",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-review.json": "38a756fc22d45db41bd90899f429b60825fb1be2d275d5fc53b8ae45c4377a3f",
+          "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "f80e411366aa10b3c9fa4c542276157b3ead7f7846ad673f033790e830d1e90b"
+        }
+      },
+      "definitions": {
+        "reviewedDefinitions": 99,
+        "reviewedPreserved": 45,
+        "proof": "Author-reviewed wording integrity only; all-surface first use and dependency placement remain separate."
+      },
+      "investigations": {
+        "report": {
+          "unit": "D",
+          "reviewed": 3,
+          "pending": 0,
+          "proof": "Exact authored method/data/operation review integrity; rendered interactions and teacher acceptance remain separate."
+        },
+        "graphResponses": [
+          {
+            "id": "d-investigation-population-growth",
+            "responseId": "d-investigation-population-growth-observations",
+            "maximumEncodedLength": 226
+          }
+        ],
+        "files": {
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "f80e411366aa10b3c9fa4c542276157b3ead7f7846ad673f033790e830d1e90b",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigation-review.json": "3b5019a22bb0efacddeab78b48b815470a232172fda911a930f08f780cc286da",
+          "projects/resources/biology30-production/v1/units/unit-d/pilot2-demographic-graph-work.json": "53973bf7358dcc57dd3b0bdf3292fcd893a8f1899e9f17113b5c22f4998cc0cb"
+        }
+      },
+      "practiceKeys": {
+        "report": {
+          "unit": "D",
+          "reviewedItems": 52,
+          "pendingItems": 0,
+          "proof": "Exact prompt-first author derivation and key receipt integrity. This is not independent human review, rendered prerequisite proof or teacher acceptance."
+        },
+        "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json",
+        "sha256": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc"
+      },
+      "textbookReview": {
+        "report": {
+          "unit": "D",
+          "reviewedItems": 68,
+          "pendingItems": 0,
+          "proof": "Exact guide, required-passage and source receipt integrity; author judgments remain separate from rendered proof and teacher acceptance."
+        },
+        "files": [
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json",
+            "sha256": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook.json",
+            "sha256": "5396b0838d549b967a361b3122099451fd1915923a84a2d26cbc2ee19179df57"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-passage-review.json",
+            "sha256": "3e9535873df66c1cba1de6b74aa3bd1b89fc63f6db1594d2200ffd11dd4f3946"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+            "sha256": "b41992000f7caad2f9d330140dd6989897544ea0887157489e01fd3eadc5e989"
+          }
+        ],
+        "sources": [
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-19.pdf",
+            "sha256": "39937a2bd45b4a0869ab6502cd56134e94d25204bb6c1b2a7a1d8a27c22b4a4c"
+          },
+          {
+            "file": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-20.pdf",
+            "sha256": "39cdf3ffc3bc1a520340efbde970731019c77d3120b048a3d395cc9f7c38afd2"
+          }
+        ]
+      },
+      "graphWork": {
+        "unit": "D",
+        "graphs": 1,
+        "points": 10,
+        "maximumResponseCharacters": 592,
+        "proof": "Shared source values, complete authored graph operations and saved-field capacity only. Keyboard graph controls, full collection rendering and browser evidence remain pending."
+      },
+      "graphWorkSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json",
+          "sha256": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+          "sha256": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714"
+        }
+      ],
+      "passages": {
+        "unit": "D",
+        "reviewedItems": 52,
+        "pendingItems": 0,
+        "proof": "Exact question and required-passage receipt integrity only; independent scientific key review and rendered prerequisites remain separate evidence."
+      },
+      "models": {
+        "unit": "D",
+        "models": 3,
+        "cases": 9,
+        "sharedDataBindings": 27,
+        "proof": "Deterministic outputs and source/state consistency; scientific source review, graph accessibility and browser interaction remain separate gates."
+      },
+      "modelSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json",
+          "sha256": "87a053903d2c08c856b49142379129f1500697cc944ee0d7fa98b2db3497e64d"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+          "sha256": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+          "sha256": "f80e411366aa10b3c9fa4c542276157b3ead7f7846ad673f033790e830d1e90b"
+        },
+        {
+          "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+          "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+        },
+        {
+          "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+          "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+        }
+      ],
+      "instruction": {
+        "unit": "D",
+        "coreParts": 22,
+        "workedExamples": 22,
+        "stopChecks": 22,
+        "advancedExplanations": 22,
+        "topics": [
+          {
+            "topicId": "d-topic-hardy-weinberg",
+            "coreWords": 878,
+            "workedWords": 367,
+            "advancedWords": 620,
+            "requiredExplanatoryWords": 1245
+          },
+          {
+            "topicId": "d-topic-mechanisms-of-change",
+            "coreWords": 974,
+            "workedWords": 429,
+            "advancedWords": 517,
+            "requiredExplanatoryWords": 1403
+          },
+          {
+            "topicId": "d-topic-population-growth",
+            "coreWords": 1084,
+            "workedWords": 407,
+            "advancedWords": 776,
+            "requiredExplanatoryWords": 1491
+          },
+          {
+            "topicId": "d-topic-life-strategies-and-ecological-relationships",
+            "coreWords": 1333,
+            "workedWords": 518,
+            "advancedWords": 1317,
+            "requiredExplanatoryWords": 1851
+          }
+        ],
+        "proof": "Complete ordered authored companions and non-gating Advanced flags only. Figures, first-use teaching, source/key review, old-section coverage, local walkthroughs, workload realism and rendered evidence remain separate requirements.",
+        "framing": {
+          "topics": 4,
+          "definitionIntroductions": 99,
+          "narrationFrames": 22,
+          "illustratedWalkthroughsVerified": false,
+          "proof": "Framing, response capacity, ordered narration and definition placement declarations only; actual illustrations, semantic prerequisites and rendered equivalence are pending."
+        }
+      },
+      "instructionSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+          "sha256": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+          "sha256": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json",
+          "sha256": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+          "sha256": "f80e411366aa10b3c9fa4c542276157b3ead7f7846ad673f033790e830d1e90b"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+          "sha256": "ac17af06a1c6fbd019343076bac121489daede6b11fe159a52b200bfe9299e5e"
+        }
+      ],
+      "learning": {
+        "unit": "D",
+        "practiceCounts": {
+          "guided": 8,
+          "chapter": 26,
+          "final": 14,
+          "challenge": 4
+        },
+        "terms": 99,
+        "conceptFamilies": 24,
+        "fixedFrayers": 6,
+        "choiceFrayers": 2,
+        "requiredMinutes": 900,
+        "optionalMinutes": 180,
+        "proof": "Authored topology and arithmetic only; item independence, instruction, scientific review, timing realism and rendered state remain separate gates."
+      },
+      "learningSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json",
+          "sha256": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+          "sha256": "ac17af06a1c6fbd019343076bac121489daede6b11fe159a52b200bfe9299e5e"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json",
+          "sha256": "22108f397675bde84fa7f78edc159026649b368d5e8b679042ac04bc450a5578"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+          "sha256": "f80e411366aa10b3c9fa4c542276157b3ead7f7846ad673f033790e830d1e90b"
+        }
+      ],
+      "unit": "D",
+      "topicCount": 4,
+      "partCount": 22,
+      "requiredRouteCount": 8,
+      "readyForRendering": false,
+      "pending": [
+        "sourceDispositions",
+        "curriculumAtomicMap",
+        "vocabularyAndFirstUse",
+        "figuresAndRights",
+        "captionsAndLocalPaths",
+        "advancedAndTiming",
+        "transferRules"
+      ],
+      "evidence": {
+        "evidenceFiles": 46,
+        "frozenInputs": 0
+      },
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+      "sha256": "b41992000f7caad2f9d330140dd6989897544ea0887157489e01fd3eadc5e989",
+      "planning": {
+        "unit": "D",
+        "outcomes": 27,
+        "components": 37,
+        "investigations": 3,
+        "nativeTextbookGuides": 68,
+        "proof": "planning topology only; authored explanations, exact passage matches, keys and rendered operations require their separate reviews"
+      },
+      "planningSources": [
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json",
+          "sha256": "b8c5b4b67fcb50ba9bce3f2d65c01d194ad5e9acb55c8c9a03e952fb41a5b028"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+          "sha256": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json",
+          "sha256": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663"
+        },
+        {
+          "file": "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json",
+          "sha256": "269f2b834477f4abf6afa1b96ebc362e472eee565cab1e4248d78c4ac01f88d4"
+        }
+      ]
+    }
+  ]
+}

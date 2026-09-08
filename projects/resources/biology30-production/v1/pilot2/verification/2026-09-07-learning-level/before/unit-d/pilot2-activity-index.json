@@ -1,0 +1,3856 @@
+{
+  "unit": "D",
+  "role": "derived authoring contract; regenerate through the owning activity-index builder",
+  "status": "complete state identity inventory; rendered return targets and lifecycle pending",
+  "regenerateCommand": "node --import tsx scripts/audit-biology30-topic-activities.ts --write",
+  "topicDesignSha256": "06b5b0ff2f2c9325d32929ce6b77bc2622e487b764fc9cd0e56bf166486cfa59",
+  "sourceFiles": {
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "ac17af06a1c6fbd019343076bac121489daede6b11fe159a52b200bfe9299e5e",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json": "87a053903d2c08c856b49142379129f1500697cc944ee0d7fa98b2db3497e64d",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663"
+  },
+  "inventory": {
+    "entries": 186,
+    "responses": 149,
+    "choices": 36,
+    "flags": 184
+  },
+  "entries": [
+    {
+      "id": "d-topic-hardy-weinberg-retrieval",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-retrieval",
+      "title": "Hardy–Weinberg: Retrieval",
+      "category": "Retrieval",
+      "responses": [
+        {
+          "id": "d-topic-hardy-weinberg-retrieval",
+          "label": "From 36 AA, 48 Aa and 16 aa, calculate p."
+        }
+      ],
+      "choices": [],
+      "flags": []
+    },
+    {
+      "id": "d-topic-hardy-weinberg-evidence",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-evidence",
+      "title": "Hardy–Weinberg: Evidence Slip",
+      "category": "Evidence Slip",
+      "responses": [
+        {
+          "id": "d-topic-hardy-weinberg-evidence",
+          "label": "Solve one supplied population case and state whether its allele frequency was counted or inferred, including a relevant assumption."
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-evidence-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-media",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-media",
+      "title": "Hardy–Weinberg: Media checkpoint",
+      "category": "Media checkpoint",
+      "responses": [
+        {
+          "id": "d-topic-hardy-weinberg-media",
+          "label": "Does direct allele counting from observed diploid genotypes require equilibrium?"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-media-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-populations-and-allele-counts-advanced",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-populations-and-allele-counts-advanced",
+      "title": "Match the denominator to the biological unit",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-populations-and-allele-counts-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-advanced",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-advanced",
+      "title": "A fit is evidence, not a complete history",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-equilibrium-assumptions-advanced",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-equilibrium-assumptions-advanced",
+      "title": "Assumptions answer more than one question",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-equilibrium-assumptions-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-solving-and-checking-advanced",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-solving-and-checking-advanced",
+      "title": "A phenotype shortcut has prerequisites",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-solving-and-checking-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-a-model-and-its-limits-advanced",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-a-model-and-its-limits-advanced",
+      "title": "A useful null model can still be incomplete",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-a-model-and-its-limits-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-retrieval",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-retrieval",
+      "title": "Mechanisms of Change: Retrieval",
+      "category": "Retrieval",
+      "responses": [
+        {
+          "id": "d-topic-mechanisms-of-change-retrieval",
+          "label": "Do the sampled p values 0.60, 0.675 and 0.65 show a steady rise?"
+        }
+      ],
+      "choices": [],
+      "flags": []
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-evidence",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-evidence",
+      "title": "Mechanisms of Change: Evidence Slip",
+      "category": "Evidence Slip",
+      "responses": [
+        {
+          "id": "d-topic-mechanisms-of-change-evidence",
+          "label": "Revise a selection or resistance claim with a measured frequency change, a mechanism and one alternative needing evidence."
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-evidence-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-media",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-media",
+      "title": "Mechanisms of Change: Media checkpoint",
+      "category": "Media checkpoint",
+      "responses": [
+        {
+          "id": "d-topic-mechanisms-of-change-media",
+          "label": "Can non-random mating alone alter genotype proportions without changing p and q?"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-media-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-mutation-and-selection-advanced",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-mutation-and-selection-advanced",
+      "title": "The environment changes the comparison",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-mutation-and-selection-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-chance-and-population-size-advanced",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-chance-and-population-size-advanced",
+      "title": "Recovery of numbers need not restore lost variants",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-chance-and-population-size-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-movement-and-mating-advanced",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-movement-and-mating-advanced",
+      "title": "Define the population boundary",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-movement-and-mating-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-resistance-and-evidence-advanced",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-resistance-and-evidence-advanced",
+      "title": "Similar outcomes can have different causes",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-resistance-and-evidence-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-testing-explanations-advanced",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-testing-explanations-advanced",
+      "title": "Revision should preserve what the data do show",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-testing-explanations-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-retrieval",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-retrieval",
+      "title": "Population Growth: Retrieval",
+      "category": "Retrieval",
+      "responses": [
+        {
+          "id": "d-topic-population-growth-retrieval",
+          "label": "From N₀ = 1000, B = 120, I = 30, D = 70 and E = 20 over ten days, give final N and absolute daily change."
+        }
+      ],
+      "choices": [],
+      "flags": []
+    },
+    {
+      "id": "d-topic-population-growth-evidence",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-evidence",
+      "title": "Population Growth: Evidence Slip",
+      "category": "Evidence Slip",
+      "responses": [
+        {
+          "id": "d-topic-population-growth-evidence",
+          "label": "Use a sampling or growth calculation to support a prediction, including units and one design/model limit."
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-evidence-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-media",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-media",
+      "title": "Population Growth: Media checkpoint",
+      "category": "Media checkpoint",
+      "responses": [
+        {
+          "id": "d-topic-population-growth-media",
+          "label": "Are 6 individuals/day and 0.006 per day per initial individual the same numerical quantity?"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-media-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-size-and-density-advanced",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-size-and-density-advanced",
+      "title": "Scale can change the pattern",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-size-and-density-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-sampling-populations-advanced",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-sampling-populations-advanced",
+      "title": "Stratification can improve representation",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-sampling-populations-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-four-demographic-processes-advanced",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-four-demographic-processes-advanced",
+      "title": "A balance equation needs consistent records",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-four-demographic-processes-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-rates-and-denominators-advanced",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-rates-and-denominators-advanced",
+      "title": "Discrete and continuous rates differ",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-rates-and-denominators-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-exponential-and-logistic-models-advanced",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-exponential-and-logistic-models-advanced",
+      "title": "An equation is a chosen approximation",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-exponential-and-logistic-models-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-feedback-and-changing-limits-advanced",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-feedback-and-changing-limits-advanced",
+      "title": "Feedback can be delayed",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-feedback-and-changing-limits-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-retrieval",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-retrieval",
+      "title": "Life Strategies and Ecological Relationships: Retrieval",
+      "category": "Retrieval",
+      "responses": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-retrieval",
+          "label": "Why does soil remaining after disturbance matter when distinguishing primary and secondary succession?"
+        }
+      ],
+      "choices": [],
+      "flags": []
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-evidence",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-evidence",
+      "title": "Life Strategies and Ecological Relationships: Evidence Slip",
+      "category": "Evidence Slip",
+      "responses": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "label": "Use one interaction or restoration dataset to recommend a bounded next step, with evidence and a meaningful uncertainty or tradeoff."
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-evidence-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-media",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-media",
+      "title": "Life Strategies and Ecological Relationships: Media checkpoint",
+      "category": "Media checkpoint",
+      "responses": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-media",
+          "label": "Does higher abundance of one plant automatically show greater biodiversity?"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-media-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-advanced",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-advanced",
+      "title": "Tradeoffs require evidence",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-advanced",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-advanced",
+      "title": "Zero can mean a detection limit",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-advanced",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-advanced",
+      "title": "Similar defences can send different signals",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-advanced",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-population-cycles-advanced",
+      "title": "Feedback links more than two curves",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-advanced",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-advanced",
+      "title": "History can leave several kinds of legacy",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-advanced",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-advanced",
+      "title": "A recommendation is a reasoned choice",
+      "category": "Advanced Learning",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-advanced-complete",
+          "label": "Self-marked complete"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-01-gene-pool",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-practice-chapter-d-lesson-01-gene-pool",
+      "title": "Which description correctly defines a gene pool?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-01-gene-pool",
+          "label": "Your selection",
+          "options": {
+            "0": "All allele copies at all loci in a defined population",
+            "1": "The alleles carried by one individual",
+            "2": "Only alleles that produce a visible phenotype",
+            "3": "All genes found in every species in an ecosystem"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-01-gene-pool-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-guided-d-lesson-01-allele-denominator",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-practice-guided-d-lesson-01-allele-denominator",
+      "title": "A sample has 40 diploid organisms. What denominator is used to calculate the frequency of an autosomal allele?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-guided-d-lesson-01-allele-denominator",
+          "label": "Your selection",
+          "options": {
+            "0": "80 allele copies",
+            "1": "20 allele copies",
+            "2": "40 organisms",
+            "3": "160 chromosome pairs"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-guided-d-lesson-01-allele-denominator-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-01-equilibrium-claim",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-01-equilibrium-claim",
+      "title": "In 100 diploid organisms, observed counts are 36 AA, 48 Aa and 16 aa. Which statement correctly separates observation from an equilibrium prediction?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-01-equilibrium-claim",
+          "label": "Your selection",
+          "options": {
+            "0": "Direct counting gives p=0.60; the model then predicts 48 heterozygotes",
+            "1": "The 48 observed heterozygotes mean p=0.48 before any allele count",
+            "2": "The 16 aa organisms mean q=0.16, so the model predicts 26.88 heterozygotes",
+            "3": "Matching these counts proves there is no migration or selection"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-01-equilibrium-claim-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-02-assumption",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-practice-chapter-d-lesson-02-assumption",
+      "title": "Which condition belongs to the Hardy-Weinberg no-change model?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-02-assumption",
+          "label": "Your selection",
+          "options": {
+            "0": "All genotypes have equal reproductive success",
+            "1": "Alleles mutate at a constant high rate",
+            "2": "Individuals choose genetically similar mates",
+            "3": "A small population experiences random mortality"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-02-assumption-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-02-heterozygote-deficit",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-practice-chapter-d-lesson-02-heterozygote-deficit",
+      "title": "A sample has fewer heterozygotes than expected but similar allele frequencies. Which process could produce that pattern first?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-02-heterozygote-deficit",
+          "label": "Your selection",
+          "options": {
+            "0": "Non-random mating among similar genotypes",
+            "1": "A guaranteed new mutation in every gamete",
+            "2": "Equal reproductive success among all genotypes",
+            "3": "Perfect random mating in an infinite population"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-02-heterozygote-deficit-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-02-cause-limit",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-02-cause-limit",
+      "title": "A population has p=0.5 before and after a period of inbreeding, but heterozygotes become less common. Which interpretation fits this pattern?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-02-cause-limit",
+          "label": "Your selection",
+          "options": {
+            "0": "Mating pattern can change genotype frequencies without an immediate change in allele frequencies",
+            "1": "Inbreeding must create a new allele to reduce heterozygotes",
+            "2": "A fall in heterozygotes requires p to become zero",
+            "3": "Heterozygote frequency and allele frequency are the same quantity"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-02-cause-limit-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-03-terms",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-practice-chapter-d-lesson-03-terms",
+      "title": "What does 2pq represent in the Hardy-Weinberg genotype equation?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-03-terms",
+          "label": "Your selection",
+          "options": {
+            "0": "The expected frequency of heterozygotes",
+            "1": "The frequency of the dominant allele",
+            "2": "The expected frequency of both homozygotes",
+            "3": "Twice the population size"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-03-terms-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-03-square-root",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-practice-chapter-d-lesson-03-square-root",
+      "title": "Under Hardy–Weinberg assumptions at a two-allele locus, 9% of the modeled population is homozygous recessive. What is q?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-03-square-root",
+          "label": "Your selection",
+          "options": {
+            "0": "0.30",
+            "1": "0.09",
+            "2": "0.70",
+            "3": "0.91"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-03-square-root-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-03-interpretation",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-03-interpretation",
+      "title": "A sample contains 35 AA, 30 Aa and 35 aa organisms. Which calculation estimates p directly, without assuming equilibrium?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-03-interpretation",
+          "label": "Your selection",
+          "options": {
+            "0": "(2×35+30)/(2×100)=0.50",
+            "1": "35/100=0.35",
+            "2": "√(35/100)≈0.59",
+            "3": "30/100=0.30"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-03-interpretation-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-guided-d-lesson-04-new-allele",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-practice-guided-d-lesson-04-new-allele",
+      "title": "Which process is the ultimate source of a new allele sequence?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-guided-d-lesson-04-new-allele",
+          "label": "Your selection",
+          "options": {
+            "0": "Mutation",
+            "1": "Independent assortment",
+            "2": "Random fertilization",
+            "3": "Genetic drift"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-guided-d-lesson-04-new-allele-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-04-drift-pattern",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-practice-chapter-d-lesson-04-drift-pattern",
+      "title": "Which result most strongly supports drift rather than directional selection?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-04-drift-pattern",
+          "label": "Your selection",
+          "options": {
+            "0": "Small replicate populations change in different, unpredictable directions",
+            "1": "The same allele rises in every large population under the same condition",
+            "2": "A genotype has higher offspring survival in every trial",
+            "3": "Migrants reproduce and populations converge"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-04-drift-pattern-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-04-claim-quality",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-04-claim-quality",
+      "title": "An allele rises after a drought. Which new evidence most directly supports natural selection over a purely random survival explanation?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-04-claim-quality",
+          "label": "Your selection",
+          "options": {
+            "0": "A heritable associated trait predicts higher reproductive contribution across replicated drought populations",
+            "1": "The surviving population is smaller than it was before the drought",
+            "2": "The allele is also present at low frequency in one nearby population",
+            "3": "The same number of organisms is counted with a more sensitive detector"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-04-claim-quality-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-guided-d-lesson-05-community",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-practice-guided-d-lesson-05-community",
+      "title": "Which description defines an ecological community?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-guided-d-lesson-05-community",
+          "label": "Your selection",
+          "options": {
+            "0": "Populations of different species living and interacting in an area",
+            "1": "All individuals of one species across its entire range",
+            "2": "Only the non-living conditions in a habitat",
+            "3": "One organism and all of its genes"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-guided-d-lesson-05-community-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-05-competition-evidence",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-05-competition-evidence",
+      "title": "Which evidence most strongly supports competition?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-05-competition-evidence",
+          "label": "Your selection",
+          "options": {
+            "0": "Both species perform worse together because they draw down the same limiting resource",
+            "1": "Two species are photographed in the same area",
+            "2": "One species consumes the other",
+            "3": "Both species increase when one provides shelter"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-05-competition-evidence-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-05-context-shift",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-05-context-shift",
+      "title": "A fungus gains carbon from a plant in both soils. It raises plant growth in nutrient-poor soil but lowers plant growth in nutrient-rich soil. Which net classifications fit the measured outcomes?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-05-context-shift",
+          "label": "Your selection",
+          "options": {
+            "0": "Mutualism in poor soil; parasitism in rich soil",
+            "1": "Commensalism in poor soil; mutualism in rich soil",
+            "2": "Parasitism in poor soil; commensalism in rich soil",
+            "3": "Competition in both soils because carbon is transferred"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-05-context-shift-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-06-predator-lag",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-06-predator-lag",
+      "title": "In a simplified coupled cycle, why might predator abundance peak after prey abundance?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-06-predator-lag",
+          "label": "Your selection",
+          "options": {
+            "0": "Higher prey availability first increases predator survival or reproduction, whose population response takes time",
+            "1": "Predators always reproduce before prey",
+            "2": "Prey abundance is calculated from predator abundance",
+            "3": "A lag proves climate has no effect"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-06-predator-lag-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-06-resource-partition",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-06-resource-partition",
+      "title": "Which comparison best supports competition-driven resource partitioning?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-06-resource-partition",
+          "label": "Your selection",
+          "options": {
+            "0": "Species use broad overlapping resources alone but narrower, different resources together",
+            "1": "Species use different resources in different continents",
+            "2": "Both species eat the same food and grow equally well together",
+            "3": "One species eats the other"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-06-resource-partition-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-06-defence-tradeoff",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-06-defence-tradeoff",
+      "title": "A heritable toxin defence reduces predation but costs energy that could support reproduction. Which comparison best tests whether its net advantage changes with predator abundance?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-06-defence-tradeoff",
+          "label": "Your selection",
+          "options": {
+            "0": "Compare reproductive success of defended and undefended plants with and without predators",
+            "1": "Compare toxin concentration only in defended plants at one site",
+            "2": "Count predators without measuring any plant survival or reproduction",
+            "3": "Compare two plant species while changing soil, water and predator abundance together"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-06-defence-tradeoff-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-07-primary-secondary",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-07-primary-secondary",
+      "title": "What most directly distinguishes primary from secondary succession?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-07-primary-secondary",
+          "label": "Your selection",
+          "options": {
+            "0": "Whether developed soil and substantial biological legacies remain at the start",
+            "1": "The exact number of years since disturbance",
+            "2": "Whether the first colonist is a plant",
+            "3": "Whether the site will reach a fixed climax"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-07-primary-secondary-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-07-chronosequence",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-07-chronosequence",
+      "title": "A study compares sites of different ages after disturbance to infer change over time, rather than following one site through time. What is a major limitation of this comparison?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-07-chronosequence",
+          "label": "Your selection",
+          "options": {
+            "0": "Sites of different ages may also differ in soil, severity, or history",
+            "1": "It requires waiting at one site for decades",
+            "2": "It cannot include any measurements",
+            "3": "It always proves facilitation"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-07-chronosequence-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-07-mechanism-claim",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-07-mechanism-claim",
+      "title": "After a fire, a site retains soil, roots and some seeds. After a glacier retreats, a nearby site initially lacks developed soil. Which classification matches those starting conditions?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-07-mechanism-claim",
+          "label": "Your selection",
+          "options": {
+            "0": "Secondary succession after fire; primary succession after retreat",
+            "1": "Primary succession after fire; secondary succession after retreat",
+            "2": "Primary succession at both sites because disturbance occurred",
+            "3": "Secondary succession at both sites because colonizing species arrive"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-07-mechanism-claim-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-guided-d-lesson-08-density",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-practice-guided-d-lesson-08-density",
+      "title": "How is population density different from population size?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-guided-d-lesson-08-density",
+          "label": "Your selection",
+          "options": {
+            "0": "Density expresses individuals per unit area or volume; size is the total count within the boundary",
+            "1": "Density is always larger than size",
+            "2": "Size includes only adults while density includes juveniles",
+            "3": "Density measures birth rate only"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-guided-d-lesson-08-density-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-08-accounting",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-08-accounting",
+      "title": "A population starts at 500, with 60 births, 20 immigrants, 45 deaths, and 15 emigrants. What is ending N?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-08-accounting",
+          "label": "Your selection",
+          "options": {
+            "0": "520",
+            "1": "480",
+            "2": "500",
+            "3": "640"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-08-accounting-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-08-sampling-bias",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-08-sampling-bias",
+      "title": "A wildlife count rises from 80 to 120 after a thermal camera replaces visual surveys. Which design most directly estimates how much the method change affects detectability?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-08-sampling-bias",
+          "label": "Your selection",
+          "options": {
+            "0": "Run both methods over matched places and times, with repeated comparisons",
+            "1": "Treat the 40 extra detections as births in the interval",
+            "2": "Compare thermal counts in winter with visual counts in summer",
+            "3": "Use only the largest count from each method as the population size"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-08-sampling-bias-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-09-exponential",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-09-exponential",
+      "title": "Why does an exponential population model add more individuals each interval when the positive per-capita rate stays constant?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-09-exponential",
+          "label": "Your selection",
+          "options": {
+            "0": "The same rate acts on an increasing number of individuals",
+            "1": "Carrying capacity rises automatically every year",
+            "2": "Every individual produces more offspring each year",
+            "3": "Deaths become mathematically impossible"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-09-exponential-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-09-carrying-capacity",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-09-carrying-capacity",
+      "title": "Habitat restoration increases food and nesting sites. What is the most defensible prediction?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-09-carrying-capacity",
+          "label": "Your selection",
+          "options": {
+            "0": "Carrying capacity may increase under the new conditions, but must be estimated from later evidence",
+            "1": "K cannot change",
+            "2": "The population instantly becomes equal to the new K",
+            "3": "Exponential growth continues forever"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-09-carrying-capacity-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-09-model-choice",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-09-model-choice",
+      "title": "Under comparable conditions, populations starting at N=100, 200 and 300 grow by 40, 40 and 30 in equal intervals. Which pattern is consistent with density-dependent slowing?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-09-model-choice",
+          "label": "Your selection",
+          "options": {
+            "0": "Per-initial-individual changes fall from 0.40 to 0.20 to 0.10",
+            "1": "Absolute growth stays at 40 for all three populations",
+            "2": "Per-initial-individual change rises with population size",
+            "3": "The three observations establish an exact carrying capacity of 300"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-09-model-choice-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-10-continuum",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-10-continuum",
+      "title": "What is the most accurate use of the r/K life-history framework?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-10-continuum",
+          "label": "Your selection",
+          "options": {
+            "0": "A comparative continuum of trait trade-offs under different ecological conditions",
+            "1": "Two fixed categories that every species fits perfectly",
+            "2": "A ranking from inferior to superior species",
+            "3": "A replacement for population data"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-10-continuum-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-10-late-maturity",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-10-late-maturity",
+      "title": "Why can added adult mortality be especially risky for a late-maturing, low-fecundity species?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-10-late-maturity",
+          "label": "Your selection",
+          "options": {
+            "0": "Adults are replaced slowly, so population growth is sensitive to adult survival",
+            "1": "The species has no carrying capacity",
+            "2": "Every juvenile survives",
+            "3": "Genetic drift cannot occur"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-10-late-maturity-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-10-adaptive-plan",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-10-adaptive-plan",
+      "title": "A habitat trial aims to improve juvenile survival. Which result would most directly support revising the proposed mechanism?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-10-adaptive-plan",
+          "label": "Your selection",
+          "options": {
+            "0": "Habitat cover improves as planned, but juvenile survival remains unchanged in replicated treated and comparison sites",
+            "1": "The project uses fewer materials than its original budget estimated",
+            "2": "Adult count is larger in one treated site with no baseline count",
+            "3": "The habitat photographs look greener after seasonal rain"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-10-adaptive-plan-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-11-equilibrium-risk",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-11-equilibrium-risk",
+      "title": "One neutral marker matches Hardy–Weinberg genotype expectations while the number of different allele forms across monitored loci declines. Which interpretation is strongest?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-11-equilibrium-risk",
+          "label": "Your selection",
+          "options": {
+            "0": "Equilibrium at one marker does not rule out diversity loss or demographic risk",
+            "1": "The population has no genetic concern",
+            "2": "Natural selection is impossible",
+            "3": "The marker proves population size is stable"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-11-equilibrium-risk-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-chapter-d-lesson-11-factorial-evidence",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-practice-chapter-d-lesson-11-factorial-evidence",
+      "title": "Why compare habitat restoration and predator reduction alone and together?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-chapter-d-lesson-11-factorial-evidence",
+          "label": "Your selection",
+          "options": {
+            "0": "The design can estimate separate and interacting effects on recruitment",
+            "1": "It guarantees every confound is removed",
+            "2": "It makes monitoring unnecessary",
+            "3": "It proves genetics is irrelevant"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-chapter-d-lesson-11-factorial-evidence-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-practice-final-d-lesson-11-management-sequence",
+      "routeId": "d-final-practice",
+      "focusId": "d-practice-final-d-lesson-11-management-sequence",
+      "title": "A population starts at 500. Over one year it records 80 births, 20 immigrants, 60 deaths and 30 emigrants. Which report uses the correct population balance and denominator?",
+      "category": "Practice",
+      "responses": [],
+      "choices": [
+        {
+          "id": "d-practice-final-d-lesson-11-management-sequence",
+          "label": "Your selection",
+          "options": {
+            "0": "Net change +10; final N=510; interval per-capita change=0.02",
+            "1": "Net change +40; final N=540; interval per-capita change=0.08",
+            "2": "Net change −10; final N=490; interval per-capita change=−0.02",
+            "3": "Net change +10; final N=510; interval per-capita change=10/510"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-practice-final-d-lesson-11-management-sequence-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-guided-construct",
+      "routeId": "d-topic-hardy-weinberg",
+      "focusId": "d-topic-hardy-weinberg-guided-construct",
+      "title": "In 100 diploid organisms, AA=36, Aa=48 and aa=16. Calculate p and q from counts, calculate the Hardy–Weinberg expectations and state which calculation needs model assumptions.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-topic-hardy-weinberg-guided-construct",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-guided-construct-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-guided-construct",
+      "routeId": "d-topic-mechanisms-of-change",
+      "focusId": "d-topic-mechanisms-of-change-guided-construct",
+      "title": "Three isolated populations start at p=0.5. After ten generations their p values are 0.1, 0.7 and 0.4. Compare drift with selection and propose evidence that could distinguish them.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-topic-mechanisms-of-change-guided-construct",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-guided-construct-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-guided-construct",
+      "routeId": "d-topic-population-growth",
+      "focusId": "d-topic-population-growth-guided-construct",
+      "title": "Use the three explicitly separate datasets. For quadrats 2, 8, 4, 10 and 6 plants in five 1 m² samples from 200 m², calculate density and estimated abundance. For initial N=1000, B=120, I=30, D=70 and E=20 in ten days, calculate absolute rate and interval per-capita change. Then plot both supplied growth-model series on common labelled axes and explain why they diverge.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-topic-population-growth-guided-construct",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-guided-construct-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-guided-construct",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-guided-construct",
+      "title": "A mixed plot with five A and five B plants yields 2.4 g per A, while a ten-A plot yields 3.0 g per A. Explain the competition inference and name one limitation; then distinguish primary and secondary succession.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-guided-construct",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-guided-construct-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-chapter-construct-01",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-chapter-construct-01",
+      "title": "A fully expressed recessive phenotype occurs in 9% of a fictional two-allele population. Estimate allele and genotype frequencies under Hardy–Weinberg assumptions and check the sum.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-chapter-construct-01",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-chapter-construct-01-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-chapter-construct-02",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-chapter-construct-02",
+      "title": "Predict how drift, gene flow and nonrandom mating differ in their first effects, using one explicit population boundary.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-chapter-construct-02",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-chapter-construct-02-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-chapter-construct-03",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-chapter-construct-03",
+      "title": "Design a repeated comparison that distinguishes selection for resistance from a mutation caused by need.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-chapter-construct-03",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-chapter-construct-03-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-chapter-construct-04",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-chapter-construct-04",
+      "title": "Calculate a mark-recapture estimate when 40 organisms are initially marked, the second sample contains 50 and 10 are marked. State two assumptions.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-chapter-construct-04",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-chapter-construct-04-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-chapter-construct-05",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-chapter-construct-05",
+      "title": "Compare adding ten plants per year with increasing 10% per year for a starting population of 100 over two discrete years.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-chapter-construct-05",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-chapter-construct-05-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-chapter-construct-06",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-chapter-construct-06",
+      "title": "Propose a replicated disturbance study that separates remaining soil from site age when comparing succession.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-chapter-construct-06",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-chapter-construct-06-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-investigation-gene-pool-final-transfer-revision-v2",
+      "routeId": "d-final-practice",
+      "focusId": "d-investigation-gene-pool-final-transfer-revision-v2",
+      "title": "Using the three supplied genotype rows, test whether gene flow explains the change in p. Calculate p for at least two rows with the correct denominator. State a testable prediction and a repeated comparison with controlled sampling. A reviewer says, “The movement label proves that migration caused the whole change.” Respond with an alternative explanation and revise that claim; identify the additional observation that would distinguish the causes.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-investigation-gene-pool-final-transfer-revision-v2",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-investigation-gene-pool-final-transfer-revision-v2-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-investigation-competition-final-transfer-revision-v2",
+      "routeId": "d-final-practice",
+      "focusId": "d-investigation-competition-final-transfer-revision-v2",
+      "title": "Use the supplied plant-mass data to test the effect of neighbour identity at equal starting density. Report two treatment means with units. State a testable prediction and a replicated comparison, naming controlled conditions. A reviewer says, “B must release a toxin because A is smaller in mixed pots.” Respond to this claim, give another explanation, and revise the conclusion. Name a measurement that could distinguish the explanations.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-investigation-competition-final-transfer-revision-v2",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-investigation-competition-final-transfer-revision-v2-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-investigation-population-growth-final-transfer-revision-v2",
+      "routeId": "d-final-practice",
+      "focusId": "d-investigation-population-growth-final-transfer-revision-v2",
+      "title": "Use the five quadrat counts to test how spatial placement affects an abundance estimate. Report the count range, mean density and conditional whole-area estimate. Predict a result if dense patches are oversampled, then design a repeated comparison with controlled counting rules. A reviewer says, “The estimate of 1200 is an exact census.” Respond with an alternative sampling explanation and revise that claim; state what further observations would help.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-investigation-population-growth-final-transfer-revision-v2",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-investigation-population-growth-final-transfer-revision-v2-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-challenge",
+      "routeId": "d-diploma-challenge",
+      "focusId": "d-topic-hardy-weinberg-challenge",
+      "title": "A sample of 100 diploid organisms contains 50 AA, 20 Aa and 30 aa. Calculate p and q by counting alleles. Compare observed heterozygotes with the Hardy–Weinberg expectation and explain why this difference does not identify one evolutionary cause.",
+      "category": "Diploma Challenge",
+      "responses": [
+        {
+          "id": "d-topic-hardy-weinberg-challenge",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-hardy-weinberg-challenge-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-challenge",
+      "routeId": "d-diploma-challenge",
+      "focusId": "d-topic-mechanisms-of-change-challenge",
+      "title": "Three populations start at p=0.5 and end at 0.1, 0.7 and 0.4. They were first described as isolated; new records show migrants entered each population. Explain how this changes the drift inference and name the data needed to estimate the contribution of gene flow.",
+      "category": "Diploma Challenge",
+      "responses": [
+        {
+          "id": "d-topic-mechanisms-of-change-challenge",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-mechanisms-of-change-challenge-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-challenge",
+      "routeId": "d-diploma-challenge",
+      "focusId": "d-topic-population-growth-challenge",
+      "title": "Five 1 m² quadrats contain 2, 8, 4, 10 and 6 plants in a 200 m² area. They were all placed beside a path, rather than randomly. Calculate the sample mean, explain why the whole-area estimate is now insecure, and propose a sampling repair.",
+      "category": "Diploma Challenge",
+      "responses": [
+        {
+          "id": "d-topic-population-growth-challenge",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-population-growth-challenge-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-challenge",
+      "routeId": "d-diploma-challenge",
+      "focusId": "d-topic-life-strategies-and-ecological-relationships-challenge",
+      "title": "A plants average 2.4 g in mixed A/B plots and 3.0 g in A-only plots at equal total density. The mixed plots also received less water. Explain the confounding problem and design a comparison that tests whether B changes A performance.",
+      "category": "Diploma Challenge",
+      "responses": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-challenge",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-challenge-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-application-resistance-evidence-and-consequences",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-application-resistance-evidence-and-consequences",
+      "title": "Compare the two fictional farm plots. Calculate the resistance-allele frequencies from allele-copy counts. Separate the intended benefit, an unintended human consequence and possible environmental consequences. Use mutation and selection to explain a possible change, state a testable future prediction and a limitation. Make an initial recommendation about further research. A neighbouring grower now objects that monitoring costs are difficult to afford. Revise your recommendation or justify retaining it while addressing that concern. These observations do not identify a specific mutation or prove one cause.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-application-resistance-evidence-and-consequences",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-application-resistance-evidence-and-consequences-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-application-wetland-research-and-models",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-application-wetland-research-and-models",
+      "title": "A fictional Canadian wetland project is choosing research priorities. Explain why scientific research and technological development can support each of the social, economic and environmental goals in the table. Use the separate growth-model projections to predict an observation that could challenge one model. State an initial research priority. A resident then argues that access restrictions could reduce local income. Revise the priority or justify retaining it with an adaptation; say what to monitor and what would trigger another revision. Do not present a model projection or a supplied perspective as community agreement.",
+      "category": "Practice",
+      "responses": [
+        {
+          "id": "d-application-wetland-research-and-models",
+          "label": "Your response"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-application-wetland-research-and-models-attempted",
+          "label": "Attempted"
+        }
+      ]
+    },
+    {
+      "id": "d-family-gene-pools",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-gene-pools",
+      "title": "Gene pools",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-gene-pools-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-gene-pools-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-gene-pools-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-gene-pools-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-gene-pools-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-hardy-weinberg-model",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-hardy-weinberg-model",
+      "title": "Hardy–Weinberg model",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-hardy-weinberg-model-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-hardy-weinberg-model-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-hardy-weinberg-model-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-hardy-weinberg-model-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-hardy-weinberg-model-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-equilibrium-assumptions",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-equilibrium-assumptions",
+      "title": "Equilibrium assumptions",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-equilibrium-assumptions-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-equilibrium-assumptions-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-equilibrium-assumptions-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-equilibrium-assumptions-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-equilibrium-assumptions-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-conditional-genetic-inference",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-conditional-genetic-inference",
+      "title": "Conditional genetic inference",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-conditional-genetic-inference-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-conditional-genetic-inference-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-conditional-genetic-inference-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-conditional-genetic-inference-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-conditional-genetic-inference-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-population-evidence",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-population-evidence",
+      "title": "Population evidence",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-population-evidence-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-population-evidence-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-population-evidence-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-population-evidence-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-population-evidence-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-mutation",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-mutation",
+      "title": "Mutation",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-mutation-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-mutation-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-mutation-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-mutation-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-mutation-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-natural-selection",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-natural-selection",
+      "title": "Natural selection",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-natural-selection-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-natural-selection-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-natural-selection-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-natural-selection-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-natural-selection-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-genetic-drift",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-genetic-drift",
+      "title": "Genetic drift",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-genetic-drift-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-genetic-drift-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-genetic-drift-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-genetic-drift-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-genetic-drift-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-bottleneck-and-founder-effects",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-bottleneck-and-founder-effects",
+      "title": "Bottleneck and founder effects",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-bottleneck-and-founder-effects-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-bottleneck-and-founder-effects-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-bottleneck-and-founder-effects-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-bottleneck-and-founder-effects-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-bottleneck-and-founder-effects-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-gene-flow",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-gene-flow",
+      "title": "Gene flow",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-gene-flow-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-gene-flow-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-gene-flow-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-gene-flow-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-gene-flow-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-nonrandom-mating",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-nonrandom-mating",
+      "title": "Nonrandom mating",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-nonrandom-mating-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-nonrandom-mating-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-nonrandom-mating-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-nonrandom-mating-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-nonrandom-mating-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-resistance",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-resistance",
+      "title": "Resistance",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-resistance-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-resistance-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-resistance-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-resistance-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-resistance-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-density-and-distribution",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-density-and-distribution",
+      "title": "Density and distribution",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-density-and-distribution-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-density-and-distribution-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-density-and-distribution-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-density-and-distribution-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-density-and-distribution-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-sampling",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-sampling",
+      "title": "Sampling",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-sampling-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-sampling-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-sampling-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-sampling-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-sampling-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-population-balance",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-population-balance",
+      "title": "Population balance",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-population-balance-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-population-balance-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-population-balance-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-population-balance-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-population-balance-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-growth-rates",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-growth-rates",
+      "title": "Growth rates",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-growth-rates-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-growth-rates-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-growth-rates-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-growth-rates-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-growth-rates-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-exponential-growth",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-exponential-growth",
+      "title": "Exponential growth",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-exponential-growth-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-exponential-growth-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-exponential-growth-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-exponential-growth-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-exponential-growth-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-logistic-growth",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-logistic-growth",
+      "title": "Logistic growth",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-logistic-growth-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-logistic-growth-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-logistic-growth-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-logistic-growth-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-logistic-growth-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-limiting-factors",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-limiting-factors",
+      "title": "Limiting factors",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-limiting-factors-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-limiting-factors-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-limiting-factors-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-limiting-factors-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-limiting-factors-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-delays-and-overshoot",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-delays-and-overshoot",
+      "title": "Delays and overshoot",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-delays-and-overshoot-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-delays-and-overshoot-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-delays-and-overshoot-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-delays-and-overshoot-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-delays-and-overshoot-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-life-histories",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-life-histories",
+      "title": "Life histories",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-life-histories-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-life-histories-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-life-histories-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-life-histories-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-life-histories-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-ecological-relationships",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-ecological-relationships",
+      "title": "Ecological relationships",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-ecological-relationships-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-ecological-relationships-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-ecological-relationships-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-ecological-relationships-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-ecological-relationships-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-competition-and-defence",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-competition-and-defence",
+      "title": "Competition and defence",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-competition-and-defence-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-competition-and-defence-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-competition-and-defence-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-competition-and-defence-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-competition-and-defence-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-family-succession",
+      "routeId": "d-core-vocabulary",
+      "focusId": "d-family-succession",
+      "title": "Succession",
+      "category": "Frayer",
+      "responses": [
+        {
+          "id": "d-family-succession-definition",
+          "label": "Contextual definition"
+        },
+        {
+          "id": "d-family-succession-mechanism",
+          "label": "Essential mechanism"
+        },
+        {
+          "id": "d-family-succession-evidence",
+          "label": "Unit evidence"
+        },
+        {
+          "id": "d-family-succession-contrast",
+          "label": "Non-example or confusion"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-family-succession-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-model-gene-pool",
+      "routeId": "d-models",
+      "focusId": "d-model-gene-pool",
+      "title": "Compare observed counts with equilibrium expectations",
+      "category": "Models and Data Lab",
+      "responses": [
+        {
+          "id": "d-model-gene-pool-prediction",
+          "label": "Prediction"
+        },
+        {
+          "id": "d-model-gene-pool-explanation",
+          "label": "Explanation"
+        }
+      ],
+      "choices": [
+        {
+          "id": "d-model-gene-pool",
+          "label": "Selected case",
+          "options": {
+            "36-48-16": "Initial sample",
+            "45-45-10": "After modelled movement",
+            "42-46-12": "Later sample"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-model-gene-pool-tested",
+          "label": "Tested"
+        },
+        {
+          "id": "d-model-gene-pool-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-model-population-balance",
+      "routeId": "d-models",
+      "focusId": "d-model-population-balance",
+      "title": "Separate density from demographic change",
+      "category": "Models and Data Lab",
+      "responses": [
+        {
+          "id": "d-model-population-balance-prediction",
+          "label": "Prediction"
+        },
+        {
+          "id": "d-model-population-balance-explanation",
+          "label": "Explanation"
+        }
+      ],
+      "choices": [
+        {
+          "id": "d-model-population-balance",
+          "label": "Selected case",
+          "options": {
+            "baseline": "Baseline demographic scenario",
+            "higher-immigration": "Immigration rises from 30 to 90",
+            "higher-mortality": "Deaths rise from 70 to 150"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-model-population-balance-tested",
+          "label": "Tested"
+        },
+        {
+          "id": "d-model-population-balance-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-model-competition",
+      "routeId": "d-models",
+      "focusId": "d-model-competition",
+      "title": "Compare density and species composition",
+      "category": "Models and Data Lab",
+      "responses": [
+        {
+          "id": "d-model-competition-prediction",
+          "label": "Prediction"
+        },
+        {
+          "id": "d-model-competition-explanation",
+          "label": "Explanation"
+        }
+      ],
+      "choices": [
+        {
+          "id": "d-model-competition",
+          "label": "Selected case",
+          "options": {
+            "five-A": "5 A plants",
+            "ten-A": "10 A plants",
+            "five-A-five-B": "5 A + 5 B plants"
+          }
+        }
+      ],
+      "flags": [
+        {
+          "id": "d-model-competition-tested",
+          "label": "Tested"
+        },
+        {
+          "id": "d-model-competition-collected",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-investigation-gene-pool",
+      "routeId": "d-investigations",
+      "focusId": "d-investigation-gene-pool",
+      "title": "Compare a changing gene pool",
+      "category": "Investigation",
+      "responses": [
+        {
+          "id": "d-investigation-gene-pool-plan",
+          "label": "question and competing causes"
+        },
+        {
+          "id": "d-investigation-gene-pool-observations",
+          "label": "allele calculations and expected frequencies"
+        },
+        {
+          "id": "d-investigation-gene-pool-explanation",
+          "label": "time-series comparison"
+        },
+        {
+          "id": "d-investigation-gene-pool-revision",
+          "label": "additional evidence and revised claim"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-investigation-gene-pool-saved",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-investigation-competition",
+      "routeId": "d-investigations",
+      "focusId": "d-investigation-competition",
+      "title": "Separate within-species and between-species effects",
+      "category": "Investigation",
+      "responses": [
+        {
+          "id": "d-investigation-competition-plan",
+          "label": "question and controlled comparison"
+        },
+        {
+          "id": "d-investigation-competition-observations",
+          "label": "means and units"
+        },
+        {
+          "id": "d-investigation-competition-explanation",
+          "label": "within/between-species interpretation"
+        },
+        {
+          "id": "d-investigation-competition-revision",
+          "label": "confounder and improved design"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-investigation-competition-saved",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-investigation-population-growth",
+      "routeId": "d-investigations",
+      "focusId": "d-investigation-population-growth",
+      "title": "Sample, estimate and explain change",
+      "category": "Investigation",
+      "responses": [
+        {
+          "id": "d-investigation-population-growth-plan",
+          "label": "sampling question and prediction"
+        },
+        {
+          "id": "d-investigation-population-growth-observations",
+          "label": "density estimate with units"
+        },
+        {
+          "id": "d-investigation-population-growth-explanation",
+          "label": "four demographic calculations and graph"
+        },
+        {
+          "id": "d-investigation-population-growth-revision",
+          "label": "limitations and revised design"
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-investigation-population-growth-saved",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-review-seminar",
+      "routeId": "d-review-seminar",
+      "focusId": "d-review-seminar-connect",
+      "title": "Review Seminar: the North Marsh evidence board",
+      "category": "Review Seminar",
+      "responses": [
+        {
+          "id": "d-review-seminar-connect",
+          "label": "Calculate the change in adult abundance as a percentage of the starting count and the mark–recapture estimate. Then explain why one marker near Hardy–Weinberg expectations does not rule out loss of diversity."
+        },
+        {
+          "id": "d-review-seminar-evaluate",
+          "label": "Evaluate the claim that predator signs alone explain all nest failures. Use two supplied percentages and name a comparison that would help distinguish predator and habitat effects."
+        },
+        {
+          "id": "d-review-seminar-revise",
+          "label": "Revise a proposal to move birds immediately after a peer notes habitat loss and uncertain causes. State an evidence step and a monitoring rule, including an earlier reason to stop."
+        }
+      ],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-review-seminar-saved",
+          "label": "Saved to collection"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q1",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q1",
+      "title": "Textbook Q1: Distinguish an individual event from population change",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q1-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q2",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q2",
+      "title": "Textbook Q2: Calculate heterozygote frequency",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q2-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q3",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q3",
+      "title": "Textbook Q3: Start from a recessive phenotype",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q3-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q4",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q4",
+      "title": "Textbook Q4: Use a qualified historical model",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q4-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q5",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q5",
+      "title": "Textbook Q5: Derive alleles from observed genotypes",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q5-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q6",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q6",
+      "title": "Textbook Q6: Calculate a two-allele model",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q6-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q7",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q7",
+      "title": "Textbook Q7: Explain drift and sample size",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q7-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q8",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q8",
+      "title": "Textbook Q8: Avoid a unique cause from one frequency",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q8-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q9",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q9",
+      "title": "Textbook Q9: Calculate carriers and limit geographic inference",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q9-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q10",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q10",
+      "title": "Textbook Q10: Read the pika counts",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q10-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q11",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q11",
+      "title": "Textbook Q11: Separate an estimate from assumptions",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q11-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q12",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q12",
+      "title": "Textbook Q12: Count MN alleles",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q12-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q13",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q13",
+      "title": "Textbook Q13: Calculate a recessive model with a limitation",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q13-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q14",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q14",
+      "title": "Textbook Q14: Find a threshold in the model",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q14-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-19-q15",
+      "routeId": "d-chapter-19-practice",
+      "focusId": "d-textbook-chapter-19-q15",
+      "title": "Textbook Q15: Compare selection with drift",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-19-q15-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q1",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q1",
+      "title": "Textbook Q1: Name limiting mechanisms",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q1-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q2",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q2",
+      "title": "Textbook Q2: Explain interspecific competition",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q2-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q3",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q3",
+      "title": "Textbook Q3: Balance four processes",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q3-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q4",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q4",
+      "title": "Textbook Q4: Scale a sampled density",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q4-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q5",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q5",
+      "title": "Textbook Q5: Explain positive growth potential",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q5-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q6",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q6",
+      "title": "Textbook Q6: Classify the stated interaction conditionally",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q6-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q7",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q7",
+      "title": "Textbook Q7: Calculate interval per-capita change",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q7-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q8",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q8",
+      "title": "Textbook Q8: Connect colonization to life-history traits",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q8-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q9",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q9",
+      "title": "Textbook Q9: Describe spatial patterns",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q9-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q10",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q10",
+      "title": "Textbook Q10: Explain competition and growth",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q10-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q11",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q11",
+      "title": "Textbook Q11: Connect consumers to density feedback",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q11-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q12",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q12",
+      "title": "Textbook Q12: Compare two consumer-resource relationships",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q12-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q14",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q14",
+      "title": "Textbook Q14: Connect potential, resistance and capacity",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q14-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q15",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q15",
+      "title": "Textbook Q15: Distinguish constant addition from exponential growth",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q15-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q17",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q17",
+      "title": "Textbook Q17: Compare limiting contexts",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q17-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q18",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q18",
+      "title": "Textbook Q18: Trace effects and evolutionary conditions",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q18-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q20",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q20",
+      "title": "Textbook Q20: Qualify a succession comparison",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q20-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20-q22",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-chapter-20-q22",
+      "title": "Textbook Q22: Calculate and qualify the caterpillar evidence",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-chapter-20-q22-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q1",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q1",
+      "title": "Textbook Q1: Combine genotype categories",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q1-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q2",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q2",
+      "title": "Textbook Q2: Replace a misleading human-trait example",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q2-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q3",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q3",
+      "title": "Textbook Q3: Define equilibrium at a locus",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q3-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q4",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q4",
+      "title": "Textbook Q4: Explain within-species competition",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q4-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q5",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q5",
+      "title": "Textbook Q5: Distinguish allele from genotype",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q5-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q6",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q6",
+      "title": "Textbook Q6: Explain stronger sampling effects",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q6-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q7",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q7",
+      "title": "Textbook Q7: Connect mutation to microevolution",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q7-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q8",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q8",
+      "title": "Textbook Q8: Separate origin and selection",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q8-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q9",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q9",
+      "title": "Textbook Q9: Evaluate a reproductive trade-off",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q9-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q10",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q10",
+      "title": "Textbook Q10: Explain crop-weed competition",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q10-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q11",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q11",
+      "title": "Textbook Q11: Scale habitat density",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q11-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q12",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q12",
+      "title": "Textbook Q12: Classify at a stated scale",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q12-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q13",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q13",
+      "title": "Textbook Q13: Use effects on participants",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q13-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q14",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q14",
+      "title": "Textbook Q14: Distinguish mimicry models",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q14-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q15",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q15",
+      "title": "Textbook Q15: Predict spacing from inhibition",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q15-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q16",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q16",
+      "title": "Textbook Q16: Connect habitat area and life history",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q16-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q17",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q17",
+      "title": "Textbook Q17: Describe a succession case",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q17-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q18",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q18",
+      "title": "Textbook Q18: Interpret a stable age structure",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q18-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q19",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q19",
+      "title": "Textbook Q19: Calculate a heterozygote percentage",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q19-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q20",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q20",
+      "title": "Textbook Q20: Solve a recessive-frequency model",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q20-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q21",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q21",
+      "title": "Textbook Q21: State a fictional model clearly",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q21-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q22",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q22",
+      "title": "Textbook Q22: Qualify a coat-colour inference",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q22-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q23",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q23",
+      "title": "Textbook Q23: Use historical model data without ancestry inference",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q23-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q24",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q24",
+      "title": "Textbook Q24: Correct the trait and denominator",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q24-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q25",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q25",
+      "title": "Textbook Q25: Compare conditional allele estimates",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q25-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q26",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q26",
+      "title": "Textbook Q26: Keep time intervals consistent",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q26-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q27",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q27",
+      "title": "Textbook Q27: Calculate a decline",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q27-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q28",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q28",
+      "title": "Textbook Q28: Use area units",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q28-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q29",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q29",
+      "title": "Textbook Q29: Apply a discrete annual model",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q29-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q30",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q30",
+      "title": "Textbook Q30: Read density and interval change",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q30-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q31",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q31",
+      "title": "Textbook Q31: Explain the allele time series",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q31-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q32",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q32",
+      "title": "Textbook Q32: Interpret a schematic without treating it as a law",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q32-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q33",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q33",
+      "title": "Textbook Q33: Explain vulnerability and recovery",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q33-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q34",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q34",
+      "title": "Textbook Q34: Evaluate biodiversity across levels",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q34-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8-q35",
+      "routeId": "d-chapter-20-practice",
+      "focusId": "d-textbook-unit-8-q35",
+      "title": "Textbook Q35: Read historical age-structure shapes cautiously",
+      "category": "Textbook reinforcement",
+      "responses": [],
+      "choices": [],
+      "flags": [
+        {
+          "id": "d-textbook-unit-8-q35-attempted",
+          "label": "Attempt confirmed"
+        }
+      ]
+    },
+    {
+      "id": "d-process-note",
+      "routeId": "d-notes",
+      "focusId": "d-process-note",
+      "title": "My notes",
+      "category": "Notes",
+      "responses": [
+        {
+          "id": "d-process-note",
+          "label": "Notes"
+        }
+      ],
+      "choices": [],
+      "flags": []
+    }
+  ],
+  "teacherDecision": null
+}

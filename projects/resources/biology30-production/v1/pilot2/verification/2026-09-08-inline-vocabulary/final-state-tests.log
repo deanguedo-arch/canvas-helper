@@ -1,0 +1,19 @@
+✔ C indexed metadata preserves all choices, visited order and old v3 saves without touching writing (15.283417ms)
+✔ C indexed metadata rejects map drift, unknown choices/routes and corrupt payloads (4.093708ms)
+✔ C maximum ordinary and Unicode states fit for every optional Frayer pair and longest route (2303.419375ms)
+✔ each all-unit maximum ordinary/Unicode state fits target and round-trips without duplicated work (19.022583ms)
+✔ escaping and mixed legacy overflow reject atomically and preserve original and last valid payload (10.949958ms)
+✔ save channels and exceptions are reported independently (0.585416ms)
+✔ migration preserves byte-exact raw work without reassigning answers or completions (2.265875ms)
+✔ written Frayer replacement requires scoped clear and leaves all unrelated work untouched (0.5555ms)
+✔ corrupt, duplicate, unknown, cross-unit and oversized fields cannot silently overwrite work (0.606958ms)
+✔ compact flags preserve the semantic set, accept earlier token arrays and reject changed map identities or unknown bits (7.758125ms)
+✔ ordered responses preserve distinct, empty, Unicode and escaped writing, while sparse and earlier pairs remain readable (11.684292ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2491.116

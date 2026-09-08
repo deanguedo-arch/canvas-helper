@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "pe10-online-pilot",
+  "status": "pilot-awaiting-teacher-review",
+  "curriculumAuthority": {
+    "title": "Alberta Physical Education Program of Studies",
+    "url": "https://education.alberta.ca/physical-education/program-of-studies/everyone/physical-education/",
+    "reviewedAt": "2026-09-03",
+    "aim": "Develop the knowledge, skills, and attitudes needed for an active, healthy lifestyle."
+  },
+  "generalOutcomes": [
+    {
+      "id": "A",
+      "name": "Activity",
+      "pilotEvidence": ["50-hour activity log", "progression reflections", "movement-skill observation", "five movement dimensions"]
+    },
+    {
+      "id": "B",
+      "name": "Health Benefits",
+      "pilotEvidence": ["intensity reflection", "fitness, fuel, hydration, and recovery plan", "health and media inquiry"]
+    },
+    {
+      "id": "C",
+      "name": "Cooperation",
+      "pilotEvidence": ["cooperation observation", "fair-play or communication evidence", "30-hour checkpoint"]
+    },
+    {
+      "id": "D",
+      "name": "Do It Daily for Life",
+      "pilotEvidence": ["personal activity plan", "ten five-hour checkpoints", "final active-living reflection"]
+    }
+  ],
+  "movementDimensions": [
+    "alternative-environments",
+    "dance",
+    "games",
+    "gymnastics-body-control",
+    "individual-activities"
+  ],
+  "activityEvidence": {
+    "weightPercent": 50,
+    "requiredMinutes": 3000,
+    "breadthMinutesPerDimension": 300,
+    "maximumMinutesPerDimension": 1800,
+    "navigationLocked": false,
+    "teacherApprovedAlternateEvidence": {
+      "allowed": true,
+      "replaces": "one or more five-hour dimension breadth checks",
+      "doesNotReplace": "the 50-hour total",
+      "privacyRule": "record the agreement or plan reference, not a diagnosis or private reason"
+    },
+    "officialGradeLocation": "Brightspace"
+  },
+  "academicEvidence": {
+    "weightPercent": 50,
+    "totalPoints": 50,
+    "automaticGrade": false,
+    "officialGradeLocation": "Brightspace",
+    "assignments": [
+      {
+        "id": "assignment-1",
+        "title": "Personal Activity and Safety Plan",
+        "points": 10,
+        "outcomes": ["A", "D"],
+        "legacyInputs": ["handbook Fitness and Nutrition Plan", "practical academic module SMART goals"],
+        "requiredEvidence": ["meaningful starting point", "two measurable goals", "weekly activity pattern", "safety and support plan"]
+      },
+      {
+        "id": "assignment-2",
+        "title": "Movement Skill and Cooperation Observation",
+        "points": 10,
+        "outcomes": ["A", "C"],
+        "legacyInputs": ["observation.pdf", "explanation.pdf alternate pathway examples"],
+        "requiredEvidence": ["observation context", "observable movement evidence", "use of feedback", "cooperation and next step"]
+      },
+      {
+        "id": "assignment-3",
+        "title": "Fitness, Fuel, Hydration, and Recovery Plan",
+        "points": 10,
+        "outcomes": ["B", "D"],
+        "legacyInputs": ["handbook Fitness and Nutrition Plan", "PE10 and rec coil nutrition and sports-nutrition topics"],
+        "requiredEvidence": ["activity demands", "inclusive fuel and hydration plan", "recovery plan", "monitoring and adjustment"]
+      },
+      {
+        "id": "assignment-4",
+        "title": "Health and Media Literacy Inquiry",
+        "points": 10,
+        "outcomes": ["B", "D"],
+        "legacyInputs": ["handbook Disease Prevention", "handbook Secrets of Sugar", "practical academic module media inquiry", "PE10 and rec coil body-image topics"],
+        "requiredEvidence": ["claim, source, and audience", "credible evidence comparison", "missing context and impact", "responsible rewrite and conclusion"]
+      },
+      {
+        "id": "assignment-5",
+        "title": "CPR/AED Awareness and Final Active-Living Reflection",
+        "points": 10,
+        "outcomes": ["B", "C", "D"],
+        "legacyInputs": ["handbook CPR Awareness", "handbook Journal Entry"],
+        "requiredEvidence": ["cardiac-arrest response awareness", "AED role and certification boundary", "course evidence of growth", "active-living plan"]
+      }
+    ]
+  },
+  "dispositions": [
+    {
+      "item": "Fixed 50-hour activity target",
+      "source": "NEXT STEP handbook",
+      "status": "adopted",
+      "implementation": "Activity Log total and portfolio readiness"
+    },
+    {
+      "item": "Five hours in each movement dimension",
+      "source": "NEXT STEP handbook aligned to Alberta dimensions",
+      "status": "adopted-with-accommodation",
+      "implementation": "readiness check with teacher-approved alternate-evidence route"
+    },
+    {
+      "item": "Thirty-hour maximum in one dimension",
+      "source": "NEXT STEP handbook",
+      "status": "adopted-as-readiness-check",
+      "implementation": "warning and portfolio review; it never locks navigation"
+    },
+    {
+      "item": "Credit choices and 110-hour route",
+      "source": "NEXT STEP handbook",
+      "status": "excluded-by-pilot-decision",
+      "implementation": "no learner-facing credit language"
+    },
+    {
+      "item": "Seven paper activity categories",
+      "source": "NEXT STEP handbook",
+      "status": "rewritten",
+      "implementation": "five official Alberta movement dimensions"
+    },
+    {
+      "item": "Paper witness signatures and telephone numbers",
+      "source": "NEXT STEP handbook",
+      "status": "excluded-for-privacy",
+      "implementation": "optional verifier name and role only"
+    },
+    {
+      "item": "Contradictory high-risk and excluded-activity lists",
+      "source": "NEXT STEP handbook",
+      "status": "excluded-pending-current-policy-review",
+      "implementation": "risk-factor prompts and teacher approval instead of a fixed activity list"
+    },
+    {
+      "item": "Long practical academic worksheet",
+      "source": "practical academic module.pdf",
+      "status": "rewritten",
+      "implementation": "goal-setting, media literacy, and checkpoint prompts distributed through the course"
+    },
+    {
+      "item": "Observation signature form",
+      "source": "observation.pdf",
+      "status": "rewritten",
+      "implementation": "Assignment 2 requires observable evidence, feedback, adaptation, and cooperation"
+    },
+    {
+      "item": "Conflicting 15/15/20/35/15 grade model",
+      "source": "explanation.pdf",
+      "status": "excluded-as-contradictory",
+      "implementation": "the familiar 50/50 model governs the pilot"
+    },
+    {
+      "item": "School, community, self-directed, clinic, camp, and course pathways",
+      "source": "explanation.pdf",
+      "status": "adopted-and-simplified",
+      "implementation": "How PE10 Works evidence pathways"
+    },
+    {
+      "item": "Legacy four-food-group and scanned nutrition pages",
+      "source": "PE10 and rec coil.pdf",
+      "status": "outdated-and-rights-restricted",
+      "implementation": "excluded from learner delivery; replaced with current Canada's Food Guide summaries and links"
+    },
+    {
+      "item": "Weight loss, calorie counting, supplement, and body-comparison framing",
+      "source": "legacy handbook, practical module, and coil",
+      "status": "excluded-or-reframed",
+      "implementation": "inclusive fuel, recovery, media-literacy, access, and well-being evidence"
+    },
+    {
+      "item": "Legacy CPR worksheet",
+      "source": "NEXT STEP handbook",
+      "status": "rewritten",
+      "implementation": "current Heart & Stroke hands-only CPR and AED awareness with a clear non-certification boundary"
+    },
+    {
+      "item": "Date, activity, time, challenge, and comment tracking fields",
+      "source": "tracking sheet.pdf",
+      "status": "adopted-and-expanded",
+      "implementation": "bounded log with dimension, intensity, focus, adaptation, reflection, safety, and optional verifier role"
+    },
+    {
+      "item": "Named staff, costs, printing, email, flash-drive, and removable-media instructions",
+      "source": "legacy local sources",
+      "status": "excluded-as-local-or-obsolete",
+      "implementation": "Brightspace setup guide and disabled submission controls until real course links exist"
+    }
+  ],
+  "currentHealthSources": [
+    {
+      "title": "Physical activity: Being physically active for your health",
+      "authority": "Public Health Agency of Canada",
+      "url": "https://www.canada.ca/en/public-health/services/being-active/physical-activity-your-health.html",
+      "reviewedAt": "2026-09-03"
+    },
+    {
+      "title": "Canada's Food Guide",
+      "authority": "Health Canada",
+      "url": "https://food-guide.canada.ca/en/",
+      "reviewedAt": "2026-09-03"
+    },
+    {
+      "title": "Hands-Only CPR",
+      "authority": "Heart & Stroke Foundation of Canada",
+      "url": "https://www.heartandstroke.ca/-/media/pdf-files/cpr/hands-only-cpr-poster-en.pdf?rev=adb5902acbe74f6190387eaa0b5de02c",
+      "reviewedAt": "2026-09-03"
+    },
+    {
+      "title": "Administrative Procedure 317: Concussions",
+      "authority": "Elk Island Public Schools",
+      "url": "https://www.eips.ca/about-us/administrative-procedures/317",
+      "documentLastUpdated": "2025-12",
+      "reviewedAt": "2026-09-03"
+    }
+  ]
+}

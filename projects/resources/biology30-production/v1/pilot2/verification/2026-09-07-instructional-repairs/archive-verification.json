@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "packages": [
+    {
+      "unit": "A",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-2/meta/biology30-unit-a-pilot-2-chatgpt-review-package.zip",
+      "sha256": "e8518e3224d75b675361e0c075b609985be6e5185da90daf7540cfba6865f541",
+      "entrySha256": "aa28a6548d89a283530ddc49229473f32cbb03c6bd06ac46ed7bf72a27e3d9ee",
+      "packageCandidateTreeSha256": "811472451cff8ced2c6c7da9339a48bd0d1b14245ed8ef84eb37198ea3e11912",
+      "fileCount": 43,
+      "crc": "passed",
+      "masterBytesMatch": true,
+      "liveEntryMatch": true
+    },
+    {
+      "unit": "B",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-b/meta/biology30-unit-b-chatgpt-review-package.zip",
+      "sha256": "7f0b8f6ff8b440fafa7fbc2f55b66fbed8ed66bf10ffc89878f21292f84ee0e1",
+      "entrySha256": "490dc244e94a614c4d8579c684beede69b06184a80d7a8ed2c280d7a2f9e5d70",
+      "packageCandidateTreeSha256": "ea8f089f743b5202a3c30e31ef3e68fbddd84f0ced5400b3e7610c506a55ea66",
+      "fileCount": 70,
+      "crc": "passed",
+      "masterBytesMatch": true,
+      "liveEntryMatch": true
+    },
+    {
+      "unit": "C",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-c/meta/biology30-unit-c-chatgpt-review-package.zip",
+      "sha256": "a95e028ac21154c4a17376e2b5fd7e88edff09ed9d60669904db6a3c8231faac",
+      "entrySha256": "0ae6586219836a0392c3b1fe13f106715cfe2fb1b5935a3a7eea3cd334077231",
+      "packageCandidateTreeSha256": "ccea10ecd84594d1f75d496570a2f8a2eb64e30be433520f1d429e3425a1505b",
+      "fileCount": 92,
+      "crc": "passed",
+      "masterBytesMatch": true,
+      "liveEntryMatch": true
+    },
+    {
+      "unit": "D",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-d/meta/biology30-unit-d-chatgpt-review-package.zip",
+      "sha256": "e41547fa51d4ef73b9b71714145fc498b792fcee815c65deb7f352e1e02fe238",
+      "entrySha256": "d6f9882003b188003050ff713f3852fe526a711bc2169d486afaff8592c97ed4",
+      "packageCandidateTreeSha256": "994a03acb3b324089f0cbceab940b4f47c8d0c3b70216dbeac8a26516d108258",
+      "fileCount": 59,
+      "crc": "passed",
+      "masterBytesMatch": true,
+      "liveEntryMatch": true
+    }
+  ],
+  "master": {
+    "path": "projects/biology30-unit-a/meta/biology30-a-d-chatgpt-review-packages.zip",
+    "sha256": "25cd6d2ef1bc9bae4fb41bf227bee975111aa7b6e07d325eced80de3eff9af43",
+    "bytes": 90515913,
+    "crc": "passed"
+  },
+  "excluded": "raw source directories, baseline before snapshots and original PPTX/DOCX sources",
+  "AHashNote": "A builder tree hash and packaging candidateTreeSha256 use different inventory algorithms; entry bytes match the same13-lesson Pilot2. BCD tree hashes match their builders."
+}

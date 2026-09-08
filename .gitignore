@@ -26,3 +26,9 @@ e2e/.runtime/
 
 # Optional local STAX sidecar state
 .stax/
+
+# Reproducible local caches and temporary test/render output
+.runtime/
+/test-results/
+/test-results 2/
+/tmp/

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-30T02:03:30.743Z",
+  "totalItems": 6,
+  "uniqueIds": 6,
+  "lessonCounts": {
+    "lesson-04": 3,
+    "lesson-15": 3
+  },
+  "cognitiveDistribution": {
+    "remember-understand": 2,
+    "apply": 2,
+    "higher-mental-activity": 2
+  },
+  "allHaveAnswerKeys": true,
+  "allHaveRationales": true,
+  "allHaveTargetedFeedback": true,
+  "allHaveOutcomeAndSourceTags": true,
+  "items": [
+    {
+      "id": "lesson-04-check-1",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": [
+        "notes-action-potential",
+        "system-m1-l7",
+        "openstax-action-potential"
+      ]
+    },
+    {
+      "id": "lesson-04-check-2",
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": [
+        "notes-action-potential",
+        "system-m1-l7",
+        "openstax-action-potential"
+      ]
+    },
+    {
+      "id": "lesson-04-check-3",
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": [
+        "notes-action-potential",
+        "system-m1-l7",
+        "openstax-action-potential"
+      ]
+    },
+    {
+      "id": "lesson-15-check-1",
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k"
+      ],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": [
+        "notes-pancreas",
+        "system-m2-l5",
+        "openstax-endocrine-pancreas"
+      ]
+    },
+    {
+      "id": "lesson-15-check-2",
+      "outcomeIds": [
+        "A2.3k",
+        "A2.6k",
+        "A2.3s"
+      ],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": [
+        "notes-pancreas",
+        "system-m2-l5",
+        "niddk-diabetes-causes"
+      ]
+    },
+    {
+      "id": "lesson-15-check-3",
+      "outcomeIds": [
+        "A2.1sts",
+        "A2.2s",
+        "A2.3s"
+      ],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": [
+        "niddk-diabetes-tests",
+        "niddk-diabetes-management"
+      ]
+    }
+  ]
+}

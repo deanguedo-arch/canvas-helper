@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-a-system-2020-optimized",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Local practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "stage-unit-inquiry-homeostasis",
+      "stage-sensory-investigation",
+      "stage-integrated-application-review",
+      "review-matrix",
+      "source-provenance"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "evidenceScenario": {
+      "kind": "collection",
+      "route": "stage-unit-inquiry-homeostasis",
+      "collectionId": "biology30-unit-a-system-2020-optimized:biology-reflection",
+      "responseId": "biology30-unit-a-system-2020-optimized:biology-reflection:response"
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "stage-unit-inquiry-homeostasis",
+        "stage-integrated-application-review",
+        "review-matrix"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-d",
+  "buildSha256": "26cff8f801950dacc651e20d01be2a7fcda0017af6b7c6954afb3bd576b83379",
+  "status": "exact-build-visual-inspection-complete",
+  "reviewedAt": "2026-08-31T02:58:30Z",
+  "requiredViewports": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "requiredRoutes": [
+    "overview",
+    "d-lesson-01",
+    "d-lesson-06",
+    "d-lesson-11",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "sources-and-credits"
+  ],
+  "screenshots": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-d/routes-desktop-1440x900-01.png",
+      "sha256": "fba5533f8e97df6b731a7bbbe971a703a56fb3872c4d92c889f03cfb18f610c5"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-d/routes-tablet-1024x768-01.png",
+      "sha256": "7e907866635c9456d96c44a13ec258fb8a8c4d9bef2c9287942503e994e9668b"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-d/routes-mobile-390x844-01.png",
+      "sha256": "0cca32b36dcb65e054528b8380246d838da95c8550cc7a4b490d4a23b2e245ed"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-d/figures-contact-sheet-01.png",
+      "sha256": "3af75193d6379a893169f8d732997b936efe4582bd2be3ae15177cb7fad0aa4f"
+    }
+  ],
+  "allListedSheetsOpened": true,
+  "checks": {
+    "noClippedOrOverlappingLearnerContent": true,
+    "scientificModelsFitTheirContainers": true,
+    "arrowAndSequenceAlignment": true,
+    "desktopTabletAndMobileReflow": true,
+    "typographyAndInformationHierarchy": true,
+    "sourcesAndCreditsLegibility": true
+  },
+  "findings": [],
+  "binaryVisualBlockerFound": false,
+  "humanVisualAcceptance": null,
+  "pass": true
+}

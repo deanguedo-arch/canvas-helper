@@ -1,0 +1,559 @@
+{
+  "unit": "D",
+  "status": "all-model-options-authored; scientific-output-and-browser-review-pending",
+  "models": [
+    {
+      "id": "d-model-gene-pool",
+      "title": "Compare observed counts with equilibrium expectations",
+      "teachingTopicId": "d-topic-hardy-weinberg",
+      "variable": "sample",
+      "options": [
+        "36-48-16",
+        "45-45-10",
+        "42-46-12"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "d-model-gene-pool-prediction",
+      "explanationId": "d-model-gene-pool-explanation",
+      "testFlag": "d-model-gene-pool-tested",
+      "collectionFlag": "d-model-gene-pool-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict whether genotype proportions will match the equilibrium expectation calculated from the sample’s allele counts.",
+      "explanationPrompt": "Compare an observed proportion with its expectation; explain why agreement or a difference does not identify every population process.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "36-48-16",
+          "label": "Initial sample",
+          "parameters": {
+            "AA": 36,
+            "Aa": 48,
+            "aa": 16
+          }
+        },
+        {
+          "value": "45-45-10",
+          "label": "After modelled movement",
+          "parameters": {
+            "AA": 45,
+            "Aa": 45,
+            "aa": 10
+          }
+        },
+        {
+          "value": "42-46-12",
+          "label": "Later sample",
+          "parameters": {
+            "AA": 42,
+            "Aa": 46,
+            "aa": 12
+          }
+        }
+      ],
+      "operation": "d-model-gene-pool",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sourceInvestigationId": "d-investigation-gene-pool",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "AA"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "Aa"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "aa"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "AA"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "Aa"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "aa"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "AA"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "Aa"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "aa"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-model-population-balance",
+      "title": "Separate density from demographic change",
+      "teachingTopicId": "d-topic-population-growth",
+      "variable": "scenario",
+      "options": [
+        "baseline",
+        "higher-immigration",
+        "higher-mortality"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "d-model-population-balance-prediction",
+      "explanationId": "d-model-population-balance-explanation",
+      "testFlag": "d-model-population-balance-tested",
+      "collectionFlag": "d-model-population-balance-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict how the selected change affects final population size while area and elapsed time stay fixed.",
+      "explanationPrompt": "Show the population balance and separate final density, absolute daily change and change per initial individual.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "baseline",
+          "label": "Baseline demographic scenario",
+          "parameters": {
+            "initial": 1000,
+            "births": 120,
+            "immigration": 30,
+            "deaths": 70,
+            "emigration": 20,
+            "days": 10,
+            "areaM2": 200
+          }
+        },
+        {
+          "value": "higher-immigration",
+          "label": "Immigration rises from 30 to 90",
+          "parameters": {
+            "initial": 1000,
+            "births": 120,
+            "immigration": 90,
+            "deaths": 70,
+            "emigration": 20,
+            "days": 10,
+            "areaM2": 200
+          }
+        },
+        {
+          "value": "higher-mortality",
+          "label": "Deaths rise from 70 to 150",
+          "parameters": {
+            "initial": 1000,
+            "births": 120,
+            "immigration": 30,
+            "deaths": 150,
+            "emigration": 20,
+            "days": 10,
+            "areaM2": 200
+          }
+        }
+      ],
+      "operation": "d-model-population-balance",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sourceInvestigationId": "d-investigation-population-growth",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "variantPolicy": "Higher immigration and mortality are explicitly authored changes to the baseline. Area is a separate scenario parameter, not inferred from quadrat abundance.",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "initial"
+          ],
+          "datasetPath": [
+            "separateDemographicScenario",
+            "initialN"
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "births"
+          ],
+          "datasetPath": [
+            "separateDemographicScenario",
+            "births"
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "immigration"
+          ],
+          "datasetPath": [
+            "separateDemographicScenario",
+            "immigration"
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "deaths"
+          ],
+          "datasetPath": [
+            "separateDemographicScenario",
+            "deaths"
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "emigration"
+          ],
+          "datasetPath": [
+            "separateDemographicScenario",
+            "emigration"
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "days"
+          ],
+          "datasetPath": [
+            "separateDemographicScenario",
+            "days"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-model-competition",
+      "title": "Compare density and species composition",
+      "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+      "variable": "treatment",
+      "options": [
+        "five-A",
+        "ten-A",
+        "five-A-five-B"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "d-model-competition-prediction",
+      "explanationId": "d-model-competition-explanation",
+      "testFlag": "d-model-competition-tested",
+      "collectionFlag": "d-model-competition-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict how the selected density and neighbour combination affects mean mass per focal A plant.",
+      "explanationPrompt": "Compare this group with another group; identify the controlled total density or the change in focal A density.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "five-A",
+          "label": "5 A plants",
+          "parameters": {
+            "A": 5,
+            "B": 0,
+            "replicate1": 4.1,
+            "replicate2": 3.9,
+            "days": 30
+          }
+        },
+        {
+          "value": "ten-A",
+          "label": "10 A plants",
+          "parameters": {
+            "A": 10,
+            "B": 0,
+            "replicate1": 2.9,
+            "replicate2": 3.1,
+            "days": 30
+          }
+        },
+        {
+          "value": "five-A-five-B",
+          "label": "5 A + 5 B plants",
+          "parameters": {
+            "A": 5,
+            "B": 5,
+            "replicate1": 2.3,
+            "replicate2": 2.5,
+            "days": 30
+          }
+        }
+      ],
+      "operation": "d-model-competition",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sourceInvestigationId": "d-investigation-competition",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "A"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "B"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "replicate1"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "replicate2"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            4
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "A"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "B"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "replicate1"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "replicate2"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            4
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "A"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "B"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "replicate1"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "replicate2"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  ]
+}

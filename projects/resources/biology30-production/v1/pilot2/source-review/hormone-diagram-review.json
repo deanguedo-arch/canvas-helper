@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "status": "four original SVG schematics author-reviewed-provisional; actual first-use and learner placement pending",
+  "teacherDecision": null,
+  "medium": "Original code-native SVG under saved plan section4; no new image generator or publisher pixel reuse",
+  "sourceReview": {
+    "existingAxis": "Native b-lesson-05-concept-model screenshot inspected; three-stage text map combines gonadal targets and nonspecific dashed feedback. New diagrams separate targets and inhibition types.",
+    "existingBirthLactation": "Native b-lesson-12-concept-model screenshot inspected; combined Sense/Signal/Respond-and-feedback cards do not separate synthesis and release.",
+    "axis": "Native Chapter14 slide18 media6fba89b293b1e7a66f24e02e5ed24ac6842ef4ef3cbc664d501819ffb6370912.png inspected at359x546. Dense FSH/LH, Sertoli/Leydig and inhibin/testosterone feedback; original larger schematics improve label separation. Supplied artwork not cleared for learner reuse.",
+    "labour": "Native Chapter15 slide26 media30c0596bf7e5382d409176d53173f6520d727abfb5c4590a2c9b09e6f21b1c58.png inspected at873x429. Fetus-takes-all-space trigger and generic brain signal omit required qualifications; use cervical stretch in an established labour loop, distinct synthesis/release and explicit endpoint.",
+    "lactation": "Chapter15 physical21 printed526 rendered and visually inspected. Figure15.16 supplies the suckling reflex but not a clear parallel synthesis/ejection comparison. Source prose incorrectly says prolactin is not secreted in pregnancy. Existing corrected required core distinguishes falling steroid restraint after placental delivery; preserve that correction. Chapter15 slide28 has text only and the same after-birth onset simplification."
+  },
+  "scienceChecklist": [
+    "Exact hormone source distinct from target and responding tissue",
+    "Signal transport differs from substance conversion and gamete transport",
+    "Inhibition differs from stimulation by label and arrow-end shape",
+    "Oxytocin synthesis in hypothalamus differs from posterior storage/release",
+    "Cervical loop has delivery endpoint; lactation synthesis and ejection differ",
+    "Native labels do not cross lines and source errors are not copied"
+  ],
+  "entries": [
+    {
+      "id": "b-topic-spermatogenesis-hormone-sources-and-targets-figure",
+      "assetId": "b-hormone-sources-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormone-sources-v1.svg",
+      "sha256": "712add8a56dab35a7ddbc5d4c76c74eabcfb2bcd3b8fba3f809eeb2aaa2da85f",
+      "width": 1200,
+      "height": 900,
+      "caption": "GnRH from the hypothalamus reaches the anterior pituitary through connecting blood vessels. FSH travels in blood to Sertoli cells and supports their contribution to germ-cell development. LH travels in blood to interstitial cells, which release testosterone. Local testosterone also supports sperm development. These arrows indicate signalling and support; FSH and LH do not become testosterone.",
+      "scientificReview": "Native1200x900 reviewed: hypothalamic GnRH enters anterior pituitary; split FSH/Sertoli and LH/interstitial branches are distinct; testosterone joins local developmental support. All labels and arrows fit with no crossing interpreted as a junction.",
+      "comparisonKind": "axis",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/b-hormone-sources-v1.png",
+      "screenshotSha256": "99a8f67b59f8e18c938035788283cb1eb9cfe619fb947b99a75e72cf69e36ec0",
+      "limitations": [
+        "Diagram is a causal simplification, not anatomy at scale or measurement evidence.",
+        "Exact all-surface first use, responsive inline placement and keyboard enlargement remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "b-topic-spermatogenesis-feedback-and-evidence-figure",
+      "assetId": "b-feedback-pathways-v3",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v3.svg",
+      "sha256": "5bb67f4486644c7d3b9469b8423667c8e0c7a79e4d31cc7acd503adb206ae193",
+      "width": 1200,
+      "height": 900,
+      "caption": "The upper loop combines hypothalamic input with anterior-pituitary LH release. LH stimulates interstitial cells; testosterone can reduce upstream hypothalamic and pituitary signalling. The lower loop isolates FSH support of Sertoli cells and inhibin feedback that reduces pituitary FSH release. Arrowheads show support; blunt ends show inhibition. Lower testosterone action can permit increased LH when upstream tissues respond, but one measurement does not establish a unique cause.",
+      "scientificReview": "Native finalv3 reviewed: LH source explicitly anterior pituitary, not hypothalamus. Separate testosterone/upstream and inhibin/FSH return paths end in blunt inhibition marks; no upward arrow presents inhibition as stimulation. Labels clear. v1 compressed GnRH/LH label and v2 combined-source wording were clarified without changing biology.",
+      "comparisonKind": "axis",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/b-feedback-pathways-v3.png",
+      "screenshotSha256": "9cc3627b02da34a77effa93fe53daa129eb3d11ac667cf21429a5328bbeaa626",
+      "limitations": [
+        "Diagram is a causal simplification, not anatomy at scale or measurement evidence.",
+        "Exact all-surface first use, responsive inline placement and keyboard enlargement remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "b-topic-parturition-labour-and-positive-feedback-figure",
+      "assetId": "b-labour-loop-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-labour-loop-v1.svg",
+      "sha256": "a939294786df7a4c38d0e250f4681cc37fea92b96145d15e049cbedbd07076f1",
+      "width": 1200,
+      "height": 900,
+      "caption": "Cervical stretch during labour sends sensory signals associated with oxytocin release. Hypothalamic neurons make oxytocin; it is stored and released through the posterior pituitary into blood. Responsive uterine tissue contracts, which can increase cervical stretch and reinforce this loop. Delivery removes the main stretch stimulus. This is one mechanism within labour; it does not claim that fetal size alone starts labour or that the loop explains all timing and tissue responses.",
+      "scientificReview": "Native1200x900 reviewed: sensory signal enters hypothalamic stage, synthesis is distinct from posterior storage/release, blood route reaches responsive uterine tissue, return reinforces cervical stretch, and delivery endpoint is explicit. Labels do not cross arrows.",
+      "comparisonKind": "labour",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/b-labour-loop-v1.png",
+      "screenshotSha256": "18c6f9ed8080ccd739252f9507f70c13d4c15760f00939a3fdfc4e33d3e759d6",
+      "limitations": [
+        "Diagram is a causal simplification, not anatomy at scale or measurement evidence.",
+        "Exact all-surface first use, responsive inline placement and keyboard enlargement remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "b-topic-parturition-milk-synthesis-and-release-figure",
+      "assetId": "b-lactation-pathways-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-lactation-pathways-v2.svg",
+      "sha256": "696c29769e845a2e9cc84b83905c264736d36a5b7f6e303dfa00bc0c74df0211",
+      "width": 1200,
+      "height": 900,
+      "caption": "Suckling provides sensory input supporting both pathways. Anterior-pituitary prolactin supports milk synthesis by milk-producing cells. Oxytocin, made in hypothalamic neurons and released through posterior pituitary, supports contraction of myoepithelial cells around secretory tissue, helping eject existing milk. After placental delivery, falling steroid levels support greater synthesis; prolactin is not first created only after birth. Synthesis, ejection and effective transfer are related but distinct outcomes.",
+      "scientificReview": "Native finalv2 reviewed: anterior prolactin synthesis route and posterior oxytocin ejection route remain distinct with correct responding cells. Full labels fit; hormone labels moved off their arrows after v1 collisions. Both are simplified sensory-control pathways rather than direct anatomical nerve connections.",
+      "comparisonKind": "lactation",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/b-lactation-pathways-v2.png",
+      "screenshotSha256": "097b3faf2ceb0c84b5377b231994a8693fef7c013317a9ab3da1fde1e636cd7e",
+      "limitations": [
+        "Diagram is a causal simplification, not anatomy at scale or measurement evidence.",
+        "Exact all-surface first use, responsive inline placement and keyboard enlargement remain pending."
+      ],
+      "teacherDecision": null
+    }
+  ],
+  "sourceScreenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/chapter15-physical21.png",
+      "sha256": "ba22e1584d5e02ccba7e74c881dd0227154eb05cc8d72819ab5d4134771f02bc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/existing-axis.png",
+      "sha256": "76c0d5a5516170f9ee1bdcd48c87bab360a9524f96afe37b3a8b14f389844b83"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-comparison/existing-birth-lactation.png",
+      "sha256": "c23d18182b16f0486fb85a77d989cdce448fe59eab77f8ffd3e5c3fcdfa56856"
+    }
+  ],
+  "sourceNativeAssets": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/6fba89b293b1e7a66f24e02e5ed24ac6842ef4ef3cbc664d501819ffb6370912.png",
+      "sha256": "6fba89b293b1e7a66f24e02e5ed24ac6842ef4ef3cbc664d501819ffb6370912"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/30c0596bf7e5382d409176d53173f6520d727abfb5c4590a2c9b09e6f21b1c58.png",
+      "sha256": "30c0596bf7e5382d409176d53173f6520d727abfb5c4590a2c9b09e6f21b1c58"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-15.pdf",
+      "sha256": "fba888617f5066ceb1a46a5759d4523c063d0c20091a1ac3e6b673d5a5c41038"
+    }
+  ],
+  "revisions": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v1.svg",
+      "sha256": "5acaf80e7a85e4a2b4b552b833bcb017d81aa45ccd358c5b99f6ab66d0f9c74f",
+      "status": "superseded author-only draft"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v2.svg",
+      "sha256": "dd806e72ba67d59ba943edeeb20fb6d4ff67f6c15797811fbbb13a6b74c1b8ea",
+      "status": "superseded author-only draft"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-lactation-pathways-v1.svg",
+      "sha256": "739561a0462ce8a492436206fd8499cabd88bcd9ecc00212b14ba3d286bb161f",
+      "status": "superseded author-only draft"
+    }
+  ]
+}

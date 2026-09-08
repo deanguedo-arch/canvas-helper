@@ -1,0 +1,400 @@
+{
+  "unit": "D",
+  "status": "all-core-parts-authored-worked-figure-check-advanced-and-second-review-pending",
+  "parts": [
+    {
+      "id": "d-topic-hardy-weinberg-populations-and-allele-counts",
+      "title": "Populations and allele counts",
+      "paragraphs": [
+        "A population is a defined group of organisms of one species in a stated place and time. Its gene pool contains the allele copies carried by its members. A genotype describes an individual's allele combination at the locus being studied. Population genetics compares these copies across many individuals, so the population boundary and the counted locus must be clear before a frequency is calculated.",
+        "At a two-allele autosomal locus in diploid organisms, each individual contributes two allele copies. An AA individual contributes two A copies, an Aa individual contributes one A and one a, and an aa individual contributes two a copies. For N individuals, the denominator is 2N. Count copies rather than simply counting how many organisms show the dominant phenotype.",
+        "In a sample of 100 with 36 AA, 48 Aa and 16 aa individuals, there are 120 A copies and 80 a copies among 200 total. The allele frequencies are therefore 0.60 and 0.40. This calculation uses observed genotypes and does not require equilibrium. State the sample and denominator; an allele fraction in one sampled population is not automatically a value for the whole species."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-population",
+        "d-term-gene-pool",
+        "d-term-allele",
+        "d-term-genotype",
+        "d-term-p",
+        "d-term-q",
+        "d-term-heterozygote",
+        "d-term-observed",
+        "d-term-sample",
+        "d-term-equilibrium"
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+      "title": "Allele and genotype frequencies",
+      "paragraphs": [
+        "For a two-allele locus, let p represent the frequency of A and q the frequency of a. Because those are the only allele categories in the model, p+q=1. This equation counts alleles. The genotype-frequency equation p²+2pq+q²=1 describes expected genotype combinations under the Hardy–Weinberg model, where gamete contributions combine randomly under the stated assumptions.",
+        "The product p×p gives the expected AA fraction, while q×q gives aa. A heterozygote can arise through A from one contribution and a from the other in two mutually exclusive arrangements, giving pq+qp=2pq. With p=0.60 and q=0.40, the expectations are 0.36 AA, 0.48 Aa and 0.16 aa. Multiplying by a population size of 100 gives expected counts of 36, 48 and 16.",
+        "Keep observed and expected categories separate. Observed genotype counts can be used directly to calculate allele frequencies even when the genotype proportions depart from the equilibrium prediction. The formula then supplies a comparison model, not a replacement for the observations. Check that allele frequencies sum to one and that predicted genotype frequencies also sum to one before reading a difference."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-p-squared",
+        "d-term-2pq",
+        "d-term-q-squared",
+        "d-term-frequency-sum",
+        "d-term-expected",
+        "d-term-migration",
+        "d-term-population-size",
+        "d-term-area"
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-equilibrium-assumptions",
+      "title": "Equilibrium assumptions",
+      "paragraphs": [
+        "Hardy–Weinberg equilibrium is a model for a gene pool whose allele frequencies stay stable. It also predicts genotype frequencies. The usual model has five conditions: a very large population, random mating at the locus, no mutation, no migration that changes the gene pool and no selection among genotypes. To understand the list, connect each condition to the change it rules out.",
+        "A large population reduces the effects of chance sampling. Random mating allows allele contributions to combine with the p², 2pq and q² probabilities. No mutation means no new allele changes. No gene flow means movement and breeding do not change the allele pool. No selection means the genotypes do not differ in their reproductive contributions. Each condition does a different job; knowing why it matters is more useful than memorizing its name.",
+        "Real populations seldom meet every condition perfectly. Use the model as a clear prediction to compare with observations. A match at one locus and one time does not prove every condition was met. Nor does it rule out change at another locus or time. If the counts differ from the prediction, first check the sampling and model assumptions. Then examine biological evidence before choosing a cause."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-large-population",
+        "d-term-random-mating",
+        "d-term-no-migration",
+        "d-term-no-mutation",
+        "d-term-no-selection",
+        "d-term-mutation",
+        "d-term-gene-flow",
+        "d-term-immigration",
+        "d-term-mechanism"
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-solving-and-checking",
+      "title": "Solving and checking",
+      "paragraphs": [
+        "When you have only phenotype counts, you need extra assumptions to estimate allele frequencies. Suppose the recessive genotype always shows the recessive trait, and Hardy–Weinberg expectations apply. The recessive phenotype fraction then represents q². It is a genotype fraction, not the allele fraction q. Take the square root to find q. Next use p + q = 1 to find p.",
+        "Work through a sample with 9% recessive phenotype. First change 9% to 0.09, so q² = 0.09. The square root is 0.30, giving q = 0.30. Subtract from one to get p = 0.70. Now calculate the expected genotypes: p² = 0.49, 2pq = 0.42 and q² = 0.09. Check that 0.49 + 0.42 + 0.09 = 1. To find expected counts, multiply each fraction by population size and explain any rounding.",
+        "A question about carriers among dominant-phenotype individuals uses a smaller group. In the same example, that group includes AA and Aa but excludes aa. Its fraction is 0.49 + 0.42 = 0.91. The carriers make up 0.42 of the whole population. Within the dominant-phenotype group, their fraction is 0.42/0.91, or about 0.462. In symbols, this is 2pq/(p² + 2pq). Name the group before dividing so you answer the question asked.",
+        "For each answer, state the inheritance and equilibrium assumptions. Show the intermediate steps and label the result. Is it an allele frequency, a genotype frequency, a fraction within a selected group or an expected count? The numbers may come from the same sample, but those labels describe different quantities. A denominator check helps keep them separate."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-recessive-phenotype",
+        "d-term-square-root"
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-a-model-and-its-limits",
+      "title": "A model and its limits",
+      "paragraphs": [
+        "A model separates what is observed from what is expected under assumptions. In the supplied gene-pool dataset, the initial AA/Aa/aa counts are 36/48/16, giving p=0.60. The middle observation is 45/45/10, giving p=0.675. The later sample is 42/46/12, giving p=0.65. Each row contains 100 diploid individuals, so the denominator remains 200 allele copies.",
+        "These changes show that the observed allele proportions differ across the samples. The middle row is labelled after movement, which provides context, but the counts alone do not isolate movement from every other influence. Sampling, selection or other events could also contribute. Compare observed genotype proportions with the equilibrium expectation calculated from each row's own allele frequency, rather than reusing the initial p for every row.",
+        "Plan the investigation by predicting what more evidence would distinguish gene flow from drift or selection. Record counts, copy totals and frequencies with consistent notation. Explain the pattern, consider an alternative and revise a claim that one changed p identifies one cause. The model can predict future observations under stated conditions, but its usefulness depends on testing those conditions. A fit is evidence about a defined comparison, not a certificate of permanent equilibrium."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-variation",
+        "d-term-natural-selection",
+        "d-term-uncertainty"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-mutation-and-selection",
+      "title": "Mutation and selection",
+      "paragraphs": [
+        "Mutation changes a genetic sequence and can create a new allele. Natural selection changes allele shares when inherited differences affect breeding success in an environment. Relative fitness compares the offspring contributions of different variants under those conditions. Creating a variant and making it more common are different events. The first needs a sequence change; the second concerns copies passed to later generations.",
+        "Imagine a bacterial mutation that reduces an antibiotic's effect on a cell target. During exposure, cells with the variant may leave more descendants. The allele can then become more common. Without the drug, it may offer no advantage or may have a cost. Its effect depends on context. The mutation did not appear because the cells knew which treatment would come next.",
+        "To support selection, link an inherited difference with unequal survival or reproduction. An allele rising after an environmental change is not enough by itself. Check other explanations, including movement and chance. Compare replicate populations and measure which variants leave descendants. Explain the trait, the condition and the step connecting it to later allele counts. This turns a pattern into a testable mechanism."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-relative-fitness",
+        "d-term-selection-pressure",
+        "d-term-replicate"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-chance-and-population-size",
+      "title": "Chance and population size",
+      "paragraphs": [
+        "Genetic drift is random change in allele frequency caused by sampling between generations. Even if genotypes have equal expected reproductive success, the actual allele copies transmitted can differ by chance. The relative effect is often stronger in small populations. Independent small populations can therefore change in different directions under similar conditions, without each change representing an adaptive improvement.",
+        "A bottleneck is a sharp population reduction that leaves a small sample of the previous gene pool. A founder effect occurs when a small group establishes a new population with only part of the source variation. Both involve sampling. The surviving or founding group's allele frequencies can differ from the source, and some alleles may be missing simply because their carriers were not included.",
+        "Consider three isolated model populations starting at p=0.50 and later showing 0.10, 0.70 and 0.40. Divergent directions fit a drift explanation, particularly if sizes are small and conditions are matched. Selection or different environments remain alternatives unless tested. Record replicate sizes and conditions before assigning a cause. Drift does not reliably favour the allele that seems best suited to an environment."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-genetic-drift",
+        "d-term-bottleneck",
+        "d-term-founder-effect"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-movement-and-mating",
+      "title": "Movement and mating",
+      "paragraphs": [
+        "Gene flow occurs when movement between populations adds a genetic contribution to the receiving group. Immigrants can bring different allele copies when they breed. Emigrants can remove copies from the group they leave. A frequency need not change if the incoming or outgoing group has the same allele proportions. Movement alone does not guarantee a particular genetic result.",
+        "Nonrandom mating changes which alleles combine in offspring. Mating among relatives or similar genotypes can raise homozygosity compared with random mating. It can change genotype frequencies without changing allele frequencies at first. The same copies are being combined differently. Keep this separate from a process that adds copies, removes them or changes which copies reach the next generation.",
+        "Define the population boundary. A group joining an existing breeding population can produce gene flow. A few organisms founding an isolated population can create a founder effect. Both involve movement but different genetic comparisons. State where breeding occurs and which copies enter or leave. Then identify whether the question asks about allele shares or the genotypes formed from those alleles.",
+        "Sexual selection occurs when a heritable feature affects success in obtaining mates or contributing offspring. Mate choice and competition for mates can produce such differences. A feature may improve mating success while carrying a survival cost. This is not identical to every form of nonrandom pairing. When unequal reproductive contribution changes allele representation, a selection process is involved; simply rearranging the same alleles into different pairs describes a different effect."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-nonrandom-mating",
+        "d-term-time-interval",
+        "d-term-sexual-selection"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-resistance-and-evidence",
+      "title": "Resistance and evidence",
+      "paragraphs": [
+        "Resistance allows a lineage to persist or breed under an agent that limits susceptible organisms. Antibiotic resistance concerns microbes; herbicide resistance can concern plants. A DNA change or uptake of existing genetic material can alter a target, transport process or another cell function. The word resistant names a result. The specific mechanism still needs evidence about what changed in the cell.",
+        "Exposure can favour resistant variants that were already present. If those variants leave more descendants, their share rises. Repeated use of an agent can therefore change a population's makeup. This is selection on variation, not a choice by the population to make a useful mutation. Compare exposed and unexposed groups. Molecular data can then help identify the cell process behind the advantage.",
+        "A technology can bring benefits and unintended costs. A fictional farm programme may improve weed control while favouring resistant weeds or affecting other organisms. Compare crop results, genes, ecological effects, cost and uncertainty. Revise the programme using that evidence and name what to monitor. The model explains population change. It does not prescribe a person's medical treatment or a specific farm chemical plan."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-antibiotic-resistance",
+        "d-term-herbicide-resistance",
+        "d-term-control",
+        "d-term-alternative-explanation"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-testing-explanations",
+      "title": "Testing explanations",
+      "paragraphs": [
+        "A time series records data at several points. It can show that an allele's share changed, but more evidence is needed to explain why. A control gives a reference condition. A replicate repeats a comparison independently. Together, these help test whether a pattern is consistent or could reflect chance, a single unusual event or a measurement problem.",
+        "To compare selection with drift, keep the model environments similar and record each population's size. Consistent change linked to breeding success supports selection. Different directions among small replicates can support drift. To test gene flow, record movement and the alleles of those that breed. A single curve may fit several causes if these other observations are missing.",
+        "State the strongest supported claim and its limit. An allele increased is an observation. Selection caused the increase is an inference. Name an alternative and predict a result that would support it. Revise the model when new evidence warrants a change. Keep the original counts visible so the new explanation can be checked against the same data rather than replacing the observations."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-time-series"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-size-and-density",
+      "title": "Size and density",
+      "paragraphs": [
+        "Population size is the number of individuals within a stated boundary. Density expresses that count per unit area or volume. For a two-dimensional habitat, Dp=N/A; for a three-dimensional sample, Dp=N/V. Units matter. Forty plants in five square metres gives eight plants per square metre, while forty organisms in five millilitres gives eight organisms per millilitre.",
+        "Distribution describes where organisms are located within the boundary. A uniform pattern is relatively evenly spaced, a clumped pattern concentrates individuals in patches, and a random pattern lacks the specified spatial structure at the scale examined. Resource patches, reproduction and interactions can influence these patterns. A species does not have one immutable distribution under every environmental condition or observation scale.",
+        "Converting density to an abundance estimate requires the habitat area or volume and a representative density. A density of six plants per square metre across 200 square metres predicts about 1,200 plants. If the sample came only from a dense patch, that extrapolation could be biased. Keep measured sample density, study-area size and inferred total abundance separate in both the calculation and the explanation."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-density",
+        "d-term-distribution"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-sampling-populations",
+      "title": "Sampling populations",
+      "paragraphs": [
+        "A quadrat defines a known sample area in which organisms are counted. A transect follows a line or strip across a habitat, allowing comparison along a spatial gradient. Representative placement and consistent detection rules are essential. Convenience sampling can overrepresent accessible areas or unusually dense patches. State the population boundary, sampling method and what counts as an individual before collecting or reading numbers.",
+        "In the supplied data, five one-square-metre quadrats contain 2, 8, 4, 10 and 6 plants. The total is 30 plants in five square metres, giving a mean density of six per square metre. Multiplying by the 200-square-metre habitat gives an estimate of 1,200 plants. The variable counts show spatial differences, so repeated representative samples would help assess uncertainty.",
+        "Mark–recapture provides another model for mobile organisms. If 40 were marked first, 50 are caught later and 10 of those are marked, a simple estimate is 40×50/10=200. This assumes suitable mixing, retained marks, comparable capture probability and approximate population closure between samples. In the online investigation, evaluate the supplied observations and sampling design rather than handling organisms. Explain how changed detection or placement could alter an estimate without a true population change."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-quadrat",
+        "d-term-transect",
+        "d-term-mark-recapture",
+        "d-term-representative-sample",
+        "d-term-closed-population"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-four-demographic-processes",
+      "title": "Four demographic processes",
+      "paragraphs": [
+        "Natality adds individuals through births, while mortality removes them through deaths. Immigration adds individuals arriving across the boundary, and emigration removes those leaving it. Over a specified interval, population change is ΔN=(births+immigration)−(deaths+emigration). The final population equals the initial population plus that change. Use counts collected over the same boundary and interval.",
+        "For an initial N of 1,000, with 120 births, 30 immigrants, 70 deaths and 20 emigrants in ten days, ΔN=60 and final N=1,060. An open population can include all four processes. A closed-population model excludes immigration and emigration, but can still grow or decline through births and deaths. Closed does not mean constant in size.",
+        "Age structure can affect future demographic possibilities. A broad young-age distribution can support future population growth if survival and reproduction permit it, while other shapes imply different constraints. An age diagram alone does not determine future size because birth rates, mortality and movement can change. Historical diagrams require their date, scale and data source; an internally inconsistent percentage axis cannot support a precise forecast."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-emigration",
+        "d-term-open-population"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-rates-and-denominators",
+      "title": "Rates and denominators",
+      "paragraphs": [
+        "An absolute growth rate divides population change by elapsed time: gr=ΔN/Δt. If a population increases by 60 individuals in ten days, its average absolute rate is six individuals per day. State the time unit and sign. A negative result describes a decline over the interval, while zero indicates no net change even if births, deaths and movement still occurred.",
+        "The curriculum's interval per-capita quantity is cgr=ΔN/N(initial). With an initial population of 1,000 and a change of 60, cgr=0.06 over the stated ten-day interval. This is a fractional change relative to the starting population. Dividing it by ten gives an average per-initial-individual measure per day, a different quantity that must be labelled explicitly.",
+        "Do not mix a decade fraction, an annual fraction and a per-day rate without converting the interval and stating the model. A fixed addition of ten individuals each year also differs from ten percent growth each year. The latter applies a proportion to a changing population and can compound. Always identify the numerator, denominator and time interval before reading a number as fast or slow growth."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-growth-rate",
+        "d-term-per-capita-growth-rate"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-exponential-and-logistic-models",
+      "title": "Exponential and logistic models",
+      "paragraphs": [
+        "Biotic potential is a population's ability to increase under favourable conditions. In an exponential model, the proportional growth rate stays fixed and resource limits do not change it. Start with 100 individuals and a 30% increase per interval. After one interval, 100 × 1.30 = 130. Next, 130 × 1.30 = 169. The next expected size is 219.7. The same percentage adds more each time because it acts on a larger population. Plotting size against time gives a J-shaped curve.",
+        "Environmental resistance includes limits such as scarce resources and disease. A logistic model shows growth slowing as population size approaches carrying capacity, K. Under the stated conditions, K is the population size the environment can support. The simple size-versus-time curve is S-shaped. K need not stay fixed. If resources or conditions change, the number the habitat can support can also change.",
+        "Build each graph with labelled time and population axes. First compare the changes between intervals. Then describe the whole curve. A fractional model result is an expected or continuous value, not part of a counted animal. Explain rounding when comparing it with real counts. Neither curve promises an exact path for a real population. Check observations for changing limits, disturbance or movement, then decide whether the model needs to change."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-biotic-potential",
+        "d-term-environmental-resistance",
+        "d-term-carrying-capacity",
+        "d-term-j-curve",
+        "d-term-s-curve",
+        "d-term-density-dependence"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth-feedback-and-changing-limits",
+      "title": "Feedback and changing limits",
+      "paragraphs": [
+        "A density-dependent effect becomes stronger or weaker per individual as density changes. For example, more crowding can increase competition for food or the spread of disease through contact. A density-independent effect does not depend on density in the comparison being made. Weather or a physical disturbance may have such an effect. In a real population, however, weather and crowding can also act together.",
+        "Population size and resources can affect one another through feedback. More individuals may use more food, leaving less food to support growth. The response may take time. This delay is a time lag. If reproduction continues while food becomes scarce, numbers may rise above the current support level and then fall. A delayed response can cause fluctuations instead of an immediate return to a stable size.",
+        "Classify the measured effect, not just the factor's name. Drought can reduce water over a whole area. Crowding can then change how much of that water each individual receives. To separate these effects, compare the effect per individual at different densities and under different conditions. A decline after a storm alone does not prove logistic slowing. Explain what was measured and whether a delay or a change in carrying capacity could alter the prediction."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-density-independence",
+        "d-term-overshoot",
+        "d-term-time-lag"
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "title": "Life-history strategies",
+      "paragraphs": [
+        "Life-history traits describe how organisms divide resources among growth, survival and reproduction. Compare age at first breeding, offspring number and size, breeding frequency, parental care and survival. Fecundity refers to reproductive output or potential under the stated definition. Investment in one function can leave less for another. These trade-offs help explain why more offspring is not always the only useful strategy.",
+        "The historical r/K framework describes broad tendencies. An r-associated pattern can include earlier breeding and many low-investment offspring. A K-associated pattern can include later breeding, fewer offspring and greater investment or survival. Their value depends on conditions. The categories are not rigid boxes. A species may combine traits in ways that do not fit one simple label.",
+        "Use the actual traits and data to predict risk. Extra adult deaths may strongly affect a late-maturing population because adults are replaced slowly. A species with many offspring may still decline if its habitat disappears. Connect the proposed risk with recruitment, survival and resource needs. An r or K label alone cannot show how fast a real population will recover.",
+        "Survivorship describes the proportion of a starting group still alive at different ages. A cohort is a group followed from a shared starting interval. In an idealized Type I pattern, losses are concentrated later in life. Type II shows an approximately constant mortality risk across ages, while Type III has high early loss among many young. These curves describe survival, not the total population-growth curve. Real populations can depart from the three simplified patterns."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-r-selected",
+        "d-term-k-selected",
+        "d-term-fecundity",
+        "d-term-parental-investment",
+        "d-term-monitoring",
+        "d-term-survivorship",
+        "d-term-cohort",
+        "d-term-type-i-survivorship",
+        "d-term-type-ii-survivorship",
+        "d-term-type-iii-survivorship"
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+      "title": "Interactions and their effects",
+      "paragraphs": [
+        "A population includes one species within a stated area and time. A community includes populations of different species that live and interact in an area. An ecosystem includes those organisms and their non-living surroundings. Begin by naming the level you are studying. A change in one population is not automatically a description of the whole community or ecosystem.",
+        "To classify a relationship, examine its effects on both participants. In predation, a consumer gains resources by eating prey, and the prey is harmed. Herbivores are consumers that obtain resources from plants or other producers. These interactions can affect growth, survival and reproduction. Producers convert energy, such as light energy, into chemical forms. They do not create energy from nothing. Connect the interaction to a measured effect on a population.",
+        "Mutualism benefits both participants. Commensalism benefits one while the other's measured effect is about neutral. Parasitism benefits the parasite and harms its host. A parasitoid grows in or on a host and eventually kills it; some insects have this relationship. Before assigning a name, state the effect measured for each participant and the scale of the comparison.",
+        "Conditions can change the balance of costs and benefits. In poor soil, a fungus may supply a plant with valuable nutrients. Under other conditions, the carbon the plant gives the fungus may be a larger cost relative to the benefit. The same pair need not have the same net effects everywhere. Compare growth or reproduction for each participant. A benefit to just one is not enough to classify the whole relationship."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-predation",
+        "d-term-producer-consumer",
+        "d-term-mutualism",
+        "d-term-commensalism",
+        "d-term-parasitism",
+        "d-term-correlation",
+        "d-term-soil",
+        "d-term-community"
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Required practice prerequisite repair: explicit community scale, resource partitioning comparison or crossed ecological intervention design.",
+          "previousParagraphsSha256": "065663637415d26beeaaede609323d4dbea704efcea3b70d802890551b57f272"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "title": "Competition and defence",
+      "paragraphs": [
+        "Intraspecific competition occurs among members of the same species, while interspecific competition occurs between species. Both involve overlapping use of a limiting resource. Reduced growth in a mixed group can fit competition, but total density and other conditions must be compared. A crowded mixed plot differs from a sparse single-species plot in more than species identity.",
+        "The supplied experiment compares five A plants, ten A plants and a mixed group of five A plus five B plants. Mean mass per A is 4.0, 3.0 and 2.4 grams, respectively. Comparing the two ten-plant groups helps control total starting density while changing composition. The result is consistent with a stronger effect of B on A in this model, but replication and resource evidence are needed to identify the mechanism.",
+        "Defences can alter biological encounters. Protective coloration can reduce detection; toxins can reduce consumption; behaviour can change exposure or access. In Batesian mimicry, a relatively undefended organism resembles a defended model, while Müllerian mimicry involves defended species sharing warning features. Such traits can have costs and do not provide complete protection. Heritable variants can become more common through selection; organisms do not intentionally evolve a needed defence.",
+        "Resource partitioning means using different portions of available resources. Compare each species alone with both together. If their broad resource use becomes narrower and less overlapping together, the change supports a role for competition. Resource measurements and matched conditions help distinguish this from unrelated differences between sites."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration",
+        "d-term-toxin",
+        "d-term-behaviour"
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Required practice prerequisite repair: explicit community scale, resource partitioning comparison or crossed ecological intervention design.",
+          "previousParagraphsSha256": "954863e45ba5f4236fbadf49fe2f65b5cec0d946ddcaa3e94185501995ffa2e7"
+        }
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+      "title": "Population cycles",
+      "paragraphs": [
+        "Population cycles are repeated changes in abundance over time. In a simplified predator–prey relationship, increased prey can support greater predator survival or reproduction. Predator numbers may then rise after a delay. Greater predation can contribute to a later prey decline, followed by reduced support for predators. This mechanism can create a lag between the peaks of the two populations.",
+        "A correlation describes a pattern of association. Two curves with offset peaks are consistent with a lagged relationship but do not prove predation caused the cycles. Food supply, weather, disease or movement can also affect both populations. Identify whether the data show abundance, a detection index or a harvest count, since different measures have different limits.",
+        "Compare the proposed mechanism with additional observations. Evidence of diet, survival, recruitment or a controlled change in predator access can help test a causal explanation. A useful graph labels species, time and measurement units and identifies the interval between peaks. Explain the sequence with a biological process, then state an alternative. Avoid treating one familiar pair of curves as a universal law for all predator–prey systems."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "termIntroductionIds": [
+        "d-term-predator-prey-lag"
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+      "title": "Succession and disturbance",
+      "paragraphs": [
+        "Succession is change in community composition after colonization or disturbance. Primary succession starts where developed soil and major biological legacies are absent. Secondary succession starts where soil or other legacies remain. The distinction concerns the starting site. It does not mean that one process is natural and the other human-caused, or that each follows a fixed time schedule.",
+        "Early organisms can change conditions through resource use, shade or soil development. Their effects may help or hinder later populations. Different species arrive and grow under those new conditions. A forest fire that leaves soil commonly leads to secondary succession. Check how severe the fire was and what remains. The event's name alone does not show every starting condition.",
+        "A climax community is a historical term for relative stability under certain conditions. It is not one inevitable permanent endpoint. New disturbances, climate and species arrivals can change the path. A drawing with rising biomass describes only its shown interval. It cannot prove that biomass grows without limit. Use actual species, resources and site history to explain the case."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-primary-succession",
+        "d-term-secondary-succession",
+        "d-term-climax-community"
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+      "title": "Ecological decisions and communication",
+      "paragraphs": [
+        "An ecological proposal links a mechanism with a goal and evidence. An indicator is a measure used to track a relevant condition. It might record recruitment, water quality or species composition. Monitoring repeats the measure over time with the same method. State what should change and when to check. Also name a result that would make you revise the plan.",
+        "Imagine a Canadian wetland restoration project. Research could test whether a habitat change improves recruitment while maintaining water quality and other functions. Social goals might include access and cultural relationships. Economic goals include affordable cost and lasting livelihoods. Environmental goals include the wetland's long-term health. Research for a sustainable society, economy and environment must therefore evaluate more than one rising population count.",
+        "Compare a plan focused on fast growth with one focused on community composition and resources. Use genetic, demographic or ecological data where relevant. Keep measured facts separate from stakeholder values. Revise the plan after considering the other view. State uncertainty and another possible cause of any change. This online work shows planning and reasoning, not proof of field sampling skill or live teamwork.",
+        "To separate two proposed influences, compare a reference condition, habitat restoration alone, reduced predator access alone and both changes together. Repeat comparable sites and measure recruitment consistently. The combined result can differ from either single change; the design tests separate effects and their interaction without guaranteeing every confounding difference has been removed."
+      ],
+      "status": "authored-core-prose-initial-science-review; figure/worked/check/advanced and exact-source second review pending",
+      "readingRevision": "Simplified sentence structure and ordinary language while preserving mechanisms, denominators and limits.",
+      "termIntroductionIds": [
+        "d-term-indicator",
+        "d-term-perspective",
+        "d-term-revision"
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Required practice prerequisite repair: explicit community scale, resource partitioning comparison or crossed ecological intervention design.",
+          "previousParagraphsSha256": "15a1bc5df4e2d411806ba3cb6d35f16b7744896d77177e8dc627e3ba3f00d9d6"
+        }
+      ]
+    }
+  ]
+}

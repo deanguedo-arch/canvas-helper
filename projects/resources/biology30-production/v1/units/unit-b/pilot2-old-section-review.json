@@ -1,0 +1,1340 @@
+{
+  "schemaVersion": 1,
+  "unit": "B",
+  "method": "Read every old B section and corresponding required paragraphs; compared added deeper Advanced and review-semester destinations. Corrected missing substantive teaching before recording preservation. This is author retention review, not rendered or independent human acceptance.",
+  "sourceFile": "projects/resources/biology30-production/v1/pilot2/old-authored-content.json",
+  "sourceFileSha256": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+  "reviewedSections": [
+    {
+      "oldLessonId": "b-lesson-01",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "abee22adfb5721ad57ca5e6aa1c221ad2238cf36a6f156f5368e99012330b21f",
+      "legacySourceSha256": "2ec10eb54f03a12edf2db6916c070e2379f6f21373281c7f3cc7633a07899670",
+      "destinationPart": "b-review-seminar-evidence-synthesis",
+      "targets": [
+        {
+          "kind": "seminar",
+          "targetId": "b-review-seminar-evidence-synthesis",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json",
+          "contentSha256": "6200488adc3895bebb5008462570297623b745e5fd94ff7315013015eae9fefc"
+        }
+      ],
+      "review": "Seminar introduction links cellular reduction, duct transport, endocrine influence and development with named arrows; the three-model task prevents unsupported cross-source diagnosis.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-01",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "027217a1c00a1017e17d49f726cde4f0ce9e797fe1f19ac21b6da76a6c844b2c",
+      "legacySourceSha256": "1b8f5165dd97cea4fa29b230db8c49defce2dc2dde95528c0d9786c47ec29e6e",
+      "destinationPart": "b-topic-spermatogenesis-gametes-and-chromosome-sets-advanced",
+      "targets": [
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-spermatogenesis-gametes-and-chromosome-sets-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "4923816640b5b773eece4df7a13b5259f15fb868bd9d1f5d91e6769a544f5135"
+        }
+      ],
+      "review": "Added adjacent explanation distinguishes DNA copying/segregation from reshuffling and mutation; probability does not guarantee an individual outcome.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-01",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "5f5540ffd3f2d4ac81a800339a42d1c065007554b49d9515b449b22100588ba4",
+      "legacySourceSha256": "372e2f00389d55a085da238f397ec6cf91b1239cb0745fe0079cfcfdc1f50116",
+      "destinationPart": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5562ae84834062b4ca38c1a97a3ba8283ccd061e4a509fc793c810a63fdfa253"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-spermatogenesis-feedback-and-evidence",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d3d35800eda8337182a54d1b9197978284e30b2eefa603d034d2fa6de31dc922"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5dd3db9c4e17cc2139d051dbb1254c3543e8aaf346365f7105168ac3c759f138"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-spermatogenesis-hormone-sources-and-targets-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "8b952fe835897049c773f208626a00386e4cd7f16d21a762479044a121cc9a2a"
+        }
+      ],
+      "review": "Sources/targets and separate blood routes are explicit; feedback and ovarian positive-feedback sign are retained at their own subsequent targets.",
+      "teacherDecision": null,
+      "scopedFollowupReviews": [
+        {
+          "evidence": "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+          "finding": "All previously retained cycle paragraphs unchanged; required ovarian puberty/primary-versus-secondary explanation appended. No old section discarded."
+        }
+      ]
+    },
+    {
+      "oldLessonId": "b-lesson-01",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "d7d1bf867afe62c9eff99d52214a0dec4666cb34c836f5037ab64d7fca292ce6",
+      "legacySourceSha256": "8b7e2fc185749ace31819a83265d2bf4f9d9613e797733e8f05dce35fe6d4e96",
+      "destinationPart": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "f22695c6956c7ef75b29eb9e11de0bce539b50f0ab8783f35f6aa07c39258c62"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "1f39660df79cd2c6c372a46bd9b58d634572485749f77c76b4cafdeec49b6861"
+        }
+      ],
+      "review": "Fictional case question, prediction, observations, alternative and revision are explicit; no personal disclosure or live-lab certification.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-02",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "f3a5ff1aa7c1792453a242e623d749ebfc45a982279b23ce463b533c318379fd",
+      "legacySourceSha256": "a8abfb06734614aa9182458239c6c191fcc1d51b102cd3c4082c1e4e12749daa",
+      "destinationPart": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "daa47298f8eaa63388952a06eb59f3bd9b12c9cbe427c71cbbadc3f86c056c7e"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-compartments-of-the-testes-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "7335706797bbe1421878461791f9ac29dde9f576bba6ad834f7c6ff02b0a3c3e"
+        }
+      ],
+      "review": "Core names tubule/germ/Sertoli/interstitial/scrotal compartments and temperature; original inset makes inner versus outer tissue locations visible.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-02",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "40045f99c26bbacf5e2e597e009fdd7d55ae5bfe4578a06d79ef7d780716e36d",
+      "legacySourceSha256": "b89a094d5a90ef04575fc9f84e3a330918a2f138b0017b4bf1aa5ba46c8118dc",
+      "destinationPart": "b-topic-male-reproductive-structures-the-transport-pathway",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-male-reproductive-structures-the-transport-pathway",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "f1d58d4f982534aa2e378891a034ade11bb01aa5dd900fe01d2ce29b58878183"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-the-transport-pathway-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "3f92cba09c0b0b51953e617dd97bb0eafa4c2e85cc18123b98e6a0bcf27ddf1a"
+        }
+      ],
+      "review": "Core follows production→epididymal maturation/storage→vas→ejaculatory duct→urethra, with separate blood secretion and obstruction inference.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-02",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "e5965e68bf95a1129fba06084f3effd532181291c4388a4d4f5fb31d04e8a5eb",
+      "legacySourceSha256": "d0f48bcabfc9e4d660a116fc55aba75b3c9ad89af72770ac14e3e2088f5470fe",
+      "destinationPart": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a43793899885ed59f5c39ecebdabde344958d7860d88c08f256d1c599e8612c3"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-semen-and-accessory-glands-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "c794ae05653064a5b3776bb851515b55843707fef6ccda7d6229467af65f57ae"
+        }
+      ],
+      "review": "Accessory secretions, no glandular sperm production and fluid-without-sperm case preserve the limits of semen-volume evidence. Added source-verified seminal-vesicle position retains every prior secretion/production distinction.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-02",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "be58c0ff8d6742aa202f28f18cd40bedba67703449ad0fdb8f2f72f3e27720e0",
+      "legacySourceSha256": "b5d0dc5852d93e14393f022294a1b592a861c02eb2f3f2e60b167c43c21eb3b9",
+      "destinationPart": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "f22695c6956c7ef75b29eb9e11de0bce539b50f0ab8783f35f6aa07c39258c62"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "1f39660df79cd2c6c372a46bd9b58d634572485749f77c76b4cafdeec49b6861"
+        }
+      ],
+      "review": "Core T/P case and linked four-case investigation distinguish open-passage production loss from blocked transport despite upstream observations.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-03",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "d471aa5473af795754feb2e2ff7f572294bdff7928b585379aa8d4178bdaf26f",
+      "legacySourceSha256": "566fc345a1cddd4e6d765015fc28f471eb8da1fdaa2ebb787baabfd8e4b8ba4a",
+      "destinationPart": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a6bb6bb7cd0f95718d9510b22b8140a456aed0c01fbdc05aa888d2490308ddd5"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "8e6b755c2e9932097b11acd184a61b0a5388e1b45d487d7f412c12d27f23b48f"
+        }
+      ],
+      "review": "Oocyte, follicular support and post-release corpus luteum remain separate cells/tissues with different hormone roles.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-03",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "d3a62c3921f5d3a21235c3d6c78f1fcca13df88273ab710e3a27fabfa556ae79",
+      "legacySourceSha256": "a367e663d0cef8ea7974733cecec56480cc4b212188bbabb3af68c7b7b658f9d",
+      "destinationPart": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "86dd06a0e1b673fd4103c85219c179b18f0673a51a3f0e05477e0a0815fec08a"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "df9a229eada983fcf548801b88995146c47c6be508bfdffcf9631b2676789111"
+        }
+      ],
+      "review": "Fimbriae/cilia/muscle transport, usual tubal fertilization and open ovary-to-tube relationship remain explicit; cervix/vagina/endometrium separately named.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-03",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "35071f2c8a33807c500b16a2aa0190006f9448cf7168e92b001d9866a6ad128c",
+      "legacySourceSha256": "038ca7b01dffe0fbab9c9382123fab1ee2eee22b612fe422f9178a8c4987adfe",
+      "destinationPart": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a18cfef685c164757243e8f79d95876368ec5b6f44abe413151f4c1b085773f0"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "86dd06a0e1b673fd4103c85219c179b18f0673a51a3f0e05477e0a0815fec08a"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "5739b67c52a4df2e5f486fae3df12aa69e001b232d7f21d070925f26634a10f9"
+        }
+      ],
+      "review": "Ovarian hormones support/release endometrial conditions; loss of support causes shedding without predicting every reproductive result.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-03",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "d2baa0a2cadc6c2bfd46718b58687cfe773641e4f9b3b44abd519900a81e4b17",
+      "legacySourceSha256": "f8954c1743bc3cdc9bae0ca08ba6b1df812dd70cc4d6be23df4f861406596e03",
+      "destinationPart": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "0c66dd8a746bf866a219471e7636dff7ec4a5acf64cb7c8298184d8ea902192d"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "6496e3ae6acb26cdd67afadc26211b2ccdd4850c223522838ba3cba8d2db82df"
+        }
+      ],
+      "review": "Core compares unequal division, two pauses and chromosome stage; primary-oocyte definition retains prophaseI, and secondary-oocyte core retains metaphaseII.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-04",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "13478959651ad0abc2f9c2b2d10e4b9ad51b9f75b722de162f17f12e7655300e",
+      "legacySourceSha256": "0736315ee257b96770ac6f719d26af149232f37f42c82beeb677547a8a2bccc1",
+      "destinationPart": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a23d9da36b83bb5ead557012163ecee3e89239f43e691d86d03cc0cc2d8e80d3"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e049256303a09f12c36a9e8aa5c7d46009aaa457e23a50fb9df438b09fb40219"
+        }
+      ],
+      "review": "Core SRY/network, testosterone/DHT/AMH, absence-of-testis-signal pathways and target dependence retained; advanced keeps Wolffian name and variation context.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-04",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "7df3d04ce9da378b1b7de93aa20c2abac5bfc463f5247c39fa139beb910c22b3",
+      "legacySourceSha256": "d9b8db657b657ec67a63f11b15cc047e8528e3ddaa99101f73bf0e4260161d5f",
+      "destinationPart": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a23d9da36b83bb5ead557012163ecee3e89239f43e691d86d03cc0cc2d8e80d3"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e049256303a09f12c36a9e8aa5c7d46009aaa457e23a50fb9df438b09fb40219"
+        }
+      ],
+      "review": "Core receptor/timing requirement and advanced testosterone→DHT target distinction preserve source-versus-response reasoning.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-04",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "c3ad6111fd0e9d57b4d2c57acc0523631b94e21abb6749556048564d83151874",
+      "legacySourceSha256": "50d8dd406684ddbf7f3a5a79dbfcd3288aa4e7b965fd8c75534191ef1e34fd47",
+      "destinationPart": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+      "targets": [
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e049256303a09f12c36a9e8aa5c7d46009aaa457e23a50fb9df438b09fb40219"
+        }
+      ],
+      "review": "Added advanced paragraph separates measured sex traits from personal/social gender; it prohibits inferring identity, behaviour or worth from a biological measurement.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-04",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "1e1e5a09466b4d5f48f8aca2aef11d054d4b89b80dd0a6de08b1a94d5d94ed07",
+      "legacySourceSha256": "2b817359093c25629fd931efafae1dbe1613e79e3fd0dd077081162195875c82",
+      "destinationPart": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+      "targets": [
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e049256303a09f12c36a9e8aa5c7d46009aaa457e23a50fb9df438b09fb40219"
+        }
+      ],
+      "review": "Added adjacent paragraph names variable developmental conditions and tests alternatives without diagnosis or treatment advice.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-05",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "f1edd8c2d1b1e5115204546e62a1b12319a093bc9eed85df447fc2bc1ff27a07",
+      "legacySourceSha256": "9621de71e27f94a0e476370c906a27b523c49f6bea18dff013124e6b4a94624b",
+      "destinationPart": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5562ae84834062b4ca38c1a97a3ba8283ccd061e4a509fc793c810a63fdfa253"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-spermatogenesis-hormone-sources-and-targets-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "8b952fe835897049c773f208626a00386e4cd7f16d21a762479044a121cc9a2a"
+        }
+      ],
+      "review": "GnRH brain→pituitary blood route and FSH/LH blood transport now explicit; signals stimulate rather than become gonadal hormones.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-05",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "528277d35b1786e95d60d1a43553bb0f7ca74467a46fc9c1cc9642eb3be23600",
+      "legacySourceSha256": "a88467f50c66967156a9906ed29ad53c06312a8991c0a675782307b588d7d7dd",
+      "destinationPart": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5dd3db9c4e17cc2139d051dbb1254c3543e8aaf346365f7105168ac3c759f138"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a18cfef685c164757243e8f79d95876368ec5b6f44abe413151f4c1b085773f0"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "7351ef621d29b4f27b29248bb149c19b32751d8aa077418516baef22e3e5356b"
+        }
+      ],
+      "review": "Core growing follicles/FSH/estrogen and contextual LH surge feed into corpus-luteum tissue and later hormone feedback.",
+      "teacherDecision": null,
+      "scopedFollowupReviews": [
+        {
+          "evidence": "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+          "finding": "All previously retained cycle paragraphs unchanged; required ovarian puberty/primary-versus-secondary explanation appended. No old section discarded."
+        }
+      ]
+    },
+    {
+      "oldLessonId": "b-lesson-05",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "31907dad8e9d3cb400f85d1266924483f7e8c4e4a60baf71cddbede8020f9cf6",
+      "legacySourceSha256": "72691a60cad0b9bfe7032f558eed0e91efca5c0a73428d17b72b5c86ef7a89fb",
+      "destinationPart": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5562ae84834062b4ca38c1a97a3ba8283ccd061e4a509fc793c810a63fdfa253"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-spermatogenesis-feedback-and-evidence",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d3d35800eda8337182a54d1b9197978284e30b2eefa603d034d2fa6de31dc922"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-spermatogenesis-hormone-sources-and-targets-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "8b952fe835897049c773f208626a00386e4cd7f16d21a762479044a121cc9a2a"
+        }
+      ],
+      "review": "FSH/Sertoli versus LH/interstitial roles and testosterone targets are explicit; feedback lesson retains multicausal limits on sperm inference.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-05",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "ba14bea06a56500dd07a5c506baef54b0c09ea67930afa7c720e07452ba4ba44",
+      "legacySourceSha256": "53cd7859a540f8afc908ceaaa0604707ab6264cc1aef96e87c153a3e9a93fa18",
+      "destinationPart": "b-topic-spermatogenesis-feedback-and-evidence",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-spermatogenesis-feedback-and-evidence",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d3d35800eda8337182a54d1b9197978284e30b2eefa603d034d2fa6de31dc922"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-spermatogenesis-feedback-and-evidence-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "7c5c5f0359381e974884c2c6782229e996c9eb1090fa9349821177348bb00499"
+        }
+      ],
+      "review": "HighLH/lowtestosterone comparison, weakfeedback interpretation and controlled repeated measurements preserve upstream/downstream logic; no single reading is a diagnosis.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-06",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "9273ec9d49da2a19dd31c3f9d24e13f548ac7da719041db68c069eee68106fe9",
+      "legacySourceSha256": "bedab8bb9f755179d9d6dc8abc15f00072c465f14e53ee9daabb1611edb74e28",
+      "destinationPart": "b-topic-menstrual-cycle-two-coordinated-cycles",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-two-coordinated-cycles",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "3127ac8a0d0578cb6bf1d73af43d1364b2a1b26434c8324690f81e4dc551607f"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-two-coordinated-cycles-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "2f09d55cb50d26b95ee1ca712ca542569cb13d3b3acb8e3163262541c3bc557d"
+        }
+      ],
+      "review": "Core keeps ovarian versus uterine location and cycle-day convention distinct; overlapping biological events and variable schedules remain qualified.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-06",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "33e61e93fe89c8ee27aea17b1da4dba940a2d571da424552aba21ccf0807d177",
+      "legacySourceSha256": "d8aa1940ee3c457faf955890ed6c55e94a769e0b44deed7d62b4462e2f4c4f43",
+      "destinationPart": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5dd3db9c4e17cc2139d051dbb1254c3543e8aaf346365f7105168ac3c759f138"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "7351ef621d29b4f27b29248bb149c19b32751d8aa077418516baef22e3e5356b"
+        }
+      ],
+      "review": "Core requires sustained high estrogen in suitable context for positive feedback; sampled signal maximum is not proof of actual ovulation timing.",
+      "teacherDecision": null,
+      "scopedFollowupReviews": [
+        {
+          "evidence": "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+          "finding": "All previously retained cycle paragraphs unchanged; required ovarian puberty/primary-versus-secondary explanation appended. No old section discarded."
+        }
+      ]
+    },
+    {
+      "oldLessonId": "b-lesson-06",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "4f544e64b4a3826b298c0d22d2e430f3923dcbaddcb845b207878dde086bc50b",
+      "legacySourceSha256": "8cf4635f7b24feeacdf6c02372b53aa4b7ad3b16ed515fd8dce7a46271542fdd",
+      "destinationPart": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a18cfef685c164757243e8f79d95876368ec5b6f44abe413151f4c1b085773f0"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "5739b67c52a4df2e5f486fae3df12aa69e001b232d7f21d070925f26634a10f9"
+        }
+      ],
+      "review": "Luteal progesterone/estrogen support, feedback and withdrawal remain mechanistically linked to uterine tissue response.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-06",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "9be3a5ddf662cf670dd29cdbd1fa91bce79558297d1f1a8d0f0c49e22248127b",
+      "legacySourceSha256": "7215c19d523a6c1286f5b30aaf46e5fd2c8e3ea34088fdb39e3a6a982a14d137",
+      "destinationPart": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "46107cb4431f4d2885d350cda732271f67f89817622fcc69cf1a63b497d400d5"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-graphs-and-cycle-variation-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e8aa93969c232c583d16278082a0887eb7c6d100bfe34578d86fa164fa8eba81"
+        }
+      ],
+      "review": "Six-point graph controls contract includes named axes/separate scales; added advanced paragraph retains pulsatile release, sampling and measurement limits.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-07",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "69b363a6cd31bed43533c937cf24ad20ac88a1ba9ad256e572fcb66a87133635",
+      "legacySourceSha256": "5f4ade60b61abb3baa5dd62ddb66fc9f153efa16d9f90174a0dfcdf5998e6bf2",
+      "destinationPart": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "a23d9da36b83bb5ead557012163ecee3e89239f43e691d86d03cc0cc2d8e80d3"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "f22695c6956c7ef75b29eb9e11de0bce539b50f0ab8783f35f6aa07c39258c62"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e049256303a09f12c36a9e8aa5c7d46009aaa457e23a50fb9df438b09fb40219"
+        }
+      ],
+      "review": "Core infection/inflammation/tissue damage and later female PID example preserve fertility mechanism; advanced now restores different HPV/cancer pathway and non-blaming limits.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-07",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "8e932481a7c8470a7460e406ea8af72441cc8fd2b0cd6e773f3b0d17c6eafa07",
+      "legacySourceSha256": "f38c758e14d1796ca0945a5c88d0bbdac1783e11882d4b5aadc5202e5e2d7b08",
+      "destinationPart": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "b17cd525ced9530485d8606c33a36d87923a9304ca9e5cfd541f0b09280b5e33"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "7173e3037f7f851a8f87b40bf209d4b64599d7d5f81da9ad676b3204a28e0a4c"
+        }
+      ],
+      "review": "Required core now separates pregnancy/STI outcomes. Adjacent enrichment compares HPV vaccination, condom coverage, pathogen-dependent testing/treatment with current PHAC source links.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-07",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "dc39181916eef582add4c638867bfe39279d8f93f68a865ec08a8d9cf7ae08ed",
+      "legacySourceSha256": "7001b2d2a6fc46eb48950065e1e20081663843a280be84a1e94139c69c812cd5",
+      "destinationPart": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "f22695c6956c7ef75b29eb9e11de0bce539b50f0ab8783f35f6aa07c39258c62"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-female-reproductive-structures-structure-and-reproductive-function-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "1f39660df79cd2c6c372a46bd9b58d634572485749f77c76b4cafdeec49b6861"
+        }
+      ],
+      "review": "Core support/transport/lining/timing framework and alternative production-versus-transport evidence retain multifactorial fertility and non-diagnostic limits.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-07",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "cc7f3bf13003d3340a983609cbd2c43ef77d812af6620a92968e4fb4dc079370",
+      "legacySourceSha256": "232360a12ce147018329766f32d26da486e357395eac130d1106d8bb60615dbc",
+      "destinationPart": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d858b7ce299c2137698f90b4fe447cabcc0459c61e17a94e43acabae2fa2da0e"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "456ec1c7ebdd3a8e2001a7ad3f9c187c62a27bbbced29e5d5f6f6a9a0499cd1f"
+        }
+      ],
+      "review": "Core decision perspectives and distinct family roles retain consent/access/values; new STS application requires all five dimensions and revision, with seminar privacy/consent.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-08",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "3871dc82b22696f9d00c814a6f6cee716be871e56e702c2f00f3c031c0a31f08",
+      "legacySourceSha256": "1166a7d1db3abb13bc958076cfbfa0f46b22748d66c795edfca40da1048b77d1",
+      "destinationPart": "b-topic-fertilization-to-implantation-gametes-meet",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-fertilization-to-implantation-gametes-meet",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "75c971c7ac3d3cd0bbf2fd90a5b6e5f0db2dd98e06b34c8d87717cd48e48fd92"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-fertilization-to-implantation-gametes-meet-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "9470f6a5f6533ce74742023b8cb12d6ec34539cbaa051f2fbab1f4263f085e8f"
+        }
+      ],
+      "review": "Capacitation, coverings/acrosome interaction, membrane fusion and activation are sequenced; arrival does not prove later success.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-08",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "1ad9d06b0fc4e57c2e7f51838a48d105f54ddd54acc7d1528bc6f7d33cda3ed7",
+      "legacySourceSha256": "cd6e781c27939eaaf95ee2a132936656bff72ced092d359ec72c5f6a9ca78da2",
+      "destinationPart": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "14c5426c6a5c4c0af58793037fc0ab4ebd782ee23cc67e767206d4abbf555e0a"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-fertilization-to-implantation-combining-chromosome-sets-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "669dc8a32258b6ba0c10fc53eb9b3ed400a2d538d4877de2a31ddce79c121d7d"
+        }
+      ],
+      "review": "MeiosisII completion, pronuclei,23+23 chromosomes and copying before first division remain distinct events.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-08",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "37c77b7b6be4ffc1371d5883c187c21b411d77b51e8ae69a9fea41c64eedc8c8",
+      "legacySourceSha256": "244ee23ad2bdd47c87670bdb3eec2187c02586629a9a6c40d699e61a158405c2",
+      "destinationPart": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "0c3856b376357cda2843c5431c9f410aec84300c616851519a55c129d3f3ac1b"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "3090ba5e1f1ae61e92b0650d7a00424b6f058fa9705a007d53b503c56261e985"
+        }
+      ],
+      "review": "Core cleavage partitions cytoplasm into smaller cells, then morula/blastocyst/cavity/inner-mass/trophoblast organization, without proportional overall growth.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-08",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "abe40a3f83c2522d9eb363558de5fc0a86cc397db8dcc030dad22adbfb8aed39",
+      "legacySourceSha256": "93ecce1a382387bdb9e9f5e5df11686f21b9d9182da6687acd01001bde2a3bfd",
+      "destinationPart": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "33c2acf3712a4f311cc8930605eb5a0a74740b6d46bf50ca5c4d0a92138d9eb4"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "54efe684c00652f5c021457586b2600c511e50dae635d7d9433d5f96169c0b0c"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "1489991eacbaa1ddb9f45807f2e808e44c76409aece59bbca5ba2afa53eea2b7"
+        }
+      ],
+      "review": "Core implantation requires receptive endometrium and developed blastocyst; the next hCG lesson separately teaches trophoblast→luteal support rather than declaring ongoing success.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-09",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "4d5f3094efb736e0cacc24e010e9b5651bb77462173496dd1e42b2876c55fea1",
+      "legacySourceSha256": "a446d06884dafd56f812301571abce24dd463524010ed2b147dba9ce52751d43",
+      "destinationPart": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "3c75b7b27359dcc09fe94283354f95b7c04cedf82151487aa6b933747253d6fd"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "208bed04920a64386f260d660490359f54af5c8d0b032a1e8c23d34b3a507042"
+        }
+      ],
+      "review": "Core distinguishes amnion/chorion/placenta/cord/allantois and human versus egg-laying support roles; no all-purpose placenta label.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-09",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "81eafbe28a9d0a3c4cc01bbda156ef98f68da779d6d9f2281db8a7b72b781c51",
+      "legacySourceSha256": "9732117b5246e2ea832489ddf2b4ea720fab25f7281ae8e1df6bb3c3f7444aba",
+      "destinationPart": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "9a4884decc96a26cc13e8eb61597f0f0eaf8c251385b1481aca324454b60d109"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "62a53df931003b0be4358b9629e5a02c465336f9e7279236d2ff358282bf002f"
+        }
+      ],
+      "review": "Core separates circulations and fetal vessel directions; adjacent enrichment restores material-dependent transfer, metabolism, immune/endocrine roles and imperfect-barrier qualification.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-09",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "ed1e53135d0f33e0ea077f697e737f482afd07dd77f4cb88fea53b12c4a4b96a",
+      "legacySourceSha256": "e9883c259657e2143b25f075130da6cb79f0d80f62dcc0d685451b8d7de6073a",
+      "destinationPart": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "54efe684c00652f5c021457586b2600c511e50dae635d7d9433d5f96169c0b0c"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "bfc72b732b0b6a0a108a6e57796c520a2383a18d09b55053313f1d5324519cb8"
+        }
+      ],
+      "review": "Core earlyhCG/corpusluteum versus laterplacental steroid sources and starting-material contribution preserve timing-dependent endocrine interpretation.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-09",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "cf4d96a69c91234e6ae6720b33250a30562cb0d9cdf0c744c5b7cc079e81c1c4",
+      "legacySourceSha256": "d1493757b0ba6dc2880b8386f6fb4242faaddf4b9e7f633e44ff366b755577b0",
+      "destinationPart": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "05a03df4c9491e4538712db7c9e8623216510c0355d0894f675d4728dda43339"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "9a4884decc96a26cc13e8eb61597f0f0eaf8c251385b1481aca324454b60d109"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "4da91a10cb2ec838cae4a16ad94601766a5bab8d2883e9fe889aca9440d8f977"
+        }
+      ],
+      "review": "Core agent/dose/route/timing and placental-interface teaching retain transfer-versus-harm distinction; added support-context advanced material avoids blame.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-10",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "f6f644f7c67cfac7882f7a1185569b41908b131ee77a754207e4190c79852664",
+      "legacySourceSha256": "50b5cd6fd61a3516e85803d77166bb5c82534a30bc71edc41e7d5e6d4ae7d880",
+      "destinationPart": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "083e65e521686460dfad9137d7475ba1e8893b9ae70ffef2259f309008832eac"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "d1337e6b429f3ccb93d38770d2bc740b287482c2e1f37aabb64b6fe5425a4d3a"
+        }
+      ],
+      "review": "Core gastrulation names coordinated migration, primitive streak, cell communication and morphogenesis, distinct from cleavage; not simply three coloured sheets.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-10",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "a01846c012a1ee7729251aaf222054a3f458f4ca54341d07038d285df742e4d3",
+      "legacySourceSha256": "c6e01197c3a244ac12eb2f0f32960cf763b7e706413c4467d9227c2db13e1249",
+      "destinationPart": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "4f0edcab02a2ac6332df045167222133d98fc4c70cbb3459b8ab6824311dcff7"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "1d30d70164db65905d9fed21811a503e0570d4738a27806c95abdf8af228d2e6"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e197c046cf10958503da7a5c5ad903e5e66b0dedf436b7d01688dd2eca186002"
+        }
+      ],
+      "review": "Core ectoderm/neural tube and advanced neural-crest migration preserve intermediate paths rather than only final organ names.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-10",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "e6abdd3da10391a8a1df1a652d1853e2294c7325e15eae90018939003031c76d",
+      "legacySourceSha256": "03a57837769648128197170a141ab98b47a4cca214f153917be699b1436cd179",
+      "destinationPart": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "4f0edcab02a2ac6332df045167222133d98fc4c70cbb3459b8ab6824311dcff7"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e197c046cf10958503da7a5c5ad903e5e66b0dedf436b7d01688dd2eca186002"
+        }
+      ],
+      "review": "Core muscle/skeleton/blood/reproductive examples and mixed digestive tissues, plus advanced kidneys/connective/cardiovascular contributions retain mesoderm breadth.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-10",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "aa43b5fe69e061974543d6ac1d002ef65056a75e3d488a5853d2253644c14087",
+      "legacySourceSha256": "339b38daeafd33fcf2f3a7c33f14a392550ec6cdfe64291ce892466d5bd6df25",
+      "destinationPart": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "4f0edcab02a2ac6332df045167222133d98fc4c70cbb3459b8ab6824311dcff7"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e197c046cf10958503da7a5c5ad903e5e66b0dedf436b7d01688dd2eca186002"
+        }
+      ],
+      "review": "Core endoderm linings/pancreatic/thyroid tissue and varied endocrine origins prevent whole-organ simplification; added interactions/programmed-cell-death explanation retains morphogenesis mechanisms.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-11",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "a2f1208e19651cf38aabf572a495f342d314c188e0ba48bf8567a6a72917d65b",
+      "legacySourceSha256": "ca0b415876110016e7d8876c15e5de98064bd13e0c1c7cc6bb5477ca153728ca",
+      "destinationPart": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "1d30d70164db65905d9fed21811a503e0570d4738a27806c95abdf8af228d2e6"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "5719e7976a68c5fe02032138028b88c64d96a3da702c1307d6c711301558d927"
+        }
+      ],
+      "review": "Core distinguishes time origins, embryonic/fetal stages and overlapping trimester processes; formed does not mean mature.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-11",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "512d7ce445baf582564fd32f19ac1bebd584b4722752b7d4be3121e7ef0b3f5f",
+      "legacySourceSha256": "106688c8f75f8bee5936dca001936eae3f34e05f26e5078e6cce91b30af51474",
+      "destinationPart": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "05a03df4c9491e4538712db7c9e8623216510c0355d0894f675d4728dda43339"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "4da91a10cb2ec838cae4a16ad94601766a5bab8d2883e9fe889aca9440d8f977"
+        }
+      ],
+      "review": "Core dose/route/timing and different agents remain qualified; adjacent source-comparison and support-context paragraphs retain non-universal risk and no personal prediction.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-11",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "fbcc2f7f818965488bd6de121e7ca655122c440afd13ae5dbcdc47ec10fbbe12",
+      "legacySourceSha256": "a439436d1d3539dbdab04066a7330f7ed441551b3fd7bab841f0502c77df3ca7",
+      "destinationPart": "b-topic-parturition-investigating-and-communicating-a-claim",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "0b722d9ad6f58d3c32dd735730b42cb954217149e0d17813a3b5308ebb2bde4d"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-investigating-and-communicating-a-claim-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e535260efa86c371628be8ab7d1414db6ae11309538ba15ef85193afa02c12e2"
+        }
+      ],
+      "review": "Core four-group model and adjacent ethics/evidence-source explanation distinguish observational, nonhuman and mechanistic evidence; confounding and convergence remain limits.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-11",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "2655fccdbe5676580a9ac1c643d2f08127b00bb99562a378986b5870f0c11193",
+      "legacySourceSha256": "d12c798bc30b648d6001176100abf68f2f0ff55f4b05b3a17b5eeb1acf78dfbd",
+      "destinationPart": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-advanced",
+      "targets": [
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "4da91a10cb2ec838cae4a16ad94601766a5bab8d2883e9fe889aca9440d8f977"
+        }
+      ],
+      "review": "Added adjacent paragraph preserves support/access/workplace/partner/system context and non-blaming communication without presenting a pregnancy outcome as character evidence.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-12",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "e8f7567daa9078a017c673b68b62a22ab7a16f1ee663909ded04231a1112b172",
+      "legacySourceSha256": "dd71195e4cd58366117dfc0644188f67013350dbf728d5563f1db12616f278fc",
+      "destinationPart": "b-topic-parturition-labour-and-positive-feedback",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-labour-and-positive-feedback",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "e281321df6d6aaaf4607b67c8a4f7c57e9725e4f5e48ff8861f5ec9ac7d7ecf2"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-labour-and-positive-feedback-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "0c48e00d559ac6aef1d5e6c6e25e49c3ee180b979d9d317c2a2ce1f727e2cb79"
+        }
+      ],
+      "review": "Core progesterone action, tissue readiness, prostaglandins and multiple local/hormonal signals prevent an isolated oxytocin-on-switch account.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-12",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "7f9fdf56f4941cde5062052891710f14b3d98d7b725290c6afdc6a4bc08a9bfe",
+      "legacySourceSha256": "101e4f08cbabc6570e88d212867fe9108c438d4f1d5ceefcda5d7015e0faf807",
+      "destinationPart": "b-topic-parturition-labour-and-positive-feedback",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-labour-and-positive-feedback",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "e281321df6d6aaaf4607b67c8a4f7c57e9725e4f5e48ff8861f5ec9ac7d7ecf2"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-labour-and-positive-feedback-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "0c48e00d559ac6aef1d5e6c6e25e49c3ee180b979d9d317c2a2ce1f727e2cb79"
+        }
+      ],
+      "review": "Core stretch→sensorypathway→oxytocin→contraction→stretch and delivery endpoint distinguish reinforcing from stabilizing feedback.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-12",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "a02bfd0ba07a57541665435d5ae8577938cb99b9250f09ba9114d7a91f95339e",
+      "legacySourceSha256": "ab8869ea6635611492e3a7fcd5ae665eb2ad0ce7856ab3ca429bc1cdecce9408",
+      "destinationPart": "b-topic-parturition-milk-synthesis-and-release",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-milk-synthesis-and-release",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "dfb44fcdc8edc4ba9ad0d4e39d966f37b67d54d710abd457731677bfaa587094"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-milk-synthesis-and-release-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "0409ef8d7f815aeed760700fabe482a0c1b67a8fff9603759c74176d13d0852c"
+        }
+      ],
+      "review": "Core anterior-pituitary prolactin, postpartum steroid decline and synthesis target distinguish hormone presence from actual output.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-12",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "42dab60774a548d5ebd3e400744635ad687cabf63f39cc1e2b3958af69377914",
+      "legacySourceSha256": "ff868a88f8d5ba0cc170b4b4c72e664fe9346316e13e1dc6e3cf716ffc2ae2c0",
+      "destinationPart": "b-topic-parturition-milk-synthesis-and-release",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-milk-synthesis-and-release",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "dfb44fcdc8edc4ba9ad0d4e39d966f37b67d54d710abd457731677bfaa587094"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-milk-synthesis-and-release-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "0409ef8d7f815aeed760700fabe482a0c1b67a8fff9603759c74176d13d0852c"
+        }
+      ],
+      "review": "Core sensory/hypothalamic/posterior-pituitary/contractile-cell ejection pathway remains separate from synthesis; a model result is not a personal feeding diagnosis.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-13",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "f114a3c396bc6d173b5a4c7ee9352419bd86d72ac5856b202f26932d697b3173",
+      "legacySourceSha256": "cf88768faad970dfc1ca4002431b3082ee0138654d6c88cc3e73c2f74e699998",
+      "destinationPart": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d858b7ce299c2137698f90b4fe447cabcc0459c61e17a94e43acabae2fa2da0e"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "456ec1c7ebdd3a8e2001a7ad3f9c187c62a27bbbced29e5d5f6f6a9a0499cd1f"
+        }
+      ],
+      "review": "Core barrier/hormonal/duct mechanisms and STI distinction, plus advanced localIUD and typical/perfect-use qualifications prevent assigning one mechanism or endpoint to all methods.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-13",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "aa83f20a54b25ae620510d8fffd5adae458f411780d80d6a60d8a7ad41c005ff",
+      "legacySourceSha256": "cfe71f97e40684611183becc2b61a3b59f39b2eefc9477dddd77a434a693a77d",
+      "destinationPart": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "33c2acf3712a4f311cc8930605eb5a0a74740b6d46bf50ca5c4d0a92138d9eb4"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "1489991eacbaa1ddb9f45807f2e808e44c76409aece59bbca5ba2afa53eea2b7"
+        }
+      ],
+      "review": "Core retrieval/fertilization/transfer/denominator distinction plus advanced stimulation, preparation, injection/culture, donor/freezing/testing options retain the stepwise technology.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-13",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "7f580bae86da348a45bbb979782f23df654e26a77f4ff4b3bc142b48d980e810",
+      "legacySourceSha256": "b799bb01f869da9b2ab8215ae9db890c5777a97f7a470dd6687e2cb0652f335a",
+      "destinationPart": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d858b7ce299c2137698f90b4fe447cabcc0459c61e17a94e43acabae2fa2da0e"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "456ec1c7ebdd3a8e2001a7ad3f9c187c62a27bbbced29e5d5f6f6a9a0499cd1f"
+        }
+      ],
+      "review": "Core restored passage or hormone support is conditional on other required functions; neither procedure nor IVF guarantees later conception/development.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-13",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "24bee348fd501283b0aa12444f10259f7d4e4cc9551258edea2a9d650f48e733",
+      "legacySourceSha256": "4797f4d3b5e46a79e4e76b0b0cabfda6c9cd83711c655cbee5ad38e33fb93265",
+      "destinationPart": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "d858b7ce299c2137698f90b4fe447cabcc0459c61e17a94e43acabae2fa2da0e"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-technologies-infertility-and-perspectives-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "456ec1c7ebdd3a8e2001a7ad3f9c187c62a27bbbced29e5d5f6f6a9a0499cd1f"
+        }
+      ],
+      "review": "Core family-role and five-perspective comparison plus advanced risks/costs/privacy/embryo/donor context preserve evidence-versus-values distinction.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-14",
+      "oldSectionIndex": 1,
+      "sourceCanonicalSha256": "e15bde2e0383cc851d1703bde397a2393e4e7d3cebfb5f945a93ecbc0ea55451",
+      "legacySourceSha256": "92bb6fdbb199937bf395aa591b4f0f41b4b93d442feeb75defce3d663436df54",
+      "destinationPart": "b-review-seminar-evidence-synthesis",
+      "targets": [
+        {
+          "kind": "seminar",
+          "targetId": "b-review-seminar-evidence-synthesis",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json",
+          "contentSha256": "6200488adc3895bebb5008462570297623b745e5fd94ff7315013015eae9fefc"
+        }
+      ],
+      "review": "Seminar ledger preserves observation, source, timing, units/category and unmeasured outcomes; three separate models cannot be collapsed into one diagnosis.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-14",
+      "oldSectionIndex": 2,
+      "sourceCanonicalSha256": "d85cf14359c1f97d02cd84ee7d26d7659b8cd80d130e4326171598ae6e576372",
+      "legacySourceSha256": "93813486bd4825276e045be5da4951d850714eb080ee76392f100e99afaa292f",
+      "destinationPart": "b-topic-parturition-investigating-and-communicating-a-claim",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "0b722d9ad6f58d3c32dd735730b42cb954217149e0d17813a3b5308ebb2bde4d"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-parturition-investigating-and-communicating-a-claim-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "e535260efa86c371628be8ab7d1414db6ae11309538ba15ef85193afa02c12e2"
+        }
+      ],
+      "review": "Core model-controlled comparison and advanced discriminating-test-versus-repetition distinction preserve competing explanations and uncertainty.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-14",
+      "oldSectionIndex": 3,
+      "sourceCanonicalSha256": "9700b0268e55fc53fb76799a01c4b425a760f7e477fb133c884f65592767af72",
+      "legacySourceSha256": "ef9401e2dd151694d5d483db1fa3e63d3f878ba05686a06470f5e3c7fe4a0474",
+      "destinationPart": "b-topic-hcg-and-gastrulation-developmental-evidence",
+      "targets": [
+        {
+          "kind": "core",
+          "targetId": "b-topic-hcg-and-gastrulation-developmental-evidence",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "5b76cf816f681449055ed49391a82c72aff28e867d22f43e2a98fb47963df104"
+        },
+        {
+          "kind": "core",
+          "targetId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+          "contentSha256": "1d30d70164db65905d9fed21811a503e0570d4738a27806c95abdf8af228d2e6"
+        },
+        {
+          "kind": "advanced",
+          "targetId": "b-topic-hcg-and-gastrulation-developmental-evidence-advanced",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+          "contentSha256": "9a6cb105f8e529d2e508301703e6254bb4f6675d098da36d44f5a97d67a4abc5"
+        }
+      ],
+      "review": "Core temporal reasoning and developmental chronology reject causes arriving after the proposed effect; order is necessary but not sufficient.",
+      "teacherDecision": null
+    },
+    {
+      "oldLessonId": "b-lesson-14",
+      "oldSectionIndex": 4,
+      "sourceCanonicalSha256": "af1eeefa5e28a09a50f62c553b81db4930069b654e1ed856b88b9061c58dd2cf",
+      "legacySourceSha256": "23b1a1ff12bac695dbe6902a6ce048cd15cf98c52fa89a1b9e3cc1caaab2f48a",
+      "destinationPart": "b-review-seminar-evidence-synthesis",
+      "targets": [
+        {
+          "kind": "seminar",
+          "targetId": "b-review-seminar-evidence-synthesis",
+          "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json",
+          "contentSha256": "6200488adc3895bebb5008462570297623b745e5fd94ff7315013015eae9fefc"
+        }
+      ],
+      "review": "Seminar next-measurement recommendation, revision and consent/privacy preserve provisional evidence reasoning without prescribing or choosing values.",
+      "teacherDecision": null
+    }
+  ],
+  "pendingSections": [],
+  "teacherDecision": null,
+  "advancedFormatReview": {
+    "scope": "127-block A-style expansion; prior authored extensions retained. Cell-control/stem-cell/telomere prose condensed without dropping its distinctions. Required teaching, questions and saved fields unchanged.",
+    "evidence": "projects/resources/biology30-production/v1/pilot2/source-review/inline-vocabulary-advanced-learning.json",
+    "teacherDecision": null
+  }
+}

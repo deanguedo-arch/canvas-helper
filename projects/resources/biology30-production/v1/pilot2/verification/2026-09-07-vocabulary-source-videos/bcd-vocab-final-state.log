@@ -1,0 +1,16 @@
+✔ each all-unit maximum ordinary/Unicode state fits target and round-trips without duplicated work (11.562208ms)
+✔ escaping and mixed legacy overflow reject atomically and preserve original and last valid payload (4.482208ms)
+✔ save channels and exceptions are reported independently (0.525166ms)
+✔ migration preserves byte-exact raw work without reassigning answers or completions (0.910333ms)
+✔ written Frayer replacement requires scoped clear and leaves all unrelated work untouched (0.198916ms)
+✔ corrupt, duplicate, unknown, cross-unit and oversized fields cannot silently overwrite work (0.522166ms)
+✔ compact flags preserve the semantic set, accept earlier token arrays and reject changed map identities or unknown bits (5.7135ms)
+✔ ordered responses preserve distinct, empty, Unicode and escaped writing, while sparse and earlier pairs remain readable (7.462334ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.088583

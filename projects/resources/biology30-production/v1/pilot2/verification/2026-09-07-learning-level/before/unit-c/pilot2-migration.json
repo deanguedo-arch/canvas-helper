@@ -1,0 +1,1938 @@
+{
+  "unit": "C",
+  "status": "authored preserve-only mappings and five-envelope engine fixtures passed; browser recovery integration pending",
+  "originalProfile": "biology30-compact-suspend-v2",
+  "newProfile": "pilot2-topic-sequence-v1",
+  "newVersion": 3,
+  "sourceSchemaSha256": "d01a1297309d6bd20c0630b5c8a01286e6d6ba2d6fbe4da19a4a447cc51b083e",
+  "policy": "Original payload bytes must be backed up and verified before migration. No old semantic response or choice equivalence has been proven against the rebuilt interactions; preserve all as readable legacy work and retain the raw payload. Old completions are not new completion evidence. Reject an oversized combined payload and keep the prior LMS payload unchanged.",
+  "maps": {
+    "responses": [
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-01:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-01:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-02:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-02:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-03:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-03:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-04:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-04:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-05:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-05:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-06:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-06:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-07:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-07:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-08:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-08:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-09:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-09:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-10:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-10:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-11:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-11:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-12:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-12:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-13:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-13:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-14:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-14:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-15:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-15:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-16:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-16:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-17:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-17:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-18:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-18:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-19:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-19:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-20:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-20:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-21:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-21:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-22:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-22:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-23:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-23:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-24:warmup",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:lesson:c-lesson-24:exit",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-cell-cycle-analysis:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-cell-cycle-analysis:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-cell-cycle-analysis:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-cell-cycle-analysis:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-meiosis-karyotype:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-meiosis-karyotype:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-meiosis-karyotype:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-meiosis-karyotype:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-reproductive-strategy-comparison:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-reproductive-strategy-comparison:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-reproductive-strategy-comparison:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-reproductive-strategy-comparison:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-inheritance-investigation:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-inheritance-investigation:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-inheritance-investigation:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-inheritance-investigation:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-pedigree-evidence:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-pedigree-evidence:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-pedigree-evidence:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-pedigree-evidence:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-chromosome-map:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-chromosome-map:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-chromosome-map:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-chromosome-map:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-genetic-decision-brief:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-genetic-decision-brief:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-genetic-decision-brief:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-genetic-decision-brief:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-dna-model:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-dna-model:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-dna-model:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-dna-model:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-protein-synthesis-evidence:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-protein-synthesis-evidence:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-protein-synthesis-evidence:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-protein-synthesis-evidence:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-biotechnology-brief:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-biotechnology-brief:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-biotechnology-brief:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-biotechnology-brief:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-investigation-portfolio:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-investigation-portfolio:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-investigation-portfolio:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-investigation-portfolio:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-integrated-case:claim",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-integrated-case:evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-integrated-case:reasoning",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "biology30-unit-c:artifact:c-integrated-case:limitations",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      }
+    ],
+    "practice": [
+      {
+        "oldId": "c-lesson-01-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-01-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-01-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-01-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-02-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-02-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-02-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-02-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-03-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-03-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-03-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-03-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-04-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-04-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-04-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-04-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-05-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-05-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-05-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-05-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-06-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-06-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-06-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-06-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-07-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-07-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-07-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-07-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-08-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-08-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-08-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-08-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-09-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-09-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-09-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-09-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-10-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-10-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-10-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-10-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-11-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-11-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-11-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-11-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-12-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-12-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-12-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-12-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-13-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-13-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-13-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-13-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-14-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-14-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-14-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-14-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-15-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-15-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-15-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-15-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-16-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-16-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-16-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-16-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-17-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-17-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-17-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-17-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-18-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-18-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-18-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-18-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-19-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-19-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-19-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-19-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-20-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-20-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-20-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-20-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-21-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-21-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-21-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-21-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-22-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-22-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-22-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-22-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-23-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-23-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-23-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-23-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-24-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-24-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-24-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-24-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-1-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-1-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-1-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-1-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-1-check-05",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-1-check-06",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-2-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-2-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-2-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-2-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-2-check-05",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-2-check-06",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-3-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-3-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-3-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-3-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-3-check-05",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-3-check-06",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-4-check-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-4-check-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-4-check-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-4-check-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-4-check-05",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "module-4-check-06",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-05",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-06",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-07",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-08",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-09",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-10",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-11",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-12",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-13",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-14",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-15",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-16",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-17",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-18",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-19",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-20",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-21",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-22",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-23",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-24",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-25",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-26",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-27",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-28",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-29",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-30",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-31",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-32",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-33",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-34",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-35",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-36",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-37",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-38",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-39",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "final-practice-40",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      }
+    ],
+    "interactions": [
+      {
+        "oldId": "c-lesson-01:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-02:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-03:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-04:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-05:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-06:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-07:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-08:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-09:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-10:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-11:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-12:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-13:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-14:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-15:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-16:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-17:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-18:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-19:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-20:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-21:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-22:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-23:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-24:interaction",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      }
+    ],
+    "artifacts": [
+      {
+        "oldId": "c-cell-cycle-analysis",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-meiosis-karyotype",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-reproductive-strategy-comparison",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-inheritance-investigation",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-pedigree-evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-chromosome-map",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-genetic-decision-brief",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-dna-model",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-protein-synthesis-evidence",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-biotechnology-brief",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-investigation-portfolio",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-integrated-case",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      }
+    ],
+    "lessons": [
+      {
+        "oldId": "c-lesson-01",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-02",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-03",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-04",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-05",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-06",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-07",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-08",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-09",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-10",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-11",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-12",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-13",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-14",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-15",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-16",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-17",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-18",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-19",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-20",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-21",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-22",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-23",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      },
+      {
+        "oldId": "c-lesson-24",
+        "newId": null,
+        "disposition": "recoverable-legacy-only",
+        "reason": "Teacher topic, interaction or completion semantics changed; no proved equivalent new target."
+      }
+    ]
+  },
+  "originalLocalStorageKeys": [
+    "biology30-unit-c:state:v1",
+    "biology30-unit-c:complete",
+    "biology30-unit-c:responses",
+    "biology30-unit-c:manual-evidence-notes"
+  ],
+  "liveLmsCertification": false,
+  "engineReview": {
+    "originalBytesPreserved": true,
+    "newResponseEquivalences": 0,
+    "oldCompletionPromoted": false,
+    "supportedEnvelopes": [
+      "compact-v2",
+      "state-v1",
+      "responses map",
+      "completion array",
+      "notes array"
+    ],
+    "unknownOrCorrupt": "Do not reset or overwrite. Keep original bytes for explicit recovery.",
+    "browserEvidence": null
+  }
+}

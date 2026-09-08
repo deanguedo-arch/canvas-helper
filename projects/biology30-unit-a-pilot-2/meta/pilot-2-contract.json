@@ -969,8 +969,8 @@
   "processCollectionIndex": {
     "status": "awaiting-teacher-review",
     "baselineWorkspaceSha256": "11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c",
-    "workspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
-    "workspaceTreeSha256": "bf5de61f7b01bd8431b853c53d4468b30baf790007bc64e21201290f918f0dc6",
+    "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+    "workspaceTreeSha256": "65d07258da159ad4ab463f0a447d2d6e533892b9cba10673ccb7d2e3d9957df9",
     "potentialRecords": 178,
     "stateSchemaVersion": 6,
     "addsLearnerStateFields": false,
@@ -980,6 +980,37 @@
     "optionalMinutesImpact": false,
     "reviewRecord": "meta/process-collection-index-review.json",
     "registry": "meta/process-collection-index.json",
+    "teacherDecision": null
+  },
+  "finalAcademicReview": {
+    "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+    "baselineWorkspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+    "reviewRecord": "meta/final-academic-review.json",
+    "status": "awaiting-complete-teacher-review",
+    "teacherDecision": null,
+    "transferReady": false
+  },
+  "chapter11AcademicRepair": {
+    "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+    "baselineWorkspaceSha256": "b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652",
+    "reviewRecord": "meta/chapter-11-academic-repair.json",
+    "teacherDecision": null,
+    "status": "awaiting-explicit-user-review"
+  },
+  "academicCorrections": {
+    "id": "practice-links-and-standards-1",
+    "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+    "baselineWorkspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+    "evidence": "meta/academic-corrections.json",
+    "review": "meta/academic-corrections-verification.json",
+    "status": "awaiting-explicit-user-review",
+    "teacherDecision": null
+  },
+  "onlineFinalization": {
+    "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+    "reviewRecord": "meta/online-finalization.json",
+    "baselineWorkspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+    "status": "awaiting-explicit-user-review",
     "teacherDecision": null
   }
 }

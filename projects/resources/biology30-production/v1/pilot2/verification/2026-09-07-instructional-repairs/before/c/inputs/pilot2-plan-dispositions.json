@@ -1,0 +1,486 @@
+{
+  "unit": "C",
+  "status": "all source plan rows dispositioned; required topic order and assessment routes authored; rendered verification pending",
+  "sourceFiles": {
+    "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/daily-plans.json": "7ffcd9e58a4a5fcd09d831e344d3cfb431817b923ed1d57d7e7c17973dbceaa5"
+  },
+  "rows": [
+    {
+      "rowId": "plan-16-row-01",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "Day",
+        "Topic",
+        "Learning Activities"
+      ],
+      "disposition": "source-table-header",
+      "routeId": null,
+      "reason": "Preserve source context; not an instructional day or learner activity.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": null
+    },
+    {
+      "rowId": "plan-16-row-02",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "39",
+        "Chromosomes and DNA",
+        "• Go through slides 1–12 of the   Unit C Chapter 16 Notes   (take notes + watch all included videos)   • Textbook: 552–553 #5,7–12; 555 #4 • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-chromosomes-and-dna",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-chromosomes-and-dna",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-16-row-03",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "40",
+        "The Cell Cycle",
+        "• Go through slides 13–19 of the   Unit C Chapter 16 Notes   (take notes + watch all included videos)   • Textbook: 551–552 #2,6; 555 #13,14,3,6; 561 #5 • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-the-cell-cycle",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-the-cell-cycle",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-16-row-04",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "41",
+        "Mitosis",
+        "• Go through slides 20–36 of the   Unit C Chapter 16 Notes (take notes + watch all included videos) • Textbook: 556 #15; 558–559 #17–19; 561 #1–4,6,7 • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-mitosis",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-mitosis",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-16-row-05",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "42",
+        "Meiosis Part A",
+        "• Go through slides 37–50 of the   Unit C Chapter 16 Notes   (take notes + watch all included videos)   • Textbook: 563 #20–22; 566 #23–25  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-meiosis-part-a",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-meiosis-part-a",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-16-row-06",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "43",
+        "Meiosis Part B",
+        "• Go through slides 51–63 of the   Unit C Chapter 16 Notes   (take notes + watch all included videos)   • Textbook: 568 #26; 570–571 #27–30; 572 #1–10 • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-meiosis-part-b",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-meiosis-part-b",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-16-row-07",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "44",
+        "Reproductive Strategies",
+        "• Go through slides 64–78 of the   Unit C Chapter 16 Notes   (take notes + watch all included videos) • Textbook: 573 #31; 580 #5  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-reproductive-strategies",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [
+        "Include slide 79 continuation."
+      ],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-reproductive-strategies",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-16-row-08",
+      "chapter": 16,
+      "sourceSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "sourceCells": [
+        "45–46",
+        "Chapter 16 Quiz",
+        "• Complete the Chapter 16 textbook review on pages 582–583 #2–9,11,13–18,21  • Review notes and practice   Quizlet  / flashcards as needed  • Complete Chapter 16 Quiz  • Review your completed quiz and come in to see your teacher if you have any questions"
+      ],
+      "disposition": "classroom-assessment-window-to-native-practice",
+      "routeId": "c-chapter-16-practice",
+      "reason": "Preserve chapter review intent and allocation as original native practice. No classroom quiz or secure answer key is copied; textbook review remains optional before course practice.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-chapter-16-practice",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-01",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "Day",
+        "Topic",
+        "Learning Activities"
+      ],
+      "disposition": "source-table-header",
+      "routeId": null,
+      "reason": "Preserve source context; not an instructional day or learner activity.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": null
+    },
+    {
+      "rowId": "plan-17-row-02",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "47",
+        "Genes, Alleles and Traits",
+        "• Go through slides 1–12 of the   Unit C Chapter 17 Notes   (take notes + watch all included videos)   • Textbook: 587 #1; 590 #6–9  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-genes-alleles-and-traits",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-genes-alleles-and-traits",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-03",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "48",
+        "Mendelian Genetics",
+        "• Go through slides 13–25 of the   Unit C Chapter 17 Notes   (take notes + watch all included videos)   • Textbook: 588–593 #3–6,8–12; 591 Practice Problems 1–2; 596 #4,5  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-mendelian-genetics",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [
+        "Teach omitted slide 26 cross setup before the following crosses."
+      ],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-mendelian-genetics",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-04",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "49",
+        "Single and Two Trait Crosses",
+        "• Go through slides 27–48 of the   Unit C Chapter 17 Notes   (take notes + watch all included videos)   • Textbook: 596 #17; 596 Practice Problems 3–5; 598 #6–9 • Complete additional practice  here   • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-single-and-two-trait-crosses",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-single-and-two-trait-crosses",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-05",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "50–51",
+        "Other Modes of Inheritance",
+        "• Go through slides 49–70 of the   Unit C Chapter 17 Notes   (take notes + watch all included videos)   • Textbook: 595 #13,15; 596 Practice Problem 6; 598 #10,11; 603 #8,10; 604–605 #22,25; 606 Practice Problems 11–17; 609 #1–3  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-other-modes-of-inheritance",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-other-modes-of-inheritance",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-06",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "52",
+        "Pedigrees",
+        "• Go through slides 71–90 of the   Unit C Chapter 17 Notes   (take notes + watch all included videos)   • Textbook: 612 #30–31; 614 #32; 615 Practice Problems 18–21; 617 #3–4  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-pedigrees",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-pedigrees",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-07",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "53",
+        "Chromosome Mapping",
+        "• Go through slides 91–111 of the   Unit C Chapter 17 Notes   (take notes + watch all included videos)   • Textbook: 601 #19–21 • Complete a few practice problems   here • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-chromosome-mapping",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [
+        "Account for slides 112–114 beyond the stated end."
+      ],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-chromosome-mapping",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-17-row-08",
+      "chapter": 17,
+      "sourceSha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+      "sourceCells": [
+        "54–55",
+        "Chapter 17 Quiz",
+        "• Complete the Chapter 17 textbook review on pages 620–621 #2–6,8–10,12–18,21  • Review notes and practice   Quizlet  / flashcards as needed  • Complete Chapter 17 Quiz  • Review your completed quiz and come in to see your teacher if you have any questions"
+      ],
+      "disposition": "classroom-assessment-window-to-native-practice",
+      "routeId": "c-chapter-17-practice",
+      "reason": "Preserve chapter review intent and allocation as original native practice. No classroom quiz or secure answer key is copied; textbook review remains optional before course practice.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-chapter-17-practice",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-01",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "Day",
+        "Topic",
+        "Learning Activities"
+      ],
+      "disposition": "source-table-header",
+      "routeId": null,
+      "reason": "Preserve source context; not an instructional day or learner activity.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": null
+    },
+    {
+      "rowId": "plan-18-row-02",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "56",
+        "DNA and its History",
+        "• Go through slides 1–12 of the   Unit C Chapter 18 Notes   (take notes + watch all included videos)   • Textbook: 625 #3; 627 Practice Problems 1,2; 629 #4; 635 #1,3,4,6  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-dna-and-its-history",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-dna-and-its-history",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-03",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "57",
+        "DNA Replication",
+        "• Go through slides 13–21 of the   Unit C Chapter 18 Notes   (take notes + watch all included videos)   • Textbook: 632 #7–10; 635 #9  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-dna-replication",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-dna-replication",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-04",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "58",
+        "Transcription",
+        "• Go through slides 22–29 of the   Unit C Chapter 18 Notes   (take notes + watch all included videos)   • Textbook: 635 #7; 640 #15; 642 #1,5  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-transcription",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-transcription",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-05",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "59",
+        "Translation",
+        "• Go through slides 30–41 of the   Unit C Chapter 18 Notes   (take notes + watch all included videos)   • Textbook: 636–637 #12,13,14a; Practice Problems 3–5; 638 Practice Problems 6–7; 640 #16; 642 #2,3,7,9,10a  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-translation",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-translation",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-06",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "60",
+        "Mutations",
+        "• Go through slides 42–48 of the   Unit C Chapter 18 Notes   (take notes + watch all included videos)   • Textbook: 644 #18–19; 651 #1,2,6  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-mutations",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-mutations",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-07",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "61",
+        "Genetic Technologies",
+        "• Go through slides 49–59 of the   Unit C Chapter 18 Notes   (take notes + watch all included videos)   • Textbook: 647 #21; 651 #7  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "c-topic-genetic-technologies",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [
+        "Account for slides 60–61 beyond the stated end."
+      ],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-topic-genetic-technologies",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-18-row-08",
+      "chapter": 18,
+      "sourceSha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+      "sourceCells": [
+        "62–63",
+        "Chapter 18 Quiz",
+        "• Complete the Chapter 18 textbook review on pages 664–665 #1–6,9,10,12,13,22  • Review notes and practice   Quizlet  / flashcards as needed  • Complete Chapter 18 Quiz  • Review your completed quiz and come in to see your teacher if you have any questions"
+      ],
+      "disposition": "classroom-assessment-window-to-native-practice",
+      "routeId": "c-chapter-18-practice",
+      "reason": "Preserve chapter review intent and allocation as original native practice. No classroom quiz or secure answer key is copied; textbook review remains optional before course practice.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "routeId": "c-chapter-18-practice",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    }
+  ],
+  "teacherDecision": null
+}

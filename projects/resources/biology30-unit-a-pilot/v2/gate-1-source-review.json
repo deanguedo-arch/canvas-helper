@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a",
+  "reviewedAt": "2026-08-30T00:48:56Z",
+  "pdf": {
+    "path": "/Users/deanguedo/Downloads/Unit A Nervous and Endocrine Systems Notes.pdf",
+    "sha256": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035",
+    "visuallyInspectedPages": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 129, 130, 131, 132, 133],
+    "renderPurpose": "Authoring and QA reference only; rendered pages are excluded from learner delivery."
+  },
+  "brightspaceSelections": [
+    {
+      "sourceId": "class-2026-27",
+      "itemId": "1498122",
+      "locator": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Day 2: Action Potentials"
+    },
+    {
+      "sourceId": "system-2020",
+      "itemId": "2293",
+      "childItemIds": ["2294", "2295", "2296", "2297", "2298", "2299", "2300"],
+      "locator": "Unit A > Module 1 > Unit A - M1:Lesson 7"
+    },
+    {
+      "sourceId": "class-2026-27",
+      "itemId": "1498143",
+      "locator": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Day 17: Pancreas and Adrenal Glands"
+    },
+    {
+      "sourceId": "system-2020",
+      "itemId": "2350",
+      "childItemIds": ["2351", "2352", "2353", "2354", "2355", "2356", "2357", "2358"],
+      "locator": "Unit A > Module 2 > Unit A - M2: Lesson 5"
+    }
+  ],
+  "requiredTreatments": [
+    {
+      "id": "action-potential-native-rebuild",
+      "finding": "Pages 21-30 contain the needed sequence but depend on dense slide layouts, low-resolution copied diagrams, and three external videos.",
+      "treatment": "Rewrite as native explanation, redraw the membrane and voltage models, add a keyboard-operable explorer, and include a complete static equivalent."
+    },
+    {
+      "id": "action-potential-pump-nuance",
+      "finding": "The source can imply that the sodium-potassium pump directly resets each action potential.",
+      "treatment": "Explain that selective permeability and voltage-gated channels create the rapid voltage phases, while the pump maintains ion gradients over time."
+    },
+    {
+      "id": "glucose-tissue-specificity",
+      "finding": "Pages 130-131 and legacy text overgeneralize insulin as making all body cells permeable to glucose.",
+      "treatment": "Distinguish insulin-responsive skeletal muscle and adipose uptake from liver glucose handling and insulin-independent uptake in other tissues."
+    },
+    {
+      "id": "diabetes-current-language",
+      "finding": "Pages 132-133 use age-based type labels and oversimplified treatment statements.",
+      "treatment": "Use current type 1/type 2 terminology, state that either can occur across ages, and describe treatment as individualized rather than prescribed by the course."
+    },
+    {
+      "id": "urinalysis-not-diagnosis",
+      "finding": "Urine glucose and ketone patterns can support system reasoning but cannot establish a diagnosis.",
+      "treatment": "Use clearly synthetic instructional data, state limitations, and identify professional blood testing as the diagnostic route."
+    }
+  ]
+}

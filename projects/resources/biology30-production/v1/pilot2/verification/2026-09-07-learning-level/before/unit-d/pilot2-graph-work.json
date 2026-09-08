@@ -1,0 +1,95 @@
+{
+  "unit": "D",
+  "responseId": "d-topic-population-growth-guided-construct",
+  "status": "authored-data-and-codec; graph-controls-and-rendered-proof-pending",
+  "completionPolicy": "Existing guided-attempt rule; construction and explanation are supported here. No optional model/investigation becomes required. Correct answers are not required for an attempt.",
+  "saveContract": "Graph coordinates, axis choices and explanation encode together in this existing response field. Preserve prior plain writing visibly; do not silently replace it.",
+  "learnerWorkflow": [
+    "Read the supplied data and identify what is measured.",
+    "Choose the horizontal label, vertical label and vertical maximum.",
+    "Enter each plotted value using keyboard-accessible numeric controls; the graph must reflect entered values, not automatically filled source answers.",
+    "Compare only after attempting; identify missing points, wrong values and scale limits without silently correcting them.",
+    "Explain the biological comparison, then save the complete construction."
+  ],
+  "rendererRequirements": [
+    "All numeric fields have series, x-position and unit labels. Keyboard operation does not require dragging.",
+    "Show all supplied values in an adjacent accessible table.",
+    "Show any point outside the selected scale as an explicit warning and in the data table; never silently crop it.",
+    "Keep blanks distinct from zero, and keep unfinished graph drafts recoverable.",
+    "Read-only model-answer figures stay hidden until attempted.",
+    "All My Work derives readable axes, every entered point and the explanation from this same saved response; return focus to this activity.",
+    "Numerical x positions must use proportional spacing: cycle days 12–14 cannot have the same gap as days 14–21. Categorical bars use equal category spacing.",
+    "A larger scale that contains the data is not an incorrect answer. Explain its resolution trade-off and warn when the scale is too small."
+  ],
+  "graphs": [
+    {
+      "id": "d-growth-comparison",
+      "title": "Two growth models from the same starting size",
+      "kind": "line",
+      "x": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "series": [
+        {
+          "id": "exponential",
+          "label": "Exponential: N next = N + 0.2N",
+          "expected": [
+            100.0,
+            120.0,
+            144.0,
+            172.8,
+            207.4
+          ]
+        },
+        {
+          "id": "logistic",
+          "label": "Logistic: N next = N + 0.2N(1 − N/500)",
+          "expected": [
+            100.0,
+            116.0,
+            133.8,
+            153.4,
+            174.7
+          ]
+        }
+      ],
+      "xLabels": [
+        "Model interval",
+        "Quadrat area",
+        "Age in years"
+      ],
+      "yLabels": [
+        "Expected population size",
+        "Growth per day",
+        "Plants per square metre"
+      ],
+      "maxima": [
+        100,
+        250,
+        500
+      ],
+      "expectedAxes": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "teacherDecision": null,
+  "source": {
+    "kind": "original-extension-of-required-worked-model",
+    "initial": 100,
+    "proportionalRate": 0.2,
+    "carryingCapacity": 500,
+    "steps": 4,
+    "rounding": "Carry full values between steps; display/plot one decimal place.",
+    "requiredPartId": "d-topic-population-growth-exponential-and-logistic-models",
+    "qualification": "Expected population values in a discrete illustrative model. This is separate from the quadrat and demographic populations; interval is not a day."
+  },
+  "modelExplanation": "Quadrat density=30/5=6 plants/m²; estimated abundance=1200. Separately, demographic ΔN=60, final N=1060, rate=6 individuals/day and interval fraction=0.06 over ten days. The separate growth models both start at 100 with r=0.2; the logistic limiting factor reduces its additions relative to the exponential model.",
+  "explanationLimit": 460
+}

@@ -1,0 +1,543 @@
+{
+  "unit": "D",
+  "models": 3,
+  "cases": 9,
+  "sharedDataBindings": 27,
+  "outputs": [
+    {
+      "modelId": "d-model-gene-pool",
+      "modelVersion": 1,
+      "choice": "36-48-16",
+      "title": "Initial sample",
+      "columns": [
+        "Genotype",
+        "Observed count",
+        "Observed frequency",
+        "Expected frequency under equilibrium"
+      ],
+      "rows": [
+        [
+          "AA",
+          36,
+          0.36,
+          0.36
+        ],
+        [
+          "Aa",
+          48,
+          0.48,
+          0.48
+        ],
+        [
+          "aa",
+          16,
+          0.16,
+          0.16000000000000003
+        ]
+      ],
+      "explanation": "Calculate allele frequencies from all observed genotypes using 2N as the denominator. Then calculate p², 2pq and q² as conditional expectations; they are separate from observed frequencies.",
+      "limitation": "Agreement at one time does not prove all equilibrium assumptions. A frequency change alone does not identify selection, movement or sampling as its cause.",
+      "visual": "observed-expected-bars",
+      "values": {
+        "individuals": 100,
+        "alleleCopies": 200,
+        "p": 0.6,
+        "q": 0.4,
+        "observed": [
+          0.36,
+          0.48,
+          0.16
+        ],
+        "expectedUnderEquilibrium": [
+          0.36,
+          0.48,
+          0.16000000000000003
+        ]
+      }
+    },
+    {
+      "modelId": "d-model-gene-pool",
+      "modelVersion": 1,
+      "choice": "45-45-10",
+      "title": "After modelled movement",
+      "columns": [
+        "Genotype",
+        "Observed count",
+        "Observed frequency",
+        "Expected frequency under equilibrium"
+      ],
+      "rows": [
+        [
+          "AA",
+          45,
+          0.45,
+          0.45562500000000006
+        ],
+        [
+          "Aa",
+          45,
+          0.45,
+          0.43875000000000003
+        ],
+        [
+          "aa",
+          10,
+          0.1,
+          0.10562500000000001
+        ]
+      ],
+      "explanation": "Calculate allele frequencies from all observed genotypes using 2N as the denominator. Then calculate p², 2pq and q² as conditional expectations; they are separate from observed frequencies.",
+      "limitation": "Agreement at one time does not prove all equilibrium assumptions. A frequency change alone does not identify selection, movement or sampling as its cause.",
+      "visual": "observed-expected-bars",
+      "values": {
+        "individuals": 100,
+        "alleleCopies": 200,
+        "p": 0.675,
+        "q": 0.325,
+        "observed": [
+          0.45,
+          0.45,
+          0.1
+        ],
+        "expectedUnderEquilibrium": [
+          0.45562500000000006,
+          0.43875000000000003,
+          0.10562500000000001
+        ]
+      }
+    },
+    {
+      "modelId": "d-model-gene-pool",
+      "modelVersion": 1,
+      "choice": "42-46-12",
+      "title": "Later sample",
+      "columns": [
+        "Genotype",
+        "Observed count",
+        "Observed frequency",
+        "Expected frequency under equilibrium"
+      ],
+      "rows": [
+        [
+          "AA",
+          42,
+          0.42,
+          0.42250000000000004
+        ],
+        [
+          "Aa",
+          46,
+          0.46,
+          0.45499999999999996
+        ],
+        [
+          "aa",
+          12,
+          0.12,
+          0.12249999999999998
+        ]
+      ],
+      "explanation": "Calculate allele frequencies from all observed genotypes using 2N as the denominator. Then calculate p², 2pq and q² as conditional expectations; they are separate from observed frequencies.",
+      "limitation": "Agreement at one time does not prove all equilibrium assumptions. A frequency change alone does not identify selection, movement or sampling as its cause.",
+      "visual": "observed-expected-bars",
+      "values": {
+        "individuals": 100,
+        "alleleCopies": 200,
+        "p": 0.65,
+        "q": 0.35,
+        "observed": [
+          0.42,
+          0.46,
+          0.12
+        ],
+        "expectedUnderEquilibrium": [
+          0.42250000000000004,
+          0.45499999999999996,
+          0.12249999999999998
+        ]
+      }
+    },
+    {
+      "modelId": "d-model-population-balance",
+      "modelVersion": 1,
+      "choice": "baseline",
+      "title": "Baseline demographic scenario",
+      "columns": [
+        "Quantity",
+        "Value",
+        "Unit or interval"
+      ],
+      "rows": [
+        [
+          "Initial population",
+          1000,
+          "individuals"
+        ],
+        [
+          "Births",
+          120,
+          "individuals over 10 days"
+        ],
+        [
+          "Immigration",
+          30,
+          "individuals over 10 days"
+        ],
+        [
+          "Deaths",
+          70,
+          "individuals over 10 days"
+        ],
+        [
+          "Emigration",
+          20,
+          "individuals over 10 days"
+        ],
+        [
+          "Net change",
+          60,
+          "individuals"
+        ],
+        [
+          "Final population",
+          1060,
+          "individuals"
+        ],
+        [
+          "Final density",
+          5.3,
+          "individuals/m²"
+        ],
+        [
+          "Absolute growth rate",
+          6,
+          "individuals/day"
+        ],
+        [
+          "Per initial individual",
+          0.06,
+          "over 10 days"
+        ],
+        [
+          "Average per initial individual per day",
+          0.006,
+          "day⁻¹"
+        ]
+      ],
+      "explanation": "Add births and immigration; subtract deaths and emigration. Keep the initial population, elapsed time and area as separate denominators for different questions.",
+      "limitation": "This whole-population scenario is separate from the quadrat estimate. Two time points do not establish an exponential or logistic growth curve.",
+      "visual": "population-balance",
+      "values": {
+        "change": 60,
+        "final": 1060,
+        "absolutePerTime": 6,
+        "perInitialIndividualOverInterval": 0.06,
+        "averagePerInitialIndividualPerTime": 0.006,
+        "initial": 1000,
+        "days": 10,
+        "area": 200,
+        "initialDensity": 5,
+        "finalDensity": 5.3
+      }
+    },
+    {
+      "modelId": "d-model-population-balance",
+      "modelVersion": 1,
+      "choice": "higher-immigration",
+      "title": "Immigration rises from 30 to 90",
+      "columns": [
+        "Quantity",
+        "Value",
+        "Unit or interval"
+      ],
+      "rows": [
+        [
+          "Initial population",
+          1000,
+          "individuals"
+        ],
+        [
+          "Births",
+          120,
+          "individuals over 10 days"
+        ],
+        [
+          "Immigration",
+          90,
+          "individuals over 10 days"
+        ],
+        [
+          "Deaths",
+          70,
+          "individuals over 10 days"
+        ],
+        [
+          "Emigration",
+          20,
+          "individuals over 10 days"
+        ],
+        [
+          "Net change",
+          120,
+          "individuals"
+        ],
+        [
+          "Final population",
+          1120,
+          "individuals"
+        ],
+        [
+          "Final density",
+          5.6,
+          "individuals/m²"
+        ],
+        [
+          "Absolute growth rate",
+          12,
+          "individuals/day"
+        ],
+        [
+          "Per initial individual",
+          0.12,
+          "over 10 days"
+        ],
+        [
+          "Average per initial individual per day",
+          0.012,
+          "day⁻¹"
+        ]
+      ],
+      "explanation": "Add births and immigration; subtract deaths and emigration. Keep the initial population, elapsed time and area as separate denominators for different questions.",
+      "limitation": "This whole-population scenario is separate from the quadrat estimate. Two time points do not establish an exponential or logistic growth curve.",
+      "visual": "population-balance",
+      "values": {
+        "change": 120,
+        "final": 1120,
+        "absolutePerTime": 12,
+        "perInitialIndividualOverInterval": 0.12,
+        "averagePerInitialIndividualPerTime": 0.012,
+        "initial": 1000,
+        "days": 10,
+        "area": 200,
+        "initialDensity": 5,
+        "finalDensity": 5.6
+      }
+    },
+    {
+      "modelId": "d-model-population-balance",
+      "modelVersion": 1,
+      "choice": "higher-mortality",
+      "title": "Deaths rise from 70 to 150",
+      "columns": [
+        "Quantity",
+        "Value",
+        "Unit or interval"
+      ],
+      "rows": [
+        [
+          "Initial population",
+          1000,
+          "individuals"
+        ],
+        [
+          "Births",
+          120,
+          "individuals over 10 days"
+        ],
+        [
+          "Immigration",
+          30,
+          "individuals over 10 days"
+        ],
+        [
+          "Deaths",
+          150,
+          "individuals over 10 days"
+        ],
+        [
+          "Emigration",
+          20,
+          "individuals over 10 days"
+        ],
+        [
+          "Net change",
+          -20,
+          "individuals"
+        ],
+        [
+          "Final population",
+          980,
+          "individuals"
+        ],
+        [
+          "Final density",
+          4.9,
+          "individuals/m²"
+        ],
+        [
+          "Absolute growth rate",
+          -2,
+          "individuals/day"
+        ],
+        [
+          "Per initial individual",
+          -0.02,
+          "over 10 days"
+        ],
+        [
+          "Average per initial individual per day",
+          -0.002,
+          "day⁻¹"
+        ]
+      ],
+      "explanation": "Add births and immigration; subtract deaths and emigration. Keep the initial population, elapsed time and area as separate denominators for different questions.",
+      "limitation": "This whole-population scenario is separate from the quadrat estimate. Two time points do not establish an exponential or logistic growth curve.",
+      "visual": "population-balance",
+      "values": {
+        "change": -20,
+        "final": 980,
+        "absolutePerTime": -2,
+        "perInitialIndividualOverInterval": -0.02,
+        "averagePerInitialIndividualPerTime": -0.002,
+        "initial": 1000,
+        "days": 10,
+        "area": 200,
+        "initialDensity": 5,
+        "finalDensity": 4.9
+      }
+    },
+    {
+      "modelId": "d-model-competition",
+      "modelVersion": 1,
+      "choice": "five-A",
+      "title": "5 A plants",
+      "columns": [
+        "Replicate",
+        "Mean dry mass per focal A plant (g/A)"
+      ],
+      "rows": [
+        [
+          1,
+          4.1
+        ],
+        [
+          2,
+          3.9
+        ],
+        [
+          "Mean of replicates",
+          4
+        ]
+      ],
+      "explanation": "Compare 5 A with 10 A to examine within-species density. Compare 10 A with 5 A + 5 B at equal total density to examine composition, while noting the change in focal A density.",
+      "limitation": "Two synthetic replicate means do not establish statistical significance or identify a limiting resource. Plant mass is not a population growth rate.",
+      "visual": "replicate-comparison",
+      "values": {
+        "a": 5,
+        "b": 0,
+        "totalDensityPerPot": 5,
+        "days": 30,
+        "first": 4.1,
+        "second": 3.9,
+        "mean": 4
+      }
+    },
+    {
+      "modelId": "d-model-competition",
+      "modelVersion": 1,
+      "choice": "ten-A",
+      "title": "10 A plants",
+      "columns": [
+        "Replicate",
+        "Mean dry mass per focal A plant (g/A)"
+      ],
+      "rows": [
+        [
+          1,
+          2.9
+        ],
+        [
+          2,
+          3.1
+        ],
+        [
+          "Mean of replicates",
+          3
+        ]
+      ],
+      "explanation": "Compare 5 A with 10 A to examine within-species density. Compare 10 A with 5 A + 5 B at equal total density to examine composition, while noting the change in focal A density.",
+      "limitation": "Two synthetic replicate means do not establish statistical significance or identify a limiting resource. Plant mass is not a population growth rate.",
+      "visual": "replicate-comparison",
+      "values": {
+        "a": 10,
+        "b": 0,
+        "totalDensityPerPot": 10,
+        "days": 30,
+        "first": 2.9,
+        "second": 3.1,
+        "mean": 3
+      }
+    },
+    {
+      "modelId": "d-model-competition",
+      "modelVersion": 1,
+      "choice": "five-A-five-B",
+      "title": "5 A + 5 B plants",
+      "columns": [
+        "Replicate",
+        "Mean dry mass per focal A plant (g/A)"
+      ],
+      "rows": [
+        [
+          1,
+          2.3
+        ],
+        [
+          2,
+          2.5
+        ],
+        [
+          "Mean of replicates",
+          2.4
+        ]
+      ],
+      "explanation": "Compare 5 A with 10 A to examine within-species density. Compare 10 A with 5 A + 5 B at equal total density to examine composition, while noting the change in focal A density.",
+      "limitation": "Two synthetic replicate means do not establish statistical significance or identify a limiting resource. Plant mass is not a population growth rate.",
+      "visual": "replicate-comparison",
+      "values": {
+        "a": 5,
+        "b": 5,
+        "totalDensityPerPot": 10,
+        "days": 30,
+        "first": 2.3,
+        "second": 2.5,
+        "mean": 2.4
+      }
+    }
+  ],
+  "proof": "Deterministic outputs and source/state consistency; scientific source review, graph accessibility and browser interaction remain separate gates.",
+  "inputFiles": [
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json",
+      "sha256": "87a053903d2c08c856b49142379129f1500697cc944ee0d7fa98b2db3497e64d"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+      "sha256": "a6f1d11690bbd11760ee3af6cdd867615f6a2da3d17fedd6acf2092b94c6f66e"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+      "sha256": "0f22ce24684ffe23c49607800b0505207d55fcfbda84846595c2deec630d9246"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+      "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+    }
+  ],
+  "browserEvidence": null,
+  "teacherDecision": null
+}

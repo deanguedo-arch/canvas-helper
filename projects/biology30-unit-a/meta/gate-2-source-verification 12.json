@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-08-31T01:35:35.662Z",
+  "exactGate1BuildSha256": "ef0b900b880cb705fd9b4e8000738b52fcf324ac2ba373d5d60aaf8760d3bf2a",
+  "sourceHashes": [
+    {
+      "id": "class-2026-27",
+      "expected": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "actual": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "verified": true
+    },
+    {
+      "id": "system-2020",
+      "expected": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "actual": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "verified": true
+    },
+    {
+      "id": "unit-a-notes",
+      "expected": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035",
+      "archivePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "actualSha256": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035",
+      "verified": true
+    }
+  ],
+  "comparisonPilots": [
+    {
+      "slug": "biology30-unit-a-class-2026-faithful",
+      "sha256": "7704e44273ad6b3483ec5423f0626e4b723e4fbdb79b301b071b5ab8ab168c80",
+      "fileCount": 227,
+      "byteCount": 33278003
+    },
+    {
+      "slug": "biology30-unit-a-class-2026-optimized",
+      "sha256": "c3e8ea920c13bda8479101b2e621b641c2859da9ca053313acf36e70f795d9f4",
+      "fileCount": 222,
+      "byteCount": 33147719
+    },
+    {
+      "slug": "biology30-unit-a-system-2020-faithful",
+      "sha256": "04de91ec1d07a9534519ca2aaafd6e8686b604de95a5addfad541be6a8d7d5fe",
+      "fileCount": 183,
+      "byteCount": 20143335
+    },
+    {
+      "slug": "biology30-unit-a-system-2020-optimized",
+      "sha256": "18833bc02130efd808fe718745b197da4c5fddfc653e559a8bc7bd40e6fb5bb3",
+      "fileCount": 183,
+      "byteCount": 20102636
+    },
+    {
+      "slug": "biology30-unit-a-synthesis",
+      "sha256": "bdcadb984b8aadb6c7521acc7dd7bcc7e0997ba5fa997268aba20a637f7f3619",
+      "fileCount": 227,
+      "byteCount": 34684344
+    }
+  ],
+  "authorityRefresh": {
+    "schemaVersion": 1,
+    "gateId": "gate-2",
+    "projectSlug": "biology30-unit-a",
+    "checkedAt": "2026-08-30T02:48:45Z",
+    "searchBoundary": "Official Alberta Education and Childcare web properties",
+    "result": {
+      "biologySpecificBulletin2026_27Found": false,
+      "currentBiologySpecificBulletinSchoolYear": "2025-26",
+      "currentBiologySpecificBulletinUrl": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology-30-info-bulletin.pdf",
+      "currentGeneralBulletinSchoolYear": "2026-27",
+      "currentGeneralBulletinUrl": "https://www.alberta.ca/system/files/ecc-diploma-exam-general-information-bulletin-2026-27.pdf",
+      "reconciliation": "No official 2026-27 Biology-specific information bulletin was discoverable at Gate 2. Continue to use the 2025-26 Biology-specific bulletin for subject blueprint and terminology, together with the 2026-27 General Information Bulletin for current program administration. Recheck again before release."
+    },
+    "officialPagesChecked": [
+      "https://www.alberta.ca/writing-diploma-exams",
+      "https://www.alberta.ca/administering-diploma-exams"
+    ],
+    "authoringImpact": "No change to the accepted 25-outcome map, 20-25 percent Unit A diploma emphasis, or evidence-and-application design requirements."
+  },
+  "pdfVisualQa": {
+    "schemaVersion": 1,
+    "sourceId": "unit-a-notes",
+    "sha256": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035",
+    "pageCount": 139,
+    "reviewedAt": "2026-08-30T03:05:00Z",
+    "method": "Rendered all pages at 72 dpi, assembled six contact sheets, and visually opened every contact sheet before Gate 2 lesson production.",
+    "contactSheetRanges": [
+      "1-24",
+      "25-48",
+      "49-72",
+      "73-96",
+      "97-120",
+      "121-139"
+    ],
+    "findings": [
+      "The deck is a source reference, not a learner delivery format.",
+      "Presentation-era clipping, crowded labels, inconsistent typography, and teacher-facing wording must not carry into lessons.",
+      "The left-brain/right-brain personality framing requires explicit correction.",
+      "Myelin and CNS/PNS repair claims require current nuance rather than absolute regeneration claims.",
+      "Hearing activities require a supplied-data route and must not use uncalibrated browser tones.",
+      "All quantitative data used outside a cited source must be labelled synthetic instructional data."
+    ],
+    "learnerDeliveryChecks": {
+      "slideImagesUsedAsLessons": false,
+      "slideControlsPresent": false,
+      "clippedSourceFiguresReused": false,
+      "rawTranscriptDumpsPresent": false
+    },
+    "status": "passed-for-gate-2-authoring"
+  },
+  "generatedAt": "2026-08-31T01:35:35.663Z"
+}

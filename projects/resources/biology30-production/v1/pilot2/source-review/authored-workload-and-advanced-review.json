@@ -1,0 +1,2367 @@
+{
+  "stage": 92,
+  "status": "authored workload estimate reviewed; not measured learner timing",
+  "teacherAcceptance": null,
+  "assumptions": {
+    "readingWordsPerMinute": 140,
+    "figureInterpretationMinutesPerPanel": 2,
+    "readingSensitivityWordsPerMinute": [
+      100,
+      180
+    ],
+    "workCycles": "Worked operations, local walkthrough checkpoint, guided attempt/feedback, evidence and later revision are separate activities. Slower/faster readers may vary; these are planning windows without timers or enforced dwell. Optional investigations and textbook work do not fill required time."
+  },
+  "units": {
+    "B": {
+      "requiredMinutes": 1200,
+      "optionalMinutes": 240,
+      "routes": [
+        {
+          "routeId": "b-topic-male-reproductive-structures",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 1296,
+          "figureExplanationWords": 446,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 21,
+          "readingSensitivityMinutes": [
+            26,
+            18
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-male-reproductive-structures-compartments-of-the-testes-worked",
+            "b-topic-male-reproductive-structures-the-transport-pathway-worked",
+            "b-topic-male-reproductive-structures-semen-and-accessory-glands-worked",
+            "b-topic-male-reproductive-structures-reproductive-development-and-health-worked"
+          ],
+          "localCheckpoint": "b-topic-male-reproductive-structures-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-02-b-lesson-02-anchor",
+            "b-topic-male-reproductive-structures-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-male-reproductive-structures-evidence",
+            "b-topic-male-reproductive-structures-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 21,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 1
+          }
+        },
+        {
+          "routeId": "b-topic-spermatogenesis",
+          "requiredMinutes": 120,
+          "coreAndTermWords": 1436,
+          "figureExplanationWords": 315,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 21,
+          "readingSensitivityMinutes": [
+            26,
+            18
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-spermatogenesis-gametes-and-chromosome-sets-worked",
+            "b-topic-spermatogenesis-division-and-differentiation-worked",
+            "b-topic-spermatogenesis-hormone-sources-and-targets-worked",
+            "b-topic-spermatogenesis-feedback-and-evidence-worked"
+          ],
+          "localCheckpoint": "b-topic-spermatogenesis-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-05-b-lesson-05-anchor",
+            "b-topic-spermatogenesis-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-spermatogenesis-evidence",
+            "b-topic-spermatogenesis-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 21,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 31
+          }
+        },
+        {
+          "routeId": "b-topic-female-reproductive-structures",
+          "requiredMinutes": 105,
+          "coreAndTermWords": 1126,
+          "figureExplanationWords": 504,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 20,
+          "readingSensitivityMinutes": [
+            25,
+            18
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-worked",
+            "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-worked",
+            "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-worked",
+            "b-topic-female-reproductive-structures-structure-and-reproductive-function-worked"
+          ],
+          "localCheckpoint": "b-topic-female-reproductive-structures-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-03-b-lesson-03-anchor",
+            "b-topic-female-reproductive-structures-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-female-reproductive-structures-evidence",
+            "b-topic-female-reproductive-structures-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 20,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 17
+          }
+        },
+        {
+          "routeId": "b-topic-menstrual-cycle",
+          "requiredMinutes": 150,
+          "coreAndTermWords": 1341,
+          "figureExplanationWords": 641,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 27,
+          "readingSensitivityMinutes": [
+            32,
+            24
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-menstrual-cycle-two-coordinated-cycles-worked",
+            "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-worked",
+            "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-worked",
+            "b-topic-menstrual-cycle-graphs-and-cycle-variation-worked",
+            "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-worked"
+          ],
+          "localCheckpoint": "b-topic-menstrual-cycle-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-06-b-lesson-06-anchor",
+            "b-topic-menstrual-cycle-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-menstrual-cycle-evidence",
+            "b-topic-menstrual-cycle-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 27,
+            "workedAndIndependentDataOperations": 30,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 49
+          }
+        },
+        {
+          "routeId": "b-topic-fertilization-to-implantation",
+          "requiredMinutes": 105,
+          "coreAndTermWords": 1038,
+          "figureExplanationWords": 393,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 19,
+          "readingSensitivityMinutes": [
+            23,
+            16
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-fertilization-to-implantation-gametes-meet-worked",
+            "b-topic-fertilization-to-implantation-combining-chromosome-sets-worked",
+            "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-worked",
+            "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-worked"
+          ],
+          "localCheckpoint": "b-topic-fertilization-to-implantation-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-08-b-lesson-08-anchor",
+            "b-topic-fertilization-to-implantation-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-fertilization-to-implantation-evidence",
+            "b-topic-fertilization-to-implantation-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 20,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 17
+          }
+        },
+        {
+          "routeId": "b-topic-hcg-and-gastrulation",
+          "requiredMinutes": 105,
+          "coreAndTermWords": 946,
+          "figureExplanationWords": 397,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 18,
+          "readingSensitivityMinutes": [
+            22,
+            16
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-worked",
+            "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-worked",
+            "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-worked",
+            "b-topic-hcg-and-gastrulation-developmental-evidence-worked"
+          ],
+          "localCheckpoint": "b-topic-hcg-and-gastrulation-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-10-b-lesson-10-anchor",
+            "b-topic-hcg-and-gastrulation-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-hcg-and-gastrulation-evidence",
+            "b-topic-hcg-and-gastrulation-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 20,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 17
+          }
+        },
+        {
+          "routeId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "requiredMinutes": 120,
+          "coreAndTermWords": 1092,
+          "figureExplanationWords": 635,
+          "figurePanels": 5,
+          "readingAndFigureEstimate": 23,
+          "readingSensitivityMinutes": [
+            28,
+            20
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-worked",
+            "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-worked",
+            "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-worked",
+            "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-worked"
+          ],
+          "localCheckpoint": "b-topic-extraembryonic-structures-and-organogenesis-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-09-b-lesson-09-anchor",
+            "b-topic-extraembryonic-structures-and-organogenesis-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-extraembryonic-structures-and-organogenesis-evidence",
+            "b-topic-extraembryonic-structures-and-organogenesis-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 23,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 29
+          }
+        },
+        {
+          "routeId": "b-topic-parturition",
+          "requiredMinutes": 105,
+          "coreAndTermWords": 1311,
+          "figureExplanationWords": 463,
+          "figurePanels": 5,
+          "readingAndFigureEstimate": 23,
+          "readingSensitivityMinutes": [
+            28,
+            20
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "b-topic-parturition-labour-and-positive-feedback-worked",
+            "b-topic-parturition-birth-and-the-transition-worked",
+            "b-topic-parturition-milk-synthesis-and-release-worked",
+            "b-topic-parturition-technologies-infertility-and-perspectives-worked",
+            "b-topic-parturition-investigating-and-communicating-a-claim-worked"
+          ],
+          "localCheckpoint": "b-topic-parturition-media",
+          "guidedPracticeIds": [
+            "b-practice-guided-b-lesson-12-b-lesson-12-anchor",
+            "b-topic-parturition-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "b-topic-parturition-evidence",
+            "b-topic-parturition-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 25,
+            "workedAndIndependentDataOperations": 30,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 6
+          }
+        },
+        {
+          "routeId": "b-chapter-14-practice",
+          "requiredMinutes": 80,
+          "counts": {
+            "multiple-choice": 9,
+            "constructed": 5
+          },
+          "practiceIds": [
+            "b-application-accessory-gland-layout",
+            "b-practice-chapter-b-lesson-01-b-lesson-01-evidence",
+            "b-practice-chapter-b-lesson-02-b-lesson-02-evidence",
+            "b-practice-chapter-b-lesson-03-b-lesson-03-evidence",
+            "b-practice-chapter-b-lesson-04-b-lesson-04-anchor",
+            "b-practice-chapter-b-lesson-04-b-lesson-04-evidence",
+            "b-practice-chapter-b-lesson-05-b-lesson-05-evidence",
+            "b-practice-chapter-b-lesson-06-b-lesson-06-evidence",
+            "b-practice-chapter-b-lesson-07-b-lesson-07-anchor",
+            "b-practice-chapter-b-lesson-07-b-lesson-07-evidence",
+            "b-chapter-construct-01",
+            "b-chapter-construct-02",
+            "b-chapter-construct-03",
+            "b-application-information-and-hormone-research"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 30,
+            "constructedOperationsAndComparison": 30,
+            "returnToTeachingAndRevision": 20
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "b-chapter-15-practice",
+          "requiredMinutes": 80,
+          "counts": {
+            "multiple-choice": 8,
+            "constructed": 6
+          },
+          "practiceIds": [
+            "b-practice-chapter-b-lesson-08-b-lesson-08-evidence",
+            "b-practice-chapter-b-lesson-09-b-lesson-09-evidence",
+            "b-practice-chapter-b-lesson-10-b-lesson-10-evidence",
+            "b-application-developmental-clock-and-sequence",
+            "b-practice-chapter-b-lesson-11-b-lesson-11-evidence",
+            "b-practice-chapter-b-lesson-12-b-lesson-12-evidence",
+            "b-practice-chapter-b-lesson-13-b-lesson-13-anchor",
+            "b-practice-chapter-b-lesson-13-b-lesson-13-evidence",
+            "b-application-matching-mechanism-and-limits",
+            "b-practice-chapter-b-lesson-14-b-lesson-14-evidence",
+            "b-chapter-construct-04",
+            "b-chapter-construct-05",
+            "b-chapter-construct-06",
+            "b-application-fertility-evidence-and-perspectives"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 30,
+            "constructedOperationsAndComparison": 30,
+            "returnToTeachingAndRevision": 20
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "b-review-seminar",
+          "requiredMinutes": 50,
+          "counts": {
+            "multiple-choice": 0,
+            "constructed": 0
+          },
+          "practiceIds": [],
+          "components": {
+            "connectThreeMechanisms": 16,
+            "evaluateSuppliedEvidence": 16,
+            "reviseUsingFeedback": 18
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "b-final-practice",
+          "requiredMinutes": 90,
+          "counts": {
+            "multiple-choice": 14,
+            "constructed": 3
+          },
+          "practiceIds": [
+            "b-practice-final-b-lesson-01-b-lesson-01-bounded",
+            "b-practice-final-b-lesson-02-b-lesson-02-bounded",
+            "b-practice-final-b-lesson-03-b-lesson-03-bounded",
+            "b-practice-final-b-lesson-04-b-lesson-04-bounded",
+            "b-practice-final-b-lesson-05-b-lesson-05-bounded",
+            "b-practice-final-b-lesson-06-b-lesson-06-bounded",
+            "b-practice-final-b-lesson-07-b-lesson-07-bounded",
+            "b-practice-final-b-lesson-08-b-lesson-08-bounded",
+            "b-practice-final-b-lesson-09-b-lesson-09-bounded",
+            "b-practice-final-b-lesson-10-b-lesson-10-bounded",
+            "b-practice-final-b-lesson-11-b-lesson-11-bounded",
+            "b-practice-final-b-lesson-12-b-lesson-12-bounded",
+            "b-practice-final-b-lesson-13-b-lesson-13-bounded",
+            "b-practice-final-b-lesson-14-b-lesson-14-bounded",
+            "b-investigation-structure-function-final-transfer-revision-v2",
+            "b-investigation-cycle-graphs-final-transfer-revision-v2",
+            "b-investigation-development-evidence-final-transfer-revision-v2"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 42,
+            "threeDatasetConstructions": 36,
+            "reviewAndRevision": 12
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        }
+      ],
+      "advanced": [
+        {
+          "id": "b-topic-male-reproductive-structures-compartments-of-the-testes-advanced",
+          "words": 72,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-male-reproductive-structures-the-transport-pathway-advanced",
+          "words": 71,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-male-reproductive-structures-semen-and-accessory-glands-advanced",
+          "words": 73,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-male-reproductive-structures-reproductive-development-and-health-advanced",
+          "words": 327,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-spermatogenesis-gametes-and-chromosome-sets-advanced",
+          "words": 142,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-spermatogenesis-division-and-differentiation-advanced",
+          "words": 69,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-spermatogenesis-hormone-sources-and-targets-advanced",
+          "words": 77,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-spermatogenesis-feedback-and-evidence-advanced",
+          "words": 72,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-advanced",
+          "words": 77,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-advanced",
+          "words": 71,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-advanced",
+          "words": 67,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-structure-and-reproductive-function-advanced",
+          "words": 77,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-menstrual-cycle-two-coordinated-cycles-advanced",
+          "words": 74,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-advanced",
+          "words": 76,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-advanced",
+          "words": 74,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-menstrual-cycle-graphs-and-cycle-variation-advanced",
+          "words": 128,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-advanced",
+          "words": 143,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-gametes-meet-advanced",
+          "words": 66,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-combining-chromosome-sets-advanced",
+          "words": 70,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-advanced",
+          "words": 74,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-advanced",
+          "words": 140,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-advanced",
+          "words": 66,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-advanced",
+          "words": 74,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-advanced",
+          "words": 196,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-developmental-evidence-advanced",
+          "words": 67,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-advanced",
+          "words": 72,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-advanced",
+          "words": 134,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-advanced",
+          "words": 68,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-advanced",
+          "words": 153,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-parturition-labour-and-positive-feedback-advanced",
+          "words": 69,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-parturition-birth-and-the-transition-advanced",
+          "words": 72,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-parturition-milk-synthesis-and-release-advanced",
+          "words": 70,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-parturition-technologies-infertility-and-perspectives-advanced",
+          "words": 143,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "b-topic-parturition-investigating-and-communicating-a-claim-advanced",
+          "words": 147,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        }
+      ],
+      "inputsSha256": {
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-time.json": "907439ffdf42793a3c0e6f3646ddc7acc2a25ab7e42e7410f1afdf7b5746290f",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "1a80a22c334c3f3b04f984fb97ed7fe158a2bb0368bd1959e14663ec98c8c57d",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a"
+      }
+    },
+    "C": {
+      "requiredMinutes": 2400,
+      "optionalMinutes": 480,
+      "routes": [
+        {
+          "routeId": "c-topic-chromosomes-and-dna",
+          "requiredMinutes": 75,
+          "coreAndTermWords": 1106,
+          "figureExplanationWords": 258,
+          "figurePanels": 3,
+          "readingAndFigureEstimate": 16,
+          "readingSensitivityMinutes": [
+            20,
+            14
+          ],
+          "readingReallocationMinutes": 1,
+          "reallocationFrom": {
+            "evidenceAndRetrieval": 1
+          },
+          "workedOperationIds": [
+            "c-topic-chromosomes-and-dna-dna-packaging-worked",
+            "c-topic-chromosomes-and-dna-sets-and-copies-worked",
+            "c-topic-chromosomes-and-dna-reading-karyotypes-worked"
+          ],
+          "localCheckpoint": "c-topic-chromosomes-and-dna-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-01-c-lesson-01-evidence",
+            "c-topic-chromosomes-and-dna-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-chromosomes-and-dna-evidence",
+            "c-topic-chromosomes-and-dna-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 16,
+            "workedAndIndependentDataOperations": 16,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 17,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-the-cell-cycle",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 759,
+          "figureExplanationWords": 270,
+          "figurePanels": 3,
+          "readingAndFigureEstimate": 14,
+          "readingSensitivityMinutes": [
+            17,
+            12
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "c-topic-the-cell-cycle-interphase-worked",
+            "c-topic-the-cell-cycle-control-and-division-worked",
+            "c-topic-the-cell-cycle-measuring-cell-populations-worked"
+          ],
+          "localCheckpoint": "c-topic-the-cell-cycle-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-03-c-lesson-03-anchor",
+            "c-topic-the-cell-cycle-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-the-cell-cycle-evidence",
+            "c-topic-the-cell-cycle-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 15,
+            "workedAndIndependentDataOperations": 18,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 13
+          }
+        },
+        {
+          "routeId": "c-topic-mitosis",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 901,
+          "figureExplanationWords": 665,
+          "figurePanels": 8,
+          "readingAndFigureEstimate": 28,
+          "readingSensitivityMinutes": [
+            32,
+            25
+          ],
+          "readingReallocationMinutes": 8,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 6
+          },
+          "workedOperationIds": [
+            "c-topic-mitosis-preparing-to-separate-worked",
+            "c-topic-mitosis-separating-copies-worked",
+            "c-topic-mitosis-finishing-cell-division-worked",
+            "c-topic-mitosis-observation-and-simulation-worked"
+          ],
+          "localCheckpoint": "c-topic-mitosis-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-02-c-lesson-02-anchor",
+            "c-topic-mitosis-guided-cytokinesis-comparison"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-mitosis-evidence",
+            "c-topic-mitosis-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 28,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 12,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-meiosis-part-a",
+          "requiredMinutes": 105,
+          "coreAndTermWords": 1010,
+          "figureExplanationWords": 769,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 25,
+          "readingSensitivityMinutes": [
+            30,
+            22
+          ],
+          "readingReallocationMinutes": 5,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 5
+          },
+          "workedOperationIds": [
+            "c-topic-meiosis-part-a-pairing-and-exchange-worked",
+            "c-topic-meiosis-part-a-first-meiotic-division-worked",
+            "c-topic-meiosis-part-a-second-meiotic-division-worked",
+            "c-topic-meiosis-part-a-comparing-divisions-worked"
+          ],
+          "localCheckpoint": "c-topic-meiosis-part-a-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-04-c-lesson-04-anchor",
+            "c-topic-meiosis-part-a-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-meiosis-part-a-evidence",
+            "c-topic-meiosis-part-a-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 25,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 12
+          }
+        },
+        {
+          "routeId": "c-topic-meiosis-part-b",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 1005,
+          "figureExplanationWords": 736,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 25,
+          "readingSensitivityMinutes": [
+            30,
+            22
+          ],
+          "readingReallocationMinutes": 5,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 3
+          },
+          "workedOperationIds": [
+            "c-topic-meiosis-part-b-gamete-development-worked",
+            "c-topic-meiosis-part-b-sources-of-variation-worked",
+            "c-topic-meiosis-part-b-nondisjunction-worked",
+            "c-topic-meiosis-part-b-twins-and-early-development-worked"
+          ],
+          "localCheckpoint": "c-topic-meiosis-part-b-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-05-c-lesson-05-anchor",
+            "c-topic-meiosis-part-b-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-meiosis-part-b-evidence",
+            "c-topic-meiosis-part-b-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 25,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 15,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-reproductive-strategies",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 1103,
+          "figureExplanationWords": 1167,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 29,
+          "readingSensitivityMinutes": [
+            35,
+            25
+          ],
+          "readingReallocationMinutes": 9,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 6,
+            "workedAndIndependentDataOperations": 1
+          },
+          "workedOperationIds": [
+            "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-worked",
+            "c-topic-reproductive-strategies-life-cycle-transitions-worked",
+            "c-topic-reproductive-strategies-animal-strategies-worked",
+            "c-topic-reproductive-strategies-evidence-and-applications-worked"
+          ],
+          "localCheckpoint": "c-topic-reproductive-strategies-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-07-c-lesson-07-anchor",
+            "c-topic-reproductive-strategies-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-reproductive-strategies-evidence",
+            "c-topic-reproductive-strategies-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 29,
+            "workedAndIndependentDataOperations": 23,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 12,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-genes-alleles-and-traits",
+          "requiredMinutes": 75,
+          "coreAndTermWords": 752,
+          "figureExplanationWords": 695,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 19,
+          "readingSensitivityMinutes": [
+            23,
+            17
+          ],
+          "readingReallocationMinutes": 4,
+          "reallocationFrom": {
+            "evidenceAndRetrieval": 4
+          },
+          "workedOperationIds": [
+            "c-topic-genes-alleles-and-traits-inheritance-language-worked",
+            "c-topic-genes-alleles-and-traits-trait-expression-worked",
+            "c-topic-genes-alleles-and-traits-genes-and-environment-worked"
+          ],
+          "localCheckpoint": "c-topic-genes-alleles-and-traits-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-11-c-lesson-11-anchor",
+            "c-topic-genes-alleles-and-traits-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-genes-alleles-and-traits-evidence",
+            "c-topic-genes-alleles-and-traits-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 19,
+            "workedAndIndependentDataOperations": 16,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 14,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-mendelian-genetics",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 1091,
+          "figureExplanationWords": 767,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 26,
+          "readingSensitivityMinutes": [
+            31,
+            23
+          ],
+          "readingReallocationMinutes": 6,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 4
+          },
+          "workedOperationIds": [
+            "c-topic-mendelian-genetics-controlled-crosses-and-evidence-worked",
+            "c-topic-mendelian-genetics-segregation-worked",
+            "c-topic-mendelian-genetics-inheritance-modes-and-notation-worked",
+            "c-topic-mendelian-genetics-probability-and-test-crosses-worked"
+          ],
+          "localCheckpoint": "c-topic-mendelian-genetics-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-08-c-lesson-08-anchor",
+            "c-topic-mendelian-genetics-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-mendelian-genetics-evidence",
+            "c-topic-mendelian-genetics-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 26,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 14,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-single-and-two-trait-crosses",
+          "requiredMinutes": 120,
+          "coreAndTermWords": 906,
+          "figureExplanationWords": 445,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 18,
+          "readingSensitivityMinutes": [
+            22,
+            16
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "c-topic-single-and-two-trait-crosses-monohybrid-crosses-worked",
+            "c-topic-single-and-two-trait-crosses-probability-rules-worked",
+            "c-topic-single-and-two-trait-crosses-dihybrid-crosses-worked",
+            "c-topic-single-and-two-trait-crosses-testing-a-model-worked"
+          ],
+          "localCheckpoint": "c-topic-single-and-two-trait-crosses-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-09-c-lesson-09-anchor",
+            "c-topic-single-and-two-trait-crosses-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-single-and-two-trait-crosses-evidence",
+            "c-topic-single-and-two-trait-crosses-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 20,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 32
+          }
+        },
+        {
+          "routeId": "c-topic-other-modes-of-inheritance",
+          "requiredMinutes": 120,
+          "coreAndTermWords": 1127,
+          "figureExplanationWords": 844,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 27,
+          "readingSensitivityMinutes": [
+            32,
+            23
+          ],
+          "readingReallocationMinutes": 2,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2
+          },
+          "workedOperationIds": [
+            "c-topic-other-modes-of-inheritance-incomplete-dominance-worked",
+            "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-worked",
+            "c-topic-other-modes-of-inheritance-sex-linkage-worked",
+            "c-topic-other-modes-of-inheritance-many-genes-and-environment-worked",
+            "c-topic-other-modes-of-inheritance-comparing-model-predictions-worked"
+          ],
+          "localCheckpoint": "c-topic-other-modes-of-inheritance-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-11-c-lesson-11-evidence",
+            "c-topic-other-modes-of-inheritance-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-other-modes-of-inheritance-evidence",
+            "c-topic-other-modes-of-inheritance-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 27,
+            "workedAndIndependentDataOperations": 30,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 19
+          }
+        },
+        {
+          "routeId": "c-topic-pedigrees",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 773,
+          "figureExplanationWords": 1215,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 27,
+          "readingSensitivityMinutes": [
+            32,
+            24
+          ],
+          "readingReallocationMinutes": 7,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 5
+          },
+          "workedOperationIds": [
+            "c-topic-pedigrees-symbols-and-evidence-worked",
+            "c-topic-pedigrees-autosomal-hypotheses-worked",
+            "c-topic-pedigrees-sex-linked-hypotheses-worked",
+            "c-topic-pedigrees-risk-and-information-worked"
+          ],
+          "localCheckpoint": "c-topic-pedigrees-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-13-c-lesson-13-anchor",
+            "c-topic-pedigrees-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-pedigrees-evidence",
+            "c-topic-pedigrees-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 27,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 13,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-chromosome-mapping",
+          "requiredMinutes": 120,
+          "coreAndTermWords": 891,
+          "figureExplanationWords": 422,
+          "figurePanels": 4,
+          "readingAndFigureEstimate": 18,
+          "readingSensitivityMinutes": [
+            22,
+            16
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "c-topic-chromosome-mapping-linkage-and-recombination-worked",
+            "c-topic-chromosome-mapping-recombination-frequency-worked",
+            "c-topic-chromosome-mapping-gene-order-worked",
+            "c-topic-chromosome-mapping-limits-of-linkage-estimates-worked"
+          ],
+          "localCheckpoint": "c-topic-chromosome-mapping-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-14-c-lesson-14-anchor",
+            "c-topic-chromosome-mapping-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-chromosome-mapping-evidence",
+            "c-topic-chromosome-mapping-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 20,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 32
+          }
+        },
+        {
+          "routeId": "c-topic-dna-and-its-history",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 1045,
+          "figureExplanationWords": 948,
+          "figurePanels": 5,
+          "readingAndFigureEstimate": 25,
+          "readingSensitivityMinutes": [
+            30,
+            22
+          ],
+          "readingReallocationMinutes": 5,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 3
+          },
+          "workedOperationIds": [
+            "c-topic-dna-and-its-history-evidence-for-hereditary-material-worked",
+            "c-topic-dna-and-its-history-nucleotides-and-direction-worked",
+            "c-topic-dna-and-its-history-structural-evidence-worked",
+            "c-topic-dna-and-its-history-the-double-helix-worked"
+          ],
+          "localCheckpoint": "c-topic-dna-and-its-history-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-16-c-lesson-16-anchor",
+            "c-topic-dna-and-its-history-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-dna-and-its-history-evidence",
+            "c-topic-dna-and-its-history-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 25,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 15,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-dna-replication",
+          "requiredMinutes": 105,
+          "coreAndTermWords": 965,
+          "figureExplanationWords": 1192,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 28,
+          "readingSensitivityMinutes": [
+            34,
+            24
+          ],
+          "readingReallocationMinutes": 8,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 8
+          },
+          "workedOperationIds": [
+            "c-topic-dna-replication-semiconservative-replication-worked",
+            "c-topic-dna-replication-enzymes-and-direction-worked",
+            "c-topic-dna-replication-leading-and-lagging-synthesis-worked",
+            "c-topic-dna-replication-replication-evidence-worked"
+          ],
+          "localCheckpoint": "c-topic-dna-replication-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-17-c-lesson-17-anchor",
+            "c-topic-dna-replication-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-dna-replication-evidence",
+            "c-topic-dna-replication-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 28,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 9
+          }
+        },
+        {
+          "routeId": "c-topic-transcription",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 1050,
+          "figureExplanationWords": 1267,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 29,
+          "readingSensitivityMinutes": [
+            36,
+            25
+          ],
+          "readingReallocationMinutes": 9,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 6,
+            "workedAndIndependentDataOperations": 1
+          },
+          "workedOperationIds": [
+            "c-topic-transcription-selecting-a-template-worked",
+            "c-topic-transcription-making-rna-worked",
+            "c-topic-transcription-processing-and-expression-worked",
+            "c-topic-transcription-checking-a-sequence-claim-worked"
+          ],
+          "localCheckpoint": "c-topic-transcription-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-18-c-lesson-18-anchor",
+            "c-topic-transcription-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-transcription-evidence",
+            "c-topic-transcription-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 29,
+            "workedAndIndependentDataOperations": 23,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 12,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-translation",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 944,
+          "figureExplanationWords": 1729,
+          "figurePanels": 7,
+          "readingAndFigureEstimate": 34,
+          "readingSensitivityMinutes": [
+            41,
+            29
+          ],
+          "readingReallocationMinutes": 14,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 6,
+            "workedAndIndependentDataOperations": 6
+          },
+          "workedOperationIds": [
+            "c-topic-translation-reading-the-genetic-code-worked",
+            "c-topic-translation-adaptors-and-peptide-bonds-worked",
+            "c-topic-translation-initiation-to-termination-worked",
+            "c-topic-translation-from-sequence-to-function-worked"
+          ],
+          "localCheckpoint": "c-topic-translation-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-19-c-lesson-19-anchor",
+            "c-topic-translation-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-translation-evidence",
+            "c-topic-translation-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 34,
+            "workedAndIndependentDataOperations": 18,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 12,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-mutations",
+          "requiredMinutes": 90,
+          "coreAndTermWords": 903,
+          "figureExplanationWords": 846,
+          "figurePanels": 5,
+          "readingAndFigureEstimate": 23,
+          "readingSensitivityMinutes": [
+            28,
+            20
+          ],
+          "readingReallocationMinutes": 3,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 2,
+            "evidenceAndRetrieval": 1
+          },
+          "workedOperationIds": [
+            "c-topic-mutations-types-of-sequence-change-worked",
+            "c-topic-mutations-effects-on-gene-products-worked",
+            "c-topic-mutations-inheritance-and-variation-worked",
+            "c-topic-mutations-evaluating-mutation-evidence-worked"
+          ],
+          "localCheckpoint": "c-topic-mutations-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-20-c-lesson-20-anchor",
+            "c-topic-mutations-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-mutations-evidence",
+            "c-topic-mutations-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 23,
+            "workedAndIndependentDataOperations": 24,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 17,
+            "spacedRevisitAndRevision": 0
+          }
+        },
+        {
+          "routeId": "c-topic-genetic-technologies",
+          "requiredMinutes": 120,
+          "coreAndTermWords": 1231,
+          "figureExplanationWords": 1265,
+          "figurePanels": 7,
+          "readingAndFigureEstimate": 32,
+          "readingSensitivityMinutes": [
+            39,
+            28
+          ],
+          "readingReallocationMinutes": 7,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 7
+          },
+          "workedOperationIds": [
+            "c-topic-genetic-technologies-cutting-and-joining-dna-worked",
+            "c-topic-genetic-technologies-transforming-cells-worked",
+            "c-topic-genetic-technologies-amplifying-and-separating-worked",
+            "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+            "c-topic-genetic-technologies-applications-and-uncertainty-worked"
+          ],
+          "localCheckpoint": "c-topic-genetic-technologies-media",
+          "guidedPracticeIds": [
+            "c-practice-guided-c-lesson-22-c-lesson-22-anchor",
+            "c-topic-genetic-technologies-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "c-topic-genetic-technologies-evidence",
+            "c-topic-genetic-technologies-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 32,
+            "workedAndIndependentDataOperations": 30,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 14
+          }
+        },
+        {
+          "routeId": "c-chapter-16-practice",
+          "requiredMinutes": 110,
+          "counts": {
+            "multiple-choice": 13,
+            "constructed": 5
+          },
+          "practiceIds": [
+            "c-practice-chapter-c-lesson-01-c-lesson-01-anchor",
+            "c-practice-chapter-c-lesson-01-c-lesson-01-transfer",
+            "c-practice-chapter-c-lesson-02-c-lesson-02-evidence",
+            "c-practice-chapter-c-lesson-02-c-lesson-02-transfer",
+            "c-practice-chapter-c-lesson-03-c-lesson-03-evidence",
+            "c-practice-chapter-c-lesson-03-c-lesson-03-transfer",
+            "c-practice-chapter-c-lesson-04-c-lesson-04-evidence",
+            "c-practice-chapter-c-lesson-04-c-lesson-04-transfer",
+            "c-practice-chapter-c-lesson-05-c-lesson-05-evidence",
+            "c-practice-chapter-c-lesson-05-c-lesson-05-transfer",
+            "c-practice-chapter-c-lesson-06-c-lesson-06-anchor",
+            "c-application-twin-origins-and-development",
+            "c-practice-chapter-c-lesson-06-c-lesson-06-transfer",
+            "c-application-clonal-capability-and-conservation",
+            "c-practice-chapter-c-lesson-07-c-lesson-07-transfer",
+            "c-application-complete-division-comparison",
+            "c-chapter-construct-02",
+            "c-chapter-construct-03"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 45,
+            "constructedOperationsAndComparison": 30,
+            "returnToTeachingAndRevision": 35
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "c-chapter-17-practice",
+          "requiredMinutes": 130,
+          "counts": {
+            "multiple-choice": 17,
+            "constructed": 4
+          },
+          "practiceIds": [
+            "c-practice-chapter-c-lesson-08-c-lesson-08-evidence",
+            "c-practice-chapter-c-lesson-08-c-lesson-08-transfer",
+            "c-practice-chapter-c-lesson-09-c-lesson-09-evidence",
+            "c-practice-chapter-c-lesson-09-c-lesson-09-transfer",
+            "c-application-genetic-information-and-perspectives",
+            "c-practice-chapter-c-lesson-10-c-lesson-10-evidence",
+            "c-practice-chapter-c-lesson-10-c-lesson-10-transfer",
+            "c-practice-chapter-c-lesson-11-c-lesson-11-transfer",
+            "c-practice-chapter-c-lesson-12-c-lesson-12-anchor",
+            "c-practice-chapter-c-lesson-12-c-lesson-12-evidence",
+            "c-practice-chapter-c-lesson-12-c-lesson-12-transfer",
+            "c-practice-chapter-c-lesson-13-c-lesson-13-evidence",
+            "c-practice-chapter-c-lesson-13-c-lesson-13-transfer",
+            "c-practice-chapter-c-lesson-14-c-lesson-14-evidence",
+            "c-practice-chapter-c-lesson-14-c-lesson-14-transfer",
+            "c-practice-chapter-c-lesson-15-c-lesson-15-anchor",
+            "c-practice-chapter-c-lesson-15-c-lesson-15-evidence",
+            "c-practice-chapter-c-lesson-15-c-lesson-15-transfer",
+            "c-chapter-construct-04",
+            "c-chapter-construct-05",
+            "c-chapter-construct-06"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 54,
+            "constructedOperationsAndComparison": 30,
+            "returnToTeachingAndRevision": 46
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "c-chapter-18-practice",
+          "requiredMinutes": 150,
+          "counts": {
+            "multiple-choice": 20,
+            "constructed": 4
+          },
+          "practiceIds": [
+            "c-practice-chapter-c-lesson-16-c-lesson-16-evidence",
+            "c-practice-chapter-c-lesson-16-c-lesson-16-transfer",
+            "c-practice-chapter-c-lesson-17-c-lesson-17-evidence",
+            "c-practice-chapter-c-lesson-17-c-lesson-17-transfer",
+            "c-practice-chapter-c-lesson-18-c-lesson-18-evidence",
+            "c-practice-chapter-c-lesson-18-c-lesson-18-transfer",
+            "c-practice-chapter-c-lesson-19-c-lesson-19-evidence",
+            "c-practice-chapter-c-lesson-19-c-lesson-19-transfer",
+            "c-practice-chapter-c-lesson-20-c-lesson-20-evidence",
+            "c-practice-chapter-c-lesson-20-c-lesson-20-transfer",
+            "c-practice-chapter-c-lesson-21-c-lesson-21-anchor",
+            "c-practice-chapter-c-lesson-21-c-lesson-21-evidence",
+            "c-practice-chapter-c-lesson-21-c-lesson-21-transfer",
+            "c-practice-chapter-c-lesson-22-c-lesson-22-evidence",
+            "c-practice-chapter-c-lesson-22-c-lesson-22-transfer",
+            "c-practice-chapter-c-lesson-23-c-lesson-23-anchor",
+            "c-practice-chapter-c-lesson-23-c-lesson-23-evidence",
+            "c-practice-chapter-c-lesson-23-c-lesson-23-transfer",
+            "c-application-crop-research-and-sustainability",
+            "c-practice-chapter-c-lesson-24-c-lesson-24-evidence",
+            "c-practice-chapter-c-lesson-24-c-lesson-24-transfer",
+            "c-chapter-construct-07",
+            "c-chapter-construct-08",
+            "c-application-aligned-sequence-relatedness"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 63,
+            "constructedOperationsAndComparison": 30,
+            "returnToTeachingAndRevision": 57
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "c-review-seminar",
+          "requiredMinutes": 90,
+          "counts": {
+            "multiple-choice": 0,
+            "constructed": 0
+          },
+          "practiceIds": [],
+          "components": {
+            "connectThreeMechanisms": 30,
+            "evaluateSuppliedEvidence": 30,
+            "reviseUsingFeedback": 30
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "c-final-practice",
+          "requiredMinutes": 180,
+          "counts": {
+            "multiple-choice": 24,
+            "constructed": 3
+          },
+          "practiceIds": [
+            "c-practice-final-c-lesson-01-c-lesson-01-bounded",
+            "c-practice-final-c-lesson-02-c-lesson-02-bounded",
+            "c-practice-final-c-lesson-03-c-lesson-03-bounded",
+            "c-practice-final-c-lesson-04-c-lesson-04-bounded",
+            "c-practice-final-c-lesson-05-c-lesson-05-bounded",
+            "c-practice-final-c-lesson-06-c-lesson-06-bounded",
+            "c-practice-final-c-lesson-07-c-lesson-07-bounded",
+            "c-practice-final-c-lesson-08-c-lesson-08-bounded",
+            "c-practice-final-c-lesson-09-c-lesson-09-bounded",
+            "c-practice-final-c-lesson-10-c-lesson-10-bounded",
+            "c-practice-final-c-lesson-11-c-lesson-11-bounded",
+            "c-practice-final-c-lesson-12-c-lesson-12-bounded",
+            "c-practice-final-c-lesson-13-c-lesson-13-bounded",
+            "c-practice-final-c-lesson-14-c-lesson-14-bounded",
+            "c-practice-final-c-lesson-15-c-lesson-15-bounded",
+            "c-practice-final-c-lesson-16-c-lesson-16-bounded",
+            "c-practice-final-c-lesson-17-c-lesson-17-bounded",
+            "c-practice-final-c-lesson-18-c-lesson-18-bounded",
+            "c-practice-final-c-lesson-19-c-lesson-19-bounded",
+            "c-practice-final-c-lesson-20-c-lesson-20-bounded",
+            "c-practice-final-c-lesson-21-c-lesson-21-bounded",
+            "c-practice-final-c-lesson-22-c-lesson-22-bounded",
+            "c-practice-final-c-lesson-23-c-lesson-23-bounded",
+            "c-practice-final-c-lesson-24-c-lesson-24-bounded",
+            "c-investigation-cell-observations-final-transfer-revision-v2",
+            "c-investigation-inheritance-data-final-transfer-revision-v2",
+            "c-investigation-molecular-evidence-final-transfer-revision-v2"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 72,
+            "threeDatasetConstructions": 60,
+            "reviewAndRevision": 48
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        }
+      ],
+      "advanced": [
+        {
+          "id": "c-topic-chromosomes-and-dna-dna-packaging-advanced",
+          "words": 106,
+          "minutes": 7,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-chromosomes-and-dna-sets-and-copies-advanced",
+          "words": 65,
+          "minutes": 7,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-chromosomes-and-dna-reading-karyotypes-advanced",
+          "words": 122,
+          "minutes": 7,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-the-cell-cycle-interphase-advanced",
+          "words": 124,
+          "minutes": 7,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-the-cell-cycle-control-and-division-advanced",
+          "words": 455,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-the-cell-cycle-measuring-cell-populations-advanced",
+          "words": 117,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mitosis-preparing-to-separate-advanced",
+          "words": 119,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mitosis-separating-copies-advanced",
+          "words": 113,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mitosis-finishing-cell-division-advanced",
+          "words": 111,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mitosis-observation-and-simulation-advanced",
+          "words": 66,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-a-pairing-and-exchange-advanced",
+          "words": 63,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-a-first-meiotic-division-advanced",
+          "words": 66,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-a-second-meiotic-division-advanced",
+          "words": 59,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-a-comparing-divisions-advanced",
+          "words": 63,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-b-gamete-development-advanced",
+          "words": 217,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-b-sources-of-variation-advanced",
+          "words": 58,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-b-nondisjunction-advanced",
+          "words": 63,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-meiosis-part-b-twins-and-early-development-advanced",
+          "words": 62,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-advanced",
+          "words": 118,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-reproductive-strategies-life-cycle-transitions-advanced",
+          "words": 118,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-reproductive-strategies-animal-strategies-advanced",
+          "words": 63,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-reproductive-strategies-evidence-and-applications-advanced",
+          "words": 241,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genes-alleles-and-traits-inheritance-language-advanced",
+          "words": 101,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genes-alleles-and-traits-trait-expression-advanced",
+          "words": 59,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genes-alleles-and-traits-genes-and-environment-advanced",
+          "words": 170,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-advanced",
+          "words": 64,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mendelian-genetics-segregation-advanced",
+          "words": 60,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mendelian-genetics-inheritance-modes-and-notation-advanced",
+          "words": 61,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mendelian-genetics-probability-and-test-crosses-advanced",
+          "words": 61,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-advanced",
+          "words": 117,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-probability-rules-advanced",
+          "words": 62,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-advanced",
+          "words": 57,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-testing-a-model-advanced",
+          "words": 118,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-incomplete-dominance-advanced",
+          "words": 56,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-advanced",
+          "words": 117,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-sex-linkage-advanced",
+          "words": 183,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-many-genes-and-environment-advanced",
+          "words": 285,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-comparing-model-predictions-advanced",
+          "words": 55,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-pedigrees-symbols-and-evidence-advanced",
+          "words": 58,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-pedigrees-autosomal-hypotheses-advanced",
+          "words": 59,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-pedigrees-sex-linked-hypotheses-advanced",
+          "words": 103,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-pedigrees-risk-and-information-advanced",
+          "words": 160,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-chromosome-mapping-linkage-and-recombination-advanced",
+          "words": 60,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-chromosome-mapping-recombination-frequency-advanced",
+          "words": 114,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-chromosome-mapping-gene-order-advanced",
+          "words": 130,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-chromosome-mapping-limits-of-linkage-estimates-advanced",
+          "words": 54,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-and-its-history-evidence-for-hereditary-material-advanced",
+          "words": 104,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-and-its-history-nucleotides-and-direction-advanced",
+          "words": 101,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-and-its-history-structural-evidence-advanced",
+          "words": 129,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-and-its-history-the-double-helix-advanced",
+          "words": 59,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-replication-semiconservative-replication-advanced",
+          "words": 114,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-replication-enzymes-and-direction-advanced",
+          "words": 114,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-replication-leading-and-lagging-synthesis-advanced",
+          "words": 66,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-dna-replication-replication-evidence-advanced",
+          "words": 107,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-transcription-selecting-a-template-advanced",
+          "words": 58,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-transcription-making-rna-advanced",
+          "words": 59,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-transcription-processing-and-expression-advanced",
+          "words": 119,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-transcription-checking-a-sequence-claim-advanced",
+          "words": 113,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-translation-reading-the-genetic-code-advanced",
+          "words": 58,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-translation-adaptors-and-peptide-bonds-advanced",
+          "words": 116,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-translation-initiation-to-termination-advanced",
+          "words": 104,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-translation-from-sequence-to-function-advanced",
+          "words": 115,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mutations-types-of-sequence-change-advanced",
+          "words": 116,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mutations-effects-on-gene-products-advanced",
+          "words": 63,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mutations-inheritance-and-variation-advanced",
+          "words": 110,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-mutations-evaluating-mutation-evidence-advanced",
+          "words": 207,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genetic-technologies-cutting-and-joining-dna-advanced",
+          "words": 63,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genetic-technologies-transforming-cells-advanced",
+          "words": 115,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genetic-technologies-amplifying-and-separating-advanced",
+          "words": 121,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-advanced",
+          "words": 117,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "c-topic-genetic-technologies-applications-and-uncertainty-advanced",
+          "words": 180,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        }
+      ],
+      "inputsSha256": {
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json": "0c1c7e2d5ca73d7580398f77cc1bcd84b9bc65b23293e76ec19e2095fd48f145",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf"
+      }
+    },
+    "D": {
+      "requiredMinutes": 900,
+      "optionalMinutes": 180,
+      "routes": [
+        {
+          "routeId": "d-topic-hardy-weinberg",
+          "requiredMinutes": 160,
+          "coreAndTermWords": 1473,
+          "figureExplanationWords": 506,
+          "figurePanels": 5,
+          "readingAndFigureEstimate": 25,
+          "readingSensitivityMinutes": [
+            30,
+            21
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts-worked",
+            "d-topic-hardy-weinberg-allele-and-genotype-frequencies-worked",
+            "d-topic-hardy-weinberg-equilibrium-assumptions-worked",
+            "d-topic-hardy-weinberg-solving-and-checking-worked",
+            "d-topic-hardy-weinberg-a-model-and-its-limits-worked"
+          ],
+          "localCheckpoint": "d-topic-hardy-weinberg-media",
+          "guidedPracticeIds": [
+            "d-practice-guided-d-lesson-01-allele-denominator",
+            "d-topic-hardy-weinberg-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "d-topic-hardy-weinberg-evidence",
+            "d-topic-hardy-weinberg-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 25,
+            "workedAndIndependentDataOperations": 30,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 61
+          }
+        },
+        {
+          "routeId": "d-topic-mechanisms-of-change",
+          "requiredMinutes": 130,
+          "coreAndTermWords": 1202,
+          "figureExplanationWords": 498,
+          "figurePanels": 5,
+          "readingAndFigureEstimate": 23,
+          "readingSensitivityMinutes": [
+            27,
+            20
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "d-topic-mechanisms-of-change-mutation-and-selection-worked",
+            "d-topic-mechanisms-of-change-chance-and-population-size-worked",
+            "d-topic-mechanisms-of-change-movement-and-mating-worked",
+            "d-topic-mechanisms-of-change-resistance-and-evidence-worked",
+            "d-topic-mechanisms-of-change-testing-explanations-worked"
+          ],
+          "localCheckpoint": "d-topic-mechanisms-of-change-media",
+          "guidedPracticeIds": [
+            "d-practice-guided-d-lesson-04-new-allele",
+            "d-topic-mechanisms-of-change-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "d-topic-mechanisms-of-change-evidence",
+            "d-topic-mechanisms-of-change-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 25,
+            "workedAndIndependentDataOperations": 30,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 31
+          }
+        },
+        {
+          "routeId": "d-topic-population-growth",
+          "requiredMinutes": 175,
+          "coreAndTermWords": 1493,
+          "figureExplanationWords": 605,
+          "figurePanels": 6,
+          "readingAndFigureEstimate": 27,
+          "readingSensitivityMinutes": [
+            33,
+            24
+          ],
+          "readingReallocationMinutes": 0,
+          "reallocationFrom": {},
+          "workedOperationIds": [
+            "d-topic-population-growth-size-and-density-worked",
+            "d-topic-population-growth-sampling-populations-worked",
+            "d-topic-population-growth-four-demographic-processes-worked",
+            "d-topic-population-growth-rates-and-denominators-worked",
+            "d-topic-population-growth-exponential-and-logistic-models-worked",
+            "d-topic-population-growth-feedback-and-changing-limits-worked"
+          ],
+          "localCheckpoint": "d-topic-population-growth-media",
+          "guidedPracticeIds": [
+            "d-practice-guided-d-lesson-08-density",
+            "d-topic-population-growth-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "d-topic-population-growth-evidence",
+            "d-topic-population-growth-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 30,
+            "workedAndIndependentDataOperations": 36,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 65
+          }
+        },
+        {
+          "routeId": "d-topic-life-strategies-and-ecological-relationships",
+          "requiredMinutes": 155,
+          "coreAndTermWords": 1839,
+          "figureExplanationWords": 739,
+          "figurePanels": 9,
+          "readingAndFigureEstimate": 37,
+          "readingSensitivityMinutes": [
+            44,
+            33
+          ],
+          "readingReallocationMinutes": 7,
+          "reallocationFrom": {
+            "spacedRevisitAndRevision": 7
+          },
+          "workedOperationIds": [
+            "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-worked",
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-worked",
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles-worked",
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-worked",
+            "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-worked"
+          ],
+          "localCheckpoint": "d-topic-life-strategies-and-ecological-relationships-media",
+          "guidedPracticeIds": [
+            "d-practice-guided-d-lesson-05-community",
+            "d-topic-life-strategies-and-ecological-relationships-guided-construct"
+          ],
+          "evidenceAndRetrieval": [
+            "d-topic-life-strategies-and-ecological-relationships-evidence",
+            "d-topic-life-strategies-and-ecological-relationships-retrieval"
+          ],
+          "components": {
+            "readingDefinitionsAndFigureInterpretation": 37,
+            "workedAndIndependentDataOperations": 36,
+            "localWalkthroughAndCheckpoint": 12,
+            "guidedPracticeAndCorrection": 14,
+            "evidenceAndRetrieval": 18,
+            "spacedRevisitAndRevision": 38
+          }
+        },
+        {
+          "routeId": "d-chapter-19-practice",
+          "requiredMinutes": 50,
+          "counts": {
+            "multiple-choice": 6,
+            "constructed": 4
+          },
+          "practiceIds": [
+            "d-practice-chapter-d-lesson-01-gene-pool",
+            "d-practice-chapter-d-lesson-02-assumption",
+            "d-practice-chapter-d-lesson-02-heterozygote-deficit",
+            "d-practice-chapter-d-lesson-03-terms",
+            "d-practice-chapter-d-lesson-03-square-root",
+            "d-practice-chapter-d-lesson-04-drift-pattern",
+            "d-chapter-construct-01",
+            "d-chapter-construct-02",
+            "d-chapter-construct-03",
+            "d-application-resistance-evidence-and-consequences"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 18,
+            "constructedOperationsAndComparison": 24,
+            "returnToTeachingAndRevision": 8
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "d-chapter-20-practice",
+          "requiredMinutes": 70,
+          "counts": {
+            "multiple-choice": 12,
+            "constructed": 4
+          },
+          "practiceIds": [
+            "d-practice-chapter-d-lesson-05-competition-evidence",
+            "d-practice-chapter-d-lesson-06-predator-lag",
+            "d-practice-chapter-d-lesson-06-resource-partition",
+            "d-practice-chapter-d-lesson-07-primary-secondary",
+            "d-practice-chapter-d-lesson-07-chronosequence",
+            "d-practice-chapter-d-lesson-08-accounting",
+            "d-practice-chapter-d-lesson-09-exponential",
+            "d-practice-chapter-d-lesson-09-carrying-capacity",
+            "d-practice-chapter-d-lesson-10-continuum",
+            "d-practice-chapter-d-lesson-10-late-maturity",
+            "d-practice-chapter-d-lesson-11-equilibrium-risk",
+            "d-practice-chapter-d-lesson-11-factorial-evidence",
+            "d-chapter-construct-04",
+            "d-chapter-construct-05",
+            "d-chapter-construct-06",
+            "d-application-wetland-research-and-models"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 36,
+            "constructedOperationsAndComparison": 24,
+            "returnToTeachingAndRevision": 10
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "d-review-seminar",
+          "requiredMinutes": 60,
+          "counts": {
+            "multiple-choice": 0,
+            "constructed": 0
+          },
+          "practiceIds": [],
+          "components": {
+            "connectThreeMechanisms": 20,
+            "evaluateSuppliedEvidence": 20,
+            "reviseUsingFeedback": 20
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        },
+        {
+          "routeId": "d-final-practice",
+          "requiredMinutes": 100,
+          "counts": {
+            "multiple-choice": 11,
+            "constructed": 3
+          },
+          "practiceIds": [
+            "d-practice-final-d-lesson-01-equilibrium-claim",
+            "d-practice-final-d-lesson-02-cause-limit",
+            "d-practice-final-d-lesson-03-interpretation",
+            "d-practice-final-d-lesson-04-claim-quality",
+            "d-practice-final-d-lesson-05-context-shift",
+            "d-practice-final-d-lesson-06-defence-tradeoff",
+            "d-practice-final-d-lesson-07-mechanism-claim",
+            "d-practice-final-d-lesson-08-sampling-bias",
+            "d-practice-final-d-lesson-09-model-choice",
+            "d-practice-final-d-lesson-10-adaptive-plan",
+            "d-practice-final-d-lesson-11-management-sequence",
+            "d-investigation-gene-pool-final-transfer-revision-v2",
+            "d-investigation-competition-final-transfer-revision-v2",
+            "d-investigation-population-growth-final-transfer-revision-v2"
+          ],
+          "components": {
+            "selectedResponseAttemptAndFeedback": 33,
+            "threeDatasetConstructions": 54,
+            "reviewAndRevision": 13
+          },
+          "review": "Practice allocation includes explicit attempts, feedback comparison and revision. Seminar uses the authored source-separated mechanism/evidence/revision cycle; no external video or optional textbook time counted."
+        }
+      ],
+      "advanced": [
+        {
+          "id": "d-topic-hardy-weinberg-populations-and-allele-counts-advanced",
+          "words": 172,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-advanced",
+          "words": 64,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-hardy-weinberg-equilibrium-assumptions-advanced",
+          "words": 60,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-hardy-weinberg-solving-and-checking-advanced",
+          "words": 223,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-hardy-weinberg-a-model-and-its-limits-advanced",
+          "words": 157,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-mutation-and-selection-advanced",
+          "words": 179,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-chance-and-population-size-advanced",
+          "words": 120,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-movement-and-mating-advanced",
+          "words": 110,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-resistance-and-evidence-advanced",
+          "words": 58,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-testing-explanations-advanced",
+          "words": 55,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-population-growth-size-and-density-advanced",
+          "words": 104,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-population-growth-sampling-populations-advanced",
+          "words": 171,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-population-growth-four-demographic-processes-advanced",
+          "words": 122,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-population-growth-rates-and-denominators-advanced",
+          "words": 57,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-population-growth-exponential-and-logistic-models-advanced",
+          "words": 245,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-population-growth-feedback-and-changing-limits-advanced",
+          "words": 117,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-advanced",
+          "words": 217,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-advanced",
+          "words": 170,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-advanced",
+          "words": 254,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-advanced",
+          "words": 153,
+          "minutes": 6,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-advanced",
+          "words": 281,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-advanced",
+          "words": 278,
+          "minutes": 5,
+          "activity": "Read the optional qualification; compare it with the worked model and reconsider a stated limit. Completion remains optional."
+        }
+      ],
+      "inputsSha256": {
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json": "1d7a1d780b12de70ca1a65983e84dda3efece55ee81d5aad4234a5c7efd154e8",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6"
+      }
+    }
+  }
+}

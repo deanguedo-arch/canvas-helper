@@ -1,0 +1,130 @@
+{
+  "stage": 81,
+  "checkedAt": "2026-09-07T06:07:49.472484+00:00",
+  "summary": "Eight original gamete/cycle diagrams in seven B targets; all native originals and seven comparison sections inspected. No learner HTML.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 40,
+    "pending": 87,
+    "byUnit": {
+      "B": 17,
+      "C": 1,
+      "D": 22
+    }
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "priorWholeSuite": "stage77:91 passed",
+    "draftContracts": "passed",
+    "sourceAndProtectedBaselines": "passed"
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+      "sha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "8e191062e52af0ab79277485c8a198207149e4d20ab2e1caffc4255e4b72a44d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "1285f810011d6f5427a7332e4ccc6903dbac1d72d1456dce6c9a90bf1a397c40"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "b4bbc38e780234bf40efefc3b4dbc66398c0e596f849691d7ef3135d21c0d2fb"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-chromosome-sets-copies-v1-native.png",
+      "sha256": "e881b463ea690a6db82a7dee976e67eafa1881634640c473a12ccf4f6668418c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-context-feedback-v1-native.png",
+      "sha256": "6b7d2f70bb0f1b1305e3149a06774e49e6a63d1b41d126d86ebf4d8f5a755fa3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-coordinated-cycles-v1-native.png",
+      "sha256": "16363be42e89176c41b5f76434d1046bb48909e0daf1432a15efc601e261932c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-luteal-withdrawal-v1-native.png",
+      "sha256": "1d8253ee88215aeb540e4d3c17dc81f37d47b8a56fce4cae5926576178235569"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-meiosis-differentiation-v1-native.png",
+      "sha256": "1d7c98e3c2d98b13f34e7d6a1ffa31d4dfd8988fdfa1fa2cfde5b8546944dc34"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-meiosis-differentiation-v2-native.png",
+      "sha256": "0d91f22b3a062da5c9a9e3a070d290a94f13b1c98ae0e9e1e03bc3d9c5bf2a47"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-menopause-feedback-v1-native.png",
+      "sha256": "70048504cb3771951f2084e24c1f6ea3e82c41b1da8a2f6527e332583bc4ac42"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-oocyte-pauses-v1-native.png",
+      "sha256": "2834a85bc8e8a5ad2b0c93e58f3d7570837d007da5f9bd9891988fb541c21e27"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-oocyte-pauses-v2-native.png",
+      "sha256": "82238d98999024eb1d4c09d699881a1a70ae8990dbb4e36ecb3f43593dd6763e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-sparse-sampling-v1-native.png",
+      "sha256": "9d61020f3415f440f640abe925d857e36284b9ce8a96e1bf8110669598f65108"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/chapter16-physical26.png",
+      "sha256": "d687014d91628d20c8ee02b5e5a9cd10137479982496ae31ff168edf27d9cc7b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/existing-b-lesson-02.png",
+      "sha256": "f3d5ccb6a8337aae8dd264464c17a039cda93e04502fa44112e30ac35ab1ee8e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/existing-b-lesson-03.png",
+      "sha256": "db9aff94bd9490fa03d85df9ae6b835e83a03d0bd100b9392c14bb03bc6f35b8"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/existing-b-lesson-06.png",
+      "sha256": "16d999fb7007cfd2fc87553c540ff96d1a31e63eb253dce642778102711f606c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure.png",
+      "sha256": "5b4430bfa7cd0e57c883385f2d862e5bbbfe5e17979cbc1516f440e53e0dccc1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure.png",
+      "sha256": "1270050f0ca2c696b107f59d089cc277355772414415aa413e7e4247943f94b2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure.png",
+      "sha256": "0bcde039b2dbae2a155fe52c15daef752ffd5a33be0a7c09e9dba29139a340c8"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-graphs-and-cycle-variation-figure.png",
+      "sha256": "2bb8a64571a5b126b791f3cad5daeee65de0b91d977ee85c5fe463f5053ced49"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-two-coordinated-cycles-figure.png",
+      "sha256": "615074332b4bab10a6900a725e78ba4dfc52da5e00ec5e98bacf3dee9a699922"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-spermatogenesis-division-and-differentiation-figure.png",
+      "sha256": "4d920162e196952587a6a2730b627198dc41fb442cea68b11c203778d99ad29f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-spermatogenesis-gametes-and-chromosome-sets-figure.png",
+      "sha256": "ac7901eb43f629a7a767adff92f27ed8f9a2ba57cc49e5ec3643e3de32d38534"
+    }
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false
+}

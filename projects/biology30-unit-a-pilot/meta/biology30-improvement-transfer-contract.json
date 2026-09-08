@@ -1,0 +1,2512 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-production",
+  "sourceWorkspaceSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+  "sourceAcademicReview": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+  "status": "recipe-complete-academic-clearance-pending",
+  "executionChoice": "full-unit-build-then-review",
+  "automaticTransfer": false,
+  "academicGapsOpen": 0,
+  "canonicalPlaybook": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md",
+  "rules": [
+    {
+      "id": "projects/biology30-unit-a-pilot:transactional-local-textbook-intake",
+      "sourceRuleId": "transactional-local-textbook-intake",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "scripts/lib/biology30-unit-a/pilot-textbook.ts"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Normalize only approved Unit A textbook and seminar resources from checksum-verified archives through an idempotent transactional command that never rewrites canonical lesson HTML.",
+      "sourceAdaptation": "Reuse the transaction, checksum, PDF-normalization, and asset-ownership pattern only after each unit has an explicit approved resource inventory and page map.",
+      "procedure": "source",
+      "owner": "scripts/lib/biology30-course/v1/intake.ts",
+      "inputs": [
+        "teacher-sequence",
+        "source-archives",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "checksummed source inventory",
+        "row/page/slide dispositions",
+        "exact unit contract"
+      ],
+      "checks": [
+        "hash and count verification",
+        "secure-source exclusion",
+        "transaction rollback"
+      ],
+      "recovery": "Reject drift; preserve originals; stage a new inventory rather than overwrite accepted sources.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/intake.ts",
+        "C": "scripts/lib/biology30-course/v1/intake.ts",
+        "D": "scripts/lib/biology30-course/v1/intake.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:three-document-library-and-exact-page-links",
+      "sourceRuleId": "three-document-library-and-exact-page-links",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Provide one local textbook Library and connect every lesson and review summary action to an exact chapter, printed page, physical PDF page, and recommended question set.",
+      "sourceAdaptation": "Build a unit-specific printed-to-physical page map and crosswalk; never infer page ranges from Unit A.",
+      "procedure": "textbook",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "textbook-chapters",
+        "learner-review-questions",
+        "authorized-review-guidance"
+      ],
+      "outputs": [
+        "printed/physical page map",
+        "native corrected answer guides",
+        "practice feedback links"
+      ],
+      "checks": [
+        "exact physical PDF opening",
+        "attempt-before-answer persistence",
+        "all answer rationales checked"
+      ],
+      "recovery": "Reconcile printed folios with PDF pages; do not substitute PDF arithmetic for inspection.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:attempt-before-answer-with-isolated-persistence",
+      "sourceRuleId": "attempt-before-answer-with-isolated-persistence",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Hide textbook answers until the learner confirms an attempt, persist that attempt independently, and allow answers to be hidden without changing scoring, completion, or other saved work.",
+      "sourceAdaptation": "Reuse the interaction rule with unit-namespaced stable IDs and unit-specific corrected answer content.",
+      "procedure": "textbook",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "textbook-chapters",
+        "learner-review-questions",
+        "authorized-review-guidance"
+      ],
+      "outputs": [
+        "printed/physical page map",
+        "native corrected answer guides",
+        "practice feedback links"
+      ],
+      "checks": [
+        "exact physical PDF opening",
+        "attempt-before-answer persistence",
+        "all answer rationales checked"
+      ],
+      "recovery": "Reconcile printed folios with PDF pages; do not substitute PDF arithmetic for inspection.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:practice-feedback-textbook-crosswalk",
+      "sourceRuleId": "practice-feedback-textbook-crosswalk",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/textbook-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "After a learner checks any of the 51 Guided Practice questions or 24 Final Practice questions, place one exact local textbook-page action inside the revealed feedback. Distinguish direct support from the closest available support when the local course corrects or extends the older textbook, leave Module Checks unchanged, and use Final Practice as the learner-facing name without changing its 24-question scoring or completion behavior.",
+      "sourceAdaptation": "Create a question-level crosswalk from each unit's own textbook and practice bank. Never reuse Unit A pages, and label closest support honestly when newer course content exceeds the source textbook.",
+      "procedure": "textbook",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "textbook-chapters",
+        "learner-review-questions",
+        "authorized-review-guidance"
+      ],
+      "outputs": [
+        "printed/physical page map",
+        "native corrected answer guides",
+        "practice feedback links"
+      ],
+      "checks": [
+        "exact physical PDF opening",
+        "attempt-before-answer persistence",
+        "all answer rationales checked"
+      ],
+      "recovery": "Reconcile printed folios with PDF pages; do not substitute PDF arithmetic for inspection.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:chapter-grouped-lessons-and-review-navigation",
+      "sourceRuleId": "chapter-grouped-lessons-and-review-navigation",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Group lessons by their textbook chapter, place the required final integration lesson in a final Integration and Mastery subgroup under Lessons, and keep the separate Review navigation group optional.",
+      "sourceAdaptation": "Use each unit's real textbook structure and preserve its required final lesson; do not copy Unit A chapter names or route count.",
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:native-corrected-review-experience",
+      "sourceRuleId": "native-corrected-review-experience",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Rebuild chapter review, seminar, and textbook unit review as student-facing web content with current terminology, corrected source ambiguities, saved reasoning, and explanatory answer reveals.",
+      "sourceAdaptation": "Re-author from each unit's learner-visible review sources, current curriculum, and correction ledger; do not transplant Unit A science content.",
+      "procedure": "textbook",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "textbook-chapters",
+        "learner-review-questions",
+        "authorized-review-guidance"
+      ],
+      "outputs": [
+        "printed/physical page map",
+        "native corrected answer guides",
+        "practice feedback links"
+      ],
+      "checks": [
+        "exact physical PDF opening",
+        "attempt-before-answer persistence",
+        "all answer rationales checked"
+      ],
+      "recovery": "Reconcile printed folios with PDF pages; do not substitute PDF arithmetic for inspection.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:secure-assessment-exclusion",
+      "sourceRuleId": "secure-assessment-exclusion",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/meta/textbook-integration.json",
+        "scripts/lib/biology30-unit-a/pilot-textbook.ts"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Exclude secure chapter quizzes, quiz keys, Unit tests, test answers, broken LMS launchers, and teacher-only assessment material from learner delivery.",
+      "sourceAdaptation": "Apply only after a unit-specific visibility and disposition audit; secure assessment remains native Brightspace content.",
+      "procedure": "source",
+      "owner": "scripts/lib/biology30-course/v1/intake.ts",
+      "inputs": [
+        "teacher-sequence",
+        "source-archives",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "checksummed source inventory",
+        "row/page/slide dispositions",
+        "exact unit contract"
+      ],
+      "checks": [
+        "hash and count verification",
+        "secure-source exclusion",
+        "transaction rollback"
+      ],
+      "recovery": "Reject drift; preserve originals; stage a new inventory rather than overwrite accepted sources.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/intake.ts",
+        "C": "scripts/lib/biology30-course/v1/intake.ts",
+        "D": "scripts/lib/biology30-course/v1/intake.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:point-of-use-safety-notes",
+      "sourceRuleId": "point-of-use-safety-notes",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Keep one unit-level safety statement, remove oversized generic lesson safety cards, and place only essential cautions beside the activity they govern.",
+      "sourceAdaptation": "Retain only hazards and limitations relevant to each unit's actual investigation or health context.",
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:retrieval-response-layout",
+      "sourceRuleId": "retrieval-response-layout",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Keep each retrieval prompt and its label, textarea, and status in a stable two-column desktop layout that stacks in reading order on mobile without changing saved-response IDs.",
+      "sourceAdaptation": "Reuse the responsive structure while preserving each unit's existing response IDs, labels, autosave hooks, and content sequence.",
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:transactional-powerpoint-media-intake",
+      "sourceRuleId": "transactional-powerpoint-media-intake",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "scripts/lib/biology30-unit-a/pilot-media.ts"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Inventory checksum-verified source decks transactionally, account for every slide, embedded asset, and link, and keep generated media reports separate from canonical learner HTML.",
+      "sourceAdaptation": "Reuse the transaction and inventory pattern only with unit-specific source hashes, counts, rights review, correction ledger, and explicit learner destinations.",
+      "procedure": "source",
+      "owner": "scripts/lib/biology30-course/v1/intake.ts",
+      "inputs": [
+        "teacher-sequence",
+        "source-archives",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "checksummed source inventory",
+        "row/page/slide dispositions",
+        "exact unit contract"
+      ],
+      "checks": [
+        "hash and count verification",
+        "secure-source exclusion",
+        "transaction rollback"
+      ],
+      "recovery": "Reject drift; preserve originals; stage a new inventory rather than overwrite accepted sources.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/intake.ts",
+        "C": "scripts/lib/biology30-course/v1/intake.ts",
+        "D": "scripts/lib/biology30-course/v1/intake.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:transactional-source-visual-preparation",
+      "sourceRuleId": "transactional-source-visual-preparation",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "scripts/lib/biology30-unit-a/pilot-source-visuals.ts",
+        "projects/biology30-unit-a-pilot/meta/source-visual-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Regenerate approved source-image derivatives from exact checksum-verified PDF pages or PowerPoint media relationships through an idempotent transaction that owns only its asset directory and report, never canonical lesson HTML.",
+      "sourceAdaptation": "Reuse the transaction pattern only after each unit has its own explicit source-image selection, crop or relationship locator, checksum, rights decision, accessibility copy, and release blocker policy.",
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:selective-source-informed-visual-upgrade",
+      "sourceRuleId": "selective-source-informed-visual-upgrade",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/media-integration.json",
+        "projects/biology30-unit-a-pilot/meta/source-visual-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Show one strongest visual for each teaching purpose: replace an exact redundant static figure with its stronger contract-selected source plate, retain distinct semantic figures and interactions, and keep a source image supplemental only when it contributes different evidence or anatomy. Require explicit accuracy, accessibility, provenance, and release treatment; never use a full slide or screenshot as instruction.",
+      "sourceAdaptation": "Make a figure-by-figure decision from each unit's own deck inventory; Unit A treatment choices do not authorize reuse of another unit's imagery.",
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:optional-visible-preview-video-library",
+      "sourceRuleId": "optional-visible-preview-video-library",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/media-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Place reviewed optional videos beside exact lesson concepts and in one filterable Video Library, automatically show the native privacy-enhanced preview only when its lesson or selected library entry is visible, never autoplay, leave hidden entries unloaded, and retain a complete local concept summary when video access fails.",
+      "sourceAdaptation": "Review each unit's videos for accuracy, captions, availability, embedding, duplication, and learner value before exposing them; every accepted video needs a local fallback and exact lesson mapping.",
+      "procedure": "video",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "editable-decks",
+        "video-transcripts-captions",
+        "notes"
+      ],
+      "outputs": [
+        "unit-specific video map",
+        "reviewed segments and duration",
+        "local illustrated equivalent and checkpoint"
+      ],
+      "checks": [
+        "no autoplay or custom play button",
+        "blocked-network completion",
+        "transcript accuracy and objective parity"
+      ],
+      "recovery": "Use the reviewed local path when a provider fails; never silently substitute an unreviewed clip.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:exact-build-visual-contact-sheet-gate",
+      "sourceRuleId": "exact-build-visual-contact-sheet-gate",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "scripts/audit-biology30-unit-a-improvement-pilot-visual.ts"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Generate and inspect exact-build route and component contact sheets across desktop, tablet, and mobile before proposing a pilot rule for broader use.",
+      "sourceAdaptation": "Create a fresh exact-build audit and human review record for each unit; Unit A screenshots and approval cannot satisfy another unit's gate.",
+      "procedure": "verification",
+      "owner": "scripts/lib/biology30-course/v1/acceptance.ts",
+      "inputs": [
+        "exact-candidate",
+        "unit-state-contract",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "exact-build audit and contact sheets",
+        "teacher feedback resolution",
+        "acceptance and handoff"
+      ],
+      "checks": [
+        "all sheets actually opened",
+        "mobile/zoom/keyboard/axe",
+        "full-build teacher acceptance distinct from deployment"
+      ],
+      "recovery": "Invalidate only evidence affected by drift, rerun on the new hash, and keep older evidence attached to its original build.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/acceptance.ts",
+        "C": "scripts/lib/biology30-course/v1/acceptance.ts",
+        "D": "scripts/lib/biology30-course/v1/acceptance.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:lesson-04-membrane-contrast-and-generated-base-review",
+      "sourceRuleId": "lesson-04-membrane-contrast-and-generated-base-review",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/generated-visual-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Place the reviewed resting-membrane image in Lesson 4, where resting potential and action potentials are taught, rather than Lesson 3. Preserve the adjacent scientific correction, static-equivalent table, alt text, and keyboard enlargement so raster labels are never the sole source of meaning.",
+      "sourceAdaptation": "Use the scientific-review, exact-placement, accessible-equivalent, and responsive-enlargement process, but create and validate a new unit-specific image rather than reusing this neuron membrane.",
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:lesson-12-endocrine-body-map-generated-base-review",
+      "sourceRuleId": "lesson-12-endocrine-body-map-generated-base-review",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/generated-visual-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Use the reviewed endocrine anatomy map in Lesson 12 while retaining an exact nearby text equivalent, alt text, keyboard enlargement, and an explicit clarification that parathyroid glands lie on the posterior thyroid surface shown in the inset.",
+      "sourceAdaptation": "Retain the anatomy review, accessible-equivalent, and responsive-enlargement process, but create and validate a new unit-specific map rather than reusing this endocrine figure.",
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:teacher-selected-generated-figure-replacements",
+      "sourceRuleId": "teacher-selected-generated-figure-replacements",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/visual-comparison/teacher-decisions.json",
+        "projects/biology30-unit-a-pilot/meta/generated-visual-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Replace each accepted course-native diagram once with the teacher-selected high-resolution figure, retain the original semantic SVG as a hidden provenance fallback, and pair every raster figure with alt text, a nearby text equivalent, and keyboard enlargement.",
+      "sourceAdaptation": "Reuse the compare, science-review, exact-placement, accessible-equivalent, and responsive-enlargement workflow only after unit-specific figure decisions and a fresh exact-build visual audit.",
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:deduplicate-final-lesson-textbook-review",
+      "sourceRuleId": "deduplicate-final-lesson-textbook-review",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html",
+        "projects/biology30-unit-a-pilot/meta/textbook-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "When dedicated chapter and textbook-unit review routes already provide the assigned pages, questions, and answer reveals, omit the duplicate textbook-review band from the required final integration lesson. Preserve that lesson's identity, required time, Guided Practice, Final Practice, responses, persistence, and completion role.",
+      "sourceAdaptation": "Apply only where a target unit has complete dedicated review routes. Keep its required final integration lesson distinct from optional review resources, and preserve all stable learner-state and completion identifiers.",
+      "procedure": "textbook",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "textbook-chapters",
+        "learner-review-questions",
+        "authorized-review-guidance"
+      ],
+      "outputs": [
+        "printed/physical page map",
+        "native corrected answer guides",
+        "practice feedback links"
+      ],
+      "checks": [
+        "exact physical PDF opening",
+        "attempt-before-answer persistence",
+        "all answer rationales checked"
+      ],
+      "recovery": "Reconcile printed folios with PDF pages; do not substitute PDF arithmetic for inspection.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:one-based-learner-practice-numbering",
+      "sourceRuleId": "one-based-learner-practice-numbering",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Number learner-facing Guided Practice, Module Check, and Final Practice questions from 1 within each list while preserving the stable internal practice IDs, response names, persistence keys, answer logic, scoring, and completion rules.",
+      "sourceAdaptation": "Render the visible ordinal as the array position plus one. Do not renumber stable IDs, form names, persistence keys, analytics keys, or answer references when correcting learner-facing labels.",
+      "procedure": "practice",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "curriculum-performance",
+        "learner-review-questions",
+        "textbook-chapters"
+      ],
+      "outputs": [
+        "explicit item-to-behaviour bindings",
+        "key/distractor/rationale records",
+        "non-quiz skills evidence"
+      ],
+      "checks": [
+        "no route-level alignment fallbacks",
+        "no untaught required vocabulary",
+        "stable equivalent IDs or documented migration"
+      ],
+      "recovery": "Remap an existing genuinely aligned item first, replace weak items one-for-one second, add a scoped skills task only if necessary.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:process-collection-exit-slip-aggregation",
+      "sourceRuleId": "process-collection-exit-slip-aggregation",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Present lesson exit slips, optional learner process notes, and saved portfolio artifacts together in one learner-facing Process Collection. Read exit slips directly from their existing stable response IDs, show draft or completed status, link back to the exact exit check, and never duplicate or transfer ownership of the saved response.",
+      "sourceAdaptation": "Create a unit-specific collection view that reads the target unit's existing exit-response and completion identifiers. Preserve state ownership, response limits, artifact contracts, and completion rules; do not copy Unit A IDs, lesson titles, or route inventory.",
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot:science-core-vocabulary-and-frayer-process-collection",
+      "sourceRuleId": "science-core-vocabulary-and-frayer-process-collection",
+      "origin": "projects/biology30-unit-a-pilot",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot/meta/core-vocabulary.json",
+        "projects/biology30-unit-a-pilot/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": "Teach a deliberately selected layer of high-value scientific concept families separately from the complete glossary. For each family, connect learner-friendly meaning, morphology or word history, biological mechanism, examples, common confusions, exact lesson and textbook locations, retrieval, and a science-adapted Frayer model; collect only complete learner-selected Frayer evidence in Process Collection without changing required course completion.",
+      "sourceAdaptation": "For each target unit, first audit its curriculum outcomes, lessons, textbook, practice, recurring mechanisms, common misconceptions, and useful morphology. Select a new unit-specific core-family inventory, author fresh Frayer models and links, budget persistence against that unit's own state contract, implement through scripts/lib/biology30-course/v1 rather than copied Unit A HTML, and require a representative-slice review before full rollout. Unit A terms, counts, response IDs, mappings, and acceptance do not transfer.",
+      "procedure": "vocabulary",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "teacher-sequence",
+        "morphology-sources"
+      ],
+      "outputs": [
+        "unit-specific concept families",
+        "four anchors plus all terms",
+        "model Frayers and stable response IDs"
+      ],
+      "checks": [
+        "definitions before dependent words",
+        "no false morphology",
+        "choice/reveal/collection safety"
+      ],
+      "recovery": "Preserve writing; revise only the selected empty choice or use an explicit copy/clear flow.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:topic-sequence-from-teacher-plans",
+      "sourceRuleId": "topic-sequence-from-teacher-plans",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/gate-2-content-audit.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/gate-2-content-audit.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:prerequisite-first-science-language",
+      "sourceRuleId": "prerequisite-first-science-language",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/reading-level-report.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/reading-level-report.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:teach-then-retrieve",
+      "sourceRuleId": "teach-then-retrieve",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:required-core-versus-advanced-learning",
+      "sourceRuleId": "required-core-versus-advanced-learning",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "advanced",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "old-unit-sections",
+        "notes"
+      ],
+      "outputs": [
+        "section-by-section depth disposition",
+        "adjacent collapsed advanced blocks",
+        "independent optional checklist"
+      ],
+      "checks": [
+        "no core content hidden in advanced",
+        "accessible language",
+        "optional minutes and flags separated"
+      ],
+      "recovery": "Exclude noncurricular/unsafe content; retain rejected and superseded decisions rather than copying everything.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:two-purposeful-visuals-per-lesson",
+      "sourceRuleId": "two-purposeful-visuals-per-lesson",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/figure-media-plan.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/figure-media-plan.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:curricular-practice-only",
+      "sourceRuleId": "curricular-practice-only",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/practice-blueprint.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/practice-blueprint.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "practice",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "learner-review-questions",
+        "textbook-chapters"
+      ],
+      "outputs": [
+        "explicit item-to-behaviour bindings",
+        "key/distractor/rationale records",
+        "non-quiz skills evidence"
+      ],
+      "checks": [
+        "no route-level alignment fallbacks",
+        "no untaught required vocabulary",
+        "stable equivalent IDs or documented migration"
+      ],
+      "recovery": "Remap an existing genuinely aligned item first, replace weak items one-for-one second, add a scoped skills task only if necessary.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:manageable-non-gating-investigations",
+      "sourceRuleId": "manageable-non-gating-investigations",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/workspace/index.html"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:atomic-curriculum-component-coverage",
+      "sourceRuleId": "atomic-curriculum-component-coverage",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "practice",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "learner-review-questions",
+        "textbook-chapters"
+      ],
+      "outputs": [
+        "explicit item-to-behaviour bindings",
+        "key/distractor/rationale records",
+        "non-quiz skills evidence"
+      ],
+      "checks": [
+        "no route-level alignment fallbacks",
+        "no untaught required vocabulary",
+        "stable equivalent IDs or documented migration"
+      ],
+      "recovery": "Remap an existing genuinely aligned item first, replace weak items one-for-one second, add a scoped skills task only if necessary.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:expanded-readable-core-explanations",
+      "sourceRuleId": "expanded-readable-core-explanations",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:four-anchors-plus-complete-term-inventory",
+      "sourceRuleId": "four-anchors-plus-complete-term-inventory",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "vocabulary",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "teacher-sequence",
+        "morphology-sources"
+      ],
+      "outputs": [
+        "unit-specific concept families",
+        "four anchors plus all terms",
+        "model Frayers and stable response IDs"
+      ],
+      "checks": [
+        "definitions before dependent words",
+        "no false morphology",
+        "choice/reveal/collection safety"
+      ],
+      "recovery": "Preserve writing; revise only the selected empty choice or use an explicit copy/clear flow.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:required-media-or-local-equivalent",
+      "sourceRuleId": "required-media-or-local-equivalent",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "video",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "editable-decks",
+        "video-transcripts-captions",
+        "notes"
+      ],
+      "outputs": [
+        "unit-specific video map",
+        "reviewed segments and duration",
+        "local illustrated equivalent and checkpoint"
+      ],
+      "checks": [
+        "no autoplay or custom play button",
+        "blocked-network completion",
+        "transcript accuracy and objective parity"
+      ],
+      "recovery": "Use the reviewed local path when a provider fails; never silently substitute an unreviewed clip.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:media-aware-nondestructive-state-migration",
+      "sourceRuleId": "media-aware-nondestructive-state-migration",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/suspend-data.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/suspend-data.ts",
+        "C": "scripts/lib/biology30-course/v1/suspend-data.ts",
+        "D": "scripts/lib/biology30-course/v1/suspend-data.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:complete-thirteen-lesson-depth-propagation",
+      "sourceRuleId": "complete-thirteen-lesson-depth-propagation",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/reading-level-report.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/reading-level-report.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:all-lesson-purposeful-visual-density",
+      "sourceRuleId": "all-lesson-purposeful-visual-density",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "visual",
+      "owner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "inputs": [
+        "editable-decks",
+        "textbook-chapters",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "native source extraction",
+        "scientific prompt and full-resolution candidate",
+        "side-by-side decision and replacement provenance"
+      ],
+      "checks": [
+        "scientific checklist before aesthetics",
+        "alt/long description and enlargement",
+        "one visible figure per purpose"
+      ],
+      "recovery": "Return to the exact prompt/candidate; narrowly correct errors and obtain a new teacher decision. Keep replaced assets in authoring history.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "C": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+        "D": "scripts/lib/biology30-course/v1/figure-grammar.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:curricular-prerequisite-practice-readiness",
+      "sourceRuleId": "curricular-prerequisite-practice-readiness",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/practice-readiness-audit.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/practice-readiness-audit.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "practice",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "learner-review-questions",
+        "textbook-chapters"
+      ],
+      "outputs": [
+        "explicit item-to-behaviour bindings",
+        "key/distractor/rationale records",
+        "non-quiz skills evidence"
+      ],
+      "checks": [
+        "no route-level alignment fallbacks",
+        "no untaught required vocabulary",
+        "stable equivalent IDs or documented migration"
+      ],
+      "recovery": "Remap an existing genuinely aligned item first, replace weak items one-for-one second, add a scoped skills task only if necessary.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:full-course-required-media-equivalent-parity",
+      "sourceRuleId": "full-course-required-media-equivalent-parity",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/figure-media-plan.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/figure-media-plan.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "video",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "editable-decks",
+        "video-transcripts-captions",
+        "notes"
+      ],
+      "outputs": [
+        "unit-specific video map",
+        "reviewed segments and duration",
+        "local illustrated equivalent and checkpoint"
+      ],
+      "checks": [
+        "no autoplay or custom play button",
+        "blocked-network completion",
+        "transcript accuracy and objective parity"
+      ],
+      "recovery": "Use the reviewed local path when a provider fails; never silently substitute an unreviewed clip.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:restored-collapsible-course-navigation",
+      "sourceRuleId": "restored-collapsible-course-navigation",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "instruction",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "teacher-sequence",
+        "curriculum-performance",
+        "notes"
+      ],
+      "outputs": [
+        "complete core explanations",
+        "first-use dependency graph",
+        "worked examples and retrieval"
+      ],
+      "checks": [
+        "atomic scientific and skills review",
+        "first-use reading order",
+        "readability plus unassisted reader review"
+      ],
+      "recovery": "Repair the exact missing mechanism or prerequisite; never raise reading difficulty to add depth.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:process-collection-resource-grouping",
+      "sourceRuleId": "process-collection-resource-grouping",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:lesson-model-lab-and-collected-evidence",
+      "sourceRuleId": "lesson-model-lab-and-collected-evidence",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:responsive-model-mechanism-layout",
+      "sourceRuleId": "responsive-model-mechanism-layout",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:pilot-1-interaction-depth-adapted-to-pilot-2",
+      "sourceRuleId": "pilot-1-interaction-depth-adapted-to-pilot-2",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/model-lab-interaction-map.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/model-lab-interaction-map.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:guided-model-investigation-cycle",
+      "sourceRuleId": "guided-model-investigation-cycle",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/model-lab-interaction-map.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/model-lab-interaction-map.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:compact-backward-compatible-learner-state",
+      "sourceRuleId": "compact-backward-compatible-learner-state",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/state-budget.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/state-budget.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/suspend-data.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/suspend-data.ts",
+        "C": "scripts/lib/biology30-course/v1/suspend-data.ts",
+        "D": "scripts/lib/biology30-course/v1/suspend-data.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:responsive-illustrated-walkthrough-steps",
+      "sourceRuleId": "responsive-illustrated-walkthrough-steps",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "video",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "editable-decks",
+        "video-transcripts-captions",
+        "notes"
+      ],
+      "outputs": [
+        "unit-specific video map",
+        "reviewed segments and duration",
+        "local illustrated equivalent and checkpoint"
+      ],
+      "checks": [
+        "no autoplay or custom play button",
+        "blocked-network completion",
+        "transcript accuracy and objective parity"
+      ],
+      "recovery": "Use the reviewed local path when a provider fails; never silently substitute an unreviewed clip.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:operable-locked-core-vocabulary-preview",
+      "sourceRuleId": "operable-locked-core-vocabulary-preview",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "vocabulary",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "teacher-sequence",
+        "morphology-sources"
+      ],
+      "outputs": [
+        "unit-specific concept families",
+        "four anchors plus all terms",
+        "model Frayers and stable response IDs"
+      ],
+      "checks": [
+        "definitions before dependent words",
+        "no false morphology",
+        "choice/reveal/collection safety"
+      ],
+      "recovery": "Preserve writing; revise only the selected empty choice or use an explicit copy/clear flow.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:optional-attempt-gated-textbook-review-guides",
+      "sourceRuleId": "optional-attempt-gated-textbook-review-guides",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/textbook-review-integration.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/textbook-review-integration.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "textbook",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "textbook-chapters",
+        "learner-review-questions",
+        "authorized-review-guidance"
+      ],
+      "outputs": [
+        "printed/physical page map",
+        "native corrected answer guides",
+        "practice feedback links"
+      ],
+      "checks": [
+        "exact physical PDF opening",
+        "attempt-before-answer persistence",
+        "all answer rationales checked"
+      ],
+      "recovery": "Reconcile printed folios with PDF pages; do not substitute PDF arithmetic for inspection.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:pilot-1-to-pilot-2-advanced-learning-bridge",
+      "sourceRuleId": "pilot-1-to-pilot-2-advanced-learning-bridge",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/advanced-learning-bridge.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/advanced-learning-bridge.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "advanced",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "old-unit-sections",
+        "notes"
+      ],
+      "outputs": [
+        "section-by-section depth disposition",
+        "adjacent collapsed advanced blocks",
+        "independent optional checklist"
+      ],
+      "checks": [
+        "no core content hidden in advanced",
+        "accessible language",
+        "optional minutes and flags separated"
+      ],
+      "recovery": "Exclude noncurricular/unsafe content; retain rejected and superseded decisions rather than copying everything.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:explicit-academic-evidence-without-route-fallbacks",
+      "sourceRuleId": "explicit-academic-evidence-without-route-fallbacks",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+        "projects/biology30-unit-a-pilot-2/meta/chapter-11-academic-repair.json",
+        "projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json",
+        "scripts/lib/biology30-unit-a-pilot-2/chapter-11-study.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/academic-evidence.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/process-collection-content.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/build-process-collection-index.ts",
+        "projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.json",
+        "projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.md",
+        "scripts/lib/biology30-unit-a-pilot-2/remaining-academic-review.ts",
+        "scripts/review-biology30-unit-a-pilot-2-academic.ts",
+        "projects/biology30-unit-a-pilot-2/meta/academic-corrections.json",
+        "projects/biology30-unit-a-pilot-2/meta/academic-corrections-verification.json",
+        "scripts/lib/biology30-unit-a-pilot-2/practice-corrections.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/academic-corrections.ts",
+        "scripts/check-biology30-unit-a-academic-corrections.ts",
+        "scripts/tests/biology30-unit-a-academic-corrections.test.ts"
+      ],
+      "sourceIterations": [
+        {
+          "workspaceSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+          "evidence": "projects/biology30-unit-a-pilot-2/meta/chapter-11-academic-repair.json",
+          "review": "projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json",
+          "status": "awaiting-explicit-user-review",
+          "teacherDecision": null,
+          "scope": "Six saved identification/reasoning tasks and corrected action-potential graph. Task presence is not demonstrated mastery or approval of practical skills."
+        }
+      ],
+      "academicReview": {
+        "workspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+        "evidence": "projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.json",
+        "report": "projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.md",
+        "status": "review-findings-recorded-not-academically-cleared",
+        "teacherDecision": null,
+        "learnerChanged": false,
+        "scope": "All 86 practice items, 36 overlapping gaps, 53 source-level records and 14 local media paths reviewed. One publisher transcript reviewed; 13 still pending. Twelve invalid Final Practice chapter/page links, 22 unrelated printed-page selections, 68 generic feedback records and text-only media alternatives require repairs. Five standards rows are excellence examples, not acceptable examples; one row is a local skills criterion."
+      },
+      "academicCorrections": {
+        "id": "practice-links-and-standards-1",
+        "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+        "baselineWorkspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+        "evidence": "projects/biology30-unit-a-pilot-2/meta/academic-corrections.json",
+        "review": "meta/academic-corrections-verification.json",
+        "status": "awaiting-explicit-user-review",
+        "teacherDecision": null,
+        "verification": "projects/biology30-unit-a-pilot-2/meta/academic-corrections-verification.json"
+      },
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "practice",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "learner-review-questions",
+        "textbook-chapters"
+      ],
+      "outputs": [
+        "explicit item-to-behaviour bindings",
+        "key/distractor/rationale records",
+        "non-quiz skills evidence"
+      ],
+      "checks": [
+        "no route-level alignment fallbacks",
+        "no untaught required vocabulary",
+        "stable equivalent IDs or documented migration"
+      ],
+      "recovery": "Remap an existing genuinely aligned item first, replace weak items one-for-one second, add a scoped skills task only if necessary.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:exact-first-use-vocabulary-links",
+      "sourceRuleId": "exact-first-use-vocabulary-links",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "vocabulary",
+      "owner": "scripts/lib/biology30-course/v1/content-<unit>.ts",
+      "inputs": [
+        "curriculum-performance",
+        "teacher-sequence",
+        "morphology-sources"
+      ],
+      "outputs": [
+        "unit-specific concept families",
+        "four anchors plus all terms",
+        "model Frayers and stable response IDs"
+      ],
+      "checks": [
+        "definitions before dependent words",
+        "no false morphology",
+        "choice/reveal/collection safety"
+      ],
+      "recovery": "Preserve writing; revise only the selected empty choice or use an explicit copy/clear flow.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/content-b.ts",
+        "C": "scripts/lib/biology30-course/v1/content-c.ts",
+        "D": "scripts/lib/biology30-course/v1/content-d.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:append-only-improvement-history",
+      "sourceRuleId": "append-only-improvement-history",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "verification",
+      "owner": "scripts/lib/biology30-course/v1/acceptance.ts",
+      "inputs": [
+        "exact-candidate",
+        "unit-state-contract",
+        "image-rights-and-decisions"
+      ],
+      "outputs": [
+        "exact-build audit and contact sheets",
+        "teacher feedback resolution",
+        "acceptance and handoff"
+      ],
+      "checks": [
+        "all sheets actually opened",
+        "mobile/zoom/keyboard/axe",
+        "full-build teacher acceptance distinct from deployment"
+      ],
+      "recovery": "Invalidate only evidence affected by drift, rerun on the new hash, and keep older evidence attached to its original build.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/acceptance.ts",
+        "C": "scripts/lib/biology30-course/v1/acceptance.ts",
+        "D": "scripts/lib/biology30-course/v1/acceptance.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:complete-online-investigation-and-media-paths",
+      "sourceRuleId": "complete-online-investigation-and-media-paths",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/online-finalization.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/online-finalization.json",
+        "scripts/lib/biology30-unit-a-pilot-2/online-studies.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/online-media.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/render-online.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/online-investigations.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/online-video-review.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/online-finalization.ts",
+        "scripts/lib/biology30-unit-a-pilot-2/practice-academic-review.ts"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    },
+    {
+      "id": "projects/biology30-unit-a-pilot-2:unified-process-collection-index-and-truthful-save-status",
+      "sourceRuleId": "unified-process-collection-index-and-truthful-save-status",
+      "origin": "projects/biology30-unit-a-pilot-2",
+      "sourceStatus": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "projects/biology30-unit-a-pilot-2/meta/process-collection-index.json",
+      "implementationFiles": [
+        "projects/biology30-unit-a-pilot-2/meta/process-collection-index.json"
+      ],
+      "sourceIterations": [],
+      "academicReview": null,
+      "academicCorrections": null,
+      "sourcePrinciple": null,
+      "sourceAdaptation": null,
+      "procedure": "evidence",
+      "owner": "scripts/lib/biology30-course/v1/render.ts",
+      "inputs": [
+        "unit-state-contract",
+        "teacher-approved-investigations"
+      ],
+      "outputs": [
+        "Predict-Test-Explain-Save models",
+        "unified saved-work registry",
+        "exact return links and copy/print"
+      ],
+      "checks": [
+        "derived state not duplicated text",
+        "task actually demonstrates claimed skill",
+        "truthful local/LMS save outcomes"
+      ],
+      "recovery": "Keep last valid state; expose failed saving and offer copy. Never count a selection as a saved explanation.",
+      "unitOwners": {
+        "B": "scripts/lib/biology30-course/v1/render.ts",
+        "C": "scripts/lib/biology30-course/v1/render.ts",
+        "D": "scripts/lib/biology30-course/v1/render.ts"
+      },
+      "procedureLink": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe",
+      "transferEligibility": "awaiting-complete-unit-a-acceptance",
+      "unitReadiness": {
+        "B": "not-applied",
+        "C": "not-applied",
+        "D": "not-applied"
+      }
+    }
+  ],
+  "futureBuilderOwner": "scripts/lib/biology30-course/v1/",
+  "legacyRulesSuperseded": [
+    "Universal optional-video policy is superseded by required video-or-local-path learning steps; supplementary library entries remain optional.",
+    "Two visuals per lesson is a historical minimum, not sufficient proof of present instructional completeness.",
+    "A route or first available question is never evidence that a precise skill is taught or assessed.",
+    "B-D representative-slice approval pauses are replaced by the user's full-unit-build-then-review decision; source readiness and final acceptance gates remain."
+  ]
+}

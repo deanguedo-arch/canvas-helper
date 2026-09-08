@@ -1,0 +1,1814 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "generatedAt": "2026-09-08T16:12:53.462Z",
+  "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+  "baselineWorkspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "baselineDirectory": "raw/online-finalization-baselines/f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "status": "awaiting-explicit-user-review",
+  "teacherDecision": null,
+  "transferReady": false,
+  "delivery": "Fully online, confirmed by the user. Supplied data, digital observation and computer models do not certify physical laboratory operation or unobserved collaboration.",
+  "invariants": {
+    "requiredRoutes": 18,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "practiceItems": 86,
+    "advancedBlocks": 40,
+    "mediaCheckpoints": 14,
+    "collectionParentRecords": 178,
+    "stateVersion": 6,
+    "existingResponseLimits": "unchanged",
+    "addedCompactStudyResponses": 5,
+    "addedObservationResponses": 1,
+    "estimatedWorstCaseCharacters": 42738,
+    "completionImpact": false
+  },
+  "localWalkthroughs": [
+    {
+      "youtubeId": "A44brRGG4Ys",
+      "lessonId": "lesson-01",
+      "modelId": "myelin",
+      "sourcePages": "Chapter 11 printed 369–372, 378",
+      "objectives": [
+        "Identify the receiving, conducting and communicating regions",
+        "Distinguish a neuron from its myelinating glia",
+        "Explain regeneration at nodes"
+      ],
+      "panels": [
+        {
+          "title": "1. Trace one cell",
+          "explanation": "Start at the branching dendrites. These receive much of the input from other cells. The cell body keeps the neuron alive and combines incoming signals. The long axon carries an action potential toward its terminals. A terminal can release a chemical messenger to another cell. Follow the arrows, not the shape alone: sensory, motor and connecting neurons can have different forms.",
+          "visualId": "neuron-roles"
+        },
+        {
+          "title": "2. Follow the insulated axon",
+          "explanation": "Myelin consists of wrapped glial-cell membrane. It reduces current loss between the gaps called nodes of Ranvier. Local current spreads beneath myelin, and the action potential is regenerated at the next node. This makes conduction faster than in a comparable unmyelinated axon. It does not make the spike taller or send sodium ions flying from one end of the neuron to the other.",
+          "visualId": "myelin-saltatory"
+        },
+        {
+          "title": "3. Separate support from signalling",
+          "explanation": "Schwann cells form myelin segments in peripheral nerves. Oligodendrocytes form myelin in the brain and spinal cord. These are glial cells, not motor or sensory neurons. In a withdrawal pathway, a sensory neuron carries input into the spinal cord, a connection passes it to motor output, and a muscle responds. Information can also travel to the brain. The roles depend on connections and direction.",
+          "visualId": "online-neuron-jobs"
+        }
+      ],
+      "workedCase": {
+        "question": "An axon has intact terminals but damaged myelin. Must its action potentials become larger?",
+        "reasoning": "No. The damaged covering allows more current loss. Conduction may slow or fail before the next node reaches threshold. Spike size is not the same thing as speed or reliability."
+      },
+      "selector": "[data-online-walkthrough=\"A44brRGG4Ys\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "oa6rvUJlg7o",
+      "lessonId": "lesson-02",
+      "modelId": "action-potential",
+      "sourcePages": "Chapter 11 printed 373–378",
+      "objectives": [
+        "Explain resting gradients",
+        "Read voltage and channel changes together",
+        "Distinguish spike size from frequency"
+      ],
+      "panels": [
+        {
+          "title": "1. Establish the starting conditions",
+          "explanation": "The membrane separates fluids with different ion concentrations. Sodium is more concentrated outside; potassium is more concentrated inside. Selective permeability, especially potassium leak, helps produce the negative resting voltage. The pump uses ATP to move three sodium ions out and two potassium ions in. It maintains gradients over time; it is not the switch that rapidly repolarizes each spike.",
+          "visualId": "resting-membrane-potential"
+        },
+        {
+          "title": "2. Read the graph from left to right",
+          "explanation": "Time runs along the horizontal axis. Voltage, measured inside relative to outside, runs vertically. At threshold, many voltage-gated sodium channels open. Sodium entry raises voltage. Near the peak, sodium channels inactivate and potassium channels open. Potassium exit lowers voltage. Slow potassium-channel closure causes the undershoot. Channel recovery produces absolute and relative refractory intervals; their boundaries are approximate in this teaching graph.",
+          "visualId": "action-potential-voltage-graph"
+        },
+        {
+          "title": "3. Explain the message, not just one spike",
+          "explanation": "The graph represents one location on the membrane. Local current brings a neighbouring region to threshold, regenerating the event along the axon. The recently active region is harder to excite while channels recover. A stronger sustained stimulus can increase firing frequency and recruit more neurons. It does not turn each all-or-none spike into a larger spike in the same healthy neuron.",
+          "visualId": "stimulus-intensity-code"
+        }
+      ],
+      "workedCase": {
+        "question": "Voltage rises from −70 mV to +35 mV. What is the change, and which ion drives the rise?",
+        "reasoning": "The change is 35 − (−70) = 105 mV. Sodium enters during the rising phase. A second event cannot begin normally during the absolute refractory interval because the sodium channels have not recovered."
+      },
+      "selector": "[data-online-walkthrough=\"oa6rvUJlg7o\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "YcJy28Nnrb8",
+      "lessonId": "lesson-03",
+      "modelId": "synapse",
+      "sourcePages": "Chapter 11 printed 379–382; local Learn 1 calcium sequence",
+      "objectives": [
+        "Define neurotransmitter before naming an example",
+        "Trace release, receptor binding and response",
+        "Explain signal termination"
+      ],
+      "panels": [
+        {
+          "title": "1. Change the form of the signal",
+          "explanation": "A neurotransmitter is a chemical messenger released by a neuron that acts at receptors on another cell. The action potential reaches the presynaptic terminal. Calcium channels open, and calcium entry triggers vesicles to fuse with the membrane. Messenger molecules are released into the synaptic cleft. The electrical event does not simply jump across that gap as electricity.",
+          "visualId": "synaptic-transmission"
+        },
+        {
+          "title": "2. Connect messenger to target",
+          "explanation": "Messenger molecules diffuse across the cleft and bind compatible receptors on the postsynaptic cell. This can change ion flow and make a new action potential more or less likely. A messenger does not have one universal effect on every cell; the receptor and target machinery matter. Acetylcholine and norepinephrine are examples of neurotransmitters, not the name of the electrical impulse.",
+          "visualId": "online-synapse-stages"
+        },
+        {
+          "title": "3. End the signal",
+          "explanation": "A signal must end so a later message can be distinguished. Cholinesterase breaks down acetylcholine. At other synapses, transport proteins take messenger back into cells; this is reuptake. An agonist increases a receptor-related effect; an antagonist blocks or reduces it. Distinguish changing release, changing a receptor, and changing removal. They act at different points in the same pathway.",
+          "visualId": "online-synapse-termination"
+        }
+      ],
+      "workedCase": {
+        "question": "Calcium entry is reduced but the arriving action potential is unchanged. What follows?",
+        "reasoning": "Fewer vesicles are likely to release messenger. Less receptor activation follows, so the postsynaptic response may be weaker. This is a release problem, not evidence that the neuron lost its myelin."
+      },
+      "selector": "[data-online-walkthrough=\"YcJy28Nnrb8\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "QY9NTVh-Awo",
+      "lessonId": "lesson-04",
+      "modelId": "nervous-system",
+      "sourcePages": "Chapter 11 printed 385, 396–399",
+      "objectives": [
+        "Classify CNS and PNS",
+        "Trace afferent and efferent directions",
+        "Compare somatic and autonomic output"
+      ],
+      "panels": [
+        {
+          "title": "1. Locate the processing centre",
+          "explanation": "The central nervous system, or CNS, includes the brain and spinal cord. The peripheral nervous system, or PNS, connects that centre with receptors and effectors. A neuron is a cell. A nerve is a bundle of peripheral axons and supporting tissue. A mixed nerve can contain axons carrying information in different directions; one individual axon does not become both the whole input and output pathway.",
+          "visualId": "afferent-efferent"
+        },
+        {
+          "title": "2. Follow the outgoing command",
+          "explanation": "Afferent means toward the CNS; efferent means away from it. Somatic motor output reaches skeletal muscle. Autonomic motor output reaches cardiac muscle, smooth muscle and glands, usually through a two-neuron chain. A withdrawal reflex can therefore have somatic motor output even though the movement begins without a conscious decision. Voluntary and somatic are not perfect synonyms.",
+          "visualId": "somatic-autonomic-compare"
+        },
+        {
+          "title": "3. Compare effects in context",
+          "explanation": "Sympathetic and parasympathetic divisions help coordinate organ activity. They often have opposing effects on the same organ, but neither switches every organ on or off. White matter contains many myelinated axons connecting regions. Grey matter contains many cell bodies, dendrites and synapses. Both contain several cell types. Their arrangement differs between cerebral cortex and spinal cord.",
+          "visualId": "white-grey-matter-relationship"
+        }
+      ],
+      "workedCase": {
+        "question": "A command leaves the spinal cord and reaches a skeletal muscle. Which labels fit?",
+        "reasoning": "It is efferent because it travels away from the CNS, and somatic motor because its effector is skeletal muscle. The input that triggered it was a separate afferent pathway."
+      },
+      "selector": "[data-online-walkthrough=\"QY9NTVh-Awo\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "0-8PvNOdByc",
+      "lessonId": "lesson-05",
+      "modelId": "brain",
+      "sourcePages": "Chapter 11 printed 387–395",
+      "objectives": [
+        "Locate the required brain regions",
+        "Link structures to functions",
+        "Qualify symptom-location inferences"
+      ],
+      "panels": [
+        {
+          "title": "1. Find the major regions",
+          "explanation": "The two cerebral hemispheres communicate through connected pathways. Frontal regions contribute to planning and voluntary movement; parietal regions process body sensation and space; temporal regions contribute to hearing and memory; occipital regions process vision. These are useful structure-function connections, not a map of separate personalities. Complex behaviour depends on networks across regions.",
+          "visualId": "complete-brain-anatomy"
+        },
+        {
+          "title": "2. Look beneath the cortex",
+          "explanation": "The thalamus helps relay and organize much sensory information. The hypothalamus monitors internal conditions and links autonomic and endocrine control. The cerebellum helps coordinate timing, posture and balance. The pons and medulla are parts of the brainstem, with relay and vital automatic functions. The spinal cord carries information and organizes some reflex responses. A pathway can involve several of these structures.",
+          "visualId": "cortical-lobes"
+        },
+        {
+          "title": "3. Use evidence cautiously",
+          "explanation": "First name the observed change, then identify a function that might be affected. Finally connect that function to a possible region or pathway. Poor movement timing may involve cerebellar pathways, but sensory input and muscle control also matter. Symptoms cannot diagnose a person or prove damage to one brain region. The table separates a supported explanation from what remains uncertain.",
+          "visualId": "brain-evidence-limits"
+        }
+      ],
+      "workedCase": {
+        "question": "A supplied case describes unsteady, poorly timed movement. What is a defensible inference?",
+        "reasoning": "Cerebellar pathways may contribute because they coordinate movement. Additional information about sensory and motor pathways is needed. The case is not enough to diagnose a disorder or identify one damaged cell group."
+      },
+      "selector": "[data-online-walkthrough=\"0-8PvNOdByc\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "qPix_X-9t7E",
+      "lessonId": "lesson-06",
+      "modelId": "sensory",
+      "sourcePages": "Chapter 12 printed 406–409, 426–430",
+      "objectives": [
+        "Match receptor classes to stimulus energy",
+        "Separate transduction from perception",
+        "Interpret adaptation with limits"
+      ],
+      "panels": [
+        {
+          "title": "1. Begin with a stimulus",
+          "explanation": "A stimulus is a detectable change. Photoreceptors respond to light, mechanoreceptors to deformation, chemoreceptors to chemicals, and thermoreceptors to temperature. Nociceptors respond to potentially damaging conditions. Proprioceptors report muscle and joint conditions. Receptor names help identify the input, but their signals still need to be processed by the nervous system.",
+          "visualId": "sensory-receptor-families"
+        },
+        {
+          "title": "2. Convert and interpret",
+          "explanation": "Transduction converts stimulus energy into an electrical change in a receptor cell. A sensory pathway carries a pattern toward the CNS. Perception is the interpretation of sensory information. Light does not travel along the optic nerve, and smell molecules do not travel along the sensory axon. The receptor begins the conversion; later processing gives the pattern meaning in context.",
+          "visualId": "online-transduction"
+        },
+        {
+          "title": "3. Read a changing response",
+          "explanation": "Adaptation means the response to a sustained stimulus can change over time. Some receptors emphasize the beginning or end of a stimulus; others continue signalling. Reduced awareness can also involve attention and processing in the CNS, so it does not always prove receptor adaptation alone. For an investigation, specify the stimulus, response measure and conditions kept constant before comparing results.",
+          "visualId": "online-adaptation-data"
+        }
+      ],
+      "workedCase": {
+        "question": "A steady pressure produces 20, 12 and 8 impulses per second in successive samples. Did the pressure disappear?",
+        "reasoning": "No. The stimulus was held constant while the response declined. This supports adaptation in the measured pathway, not disappearance of the stimulus. Repeat trials before generalizing to other receptors."
+      },
+      "selector": "[data-online-walkthrough=\"qPix_X-9t7E\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "o0DYP-u1rNM",
+      "lessonId": "lesson-07",
+      "modelId": "eye",
+      "sourcePages": "Chapter 12 printed 410–418",
+      "objectives": [
+        "Trace the optical and neural pathways",
+        "Distinguish rods, cones and fovea",
+        "Explain accommodation and the blind spot"
+      ],
+      "panels": [
+        {
+          "title": "1. Focus light",
+          "explanation": "The transparent cornea bends incoming light. Light passes through aqueous fluid, the pupil and the lens, then through vitreous fluid toward the retina. The iris adjusts pupil size; it does not focus by changing lens shape. Accommodation changes lens curvature for near and distant objects. The sclera supports the eye, while the choroid supplies blood and helps absorb stray light.",
+          "visualId": "online-eye-path"
+        },
+        {
+          "title": "2. Convert light into neural output",
+          "explanation": "Rods and cones are photoreceptors in the retina. Rods are useful in dim light; cones support colour and fine detail in brighter conditions. The fovea is a cone-rich region for high acuity. Retinal circuits process the changing pattern, and ganglion-cell axons form the optic nerve. The optic disc is a blind spot because photoreceptors are absent where those axons leave.",
+          "visualId": "retina-pathway"
+        },
+        {
+          "title": "3. Explain perception",
+          "explanation": "The eye forms an inverted optical image, but the brain does not simply flip a finished picture. Retinal and brain circuits interpret spatial patterns of neural activity. A missing dot in a blind-spot activity is evidence about the position of an image on the retina. It is not a diagnosis, and viewing distance, fixation and screen layout can affect the result.",
+          "visualId": "online-vision-compare"
+        }
+      ],
+      "workedCase": {
+        "question": "Fine detail is harder to see in dim light. Which receptor distinction helps explain this?",
+        "reasoning": "Rods provide greater dim-light sensitivity but less fine spatial detail than the cone-rich fovea in brighter light. Sensitivity and acuity are different properties. The lens does not turn rods into cones."
+      },
+      "selector": "[data-online-walkthrough=\"o0DYP-u1rNM\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "Ie2j7GpC4JU",
+      "lessonId": "lesson-08",
+      "modelId": "hearing",
+      "sourcePages": "Chapter 12 printed 420–425",
+      "objectives": [
+        "Follow sound through the ear",
+        "Locate hair-cell transduction",
+        "Distinguish hearing, pressure equalization and equilibrium"
+      ],
+      "panels": [
+        {
+          "title": "1. Transfer mechanical energy",
+          "explanation": "The pinna directs sound toward the auditory canal. Pressure waves vibrate the tympanic membrane, also called the tympanum. The malleus, incus and stapes are the three ossicles that transfer vibration to the oval window. The Eustachian tube connects the middle ear with the throat and helps equalize pressure. It is not the pathway carrying sound into a sensory nerve.",
+          "visualId": "online-ear-path"
+        },
+        {
+          "title": "2. Begin a neural signal",
+          "explanation": "Oval-window movement produces fluid motion in the cochlea. Movement of the basilar membrane bends hair-cell bundles in the organ of Corti. This changes signalling to auditory nerve fibres. Different cochlear regions respond most strongly to different frequencies. Frequency is related to pitch; the strength of vibration is a different property. Do not use a screen activity to measure a person's hearing threshold.",
+          "visualId": "online-cochlea-data"
+        },
+        {
+          "title": "3. Combine balance information",
+          "explanation": "Semicircular canals respond to head rotation. The vestibule includes organs that respond to linear acceleration and head tilt. Hair cells begin these signals too, but the stimuli differ from sound vibration in the cochlea. The CNS combines vestibular information with vision and proprioception. Balance is therefore not explained by the inner ear alone. Use the supplied cases without spinning or loud sounds.",
+          "visualId": "equilibrium"
+        }
+      ],
+      "workedCase": {
+        "question": "Pressure differs on the two sides of the eardrum. Which structure helps, and does it transduce sound?",
+        "reasoning": "The Eustachian tube helps equalize middle-ear pressure. Cochlear hair cells perform the mechanical-to-neural conversion for hearing. These structures solve different problems."
+      },
+      "selector": "[data-online-walkthrough=\"Ie2j7GpC4JU\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "eWHH9je2zG4",
+      "lessonId": "lesson-09",
+      "modelId": "homeostasis",
+      "sourcePages": "Chapter 13 printed 436–442",
+      "objectives": [
+        "Separate signal, source and target",
+        "Explain receptor specificity",
+        "Trace dynamic negative feedback"
+      ],
+      "panels": [
+        {
+          "title": "1. Locate hormone sources",
+          "explanation": "An endocrine gland releases a hormone into blood. A hormone is a chemical signal, not the gland itself. Blood can carry it to many tissues, but a response needs a compatible receptor and suitable cell machinery. The hypothalamus connects neural information with hormone control. Other glands also respond directly to changes such as blood glucose or calcium; not every response starts in the pituitary.",
+          "visualId": "endocrine-body-map"
+        },
+        {
+          "title": "2. Separate reach from response",
+          "explanation": "A water-soluble hormone usually binds a surface receptor and changes activity inside the cell. A lipid-soluble hormone can act through an intracellular receptor. In both cases the receptor matters. A cell without the relevant receptor does not produce that hormone's specific response just because blood reaches it. This explains how one circulating signal can coordinate selected targets without affecting all cells identically.",
+          "visualId": "online-target-cells"
+        },
+        {
+          "title": "3. Follow the return effect",
+          "explanation": "Homeostasis is dynamic stability within workable ranges. A receptor detects a change, a control process organizes a response, and effectors change activity. In negative feedback, the response reduces the original disturbance in the regulated variable. Negative does not mean harmful. Nervous and endocrine pathways can work together, with different routes and timing, to keep conditions suitable as demands change.",
+          "visualId": "online-feedback-data"
+        }
+      ],
+      "workedCase": {
+        "question": "A hormone reaches two cell types, but only one has its receptor. Which is a target?",
+        "reasoning": "Only the receptor-bearing cell has the necessary recognition step. Whether it responds normally also depends on downstream machinery. Transport in blood and target-cell response are separate events."
+      },
+      "selector": "[data-online-walkthrough=\"eWHH9je2zG4\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "QHkGG4TimvQ",
+      "lessonId": "lesson-10",
+      "modelId": "pituitary",
+      "sourcePages": "Chapter 13 printed 444–448",
+      "objectives": [
+        "Separate anterior and posterior routes",
+        "Explain tropic hormones",
+        "Trace source, target, effect and feedback"
+      ],
+      "panels": [
+        {
+          "title": "1. Compare the two connections",
+          "explanation": "The hypothalamus controls selected anterior-pituitary cells using hormones carried in a small portal blood system. The anterior pituitary makes and releases its own hormones. The posterior pituitary instead releases ADH made in hypothalamic neurons and carried along their axons. Production and release are different steps. This is why calling the pituitary an independent master gland is misleading.",
+          "visualId": "pituitary-pathway-comparison"
+        },
+        {
+          "title": "2. Trace a tropic signal",
+          "explanation": "A tropic hormone acts mainly on another endocrine gland. TSH stimulates the thyroid; ACTH stimulates cortisol release from the adrenal cortex. The target gland's hormone then acts on receptor-bearing tissues. Trace each source and target separately. TSH is not thyroxine, and ACTH is not cortisol. A high upstream signal can coexist with a low target-gland output if the target response is weak.",
+          "visualId": "tropic-hormone-preview"
+        },
+        {
+          "title": "3. Interpret hGH in context",
+          "explanation": "Human growth hormone, hGH, has direct effects and indirect effects through growth factors, including those released by the liver. Bone, muscle and other tissues can respond. Effects depend on age, nutrition, receptors and growth-plate status. Hormones are released in patterns, so one blood value cannot describe every pulse or diagnose a cause. Feedback signals help regulate further release.",
+          "visualId": "hgh-data-pattern"
+        }
+      ],
+      "workedCase": {
+        "question": "Why is TSH called tropic, while hGH is not simply another name for TSH?",
+        "reasoning": "TSH's main target is the thyroid gland. hGH has several direct and indirect growth-related targets. Naming the release site alone does not identify the hormone's target or effect."
+      },
+      "selector": "[data-online-walkthrough=\"QHkGG4TimvQ\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "BYaR-JgbjCs",
+      "lessonId": "lesson-11",
+      "modelId": "adh",
+      "sourcePages": "Chapter 13 printed 441, 444–445, 460",
+      "objectives": [
+        "Separate ADH production and release",
+        "Connect water reabsorption with urine",
+        "Interpret source versus target evidence"
+      ],
+      "panels": [
+        {
+          "title": "1. Detect water-balance change",
+          "explanation": "Osmotic concentration describes the amount of dissolved particles relative to water. When body fluids become more concentrated, hypothalamic osmoreceptors contribute to increased ADH release. Hypothalamic neurons make ADH; their terminals in the posterior pituitary release it into blood. The posterior pituitary is therefore a release site, not the place where this hormone is produced.",
+          "visualId": "adh-feedback"
+        },
+        {
+          "title": "2. Follow the kidney response",
+          "explanation": "ADH acts on collecting-duct cells with its receptor. Increased water permeability lets more water move from the forming urine back into the body. Urine volume falls and urine becomes more concentrated. With less ADH, less water is reabsorbed and urine is more dilute. Compare these changes together. The kidney does not manufacture new water, and this lesson does not ask you to restrict drinking.",
+          "visualId": "adh-response-graph"
+        },
+        {
+          "title": "3. Test the explanation against a case",
+          "explanation": "A low ADH signal and a weak kidney response can have different causes from a high ADH signal and a weak response. In the latter pattern, the hormone is present but the target response may be reduced. Diabetes insipidus concerns water regulation and differs from diabetes mellitus, which concerns glucose regulation. A classroom table illustrates a pathway distinction; it does not diagnose a person.",
+          "visualId": "water-balance-data"
+        }
+      ],
+      "workedCase": {
+        "question": "A supplied case has concentrated blood, high ADH and unusually dilute urine. What should you investigate?",
+        "reasoning": "The hormone signal is present, so ask whether the collecting-duct response is working. More measurements are needed before identifying a cause. High hormone concentration does not guarantee an effective target response."
+      },
+      "selector": "[data-online-walkthrough=\"BYaR-JgbjCs\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "cDGmsR2ZILE",
+      "lessonId": "lesson-12",
+      "modelId": "thyroid-calcium",
+      "sourcePages": "Chapter 13 printed 448–450",
+      "objectives": [
+        "Trace TSH and thyroxine feedback",
+        "Interpret paired values without diagnosing",
+        "Distinguish thyroid and parathyroid calcium signals"
+      ],
+      "panels": [
+        {
+          "title": "1. Link stimulation to output",
+          "explanation": "TSH from the anterior pituitary stimulates the thyroid. Iodine is needed to make thyroid hormones, including thyroxine. Thyroxine changes metabolic activity in receptor-bearing tissues. Rising thyroxine reduces upstream stimulation through negative feedback. A signal from the pituitary and an output from the thyroid are not interchangeable measurements; read both when tracing a possible disruption.",
+          "visualId": "thyroid-axis"
+        },
+        {
+          "title": "2. Read the pair",
+          "explanation": "Low thyroxine with high TSH means strong pituitary stimulation is present while thyroid output is low. Low thyroxine with low TSH suggests a different problem involving central stimulation. These patterns support questions about a pathway, not a diagnosis or treatment. Age, timing, reference ranges and other evidence matter in real clinical interpretation. Use only the stated synthetic case here.",
+          "visualId": "thyroid-data-reasoning"
+        },
+        {
+          "title": "3. Keep the calcium loop distinct",
+          "explanation": "The parathyroid glands release PTH when blood calcium is low. PTH changes calcium movement in bone and kidney and supports intestinal uptake indirectly through active vitamin D. Calcitonin comes from thyroid C cells and can oppose a calcium rise, but its normal adult role is not equally strong. Thyroxine regulates metabolism; PTH and calcitonin concern calcium. Gland names alone do not explain the effect.",
+          "visualId": "calcium-hormone-compare"
+        }
+      ],
+      "workedCase": {
+        "question": "Blood calcium falls and PTH rises. What return effect would show negative feedback?",
+        "reasoning": "Calcium movement raises blood calcium toward its workable range, reducing the stimulus for PTH release. A rising PTH value alone does not prove every target responded."
+      },
+      "selector": "[data-online-walkthrough=\"cDGmsR2ZILE\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "y9Bdi4dnSlg",
+      "lessonId": "lesson-13",
+      "modelId": "glucose",
+      "sourcePages": "Chapter 13 printed 456–459",
+      "objectives": [
+        "Locate alpha and beta cells",
+        "Compare insulin and glucagon",
+        "Interpret glucose evidence with limits"
+      ],
+      "panels": [
+        {
+          "title": "1. Identify the signal source",
+          "explanation": "Pancreatic islets contain hormone-producing cells. Beta cells release insulin when blood glucose rises; alpha cells release glucagon when it falls. The pancreas also has a separate digestive role. Do not confuse a digestive enzyme with a blood-borne hormone. Insulin and glucagon respond to changing fuel conditions and help coordinate the activity of their receptor-bearing targets.",
+          "visualId": "online-islet-roles"
+        },
+        {
+          "title": "2. Follow the return effect",
+          "explanation": "Insulin supports glucose uptake in tissues such as skeletal muscle and fat, promotes storage and reduces liver glucose output. Not every cell depends on insulin for glucose entry. Glucagon acts mainly on the liver, increasing glucose output through glycogen breakdown and new glucose production. Glycogen is a stored carbohydrate; glucagon is a hormone. The two words are similar but refer to different things.",
+          "visualId": "online-glucose-data"
+        },
+        {
+          "title": "3. Use evidence without diagnosing",
+          "explanation": "Blood glucose can remain high if insulin production is low or target responses are reduced. These mechanisms are not distinguished by a urine result alone. If blood glucose exceeds kidney reabsorption capacity, glucose can remain in urine and draw more water with it. Supplied data can help trace that relationship. Treatment depends on the condition and person; the course does not prescribe treatment or use outdated universal rules.",
+          "visualId": "online-diabetes-patterns"
+        }
+      ],
+      "workedCase": {
+        "question": "After a meal, blood glucose rises. Which islet cells and hormone help oppose that rise?",
+        "reasoning": "Beta cells increase insulin release. Responsive tissues alter uptake, storage and liver output. The return effect lowers blood glucose toward its range; alpha-cell glucagon is associated more strongly with falling glucose."
+      },
+      "selector": "[data-online-walkthrough=\"y9Bdi4dnSlg\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    },
+    {
+      "youtubeId": "v-t1Z5-oPtU",
+      "lessonId": "lesson-13",
+      "modelId": "glucose",
+      "sourcePages": "Chapter 13 printed 452–455",
+      "objectives": [
+        "Compare adrenal cortex and medulla",
+        "Distinguish rapid and sustained stress pathways",
+        "Separate cortisol from water/salt hormones"
+      ],
+      "panels": [
+        {
+          "title": "1. Trace the rapid route",
+          "explanation": "A stress response can begin with sympathetic nerve signals to the adrenal medulla. It releases epinephrine and norepinephrine into blood, supporting rapid changes in circulation and fuel supply. Stress means a demand on regulation, not only feeling worried. The nervous input and the blood-borne adrenal signal are different links in a coordinated response.",
+          "visualId": "stress-response"
+        },
+        {
+          "title": "2. Trace the longer route",
+          "explanation": "Hypothalamic signalling can lead the anterior pituitary to release ACTH. ACTH stimulates the adrenal cortex to release cortisol. Cortisol changes metabolism and helps sustain fuel availability. Rising cortisol normally reduces upstream stimulation. The cortex and medulla are different tissues, so ACTH and epinephrine should not be placed in one simple chain. Timing helps separate their roles.",
+          "visualId": "online-stress-compare"
+        },
+        {
+          "title": "3. Separate related hormone jobs",
+          "explanation": "The adrenal cortex also releases aldosterone, which promotes sodium reabsorption by the kidneys and influences water balance. ADH chiefly changes water permeability; it is made in the hypothalamus. Aldosterone regulation mainly involves kidney-linked signals and blood potassium, not ACTH alone. Cortisol, ADH and aldosterone can contribute during a demanding situation, but their targets and immediate actions are not identical.",
+          "visualId": "online-water-salt"
+        }
+      ],
+      "workedCase": {
+        "question": "A supplied case shows a rapid epinephrine rise followed by a later cortisol rise. Is one measurement enough to explain both?",
+        "reasoning": "No. Trace sympathetic input to the medulla separately from the hypothalamus–pituitary–cortex route. Compare sampling times and return feedback. These patterns do not diagnose chronic stress or predict a person's health."
+      },
+      "selector": "[data-online-walkthrough=\"v-t1Z5-oPtU\"]",
+      "academicReview": "Original explanations checked against local course/textbook and OpenStax; three meaningful visuals and a worked case map to the existing checkpoint. Not a transcript reproduction.",
+      "rights": "Original text and semantic tables; reused figures retain their original provenance.",
+      "accessibility": "Full-width native disclosure, three ordered sections, adjacent visual descriptions or data tables; no network required."
+    }
+  ],
+  "studies": [
+    {
+      "id": "eye-structure-function",
+      "modelId": "eye",
+      "lessonId": "lesson-07",
+      "title": "Identify eye structures and their functions",
+      "prompt": "Use the position clues and the eye figure in Lesson 7. Choose the structure and its function for every row. Then compare with the complete explanation. Your selections save with the eye model; this is practice, not a new graded quiz.",
+      "columns": [
+        "Structure",
+        "Function"
+      ],
+      "options": [
+        [
+          "Sclera",
+          "Cornea",
+          "Iris",
+          "Pupil",
+          "Lens",
+          "Choroid",
+          "Retina",
+          "Rods",
+          "Cones",
+          "Fovea",
+          "Optic nerve",
+          "Aqueous humour",
+          "Vitreous humour",
+          "Optic disc"
+        ],
+        [
+          "Support and protect the eye",
+          "Refract incoming light strongly",
+          "Adjust the size of the opening",
+          "Let light enter through an opening",
+          "Change curvature for accommodation",
+          "Supply blood and absorb stray light",
+          "Contain photoreceptors and neural circuits",
+          "Support dim-light sensitivity",
+          "Support colour and fine detail",
+          "Provide cone-rich central high acuity",
+          "Carry retinal neural output",
+          "Fill the front fluid compartments",
+          "Fill the large space behind the lens",
+          "Mark the receptor-free exit of axons"
+        ]
+      ],
+      "rows": [
+        {
+          "clue": "Tough outer coat, continuous with the clear front",
+          "answers": [
+            0,
+            0
+          ],
+          "explanation": "The sclera supports the eye. Its opaque tissue is not the transparent focusing surface."
+        },
+        {
+          "clue": "Transparent curved front surface",
+          "answers": [
+            1,
+            1
+          ],
+          "explanation": "The cornea provides much of the eye's refraction before light reaches the lens."
+        },
+        {
+          "clue": "Coloured muscular ring",
+          "answers": [
+            2,
+            2
+          ],
+          "explanation": "The iris changes pupil diameter. It does not change lens curvature."
+        },
+        {
+          "clue": "Opening in that muscular ring",
+          "answers": [
+            3,
+            3
+          ],
+          "explanation": "The pupil is an opening rather than a separate lens or muscle."
+        },
+        {
+          "clue": "Clear flexible structure behind the pupil",
+          "answers": [
+            4,
+            4
+          ],
+          "explanation": "The lens changes shape during accommodation. Cornea and lens work together to focus light."
+        },
+        {
+          "clue": "Pigmented, blood-vessel-rich layer between outer coat and retina",
+          "answers": [
+            5,
+            5
+          ],
+          "explanation": "The choroid helps nourish the outer retina and absorbs stray light."
+        },
+        {
+          "clue": "Light-sensitive inner lining",
+          "answers": [
+            6,
+            6
+          ],
+          "explanation": "The retina contains rods, cones and circuits that process the receptor signals."
+        },
+        {
+          "clue": "Photoreceptors especially useful in low light",
+          "answers": [
+            7,
+            7
+          ],
+          "explanation": "Rods support dim-light sensitivity, not fine colour discrimination."
+        },
+        {
+          "clue": "Photoreceptors used for colour vision",
+          "answers": [
+            8,
+            8
+          ],
+          "explanation": "Cones support colour and high acuity in suitable light."
+        },
+        {
+          "clue": "Small central retinal region used for sharp detail",
+          "answers": [
+            9,
+            9
+          ],
+          "explanation": "The fovea has densely packed cones. It is not the blind spot."
+        },
+        {
+          "clue": "Bundle leaving the back of the eye",
+          "answers": [
+            10,
+            10
+          ],
+          "explanation": "The optic nerve carries neural signals, not a beam of light."
+        },
+        {
+          "clue": "Watery fluid in front of the lens",
+          "answers": [
+            11,
+            11
+          ],
+          "explanation": "Aqueous humour fills the front compartments and contributes to the eye's internal conditions."
+        },
+        {
+          "clue": "Gel filling most of the space behind the lens",
+          "answers": [
+            12,
+            12
+          ],
+          "explanation": "Vitreous humour helps maintain the internal form of the eye."
+        },
+        {
+          "clue": "Retinal location where the nerve exits",
+          "answers": [
+            13,
+            13
+          ],
+          "explanation": "The optic disc lacks rods and cones and produces a blind spot."
+        }
+      ],
+      "sourcePages": "Chapter 12 printed 410–416",
+      "behaviourIds": [
+        "A1.4k-01",
+        "A1.4k-03"
+      ],
+      "responseId": "biology30-unit-a-pilot-2:online-study:eye-structure-function:v1",
+      "selector": "[data-online-study=\"eye-structure-function\"]",
+      "collectionRecordId": "model-eye",
+      "persistedCharacters": 28,
+      "review": "Every row has a source/structure-function explanation. Full-row attempt precedes comparison. Encoded selections are decoded into readable collection/copy/print output; no score."
+    },
+    {
+      "id": "ear-structure-function",
+      "modelId": "hearing",
+      "lessonId": "lesson-08",
+      "title": "Identify ear structures and their functions",
+      "prompt": "Follow sound from outside to inside, then distinguish the balance and pressure pathways. Choose a structure and its job for every location. Use the Lesson 8 ear figure as a spatial reference. No listening or volume test is needed.",
+      "columns": [
+        "Structure",
+        "Function"
+      ],
+      "options": [
+        [
+          "Pinna",
+          "Auditory canal",
+          "Tympanum",
+          "Malleus",
+          "Incus",
+          "Stapes",
+          "Oval window",
+          "Cochlea",
+          "Organ of Corti",
+          "Hair cells",
+          "Auditory nerve",
+          "Vestibule",
+          "Semicircular canals",
+          "Eustachian tube"
+        ],
+        [
+          "Collect and direct sound",
+          "Carry sound toward the eardrum",
+          "Vibrate with incoming pressure waves",
+          "Receive eardrum vibration as the first ossicle",
+          "Pass vibration between the other ossicles",
+          "Move at the oval window",
+          "Transfer movement into inner-ear fluid",
+          "Separate sound-frequency responses along its length",
+          "House the hearing hair cells on the basilar membrane",
+          "Convert mechanical bending into signalling changes",
+          "Carry hearing information toward the brain",
+          "Detect linear acceleration and head tilt",
+          "Detect head rotation",
+          "Help equalize middle-ear pressure"
+        ]
+      ],
+      "rows": [
+        {
+          "clue": "Outer visible ear",
+          "answers": [
+            0,
+            0
+          ],
+          "explanation": "The pinna collects sound; it is not the transduction site."
+        },
+        {
+          "clue": "Passage leading to the eardrum",
+          "answers": [
+            1,
+            1
+          ],
+          "explanation": "The auditory canal carries sound to the tympanum."
+        },
+        {
+          "clue": "Membrane separating outer and middle ear",
+          "answers": [
+            2,
+            2
+          ],
+          "explanation": "The tympanum or tympanic membrane vibrates with pressure changes."
+        },
+        {
+          "clue": "First middle-ear bone, attached to the eardrum",
+          "answers": [
+            3,
+            3
+          ],
+          "explanation": "The malleus receives eardrum movement."
+        },
+        {
+          "clue": "Middle bone of the three-ossicle chain",
+          "answers": [
+            4,
+            4
+          ],
+          "explanation": "The incus transfers vibration between malleus and stapes."
+        },
+        {
+          "clue": "Final ossicle at the inner-ear boundary",
+          "answers": [
+            5,
+            5
+          ],
+          "explanation": "The stapes moves at the oval window."
+        },
+        {
+          "clue": "Membrane boundary pushed by the final ossicle",
+          "answers": [
+            6,
+            6
+          ],
+          "explanation": "Oval-window movement sets inner-ear fluid in motion."
+        },
+        {
+          "clue": "Coiled inner-ear structure for hearing",
+          "answers": [
+            7,
+            7
+          ],
+          "explanation": "The cochlea contains the basilar membrane and organ of Corti; regions differ in frequency response."
+        },
+        {
+          "clue": "Sensory structure on the basilar membrane",
+          "answers": [
+            8,
+            8
+          ],
+          "explanation": "The organ of Corti contains the hearing hair cells."
+        },
+        {
+          "clue": "Receptor cells whose bundles bend",
+          "answers": [
+            9,
+            9
+          ],
+          "explanation": "Hair-cell bending changes electrical activity and transmitter release to sensory fibres."
+        },
+        {
+          "clue": "Neural pathway from the cochlea",
+          "answers": [
+            10,
+            10
+          ],
+          "explanation": "Auditory nerve fibres carry a neural pattern, not sound waves."
+        },
+        {
+          "clue": "Inner-ear region with utricle and saccule",
+          "answers": [
+            11,
+            11
+          ],
+          "explanation": "The vestibule contributes information about tilt and linear acceleration."
+        },
+        {
+          "clue": "Three looped structures in different planes",
+          "answers": [
+            12,
+            12
+          ],
+          "explanation": "Semicircular canals detect rotation; they are not the main hearing structure."
+        },
+        {
+          "clue": "Connection between middle ear and throat",
+          "answers": [
+            13,
+            13
+          ],
+          "explanation": "The Eustachian tube helps equalize pressure. It is not the neural or cochlear sound pathway."
+        }
+      ],
+      "sourcePages": "Chapter 12 printed 420–425",
+      "behaviourIds": [
+        "A1.5k-01",
+        "A1.5k-03"
+      ],
+      "responseId": "biology30-unit-a-pilot-2:online-study:ear-structure-function:v1",
+      "selector": "[data-online-study=\"ear-structure-function\"]",
+      "collectionRecordId": "model-hearing",
+      "persistedCharacters": 28,
+      "review": "Every row has a source/structure-function explanation. Full-row attempt precedes comparison. Encoded selections are decoded into readable collection/copy/print output; no score."
+    },
+    {
+      "id": "gland-locations",
+      "modelId": "homeostasis",
+      "lessonId": "lesson-09",
+      "title": "Locate the Unit A endocrine structures",
+      "prompt": "Use the body map in Lesson 9. Match every location to the gland or region. A source location is the start of a hormone explanation, not its target. The two adrenal regions belong to the same gland.",
+      "columns": [
+        "Gland or region"
+      ],
+      "options": [
+        [
+          "Hypothalamus",
+          "Pituitary",
+          "Thyroid",
+          "Parathyroids",
+          "Pancreatic islets",
+          "Adrenal cortex",
+          "Adrenal medulla"
+        ]
+      ],
+      "rows": [
+        {
+          "clue": "Brain region just above the stalk leading to the pituitary",
+          "answers": [
+            0
+          ],
+          "explanation": "The hypothalamus links neural information with endocrine regulation."
+        },
+        {
+          "clue": "Small gland attached below the hypothalamus",
+          "answers": [
+            1
+          ],
+          "explanation": "The anterior pituitary makes several hormones; the posterior pituitary releases hypothalamic ADH."
+        },
+        {
+          "clue": "Butterfly-shaped gland at the front of the neck",
+          "answers": [
+            2
+          ],
+          "explanation": "The thyroid produces thyroxine; its C cells produce calcitonin."
+        },
+        {
+          "clue": "Small glands usually on the back of the thyroid",
+          "answers": [
+            3
+          ],
+          "explanation": "Parathyroid glands produce PTH, not thyroxine."
+        },
+        {
+          "clue": "Hormone-producing cell groups in the pancreas",
+          "answers": [
+            4
+          ],
+          "explanation": "Islet alpha and beta cells produce glucagon and insulin."
+        },
+        {
+          "clue": "Outer region of each gland above the kidneys",
+          "answers": [
+            5
+          ],
+          "explanation": "The adrenal cortex produces cortisol and aldosterone."
+        },
+        {
+          "clue": "Inner region of each gland above the kidneys",
+          "answers": [
+            6
+          ],
+          "explanation": "The adrenal medulla releases epinephrine and norepinephrine."
+        }
+      ],
+      "sourcePages": "Chapter 13 printed 438–439, 444, 449–453, 456",
+      "behaviourIds": [
+        "A2.1k-01"
+      ],
+      "responseId": "biology30-unit-a-pilot-2:online-study:gland-locations:v1",
+      "selector": "[data-online-study=\"gland-locations\"]",
+      "collectionRecordId": "model-homeostasis",
+      "persistedCharacters": 7,
+      "review": "Every row has a source/structure-function explanation. Full-row attempt precedes comparison. Encoded selections are decoded into readable collection/copy/print output; no score."
+    },
+    {
+      "id": "hormone-source-target-effect",
+      "modelId": "glucose",
+      "lessonId": "lesson-13",
+      "title": "Connect the Unit A hormones with sources, targets and effects",
+      "prompt": "Complete all rows using the Unit A hormone pathways. A target must have compatible receptors. Use short source, target and effect choices, then compare each row with the explanation. This table includes norepinephrine in its adrenal hormone role, distinct from its synaptic role.",
+      "columns": [
+        "Source / release",
+        "Target",
+        "Effect"
+      ],
+      "options": [
+        [
+          "Anterior pituitary",
+          "Hypothalamus; posterior-pituitary release",
+          "Thyroid follicle cells",
+          "Thyroid C cells",
+          "Parathyroid glands",
+          "Pancreatic beta cells",
+          "Pancreatic alpha cells",
+          "Adrenal cortex",
+          "Adrenal medulla"
+        ],
+        [
+          "Many tissues, including liver, bone and muscle",
+          "Thyroid gland",
+          "Adrenal cortex",
+          "Kidney collecting ducts",
+          "Receptor-bearing metabolic tissues",
+          "Bone and kidney",
+          "Bone, kidney; indirect intestine",
+          "Liver, muscle and fat",
+          "Mainly liver",
+          "Receptor-bearing fuel-regulation tissues",
+          "Kidney tubules",
+          "Heart, vessels and other responsive tissues"
+        ],
+        [
+          "Support growth and metabolism",
+          "Stimulate thyroxine release",
+          "Stimulate cortisol release",
+          "Increase water reabsorption",
+          "Increase metabolic activity",
+          "Can reduce blood calcium",
+          "Raise blood calcium",
+          "Promote uptake/storage; reduce liver glucose output",
+          "Increase liver glucose output",
+          "Support sustained fuel availability",
+          "Increase sodium reabsorption and potassium secretion",
+          "Support rapid sympathetic responses"
+        ]
+      ],
+      "rows": [
+        {
+          "clue": "Human growth hormone (hGH)",
+          "answers": [
+            0,
+            0,
+            0
+          ],
+          "explanation": "Anterior-pituitary hGH acts directly and through growth factors. Effects depend on age and target tissue."
+        },
+        {
+          "clue": "Thyroid-stimulating hormone (TSH)",
+          "answers": [
+            0,
+            1,
+            1
+          ],
+          "explanation": "TSH is a tropic hormone: it stimulates the thyroid, which releases thyroxine."
+        },
+        {
+          "clue": "Adrenocorticotropic hormone (ACTH)",
+          "answers": [
+            0,
+            2,
+            2
+          ],
+          "explanation": "ACTH stimulates cortisol release from the cortex, not epinephrine release from the medulla."
+        },
+        {
+          "clue": "Antidiuretic hormone (ADH)",
+          "answers": [
+            1,
+            3,
+            3
+          ],
+          "explanation": "ADH is made in hypothalamic neurons and released through the posterior pituitary. Collecting ducts conserve water."
+        },
+        {
+          "clue": "Thyroxine",
+          "answers": [
+            2,
+            4,
+            4
+          ],
+          "explanation": "Thyroxine acts through receptors to change metabolic activity and feeds back on central stimulation."
+        },
+        {
+          "clue": "Calcitonin",
+          "answers": [
+            3,
+            5,
+            5
+          ],
+          "explanation": "Thyroid C cells release calcitonin. It can oppose a calcium rise but is not as important as PTH in normal adult calcium regulation."
+        },
+        {
+          "clue": "Parathyroid hormone (PTH)",
+          "answers": [
+            4,
+            6,
+            6
+          ],
+          "explanation": "PTH coordinates calcium movement in bone and kidney and intestinal uptake indirectly through active vitamin D."
+        },
+        {
+          "clue": "Insulin",
+          "answers": [
+            5,
+            7,
+            7
+          ],
+          "explanation": "Insulin has tissue-specific effects. It does not make all cells equally permeable to glucose."
+        },
+        {
+          "clue": "Glucagon",
+          "answers": [
+            6,
+            8,
+            8
+          ],
+          "explanation": "Glucagon acts mainly on the liver; glycogen breakdown and new glucose production support blood glucose."
+        },
+        {
+          "clue": "Cortisol",
+          "answers": [
+            7,
+            9,
+            9
+          ],
+          "explanation": "Cortisol supports longer metabolic responses. Feedback normally reduces upstream ACTH stimulation."
+        },
+        {
+          "clue": "Aldosterone",
+          "answers": [
+            7,
+            10,
+            10
+          ],
+          "explanation": "Aldosterone promotes renal sodium reabsorption and potassium secretion. It is not controlled solely by ACTH."
+        },
+        {
+          "clue": "Epinephrine and norepinephrine",
+          "answers": [
+            8,
+            11,
+            11
+          ],
+          "explanation": "This row covers two catecholamines from the adrenal medulla. They support rapid, receptor-dependent sympathetic effects."
+        }
+      ],
+      "sourcePages": "Chapter 13 printed 441–460",
+      "behaviourIds": [
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.3k-01"
+      ],
+      "responseId": "biology30-unit-a-pilot-2:online-study:hormone-source-target-effect:v1",
+      "selector": "[data-online-study=\"hormone-source-target-effect\"]",
+      "collectionRecordId": "model-glucose",
+      "persistedCharacters": 36,
+      "review": "Every row has a source/structure-function explanation. Full-row attempt precedes comparison. Encoded selections are decoded into readable collection/copy/print output; no score."
+    },
+    {
+      "id": "hormone-patterns",
+      "modelId": "glucose",
+      "lessonId": "lesson-13",
+      "title": "Explain hormone imbalance patterns without diagnosing",
+      "prompt": "Each row states a controlled teaching case, not a person's test result. Choose the immediate effect most consistent with the stated change. Cases do not provide a diagnosis or treatment. Hormone deficiency, excess and target resistance are different mechanisms.",
+      "columns": [
+        "Predicted effect"
+      ],
+      "options": [
+        [
+          "Reduced growth signalling before growth plates close",
+          "Increased growth-related effects; age matters",
+          "Less thyroid stimulation",
+          "Less cortisol stimulation",
+          "Greater volume of dilute urine",
+          "Reduced urine volume; possible water retention",
+          "Reduced metabolic activity",
+          "Increased metabolic activity",
+          "Less calcium-raising response",
+          "More calcium-raising response",
+          "Weaker calcium-lowering influence, often a small adult effect",
+          "Higher blood glucose from reduced effective insulin",
+          "Lower glucose from excess effective insulin",
+          "Greater liver glucose output",
+          "Reduced renal sodium retention",
+          "More sodium retention and potassium loss",
+          "More sustained fuel-mobilizing effects",
+          "Reduced support for a prolonged stress response",
+          "Stronger rapid sympathetic effects",
+          "Reduced adrenal contribution to rapid stress response"
+        ]
+      ],
+      "rows": [
+        {
+          "clue": "Too little effective hGH during childhood",
+          "answers": [
+            0
+          ],
+          "explanation": "Reduced growth signalling may reduce growth rate; other causes of slow growth must be considered."
+        },
+        {
+          "clue": "Persistently high effective hGH",
+          "answers": [
+            1
+          ],
+          "explanation": "Effects differ before and after growth plates close; it does not always make an adult taller."
+        },
+        {
+          "clue": "Reduced TSH supply with a responsive thyroid",
+          "answers": [
+            2
+          ],
+          "explanation": "Less tropic stimulation tends to lower thyroid output; compare TSH and thyroxine together."
+        },
+        {
+          "clue": "Reduced ACTH supply with a responsive adrenal cortex",
+          "answers": [
+            3
+          ],
+          "explanation": "Less ACTH tends to reduce cortisol output. ACTH is not the main controller of aldosterone."
+        },
+        {
+          "clue": "Too little effective ADH",
+          "answers": [
+            4
+          ],
+          "explanation": "Less water reabsorption can produce large volumes of dilute urine. Target resistance can produce a similar pattern."
+        },
+        {
+          "clue": "Too much effective ADH",
+          "answers": [
+            5
+          ],
+          "explanation": "More water can be retained; blood sodium may become diluted. This is a model, not a reason to change fluid intake."
+        },
+        {
+          "clue": "Too little effective thyroxine",
+          "answers": [
+            6
+          ],
+          "explanation": "Metabolic activity may decline. A paired TSH value helps locate a possible pathway level."
+        },
+        {
+          "clue": "Too much effective thyroxine",
+          "answers": [
+            7
+          ],
+          "explanation": "Metabolic activity may rise and normal feedback tends to reduce TSH."
+        },
+        {
+          "clue": "Reduced PTH response when calcium falls",
+          "answers": [
+            8
+          ],
+          "explanation": "The normal calcium-raising response is weakened."
+        },
+        {
+          "clue": "Persistently excessive PTH action",
+          "answers": [
+            9
+          ],
+          "explanation": "Blood calcium may rise as bone, kidney and intestinal responses change."
+        },
+        {
+          "clue": "Reduced calcitonin action in an adult",
+          "answers": [
+            10
+          ],
+          "explanation": "A simple equal-and-opposite-to-PTH disease claim is not justified; calcitonin normally has a smaller adult regulatory role."
+        },
+        {
+          "clue": "Low insulin or reduced insulin responsiveness",
+          "answers": [
+            11
+          ],
+          "explanation": "Effective glucose regulation is reduced. Low supply and resistance require different evidence."
+        },
+        {
+          "clue": "Excess effective insulin in the stated model",
+          "answers": [
+            12
+          ],
+          "explanation": "Blood glucose may fall too far. Do not use this model to change medication."
+        },
+        {
+          "clue": "Excess glucagon with responsive liver cells",
+          "answers": [
+            13
+          ],
+          "explanation": "Increased liver output can raise blood glucose."
+        },
+        {
+          "clue": "Too little effective aldosterone",
+          "answers": [
+            14
+          ],
+          "explanation": "Sodium retention falls and potassium regulation may also change."
+        },
+        {
+          "clue": "Excess effective aldosterone",
+          "answers": [
+            15
+          ],
+          "explanation": "More sodium retention and potassium secretion can alter water/salt balance."
+        },
+        {
+          "clue": "Persistently high effective cortisol",
+          "answers": [
+            16
+          ],
+          "explanation": "Fuel metabolism and other target responses can remain altered; the pattern is not a diagnosis."
+        },
+        {
+          "clue": "Too little effective cortisol during a sustained demand",
+          "answers": [
+            17
+          ],
+          "explanation": "Metabolic support for a prolonged stress response may be reduced."
+        },
+        {
+          "clue": "High adrenal epinephrine/norepinephrine action",
+          "answers": [
+            18
+          ],
+          "explanation": "Circulatory and fuel responses may increase, depending on receptors."
+        },
+        {
+          "clue": "Reduced adrenal epinephrine/norepinephrine release",
+          "answers": [
+            19
+          ],
+          "explanation": "The adrenal contribution may fall, but sympathetic nerves can still act directly on organs."
+        }
+      ],
+      "sourcePages": "Chapter 13 printed 446–460; corrected local hormone pathways",
+      "behaviourIds": [
+        "A2.6k-02"
+      ],
+      "responseId": "biology30-unit-a-pilot-2:online-study:hormone-patterns:v1",
+      "selector": "[data-online-study=\"hormone-patterns\"]",
+      "collectionRecordId": "model-glucose",
+      "persistedCharacters": 20,
+      "review": "Every row has a source/structure-function explanation. Full-row attempt precedes comparison. Encoded selections are decoded into readable collection/copy/print output; no score."
+    }
+  ],
+  "videoReview": {
+    "checkedAt": "2026-09-08T16:12:53.462Z",
+    "method": "All fourteen full English caption transcripts exported after the actual content loaded, read, and compared with original local explanations. Initial ad-player transcript failures were retried after content load. No video/audio files or transcript text are redistributed.",
+    "scope": "Transcript-level factual, relevance, caption and pacing review; selected excerpts are not whole-source endorsement or observed learner comprehension. Duration metadata was retrieved 2026-09-05; transcript checks are current to this candidate.",
+    "records": [
+      {
+        "id": "A44brRGG4Ys",
+        "start": 0,
+        "end": 98,
+        "sha256": "6d8bae1e3bb794d0de337e79f59e29219570fa1114792c2d571e59010a51c382",
+        "captions": "auto-generated",
+        "sourceSeconds": 355,
+        "note": "Focus on the receiving and conducting parts. Myelin is wrapped glial-cell membrane; use the illustrated steps below for its full function.",
+        "findings": "Later segments describe myelin as secreted fat, misdescribe neurilemma and overstate ion containment (2:06–4:24). Excluded from the lesson excerpt. Auto-captions misrecognize dendrite, Schwann, myelin and Ranvier; local labels are authoritative.",
+        "selectedSeconds": 98,
+        "url": "https://www.youtube.com/watch?v=A44brRGG4Ys",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "oa6rvUJlg7o",
+        "start": 441,
+        "end": 565,
+        "sha256": "6cba5fc8e6f8b0805f153fcdd74fcffafd11dc8e19e04c674627a7296f2514e6",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 791,
+        "note": "Follow sodium entry, potassium exit and the undershoot. The pump maintains ion gradients; it does not rapidly reset each spike.",
+        "findings": "Excerpt 7:21–9:25 shows channel/voltage phases. Exclude equilibrium-for-every-ion and fast-pump-reset claims earlier/later. Local graph correctly locates both refractory intervals. Full transcript read, not whole-video scientific endorsement.",
+        "selectedSeconds": 124,
+        "url": "https://www.youtube.com/watch?v=oa6rvUJlg7o",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "YcJy28Nnrb8",
+        "start": 195,
+        "end": 268,
+        "sha256": "4640c5b556bded733477e064686779be3040ab1f36260e89f1e74b221dc24742",
+        "captions": "auto-generated",
+        "sourceSeconds": 480,
+        "note": "Follow diffusion and receptor binding. The synaptic cleft is fluid-filled. Reuptake uses membrane transporters, not vesicles that scoop messengers from the gap.",
+        "findings": "Excerpt uses diffusion and receptor specificity. Full source wrongly describes an empty synapse, calcium pushing vesicles, universal excitation/inhibition and reuptake vesicles (2:00–3:15, 4:44–5:53, 6:53–7:47). Those explanations are excluded and replaced locally.",
+        "selectedSeconds": 73,
+        "url": "https://www.youtube.com/watch?v=YcJy28Nnrb8",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "QY9NTVh-Awo",
+        "start": 342,
+        "end": 434,
+        "sha256": "69dd3279aecae33240f0ee79f6a9380e3ba2075fc62041d6607f4a5c3c0e2991",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 601,
+        "note": "Trace sensory input toward the CNS and motor output toward an effector. Observe the example only; do not test pain or a reflex on yourself.",
+        "findings": "Selected 5:42–7:14 afferent/efferent spinal response. Excluded 3:50 universal pain-threshold claim, pain-as-single-message simplifications and later spindle terminology. Nociception and pain are not interchangeable; no demonstration is required.",
+        "selectedSeconds": 92,
+        "url": "https://www.youtube.com/watch?v=QY9NTVh-Awo",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "0-8PvNOdByc",
+        "start": 75,
+        "end": 167,
+        "sha256": "d65d856472ceed9b28e858e49d8a30dcce60bdf78856695892f9830f528a1bd6",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 305,
+        "note": "Locate lobes, thalamus, cerebellum, pons and medulla. A region contributes to a function; complex behaviour depends on connected networks.",
+        "findings": "Selected 1:15–2:47 anatomy. Excluded smooth-brain/intelligence generalization (1:03), later reward/drug simplification and unqualified master-gland wording. Core text supplies hypothalamus and diagnostic limits.",
+        "selectedSeconds": 92,
+        "url": "https://www.youtube.com/watch?v=0-8PvNOdByc",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "qPix_X-9t7E",
+        "start": 86,
+        "end": 136,
+        "sha256": "dbafe5a06d29872a219fc79c9790aa97748b09e6141482654ff7b30694179cf9",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 635,
+        "note": "Separate sensory input, integration and motor output. Then use the local receptor table to identify the kind of stimulus involved.",
+        "findings": "Selected 1:26–2:16 three-function example. Later blanket 10:1 glia ratio, neuron replacement and broad anatomical percentages are not carried into teaching. This short excerpt is a sensory-input illustration, not coverage of every receptor family.",
+        "selectedSeconds": 50,
+        "url": "https://www.youtube.com/watch?v=qPix_X-9t7E",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "o0DYP-u1rNM",
+        "start": 285,
+        "end": 340,
+        "sha256": "b78677a1acc24c4495464cb0dd51088a4a23a3eef58fa1a94f2e934dda0ed696",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 579,
+        "note": "Follow lens, retina and retinal neurons. Light reaches photoreceptors; neural signals—not light—continue through the optic nerve. No bright-light or eye test is needed.",
+        "findings": "Selected 4:45–5:40 lens/retinal circuit. Excluded afterimage explanation claiming photoreceptor action potentials, universal one-cone/one-ganglion wiring, bright-flashlight activity and distracting injury advice. Local explanation distinguishes optical and neural paths.",
+        "selectedSeconds": 55,
+        "url": "https://www.youtube.com/watch?v=o0DYP-u1rNM",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "Ie2j7GpC4JU",
+        "start": 136,
+        "end": 252,
+        "sha256": "ff89a6808e873accc1f1e8a147840e552f639b82d20ba54731ee1cb266c66150",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 640,
+        "note": "Trace sound from the outer ear through the ossicles to the oval window. The local walkthrough then explains cochlear hair cells and balance without sound testing.",
+        "findings": "Selected 2:16–4:12 mechanical anatomy. Excluded sodium-as-primary-hair-cell-influx claim (6:41), utricle/saccule-as-canal-widenings claim (8:15) and spinning demonstration. Local account uses graded hair-cell signalling and correctly separates vestibule from semicircular canals.",
+        "selectedSeconds": 116,
+        "url": "https://www.youtube.com/watch?v=Ie2j7GpC4JU",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "eWHH9je2zG4",
+        "start": 211,
+        "end": 244,
+        "sha256": "6f19ecab2198ec4746b1950ef8ec9289c84310f07606beeb9b8d8694c43ae884",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 625,
+        "note": "Ask why a circulating hormone affects some cells but not others. A target needs the correct receptor. Not every gland is controlled by the pituitary.",
+        "findings": "Selected 3:31–4:04 target specificity. Excluded pituitary control of parathyroid/pineal, unqualified master-gland claim, reproductive details and ACTH/mineralocorticoid/stress oversimplifications. Complete local source/target/feedback sequence supplies the wider lesson.",
+        "selectedSeconds": 33,
+        "url": "https://www.youtube.com/watch?v=eWHH9je2zG4",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "QHkGG4TimvQ",
+        "start": 21,
+        "end": 93,
+        "sha256": "a01459d32f12b42541578c4e55db71b112d65b5d9b3bce509ce34303777ac277",
+        "captions": "auto-generated",
+        "sourceSeconds": 248,
+        "note": "Trace hypothalamus → anterior pituitary → thyroid, then the return feedback. TRH is a releasing hormone; the anterior-pituitary cells respond by releasing TSH.",
+        "findings": "Selected 0:21–1:33 thyroid axis. Auto-caption errors in thyrotroph/TRH need local spelled labels. Excludes hormone-family taxonomy and later reproductive axes. hGH is fully taught locally because this excerpt is not its explanation.",
+        "selectedSeconds": 72,
+        "url": "https://www.youtube.com/watch?v=QHkGG4TimvQ",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "BYaR-JgbjCs",
+        "start": 33,
+        "end": 86,
+        "sha256": "c637020c5c8ec371c92aa0d38887a7956f00d96d8b9905b91554bfd1c976890c",
+        "captions": "auto-generated",
+        "sourceSeconds": 217,
+        "note": "Focus on ADH: it is made in hypothalamic neurons and released from the posterior pituitary. Other names in the clip are not new Unit A memorization targets.",
+        "findings": "Selected 0:33–1:26 posterior route/ADH; the brief oxytocin mention is not assessed. Excludes the later childbirth discussion and anterior taxonomy. Captions misrecognize hypophysis; local vocabulary uses posterior pituitary.",
+        "selectedSeconds": 53,
+        "url": "https://www.youtube.com/watch?v=BYaR-JgbjCs",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "cDGmsR2ZILE",
+        "start": 34,
+        "end": 82,
+        "sha256": "a2fc9e4bb093d6760181807f608b851ebd7e851f178de1fdfabb58a4f1ac0f58",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 243,
+        "note": "Trace the TSH/thyroxine feedback loop and connect thyroid hormones with metabolic activity. The local section separately explains calcium regulation.",
+        "findings": "Selected 0:34–1:22 feedback/metabolism. Excludes blanket winter-season claim, symptom lists and treatment recommendations; source does not teach parathyroid regulation, supplied completely locally.",
+        "selectedSeconds": 48,
+        "url": "https://www.youtube.com/watch?v=cDGmsR2ZILE",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "y9Bdi4dnSlg",
+        "start": 50,
+        "end": 122,
+        "sha256": "ebb0fa5afaaef450982b43b095bd01be17be297e4c5d206ca5a5d785abe355ef",
+        "captions": "auto-generated",
+        "sourceSeconds": 130,
+        "note": "Compare insulin-supported storage with glucagon-supported liver glucose release. Insulin effects differ among tissues; not every cell needs insulin to take in glucose.",
+        "findings": "Selected 0:50–2:02 endocrine contrast. Local note corrects blanket body-cell uptake and static optimal-state language. Auto-caption at 1:40 says decrease instead of secretes and mangles liver/glycogen; the adjacent labelled hormone table supplies accurate words. Excludes all-carbohydrates-as-glucose-polymers claim.",
+        "selectedSeconds": 72,
+        "url": "https://www.youtube.com/watch?v=y9Bdi4dnSlg",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      },
+      {
+        "id": "v-t1Z5-oPtU",
+        "start": 8,
+        "end": 35,
+        "sha256": "61fbb6c503c10bdf44f6a20d829d0e33cf4dca1edc8ab719e32765ed9ec7a795",
+        "captions": "English track; authorship unspecified",
+        "sourceSeconds": 282,
+        "note": "Use this brief introduction to distinguish a short response from a sustained demand. Continue with the illustrated steps to trace the medulla, cortex and water/salt pathways.",
+        "findings": "Only the 0:08–0:35 introduction is used. Full source is a broad health-risk narrative, not complete Unit A pathway teaching; later hypertension, gastrointestinal, weight and telomere generalizations are excluded. The local three-panel stress sequence is the complete learning equivalent.",
+        "selectedSeconds": 27,
+        "url": "https://www.youtube.com/watch?v=v-t1Z5-oPtU",
+        "disposition": "focused-excerpt-with-local-clarification",
+        "captionFallback": "Complete local illustrated path, spelled labels and adjacent tables",
+        "teacherDecision": null
+      }
+    ]
+  },
+  "microscopy": {
+    "id": "microscopy-observation",
+    "modelId": "myelin",
+    "lessonId": "lesson-01",
+    "title": "Observe actual nervous tissue",
+    "responseId": "biology30-unit-a-pilot-2:online-study:microscopy-observation:v1",
+    "maxLength": 260,
+    "sourceUrl": "https://phil.cdc.gov/Details.aspx?pid=2756",
+    "assetUrl": "https://phil.cdc.gov//PHIL_Images/2756/2756_lores.jpg",
+    "asset": "assets/online-science/cdc-2756.jpg",
+    "sha256": "742ee51f9ee2cecae29b34c1d472e25336e668e9885025113c503d6f290ede3f",
+    "width": 700,
+    "height": 466,
+    "credit": "CDC / Dr. Karp, Emory University, PHIL 2756 (1964); public domain.",
+    "prompt": "Enlarge the real spinal-cord micrograph. Find two larger stained cell-body profiles and compare them with the small dark profiles. Describe location, shape and relative size. State one feature you cannot reliably identify. This is digital observation, not operating a microscope.",
+    "description": "A pale blue field of stained cervical spinal-cord tissue contains scattered larger dark blue cell profiles, including profiles toward the left edge and lower middle, and many smaller dark profiles. The image is a tissue section: branches are incomplete and not every cell boundary is clear.",
+    "guide": "Larger stained profiles can be compared by their shape and position. Small dark profiles are present between them, but stain and size alone do not establish every cell type. This field does not show one complete neuron from dendrites to terminals or allow reliable myelin identification. There is no scale bar for measuring actual cell size. These limits distinguish an observation from an anatomical inference.",
+    "rights": "CDC PHIL explicitly marks this image public domain; no CDC endorsement is implied.",
+    "inspected": "Original 700×466 image opened and inspected before integration. No invented scale, magnification or claims of full-neuron identification."
+  },
+  "timeOnTask": {
+    "method": "150 words/minute reading allowance plus explicit vocabulary/check, model, practice and evidence/retrieval allowances; no claimed observed student timing",
+    "lessons": [
+      {
+        "lessonId": "lesson-01",
+        "allocatedRequiredMinutes": 80,
+        "coreWords": 925,
+        "localWalkthroughWords": 494,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 5.9,
+        "selectedVideoMinutes": 1.6,
+        "estimateComponents": {
+          "coreReadingMinutes": 7,
+          "mediaMinutes": 6,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-02",
+        "allocatedRequiredMinutes": 75,
+        "coreWords": 972,
+        "localWalkthroughWords": 499,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 13.2,
+        "selectedVideoMinutes": 2.1,
+        "estimateComponents": {
+          "coreReadingMinutes": 7,
+          "mediaMinutes": 14,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-03",
+        "allocatedRequiredMinutes": 70,
+        "coreWords": 808,
+        "localWalkthroughWords": 444,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 8,
+        "selectedVideoMinutes": 1.2,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 8,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-04",
+        "allocatedRequiredMinutes": 65,
+        "coreWords": 913,
+        "localWalkthroughWords": 434,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 10,
+        "selectedVideoMinutes": 1.5,
+        "estimateComponents": {
+          "coreReadingMinutes": 7,
+          "mediaMinutes": 11,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-05",
+        "allocatedRequiredMinutes": 70,
+        "coreWords": 994,
+        "localWalkthroughWords": 543,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 5.1,
+        "selectedVideoMinutes": 1.5,
+        "estimateComponents": {
+          "coreReadingMinutes": 7,
+          "mediaMinutes": 6,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-06",
+        "allocatedRequiredMinutes": 70,
+        "coreWords": 885,
+        "localWalkthroughWords": 386,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 10.6,
+        "selectedVideoMinutes": 0.8,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 11,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-07",
+        "allocatedRequiredMinutes": 75,
+        "coreWords": 862,
+        "localWalkthroughWords": 462,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 9.7,
+        "selectedVideoMinutes": 0.9,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 10,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-08",
+        "allocatedRequiredMinutes": 75,
+        "coreWords": 871,
+        "localWalkthroughWords": 448,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 10.7,
+        "selectedVideoMinutes": 1.9,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 11,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-09",
+        "allocatedRequiredMinutes": 70,
+        "coreWords": 860,
+        "localWalkthroughWords": 419,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 10.4,
+        "selectedVideoMinutes": 0.6,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 11,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-10",
+        "allocatedRequiredMinutes": 70,
+        "coreWords": 899,
+        "localWalkthroughWords": 424,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 4.1,
+        "selectedVideoMinutes": 1.2,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 5,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-11",
+        "allocatedRequiredMinutes": 70,
+        "coreWords": 897,
+        "localWalkthroughWords": 467,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 3.6,
+        "selectedVideoMinutes": 0.9,
+        "estimateComponents": {
+          "coreReadingMinutes": 6,
+          "mediaMinutes": 4,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-12",
+        "allocatedRequiredMinutes": 75,
+        "coreWords": 902,
+        "localWalkthroughWords": 403,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 4,
+        "selectedVideoMinutes": 0.8,
+        "estimateComponents": {
+          "coreReadingMinutes": 7,
+          "mediaMinutes": 5,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      },
+      {
+        "lessonId": "lesson-13",
+        "allocatedRequiredMinutes": 95,
+        "coreWords": 959,
+        "localWalkthroughWords": 859,
+        "readingWordsPerMinute": 150,
+        "fullSourceVideoMinutes": 6.9,
+        "selectedVideoMinutes": 1.6,
+        "estimateComponents": {
+          "coreReadingMinutes": 7,
+          "mediaMinutes": 7,
+          "wordsAndStopChecks": 10,
+          "modelOrWorkedExample": 10,
+          "guidedPractice": 10,
+          "evidenceAndRetrieval": 10
+        },
+        "observation": "Planning estimate, not stopwatch evidence. Includes full-source duration conservatively even though lesson embeds select shorter excerpts. Optional identification/Frayer/investigation depth is self-paced."
+      }
+    ],
+    "unchangedCourseMinutes": {
+      "required": 1505,
+      "optional": 295
+    },
+    "teacherReview": "Confirm real student pace during review; do not infer that an assigned minute total proves workload."
+  },
+  "investigations": [
+    {
+      "id": "reflex-response",
+      "adaptation": "Synthetic reflex-pathway observations plus retained ruler-drop reaction data; calculate, distinguish mechanisms, test a calcium-release hypothesis and revise a claim. No reflex stimulation or physical microscope operation."
+    },
+    {
+      "id": "sensory-receptors",
+      "adaptation": "Retained tactile values plus separate visual-discrimination and cochlear-response datasets; explicit variables, threshold rule, quantitative comparisons, technology tradeoff and communication/revision. No vision or hearing diagnosis or tone playback."
+    },
+    {
+      "id": "endocrine-data",
+      "adaptation": "ADH computer-model observation, controlled synthetic repeats, retained observational samples, hypothesis/variables, monitoring-tool benefits/limits/waste and revised communication. No collection of personal health data."
+    }
+  ],
+  "acceptanceBoundary": [
+    "Teacher reviews the complete exact build once, including suitability of the online practical adaptations.",
+    "Observed learner comprehension, actual completion time and real collaboration cannot be certified by static tests.",
+    "LMS save/restore and learner-release approval remain separate from this blocked preview candidate.",
+    "No automatic Unit B-D content or acceptance transfer, deployment, export or commit."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "actual C build failure repaired",
+  "teacherAcceptance": null,
+  "reason": "Canonical C/D guides use null to represent no continuation page. Renderer accepts null/undefined as absent while still rejecting nonpositive/noninteger/non-numeric values and keeping exact real continuation links.",
+  "previousOwnerClosureSha256": "167b2c22eebcd4697c10903714aa9ad8b908a8190c8a00c45bd0e11b18f5ddc5",
+  "ownerClosureSha256": "e5f982da049676815c3e21a4e0a7f2704b5c16a3fc844496704512a0385fc24a",
+  "tests": "3/3 textbook/continuation tests pass; includes all actual C/D guide rendering and invalid page rejection.",
+  "file": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+  "sha256": "88d04165a32d478a125c344d93a498ba2cde6dbb415fab33fc5ff7b7c503d973"
+}

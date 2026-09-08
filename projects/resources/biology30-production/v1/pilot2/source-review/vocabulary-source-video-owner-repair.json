@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T16:02:12.602Z",
+  "authority": "User reports nonmatching vocabulary functionality and missing videos originally linked in the PowerPoints.",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-a-hubs.ts",
+      "sha256": "82cae4d26a5f183a710b1862ce32ff7f556a2766bbcaff37900b6802cec12a88"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts",
+      "sha256": "75ac3022bf64b0d013585f5d1f99d49f5eeceb205e767c14e8c4f5cf9ed0dd63"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+      "sha256": "593e1c43154e71eb9c29761ac5ac39088e75ecd99a2a5ebf0a82dffdf7e7f55e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "8584e58347df307acdd552d2960394ac8f91a9704092587f3834e5b1ccf52c6c"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-runtime.ts",
+      "sha256": "353469a3434e259fef3f965942fb5d8549240bddbdaf4aaa0ebd5ce7570e3372"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "cdc86e5786f2379dbd05b922355de945bd45eb9a49d358b84a8c5c0792652982"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "a5b6c051b78a588c1f581efae67407d288eb998dfa1f5f2e9d8a5bc37866483b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "sha256": "0749557d2a3440b3aaf5f1fe430442077bfe54ef83aad9fd60934f8526680aec"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+      "sha256": "ecaf963c39417d4f328b83a9af73fc67c93f9b67c675556f61a7e7c0a767031c"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-source-videos.ts",
+      "sha256": "38c2a389849ac2190cd0b1f3653b09038b0b25cd6e0b35e4ed7de0fdd69005d4"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-state.ts",
+      "sha256": "4df7f8019e27d66b741f99d904e82b54b1fde0f130c49b266ea51e80c77e9187"
+    }
+  ],
+  "priorOwnerSha256": "7052f47ba9391233635f49e103c13ad9717717f37a2170e1818e5c643ea5949c",
+  "ownerSha256": "4a585c807a7b5f99c66f29018c3a65356dd0081cf1204bdbbfdc7259c759b07b",
+  "sourceAuthority": "projects/resources/biology30-production/v1/pilot2/source-review/powerpoint-video-restoration.json",
+  "sourceChange": "Add an explicitly authorized original-source video library. Retain all reviewed-clip gates and unreviewed caption/science status. No scientific review inferred from metadata.",
+  "stateChange": "Backward-compatible optional active-concept field; preserve response IDs, Frayer selection keys and packed flag maps. Add/remove collection and show/hide guide match A.",
+  "teacherAcceptance": null,
+  "validation": "Source baseline check and 13 state/media tests pass; source/owner pins updated for targeted rendered tests."
+}

@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-08",
+  "scope": "remaining inline-vocabulary/Advanced Learning technical validation only",
+  "status": "passed",
+  "units": [
+    {
+      "unit": "a",
+      "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+      "lockedDefinition": true,
+      "multiFamilyRouteCases": 21,
+      "choiceLimitProtectsWriting": true,
+      "explicitScopedClear": true,
+      "replacementReload": true,
+      "unrelatedWritingPreserved": true
+    },
+    {
+      "unit": "b",
+      "workspaceSha256": "7760892ef8764bc804bee7f8b16c99c7188af4abe1daa9254b142b1d5102e37b",
+      "lockedDefinition": true,
+      "multiFamilyRouteCases": 11,
+      "choiceLimitProtectsWriting": true,
+      "explicitScopedClear": true,
+      "replacementReload": true,
+      "unrelatedWritingPreserved": true
+    },
+    {
+      "unit": "c",
+      "workspaceSha256": "43b0cbe3ba7912ca5f2db15b21e8c0e25e452aa2807415a07209c2fcb8a3b0ea",
+      "lockedDefinition": true,
+      "multiFamilyRouteCases": 30,
+      "choiceLimitProtectsWriting": true,
+      "explicitScopedClear": true,
+      "replacementReload": true,
+      "unrelatedWritingPreserved": true
+    },
+    {
+      "unit": "d",
+      "workspaceSha256": "37c17e18f9e0f70181b9317b4891e187116bde37f1508b16dd7917df0e152adc",
+      "lockedDefinition": true,
+      "multiFamilyRouteCases": 2,
+      "choiceLimitProtectsWriting": true,
+      "explicitScopedClear": true,
+      "replacementReload": true,
+      "unrelatedWritingPreserved": true
+    }
+  ],
+  "projectE2E": {
+    "a": "final-project-e2e-a.log",
+    "b": "final-project-e2e-b.log",
+    "c": "final-project-e2e-c.log",
+    "d": "final-project-e2e-d.log"
+  },
+  "stateRegressionTests": 11,
+  "stateBudgets": [
+    {
+      "unit": "a",
+      "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+      "target": 44000,
+      "characters": 42738,
+      "responseCount": 79,
+      "practiceCount": 86,
+      "mediaCheckpointCount": 14,
+      "modelCount": 13,
+      "textbookReviewAttemptCount": 4,
+      "advancedCompletionCount": 40,
+      "method": "owning full-state estimator; ordinary-character fixture"
+    },
+    {
+      "unit": "b",
+      "workspaceSha256": "7760892ef8764bc804bee7f8b16c99c7188af4abe1daa9254b142b1d5102e37b",
+      "target": 44000,
+      "maxima": {
+        "x": 34012,
+        "\u6f22": 34012,
+        "\ud83e\uddec": 34012
+      },
+      "cases": 693,
+      "method": "all optional-family pairs; maximum responses, choices, flags, visits and longest route; ordinary and Unicode round trips"
+    },
+    {
+      "unit": "c",
+      "workspaceSha256": "43b0cbe3ba7912ca5f2db15b21e8c0e25e452aa2807415a07209c2fcb8a3b0ea",
+      "target": 44000,
+      "maxima": {
+        "x": 43471,
+        "\u6f22": 43471,
+        "\ud83e\uddec": 43471
+      },
+      "cases": 1683,
+      "method": "all optional-family pairs; maximum responses, choices, flags, visits and longest route; ordinary and Unicode round trips"
+    },
+    {
+      "unit": "d",
+      "workspaceSha256": "37c17e18f9e0f70181b9317b4891e187116bde37f1508b16dd7917df0e152adc",
+      "target": 44000,
+      "maxima": {
+        "x": 27747,
+        "\u6f22": 27747,
+        "\ud83e\uddec": 27747
+      },
+      "cases": 459,
+      "method": "all optional-family pairs; maximum responses, choices, flags, visits and longest route; ordinary and Unicode round trips"
+    }
+  ],
+  "screenshotsReviewed": [
+    "a-panel-desktop.png",
+    "a-panel-mobile.png",
+    "a-panel-zoom200.png",
+    "b-advanced-1440.png",
+    "b-advanced-390.png",
+    "b-panel-desktop.png",
+    "b-panel-mobile.png",
+    "b-panel-zoom200.png",
+    "c-advanced-1440.png",
+    "c-advanced-390.png",
+    "c-panel-desktop.png",
+    "c-panel-mobile.png",
+    "c-panel-zoom200.png",
+    "d-advanced-1440.png",
+    "d-advanced-390.png",
+    "d-panel-desktop.png",
+    "d-panel-mobile.png",
+    "d-panel-zoom200.png"
+  ],
+  "visualReview": "Reviewed all 18 saved current-profile screenshots in five contact sheets, including A-D desktop/mobile/200% vocabulary and B-D desktop/mobile Advanced Learning. Text, fields, focus and inline terms remain readable and within viewport. Some captures are intentionally mid-scroll; sticky headers/status overlay part of the captured content. No blocking layout issue observed. Earlier passing candidate suite supplies all-127-block geometry checks.",
+  "candidateBrowserSuite": "Existing 2/2 pass retained without rerun; hashes match current entries.",
+  "deployment": "No deploy or network recheck; current entry hashes equal saved deployed receipt.",
+  "limitations": [
+    "Teacher acceptance and LMS certification remain separate and outstanding.",
+    "Existing unrelated old-section-retention audit failure remains unchanged.",
+    "Review ZIPs remain stale.",
+    "Unit C has 529 characters of target headroom in the maximum fixture; escaping/legacy overflow is separately rejected atomically.",
+    "Unit A budget is the owning ordinary-character estimator; no new claim of exhaustive Unicode/escaping capacity."
+  ]
+}

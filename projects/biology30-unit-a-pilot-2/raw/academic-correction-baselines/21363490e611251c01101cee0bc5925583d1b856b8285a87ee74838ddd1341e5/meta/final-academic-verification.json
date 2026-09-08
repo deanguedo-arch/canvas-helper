@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "recordedAt": "2026-09-05T22:14:45Z",
+  "workspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+  "workspaceTreeSha256": "e9f39a3171ec6365fdd90863a268b0383e065d95efd64b1915d410a57f02c59a",
+  "checkpointCommit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+  "baselineWorkspaceSha256": "b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652",
+  "buildBaselineWorkspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+  "previousVerification": "raw/chapter-11-academic-baselines/b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652/meta/final-academic-verification.json",
+  "scope": "Contained Chapter 11 academic repairs: six saved identification/reasoning tasks in four existing models, corrected action-potential graph, derived Process Collection notes, and detailed reproduction history. Not completion of the final Unit A academic work queue.",
+  "technicalStatus": "functional-gates-passed",
+  "academicStatus": "academic-gaps-open",
+  "teacherDecision": null,
+  "transferReady": false,
+  "checks": [
+    {
+      "command": "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+      "status": "passed",
+      "note": "Transactional pre-Chapter-11 baseline and protected-project checks passed. Final metadata rebuild reproduced the same learner hash."
+    },
+    {
+      "command": "npm run test:biology30-unit-a-pilot-2",
+      "status": "passed",
+      "passed": 14
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer",
+      "status": "passed",
+      "note": "52 rule mappings include Chapter 11 source/evidence pointers; B/C/D remain not-ready."
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer -- --check",
+      "status": "passed"
+    },
+    {
+      "command": "npm run test:biology30-improvement-transfer",
+      "status": "passed",
+      "passed": 4
+    },
+    {
+      "command": "npm run test:biology30-unit-a-improvement-pilot",
+      "status": "passed",
+      "passed": 12
+    },
+    {
+      "command": "npm run test:science-comparison",
+      "status": "passed",
+      "passed": 6
+    },
+    {
+      "command": "npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace",
+      "status": "passed"
+    },
+    {
+      "command": "npm run validate:manifests",
+      "status": "passed"
+    },
+    {
+      "command": "npm run build:studio",
+      "status": "passed"
+    },
+    {
+      "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+      "status": "expected-blocked",
+      "exitCode": 1,
+      "diagnostics": [
+        "not-active"
+      ]
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --grep 'Chapter 11|every learner route' --output=/tmp/biology30-ch11-e2e.vvpIs1/focused-corrected",
+      "status": "passed",
+      "passed": 2,
+      "note": "Corrected reload fixture plus all-route 200%-text/axe coverage; exact current learner hash."
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --output=/tmp/biology30-ch11-e2e.vvpIs1/full-rerun",
+      "status": "passed",
+      "passed": 27,
+      "elapsed": "10.9 minutes"
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:project -- --project biology30-unit-a-pilot-2 --output=/tmp/biology30-ch11-e2e.vvpIs1/project",
+      "status": "passed",
+      "passed": 1,
+      "elapsed": "36.0 seconds"
+    },
+    {
+      "command": "Scoped git diff --check",
+      "status": "generated-whitespace-warning",
+      "note": "Nine whitespace-only blank lines in generated model panels without a study task. Authored-source, metadata and documentation checks pass. Retained the functionally verified learner bytes; no cosmetic rebuild was performed.",
+      "lines": [
+        2297,
+        2438,
+        2485,
+        2532,
+        2579,
+        2626,
+        2673,
+        2720,
+        2767
+      ]
+    },
+    {
+      "command": "Relative Markdown file-link check for the canonical playbook, Pilot 2 prompt pack and journal",
+      "status": "passed",
+      "linksChecked": 102,
+      "missing": 0,
+      "note": "File existence only, not every fragment or external/scientific source."
+    },
+    {
+      "command": "npm run audit:biology30-unit-a-pilot-2:visual",
+      "status": "passed",
+      "note": "Zero automated geometry findings; separate manual report records all 38 sheets opened."
+    },
+    {
+      "command": "Scoped authored-source, metadata and documentation git diff --check, plus new study file whitespace check",
+      "status": "passed"
+    }
+  ],
+  "failedAttempt": {
+    "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --output=/tmp/biology30-ch11-e2e.vvpIs1/full",
+    "passed": 25,
+    "failed": 2,
+    "status": "retained-not-hidden",
+    "evidence": [
+      "/tmp/biology30-ch11-e2e.vvpIs1/full/biology30-unit-a-pilot-2-C-55b22-odel-records-without-gating-chromium/trace.zip",
+      "/tmp/biology30-ch11-e2e.vvpIs1/full/biology30-unit-a-pilot-2-e-0c442--text-size-and-is-axe-clean-chromium/trace.zip"
+    ],
+    "observation": "The new test seeded storage before a reload; the old page's unload save replaced that fixture. The final all-route test timed out during Studio preview setup. These were recorded as failures, not a pass.",
+    "resolution": "The fixture now seeds once on document initialization. The two focused tests passed, followed by the complete 27/27 rerun on the same learner build. No existing timeout was increased and no forced clicks or learner-code workaround was used.",
+    "developmentFinding": "An earlier intermediate renderer placed the guide helper in a legacy runtime rather than the emitted runtime. A browser smoke check caught the ReferenceError; the emitted helper was corrected before this candidate and its full runs."
+  },
+  "visual": {
+    "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T21-41-12-016Z/report.json",
+    "reportSha256": "35239dce56c040c29a9a344df7c44bfa1e77050773d0cd32ddde87e293b4ab7c",
+    "routeCaptures": 81,
+    "stateCaptures": 172,
+    "contactSheets": 38,
+    "allContactSheetsOpened": true,
+    "geometryFindings": 0,
+    "additionalViewportCloseUps": 2,
+    "scope": "All 38 contact sheets opened and inspected. New tasks checked inline at desktop, tablet, mobile and 200% text; four SVG study figures enlarged; numeric action-potential graph and table inspected. Two actual-viewport close-ups checked neuron readability. This does not certify every unchanged scientific figure, answer key or media transcript.",
+    "remainingScientificChecks": [
+      "Complete independent item/key/distractor review",
+      "All required media transcripts and local-equivalent parity",
+      "Remaining academic skills and later-chapter repairs"
+    ]
+  },
+  "invariants": {
+    "stateVersion": 6,
+    "worstCaseStateCharacters": 42284,
+    "previousWorstCaseStateCharacters": 39061,
+    "stateTarget": 44000,
+    "runtimeGuard": 48000,
+    "maximumPersistedResponseFields": 73,
+    "requiredRoutes": 18,
+    "lessons": 13,
+    "reviewRoutes": 5,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "practiceItems": 86,
+    "advancedBlocks": 40,
+    "mediaCheckpoints": 14,
+    "vocabularyFamilies": 28,
+    "possibleProcessRecords": 178,
+    "existingQuestionAndResponseIdsPreserved": true,
+    "addedStudyResponseIds": 6,
+    "completionOrScoreChanges": false,
+    "coreProseAndQuestionSemanticsPreserved": true
+  },
+  "protected": {
+    "pilot1LearnerSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "productionUnitsADChanged": false,
+    "pilot1OperationalExceptions": [
+      "meta/unit-a-to-bcd-improvement-playbook.md",
+      "meta/biology30-improvement-transfer-contract.json",
+      "meta/bcd-material-readiness.json"
+    ],
+    "additionalCommit": false,
+    "push": false,
+    "deployment": false,
+    "export": false,
+    "studioEditEnabled": false
+  },
+  "academicReview": "meta/final-academic-review.json",
+  "chapter11Contract": "meta/chapter-11-academic-repair.json",
+  "academicGapRecords": 36,
+  "nextWork": "Continue the final Unit A queue with Chapter 12 eye/ear identification and independent graph production, then endocrine evidence. Teacher-approved microscopy/reflex procedures, all-item and media reviews, and complete teacher acceptance remain open.",
+  "limits": [
+    "Study responses are optional and non-gating. Providing a task does not prove learner mastery or physical skills.",
+    "Six study drafts are grouped under four existing model records; collection return links focus their model heading, not a child study disclosure.",
+    "SCORM persistence was tested with mocked LMS APIs, not a live Brightspace learner or impersonation session.",
+    "Gap records overlap; 36 records do not mean 36 independent defects. No complete academic clearance or B-D transfer is claimed.",
+    "No deployment was performed by this task; concurrently changed deployment metadata is separately owned and was not overwritten.",
+    "Only 1,716 characters remain below the 44,000-character state target; future saved tasks require a new worst-case audit.",
+    "The scoped recovery checkpoint excludes private archives and unrelated working-tree changes."
+  ],
+  "staticTestRepair": {
+    "firstAttempt": "3/4 transfer tests passed; its old graph assertion expected a recognition-question mapping.",
+    "resolution": "Updated the test to require the exact graph-labelling task and stable saved-response ID, with no question fallback. Final transfer tests passed 4/4; learner bytes unchanged."
+  }
+}

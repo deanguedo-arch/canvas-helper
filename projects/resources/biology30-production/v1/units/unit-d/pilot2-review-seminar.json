@@ -1,0 +1,99 @@
+{
+  "unit": "D",
+  "id": "d-review-seminar",
+  "status": "authored evidence/operation/key and capacity reviewed; rendered and workload proof pending",
+  "title": "Review Seminar: the North Marsh evidence board",
+  "teachingTarget": "d-review-seminar-evidence-synthesis",
+  "introduction": [
+    "An integrated case connects gene-pool change, abundance, life stages, habitat and interactions. Integration does not require one cause for every result. Record each observation with its source, units, timing and uncertainty before drawing arrows between them. A small population, a marker near Hardy–Weinberg expectations and declining recruitment answer different questions.",
+    "Population size and density use different denominators. Reduced habitat can partly offset the density effect of falling numbers, while the population still declines sharply. Mark–recapture adds another estimate with its own closure, mixing and detection assumptions. Agreement between two counts strengthens a size comparison without proving its cause.",
+    "A predator-first model predicts improvement when predator access is reduced. A habitat-first model predicts improvement when nesting conditions recover. A combined model predicts benefits from both, possibly with interaction. Compare a reference, habitat change alone, reduced predator access alone and both together, using repeated comparable plots and consistent recruitment measures. Observational categories alone do not supply random assignment.",
+    "Genetic management cannot be assumed to repair an ecological limitation. Moving organisms could add alleles, but habitat, disease transmission, compatibility and local adaptation also need evaluation. A marker near equilibrium does not show that every allele or adaptive trait is secure. Additional marker and demographic evidence is needed before a real intervention could be assessed.",
+    "A monitored classroom proposal names water level, vegetation, predator evidence, nest success, recruitment, adult survival and allele diversity as different indicators. Set a recruitment review after three years and an earlier stop rule for harm or unintended effects. Define the threshold before inspecting the outcome. No consultation, legal authorization or community endorsement is implied by this synthetic example.",
+    "For a worked decision rule, propose revising a pilot if recruitment per monitored plot has not improved relative to comparable reference plots after three years. Compare both initial differences and repeated measurements. Stop earlier for documented unintended harm under the agreed welfare protocol. This is an example of a revisable rule, not an ecological guarantee or permission to undertake field work."
+  ],
+  "case": {
+    "title": "North Marsh: supplied synthetic observations",
+    "scope": "Fictional marsh-bird case retained from the original authored course. No real conservation decision, community view or field competence is claimed. Percentages have no supplied sample denominators or uncertainty intervals.",
+    "columns": [
+      "Evidence layer",
+      "Observation and timing",
+      "Limit"
+    ],
+    "rows": [
+      [
+        "Abundance",
+        "Adults declined from 420 to 210 over six years; a neighbouring population stayed near 600.",
+        "Different sites can differ in more than the proposed cause."
+      ],
+      [
+        "Density and survey",
+        "Density changed from 0.84 to 0.53 adults/hectare as occupied wetland contracted. At the later survey M=70,C=84,R=28.",
+        "Densities are supplied rounded values; mark–recapture requires closure, mixing, retained marks and comparable detection."
+      ],
+      [
+        "Genetics",
+        "Allelic richness declined; one neutral marker’s observed and expected genotype proportions were similar.",
+        "No actual genotype counts are supplied here; do not invent p,q or a formal goodness-of-fit result."
+      ],
+      [
+        "Timing",
+        "Juvenile recruitment fell before adult abundance; an introduced nest predator increased, while repeated low-water years left sparse vegetation.",
+        "Temporal order supports hypotheses without isolating their causes."
+      ],
+      [
+        "Nest categories",
+        "Success: dense/no predator signs 68%; dense/signs 39%; sparse/no signs 42%; sparse/signs 17%.",
+        "Signs are observations, not assigned treatments; denominators, repeated-site variation and other conditions are unprovided."
+      ]
+    ]
+  },
+  "activities": [
+    {
+      "id": "d-review-seminar-connect",
+      "prompt": "Calculate the change in adult abundance as a percentage of the starting count and the mark–recapture estimate. Then explain why one marker near Hardy–Weinberg expectations does not rule out loss of diversity.",
+      "modelResponse": "Adults fell by 210/420 = 50%. Mark–recapture gives 70×84/28 = 210 under its assumptions. A fit at one marker is not proof of stable diversity across loci; allelic richness can decline while that comparison fits.",
+      "criteria": [
+        "50% decline with starting denominator",
+        "210 estimate with scope",
+        "Marker fit distinguished from diversity"
+      ],
+      "attemptBeforeGuide": true
+    },
+    {
+      "id": "d-review-seminar-evaluate",
+      "prompt": "Evaluate the claim that predator signs alone explain all nest failures. Use two supplied percentages and name a comparison that would help distinguish predator and habitat effects.",
+      "modelResponse": "Without predator signs, success is 68% in dense vegetation but 42% in sparse vegetation. Signs do not isolate cause. Compare repeated reference, habitat-only, exclusion-only and combined plots using matched recruitment measures.",
+      "criteria": [
+        "Two correctly scoped percentages",
+        "Observational limits",
+        "Four-condition comparison"
+      ],
+      "attemptBeforeGuide": true
+    },
+    {
+      "id": "d-review-seminar-revise",
+      "prompt": "Revise a proposal to move birds immediately after a peer notes habitat loss and uncertain causes. State an evidence step and a monitoring rule, including an earlier reason to stop.",
+      "modelResponse": "Compare habitat and predator-access models with reference plots; moving birds alone may not restore recruitment. Review recruitment against references after three years; stop earlier for harm. Seek appropriate governance.",
+      "criteria": [
+        "Revised mechanism-linked proposal",
+        "Reference and time-bound indicator",
+        "Harm stop rule and governance"
+      ],
+      "attemptBeforeGuide": true
+    }
+  ],
+  "optionalExtension": {
+    "id": "d-review-seminar-extension",
+    "minutes": 20,
+    "required": false,
+    "prompt": "Use the population model to compare one immediate and one delayed limiting effect. Record how the predictions differ and what evidence would make you revise the proposed explanation.",
+    "modelLinks": [
+      "d-models"
+    ],
+    "collectionPolicy": "Use existing model response and seminar revision; no duplicate required state."
+  },
+  "teacherDecision": null,
+  "authorKeyReview": "Separate derivation: (420−210)/420=.5;70×84/28=210; nest comparisons68 versus42 and39 versus17 have different habitat conditions. No category denominator supplied, so no significance or causal proof claimed. Guides are criterion-based and accept other justified comparisons within the fixture-tested response capacities.",
+  "responseCapacityReview": "2026-09-07 bounded review: author models retained; capacity tested against complete authored student-style examples. Not observed student performance."
+}

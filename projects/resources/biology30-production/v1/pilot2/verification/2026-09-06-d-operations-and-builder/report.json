@@ -1,0 +1,52 @@
+{
+  "stage": "D observable-operation repairs and owning transaction infrastructure",
+  "status": "author checks passed; all-unit pre-render gates incomplete; no learner generation",
+  "practiceItems": {
+    "B": 65,
+    "C": 132,
+    "D": 52
+  },
+  "selectedResponse": 171,
+  "writtenOperations": 78,
+  "ordinaryStateCharacters": {
+    "B": 32617,
+    "C": 43890,
+    "D": 27874
+  },
+  "tests": {
+    "focused": 45,
+    "passed": 45,
+    "retentionTypeFixRecheck": 2
+  },
+  "sourceAndProtection": "15 sources,8 textbook members,six learner trees and protected UnitA owner verified",
+  "typecheck": "Owned retention Map-key inference error corrected; rerun returns25 unrelated existing diagnostics, zero in changed owner or Pilot2 tests.",
+  "transactionProof": [
+    "Full workspace-tree guard matches immutable intake hash format, including assets",
+    "Synthetic fixture promotion validates workspace and copied metadata together",
+    "Intervening edits abort; partial promotion restores prior trees and preserves candidate/concurrent writing in recovery",
+    "Exclusive lock rejects concurrent build; UnitA and symlink boundaries refused"
+  ],
+  "limits": [
+    "Transaction helper is tested but awaits full Pilot2 renderer integration",
+    "No learner HTML or assets replaced",
+    "All eight remaining authored gates still pending per unit",
+    "Teacher decisions null; no release actions"
+  ],
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json": "946fb6482457b817ba2347f55ab4c680ec88ffaa5192057e08bf1de232f360bc",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json": "909707ef684a935c2726bed1e8bbd4cf2fae2335374a7ef1415e67e5fc9ac649",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json": "d1a4b278179baef6655118827dfcf1045f2680ce0deff3305097d9d60898bb24",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-passage-review.json": "ba77b3f15568119f2c9232ba79c848288d08730e96a930ae074ce7d04518af81",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json": "b8c5b4b67fcb50ba9bce3f2d65c01d194ad5e9acb55c8c9a03e952fb41a5b028",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "8f3d13523de384713edc32d309c6d4140d27713c4b1be379912f6008caaf6042",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json": "b50513628e0945e3ff1cf8bafd79394bd17d46cfe1ed740c612535c820bfe628",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json": "22108f397675bde84fa7f78edc159026649b368d5e8b679042ac04bc450a5578",
+    "scripts/lib/biology30-course/v1/build.ts": "512ffa6fa10c2699a61c5bfdb2f402475f49dadd535ecf8fe053691ef9a04f48",
+    "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts": "20c982492ea69b9c59fa515f44a539ad975bb9b4511ce6819ba84909aebf4b30",
+    "scripts/lib/biology30-course/v1/pilot2-retention-audit.ts": "07c0a9cf77d57b66664082dbcb53e04eb03b1154e0fc9c4697d43deff2422f4d",
+    "scripts/tests/biology30-pilot2-build-transaction.test.ts": "cb0c4bbb68c89a1e6cc2484b2acc366a229d2cca4b5c4e02835a242d1c4d1943",
+    "scripts/tests/biology30-topic-contract.test.ts": "2cc7d7327ec5c83cc9d2babc81229ba6c039d7c37332cb5b07e4f1ab0ce7cca7"
+  }
+}

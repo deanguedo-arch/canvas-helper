@@ -1,0 +1,15 @@
+{
+  "stage": 105,
+  "checkedAt": "2026-09-07T17:34:30.920Z",
+  "priorOwnerSha256": "a4bf1b6d03091bdbcb5822774c2f46db56eb4b368e9bbdd116f54e6448680d92",
+  "ownerSha256": "1d5fca436c5aaa576a3e0e74720f6b1a3b296990dba1dc4ba683e87c8723856e",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "ff0187666f0e4b06c63a65cd1ce88087f8a5a68fe69b7e84319ed1bfca91ee60"
+    }
+  ],
+  "scope": "Unit C course-page selector only: optional explanation checkbox row spacing and wrapping. No content or state changes. B/D learner trees not rebuilt. Shared freeze pins updated solely for the owning code closure.",
+  "reason": "Review-set-v4 biology30-unit-c: spacing is off on these; selected Mark this optional explanation complete. Native inspection found the inline label against its bottom divider.",
+  "teacherAcceptance": null
+}

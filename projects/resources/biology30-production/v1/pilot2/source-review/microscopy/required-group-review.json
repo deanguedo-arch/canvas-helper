@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "status": "five intact source photos selected as one required figure group; actual learner placement pending",
+  "teacherDecision": null,
+  "target": "c-topic-mitosis-observation-and-simulation-figure",
+  "sourceManifest": {
+    "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/extraction.json",
+    "sha256": "fb3355ebe07fa6d4b49a18c94e49c73d61beca5ad834671b411e07e1b0dd9b16"
+  },
+  "sourceComparison": "Native current c-lesson-02 and03 concept figures inspected: Attach/Separate/Partition and Count/Calculate/Interpret text maps. They teach model steps but contain no specimen evidence. All five original JPEGs reinspected at intrinsic252–255 by202–203 pixels. Their diffuse, condensed, aligned, separated and late-division features match the source extraction record with explicit B/E uncertainty. Use the originals because generated cells cannot substitute for observation evidence.",
+  "scientificReview": "All five originals retain exact extracted bytes and source A–E identities. Species, scale and unobserved envelope details are not invented. Initial labels/alt text describe visible features; tentative reference stage interpretations appear in a separate initially closed comparison after the recording instruction.",
+  "initialCaption": "Five original prepared-cell photographs from the supplied textbook, Figure 16.8 (MHR, p. 557). Labels A–E identify images, not stage answers.",
+  "initialEquivalent": "Inspect each original image and describe its visible nuclear or chromosome arrangement before proposing a stage. A is diffuse, B has a dense central cluster, C has a central band, D has two separated groups, and E has two darker regions joined by a narrowing bridge. Treat uncertain boundaries as uncertain. The species and calibrated magnification are not verified here. The separate synthetic 100-cell count table was not measured from these five photographs.",
+  "comparisonGuide": "Reference interpretations: A is consistent with interphase. B is the source prophase example, but condensation alone may not distinguish late prophase, prometaphase or an oblique aligned view. C shows the central alignment expected at metaphase. D shows the separated chromosome groups expected at anaphase. E is the source late-division/telophase example; the image does not clearly resolve nuclear-envelope reformation. Accept a qualified stage interpretation supported by visible features and a stated uncertainty. A diagram cannot supply a feature absent from the photograph.",
+  "rights": "User-supplied textbook; local blocked review only; MHR Figure16.8 p.557 credit visible. No public redistribution clearance or export authority.",
+  "records": [
+    {
+      "id": "Im2.jpg",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im2.jpg",
+      "sha256": "b72d76aa6f78899a3e2f8f8800b6bf06aac391196c597193ff59a266c587c474",
+      "width": 255,
+      "height": 202,
+      "sourcePage": 14,
+      "status": "original embedded pixels inspected and matched to printed label; local blocked review only",
+      "label": "A",
+      "scientificReview": "Diffuse round nuclear region; interphase reference.",
+      "neutralObservationAlt": "Rounded central nuclear region with dispersed staining; no separated chromosome groups."
+    },
+    {
+      "id": "Im3.jpg",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im3.jpg",
+      "sha256": "a6715b30d11fd7a9129baaa1ecce0933b2f49c6575628dea78158c6e1bb5bee6",
+      "width": 255,
+      "height": 203,
+      "sourcePage": 14,
+      "status": "original embedded pixels inspected and matched to printed label; local blocked review only",
+      "label": "B",
+      "scientificReview": "Condensed central chromosomes; source prophase reference. A still image alone may not resolve late prophase/prometaphase from an oblique aligned view.",
+      "neutralObservationAlt": "Dense irregular central cluster of dark material; individual alignment uncertain."
+    },
+    {
+      "id": "Im4.jpg",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im4.jpg",
+      "sha256": "bff6e0bdaf3f3e31043d78bbcd75cbdf83ee08ec0e67aa877306d62a17fdab1c",
+      "width": 255,
+      "height": 203,
+      "sourcePage": 14,
+      "status": "original embedded pixels inspected and matched to printed label; local blocked review only",
+      "label": "C",
+      "scientificReview": "Narrow central band between two opposed spindle regions; metaphase reference.",
+      "neutralObservationAlt": "Dark central band between two opposed radiating regions."
+    },
+    {
+      "id": "Im1.jpg",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im1.jpg",
+      "sha256": "bd1122c6654b1fcbe923a508d0eb464bf20d26aaf178d7728333f1de90a93f37",
+      "width": 254,
+      "height": 202,
+      "sourcePage": 14,
+      "status": "original embedded pixels inspected and matched to printed label; local blocked review only",
+      "label": "D",
+      "scientificReview": "Two separated dark chromosome groups; anaphase reference.",
+      "neutralObservationAlt": "Two dark groups separated across a lighter central region."
+    },
+    {
+      "id": "Im5.jpg",
+      "file": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im5.jpg",
+      "sha256": "c36dae801b8da3af269245c7d1cfa1a3616841af0c89d44e32e6acb6f1e2e077",
+      "width": 252,
+      "height": 202,
+      "sourcePage": 14,
+      "status": "original embedded pixels inspected and matched to printed label; local blocked review only",
+      "label": "E",
+      "scientificReview": "Two dark daughter regions and narrowing connection; late division/telophase reference. Exact nuclear-envelope reformation is not resolved.",
+      "neutralObservationAlt": "Two darker regions joined by a narrower central bridge."
+    }
+  ],
+  "existingScreenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/comparison/existing-investigation.png",
+      "sha256": "a232a30b9d502a5fb1091a2238b63edc880a8160dbd4843902249fa321f5075f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/comparison/existing-mitosis.png",
+      "sha256": "bcae8ea28534803701d1b0e2041c1012eec8425bf0ab3385c0bb3da50c373fd3"
+    }
+  ],
+  "pending": [
+    "Actual required lesson/walkthrough placement at all viewports and200% browser zoom",
+    "All-surface first-use and academic operation proof",
+    "Live LMS/project E2E and teacher decision"
+  ]
+}

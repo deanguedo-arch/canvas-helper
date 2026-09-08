@@ -15,6 +15,7 @@ export type PracticeItem = {
   feedback: Record<string, string>;
   textbook: TextbookLocator;
   optional?: boolean;
+  legacyChoices?: Record<string, string>;
 };
 
 export type FlowVisual = {
@@ -91,16 +92,20 @@ export type FullLessonContent = {
  */
 export const LESSON_TERM_INVENTORY: Record<string, LessonTerm[]> = {
   "lesson-01": [
+    { term: "central nervous system (CNS)", meaning: "the brain and spinal cord, which process information and organize responses", status: "new", vocabularyId: "central-peripheral-systems" },
+    { term: "peripheral nervous system (PNS)", meaning: "the nerves and related structures outside the brain and spinal cord", status: "new", vocabularyId: "central-peripheral-systems" },
+    { term: "action potential", meaning: "a brief electrical signal that is renewed as it travels along an axon", status: "new", vocabularyId: "action-potential" },
+    { term: "threshold", meaning: "the membrane voltage that must be reached to start an action potential", status: "new", vocabularyId: "action-potential" },
     { term: "cell body", meaning: "the part of a neuron that contains the nucleus and maintains the cell", status: "new", vocabularyId: "neuron-structure" },
     { term: "axon terminal", meaning: "the end of an axon that communicates with a target cell", status: "new", vocabularyId: "neuron-structure" },
-    { term: "Schwann cell", meaning: "a PNS glial cell that can wrap an axon in myelin", status: "new", vocabularyId: "myelin-conduction" },
-    { term: "oligodendrocyte", meaning: "a CNS glial cell that can myelinate parts of several axons", status: "new", vocabularyId: "myelin-conduction" },
+    { term: "Schwann cell", meaning: "a support cell outside the brain and spinal cord that can wrap an axon in myelin", status: "new", vocabularyId: "myelin-conduction" },
+    { term: "oligodendrocyte", meaning: "a support cell in the brain or spinal cord that can wrap parts of several axons in myelin", status: "new", vocabularyId: "myelin-conduction" },
     { term: "node of Ranvier", meaning: "a gap between myelin segments where an action potential is regenerated", status: "new", vocabularyId: "myelin-conduction" },
     { term: "sensory neuron", meaning: "a neuron that carries information from a receptor toward the CNS", status: "new" },
     { term: "interneuron", meaning: "a neuron that connects and processes information within the CNS", status: "new" },
     { term: "motor neuron", meaning: "a neuron that carries a command from the CNS toward an effector", status: "new" },
-    { term: "receptor", meaning: "a structure that detects a change", status: "used-again", vocabularyId: "control-system-roles" },
-    { term: "effector", meaning: "a muscle or gland that carries out a response", status: "used-again", vocabularyId: "control-system-roles" }
+    { term: "receptor", meaning: "a structure that detects a change", status: "new", vocabularyId: "control-system-roles" },
+    { term: "effector", meaning: "a muscle or gland that carries out a response", status: "new", vocabularyId: "control-system-roles" }
   ],
   "lesson-02": [
     { term: "membrane potential", meaning: "the voltage across a cell membrane", status: "new", vocabularyId: "resting-membrane-potential" },
@@ -450,7 +455,7 @@ export const FULL_LESSON_CONTENT: Record<string, FullLessonContent> = {
     learningGoal: "trace light through the eye and explain how rods, cones, the fovea, and the optic nerve support vision.",
     part1: {
       title: "The eye focuses light on the retina",
-      paragraphs: ["Light first passes through the cornea. The cornea provides most of the eye's refraction. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.", "The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.", "Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a picture. Perception develops from neural processing across retinal and brain pathways."],
+      paragraphs: ["Light first passes through the cornea. The cornea provides most of the eye's refraction: the bending of light as it passes between materials. Light then moves through the aqueous humour and pupil. The iris changes pupil diameter, which changes how much light enters.", "The lens fine-tunes focus. Ciliary muscles and suspensory ligaments change lens shape during accommodation. A rounder lens bends light more for a nearby object. A flatter lens bends light less for a distant object.", "Light passes through the vitreous humour and reaches the retina. The image formed on the retina is inverted, but vision is not explained by saying the brain simply flips a picture. Perception develops from neural processing across retinal and brain pathways."],
       visuals: [
         { kind: "flow", id: "eye-light-path", title: "Light through the eye", steps: [{ label: "Cornea", detail: "Begins refraction" }, { label: "Pupil", detail: "Opening controlled by the iris" }, { label: "Lens", detail: "Fine-tunes focus" }, { label: "Vitreous humour", detail: "Light crosses the eye" }, { label: "Retina", detail: "Photoreceptors change activity" }, { label: "Optic nerve", detail: "Neural signals leave the eye" }], description: "The path separates the movement of light from the later movement of neural information." },
         { kind: "table", id: "accommodation-compare", title: "Accommodation changes lens shape", columns: ["Viewing distance", "Ciliary muscle", "Lens shape", "Light bending"], rows: [["Near", "Contracts", "Rounder", "More"], ["Far", "Relaxes", "Flatter", "Less"]], description: "The lens changes shape to keep an image focused on the retina." }
@@ -550,7 +555,7 @@ export const FULL_LESSON_CONTENT: Record<string, FullLessonContent> = {
     stop: { title: "Test the master-gland claim", prompt: "Why is “the pituitary controls every endocrine gland” inaccurate?", answer: "The hypothalamus regulates the pituitary, not every gland is controlled by it, and glands can also respond to blood chemistry or neural signals." },
     part2: {
       title: "Human growth hormone supports growth and fuel use",
-      paragraphs: ["Human growth hormone, or hGH, is released by the anterior pituitary. It acts directly on some tissues and stimulates the liver and other tissues to produce growth factors. These signals support protein synthesis, cell division, bone growth, and changes in fuel use.", "Too little hGH during childhood can limit growth. Too much before growth plates close can cause excessive linear growth. Too much after the plates close can enlarge some bones and soft tissues. These patterns are explained as hormone imbalances, not diagnosed from appearance.", "hGH release changes in pulses and is influenced by sleep, activity, nutrition, and feedback. A single measurement may therefore be hard to interpret. A useful data explanation looks for a pattern over time and identifies its limits."],
+      paragraphs: ["Human growth hormone, or hGH, is released by the anterior pituitary. It acts directly on some tissues and stimulates the liver and other tissues to produce growth factors. These signals support protein synthesis, cell division, bone growth, and changes in fuel use.", "Growth plates are regions near the ends of growing long bones where new tissue allows the bones to lengthen. Too little hGH during childhood can limit growth. Too much before growth plates close can cause excessive linear growth. Too much after the plates close can enlarge some bones and soft tissues. These patterns are explained as hormone imbalances, not diagnosed from appearance.", "hGH release changes in pulses and is influenced by sleep, activity, nutrition, and feedback. A single measurement may therefore be hard to interpret. A useful data explanation looks for a pattern over time and identifies its limits."],
       visuals: [
         { kind: "flow", id: "hgh-pathway", title: "Human growth hormone pathway", steps: [{ label: "Hypothalamus", detail: "Controls anterior-pituitary release" }, { label: "Anterior pituitary", detail: "Releases hGH" }, { label: "Targets", detail: "Liver, bone, muscle, and other tissues with receptors" }, { label: "Effects", detail: "Growth-factor release, protein synthesis, growth, metabolism" }, { label: "Feedback", detail: "Target signals reduce further release" }], description: "hGH has direct effects and indirect effects through growth factors." },
         { kind: "table", id: "hgh-data-pattern", title: "Read a pulse pattern", columns: ["Time", "Sample A hGH", "Sample B hGH"], rows: [["08:00", "Low", "Low"], ["12:00", "Moderate pulse", "Low"], ["22:00", "High pulse", "Moderate pulse"], ["02:00", "Low", "High pulse"]], description: "Synthetic instructional data show why repeated samples are more informative than one value. The table is not diagnostic." }
@@ -702,7 +707,7 @@ const GATE_B_LESSON_EXPANSIONS: Record<string, {
     part3: {
       title: "Receptor density and experimental design shape the evidence",
       paragraphs: [
-        "Touch sensitivity is not uniform across the body. Areas used for fine discrimination, such as fingertips, often have more receptor pathways and smaller receptive fields than areas such as the forearm. Two nearby touches are easier to distinguish when they activate separate pathways. This is a population pattern, not a test that every person must match.",
+        "Touch sensitivity is not uniform across the body. Areas used for fine discrimination, such as fingertips, often have more receptor pathways and smaller receptive fields than areas such as the forearm. A receptive field is the area where a stimulus can change the activity of a particular sensory neuron. Two nearby touches are easier to distinguish when they activate separate pathways. This is a population pattern, not a test that every person must match.",
         "A two-point investigation needs a clear manipulated variable, such as point spacing or body location. The responding variable could be the proportion of trials reported as two points. Pressure, order, contact time, vision, and the tool should be controlled. Randomizing one-point and two-point trials reduces guessing based on a predictable sequence.",
         "Consent and comfort come first. Use blunt materials, gentle pressure, and no face or injured-skin testing. A learner may use supplied data instead. The results describe performance under the test conditions and cannot diagnose nerve damage or a sensory disorder.",
         "When reading a data table, compare repeated trials rather than one response. State the pattern, support it with values, and then connect it to receptor density or receptive-field size. End by naming a limitation. This turns an observation into a scientific explanation without claiming more than the evidence shows."
@@ -793,7 +798,7 @@ const GATE_B_LESSON_EXPANSIONS: Record<string, {
       title: "Speed and duration depend on the pathway, not just the system name",
       paragraphs: [
         "Neural signals can reach a connected target within milliseconds because action potentials travel along a defined pathway. Neurotransmitters then cross a short synaptic gap. Hormones must be released, transported, bind receptors, and change target-cell activity. This often creates a slower start and a longer effect, but the exact timing varies.",
-        "The systems frequently work together. During dehydration, neural osmoreceptors in the hypothalamus detect a change and endocrine ADH carries a signal to the kidneys. During an alarm, sympathetic neurons act quickly and the adrenal medulla releases epinephrine into blood. The body does not choose only one control system.",
+        "The systems frequently work together. During dehydration, osmoreceptors in the hypothalamus detect that body fluids have become more concentrated. These are sensory cells sensitive to fluid concentration. Antidiuretic hormone, or ADH, then carries a signal to the kidneys that helps conserve water. Lesson 11 follows the full pathway. During an alarm, sympathetic neurons act quickly and the adrenal medulla releases epinephrine into blood. The body does not choose only one control system.",
         "To compare pathways, use five questions: What changed? What detects it? What signal travels? Which target can respond? How does the response affect the original variable? This frame exposes missing links and prevents a hormone name from standing in for a full mechanism.",
         "In a feedback graph, time belongs on the horizontal axis. The disturbed variable changes first. The response begins after detection and processing. If the loop is negative feedback, the variable then moves back toward its workable range. A delay or small overshoot does not make the system positive feedback."
       ],

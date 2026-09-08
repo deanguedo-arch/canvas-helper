@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-08T03:08:31.317Z",
+  "schemas": {
+    "b": {
+      "sha256": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+      "originalLimits": {
+        "b-review-seminar-connect": 240,
+        "b-review-seminar-evaluate": 240,
+        "b-review-seminar-revise": 240,
+        "b-investigation-structure-function-final-transfer-revision-v2": 600,
+        "b-investigation-cycle-graphs-final-transfer-revision-v2": 600,
+        "b-investigation-development-evidence-final-transfer-revision-v2": 600
+      }
+    },
+    "c": {
+      "sha256": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+      "originalLimits": {
+        "c-review-seminar-connect": 240,
+        "c-review-seminar-evaluate": 240,
+        "c-review-seminar-revise": 240,
+        "c-investigation-cell-observations-final-transfer-revision-v2": 650,
+        "c-investigation-inheritance-data-final-transfer-revision-v2": 650,
+        "c-investigation-molecular-evidence-final-transfer-revision-v2": 650
+      }
+    },
+    "d": {
+      "sha256": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+      "originalLimits": {
+        "d-review-seminar-connect": 240,
+        "d-review-seminar-evaluate": 240,
+        "d-review-seminar-revise": 240,
+        "d-investigation-gene-pool-final-transfer-revision-v2": 600,
+        "d-investigation-competition-final-transfer-revision-v2": 600,
+        "d-investigation-population-growth-final-transfer-revision-v2": 600
+      }
+    }
+  },
+  "protectedEntries": {
+    "projects/biology30-unit-a/workspace/index.html": "9c74fc7bd4a706db86f439ec68f3dc174483fd2c909ef0aa8f048896c7236979",
+    "projects/biology30-unit-a-pilot/workspace/index.html": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "projects/biology30-unit-a-pilot-2/workspace/index.html": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105"
+  },
+  "changedInputHashes": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json": "26e412ec4e534393037fd0b4eff4fb784c0976889f8a60118bf63590e4986160",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json": "fbad29f80c29e7a0853976a2a6a0a879d8f352080869e56dce663758fd4d33bf"
+  }
+}

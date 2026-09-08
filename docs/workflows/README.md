@@ -28,7 +28,7 @@ If one Brightspace English course must become several profile-specific units, re
 
 If a Social Studies 30-1 related issue must be rebuilt from its shared Brightspace export, read `social-related-issues.md`. It is the source of truth for named source resources, checksum verification, and transactional workspace promotion.
 
-If a new Science course needs to begin without prematurely copying an English or Social pattern, read `science-pilot.md`. It is the source of truth for real-source intake, one-unit pilot planning, and evidence-based red-team / green-team review.
+If a new Science course needs to begin without prematurely copying an English or Social pattern, read `science-pilot.md`. It is the source of truth for real-source intake, one-unit pilot planning, evidence-based red-team / green-team review, two-source five-version comparison pilots, and the Biology 30 Unit A-D production boundaries.
 
 ## Purpose
 

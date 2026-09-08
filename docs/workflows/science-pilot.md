@@ -4,6 +4,31 @@ Use this workflow when starting a Science course that should share Canvas Helper
 
 This starts with one real source-backed unit. It does **not** create a generic Science factory or a full learner course on day one.
 
+## Current Biology 30 continuation — 2026-09-06
+
+**B/C/D restart update:** use the [complete rebuild plan](../plans/biology30-bcd-pilot2-rebuild.md), [new source availability manifest](../../projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json), [handoff checkpoint](../../projects/biology30-unit-a-pilot/meta/bcd-rebuild-handoff-checkpoint.json) and [next-task prompt](../ops/biology30-bcd-next-task-prompt.md). The user chose provisional use of final A, complete B → C → D builds without slice pauses, unit-specific assessment sizing, and provisional scientifically reviewed image choices followed by batch comparisons. This supersedes the earlier wait-for-A-acceptance prerequisite only for starting the separately authorized rebuild; all scientific/source gates and separate final teacher/release decisions remain. No new B/C/D implementation occurred in the handoff cycle. Use the existing local checkout and owning builder, not a clean worktree or copied A HTML.
+
+The newly supplied six PPTX and seven daily-plan originals, both ZIPs and eight textbook members are now checksum-pinned. The older generated readiness report below covers an earlier archive/notes stage; consult the new manifest before calling any supplied material missing. Integrate it into the readiness generator during the future intake implementation, without marking academic clearance or source-disposition completion. Main AI policy is Astra High/Standard; Medium only when actually configured for bounded routine work; Max only after an explicitly approved named escalation.
+
+Start with the [Unit A → B–D playbook's current production recipe](../../projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe). The local checkpoint is `2ad72ec06b104c589f91e4b5afb8d86c322bc168`. The [transfer contract](../../projects/biology30-unit-a-pilot/meta/biology30-improvement-transfer-contract.json) indexes every rule from both pilots; [B–D readiness](../../projects/biology30-unit-a-pilot/meta/bcd-material-readiness.json) identifies existing archive materials and missing intake separately for each unit.
+
+Pilot 2 is authored in `scripts/lib/biology30-unit-a-pilot-2/`; its generated HTML is a review candidate, not a safe direct edit target. The [academic audit](../../projects/biology30-unit-a-pilot-2/meta/final-academic-review.json) distinguishes resolving a selector from proving the relevant skill. Do not reuse the earlier route-only "all passed" claims as academic clearance.
+
+The preceding [practice correction batch](../../projects/biology30-unit-a-pilot-2/meta/academic-corrections.md) and [source review](../../projects/biology30-unit-a-pilot-2/meta/remaining-academic-review.md) remain historical evidence. The current [online-finalization contract](../../projects/biology30-unit-a-pilot-2/meta/online-finalization.json) supplies all fourteen illustrated alternatives, full-caption review with focused segments, five saved identification matrices, real tissue observation and three complete supplied-data investigations. User-confirmed online delivery does not certify physical manipulation or actual collaboration. Preserve the 47 acceptable / five excellence / one local source distinction. All 86 question operations are mapped narrowly; Final Practice retains a transparent 6/3/7/2 versus planned 6/4/6/2 weighting variance. Use [final verification](../../projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json), playbook entry 36 and the [one complete-build clearance checklist](../../projects/biology30-unit-a-pilot-2/meta/final-clearance-review.md). No additional Unit A slice pause is required; a complete exact-build teacher decision remains necessary.
+
+```bash
+npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc
+npx tsx scripts/check-biology30-unit-a-academic-corrections.ts
+npx tsx scripts/review-biology30-unit-a-pilot-2-academic.ts --check
+npm run audit:biology30-improvement-transfer
+npm run audit:biology30-improvement-transfer -- --check
+npm run test:biology30-improvement-transfer
+```
+
+After complete Unit A acceptance and verified unit-specific intake, B–D use **full-unit build, then full review** through `scripts/lib/biology30-course/v1/`. The former B–D intermediate-slice pause is superseded; the historical Unit A gates below are unchanged. No new deployment, commit, push, export, Studio editing or B–D course change is authorized by maintaining these records.
+
+For each future cycle: make and verify the scoped change; append the dated journal; update the ledger; regenerate both transfer records; bind technical and manual evidence to the exact learner hash; update the active handoff. Preserve later journal entries and superseded decisions rather than truncating at an old generated heading.
+
 ## Intake
 
 Supply the real source archives once:
@@ -308,6 +333,13 @@ The exact-head `verify:new-course-readiness` gate runs only after a separately a
 
 ## Biology 30 Units B-D Production V1
 
+### Pilot 2 rebuild preparation (in progress)
+
+The 2026-09-06 saved rebuild is a separately authorized provisional adaptation. `prepare:biology30-course:resources` preserves B/C/D baselines and supplied originals, validates archives, inventories all deck and speaker-note relationships, and normalizes textbook derivatives under `projects/resources/biology30-production/v1/pilot2/`. It never writes learner workspaces. Immutable packet hashes are checked on rerun; `--verify-only` writes nothing. A video metadata response is not a caption, scientific or rights review.
+
+Authored `units/unit-{b,c,d}/pilot2-contract.json` files now define the teacher topic boundaries and required routes. They remain drafts with explicit unresolved academic gates. `verify:biology30-course:topic-contracts` checks their structure; add `-- --pre-render` to require frozen contracts. `build:biology30-course --profile pilot2-topic-sequence-v1 --baseline-workspace-sha <index-sha> --strict` checks drift and refuses incomplete contracts. The new renderer and state migration are not implemented yet. Unknown flags/profiles fail instead of invoking the old renderer. Do not change generated workspaces to bypass this refusal.
+
+
 Units B, C, and D use a separate Biology-specific production family rather than the Unit A pilot builder or a generic Science factory. Their canonical contracts and source records live under `projects/resources/biology30-production/v1/`; they reference the existing checksum-verified Brightspace archives without duplicating them.
 
 Create the family once with:
@@ -435,6 +467,8 @@ npm run validate:manifests
 Use `npm run course:list -- --all` to confirm that a newly intaken Science pilot appears blocked until it has an approved implementation boundary. That is intentional and safer than treating a source archive as permission to generate a course.
 
 ## Collected learner-process views
+
+Biology 30 Pilot2 Unit C opts into `choices-routes-v1` metadata packing. The identity hash covers ordered choice IDs/tokens/values and route IDs; changing that map requires an explicit compatibility path, not repinning old saved data. Existing v3 choice pairs/string routes remain readable; learner text is neither compressed nor truncated. The 44,000 target and 48,000 hard guard remain unchanged. Run `scripts/tests/biology30-c-indexed-state.test.ts` plus the shared state and bounded browser tests when changing this boundary. B/D retain their previous encoding.
 
 When a Science pilot gathers lesson exits, reflections, investigation notes, or artifacts into one learner-facing collection, preserve one canonical state owner for every response. A collection should normally derive its display from existing stable response and completion records rather than serializing a second copy. Keep manual notes separately removable, deep-link collected work back to its original editable location, and verify reload restoration, deletion isolation, print/export output, persistence size, keyboard focus, and responsive layout. Generated Biology units must add this behavior through their owning production records and renderer; a direct-authored pilot workspace is evidence for the pattern, not a template to paste into generated courses.
 

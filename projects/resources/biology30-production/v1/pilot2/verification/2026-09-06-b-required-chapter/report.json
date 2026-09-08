@@ -1,0 +1,59 @@
+{
+  "stage": 67,
+  "status": "B-three-required-chapter-operations-repaired",
+  "teacherDecision": null,
+  "focusedTests": 53,
+  "draftContracts": "passed",
+  "reading": "passed",
+  "protection": "passed",
+  "typecheck": {
+    "exitCode": 2,
+    "unrelatedDiagnostics": 25,
+    "ownedDiagnostics": 0
+  },
+  "ordinaryMaximumStateCharacters": {
+    "B": 32498,
+    "C": 40269,
+    "D": 26164
+  },
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "sourceReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json",
+  "counts": {
+    "B": {
+      "total": 65,
+      "multipleChoice": 39,
+      "written": 26
+    },
+    "allUnits": {
+      "total": 249,
+      "multipleChoice": 168,
+      "written": 81
+    }
+  },
+  "remainingEmptyPracticeLinks": {
+    "B": 0,
+    "C": 11,
+    "D": 0
+  },
+  "initialFailures": [
+    "Cross-topic cleavage/gastrulation references were incorrectly classified as primary teaching parts; corrected to prerequisites without changing the exact reviewed passage inventory.",
+    "Three negative tests assumed item0 was multiple-choice. They now target the actual relevant item type or mutate the constructed guide; rejection assertions retained."
+  ],
+  "logSha256": {
+    "tests-initial-mapping-failure.log": "fb65ed3d52b4e5e857e6bb4d33940b19fff5ed36ba1c5e306b59afa7d1c23e5a",
+    "reading.log": "5e867824277ccdbe03e796cb5f3d1d9d9fc56664773759f1dbc2f2ca29b1676f",
+    "contracts.log": "e4dc4e8133656296b48a6ed211c46d4ab5bcfa12a7b89cec35cf95f057cebe5d",
+    "state.log": "ee262ec565aa1cc453084d20125848497eda7d7e0973f66de925a1f05eed1883",
+    "typecheck.log": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544",
+    "activities.log": "4d2c9b7e10dafbb44cfe4c04fa28590a1e718bc9dd5afe4a58892c5fe08d4efe",
+    "protection.log": "7df8432c5fc4f0a47e13a2e8120ee132063e80e92f4f2655bd08ffe403351659",
+    "tests.log": "79ccc44e6d879453c16356bdb54aea410444ace82a2371ffebdfd3ae9049f399",
+    "tests-type-assumption-failures.log": "7333d66ec7c56517f52a8f991b382dc25571f17b98dd487010a745e2e90ea017"
+  },
+  "changedTestSha256": {
+    "scripts/tests/biology30-pilot2-learning.test.ts": "cd386c3ac45f211480aa157a5193541e1327141539f70756e63071809c6991c3",
+    "scripts/tests/biology30-pilot2-practice-review.test.ts": "e6c8fb932bf7decf1669cda61a635ebe3c12911ea1caa653e5a2141e97181494",
+    "scripts/tests/biology30-topic-contract.test.ts": "e164c9b09be5736605ec2c70bf757979184db6dcf09ef8bcbdcf19e3103a9773"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "projectSlug": "biology30-unit-d",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Hardy–Weinberg"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "d-topic-hardy-weinberg",
+      "d-topic-mechanisms-of-change",
+      "d-chapter-19-practice",
+      "d-topic-population-growth",
+      "d-topic-life-strategies-and-ecological-relationships",
+      "d-chapter-20-practice",
+      "d-review-seminar",
+      "d-final-practice",
+      "d-core-vocabulary",
+      "d-glossary",
+      "d-models",
+      "d-investigations",
+      "d-all-my-work",
+      "d-advanced",
+      "d-video-library",
+      "d-textbook",
+      "d-notes",
+      "d-diploma-challenge"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "resourceChecks": [],
+    "evidenceScenario": {
+      "kind": "pilot2",
+      "route": "d-topic-hardy-weinberg",
+      "responseId": "d-topic-hardy-weinberg-evidence",
+      "collectionFlag": "d-topic-hardy-weinberg-evidence-collected",
+      "collectionRoute": "d-all-my-work"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "d-topic-hardy-weinberg",
+        "d-topic-mechanisms-of-change",
+        "d-chapter-19-practice",
+        "d-topic-population-growth",
+        "d-topic-life-strategies-and-ecological-relationships",
+        "d-chapter-20-practice",
+        "d-review-seminar",
+        "d-final-practice",
+        "d-all-my-work"
+      ]
+    }
+  }
+}

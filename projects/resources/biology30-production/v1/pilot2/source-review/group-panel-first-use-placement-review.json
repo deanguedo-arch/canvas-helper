@@ -1,0 +1,632 @@
+{
+  "stage": "91b",
+  "status": "reviewed earlier figure and optional-explanation uses; placements repaired",
+  "teacherAcceptance": null,
+  "scope": "Extends prior required-passage semantic review to new figure alt/captions/equivalents/SVG labels and optional Advanced paragraphs, alongside core/worked/check passages. Scanned whole phrases plus regular plural forms. Context decisions reviewed separately; this is not a claim of a universal natural-language detector or rendered verification.",
+  "units": {
+    "B": {
+      "moves": [],
+      "senseExceptions": [
+        {
+          "termId": "b-term-follicle",
+          "term": "follicle",
+          "partId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "surface": "core",
+          "definedAt": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+          "context": "l stimulates the anterior pituitary gland to release FSH and LH. FSH means follicle-stimulating hormone, and LH means luteinizing hormone. Their names reflect ovarian functions, but both also act in the testicular",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "A word embedded in the expanded name follicle-stimulating hormone, not an unexplained ovarian structure claim."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-male-reproductive-structures-the-transport-pathway",
+          "surface": "core",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "orts maturation and storage, and the remaining ducts support transport and delivery. Accessory secretions join along the route. Urine and semen use part of the same urethral passage at different times. The transpo",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-male-reproductive-structures-the-transport-pathway",
+          "surface": "worked",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "ples. Follow testosterone through blood vessels separately from this duct. Delivery through the affected duct is reduced, although production upstream and hormone release may persist. A unilateral obstruction does",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+          "surface": "core",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "andular fluid but no sperm. This observation shows that some secretory and delivery functions occurred. It leaves at least two broad possibilities: sperm production was reduced, or sperm did not reach the sampled ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+          "surface": "worked",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "tribution and sperm development to testicular tubules. Keep production and delivery failures as alternatives until another observation distinguishes them. The seminal vesicles contribute fluid; they do not produce",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+          "surface": "figure",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "sample containing fluid without observed sperm supports some secretion and delivery but cannot distinguish reduced sperm production from impaired sperm transport. Trace separate contributions to semen Four rows di",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "surface": "core",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "servations despite a blocked passage, challenging the claim that every low-delivery result means low production. State a further discriminating observation and revise your explanation. This digital task provides e",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "surface": "worked",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "upted support and an open duct. Compare two explanations for reduced sperm delivery. Record each supplied observation without replacing absent with unmeasured. For T, connect the blockage with delivery despite evi",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "surface": "advanced",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "ion changes the causal claim, not merely its confidence word. Replace “low delivery means blockage” with “low delivery can result from production, maturation or transport changes.” Then identify which observations",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "surface": "figure",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "rvations distinguish support/production from transport hypotheses. Reduced delivery is a possible consequence to investigate, not an additional measured row. The values match b-model-signal-pathway outputs, includ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        },
+        {
+          "termId": "b-term-delivery",
+          "term": "delivery",
+          "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+          "surface": "figure",
+          "definedAt": "b-topic-parturition-labour-and-positive-feedback",
+          "context": "derstand the information? Environmental: what materials and resources does delivery require? Ethical: how are privacy and informed choice protected? Economic: what does each format cost, and who bears that cost? A",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary transport/provision, not the later-defined birth stage."
+        }
+      ],
+      "definitionTextUnchanged": true,
+      "coreParagraphsUnchanged": true,
+      "practiceKeysAndResponseIdsUnchanged": true,
+      "beforeSha256": {
+        "vocabulary": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "content": "1a80a22c334c3f3b04f984fb97ed7fe158a2bb0368bd1959e14663ec98c8c57d",
+        "first-use-decisions": "617beec572c409bfb84b2fe2baed9cfa3e07c4e11a2cdb20eed9535d2d4649fd"
+      },
+      "afterSha256": {
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "1a80a22c334c3f3b04f984fb97ed7fe158a2bb0368bd1959e14663ec98c8c57d",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-decisions.json": "85c5baca76313fd73d7e4a3406cc58d335faea8bb321a7e21412524204377783"
+      }
+    },
+    "C": {
+      "moves": [
+        {
+          "termId": "c-term-punnett-square",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+          "target": "c-topic-mendelian-genetics-segregation",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-punnett-square",
+              "term": "Punnett square",
+              "partId": "c-topic-mendelian-genetics-segregation",
+              "surface": "figure",
+              "definedAt": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+              "context": "bilities Derive the gametes before combining offspring probabilities. A2×2 Punnett square combines A or a from each Aa parent, each gamete with probability one-half. Four equally weighted cells are AA,Aa,aA,aa, each one"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-proofreading",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-dna-replication-replication-evidence",
+          "target": "c-topic-dna-replication-enzymes-and-direction",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-proofreading",
+              "term": "proofreading",
+              "partId": "c-topic-dna-replication-enzymes-and-direction",
+              "surface": "figure",
+              "definedAt": "c-topic-dna-replication-replication-evidence",
+              "context": "rts, completed fragments with unsealed junctions, and more mismatches in a proofreading-deficient model. They suggest different hypotheses about initiation, joining or accuracy but require controls for alternative pol"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-initiation",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-dna-replication-leading-and-lagging-synthesis",
+          "target": "c-topic-dna-replication-enzymes-and-direction",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-initiation",
+              "term": "initiation",
+              "partId": "c-topic-dna-replication-enzymes-and-direction",
+              "surface": "figure",
+              "definedAt": "c-topic-dna-replication-leading-and-lagging-synthesis",
+              "context": "in a proofreading-deficient model. They suggest different hypotheses about initiation, joining or accuracy but require controls for alternative polymerase, substrate and assay problems. Ligase requires suitable adja"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-folding",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-translation-adaptors-and-peptide-bonds",
+          "target": "c-topic-translation-reading-the-genetic-code",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-folding",
+              "term": "folding",
+              "partId": "c-topic-translation-reading-the-genetic-code",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-adaptors-and-peptide-bonds",
+              "context": "p amino acid. The diagram distinguishes immediate sequence prediction from folding, processing, protein amount, activity and cellular phenotype. An amino-acid change can have varied effects depending on context, "
+            }
+          ]
+        },
+        {
+          "termId": "c-term-protein-function",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-translation-from-sequence-to-function",
+          "target": "c-topic-dna-replication-enzymes-and-direction",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-protein-function",
+              "term": "protein function",
+              "partId": "c-topic-dna-replication-enzymes-and-direction",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-from-sequence-to-function",
+              "context": "r and later copying still matter. A mismatch count alone does not identify protein function or an organism-level phenotype. Compare reference and altered conditions with the same method; identify the measured intermediate"
+            },
+            {
+              "termId": "c-term-protein-function",
+              "term": "protein function",
+              "partId": "c-topic-dna-replication-replication-evidence",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-from-sequence-to-function",
+              "context": "r and later copying still matter. A mismatch count alone does not identify protein function or an organism-level phenotype. Compare reference and altered conditions with the same method; identify the measured intermediate"
+            },
+            {
+              "termId": "c-term-protein-function",
+              "term": "protein function",
+              "partId": "c-topic-translation-reading-the-genetic-code",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-from-sequence-to-function",
+              "context": "own. Do not translate beyond the stop in this reading frame or infer whole-protein function from this fragment. Use an mRNA codon table with explicit orientation. A complete64-codon standard RNA lookup is arranged by firs"
+            },
+            {
+              "termId": "c-term-protein-function",
+              "term": "protein function",
+              "partId": "c-topic-translation-initiation-to-termination",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-from-sequence-to-function",
+              "context": "own. Do not translate beyond the stop in this reading frame or infer whole-protein function from this fragment. Sequence the translation cycle without assigning an amino acid to stop. The mRNA codon5′-GAA-3′ aligns antipa"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-missense",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-translation-from-sequence-to-function",
+          "target": "c-topic-translation-reading-the-genetic-code",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-missense",
+              "term": "missense",
+              "partId": "c-topic-translation-reading-the-genetic-code",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-from-sequence-to-function",
+              "context": "ffect are separate inference steps. Compare protein amount and function; a missense change is not automatically harmful. Abundant RNA with low protein can reflect slow translation or fast breakdown. Do not transla"
+            },
+            {
+              "termId": "c-term-missense",
+              "term": "missense",
+              "partId": "c-topic-translation-initiation-to-termination",
+              "surface": "figure",
+              "definedAt": "c-topic-translation-from-sequence-to-function",
+              "context": "ffect are separate inference steps. Compare protein amount and function; a missense change is not automatically harmful. Abundant RNA with low protein can reflect slow translation or fast breakdown. Do not transla"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-mutagen",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-mutations-evaluating-mutation-evidence",
+          "target": "c-topic-mutations-effects-on-gene-products",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-mutagen",
+              "term": "mutagen",
+              "partId": "c-topic-mutations-effects-on-gene-products",
+              "surface": "figure",
+              "definedAt": "c-topic-mutations-evaluating-mutation-evidence",
+              "context": "ant is a research lead,not unique causal proof or an individual diagnosis. Mutagen comparisons must specify dose,route,duration,system and detection method. No empirical counts,exposure results or treatment concl"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-dose",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-mutations-evaluating-mutation-evidence",
+          "target": "c-topic-mutations-effects-on-gene-products",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-dose",
+              "term": "dose",
+              "partId": "c-topic-mutations-effects-on-gene-products",
+              "surface": "figure",
+              "definedAt": "c-topic-mutations-evaluating-mutation-evidence",
+              "context": " causal proof or an individual diagnosis. Mutagen comparisons must specify dose,route,duration,system and detection method. No empirical counts,exposure results or treatment conclusion are fabricated. Match th"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-nuclear-dna",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-reproductive-strategies-evidence-and-applications",
+          "target": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-nuclear-dna",
+              "term": "nuclear DNA",
+              "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+              "surface": "figure",
+              "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+              "context": "A separate qualification states that in somatic-cell nuclear transfer most nuclear DNA follows the transferred nucleus while most mitochondrial DNA follows the oocyte cytoplasm, and an early embryo is not evidence of"
+            }
+          ]
+        },
+        {
+          "termId": "c-term-mitochondrial-dna",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-reproductive-strategies-evidence-and-applications",
+          "target": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-mitochondrial-dna",
+              "term": "mitochondrial DNA",
+              "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+              "surface": "figure",
+              "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+              "context": "clear transfer most nuclear DNA follows the transferred nucleus while most mitochondrial DNA follows the oocyte cytoplasm, and an early embryo is not evidence of identical traits, adult success or successful conservation. "
+            }
+          ]
+        },
+        {
+          "termId": "c-term-somatic-cell-nuclear-transfer",
+          "action": "introduce-before-earlier-figure-or-advanced-use",
+          "previousTarget": "c-topic-reproductive-strategies-evidence-and-applications",
+          "target": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "reason": "Exact reviewed definition moved before its earlier biological/evidence-method use; definition wording and later full mechanism teaching unchanged.",
+          "reviewedOccurrences": [
+            {
+              "termId": "c-term-somatic-cell-nuclear-transfer",
+              "term": "somatic-cell nuclear transfer",
+              "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+              "surface": "figure",
+              "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+              "context": " can revise an initial preference. A separate qualification states that in somatic-cell nuclear transfer most nuclear DNA follows the transferred nucleus while most mitochondrial DNA follows the oocyte cytoplasm, and an early embryo i"
+            }
+          ]
+        }
+      ],
+      "senseExceptions": [
+        {
+          "termId": "c-term-dominant",
+          "term": "dominant",
+          "partId": "c-topic-reproductive-strategies-life-cycle-transitions",
+          "surface": "worked",
+          "definedAt": "c-topic-genes-alleles-and-traits-inheritance-language",
+          "context": "these broad transitions with much reduced gametophytes associated with the dominant sporophyte. Meiosis changes 2n to n, fertilization changes n to 2n, and intervening mitosis preserves the current set number. Pla",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Predominant life-cycle stage, not Mendelian allele dominance."
+        },
+        {
+          "termId": "c-term-dominant",
+          "term": "dominant",
+          "partId": "c-topic-reproductive-strategies-life-cycle-transitions",
+          "surface": "advanced",
+          "definedAt": "c-topic-genes-alleles-and-traits-inheritance-language",
+          "context": "eing imposed unchanged on plants. Compare three arrangements. In a diploid-dominant animal cycle, meiosis leads to gametes and fertilization restores two sets. In a haploid-dominant cycle, the zygote undergoes mei",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Predominant life-cycle stage, not Mendelian allele dominance."
+        },
+        {
+          "termId": "c-term-affected",
+          "term": "affected",
+          "partId": "c-topic-chromosomes-and-dna-reading-karyotypes",
+          "surface": "advanced",
+          "definedAt": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+          "context": " being sought. Consent, privacy, disability perspectives and the wishes of affected people matter when communicating uncertainty. Follow a person’s or community’s preferred language. Chromosomes do not reveal pers",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary changed/involved, not the later-defined pedigree phenotype label."
+        },
+        {
+          "termId": "c-term-affected",
+          "term": "affected",
+          "partId": "c-topic-meiosis-part-b-nondisjunction",
+          "surface": "worked",
+          "definedAt": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+          "context": " n+1 and one n−1. The distribution differs by timing: all four gametes are affected in the simple meiosis-I case, while two remain normal in the specified meiosis-II case.",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary changed/involved, not the later-defined pedigree phenotype label."
+        },
+        {
+          "termId": "c-term-affected",
+          "term": "affected",
+          "partId": "c-topic-meiosis-part-b-nondisjunction",
+          "surface": "advanced",
+          "definedAt": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+          "context": "A memorized percentage can fail when the starting case changes. Draw the affected pair and follow each product to the end before counting outcomes. State whether the error affects one division, one pair and one ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary changed/involved, not the later-defined pedigree phenotype label."
+        },
+        {
+          "termId": "c-term-direction",
+          "term": "direction",
+          "partId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+          "surface": "core",
+          "definedAt": "c-topic-dna-and-its-history-nucleotides-and-direction",
+          "context": " contributes each phenotype. Comparing reciprocal results can test whether direction of inheritance matters. Record the actual sample sizes and observations before stating a rule. Agreement with an expected ratio s",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary orientation/comparison, not the later-defined nucleic-acid 5-prime/3-prime convention."
+        },
+        {
+          "termId": "c-term-direction",
+          "term": "direction",
+          "partId": "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+          "surface": "core",
+          "definedAt": "c-topic-dna-and-its-history-nucleotides-and-direction",
+          "context": "imple additive model, more contributing alleles can shift the trait in one direction. Real effects may be unequal or interact. Gene count alone therefore does not fix an exact phenotype. Conditions can also widen o",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary orientation/comparison, not the later-defined nucleic-acid 5-prime/3-prime convention."
+        },
+        {
+          "termId": "c-term-direction",
+          "term": "direction",
+          "partId": "c-topic-chromosome-mapping-recombination-frequency",
+          "surface": "advanced",
+          "definedAt": "c-topic-dna-and-its-history-nucleotides-and-direction",
+          "context": "observations and denominators available beside a calculation. Describe the direction and size of any departure and compare plausible biological alternatives. A statistical difference does not by itself establish a ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary orientation/comparison, not the later-defined nucleic-acid 5-prime/3-prime convention."
+        },
+        {
+          "termId": "c-term-direction",
+          "term": "direction",
+          "partId": "c-topic-chromosome-mapping-gene-order",
+          "surface": "worked",
+          "definedAt": "c-topic-dna-and-its-history-nucleotides-and-direction",
+          "context": ". A—14—B—6—C is compatible, as is its reverse. The arbitrary left-to-right direction is not a distinct biological result.",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary orientation/comparison, not the later-defined nucleic-acid 5-prime/3-prime convention."
+        },
+        {
+          "termId": "c-term-selection",
+          "term": "selection",
+          "partId": "c-topic-the-cell-cycle-measuring-cell-populations",
+          "surface": "core",
+          "definedAt": "c-topic-mutations-inheritance-and-variation",
+          "context": "ld of dividing cells can also bias the estimate. Plan representative image selection, state classification rules and record uncertain cases. Compare repeated fields before treating a single count as a characteristi",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Choosing an image/nucleotide, not reproductive selection."
+        },
+        {
+          "termId": "c-term-selection",
+          "term": "selection",
+          "partId": "c-topic-the-cell-cycle-measuring-cell-populations",
+          "surface": "figure",
+          "definedAt": "c-topic-mutations-inheritance-and-variation",
+          "context": "at estimate is not direct timing. Checkpoints, cell death and biased image selection can distort it. Retain uncertain classifications and compare multiple fields before generalizing.   ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Choosing an image/nucleotide, not reproductive selection."
+        },
+        {
+          "termId": "c-term-selection",
+          "term": "selection",
+          "partId": "c-topic-dna-replication-enzymes-and-direction",
+          "surface": "advanced",
+          "definedAt": "c-topic-mutations-inheritance-and-variation",
+          "context": "hemical end from which DNA polymerase can extend. Complementary nucleotide selection and enzyme shape support copying accuracy. Primer production, DNA extension and later RNA replacement are separate actions. Polym",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Choosing an image/nucleotide, not reproductive selection."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-chromosomes-and-dna-dna-packaging",
+          "surface": "core",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "d separated accurately. Packaging helps organize this task, while proteins control access and movement. When reading a diagram, distinguish a chromosome from a short gene region marked on it. A visible band or co",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "surface": "core",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "heckpoint is not a separate organelle visible in every cell image. It is a control process involving interacting molecules. Under suitable conditions, the cell progresses; detected problems can delay a transition",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "surface": "worked",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "sibility of abnormal outcomes from an inevitable final disease. Failure of control can allow damaging changes to persist or spread through a lineage. The outcome depends on the change, repair, later controls and ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "surface": "stop",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "Does one checkpoint failure prove that all later control mechanisms are absent? No. Different controls can act at different stages. Evidence about one failed response does not establish ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "surface": "advanced",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "Cell-cycle control involves several conditions, including DNA integrity, replication status and chromosome attachment. These conditions are checked ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "surface": "figure",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "ish a delayed transition from faster cell production. A simplified ordered control map considers growth and DNA integrity before replication, replicated material before mitosis, and chromosome attachment/tension ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-control",
+          "term": "control",
+          "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "surface": "figure",
+          "definedAt": "c-topic-reproductive-strategies-evidence-and-applications",
+          "context": "ted groups Same measured interval Replicated groups Same measured interval Control starting size, care and sampling. Record survival and growth separately from variation. No outcomes are supplied here: the design",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Ordinary regulation, not the later-defined experimental comparison condition."
+        },
+        {
+          "termId": "c-term-ladder",
+          "term": "ladder",
+          "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "surface": "advanced",
+          "definedAt": "c-topic-genetic-technologies-amplifying-and-separating",
+          "context": "ual and asexual strategies have different trade-offs rather than forming a ladder of progress.",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Metaphor about progress, not a DNA fragment size reference."
+        }
+      ],
+      "definitionTextUnchanged": true,
+      "coreParagraphsUnchanged": true,
+      "practiceKeysAndResponseIdsUnchanged": true,
+      "beforeSha256": {
+        "vocabulary": "69b3a8843b6dd3e94a9051b674eaeb3fed788c65a09d4842d3366dfd80a87904",
+        "content": "b5a81ed81e41edc48e41eb97fd45e1189cb06349d2e46ea35a1990bda96b0b1e",
+        "first-use-decisions": "8baaf3e8df9b20cae98d2c40044e69ac7147c4961db368b0704b3b1e79c4d42c"
+      },
+      "afterSha256": {
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json": "41bf58014ec2ca03897ed9f5e9be4f2d135ee6533ad5bf1783ae238bbcef2541"
+      }
+    },
+    "D": {
+      "moves": [],
+      "senseExceptions": [
+        {
+          "termId": "d-term-distribution",
+          "term": "distribution",
+          "partId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "surface": "advanced",
+          "definedAt": "d-topic-population-growth-size-and-density",
+          "context": "ean useful, and common does not mean superior. Selection can shift a trait distribution in one direction, favour intermediate values, or favour separated extremes; these are directional, stabilizing and disruptive pat",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Trait/allele/sampling distribution, not the later-defined spatial arrangement of organisms."
+        },
+        {
+          "termId": "d-term-distribution",
+          "term": "distribution",
+          "partId": "d-topic-mechanisms-of-change-chance-and-population-size",
+          "surface": "advanced",
+          "definedAt": "d-topic-population-growth-size-and-density",
+          "context": "regain its former size after a bottleneck while retaining a changed allele distribution. Growth copies the variants that remain; it does not automatically reconstruct those lost by chance. Mutation or migration may la",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Trait/allele/sampling distribution, not the later-defined spatial arrangement of organisms."
+        },
+        {
+          "termId": "d-term-distribution",
+          "term": "distribution",
+          "partId": "d-topic-mechanisms-of-change-chance-and-population-size",
+          "surface": "figure",
+          "definedAt": "d-topic-population-growth-size-and-density",
+          "context": "ng in small populations; three chosen points do not establish the sampling distribution. Drift can still occur in large finite populations. A founder event establishes a new population through colonists; a bottleneck ",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Trait/allele/sampling distribution, not the later-defined spatial arrangement of organisms."
+        },
+        {
+          "termId": "d-term-behaviour",
+          "term": "behaviour",
+          "partId": "d-topic-population-growth-exponential-and-logistic-models",
+          "surface": "stop",
+          "definedAt": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "context": "e a smooth S-shaped curve for every possible r and starting value? No. Its behaviour depends on parameter values and step size. The classroom curve uses a bounded illustrative parameter choice.",
+          "decision": "different sense / embedded hormone name; no definition relocation",
+          "reason": "Mathematical recurrence behaviour, not organism actions."
+        }
+      ],
+      "definitionTextUnchanged": true,
+      "coreParagraphsUnchanged": true,
+      "practiceKeysAndResponseIdsUnchanged": true,
+      "beforeSha256": {
+        "vocabulary": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "content": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "first-use-decisions": "bd2085e2a86e53fd34dbf4ab67eb22257209700609b5aa4179e421d6f3eb9bd9"
+      },
+      "afterSha256": {
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json": "5dcbe7e3de2a07ee787378ee5ffa0022ebafdc86ac59f244ccedee99138ab11d"
+      }
+    }
+  }
+}

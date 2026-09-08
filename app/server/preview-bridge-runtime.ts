@@ -1487,7 +1487,12 @@ export function buildPreviewBridgeRuntime(
 
   function updateReviewComposerState() {
     if (reviewSelectionText) reviewSelectionText.textContent = reviewSelectionExcerpt(reviewSelection);
-    var sharedMutationPending = reviewCopyPending || reviewState.copying || reviewState.saving;
+    // A screenshot attached to a saved annotation is persisted by Studio as a
+    // transaction too.  Do not leave the new-annotation controls live while
+    // that transaction is running: Studio must reject a competing save/remove
+    // to preserve screenshot ownership, which used to make the controls feel
+    // as though they had randomly stopped working in Full Preview.
+    var sharedMutationPending = reviewCopyPending || reviewState.copying || reviewState.saving || reviewCapturePending || Boolean(reviewState.captureItemId);
     if (reviewDraft) reviewDraft.disabled = !reviewSelection || sharedMutationPending;
     if (reviewCapture) {
       reviewCapture.disabled = sharedMutationPending || !studioConnected || (!reviewCapturePending && (!reviewSelection || !reviewSelection.nodeId || reviewState.draftScreenshotCount >= MAX_REVIEW_SCREENSHOTS));
@@ -1527,7 +1532,10 @@ export function buildPreviewBridgeRuntime(
         reviewItems.appendChild(empty);
       }
       reviewState.items.forEach(function(item, index) {
-        var itemEditLocked = reviewCopyPending || reviewState.copying || reviewState.saving || item.handoffState === "sent" || item.handoffState === "accepted";
+        // Keep the active item's capture button available as Cancel capture,
+        // but lock every destructive/editing action until that capture has
+        // either committed or been canceled.
+        var itemEditLocked = reviewCopyPending || reviewState.copying || reviewState.saving || Boolean(reviewState.captureItemId) || reviewCapturePending || item.handoffState === "sent" || item.handoffState === "accepted";
         var row = document.createElement("div");
         row.setAttribute("data-canvas-helper-preview-review-item", "true");
         row.style.padding = "10px 0";
@@ -1736,7 +1744,9 @@ export function buildPreviewBridgeRuntime(
         addScreenshot.style.marginTop = "7px";
         addScreenshot.style.padding = "5px 7px";
         addScreenshot.style.fontSize = "11px";
-        addScreenshot.disabled = itemEditLocked || !studioConnected || (reviewState.captureItemId !== item.id && (reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS));
+        addScreenshot.disabled = !studioConnected || (reviewState.captureItemId === item.id
+          ? false
+          : itemEditLocked || reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS);
         addScreenshot.style.opacity = addScreenshot.disabled ? "0.48" : "1";
         addScreenshot.addEventListener("click", function() {
           if (reviewState.captureItemId === item.id) {

@@ -1,0 +1,591 @@
+{
+  "unit": "D",
+  "status": "draft",
+  "investigations": [
+    {
+      "id": "d-investigation-gene-pool",
+      "title": "Compare a changing gene pool",
+      "generalOutcome": 1,
+      "question": "Can a change in allele frequency identify its cause without additional evidence?",
+      "sourceKind": "synthetic genotype counts in a diploid model population",
+      "variables": {
+        "compare": "three observations of one model population",
+        "observe": "AA, Aa, aa and allele frequency",
+        "holdConstant": "locus, diploid counting rule and classification method"
+      },
+      "dataset": {
+        "columns": [
+          "Observation",
+          "AA",
+          "Aa",
+          "aa"
+        ],
+        "rows": [
+          [
+            "Initial",
+            36,
+            48,
+            16
+          ],
+          [
+            "After movement",
+            45,
+            45,
+            10
+          ],
+          [
+            "Later sample",
+            42,
+            46,
+            12
+          ]
+        ]
+      },
+      "prediction": "Predict what observation would support immigration rather than selective survival as the main explanation.",
+      "procedure": [
+        "Compute N and the A-copy count 2AA+Aa at each observation, then divide by 2N.",
+        "Calculate expected genotype frequencies from each observed p and q under equilibrium assumptions; distinguish expectations from observations.",
+        "Compare the time series. Record what is missing about movement, births, deaths and sampling.",
+        "Propose one controlled simulation comparison and one field observation that could distinguish explanations; revise a claim that changing p proves selection."
+      ],
+      "expected": "N=100 each time; p is 0.60,0.675,0.65 and q is 0.40,0.325,0.35. Initial expected frequencies are 0.36,0.48,0.16. Counts alone cannot distinguish movement, selection and sampling. The labelled movement observation is a model condition, not a conclusion proved by the genotype counts. Later equilibrium expected AA/Aa/aa frequencies are 0.455625/0.43875/0.105625 and 0.4225/0.455/0.1225; multiply each by 100 for expected counts. These expectations are conditional, not the observed counts.",
+      "limitations": [
+        "Population counts are synthetic and no unique causal inference follows from frequency change alone.",
+        "Equilibrium genotype proportions at one time do not prove all assumptions."
+      ],
+      "saveFields": [
+        "question and competing causes",
+        "allele calculations and expected frequencies",
+        "time-series comparison",
+        "additional evidence and revised claim"
+      ],
+      "coreSkillTopicId": "d-topic-mechanisms-of-change",
+      "coreSkillPartId": "d-topic-mechanisms-of-change-testing-explanations",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "D1.1s",
+        "D1.2s",
+        "D1.3s",
+        "D1.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "responseFields": [
+        {
+          "id": "d-investigation-gene-pool-plan",
+          "label": "question and competing causes",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Does changing p prove selection? Predict immigration evidence includes arrivals and their breeding alleles. Compare repeated models with/without movement.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-gene-pool-observations",
+          "label": "allele calculations and expected frequencies",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "N100 each;p=.60,.675,.65;q=.40,.325,.35. Expected AA/Aa/aa:.36/.48/.16;.455625/.43875/.105625;.4225/.455/.1225.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-gene-pool-explanation",
+          "label": "time-series comparison",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "Frequency rises then falls. Expected genotype proportions use equilibrium assumptions, not observations. Counts alone cannot separate movement, selection or sampling.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-gene-pool-revision",
+          "label": "additional evidence and revised claim",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "Revise selection-only claim. Record arrivals, breeding success, births/deaths and random sample design; compare replicate controlled simulations.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "d-investigation-gene-pool",
+            "title": "Compare a changing gene pool",
+            "generalOutcome": 1,
+            "question": "Can a change in allele frequency identify its cause without additional evidence?",
+            "sourceKind": "synthetic genotype counts in a diploid model population",
+            "variables": {
+              "compare": "three observations of one model population",
+              "observe": "AA, Aa, aa and allele frequency",
+              "holdConstant": "locus, diploid counting rule and classification method"
+            },
+            "dataset": {
+              "columns": [
+                "Observation",
+                "AA",
+                "Aa",
+                "aa"
+              ],
+              "rows": [
+                [
+                  "Initial",
+                  36,
+                  48,
+                  16
+                ],
+                [
+                  "After movement",
+                  45,
+                  45,
+                  10
+                ],
+                [
+                  "Later sample",
+                  42,
+                  46,
+                  12
+                ]
+              ]
+            },
+            "prediction": "Predict what observation would support immigration rather than selective survival as the main explanation.",
+            "procedure": [
+              "Compute N and the A-copy count 2AA+Aa at each observation, then divide by 2N.",
+              "Calculate expected genotype frequencies from each observed p and q under equilibrium assumptions; distinguish expectations from observations.",
+              "Compare the time series. Record what is missing about movement, births, deaths and sampling.",
+              "Propose one controlled simulation comparison and one field observation that could distinguish explanations; revise a claim that changing p proves selection."
+            ],
+            "expected": "N=100 each time; p is 0.60,0.675,0.65 and q is 0.40,0.325,0.35. Initial expected frequencies are 0.36,0.48,0.16. Counts alone cannot distinguish movement, selection and sampling. The labelled movement observation is a model condition, not a conclusion proved by the genotype counts.",
+            "limitations": [
+              "Population counts are synthetic and no unique causal inference follows from frequency change alone.",
+              "Equilibrium genotype proportions at one time do not prove all assumptions."
+            ],
+            "saveFields": [
+              "question and competing causes",
+              "allele calculations and expected frequencies",
+              "time-series comparison",
+              "additional evidence and revised claim"
+            ],
+            "coreSkillTopicId": "d-topic-mechanisms-of-change",
+            "coreSkillPartId": "d-topic-mechanisms-of-change-testing-explanations",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "D1.1s",
+              "D1.2s",
+              "D1.3s",
+              "D1.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": []
+    },
+    {
+      "id": "d-investigation-competition",
+      "title": "Separate within-species and between-species effects",
+      "generalOutcome": 2,
+      "question": "How does the identity of nearby plants affect growth when total starting density is controlled?",
+      "sourceKind": "synthetic plant microcosm data; units are dry mass per focal plant",
+      "variables": {
+        "compare": "neighbour identity and total initial density",
+        "observe": "mean dry mass per focal A plant after 30 days",
+        "holdConstant": "pot size, light, water, soil, measurement time"
+      },
+      "dataset": {
+        "columns": [
+          "Group",
+          "A plants",
+          "B plants",
+          "Replicate 1 mass (g/A)",
+          "Replicate 2 mass (g/A)"
+        ],
+        "rows": [
+          [
+            "Low-density A",
+            5,
+            0,
+            4.1,
+            3.9
+          ],
+          [
+            "High-density A",
+            10,
+            0,
+            2.9,
+            3.1
+          ],
+          [
+            "Mixed",
+            5,
+            5,
+            2.3,
+            2.5
+          ]
+        ]
+      },
+      "prediction": "Predict which comparison estimates a density effect and which comparison changes neighbour identity at the same total density.",
+      "procedure": [
+        "Identify focal A, the response unit, the comparison groups and one possible confounder.",
+        "Calculate replicate means. Compare 5 A with 10 A for a within-species density effect.",
+        "Compare 10 A with 5 A+5 B at the same total density; note that focal A density also differs, limiting isolation of a single mechanism.",
+        "Propose an additional density-series design and explain why reduced mass alone does not identify which resource was limiting."
+      ],
+      "expected": "Means are 4.0,3.0,2.4 g per A plant. More A neighbours are associated with lower mean mass. Mixed pots have still lower focal A mass at the same total density, consistent with a neighbour-identity effect; resource measurements and more treatment combinations would be needed to establish a mechanism.",
+      "limitations": [
+        "Two synthetic replicates illustrate comparison logic, not statistical significance.",
+        "The endpoint is plant mass rather than population growth rate."
+      ],
+      "saveFields": [
+        "question and controlled comparison",
+        "means and units",
+        "within/between-species interpretation",
+        "confounder and improved design"
+      ],
+      "coreSkillTopicId": "d-topic-life-strategies-and-ecological-relationships",
+      "coreSkillPartId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "D2.1s",
+        "D2.2s",
+        "D2.3s",
+        "D2.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "responseFields": [
+        {
+          "id": "d-investigation-competition-plan",
+          "label": "question and controlled comparison",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Does neighbour identity affect A mass? Predict a difference at equal total density. Hold pot/light/water/soil/time fixed; also test multiple A/B densities.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-competition-observations",
+          "label": "means and units",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "Means:5A=4.0g/A;10A=3.0g/A;5A+5B=2.4g/A. Two replicates per group, same30-day endpoint. Compare fixed total10 separately from density change.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-competition-explanation",
+          "label": "within/between-species interpretation",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "Lower A mass with more A is consistent with crowding. Mixed pots are lower at total10, but focal A density changes too. Mass is not population growth rate.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-competition-revision",
+          "label": "confounder and improved design",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "Add a crossed A/B density series and resource measurements. Retain uncertainty with two synthetic replicates; revise claims about the specific limiting resource.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "d-investigation-competition",
+            "title": "Separate within-species and between-species effects",
+            "generalOutcome": 2,
+            "question": "How does the identity of nearby plants affect growth when total starting density is controlled?",
+            "sourceKind": "synthetic plant microcosm data; units are dry mass per focal plant",
+            "variables": {
+              "compare": "neighbour identity and total initial density",
+              "observe": "mean dry mass per focal A plant after 30 days",
+              "holdConstant": "pot size, light, water, soil, measurement time"
+            },
+            "dataset": {
+              "columns": [
+                "Group",
+                "A plants",
+                "B plants",
+                "Replicate 1 mass (g/A)",
+                "Replicate 2 mass (g/A)"
+              ],
+              "rows": [
+                [
+                  "Low-density A",
+                  5,
+                  0,
+                  4.1,
+                  3.9
+                ],
+                [
+                  "High-density A",
+                  10,
+                  0,
+                  2.9,
+                  3.1
+                ],
+                [
+                  "Mixed",
+                  5,
+                  5,
+                  2.3,
+                  2.5
+                ]
+              ]
+            },
+            "prediction": "Predict which comparison estimates a density effect and which comparison changes neighbour identity at the same total density.",
+            "procedure": [
+              "Identify focal A, the response unit, the comparison groups and one possible confounder.",
+              "Calculate replicate means. Compare 5 A with 10 A for a within-species density effect.",
+              "Compare 10 A with 5 A+5 B at the same total density; note that focal A density also differs, limiting isolation of a single mechanism.",
+              "Propose an additional density-series design and explain why reduced mass alone does not identify which resource was limiting."
+            ],
+            "expected": "Means are 4.0,3.0,2.4 g per A plant. More A neighbours are associated with lower mean mass. Mixed pots have still lower focal A mass at the same total density, consistent with a neighbour-identity effect; resource measurements and more treatment combinations would be needed to establish a mechanism.",
+            "limitations": [
+              "Two synthetic replicates illustrate comparison logic, not statistical significance.",
+              "The endpoint is plant mass rather than population growth rate."
+            ],
+            "saveFields": [
+              "question and controlled comparison",
+              "means and units",
+              "within/between-species interpretation",
+              "confounder and improved design"
+            ],
+            "coreSkillTopicId": "d-topic-life-strategies-and-ecological-relationships",
+            "coreSkillPartId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "D2.1s",
+              "D2.2s",
+              "D2.3s",
+              "D2.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": []
+    },
+    {
+      "id": "d-investigation-population-growth",
+      "title": "Sample, estimate and explain change",
+      "generalOutcome": 3,
+      "question": "How sensitive is a population estimate to the sampled area and its spatial pattern?",
+      "sourceKind": "synthetic quadrat counts and independent whole-population demographic scenario",
+      "variables": {
+        "compare": "five randomly selected 1 m² quadrats",
+        "observe": "counts per quadrat and their spread",
+        "holdConstant": "species, quadrat area, observation date and counting method"
+      },
+      "dataset": {
+        "columns": [
+          "Quadrat",
+          "Area (m²)",
+          "Individuals"
+        ],
+        "rows": [
+          [
+            "Q1",
+            1,
+            2
+          ],
+          [
+            "Q2",
+            1,
+            8
+          ],
+          [
+            "Q3",
+            1,
+            4
+          ],
+          [
+            "Q4",
+            1,
+            10
+          ],
+          [
+            "Q5",
+            1,
+            6
+          ]
+        ],
+        "habitatAreaSquareMetres": 200,
+        "separateDemographicScenario": {
+          "initialN": 1000,
+          "births": 120,
+          "immigration": 30,
+          "deaths": 70,
+          "emigration": 20,
+          "days": 10
+        }
+      },
+      "prediction": "Predict how choosing only visibly crowded quadrats would change the estimate.",
+      "procedure": [
+        "Compute density as total individuals divided by total sampled area, then scale to the stated habitat area.",
+        "Compare the spread of counts and explain why an estimate from five quadrats needs uncertainty. Propose stratified sampling if habitat regions differ.",
+        "Use the separate demographic scenario to calculate ΔN, final N, growth rate and interval per-capita change. Label each denominator and unit.",
+        "Construct a two-point N-versus-time graph, then explain why two points do not distinguish exponential from logistic growth."
+      ],
+      "expected": "Counts total 30 over 5 m², density 6 individuals/m², estimate 1200 across 200 m². Separate scenario: ΔN=120+30−70−20=60; final N=1060; growth rate=6 individuals/day; interval per-capita change=60/1000=0.06=6% over ten days. A time-normalized average is 0.006/day, a different quantity.",
+      "limitations": [
+        "The quadrat estimate and demographic scenario are different model populations.",
+        "Sparse samples and two time points cannot establish carrying capacity or a curve shape."
+      ],
+      "saveFields": [
+        "sampling question and prediction",
+        "density estimate with units",
+        "four demographic calculations and graph",
+        "limitations and revised design"
+      ],
+      "coreSkillTopicId": "d-topic-population-growth",
+      "coreSkillPartId": "d-topic-population-growth-sampling-populations",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "D3.1s",
+        "D3.2s",
+        "D3.3s",
+        "D3.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "responseFields": [
+        {
+          "id": "d-investigation-population-growth-plan",
+          "label": "sampling question and prediction",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Would crowded-only quadrats bias N? Predict upward bias. Select representative equal-area quadrats, holding species/date/counting rule fixed.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-population-growth-observations",
+          "label": "density estimate with units",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "30/5=6 individuals/m²; ×200=1200 estimated. Counts2–10 show spread. Separate N graph:(0days,1000),(10days,1060).",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-population-growth-explanation",
+          "label": "four demographic calculations and graph",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "ΔN=120+30−70−20=60; final1060; rate6/day; interval per-capita.06=6%/10days, average.006/day. Quadrat population is separate.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "d-investigation-population-growth-revision",
+          "label": "limitations and revised design",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "Use justified stratified sampling if habitats differ. Repeat estimates for uncertainty. Two N points cannot distinguish exponential/logistic models or carrying capacity.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "d-investigation-population-growth",
+            "title": "Sample, estimate and explain change",
+            "generalOutcome": 3,
+            "question": "How sensitive is a population estimate to the sampled area and its spatial pattern?",
+            "sourceKind": "synthetic quadrat counts and independent whole-population demographic scenario",
+            "variables": {
+              "compare": "five randomly selected 1 m² quadrats",
+              "observe": "counts per quadrat and their spread",
+              "holdConstant": "species, quadrat area, observation date and counting method"
+            },
+            "dataset": {
+              "columns": [
+                "Quadrat",
+                "Area (m²)",
+                "Individuals"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  1,
+                  2
+                ],
+                [
+                  "Q2",
+                  1,
+                  8
+                ],
+                [
+                  "Q3",
+                  1,
+                  4
+                ],
+                [
+                  "Q4",
+                  1,
+                  10
+                ],
+                [
+                  "Q5",
+                  1,
+                  6
+                ]
+              ],
+              "habitatAreaSquareMetres": 200,
+              "separateDemographicScenario": {
+                "initialN": 1000,
+                "births": 120,
+                "immigration": 30,
+                "deaths": 70,
+                "emigration": 20,
+                "days": 10
+              }
+            },
+            "prediction": "Predict how choosing only visibly crowded quadrats would change the estimate.",
+            "procedure": [
+              "Compute density as total individuals divided by total sampled area, then scale to the stated habitat area.",
+              "Compare the spread of counts and explain why an estimate from five quadrats needs uncertainty. Propose stratified sampling if habitat regions differ.",
+              "Use the separate demographic scenario to calculate ΔN, final N, growth rate and interval per-capita change. Label each denominator and unit.",
+              "Construct a two-point N-versus-time graph, then explain why two points do not distinguish exponential from logistic growth."
+            ],
+            "expected": "Counts total 30 over 5 m², density 6 individuals/m², estimate 1200 across 200 m². Separate scenario: ΔN=120+30−70−20=60; final N=1060; growth rate=6 individuals/day; interval per-capita change=60/1000=0.06=6% over ten days. A time-normalized average is 0.006/day, a different quantity.",
+            "limitations": [
+              "The quadrat estimate and demographic scenario are different model populations.",
+              "Sparse samples and two time points cannot establish carrying capacity or a curve shape."
+            ],
+            "saveFields": [
+              "sampling question and prediction",
+              "density estimate with units",
+              "four demographic calculations and graph",
+              "limitations and revised design"
+            ],
+            "coreSkillTopicId": "d-topic-population-growth",
+            "coreSkillPartId": "d-topic-population-growth-sampling-populations",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "D3.1s",
+              "D3.2s",
+              "D3.3s",
+              "D3.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "graphExercise": {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-demographic-graph-work.json",
+        "responseId": "d-investigation-population-growth-observations",
+        "relationship": "The observations response stores this two-point graph and a short quadrat summary. Use only the entered coordinates; keep the separate demographic and quadrat populations labelled.",
+        "requiredForInvestigationExtension": true
+      },
+      "materialFiles": []
+    }
+  ],
+  "teacherAcceptance": null
+}

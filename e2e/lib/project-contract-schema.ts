@@ -129,7 +129,8 @@ const LearnerIndividualEvidenceScenarioSchema = z
 
 const LearnerEvidenceScenarioSchema = z.union([
   LearnerCollectionEvidenceScenarioSchema,
-  LearnerIndividualEvidenceScenarioSchema
+  LearnerIndividualEvidenceScenarioSchema,
+  z.object({kind:z.literal("pilot2"),route:LearnerRouteId,responseId:LearnerStorageId,collectionRoute:LearnerRouteId,collectionFlag:LearnerStorageId,activateSelector:NonEmptyString.optional()}).strict()
 ]);
 
 const LearnerDocumentReaderCheckSchema = z
@@ -288,6 +289,7 @@ export function validateProjectContract(
       ...learnerCourse.hintRoutes,
       ...learnerCourse.printRoutes,
       ...evidenceScenarios.map((scenario) => scenario.route),
+      ...evidenceScenarios.flatMap((scenario) => scenario.kind === "pilot2" ? [scenario.collectionRoute] : []),
       ...learnerCourse.resourceChecks.map((check) => check.route),
       ...learnerCourse.mobile.routes,
       ...(learnerCourse.knownMissingHooks || []).map((gap) => gap.route)
@@ -302,7 +304,7 @@ export function validateProjectContract(
       throw new Error(`Invalid e2e contract at ${contractPath}: learnerCourse.routes contains duplicate route ids.`);
     }
     const evidenceIdentities = evidenceScenarios.map((scenario) =>
-      scenario.kind === "individual" ? scenario.contributionId : scenario.collectionId
+      scenario.kind === "individual" ? scenario.contributionId : scenario.kind === "pilot2" ? scenario.responseId : scenario.collectionId
     );
     if (new Set(evidenceIdentities).size !== evidenceIdentities.length) {
       throw new Error(`Invalid e2e contract at ${contractPath}: learnerCourse evidence scenarios contain duplicate identities.`);

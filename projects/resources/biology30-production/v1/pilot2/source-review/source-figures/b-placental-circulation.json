@@ -1,0 +1,63 @@
+{
+  "id": "b-placental-circulation-source-15-11a",
+  "status": "native source and extracted figure author-reviewed; learner placement pending",
+  "source": {
+    "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-15.pdf",
+    "sha256": "fba888617f5066ceb1a46a5759d4523c063d0c20091a1ac3e6b673d5a5c41038",
+    "physicalPage": 12,
+    "printedPage": 517,
+    "figure": "15.11A"
+  },
+  "derivative": {
+    "path": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation-textbook-15-11a.png",
+    "sha256": "8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462",
+    "width": 1410,
+    "height": 1455,
+    "method": "Poppler PDF rendering and rectangular figure extraction; no generated pixels, label rewrites or scientific alterations",
+    "pageScaleTo": 3000,
+    "rectanglePixels": {
+      "x": 274,
+      "y": 1367,
+      "width": 1410,
+      "height": 1455
+    }
+  },
+  "sourceComparison": {
+    "currentCourseFigure": "b-lesson-09-concept-model",
+    "currentInspection": "Existing generated b-lesson-09-concept-model inspected visually at native 1400px width: three labelled text columns explain maternal side, exchange surface and fetal side, but do not show the placental branching anatomy. Source crop reinspected at native1410x1455: separate fetal villous vessels and maternal blood spaces remain visible.",
+    "powerPoint": "Chapter15 slide21 was inspected at native resolution and is a prenatal vulnerability timeline, not a placental circulation figure. Its early-not-susceptible shorthand needs qualification; not selected for this slot.",
+    "sourcePage": "Full textbook page12 and full-resolution1410×1455 extracted Figure15.11A inspected. All figure labels and inset retained; surrounding medical text and diffusion-only caption excluded.",
+    "existingFigureScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-existing-placental-comparison.png"
+  },
+  "purposes": [
+    "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-figure"
+  ],
+  "scienceReview": {
+    "usable": true,
+    "findings": [
+      "Fetal umbilical vessels lead to capillaries within villi; maternal vessels open to blood spaces outside the fetal capillaries.",
+      "Inset distinguishes fetal and maternal portions and shows their boundary; no direct merged maternal/fetal blood tube is drawn.",
+      "Labels for uterus, placenta, cord and amniotic fluid are readable at native extraction size.",
+      "Use an authored equivalent to explain directional names: umbilical arteries carry blood away from the fetus; the umbilical vein carries blood toward it.",
+      "Colour is illustrative and cannot replace direction labels. This is a section through a complex branching interface, not a complete vessel count or to-scale reconstruction.",
+      "Original caption oversimplifies all nutrient transfer as diffusion; it is excluded. Adjacent teaching must distinguish gas diffusion from other selective transport processes."
+    ]
+  },
+  "alt": "Section of a placenta showing maternal blood around branching villi and fetal capillaries inside them, connected to the umbilical vessels.",
+  "equivalent": [
+    "Chorionic villi are branching projections of placental tissue. Fetal capillaries are small blood vessels inside these projections; maternal blood occupies spaces around them. Tissue separates the two blood supplies.",
+    "Umbilical arteries carry fetal blood to the placenta. The umbilical vein returns blood toward the fetus. Oxygen commonly moves toward fetal blood and carbon dioxide toward maternal blood; other substances use different selective transfer processes.",
+    "Blood-vessel direction and the exchange boundary matter more than red or blue colouring. The placenta is not an absolute filter against harmful exposures."
+  ],
+  "rights": {
+    "status": "supplied textbook; restricted local blocked-review use",
+    "attribution": "Supplied Biology textbook, Chapter15, p.517, Figure15.11A, MHR.",
+    "publicRedistributionCleared": false,
+    "exportAllowed": false
+  },
+  "teacherDecision": null,
+  "remaining": [
+    "Bind exact first-use terms before learner display",
+    "Inspect responsive inline and keyboard enlargement/focus return"
+  ]
+}

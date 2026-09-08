@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 2,
+  "project": "biology30-unit-a-pilot-2",
+  "generatedAt": "2026-09-06T01:33:45.862Z",
+  "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "persistencePolicy": "Each model saves the selected scenario, learner prediction, learner explanation, and Process Collection flag. Authored graph values, pathways, and feedback remain derived content. Stable hashed keys compact response and practice records without changing their public IDs.",
+  "completionPolicy": "Models and Data Lab investigations and collected evidence remain optional and do not change the eighteen required routes.",
+  "records": [
+    {
+      "id": "myelin",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-01",
+      "sourceInteractionIds": [
+        "interaction-neuron-pathway-sort",
+        "interaction-reflex-arc-builder"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "pathway-builder",
+      "investigationQuestion": "How does an axon's covering change where a signal is regenerated and how reliably it travels?",
+      "learningPurpose": "Use structure-and-function evidence to explain why myelin usually speeds conduction without making an action potential larger.",
+      "testVariable": "Change the axon condition: unmyelinated, normally myelinated, or damaged myelin.",
+      "comparisonControl": "Keep the starting action potential and its direction of travel the same.",
+      "evidenceFocus": "Inspect regeneration sites, current loss between sites, and whether the signal reaches the next region.",
+      "predictionPrompt": "Predict where the action potential will be regenerated and whether conduction will be faster, slower, or interrupted.",
+      "explanationPrompt": "Use one observation from the model to explain how the axon covering changed signal speed or reliability.",
+      "reasoningAction": "Compare signal regeneration in intact, unmyelinated, and damaged pathways.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.myelin",
+        "models.predictions.myelin",
+        "models.explanations.myelin"
+      ],
+      "staticEquivalent": "A complete text pathway lists every membrane region and explains why myelin changes speed but not action-potential size.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "action-potential",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-02",
+      "sourceInteractionIds": [
+        "interaction-action-potential-explorer"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "graph-explorer",
+      "investigationQuestion": "How do ion-channel changes produce each part of an action-potential graph?",
+      "learningPurpose": "Connect membrane voltage and graph direction to the channels that are open and the ions that move.",
+      "testVariable": "Change the phase of one action potential that you inspect.",
+      "comparisonControl": "Keep the same neuron model, voltage scale, and complete action-potential event.",
+      "evidenceFocus": "Inspect approximate voltage, graph direction, channel state, ion movement, and refractory behaviour.",
+      "predictionPrompt": "Predict whether voltage will rise, fall, undershoot, or remain near rest during the phase you select, and name the main ion movement.",
+      "explanationPrompt": "Use the graph and channel evidence to explain why membrane voltage moved in that direction.",
+      "reasoningAction": "Read membrane voltage against time and connect each phase to ion-channel evidence.",
+      "scenarioCount": 7,
+      "persistenceFields": [
+        "models.results.action-potential",
+        "models.predictions.action-potential",
+        "models.explanations.action-potential"
+      ],
+      "staticEquivalent": "The full graph, phase table, voltages, channel states, and ion movements are available together without operating the explorer.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "synapse",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-03",
+      "sourceInteractionIds": [
+        "interaction-synapse-sequence"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "pathway-builder",
+      "investigationQuestion": "How does changing one synaptic step alter the postsynaptic response?",
+      "learningPurpose": "Trace a signal across a chemical synapse and locate whether a disruption changes release, receptor binding, or signal termination.",
+      "testVariable": "Change one step: calcium entry, postsynaptic receptor access, or acetylcholine breakdown.",
+      "comparisonControl": "Keep the arriving impulse and the basic presynaptic-to-postsynaptic pathway the same.",
+      "evidenceFocus": "Inspect transmitter release, receptor activation, response strength, and response duration.",
+      "predictionPrompt": "Predict whether the postsynaptic response will become weaker, last longer, or remain near normal, and identify the affected step.",
+      "explanationPrompt": "Use evidence from the pathway to explain how the changed step produced the postsynaptic result.",
+      "reasoningAction": "Locate a disruption before, at, or after receptor binding.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.synapse",
+        "models.predictions.synapse",
+        "models.explanations.synapse"
+      ],
+      "staticEquivalent": "All three disruptions are described beside the complete presynaptic-to-postsynaptic sequence.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "nervous-system",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-04",
+      "sourceInteractionIds": [
+        "interaction-neuron-pathway-sort",
+        "interaction-reflex-arc-builder"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "pathway-builder",
+      "investigationQuestion": "How do signal direction and effector type determine a nervous-system pathway?",
+      "learningPurpose": "Classify afferent and efferent routes, then distinguish somatic from autonomic motor output.",
+      "testVariable": "Change the body response or effector that receives the motor output.",
+      "comparisonControl": "Keep the receptor-to-CNS-to-effector organization of the pathway.",
+      "evidenceFocus": "Inspect signal direction, the CNS integration point, effector type, and motor division.",
+      "predictionPrompt": "Predict the afferent and efferent route and whether the final motor pathway is somatic or autonomic.",
+      "explanationPrompt": "Use direction and effector evidence to justify the pathway classification.",
+      "reasoningAction": "Classify information by direction and effector rather than by neuron shape.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.nervous-system",
+        "models.predictions.nervous-system",
+        "models.explanations.nervous-system"
+      ],
+      "staticEquivalent": "Each case includes a complete receptor-to-effector route and its somatic or autonomic classification.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "brain",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-05",
+      "sourceInteractionIds": [
+        "interaction-brain-symptom-locator"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "case-explorer",
+      "investigationQuestion": "What can a change in function suggest about a brain network, and what can it not prove?",
+      "learningPurpose": "Connect synthetic functional evidence to a likely starting region while avoiding unsupported diagnosis or one-region-only claims.",
+      "testVariable": "Change the observed function in the synthetic case.",
+      "comparisonControl": "Keep the evidence non-diagnostic and consider connected brain regions in every case.",
+      "evidenceFocus": "Inspect the changed function, likely starting region, connected structures, and limits of the evidence.",
+      "predictionPrompt": "Predict which brain region is the strongest starting point and name one connected region that may also contribute.",
+      "explanationPrompt": "Use the case evidence to support a likely region, then state one conclusion the evidence cannot establish.",
+      "reasoningAction": "Match functional evidence to a brain region while keeping the conclusion non-diagnostic.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.brain",
+        "models.predictions.brain",
+        "models.explanations.brain"
+      ],
+      "staticEquivalent": "All synthetic cases list the observation, likely starting region, connected structures, and limits.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "sensory",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-06",
+      "sourceInteractionIds": [
+        "interaction-sensory-investigation-planner",
+        "interaction-sensory-evidence-board"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "data-lab",
+      "investigationQuestion": "What does sensory evidence show when stimulus duration, receptor density, or procedure quality changes?",
+      "learningPurpose": "Separate the stimulus from the receptor or behavioural response and judge whether the evidence supports adaptation or a fair comparison.",
+      "testVariable": "Change the sensory pattern, body location, or investigation procedure.",
+      "comparisonControl": "Keep the stated stimulus and comparison conditions visible so they are not confused with the response.",
+      "evidenceFocus": "Inspect response change over time, receptor-density patterns, variables, and limits in the procedure.",
+      "predictionPrompt": "Predict the response pattern you expect and identify the evidence that would support it.",
+      "explanationPrompt": "Use the graph, comparison, or procedure evidence to explain the pattern and one limitation.",
+      "reasoningAction": "Interpret adaptation or receptor-density evidence and improve an investigation design.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.sensory",
+        "models.predictions.sensory",
+        "models.explanations.sensory"
+      ],
+      "staticEquivalent": "The adaptation graph, receptor-density comparison, procedure choices, and evidence limits are provided in text and tables.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "eye",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-07",
+      "sourceInteractionIds": [
+        "interaction-eye-light-path"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "pathway-builder",
+      "investigationQuestion": "Where do focusing, transduction, neural signalling, and perception occur along the light-to-vision pathway?",
+      "learningPurpose": "Separate the eye's optical work from retinal transduction and later neural interpretation.",
+      "testVariable": "Change the location in the light-to-vision pathway that you inspect.",
+      "comparisonControl": "Keep the same ordered route from incoming light to visual processing.",
+      "evidenceFocus": "Inspect what enters or leaves each location and whether its role is optical, sensory, neural, or perceptual.",
+      "predictionPrompt": "Predict the selected location's role and what would change if that step could not work normally.",
+      "explanationPrompt": "Use pathway evidence to explain the location's role without saying that the brain simply flips an image.",
+      "reasoningAction": "Separate the optical pathway from retinal transduction and brain interpretation.",
+      "scenarioCount": 4,
+      "persistenceFields": [
+        "models.results.eye",
+        "models.predictions.eye",
+        "models.explanations.eye"
+      ],
+      "staticEquivalent": "The complete light and neural pathway is labelled, with each location's evidence and role stated in text.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "hearing",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-08",
+      "sourceInteractionIds": [
+        "interaction-audiogram-evidence-explorer"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "data-lab",
+      "investigationQuestion": "How can sound-threshold and pathway evidence be interpreted without turning classroom data into a diagnosis?",
+      "learningPurpose": "Connect mechanical vibration to hair-cell transduction and distinguish hearing evidence from equilibrium evidence.",
+      "testVariable": "Change the supplied threshold pattern or the hearing/equilibrium pathway under inspection.",
+      "comparisonControl": "Keep the data synthetic and use the same non-diagnostic interpretation rule.",
+      "evidenceFocus": "Inspect frequency thresholds, pathway order, hair-cell input, and the limits of the evidence.",
+      "predictionPrompt": "Predict the pattern or pathway result you expect and identify the evidence you will compare.",
+      "explanationPrompt": "Use the supplied data or pathway to explain the result, then state why it is not a diagnosis.",
+      "reasoningAction": "Interpret a supplied audiogram and connect mechanical input to hair-cell transduction without diagnosing.",
+      "scenarioCount": 4,
+      "persistenceFields": [
+        "models.results.hearing",
+        "models.predictions.hearing",
+        "models.explanations.hearing"
+      ],
+      "staticEquivalent": "The complete threshold table, graph description, hearing pathway, balance pathway, and interpretation limit are available together.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "homeostasis",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-09",
+      "sourceInteractionIds": [
+        "interaction-control-system-comparison",
+        "interaction-negative-feedback-builder"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "pathway-builder",
+      "investigationQuestion": "Does a control-system response oppose the original disturbance and move a variable toward its workable range?",
+      "learningPurpose": "Identify receptor, control centre, and effector roles, then test whether a loop is truly negative feedback.",
+      "testVariable": "Change the disturbance or the missing, reversed, or functioning step in the loop.",
+      "comparisonControl": "Keep the regulated variable and its workable range explicit.",
+      "evidenceFocus": "Inspect the direction of the disturbance, the response, and the return effect on the variable.",
+      "predictionPrompt": "Predict the response and state whether it should raise or lower the regulated variable.",
+      "explanationPrompt": "Use direction-of-change evidence to explain whether the response opposes the disturbance.",
+      "reasoningAction": "Build a receptor-control centre-effector loop and test whether the response opposes the disturbance.",
+      "scenarioCount": 4,
+      "persistenceFields": [
+        "models.results.homeostasis",
+        "models.predictions.homeostasis",
+        "models.explanations.homeostasis"
+      ],
+      "staticEquivalent": "Each complete and incomplete loop is written as a sequence with the direction of change stated explicitly.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "pituitary",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-10",
+      "sourceInteractionIds": [
+        "interaction-endocrine-body-map",
+        "interaction-hypothalamus-pituitary-feedback"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "pathway-builder",
+      "investigationQuestion": "How do anterior- and posterior-pituitary pathways differ in source, release site, target, and feedback?",
+      "learningPurpose": "Trace a hormone route accurately and avoid treating the pituitary as an independent master controller.",
+      "testVariable": "Change the hormone pathway that you trace.",
+      "comparisonControl": "Keep source, release site, target, effect, and feedback as the five comparison points.",
+      "evidenceFocus": "Inspect whether the pathway uses hypothalamic releasing hormones, anterior-pituitary secretion, or posterior-pituitary release.",
+      "predictionPrompt": "Predict the source, release site, and target for the pathway you select.",
+      "explanationPrompt": "Use the route evidence to explain how hypothalamus and pituitary work together in this pathway.",
+      "reasoningAction": "Compare an anterior-pituitary axis with a posterior-pituitary neural-release pathway.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.pituitary",
+        "models.predictions.pituitary",
+        "models.explanations.pituitary"
+      ],
+      "staticEquivalent": "All routes state source, release site, target, effect, and feedback without requiring interaction.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "adh",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-11",
+      "sourceInteractionIds": [
+        "interaction-water-salt-data-lab"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "data-lab",
+      "investigationQuestion": "How do blood concentration, ADH action, and urine volume change together during water-balance feedback?",
+      "learningPurpose": "Read direction and timing in supplied data, then connect the graph to ADH source, release, kidney target, and effect.",
+      "testVariable": "Change the water-balance condition: dehydration, reduced ADH action, or recovery.",
+      "comparisonControl": "Keep the same normalized baseline and observation times.",
+      "evidenceFocus": "Inspect blood concentration, ADH signal or action, urine volume, and whether values move toward baseline.",
+      "predictionPrompt": "Predict the direction of blood concentration, ADH action, and urine volume for the selected condition.",
+      "explanationPrompt": "Use at least two plotted variables to explain the feedback response or mismatch.",
+      "reasoningAction": "Use direction and timing in a graph to explain water-balance feedback.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.adh",
+        "models.predictions.adh",
+        "models.explanations.adh"
+      ],
+      "staticEquivalent": "Every graph value appears in a table, followed by a complete source-target-effect explanation and a non-diagnostic limit.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "thyroid-calcium",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-12",
+      "sourceInteractionIds": [
+        "interaction-thyroid-calcium-feedback"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "case-explorer",
+      "investigationQuestion": "Do thyroid and calcium hormone patterns show an expected feedback response or a possible pathway mismatch?",
+      "learningPurpose": "Use paired hormone and target evidence to distinguish TSH-thyroxine control from PTH-calcitonin calcium control.",
+      "testVariable": "Change the regulated variable or hormone pattern in the synthetic case.",
+      "comparisonControl": "Keep source, target, response direction, and feedback limit visible.",
+      "evidenceFocus": "Inspect TSH and thyroxine together, or calcium level with PTH, calcitonin, and target-organ response.",
+      "predictionPrompt": "Predict which hormone should rise or fall and what target response should follow.",
+      "explanationPrompt": "Use the paired values and target response to explain whether the pattern matches expected feedback.",
+      "reasoningAction": "Use paired hormone values to distinguish expected response from a possible pathway-level mismatch.",
+      "scenarioCount": 3,
+      "persistenceFields": [
+        "models.results.thyroid-calcium",
+        "models.predictions.thyroid-calcium",
+        "models.explanations.thyroid-calcium"
+      ],
+      "staticEquivalent": "Each synthetic pattern lists variable, pituitary or gland signal, target response, and evidential limit.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "glucose",
+      "destinationRoute": "model-lab",
+      "lessonId": "lesson-13",
+      "sourceInteractionIds": [
+        "interaction-blood-glucose-simulator",
+        "interaction-water-salt-data-lab"
+      ],
+      "treatment": "adapted-for-pilot-2",
+      "kind": "data-lab",
+      "investigationQuestion": "How do time-series and pathway evidence separate glucose regulation from rapid and longer stress responses?",
+      "learningPurpose": "Explain how pancreatic islets and adrenal regions produce different signals that can overlap while serving different control needs.",
+      "testVariable": "Change the meal, activity, insulin-response, or stress condition.",
+      "comparisonControl": "Keep time, hormone source, target, and direction of response as comparison points.",
+      "evidenceFocus": "Inspect glucose curves, alpha- or beta-cell signals, adrenal region, ACTH involvement, and response timing.",
+      "predictionPrompt": "Predict the direction and timing of the main response and identify the hormone or gland region responsible.",
+      "explanationPrompt": "Use the graph or pathway evidence to explain the response and distinguish it from the closest alternative.",
+      "reasoningAction": "Interpret glucose curves and compare rapid adrenal-medulla signalling with longer adrenal-cortex responses.",
+      "scenarioCount": 6,
+      "persistenceFields": [
+        "models.results.glucose",
+        "models.predictions.glucose",
+        "models.explanations.glucose"
+      ],
+      "staticEquivalent": "All glucose values and stress pathways are available in tables and ordered text, with a health-data limitation.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    },
+    {
+      "id": "integrated-review-evidence",
+      "destinationRoute": "review-seminar",
+      "lessonId": null,
+      "sourceInteractionIds": [
+        "interaction-integrated-case-board"
+      ],
+      "treatment": "adapted-into-three-saved-review-sessions",
+      "kind": "case-explorer",
+      "reasoningAction": "Revise nervous, sensory, and endocrine case explanations using evidence and a stated limit.",
+      "persistenceField": "responses[biology30-unit-a-pilot-2:review-seminar:*]",
+      "staticEquivalent": "Each review case contains an authored reasoning frame and course-model comparison.",
+      "processCollection": true,
+      "status": "awaiting-explicit-user-review"
+    }
+  ]
+}

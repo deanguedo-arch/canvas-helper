@@ -1,0 +1,30 @@
+{
+  "stage": "All501 introduced definition wording read",
+  "corrections": {
+    "B": 26,
+    "C": 18,
+    "D": 4
+  },
+  "glossarySenseRepairs": [
+    "confounding differs from confounder",
+    "a homologous chromosome differs from a homologous pair",
+    "phenotype probability differs from phenotype ratio",
+    "gene linkage differs from linked loci"
+  ],
+  "focusedTests": 38,
+  "draftContracts": "passed;4of13 gates perunit; vocabulary gate pending",
+  "typecheck": "25 existing unrelated diagnostics; no touched boundary diagnostic",
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "8e8f1a6703f49cfd64b7db7251da06135ff8399b1a86ce9b553a93aa93c8d505",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json": "702244056d6fa25c63fad1b50ef6a4eae8ff4286f03c1ca40420badd213e4127",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-semantic-review.json": "e95d49458a31c58bfe4657b85ad324f59a9470b6200e008227aaabe9e50f43eb",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "3628e4ae73ceca6b382024f30495d09ee970eeb2a2ed7b4fb0259d1802c8517c",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json": "7b866441615f2acb7c05c4f783c0fba6ab012743e8e4c65230d0ec44ddca33a9",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-semantic-review.json": "ba91ada3b95821fe518d113b9aa95a2648b4fa11a0d848cd05187978235a3455",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "1083a3fa6878d92e028ea2a662127533c7a933af17b7ce705d18348dfda63152",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json": "c3431efd2ac0091a2bf2ac87b33101ebf6766e157169569b56ff36af700c9e0c",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-semantic-review.json": "d6d98c7f9f6fb3fdbec1522b6896340aed635d260859ed3aa0a78cc9d7e83c75"
+  },
+  "teacherAcceptance": null,
+  "rendered": false
+}

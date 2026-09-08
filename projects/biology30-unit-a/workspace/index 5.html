@@ -1,0 +1,3272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-canvas-helper-course-title>BIO 30 | Biology 30 — Unit A: Nervous and Endocrine Systems</title>
+  
+  <meta name="color-scheme" content="light">
+  <style>
+:root {
+  --ink: #191c1d;
+  --ink-dark: #171b1b;
+  --primary: #154212;
+  --primary-strong: #0e3510;
+  --surface: #ffffff;
+  --surface-low: #f8f9fa;
+  --surface-soft: #f4f6f0;
+  --surface-muted: #d9dadb;
+  --surface-variant: #c5c9c1;
+  --text-muted: #444d42;
+  --topbar-height: 64px;
+  --sidebar-width: 18rem;
+  --sidebar-rail: 76px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: "Work Sans", "Aptos", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: inherit; }
+button, input, select, textarea { font: inherit; }
+.material-symbols-outlined { font-size: 24px; line-height: 1; }
+.shell-icon { width: 24px; height: 24px; flex: 0 0 auto; }
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  left: 16px;
+  top: 10px;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); outline: 3px solid #fff; outline-offset: 2px; }
+.course-topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--topbar-height);
+  background: var(--ink-dark);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.topbar-logo-link {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+}
+.next-step-logo { display: block; width: 112px; height: auto; }
+.topbar-menu-toggle {
+  display: none;
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: #2b302f;
+  color: #fff;
+  cursor: pointer;
+}
+.top-progress-shell {
+  position: absolute;
+  right: 24px;
+  top: 13px;
+  width: min(360px, 34vw);
+}
+.top-progress-meta {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 5px;
+  color: #fff;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.top-progress-meta strong { color: #c8f5bc; }
+.top-progress-bar {
+  height: 9px;
+  border: 1px solid #355d33;
+  border-radius: 999px;
+  background: #233123;
+  overflow: hidden;
+}
+.top-progress-fill { width: 0; height: 100%; background: #7dbc72; transition: width .18s ease; }
+.course-sidebar {
+  position: fixed;
+  z-index: 40;
+  top: var(--topbar-height);
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--ink-dark);
+  color: #eef3eb;
+}
+.sidebar-header {
+  position: relative;
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sidebar-title {
+  margin: 0;
+  max-width: 190px;
+  color: #fff;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 800;
+}
+.sidebar-course-label { margin: 6px 0 0; color: #cfd6cd; font-size: 13px; font-weight: 700; }
+.sidebar-toggle-button {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: #2b302f;
+  color: #fff;
+  cursor: pointer;
+}
+.course-nav { display: flex; flex-direction: column; gap: 6px; padding: 12px; }
+.course-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #eef3eb;
+  text-decoration: none;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.course-nav-link:hover,
+.course-nav-link.active { background: #303432; color: #fff; }
+.lessons-toggle-icon { margin-left: auto; transition: transform .16s ease; }
+.lessons-nav.is-open .lessons-toggle-icon,
+.nav-group.is-open .nav-group-icon { transform: rotate(180deg); }
+.lesson-subnav {
+  display: none;
+  margin: 4px 8px 8px 48px;
+}
+.lessons-nav.is-open .lesson-subnav,
+.nav-group.is-open .lesson-subnav { display: grid; gap: 4px; }
+.sublesson-unit {
+  display: grid;
+  gap: 5px;
+  padding: 10px 0 8px;
+  border-top: 1px solid #2d332f;
+}
+.sublesson-unit:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+.sublesson-unit-heading {
+  display: block;
+  padding: 4px 0 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+.sublesson-group {
+  display: grid;
+  gap: 4px;
+  padding: 8px 0 6px;
+  border-top: 1px solid #2d332f;
+}
+.sublesson-group:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+.sublesson-heading {
+  display: block;
+  padding: 4px 0 2px;
+  color: #aebaaa;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.sublesson-link {
+  display: block;
+  padding: 7px 0;
+  color: #dbe2d8;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.sublesson-link:hover,
+.sublesson-link.active { color: #fff; }
+.course-main {
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  padding: 96px 28px 76px;
+}
+.course-frame {
+  width: min(1120px, calc(100vw - 360px));
+  margin: 0 auto;
+}
+.course-page > h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(40px, 5vw, 58px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+.course-kicker {
+  margin: 0 0 8px;
+  color: #596157;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.page-intro {
+  max-width: 800px;
+  margin: 14px 0 0;
+  color: #3f473f;
+  font-size: 19px;
+}
+.unit-outcomes { margin-top: 28px; max-width: 800px; }
+.unit-outcomes-lead {
+  margin: 0 0 12px;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 25px;
+  line-height: 1.2;
+}
+.unit-focus-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.unit-focus-list li {
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border-left: 5px solid var(--primary);
+  background: #fff;
+  box-shadow: 0 6px 18px var(--surface-muted);
+}
+.overview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 44px;
+}
+.completed-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: #fff;
+  color: #334033;
+}
+.completed-pill strong { color: var(--primary); margin-right: 4px; }
+.external-resource-action,
+.lesson-jump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #b7c4b2;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.external-resource-action,
+.lesson-jump.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.resource-stack { display: grid; gap: 16px; margin-top: 28px; }
+.resource-lesson-group {
+  overflow: hidden;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fff;
+}
+.resource-lesson-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  border-left: 3px solid var(--primary);
+}
+.resource-lesson-summary::-webkit-details-marker { display: none; }
+.resource-lesson-label { font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 22px; font-weight: 800; }
+.resource-lesson-kicker {
+  display: block;
+  margin-bottom: 3px;
+  color: #596157;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.resource-lesson-icon { font-size: 30px; font-weight: 800; line-height: 1; }
+.resource-lesson-group[open] .resource-lesson-icon { transform: rotate(45deg); }
+.resource-lesson-items { display: grid; gap: 12px; padding: 0 24px 24px; }
+.lesson-card {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+}
+.lesson-card:hover { border-color: #9eb09a; background: #fbfcfa; }
+.lesson-card span { color: var(--primary); font-family: "IBM Plex Sans", "Aptos", sans-serif; font-size: 14px; font-weight: 700; }
+.lesson-card strong { font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 21px; line-height: 1.18; }
+.lesson-card p { margin: 0; color: #556052; }
+.lesson-card--title-only {
+  gap: 8px;
+  align-content: start;
+}
+.lesson-detail-panel {
+  overflow: hidden;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fff;
+}
+.lesson-document-header {
+  padding: 34px 38px;
+  border-top: 4px solid var(--primary);
+  background: #fff;
+}
+.lesson-document-header p {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-weight: 700;
+}
+.lesson-document-header h2 {
+  margin: 0;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(34px, 4.2vw, 48px);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.lesson-document-header span {
+  display: block;
+  max-width: 760px;
+  margin-top: 12px;
+  color: #445044;
+  font-size: 18px;
+}
+.lesson-reader-panel {
+  padding: 42px 52px 36px;
+  background: #f1f2ef;
+}
+.source-content {
+  max-width: 820px;
+  margin: 0 auto;
+  color: #202520;
+}
+.source-content h1,
+.source-content h2,
+.source-content h3 {
+  margin: 1.35em 0 .45em;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  line-height: 1.15;
+}
+.source-content h1 { font-size: 34px; }
+.source-content h2 { font-size: 29px; }
+.source-content h3 { font-size: 24px; }
+.source-content p { margin: 0 0 1em; }
+.source-content ul,
+.source-content ol { margin: .75em 0 1em 1.35em; padding: 0; }
+.source-content img,
+.source-image {
+  width: auto;
+  max-width: min(100%, 760px);
+  max-height: 520px;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+}
+.source-table {
+  width: 100%;
+  margin: 18px 0;
+  border-collapse: collapse;
+  background: #fff;
+}
+.source-table th,
+.source-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--surface-muted);
+  text-align: left;
+  vertical-align: top;
+}
+.source-note,
+.source-path { color: #596157; }
+.lesson-bottom-bar {
+  max-width: 820px;
+  margin: 34px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--surface-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.lesson-bottom-bar .mark-complete { margin-left: auto; }
+.guide-grid,
+.studio-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+.work-card,
+.resource-panel,
+.resource-card {
+  padding: 22px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fbfbf8;
+}
+.work-card h3,
+.resource-card h3 {
+  margin: 0 0 10px;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 25px;
+  line-height: 1.15;
+}
+.work-card p,
+.resource-card p { color: #465046; }
+label { display: grid; gap: 8px; color: var(--primary); font-family: "IBM Plex Sans", "Aptos", sans-serif; font-weight: 700; }
+textarea,
+select,
+input {
+  width: 100%;
+  border: 1px solid #b9c5b1;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 12px 14px;
+}
+textarea { min-height: 118px; resize: vertical; }
+textarea:focus,
+select:focus,
+input:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(21,66,18,.2);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+.save-status { color: #596157; font-size: 14px; }
+.resource-panel { max-width: 520px; margin: 24px 0 16px; }
+.resource-card { margin-top: 12px; }
+body.sidebar-collapsed .course-sidebar { width: var(--sidebar-rail); }
+body.sidebar-collapsed .course-main { margin-left: var(--sidebar-rail); }
+body.sidebar-collapsed .sidebar-title,
+body.sidebar-collapsed .sidebar-course-label,
+body.sidebar-collapsed .sidebar-label,
+body.sidebar-collapsed .lesson-subnav,
+body.sidebar-collapsed .lessons-toggle-icon { display: none !important; }
+body.sidebar-collapsed .lessons-nav.is-open .lesson-subnav,
+body.sidebar-collapsed .nav-group.is-open .lesson-subnav { display: none !important; }
+body.sidebar-collapsed .sidebar-header { padding: 12px 8px; display: flex; justify-content: center; }
+body.sidebar-collapsed .sidebar-toggle-button { position: static; }
+body.sidebar-collapsed .course-nav { padding: 8px; }
+body.sidebar-collapsed .course-nav-link {
+  width: 52px;
+  min-height: 52px;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+  gap: 0;
+}
+@media (max-width: 1100px) {
+  .topbar-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .top-progress-shell { right: 14px; width: min(280px, 42vw); }
+  body.sidebar-collapsed .course-sidebar,
+  .course-sidebar { display: none; }
+  body:not(.sidebar-collapsed) .course-sidebar {
+    display: block;
+    right: 0;
+    width: 100%;
+    bottom: auto;
+    max-height: 230px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  body:not(.sidebar-collapsed) .sidebar-header { display: none; }
+  body:not(.sidebar-collapsed) .course-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 10px 12px;
+  }
+  body:not(.sidebar-collapsed) .lessons-nav,
+  body:not(.sidebar-collapsed) .nav-group { display: contents; }
+  body:not(.sidebar-collapsed) .lesson-subnav { display: none; }
+  body:not(.sidebar-collapsed) .lessons-nav.is-open .lesson-subnav,
+  body:not(.sidebar-collapsed) .nav-group.is-open .lesson-subnav {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0;
+    padding: 6px 0 0;
+  }
+  .course-main,
+  body.sidebar-collapsed .course-main {
+    margin-left: 0;
+    padding: 96px 18px 56px;
+  }
+  body:not(.sidebar-collapsed) .course-main { padding-top: 300px; }
+  .course-frame { width: min(100%, 900px); }
+  .guide-grid,
+  .studio-layout { grid-template-columns: 1fr; }
+  .lesson-reader-panel { padding: 28px 22px 30px; }
+  .lesson-document-header { padding: 28px 24px; }
+}
+@media (max-width: 680px) {
+  .next-step-logo { width: 96px; }
+  .top-progress-shell { width: 170px; }
+  .top-progress-meta { grid-template-columns: 1fr; gap: 0; font-size: 10px; }
+  body:not(.sidebar-collapsed) .course-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body:not(.sidebar-collapsed) .course-main { padding-top: 330px; }
+  .course-page > h2 { font-size: 40px; }
+  .overview-actions,
+  .lesson-bottom-bar { align-items: stretch; flex-direction: column; }
+  .lesson-bottom-bar .mark-complete { margin-left: 0; }
+}
+@media print {
+  .course-topbar,
+  .course-sidebar,
+  .lesson-bottom-bar,
+  .overview-actions,
+  .resource-panel,
+  .external-resource-action { display: none !important; }
+  .course-main { margin: 0; padding: 0; }
+  .course-frame { width: auto; }
+  body { font-size: 12pt; }
+  .print-job-root { display: none; }
+  body.print-job-active .course-main { display: none !important; }
+  body.print-job-active .print-job-root {
+    display: block !important;
+    margin: 0;
+    padding: 0;
+  }
+  body.print-job-active .print-job-root button,
+  body.print-job-active .print-job-root .lesson-bottom-bar,
+  body.print-job-active .print-job-root .novel-question-toolbar,
+  body.print-job-active .print-job-root .writing-activity-picker,
+  body.print-job-active .print-job-root .paragraph-bottom-actions,
+  body.print-job-active .print-job-root .motif-bottom-actions,
+  body.print-job-active .print-job-root .author-intent-bottom-actions,
+  body.print-job-active .print-job-root .evidence-card-actions {
+    display: none !important;
+  }
+}
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("assets/fonts/HankenGrotesk-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("assets/fonts/WorkSans-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --ink: #171b1b;
+  --ink-dark: #171b1b;
+  --primary: #154212;
+  --primary-strong: #0e3510;
+  --science: #146c60;
+  --amber: #a15c00;
+  --brick: #a43f35;
+  --canvas: #f7f8f5;
+  --surface: #fff;
+  --surface-low: #f7f8f5;
+  --surface-soft: #f0f4ef;
+  --surface-muted: #d9ded8;
+  --surface-variant: #c8d0c8;
+  --text-muted: #5b635d;
+  --sidebar-width: 256px;
+  --sidebar-rail: 72px;
+}
+html { scroll-padding-top: 84px; }
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.66;
+}
+body, button, input, select, textarea { font-family: "Work Sans", system-ui, sans-serif; }
+.course-topbar { background: var(--ink); }
+.course-sidebar { background: #1c211f; }
+.sidebar-title {
+  max-width: 168px;
+  font-size: 22px;
+  line-height: 1.12;
+}
+.sidebar-course-label,
+.course-nav-link,
+.top-progress-meta { font-family: "Work Sans", system-ui, sans-serif; }
+.top-progress-meta { text-transform: none; letter-spacing: 0; }
+.top-progress-bar { border-radius: 4px; }
+.top-progress-fill { background: #9bcf92; }
+.course-nav-link { border-radius: 6px; font-weight: 600; }
+.course-nav-link:hover,
+.course-nav-link.active { background: #303633; }
+.sublesson-link { padding: 8px 0; }
+.course-main { padding: 96px 32px 72px; }
+.course-frame { width: min(1180px, calc(100vw - 332px)); }
+.course-page > h1 {
+  margin: 0;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 2.625rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.bio-route {
+  width: 100%;
+  overflow: clip;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.bio-route p,
+.bio-route li { max-width: 72ch; }
+.bio-route h1,
+.bio-route h2,
+.bio-route h3 {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  color: var(--ink);
+}
+.bio-route h1 {
+  max-width: 24ch;
+  margin: 0;
+  font-size: clamp(2.1rem, 4.4vw, 2.625rem);
+  line-height: 1.06;
+  letter-spacing: -.04em;
+}
+.bio-route h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.bio-route h3 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+.bio-route p { margin: 0 0 1em; }
+.bio-route ul,
+.bio-route ol { margin: 0; }
+.bio-course-code,
+.bio-section-label {
+  margin: 0 0 10px !important;
+  color: var(--science);
+  font-size: .83rem;
+  font-weight: 760;
+  letter-spacing: .025em;
+}
+.bio-lede,
+.bio-inquiry {
+  max-width: 66ch !important;
+  color: #3f4943;
+  font-size: 1.1rem;
+  line-height: 1.62;
+}
+.bio-overview-header,
+.bio-lesson-header,
+.bio-hub-header { padding: 52px 58px 46px; }
+.bio-overview-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 56px;
+  align-items: start;
+}
+.bio-overview-facts {
+  margin: 4px 0 0;
+  border-top: 2px solid var(--primary);
+}
+.bio-overview-facts div { padding: 14px 0; border-bottom: 1px solid var(--surface-muted); }
+.bio-overview-facts dt { color: var(--text-muted); font-size: .78rem; font-weight: 650; }
+.bio-overview-facts dd { margin: 2px 0 0; font-family: "Hanken Grotesk"; font-size: 1.35rem; font-weight: 730; }
+.bio-section,
+.bio-learning-targets {
+  margin: 0 58px;
+  padding: 40px 0;
+  border-top: 1px solid var(--surface-muted);
+}
+.bio-learning-targets {
+  display: grid;
+  grid-template-columns: minmax(190px, .72fr) minmax(0, 1.5fr);
+  gap: 38px;
+  align-items: start;
+}
+.bio-learning-targets h2 { font-size: 1.35rem; }
+.bio-learning-targets ul { padding-left: 20px; }
+.bio-learning-targets li + li { margin-top: 9px; }
+.bio-module-sequence { padding: 0; list-style: none; counter-reset: modules; }
+.bio-module-sequence li {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--surface-muted);
+}
+.bio-module-sequence li:last-child { border-bottom: 0; }
+.bio-module-sequence strong { color: var(--primary); }
+.bio-module-sequence span { color: #48524c; }
+.bio-two-column { display: grid; grid-template-columns: 1.25fr .75fr; gap: 44px; }
+.bio-callout {
+  align-self: start;
+  padding: 22px 24px;
+  border: 1px solid #cbd5ce;
+  border-left: 4px solid var(--science);
+  background: #f6faf8;
+}
+.bio-callout h2 { font-size: 1.2rem; }
+.bio-callout p:last-child { margin-bottom: 0; }
+.bio-callout--safety { border-left-color: var(--amber); background: #fffaf2; }
+.bio-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid var(--surface-muted);
+  background: var(--surface-muted);
+}
+.bio-process-grid article { min-height: 190px; padding: 22px; background: #fff; }
+.bio-process-grid article > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 18px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  color: var(--primary);
+  font-weight: 750;
+}
+.bio-process-grid p { color: var(--text-muted); font-size: .94rem; }
+.bio-start-row,
+.bio-exit-actions,
+.bio-artifact-actions,
+.bio-notebook-actions,
+.bio-notebook-export {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+}
+.bio-primary-action,
+.bio-secondary-action,
+.bio-route button,
+.bio-hub-card a {
+  min-height: 44px;
+  border: 1px solid #aeb8b0;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--primary);
+  padding: 10px 15px;
+  font-weight: 680;
+  line-height: 1.3;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bio-primary-action,
+.bio-primary-button,
+.bio-check-action {
+  border-color: var(--primary) !important;
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+.bio-primary-action:hover,
+.bio-primary-button:hover,
+.bio-check-action:hover { background: var(--primary-strong) !important; }
+.bio-lesson-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 32px 0 0;
+  border: 1px solid var(--surface-muted);
+  background: var(--surface-muted);
+}
+.bio-lesson-meta div { padding: 13px 16px; background: #fff; }
+.bio-lesson-meta dt { color: var(--text-muted); font-size: .76rem; font-weight: 680; }
+.bio-lesson-meta dd { margin: 2px 0 0; font-weight: 690; }
+.bio-retrieval {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  column-gap: 42px;
+  background: #f8faf7;
+  margin-inline: 0;
+  padding-inline: 58px;
+}
+.bio-retrieval .bio-response-label,
+.bio-retrieval textarea,
+.bio-retrieval .bio-save-status { grid-column: 2; }
+.bio-retrieval .bio-response-label { grid-row: 1; align-self: end; margin-top: 10px; }
+.bio-retrieval textarea { grid-row: 2; }
+.bio-response-label,
+.bio-route label {
+  color: var(--ink);
+  font-weight: 680;
+}
+.bio-response-label span,
+.bio-route label > span { color: var(--text-muted); font-size: .82rem; font-weight: 520; }
+.bio-route textarea,
+.bio-route input,
+.bio-route select {
+  border: 1px solid #aeb8b0;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+.bio-route textarea { min-height: 104px; }
+.bio-save-status,
+.bio-artifact-actions span,
+.bio-exit-actions span,
+.bio-notebook-actions span,
+.bio-notebook-export span { margin: 0 !important; color: var(--text-muted); font-size: .84rem; }
+.bio-concept-note,
+.bio-evidence-prompts {
+  max-width: 72ch;
+  margin: 24px 0;
+  padding: 20px 22px;
+  border-left: 4px solid var(--science);
+  background: #f2f7f5;
+}
+.bio-concept-note p:last-child { margin-bottom: 0; }
+.bio-figure {
+  width: min(1040px, 100%);
+  margin: 28px 0;
+  border: 1px solid var(--surface-muted);
+  background: #fff;
+}
+.bio-figure > svg { display: block; width: 100%; height: auto; }
+.bio-figure-copy { padding: 20px 22px; border-top: 1px solid var(--surface-muted); }
+.bio-figure-copy p:last-child { margin-bottom: 0; }
+.bio-figure--graph { margin: 20px 0 0; }
+.bio-table-wrap {
+  width: 100%;
+  margin: 24px 0;
+  overflow-x: auto;
+  border: 1px solid var(--surface-muted);
+}
+.bio-route table { width: 100%; border-collapse: collapse; background: #fff; font-size: .92rem; }
+.bio-route caption { padding: 12px 14px; background: #eef3ee; color: var(--ink); font-weight: 700; text-align: left; }
+.bio-route th,
+.bio-route td { padding: 12px 14px; border: 1px solid var(--surface-muted); text-align: left; vertical-align: top; }
+.bio-route thead th { background: #f7f8f5; }
+.bio-model {
+  margin-inline: 0;
+  padding: 44px 58px 48px;
+  background: #f4f7f3;
+}
+.bio-model-header { display: flex; justify-content: space-between; gap: 36px; align-items: end; }
+.bio-model-header > p { max-width: 42ch; color: var(--text-muted); }
+.bio-model-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(250px, .7fr); gap: 26px; align-items: start; }
+.bio-model-readout { margin-top: 20px; padding: 20px; border: 1px solid #c8d0c8; background: #fff; }
+.bio-model-stage { color: var(--science); font-weight: 760; }
+.bio-model-readout dl { margin: 0; }
+.bio-model-readout dl div { padding: 12px 0; border-top: 1px solid var(--surface-muted); }
+.bio-model-readout dt { color: var(--text-muted); font-size: .76rem; font-weight: 680; }
+.bio-model-readout dd { margin: 3px 0 0; }
+.bio-model-progress { margin: 14px 0 0 !important; color: var(--text-muted); font-size: .84rem; }
+.bio-stage-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.bio-stage-controls button[aria-pressed="true"] { border-color: var(--science); background: #e5f2ee; color: #0e534a; }
+.bio-static-fallback,
+.bio-rubric,
+.bio-sources { margin-top: 22px; border-top: 1px solid var(--surface-muted); }
+.bio-static-fallback summary,
+.bio-rubric summary,
+.bio-sources summary { min-height: 44px; padding: 12px 0; color: var(--primary); font-weight: 700; cursor: pointer; }
+.bio-static-fallback > *:not(summary),
+.bio-sources > *:not(summary) { max-width: 72ch; }
+.bio-model-layout--glucose { margin-top: 20px; }
+.bio-simulator-controls { display: flex; gap: 12px; align-items: end; margin-top: 20px; }
+.bio-simulator-controls label { min-width: min(420px, 100%); }
+.bio-synthetic-chart { margin: 0; border: 1px solid var(--surface-muted); background: #fff; }
+.bio-synthetic-chart svg { display: block; width: 100%; height: auto; }
+.bio-synthetic-chart figcaption { padding: 10px 14px; border-top: 1px solid var(--surface-muted); color: var(--text-muted); font-size: .8rem; }
+.bio-practice-list { display: grid; gap: 18px; }
+.bio-practice-item { padding: 24px; border: 1px solid var(--surface-muted); background: #fff; }
+.bio-practice-item fieldset { margin: 0; padding: 0; border: 0; }
+.bio-practice-item legend { margin-bottom: 14px; font-weight: 650; }
+.bio-practice-item label { display: grid; grid-template-columns: 22px 1fr; gap: 9px; align-items: start; margin: 9px 0; font-weight: 470; }
+.bio-practice-item input[type="radio"] { width: 20px; height: 20px; margin: 3px 0 0; accent-color: var(--primary); }
+.bio-check-action { margin-top: 12px; }
+.bio-feedback { margin-top: 14px; padding: 14px 16px; border-left: 4px solid var(--amber); background: #fff9ef; }
+.bio-feedback.is-correct { border-left-color: var(--science); background: #edf7f3; }
+.bio-feedback strong { display: block; margin-bottom: 3px; }
+.bio-artifact { background: #fafbf8; margin-inline: 0; padding-inline: 58px; }
+.bio-artifact-heading,
+.bio-section-heading-row { display: flex; justify-content: space-between; gap: 24px; align-items: start; }
+.bio-artifact-heading > span,
+.bio-section-heading-row > span { color: var(--text-muted); font-size: .84rem; font-weight: 660; }
+.bio-artifact-fields { display: grid; gap: 18px; margin-top: 22px; }
+.bio-artifact-fields label { display: grid; gap: 7px; }
+.bio-rubric .bio-table-wrap { margin-top: 8px; }
+.bio-exit textarea { max-width: 72ch; }
+.bio-sources { margin: 0 58px 38px; padding-top: 0; }
+.bio-sources p { color: var(--text-muted); font-size: .88rem; }
+.bio-comparison-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 24px; border: 1px solid var(--surface-muted); background: var(--surface-muted); }
+.bio-comparison-grid article { padding: 22px; background: #fff; }
+.bio-comparison-grid ul { padding-left: 19px; }
+.bio-comparison-grid li + li { margin-top: 7px; }
+.bio-hub-header { border-bottom: 1px solid var(--surface-muted); }
+.bio-hub-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 36px 58px 8px; }
+.bio-hub-card { display: flex; flex-direction: column; min-height: 260px; padding: 24px; border: 1px solid var(--surface-muted); background: #fff; }
+.bio-hub-card > div { padding-bottom: 16px; border-bottom: 1px solid var(--surface-muted); }
+.bio-hub-card > div > p { margin: 0 0 4px; color: var(--science); font-size: .8rem; font-weight: 700; }
+.bio-hub-card > div > span { color: var(--text-muted); font-size: .82rem; }
+.bio-hub-card > p { color: var(--text-muted); }
+.bio-hub-card > a { align-self: start; margin-top: auto; }
+.bio-numbered-method { padding-left: 22px; }
+.bio-numbered-method li + li { margin-top: 10px; }
+.bio-notebook-composer { margin: 36px 58px 0; padding: 26px; border: 1px solid var(--surface-muted); background: #f8faf7; }
+.bio-notebook-fields { display: grid; grid-template-columns: .75fr 1.5fr; gap: 18px; }
+.bio-notebook-list { display: grid; gap: 12px; }
+.bio-notebook-entry { padding: 18px; border: 1px solid var(--surface-muted); }
+.bio-notebook-entry header { display: flex; justify-content: space-between; gap: 16px; }
+.bio-notebook-entry p { white-space: pre-wrap; }
+.bio-notebook-entry button { min-height: 36px; padding: 6px 10px; }
+.bio-empty-state { color: var(--text-muted); font-style: italic; }
+.bio-artifact-index { display: grid; gap: 10px; }
+.bio-artifact-index article { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--surface-muted); }
+.bio-notebook-export { margin: 0 58px 42px; padding-top: 18px; border-top: 1px solid var(--surface-muted); }
+.bio-practice-overview { display: flex; align-items: center; gap: 24px; margin: 36px 58px 4px; padding: 20px; border: 1px solid var(--surface-muted); }
+.bio-practice-overview > div:first-child { display: grid; min-width: 150px; }
+.bio-practice-overview strong { font-family: "Hanken Grotesk"; font-size: 2rem; line-height: 1; }
+.bio-practice-overview span { color: var(--text-muted); font-size: .84rem; }
+.bio-practice-meter { flex: 1; height: 12px; border: 1px solid #b8c2ba; background: #eef1ed; }
+.bio-practice-meter span { display: block; width: 0; height: 100%; background: var(--science); }
+.lesson-bottom-bar--authored { max-width: none; margin: 24px 0 0; padding: 22px 58px 0; border-top: 1px solid var(--surface-muted); }
+.lesson-page--authored .authored-lesson { padding-bottom: 38px; }
+.lesson-page--authored .lesson-jump { border-radius: 6px; font-family: "Work Sans"; }
+.lesson-page--authored .lesson-jump.primary { background: var(--primary); }
+.resource-stack { margin-top: 24px; }
+.resource-lesson-group,
+.lesson-card { border-radius: 7px; box-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+@media (max-width: 1100px) {
+  .course-frame { width: min(100%, 940px); }
+  .bio-overview-header { grid-template-columns: 1fr; gap: 26px; }
+  .bio-overview-facts { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .bio-overview-facts div { padding: 12px 14px; border-right: 1px solid var(--surface-muted); }
+  .bio-overview-facts div:last-child { border-right: 0; }
+  .bio-process-grid { grid-template-columns: repeat(2, 1fr); }
+  .bio-model-layout { grid-template-columns: 1fr; }
+  .bio-model-readout { margin-top: 0; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .course-main,
+  body.sidebar-collapsed .course-main { padding: 82px 12px 40px; }
+  .top-progress-shell { right: 10px; width: 148px; }
+  .top-progress-meta > span:first-child { display: none; }
+  .bio-route { border-radius: 0; }
+  .bio-overview-header,
+  .bio-lesson-header,
+  .bio-hub-header { padding: 36px 22px 30px; }
+  .bio-section,
+  .bio-learning-targets,
+  .bio-sources { margin-inline: 22px; padding-block: 30px; }
+  .bio-retrieval,
+  .bio-model,
+  .bio-artifact { margin-inline: 0; padding: 32px 22px; }
+  .bio-learning-targets,
+  .bio-two-column,
+  .bio-retrieval,
+  .bio-notebook-fields { grid-template-columns: 1fr; }
+  .bio-retrieval .bio-response-label,
+  .bio-retrieval textarea,
+  .bio-retrieval .bio-save-status { grid-column: 1; grid-row: auto; }
+  .bio-lesson-meta,
+  .bio-overview-facts,
+  .bio-comparison-grid,
+  .bio-hub-grid { grid-template-columns: 1fr; }
+  .bio-overview-facts div { border-right: 0; }
+  .bio-module-sequence li { grid-template-columns: 1fr; gap: 3px; }
+  .bio-process-grid { grid-template-columns: 1fr; }
+  .bio-process-grid article { min-height: 0; }
+  .bio-model-header,
+  .bio-artifact-heading,
+  .bio-section-heading-row { display: block; }
+  .bio-stage-controls { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .bio-simulator-controls { align-items: stretch; flex-direction: column; }
+  .bio-hub-grid { padding: 26px 22px 4px; }
+  .bio-notebook-composer { margin: 28px 22px 0; padding: 20px; }
+  .bio-notebook-export,
+  .bio-practice-overview { margin-inline: 22px; }
+  .bio-practice-overview { align-items: stretch; flex-direction: column; }
+  .bio-start-row,
+  .bio-exit-actions,
+  .bio-artifact-actions,
+  .lesson-bottom-bar--authored { align-items: stretch; flex-direction: column; }
+  .bio-start-row > *,
+  .bio-exit-actions > button,
+  .bio-artifact-actions > button,
+  .lesson-bottom-bar--authored > * { width: 100%; justify-content: center; }
+  .lesson-bottom-bar--authored { margin-inline: 22px; padding-inline: 0; }
+}
+@media (max-width: 420px) {
+  .bio-route h1 { font-size: 2rem; }
+  .bio-stage-controls { grid-template-columns: 1fr; }
+  .bio-route th,
+  .bio-route td { padding: 10px; }
+}
+@media print {
+  body { background: #fff; }
+  .bio-route { border: 0; }
+  .bio-overview-header,
+  .bio-lesson-header,
+  .bio-hub-header,
+  .bio-section,
+  .bio-learning-targets,
+  .bio-retrieval,
+  .bio-model,
+  .bio-artifact { margin: 0; padding: 18pt 0; }
+  .bio-stage-controls,
+  .bio-simulator-controls,
+  .bio-check-action,
+  .bio-feedback,
+  .bio-artifact-actions,
+  .bio-exit-actions,
+  .bio-notebook-actions,
+  .bio-notebook-export { display: none !important; }
+  .bio-model-layout,
+  .bio-two-column,
+  .bio-learning-targets { display: block; }
+  .bio-figure,
+  .bio-practice-item,
+  .bio-artifact { break-inside: avoid; }
+  .bio-route textarea { border: 1px solid #777; min-height: 90pt; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#course-main">Skip to course content</a>
+<header class="course-topbar">
+    <button id="topbar-menu-toggle" class="topbar-menu-toggle" type="button" aria-label="Toggle menu">
+      <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16"/></svg>
+    </button>
+    <a class="topbar-logo-link" href="#overview" data-page-target="overview" aria-label="Next Step home">
+      <img class="next-step-logo" src="assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education">
+    </a>
+    <div class="top-progress-shell" aria-label="Course progress">
+      <div class="top-progress-meta">
+        <span>Course Progress</span>
+        <strong data-progress-count>0 / 2 lesson exits</strong>
+        <strong data-progress-percent>0%</strong>
+      </div>
+      <div class="top-progress-bar"><div class="top-progress-fill" data-progress-fill></div></div>
+    </div>
+  </header>
+<aside class="course-sidebar" aria-label="Course sidebar">
+    <div class="sidebar-header">
+      <button id="sidebar-toggle" class="sidebar-toggle-button" type="button" aria-label="Toggle sidebar">
+        <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16"/></svg>
+      </button>
+      <p class="sidebar-title" data-canvas-helper-course-title>Biology 30 — Unit A: Nervous and Endocrine Systems</p>
+      <p class="sidebar-course-label">BIO 30</p>
+    </div>
+    <nav class="course-nav" aria-label="Course navigation">
+      <a class="course-nav-link active" href="#overview" data-page-target="overview">
+        <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <span class="sidebar-label">Overview</span>
+      </a>
+      <div class="lessons-nav">
+        <a class="course-nav-link lessons-toggle" href="#lessons" data-page-target="lessons" data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav">
+          <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.7-.8 5.3-.3 8 1.3v12c-2.7-1.6-5.3-2.1-8-1.3z"/><path d="M20 5.5c-2.7-.8-5.3-.3-8 1.3v12c2.7-1.6 5.3-2.1 8-1.3z"/></svg>
+          <span class="sidebar-label">Lessons</span>
+          <svg class="shell-icon lessons-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7 9.5 5 5 5-5"/></svg>
+        </a>
+        <div id="lesson-subnav" class="lesson-subnav"><a class="sublesson-link" href="#lesson-04" data-page-target="lesson-04">4. Action Potentials: Ions into Information</a>
+<a class="sublesson-link" href="#lesson-15" data-page-target="lesson-15">15. Pancreas, Blood Glucose, Diabetes, and Urinalysis</a></div>
+      </div>
+      
+      <a class="course-nav-link" href="#model-lab" data-page-target="model-lab">
+        <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5l-5 9.2A2.5 2.5 0 0 0 7.2 21h9.6a2.5 2.5 0 0 0 2.2-3.8L14 8V3"/><path d="M7.5 15h9"/></svg>
+        <span class="sidebar-label">Model Lab</span>
+      </a>
+<a class="course-nav-link" href="#investigation-notebook" data-page-target="investigation-notebook">
+        <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h10a2 2 0 0 1 2 2V20H5a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z"/><path d="M7 8h6M7 12h4M15.5 14.5l4-4 1.5 1.5-4 4-2 .5z"/></svg>
+        <span class="sidebar-label">Investigation Notebook</span>
+      </a>
+<a class="course-nav-link" href="#practice-hub" data-page-target="practice-hub">
+        <svg class="shell-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10v3h2v15H5V6h2z"/><path d="M9 3h6v4H9zM8.5 12l1.5 1.5 3-3M8.5 17h6"/></svg>
+        <span class="sidebar-label">Practice Hub</span>
+      </a>
+    </nav>
+  </aside>
+<main id="course-main" class="course-main" tabindex="-1">
+  <div class="course-frame">
+    <section id="overview" class="course-page course-page--authored"><div class="bio-route bio-overview">
+  <header class="bio-overview-header">
+    <div>
+      <p class="bio-course-code">BIO 30 · Unit A</p>
+      <h1>How does the body stay stable while the world keeps changing?</h1>
+      <p class="bio-lede">Your nervous and endocrine systems detect change, exchange information, and coordinate responses. In this unit, you will connect ion movement in a single neuron to whole-body regulation of sensation, stress, water, salts, metabolism, and blood glucose.</p>
+    </div>
+    <dl class="bio-overview-facts" aria-label="Unit facts">
+      <div><dt>Required learning</dt><dd>25.1 hours</dd></div>
+      <div><dt>Lessons</dt><dd>17</dd></div>
+      <div><dt>Portfolio artifacts</dt><dd>7</dd></div>
+    </dl>
+  </header>
+
+  <section class="bio-section" aria-labelledby="overview-journey">
+    <h2 id="overview-journey">The learning journey</h2>
+    <p>You will begin with homeostasis, then move from cellular communication to organs and integrated control. Each lesson follows the same rhythm: observe a phenomenon, build a scientific explanation, test the explanation with a model or dataset, receive feedback, and save a short piece of evidence.</p>
+    <ol class="bio-module-sequence">
+      <li><strong>Systems and signals</strong><span>Homeostasis, nervous control, endocrine control, and negative feedback</span></li>
+      <li><strong>Neural communication</strong><span>Neurons, membrane voltage, action potentials, synapses, drugs, and toxins</span></li>
+      <li><strong>Nervous control</strong><span>Brain organization, reflex arcs, response evidence, and experimental design</span></li>
+      <li><strong>Sensory systems</strong><span>Receptors, vision, hearing, equilibrium, photoperiod, and sensory technologies</span></li>
+      <li><strong>Endocrine control</strong><span>Hormone pathways, feedback, glands, imbalances, stress, water, salts, and metabolism</span></li>
+      <li><strong>Integration</strong><span>A novel case that combines neural, endocrine, glucose, and osmolality evidence</span></li>
+    </ol>
+  </section>
+
+  <section class="bio-section bio-two-column" aria-labelledby="overview-evidence">
+    <div>
+      <h2 id="overview-evidence">What you will make</h2>
+      <p>Your Investigation Notebook gathers seven submission-ready artifacts. These include models, graph interpretations, investigation evidence, and a final integrated case. Drafts save locally and, in Brightspace, through the SCORM learning record. You can also print or save each artifact as a PDF.</p>
+      <p>The practice in this course is formative. Immediate feedback is designed to reveal the reasoning behind an answer, not just mark it right or wrong. Secure graded tests remain separate Brightspace activities.</p>
+    </div>
+    <aside class="bio-callout bio-callout--safety" aria-labelledby="overview-safety">
+      <h2 id="overview-safety">Safety and health information</h2>
+      <p>Investigations use safe, low-material procedures and always include supplied-data alternatives. Classroom models and datasets are educational, not diagnostic. Never change medication or health decisions based on a course activity; use a qualified health-care professional for personal concerns.</p>
+    </aside>
+  </section>
+
+  <section class="bio-section" aria-labelledby="overview-use">
+    <h2 id="overview-use">How to use this course</h2>
+    <div class="bio-process-grid">
+      <article><span aria-hidden="true">1</span><h3>Learn</h3><p>Read the short sections and use the labelled figures to build the mechanism.</p></article>
+      <article><span aria-hidden="true">2</span><h3>Test</h3><p>Manipulate a local model or inspect supplied data, then explain the pattern.</p></article>
+      <article><span aria-hidden="true">3</span><h3>Check</h3><p>Submit lesson practice and use the feedback to correct your reasoning.</p></article>
+      <article><span aria-hidden="true">4</span><h3>Save</h3><p>Complete the exit response and keep useful work in the Investigation Notebook.</p></article>
+    </div>
+    <div class="bio-start-row">
+      <a class="bio-primary-action" href="#lesson-04" data-page-target="lesson-04">Explore an action potential</a>
+      <a class="bio-secondary-action" href="#model-lab" data-page-target="model-lab">Open the Model Lab</a>
+    </div>
+  </section>
+</div>
+</section>
+    <section id="lessons" class="course-page" hidden>
+    <p class="course-kicker">Lesson pathway</p>
+    <h1>Unit A lesson pathway</h1>
+    <div class="resource-stack">
+      <details class="resource-lesson-group" open>
+          <summary class="resource-lesson-summary">
+            <span class="resource-lesson-label">
+              <span class="resource-lesson-kicker">Lesson Group</span>
+              Neural Communication
+            </span>
+            <span class="resource-lesson-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="resource-lesson-items">
+            <a class="lesson-card" href="#lesson-04" data-page-target="lesson-04">
+    <span>Lesson 4</span>
+    <strong>Action Potentials: Ions into Information</strong>
+    <p>Connect membrane voltage, ion channels, refractory periods, and stimulus intensity.</p>
+  </a>
+          </div>
+        </details>
+<details class="resource-lesson-group">
+          <summary class="resource-lesson-summary">
+            <span class="resource-lesson-label">
+              <span class="resource-lesson-kicker">Lesson Group</span>
+              Endocrine Control
+            </span>
+            <span class="resource-lesson-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="resource-lesson-items">
+            <a class="lesson-card" href="#lesson-15" data-page-target="lesson-15">
+    <span>Lesson 15</span>
+    <strong>Pancreas, Blood Glucose, Diabetes, and Urinalysis</strong>
+    <p>Trace insulin and glucagon, run a feedback model, and interpret synthetic evidence responsibly.</p>
+  </a>
+          </div>
+        </details>
+    </div>
+  </section>
+    <section id="lesson-04" class="course-page lesson-page lesson-page--authored" hidden>
+    <article class="authored-lesson">
+      <div class="bio-route bio-lesson" data-biology-lesson="lesson-04">
+  <header class="bio-lesson-header">
+    <p class="bio-course-code">Lesson 4 · Neural communication</p>
+    <h1>Action Potentials: Ions into Information</h1>
+    <p class="bio-inquiry">How can a brief change in membrane voltage carry information without becoming weaker along the axon?</p>
+    <dl class="bio-lesson-meta">
+      <div><dt>Required time</dt><dd>90 minutes</dd></div>
+      <div><dt>Materials</dt><dd>No special materials</dd></div>
+      <div><dt>Evidence</dt><dd>Graph interpretation</dd></div>
+    </dl>
+  </header>
+
+  <section class="bio-learning-targets" aria-labelledby="lesson-04-targets">
+    <h2 id="lesson-04-targets">By the end of this lesson, you can</h2>
+    <ul>
+      <li>explain how ion movement produces resting potential, depolarization, repolarization, and the refractory period;</li>
+      <li>use a membrane-potential graph to connect voltage changes to channel activity;</li>
+      <li>distinguish action-potential amplitude from the ways stimulus intensity is encoded.</li>
+    </ul>
+  </section>
+
+  <section class="bio-section bio-retrieval" aria-labelledby="lesson-04-retrieval">
+    <div>
+      <p class="bio-section-label">Retrieve</p>
+      <h2 id="lesson-04-retrieval">Start with the membrane</h2>
+      <p>A neuron membrane separates two solutions containing charged particles. Before reading further, predict what must happen to membrane voltage if positively charged sodium ions move rapidly from outside to inside.</p>
+    </div>
+    <label class="bio-response-label" for="lesson-04-warmup">Record your prediction <span>autosaves</span></label>
+    <textarea id="lesson-04-warmup" rows="3" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:04:warmup" data-bio-autosave placeholder="I predict the inside will become… because…"></textarea>
+    <p class="bio-save-status" data-bio-status-for="biology30-unit-a:lesson:04:warmup" aria-live="polite">Not saved yet</p>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-resting">
+    <p class="bio-section-label">Build the mechanism</p>
+    <h2 id="lesson-04-resting">1. Resting potential is a maintained imbalance</h2>
+    <p>A neuron at rest is not inactive. Its membrane maintains a voltage difference, commonly near <strong>−70 millivolts</strong>, meaning the inside is negative relative to the outside. The exact value varies among neurons. Voltage exists because ions are distributed unequally and the membrane is selectively permeable.</p>
+    <p>Sodium ions (Na⁺) are more concentrated outside the axon, while potassium ions (K⁺) are more concentrated inside. At rest, the membrane has many potassium leak channels, so K⁺ tends to diffuse out. Large negatively charged molecules remain inside. These movements and trapped charges help make the interior negative.</p>
+    <div class="bio-figure" data-figure-slot="resting-membrane">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="resting-membrane-title resting-membrane-desc" data-figure-id="figure-resting-membrane">
+  <title id="resting-membrane-title">Ion distribution across a resting neuron membrane</title>
+  <desc id="resting-membrane-desc">A cross-section of an axon membrane shows more sodium ions outside, more potassium ions inside, potassium leak channels, and a sodium-potassium pump that moves three sodium ions out for every two potassium ions moved in.</desc>
+  <style>
+    .rm-label{font:600 22px 'Work Sans',sans-serif;fill:#171b1b}.rm-small{font:500 17px 'Work Sans',sans-serif;fill:#39423d}.rm-ion{font:700 18px 'Work Sans',sans-serif}.rm-line{stroke:#39423d;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.rm-membrane{fill:#eef3ee;stroke:#5b635d;stroke-width:2}.rm-channel{fill:#fff;stroke:#146c60;stroke-width:3}.rm-pump{fill:#fff8ed;stroke:#a15c00;stroke-width:3}.rm-na{fill:#e6f4f1;stroke:#146c60;stroke-width:2}.rm-k{fill:#fff0ee;stroke:#a43f35;stroke-width:2}
+  </style>
+  <rect width="960" height="540" fill="#fff"/>
+  <text class="rm-label" x="48" y="48">Extracellular fluid</text>
+  <text class="rm-small" x="48" y="78">Higher Na⁺ concentration</text>
+  <rect class="rm-membrane" x="35" y="214" width="890" height="112" rx="6"/>
+  <text class="rm-label" x="48" y="382">Axon interior</text>
+  <text class="rm-small" x="48" y="412">Higher K⁺ concentration; net negative at rest</text>
+  <g aria-hidden="true">
+    <circle class="rm-na" cx="120" cy="128" r="24"/><text class="rm-ion" x="102" y="135" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="230" cy="108" r="24"/><text class="rm-ion" x="212" y="115" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="340" cy="146" r="24"/><text class="rm-ion" x="322" y="153" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="728" cy="120" r="24"/><text class="rm-ion" x="710" y="127" fill="#146c60">Na⁺</text>
+    <circle class="rm-na" cx="840" cy="154" r="24"/><text class="rm-ion" x="822" y="161" fill="#146c60">Na⁺</text>
+    <circle class="rm-k" cx="180" cy="444" r="24"/><text class="rm-ion" x="166" y="451" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="310" cy="414" r="24"/><text class="rm-ion" x="296" y="421" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="480" cy="458" r="24"/><text class="rm-ion" x="466" y="465" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="650" cy="420" r="24"/><text class="rm-ion" x="636" y="427" fill="#a43f35">K⁺</text>
+    <circle class="rm-k" cx="800" cy="452" r="24"/><text class="rm-ion" x="786" y="459" fill="#a43f35">K⁺</text>
+  </g>
+  <g>
+    <rect class="rm-channel" x="230" y="194" width="72" height="152" rx="18"/>
+    <text class="rm-small" x="194" y="183">K⁺ leak channel</text>
+    <path class="rm-line" d="M266 393V354"/><path class="rm-line" d="m255 367 11-13 11 13"/>
+  </g>
+  <g>
+    <path class="rm-pump" d="M570 198c52 0 76 28 67 65 9 37-15 65-67 65-52 0-76-28-67-65-9-37 15-65 67-65Z"/>
+    <text class="rm-small" x="522" y="257">Na⁺/K⁺</text><text class="rm-small" x="538" y="280">pump</text>
+    <path class="rm-line" d="M528 187v-54"/><path class="rm-line" d="m517 147 11-14 11 14"/>
+    <text class="rm-small" x="455" y="112">3 Na⁺ out</text>
+    <path class="rm-line" d="M612 338v56"/><path class="rm-line" d="m601 380 11 14 11-14"/>
+    <text class="rm-small" x="626" y="388">2 K⁺ in</text>
+    <text class="rm-small" x="516" y="313">uses ATP</text>
+  </g>
+  <path class="rm-line" d="M710 228h102"/><path class="rm-line" d="m798 217 14 11-14 11"/>
+  <text class="rm-small" x="682" y="198">Voltage is measured</text><text class="rm-small" x="698" y="220">across the membrane</text>
+  <text class="rm-label" x="825" y="286">≈ −70 mV</text>
+</svg>
+
+      <div class="bio-figure-copy">
+        <h3>Read the model</h3>
+        <p>The sodium-potassium pump uses ATP to move three Na⁺ out and two K⁺ in. This maintains the concentration gradients over time. It does <em>not</em> single-handedly create the rapid voltage change of each action potential; ion channels produce those fast phases.</p>
+      </div>
+    </div>
+    <div class="bio-table-wrap" role="region" aria-label="Resting membrane model as text" tabindex="0">
+      <table>
+        <caption>Static equivalent: ion conditions at rest</caption>
+        <thead><tr><th scope="col">Feature</th><th scope="col">Outside the axon</th><th scope="col">Inside the axon</th><th scope="col">Why it matters</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Sodium, Na⁺</th><td>Higher concentration</td><td>Lower concentration</td><td>When sodium channels open, the electrochemical gradient drives Na⁺ inward.</td></tr>
+          <tr><th scope="row">Potassium, K⁺</th><td>Lower concentration</td><td>Higher concentration</td><td>K⁺ leak and later voltage-gated K⁺ movement contribute to negative voltage and repolarization.</td></tr>
+          <tr><th scope="row">Net voltage</th><td>Positive relative to inside</td><td>About −70 mV relative to outside</td><td>The separation stores electrical potential energy.</td></tr>
+          <tr><th scope="row">Na⁺/K⁺ pump</th><td colspan="2">3 Na⁺ out for every 2 K⁺ in, using ATP</td><td>Maintains the gradients required for repeated signalling.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-threshold">
+    <h2 id="lesson-04-threshold">2. Threshold starts a regenerative event</h2>
+    <p>A stimulus first produces a local change in voltage. If that change does not reach threshold, the membrane returns toward rest without producing a full action potential. If threshold is reached, often modelled near −55 mV, enough voltage-gated sodium channels open to begin a rapid positive-feedback cycle.</p>
+    <p>Na⁺ enters through open channels, making the inside less negative. That depolarization opens more voltage-gated sodium channels, which allows more Na⁺ to enter. The rising phase therefore regenerates itself until sodium channels inactivate near the peak. A larger threshold-crossing stimulus does not create a proportionally taller action potential: the event is <strong>all-or-none</strong>.</p>
+    <aside class="bio-concept-note">
+      <h3>Why the signal does not fade</h3>
+      <p>Current from one depolarized region brings the next region to threshold. New voltage-gated channels open there, producing a new full-sized action potential. The signal is repeatedly regenerated along the axon rather than passively leaking to the end.</p>
+    </aside>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-recovery">
+    <h2 id="lesson-04-recovery">3. Repolarization resets voltage, then channels recover</h2>
+    <p>Near the peak, voltage-gated sodium channels become inactivated and delayed voltage-gated potassium channels are open. K⁺ moves out of the axon, taking positive charge with it. The membrane potential moves back toward a negative value: this is <strong>repolarization</strong>.</p>
+    <p>Potassium channels close slowly, so the voltage often becomes more negative than resting potential for a short time. This is <strong>hyperpolarization</strong>. As channel states return to their resting condition, the membrane returns toward its usual resting voltage.</p>
+    <p>During the <strong>absolute refractory period</strong>, inactivated sodium channels cannot reopen, so another action potential cannot begin in that region. During the following <strong>relative refractory period</strong>, some channels have recovered but the membrane is hyperpolarized, so a stronger-than-usual stimulus may be needed. Refractory behaviour limits firing rate and helps propagation continue forward.</p>
+  </section>
+
+  <section class="bio-section bio-model" aria-labelledby="lesson-04-model-title" data-bio-interaction="interaction-action-potential-explorer">
+    <div class="bio-model-header">
+      <div><p class="bio-section-label">Model Lab</p><h2 id="lesson-04-model-title">Explore the voltage phases</h2></div>
+      <p>Choose each stage. Track voltage, channel state, and net ion movement together.</p>
+    </div>
+    <div class="bio-model-layout">
+      <div>
+        <div class="bio-stage-controls" role="group" aria-label="Action potential stage">
+          <button type="button" data-ap-stage-button="rest" aria-pressed="true">Rest</button>
+          <button type="button" data-ap-stage-button="threshold" aria-pressed="false">Threshold</button>
+          <button type="button" data-ap-stage-button="depolarization" aria-pressed="false">Rising phase</button>
+          <button type="button" data-ap-stage-button="repolarization" aria-pressed="false">Falling phase</button>
+          <button type="button" data-ap-stage-button="hyperpolarization" aria-pressed="false">Undershoot</button>
+          <button type="button" data-ap-stage-button="recovery" aria-pressed="false">Recovery</button>
+        </div>
+        <div class="bio-figure bio-figure--graph"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="action-potential-title action-potential-desc" data-figure-id="figure-action-potential-graph" id="ap-graph">
+  <title id="action-potential-title">Membrane potential during one action potential</title>
+  <desc id="action-potential-desc">A voltage-versus-time graph begins near negative 70 millivolts, crosses a negative 55 millivolt threshold, rises to about positive 30 millivolts during depolarization, returns during repolarization, briefly falls below rest during hyperpolarization, and then returns to rest.</desc>
+  <style>
+    .ap-axis{stroke:#39423d;stroke-width:3}.ap-grid{stroke:#d9ded8;stroke-width:2}.ap-guide{stroke:#5b635d;stroke-width:2;stroke-dasharray:8 8}.ap-curve{fill:none;stroke:#146c60;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.ap-label{font:600 19px 'Work Sans',sans-serif;fill:#171b1b}.ap-small{font:500 16px 'Work Sans',sans-serif;fill:#4f5852}.ap-point{fill:#fff;stroke:#154212;stroke-width:4}.ap-point[data-active='true']{fill:#f0b44a;stroke:#171b1b;stroke-width:5}.ap-callout{fill:#fff;stroke:#d9ded8;stroke-width:2}
+  </style>
+  <rect width="1000" height="560" fill="#fff"/>
+  <line class="ap-grid" x1="112" y1="122" x2="928" y2="122"/>
+  <line class="ap-grid" x1="112" y1="308" x2="928" y2="308"/>
+  <line class="ap-grid" x1="112" y1="350" x2="928" y2="350"/>
+  <line class="ap-grid" x1="112" y1="446" x2="928" y2="446"/>
+  <line class="ap-axis" x1="112" y1="54" x2="112" y2="492"/>
+  <line class="ap-axis" x1="112" y1="492" x2="930" y2="492"/>
+  <line class="ap-guide" x1="112" y1="308" x2="928" y2="308"/>
+  <line class="ap-guide" x1="112" y1="350" x2="928" y2="350"/>
+  <text class="ap-small" x="46" y="129">+30</text><text class="ap-small" x="74" y="315">−55</text><text class="ap-small" x="74" y="357">−70</text><text class="ap-small" x="74" y="453">−90</text>
+  <text class="ap-label" transform="translate(28 348) rotate(-90)">Membrane potential (mV)</text>
+  <text class="ap-label" x="452" y="538">Time (ms)</text>
+  <text class="ap-small" x="792" y="299">threshold</text><text class="ap-small" x="805" y="341">resting level</text>
+  <path class="ap-curve" d="M120 350 C210 350 238 348 270 340 C302 330 320 292 348 218 C376 142 401 80 432 122 C460 164 468 278 496 336 C524 394 566 466 620 446 C676 425 704 368 742 354 C785 338 846 350 920 350"/>
+  <g data-ap-stage="rest" data-active="true"><circle class="ap-point" cx="184" cy="350" r="12"/><text class="ap-small" x="133" y="391">rest</text></g>
+  <g data-ap-stage="threshold"><circle class="ap-point" cx="315" cy="308" r="12"/><text class="ap-small" x="264" y="281">threshold</text></g>
+  <g data-ap-stage="depolarization"><circle class="ap-point" cx="396" cy="122" r="12"/><text class="ap-small" x="330" y="84">depolarization</text></g>
+  <g data-ap-stage="repolarization"><circle class="ap-point" cx="506" cy="350" r="12"/><text class="ap-small" x="492" y="236">repolarization</text></g>
+  <g data-ap-stage="hyperpolarization"><circle class="ap-point" cx="620" cy="446" r="12"/><text class="ap-small" x="548" y="482">hyperpolarization</text></g>
+  <g data-ap-stage="recovery"><circle class="ap-point" cx="782" cy="350" r="12"/><text class="ap-small" x="750" y="391">recovery</text></g>
+</svg>
+</div>
+      </div>
+      <aside class="bio-model-readout" aria-live="polite" aria-atomic="true">
+        <p class="bio-model-stage" data-ap-stage-name>Rest</p>
+        <dl>
+          <div><dt>Approximate voltage</dt><dd data-ap-voltage>−70 mV</dd></div>
+          <div><dt>Dominant channel state</dt><dd data-ap-channels>Voltage-gated Na⁺ and K⁺ channels are closed; leak channels remain active.</dd></div>
+          <div><dt>Net explanation</dt><dd data-ap-explanation>Selective permeability and maintained ion gradients keep the inside negative relative to the outside.</dd></div>
+        </dl>
+        <p class="bio-model-progress" data-ap-progress>1 of 6 stages inspected</p>
+      </aside>
+    </div>
+    <details class="bio-static-fallback">
+      <summary>Use the complete static model</summary>
+      <ol>
+        <li><strong>Rest:</strong> near −70 mV; voltage-gated channels are closed and resting gradients are maintained.</li>
+        <li><strong>Threshold:</strong> sufficient depolarization opens enough voltage-gated Na⁺ channels to trigger the event.</li>
+        <li><strong>Rising phase:</strong> Na⁺ entry rapidly depolarizes the membrane toward a positive peak.</li>
+        <li><strong>Falling phase:</strong> Na⁺ channels inactivate, K⁺ channels are open, and K⁺ leaves.</li>
+        <li><strong>Undershoot:</strong> delayed K⁺-channel closing briefly makes the membrane more negative than rest.</li>
+        <li><strong>Recovery:</strong> channel states reset and the membrane returns toward resting potential.</li>
+      </ol>
+    </details>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-intensity">
+    <h2 id="lesson-04-intensity">4. Intensity changes the pattern, not the height</h2>
+    <p>Once threshold is crossed, individual action potentials have a similar amplitude. A stronger stimulus is commonly represented by a higher <strong>frequency</strong> of action potentials. In many sensory pathways, stronger stimulation can also recruit additional neurons. The nervous system reads the timing and population pattern, not a series of spikes that simply become taller.</p>
+    <p>This distinction matters when interpreting graphs. One action-potential trace explains the voltage mechanism of one event. A train of traces over a longer time interval can carry information about stimulus intensity through the spacing between events.</p>
+  </section>
+
+  <section class="bio-section bio-practice" aria-labelledby="lesson-04-practice">
+    <p class="bio-section-label">Guided practice</p>
+    <h2 id="lesson-04-practice">Check the mechanism</h2>
+    <p>Submit each answer for explanatory feedback. Your choices and feedback state are saved.</p>
+    <div class="bio-practice-list" data-practice-set="lesson-04">
+      <article class="bio-practice-item" data-practice-id="lesson-04-check-1">
+        <h3>1. Beginning the rising phase</h3>
+        <fieldset><legend>Which event most directly begins the rapid rising phase after threshold is reached?</legend>
+          <label><input type="radio" name="lesson-04-check-1" value="a"> Voltage-gated sodium channels open and sodium ions enter.</label>
+          <label><input type="radio" name="lesson-04-check-1" value="b"> The sodium-potassium pump immediately moves all sodium ions out.</label>
+          <label><input type="radio" name="lesson-04-check-1" value="c"> Voltage-gated potassium channels close and potassium ions enter.</label>
+          <label><input type="radio" name="lesson-04-check-1" value="d"> The membrane becomes impermeable to every ion.</label>
+        </fieldset>
+        <button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div>
+      </article>
+      <article class="bio-practice-item" data-practice-id="lesson-04-check-2">
+        <h3>2. Reading threshold</h3>
+        <fieldset><legend>A stimulus depolarizes a neuron from −70 mV to −58 mV, below a −55 mV threshold. What should the graph show next?</legend>
+          <label><input type="radio" name="lesson-04-check-2" value="a"> A full action potential with a smaller peak.</label>
+          <label><input type="radio" name="lesson-04-check-2" value="b"> A return toward resting potential without a full action potential.</label>
+          <label><input type="radio" name="lesson-04-check-2" value="c"> Immediate hyperpolarization to −90 mV.</label>
+          <label><input type="radio" name="lesson-04-check-2" value="d"> A permanent change to the threshold.</label>
+        </fieldset>
+        <button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div>
+      </article>
+      <article class="bio-practice-item" data-practice-id="lesson-04-check-3">
+        <h3>3. Encoding intensity</h3>
+        <fieldset><legend>A sensory neuron receives a stronger stimulus after it is already firing. Which change best represents greater stimulus intensity?</legend>
+          <label><input type="radio" name="lesson-04-check-3" value="a"> Each action potential becomes twice as tall.</label>
+          <label><input type="radio" name="lesson-04-check-3" value="b"> Action potentials occur more frequently, and additional neurons may be recruited.</label>
+          <label><input type="radio" name="lesson-04-check-3" value="c"> The resting potential becomes permanently positive.</label>
+          <label><input type="radio" name="lesson-04-check-3" value="d"> The refractory period disappears.</label>
+        </fieldset>
+        <button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="bio-section bio-artifact" aria-labelledby="lesson-04-artifact" data-artifact-id="action-potential-evidence">
+    <div class="bio-artifact-heading"><div><p class="bio-section-label">Portfolio artifact 2</p><h2 id="lesson-04-artifact">Action-potential evidence interpretation</h2></div><span>Draft checkpoint</span></div>
+    <p>Use the graph and ion-channel model to explain why an action potential is all-or-none but stimulus intensity can still vary.</p>
+    <div class="bio-artifact-fields">
+      <label>Claim <span>What is the central scientific claim?</span><textarea rows="3" maxlength="550" data-bio-response-id="biology30-unit-a:artifact:action-potential-evidence:claim"></textarea></label>
+      <label>Graph evidence <span>Use at least two voltage regions or trends.</span><textarea rows="4" maxlength="700" data-bio-response-id="biology30-unit-a:artifact:action-potential-evidence:evidence"></textarea></label>
+      <label>Ion-channel reasoning <span>Connect the evidence to sodium and potassium channel states.</span><textarea rows="4" maxlength="750" data-bio-response-id="biology30-unit-a:artifact:action-potential-evidence:reasoning"></textarea></label>
+    </div>
+    <details class="bio-rubric"><summary>Review the four-level rubric</summary>
+      <div class="bio-table-wrap" role="region" aria-label="Artifact rubric" tabindex="0"><table><caption>Scientific evidence rubric</caption><thead><tr><th scope="col">Dimension</th><th scope="col">Beginning</th><th scope="col">Developing</th><th scope="col">Proficient</th><th scope="col">Excellent</th></tr></thead><tbody>
+        <tr><th scope="row">Scientific accuracy</th><td>Major mechanism errors</td><td>Partly accurate sequence</td><td>Accurate channel and voltage sequence</td><td>Accurate with precise phase distinctions</td></tr>
+        <tr><th scope="row">Evidence</th><td>Little graph evidence</td><td>One relevant feature</td><td>Two relevant features used</td><td>Features compared and interpreted</td></tr>
+        <tr><th scope="row">Reasoning</th><td>Claim and evidence disconnected</td><td>Partial link</td><td>Clear causal link</td><td>Explains all-or-none and intensity together</td></tr>
+        <tr><th scope="row">Communication</th><td>Meaning unclear</td><td>Some scientific terms</td><td>Clear and organized</td><td>Concise, precise, and fully integrated</td></tr>
+      </tbody></table></div>
+    </details>
+    <div class="bio-artifact-actions"><button type="button" class="bio-primary-button" data-save-artifact="action-potential-evidence">Save artifact draft</button><button type="button" data-print-artifact="action-potential-evidence">Print / Save as PDF</button><button type="button" data-copy-artifact="action-potential-evidence">Copy summary</button><span data-artifact-status="action-potential-evidence" aria-live="polite">Draft not saved</span></div>
+  </section>
+
+  <section class="bio-section bio-exit" aria-labelledby="lesson-04-exit">
+    <p class="bio-section-label">Exit check</p>
+    <h2 id="lesson-04-exit">Explain the non-fading signal</h2>
+    <label for="lesson-04-exit-response">In 2–3 sentences, explain why an action potential does not become weaker as it travels along an axon.</label>
+    <textarea id="lesson-04-exit-response" rows="4" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:04:exit" placeholder="The signal is regenerated because…"></textarea>
+    <div class="bio-exit-actions"><button type="button" class="bio-primary-button" data-complete-bio-lesson="lesson-04">Save exit and complete lesson</button><span data-lesson-status="lesson-04" aria-live="polite">Exit response required</span></div>
+  </section>
+
+  <details class="bio-sources">
+    <summary>Lesson sources and scientific basis</summary>
+    <p>Curriculum alignment: Alberta Biology 20–30 Program of Studies, outcome A1.1k and skill A1.3s. Source content was rebuilt from the supplied Unit A notes, pages 21–30; the 2026–27 class Day 2 module; and CBE System Biology 30 Module 1, Lesson 7. Mechanism details were cross-checked against OpenStax <cite>Anatomy and Physiology 2e</cite>, section 12.4. Figures are original course redraws.</p>
+  </details>
+</div>
+
+      <nav class="lesson-bottom-bar lesson-bottom-bar--authored" aria-label="Lesson navigation">
+        <a class="lesson-jump" href="#lessons" data-page-target="lessons">Lesson library</a>
+        <a class="lesson-jump primary" href="#lesson-15" data-page-target="lesson-15">Next Lesson</a>
+        
+      </nav>
+    </article>
+  </section>
+<section id="lesson-15" class="course-page lesson-page lesson-page--authored" hidden>
+    <article class="authored-lesson">
+      <div class="bio-route bio-lesson" data-biology-lesson="lesson-15">
+  <header class="bio-lesson-header">
+    <p class="bio-course-code">Lesson 15 · Endocrine control</p>
+    <h1>Pancreas, Blood Glucose, Diabetes, and Urinalysis</h1>
+    <p class="bio-inquiry">What patterns in blood and urine data reveal that glucose regulation is not returning to its expected range?</p>
+    <dl class="bio-lesson-meta">
+      <div><dt>Required time</dt><dd>105 minutes</dd></div>
+      <div><dt>Dataset</dt><dd>Synthetic; four profiles</dd></div>
+      <div><dt>Evidence</dt><dd>Feedback and urinalysis analysis</dd></div>
+    </dl>
+  </header>
+
+  <aside class="bio-callout bio-callout--safety" aria-labelledby="lesson-15-health-note">
+    <h2 id="lesson-15-health-note">Educational model—not a health test</h2>
+    <p>Every value in this lesson is synthetic instructional data. Urine patterns and classroom glucose models cannot diagnose diabetes or guide treatment. Personal symptoms, glucose readings, ketones, or medication questions require a qualified health-care professional. Diabetic ketoacidosis and severe low blood glucose are medical emergencies.</p>
+  </aside>
+
+  <section class="bio-learning-targets" aria-labelledby="lesson-15-targets">
+    <h2 id="lesson-15-targets">By the end of this lesson, you can</h2>
+    <ul>
+      <li>trace insulin and glucagon from pancreatic islet cells to their target responses;</li>
+      <li>explain blood-glucose regulation as negative feedback rather than a simple stimulus-response chain;</li>
+      <li>distinguish type 1 diabetes, type 2 diabetes, and evidence that does not establish either diagnosis;</li>
+      <li>interpret synthetic blood and urine data while stating limitations and needed evidence.</li>
+    </ul>
+  </section>
+
+  <section class="bio-section bio-retrieval" aria-labelledby="lesson-15-retrieval">
+    <div><p class="bio-section-label">Retrieve</p><h2 id="lesson-15-retrieval">Find the feedback, not just the hormone</h2><p>After a carbohydrate-containing meal, blood glucose rises. Predict the sensor, signal, main targets, and response that would oppose this change.</p></div>
+    <label class="bio-response-label" for="lesson-15-warmup">Sketch the pathway in words <span>autosaves</span></label>
+    <textarea id="lesson-15-warmup" rows="3" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:15:warmup" data-bio-autosave placeholder="Rise in glucose → sensor… → signal… → target response…"></textarea>
+    <p class="bio-save-status" data-bio-status-for="biology30-unit-a:lesson:15:warmup" aria-live="polite">Not saved yet</p>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-islets">
+    <p class="bio-section-label">Build the mechanism</p>
+    <h2 id="lesson-15-islets">1. Pancreatic islets connect a variable to a hormone signal</h2>
+    <p>The pancreas has both exocrine and endocrine roles. Its exocrine tissue releases digestive substances through ducts. Small clusters called <strong>pancreatic islets</strong> release hormones directly into blood. Within the islets, beta cells secrete insulin and alpha cells secrete glucagon.</p>
+    <p>These cells respond to blood-glucose conditions. When glucose rises, beta-cell insulin release increases. When glucose falls, insulin release decreases and alpha-cell glucagon release increases. Hormones travel through the bloodstream, but only cells with the appropriate receptors and response machinery react in a particular way.</p>
+    <aside class="bio-concept-note"><h3>A needed correction: insulin does not simply “open every cell”</h3><p>Insulin strongly supports glucose uptake in skeletal muscle and adipose tissue and changes glucose storage and production in the liver. Several tissues—including the brain and red blood cells—use glucose transport that is not dependent on insulin in the same way. The regulation is tissue-specific.</p></aside>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-feedback">
+    <h2 id="lesson-15-feedback">2. Insulin and glucagon oppose the disturbance</h2>
+    <div class="bio-figure" data-figure-slot="blood-glucose-loop">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 650" role="img" aria-labelledby="blood-glucose-title blood-glucose-desc" data-figure-id="figure-blood-glucose-loop">
+  <title id="blood-glucose-title">Negative feedback regulation of blood glucose</title>
+  <desc id="blood-glucose-desc">Two numbered pathways return blood glucose toward its regulated range. After glucose rises, pancreatic beta cells release insulin, supporting glucose use and storage. When glucose falls, pancreatic alpha cells release glucagon, promoting liver glycogen breakdown and glucose release.</desc>
+  <style>
+    .bg-box{fill:#fff;stroke:#d9ded8;stroke-width:3}.bg-center{fill:#f1f5ef;stroke:#154212;stroke-width:4}.bg-high{fill:#e8f5f2;stroke:#146c60;stroke-width:3}.bg-low{fill:#fff5e8;stroke:#a15c00;stroke-width:3}.bg-title{font:700 22px 'Hanken Grotesk',sans-serif;fill:#171b1b}.bg-text{font:500 18px 'Work Sans',sans-serif;fill:#39423d}.bg-step{font:700 19px 'Work Sans',sans-serif;fill:#fff}.bg-arrow{fill:none;stroke:#39423d;stroke-width:3;marker-end:url(#bg-arrow)}
+  </style>
+  <defs><marker id="bg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#39423d"/></marker></defs>
+  <rect width="1040" height="650" fill="#fff"/>
+  <rect class="bg-center" x="365" y="263" width="310" height="124" rx="8"/>
+  <text class="bg-title" x="414" y="313">Regulated blood-glucose range</text>
+  <text class="bg-text" x="403" y="347">The system responds to direction of change,</text><text class="bg-text" x="437" y="373">not to one universal fixed number.</text>
+  <rect class="bg-high" x="48" y="44" width="265" height="104" rx="8"/><text class="bg-title" x="99" y="86">Blood glucose rises</text><text class="bg-text" x="82" y="119">for example, after a meal</text>
+  <circle cx="348" cy="96" r="22" fill="#146c60"/><text class="bg-step" x="342" y="103">1</text>
+  <rect class="bg-box" x="386" y="44" width="270" height="104" rx="8"/><text class="bg-title" x="422" y="86">Beta cells release insulin</text><text class="bg-text" x="430" y="119">through the bloodstream</text>
+  <circle cx="691" cy="96" r="22" fill="#146c60"/><text class="bg-step" x="685" y="103">2</text>
+  <rect class="bg-box" x="730" y="44" width="265" height="104" rx="8"/><text class="bg-title" x="772" y="86">Targets change activity</text><text class="bg-text" x="759" y="117">muscle and fat increase uptake;</text><text class="bg-text" x="773" y="140">liver increases storage</text>
+  <path class="bg-arrow" d="M313 96h51"/><path class="bg-arrow" d="M656 96h52"/><path class="bg-arrow" d="M862 151c0 92-60 130-165 153"/>
+  <rect class="bg-low" x="48" y="502" width="265" height="104" rx="8"/><text class="bg-title" x="105" y="544">Blood glucose falls</text><text class="bg-text" x="92" y="577">for example, between meals</text>
+  <circle cx="348" cy="554" r="22" fill="#a15c00"/><text class="bg-step" x="342" y="561">1</text>
+  <rect class="bg-box" x="386" y="502" width="270" height="104" rx="8"/><text class="bg-title" x="413" y="544">Alpha cells release glucagon</text><text class="bg-text" x="430" y="577">through the bloodstream</text>
+  <circle cx="691" cy="554" r="22" fill="#a15c00"/><text class="bg-step" x="685" y="561">2</text>
+  <rect class="bg-box" x="730" y="502" width="265" height="104" rx="8"/><text class="bg-title" x="772" y="544">The liver releases glucose</text><text class="bg-text" x="758" y="577">glycogen is broken down and</text><text class="bg-text" x="786" y="600">glucose enters blood</text>
+  <path class="bg-arrow" d="M313 554h51"/><path class="bg-arrow" d="M656 554h52"/><path class="bg-arrow" d="M862 499c0-91-60-129-165-152"/>
+  <text class="bg-text" x="400" y="221">insulin pathway lowers the disturbance</text>
+  <text class="bg-text" x="398" y="444">glucagon pathway raises the disturbance</text>
+</svg>
+
+      <div class="bio-figure-copy"><h3>Read the two branches</h3><p>Each branch reduces its initiating disturbance. A rise increases insulin signalling and responses that lower the rise. A fall increases glucagon signalling and liver glucose output, opposing the fall. As the variable returns toward its regulated range, the original hormonal drive decreases.</p></div>
+    </div>
+    <div class="bio-table-wrap" role="region" aria-label="Blood glucose loop as text" tabindex="0">
+      <table><caption>Static equivalent: two blood-glucose feedback branches</caption><thead><tr><th scope="col">Change detected</th><th scope="col">Pancreatic response</th><th scope="col">Important target responses</th><th scope="col">Effect on the disturbance</th></tr></thead><tbody>
+        <tr><th scope="row">Blood glucose rises</th><td>Beta cells increase insulin release.</td><td>Skeletal muscle and adipose tissue increase insulin-responsive uptake; liver and muscle increase storage; liver glucose output decreases.</td><td>The rise is reduced.</td></tr>
+        <tr><th scope="row">Blood glucose falls</th><td>Insulin decreases and alpha cells increase glucagon release.</td><td>The liver increases glycogen breakdown and glucose production, then releases glucose to blood.</td><td>The fall is reduced.</td></tr>
+      </tbody></table>
+    </div>
+    <p><strong>Negative feedback</strong> describes the relationship between the response and the original change. It does not mean that insulin or glucagon is “negative.” Both hormones are necessary signals, and their effects depend on concentration, timing, target receptors, recent food intake, activity, and other hormones.</p>
+  </section>
+
+  <section class="bio-section bio-model" aria-labelledby="lesson-15-model-title" data-bio-interaction="interaction-blood-glucose-simulator">
+    <div class="bio-model-header"><div><p class="bio-section-label">Model Lab</p><h2 id="lesson-15-model-title">Run the local feedback model</h2></div><p>This simplified model shows mechanisms and trends. It does not predict an individual person's glucose.</p></div>
+    <div class="bio-simulator-controls">
+      <label for="glucose-scenario">Scenario<select id="glucose-scenario" data-glucose-scenario>
+        <option value="regulated-meal">Meal with a regulated response</option>
+        <option value="low-insulin-signal">Meal with a low insulin signal</option>
+        <option value="reduced-response">Meal with reduced target response</option>
+        <option value="extended-activity">Extended activity between meals</option>
+      </select></label>
+      <button type="button" class="bio-primary-button" data-run-glucose-model>Run scenario</button>
+    </div>
+    <div class="bio-model-layout bio-model-layout--glucose">
+      <figure class="bio-synthetic-chart">
+        <svg viewBox="0 0 760 360" role="img" aria-labelledby="glucose-chart-title glucose-chart-desc" data-glucose-chart>
+          <title id="glucose-chart-title">Synthetic blood-glucose trend</title><desc id="glucose-chart-desc" data-glucose-chart-desc>A line graph will show the selected synthetic scenario. The same values are available in the adjacent table.</desc>
+          <rect width="760" height="360" fill="#fff"/><g data-glucose-chart-grid></g><path data-glucose-chart-path fill="none" stroke="#146c60" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path><g data-glucose-chart-points></g>
+        </svg>
+        <figcaption>Model output is synthetic instructional data in mmol/L.</figcaption>
+      </figure>
+      <aside class="bio-model-readout" aria-live="polite" aria-atomic="true">
+        <p class="bio-model-stage" data-glucose-scenario-label>Meal with a regulated response</p>
+        <dl><div><dt>Insulin signal</dt><dd data-glucose-insulin>rises, then falls</dd></div><div><dt>Glucagon signal</dt><dd data-glucose-glucagon>suppressed, then returns</dd></div><div><dt>Mechanism</dt><dd data-glucose-mechanism>Run the scenario to inspect its mechanism.</dd></div></dl>
+        <label for="glucose-interpretation">Your interpretation</label><textarea id="glucose-interpretation" rows="4" maxlength="500" data-bio-response-id="biology30-unit-a:activity:blood-glucose:interpretation" placeholder="The curve suggests… because the hormone and target responses…"></textarea>
+      </aside>
+    </div>
+    <div class="bio-table-wrap" role="region" aria-label="Selected glucose model values" tabindex="0"><table><caption data-glucose-table-caption>Selected scenario values</caption><thead><tr data-glucose-time-row><th scope="col">Time</th></tr></thead><tbody><tr data-glucose-value-row><th scope="row">Glucose (mmol/L)</th></tr></tbody></table></div>
+    <details class="bio-static-fallback"><summary>Use the complete supplied-data alternative</summary><p>The four scenario curves and hormone descriptions are available in the table above after selection. Choose any two rows, compare peak or lowest value, direction after the disturbance, and time taken to return toward the starting range. Use those observations to infer whether the limitation is hormone release, target response, or neither.</p></details>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-diabetes">
+    <h2 id="lesson-15-diabetes">3. Diabetes mellitus can disrupt different parts of the pathway</h2>
+    <p><strong>Type 1 diabetes</strong> is an autoimmune disease in which the immune system destroys insulin-producing beta cells. The body produces little or no insulin, and insulin must be taken every day to sustain life. Type 1 can develop at any age; “juvenile diabetes” is outdated as a defining label.</p>
+    <p><strong>Type 2 diabetes</strong> develops when target tissues do not respond well to insulin and the pancreas may eventually be unable to produce enough insulin for the body's needs. This is called insulin resistance. Type 2 can also occur in children and young adults. Genetics, age, activity, body composition, access to health-supporting environments, and other factors can influence risk; it is not scientifically accurate or respectful to reduce the disease to one behaviour.</p>
+    <p>Treatment is individualized. Type 1 management centres on insulin, glucose monitoring, food and activity planning, and health-care support. Type 2 management may include nutrition and activity changes, several classes of medicine, glucose monitoring, and sometimes insulin. Technologies such as continuous glucose monitors, insulin pumps, and automated insulin-delivery systems can help people detect trends and adjust treatment with their care team.</p>
+    <div class="bio-comparison-grid" role="list">
+      <article role="listitem"><h3>Type 1</h3><ul><li>Autoimmune beta-cell destruction</li><li>Little or no insulin production</li><li>Daily insulin required</li><li>Can appear at any age</li></ul></article>
+      <article role="listitem"><h3>Type 2</h3><ul><li>Insulin resistance plus relative insulin insufficiency</li><li>Insulin may be high early and insufficient later</li><li>Management varies by person</li><li>Can appear at any age</li></ul></article>
+      <article role="listitem"><h3>Shared evidence limits</h3><ul><li>Symptoms overlap with other conditions</li><li>A classroom model cannot diagnose</li><li>Professional blood tests establish diabetes</li><li>Additional evidence is needed to identify type</li></ul></article>
+    </div>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-urinalysis">
+    <h2 id="lesson-15-urinalysis">4. Urinalysis reveals clues—and important limits</h2>
+    <p>The kidneys filter blood and normally reabsorb nearly all filtered glucose. When blood glucose and the filtered glucose load become high enough, transporters may be unable to reabsorb all of it, so glucose appears in urine. Glucose in urine therefore signals a pattern worth investigating, but it does not identify the cause by itself.</p>
+    <p>When cells cannot access enough usable glucose, fat breakdown can increase and produce <strong>ketones</strong>. Ketones in urine can occur in several contexts. In a person with diabetes, high ketones together with relevant symptoms can signal diabetic ketoacidosis, which requires urgent medical care. In this course, ketone values are only synthetic evidence for reasoning about fuel use.</p>
+    <div class="bio-table-wrap" role="region" aria-label="Synthetic urinalysis profiles" tabindex="0">
+      <table><caption>Synthetic instructional profiles—do not diagnose</caption><thead><tr><th scope="col">Sample</th><th scope="col">Blood-glucose trend (mmol/L)</th><th scope="col">Urine glucose</th><th scope="col">Urine ketones</th><th scope="col">Hydration marker</th></tr></thead><tbody>
+        <tr><th scope="row">A</th><td>4.9 → 7.2 → 5.5 after a meal</td><td>Negative</td><td>Negative</td><td>Expected instructional range</td></tr>
+        <tr><th scope="row">B</th><td>7.8 → 13.6 → 12.9 after a meal</td><td>3+</td><td>2+</td><td>Concentrated</td></tr>
+        <tr><th scope="row">C</th><td>5.1 → 3.4 → 3.9 after activity</td><td>Negative</td><td>Negative</td><td>Expected instructional range</td></tr>
+        <tr><th scope="row">D</th><td>8.1 → 12.2 → 10.4 after a meal</td><td>2+</td><td>Negative</td><td>Dilute</td></tr>
+      </tbody></table>
+    </div>
+    <div class="bio-evidence-prompts"><h3>A responsible evidence claim includes</h3><ol><li>the pattern actually present in the data;</li><li>a feedback mechanism that could produce that pattern;</li><li>at least one alternative explanation or limitation;</li><li>the next evidence needed—usually appropriate professional blood testing, not a classroom urine result.</li></ol></div>
+  </section>
+
+  <section class="bio-section bio-practice" aria-labelledby="lesson-15-practice">
+    <p class="bio-section-label">Guided practice</p><h2 id="lesson-15-practice">Check the regulation</h2><p>Submit each answer for explanatory feedback. Your choices and feedback state are saved.</p>
+    <div class="bio-practice-list" data-practice-set="lesson-15">
+      <article class="bio-practice-item" data-practice-id="lesson-15-check-1"><h3>1. Falling blood glucose</h3><fieldset><legend>Which pairing correctly identifies the pancreatic endocrine response to falling blood glucose?</legend>
+        <label><input type="radio" name="lesson-15-check-1" value="a"> Beta cells release insulin, increasing liver glucose release.</label>
+        <label><input type="radio" name="lesson-15-check-1" value="b"> Alpha cells release glucagon, increasing liver glucose release.</label>
+        <label><input type="radio" name="lesson-15-check-1" value="c"> Alpha cells release insulin, increasing muscle glycogen breakdown.</label>
+        <label><input type="radio" name="lesson-15-check-1" value="d"> Beta cells release glucagon, preventing all cells from using glucose.</label>
+      </fieldset><button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div></article>
+      <article class="bio-practice-item" data-practice-id="lesson-15-check-2"><h3>2. Reading a hormone-glucose mismatch</h3><fieldset><legend>In a synthetic model, insulin rises after a meal but blood glucose remains elevated longer than expected. Which mechanism is most consistent with that evidence?</legend>
+        <label><input type="radio" name="lesson-15-check-2" value="a"> Target tissues are responding weakly to insulin.</label>
+        <label><input type="radio" name="lesson-15-check-2" value="b"> Alpha cells are unable to release any glucagon during fasting.</label>
+        <label><input type="radio" name="lesson-15-check-2" value="c"> The kidneys are producing insulin instead of the pancreas.</label>
+        <label><input type="radio" name="lesson-15-check-2" value="d"> All glucose has already been stored as glycogen.</label>
+      </fieldset><button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div></article>
+      <article class="bio-practice-item" data-practice-id="lesson-15-check-3"><h3>3. Setting an evidence boundary</h3><fieldset><legend>A classroom urinalysis dataset shows glucose and ketones in one synthetic sample. What is the strongest scientifically responsible conclusion?</legend>
+        <label><input type="radio" name="lesson-15-check-3" value="a"> The sample proves that the person has type 1 diabetes.</label>
+        <label><input type="radio" name="lesson-15-check-3" value="b"> The pattern suggests disrupted fuel regulation and warrants additional clinical blood evidence; it is not diagnostic by itself.</label>
+        <label><input type="radio" name="lesson-15-check-3" value="c"> The pattern proves that the kidneys caused the glucose imbalance.</label>
+        <label><input type="radio" name="lesson-15-check-3" value="d"> The person should immediately change medication based on the classroom result.</label>
+      </fieldset><button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div></article>
+    </div>
+  </section>
+
+  <section class="bio-section bio-artifact" aria-labelledby="lesson-15-artifact" data-artifact-id="glucose-urinalysis">
+    <div class="bio-artifact-heading"><div><p class="bio-section-label">Portfolio artifact 6</p><h2 id="lesson-15-artifact">Blood-glucose and urinalysis analysis</h2></div><span>Draft checkpoint</span></div>
+    <p>Select Sample B or D. Make a mechanism-based claim without diagnosing a condition.</p>
+    <div class="bio-artifact-fields">
+      <label>Data pattern <span>Identify at least two relevant observations.</span><textarea rows="3" maxlength="500" data-bio-response-id="biology30-unit-a:artifact:glucose-urinalysis:pattern"></textarea></label>
+      <label>Feedback mechanism <span>Connect the pattern to insulin, glucagon, liver, muscle, or adipose responses.</span><textarea rows="4" maxlength="750" data-bio-response-id="biology30-unit-a:artifact:glucose-urinalysis:mechanism"></textarea></label>
+      <label>Limits and next evidence <span>State what cannot be concluded and what evidence would be needed next.</span><textarea rows="4" maxlength="750" data-bio-response-id="biology30-unit-a:artifact:glucose-urinalysis:limits"></textarea></label>
+    </div>
+    <details class="bio-rubric"><summary>Review the four-level rubric</summary><div class="bio-table-wrap" role="region" aria-label="Artifact rubric" tabindex="0"><table><caption>Scientific evidence rubric</caption><thead><tr><th scope="col">Dimension</th><th scope="col">Beginning</th><th scope="col">Developing</th><th scope="col">Proficient</th><th scope="col">Excellent</th></tr></thead><tbody>
+      <tr><th scope="row">Scientific accuracy</th><td>Major pathway errors</td><td>Partly accurate pathway</td><td>Accurate hormone-target pathway</td><td>Accurate and tissue-specific</td></tr>
+      <tr><th scope="row">Evidence</th><td>Claim without data</td><td>One observation</td><td>Two relevant observations</td><td>Trends compared across measures</td></tr>
+      <tr><th scope="row">Reasoning</th><td>No mechanism</td><td>Partial mechanism</td><td>Clear feedback explanation</td><td>Mechanism evaluates alternatives</td></tr>
+      <tr><th scope="row">Limitations</th><td>Diagnostic overclaim</td><td>Vague caution</td><td>Clear limit and next evidence</td><td>Limit, alternative, and evidence plan</td></tr>
+    </tbody></table></div></details>
+    <div class="bio-artifact-actions"><button type="button" class="bio-primary-button" data-save-artifact="glucose-urinalysis">Save artifact draft</button><button type="button" data-print-artifact="glucose-urinalysis">Print / Save as PDF</button><button type="button" data-copy-artifact="glucose-urinalysis">Copy summary</button><span data-artifact-status="glucose-urinalysis" aria-live="polite">Draft not saved</span></div>
+  </section>
+
+  <section class="bio-section bio-exit" aria-labelledby="lesson-15-exit">
+    <p class="bio-section-label">Exit check</p><h2 id="lesson-15-exit">Separate pattern from diagnosis</h2>
+    <label for="lesson-15-exit-response">In 2–3 sentences, explain why glucose in a synthetic urine sample is useful evidence but not a diabetes diagnosis.</label>
+    <textarea id="lesson-15-exit-response" rows="4" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:15:exit" placeholder="The result is useful because… It is limited because…"></textarea>
+    <div class="bio-exit-actions"><button type="button" class="bio-primary-button" data-complete-bio-lesson="lesson-15">Save exit and complete lesson</button><span data-lesson-status="lesson-15" aria-live="polite">Exit response required</span></div>
+  </section>
+
+  <details class="bio-sources"><summary>Lesson sources and scientific basis</summary><p>Curriculum alignment: Alberta Biology 20–30 Program of Studies, outcomes A2.1k–A2.3k, A2.6k, A2.1sts, A2.2s, and A2.3s. Source content was rebuilt from the supplied Unit A notes, pages 129–133; the 2026–27 class Day 17 module; and CBE System Biology 30 Module 2, Lesson 5. Current disease, testing, and technology statements were cross-checked against NIDDK. Endocrine mechanisms were cross-checked against OpenStax <cite>Anatomy and Physiology 2e</cite>, section 17.9. All profiles are labelled synthetic instructional data.</p></details>
+</div>
+
+      <nav class="lesson-bottom-bar lesson-bottom-bar--authored" aria-label="Lesson navigation">
+        <a class="lesson-jump" href="#lesson-04" data-page-target="lesson-04">Previous lesson</a>
+        <a class="lesson-jump primary" href="#practice-hub" data-page-target="practice-hub">Open Practice Hub</a>
+        
+      </nav>
+    </article>
+  </section>
+    
+    <section id="model-lab" class="course-page bio-route bio-hub" hidden>
+  <header class="bio-hub-header"><p class="bio-course-code">Unit workspace</p><h1>Model Lab</h1><p>Return to a scientific model without searching through a lesson. Every model works offline, by keyboard, and with a complete static equivalent.</p></header>
+  <div class="bio-hub-grid">
+    <article class="bio-hub-card"><div><p>Neural communication</p><h2>Action-potential explorer</h2><span data-model-status="interaction-action-potential-explorer">Not started</span></div><p>Connect membrane voltage to sodium and potassium channel states across six stages.</p><a href="#lesson-04" data-page-target="lesson-04">Open in Lesson 4</a></article>
+    <article class="bio-hub-card"><div><p>Endocrine control</p><h2>Blood-glucose feedback model</h2><span data-model-status="interaction-blood-glucose-simulator">Not started</span></div><p>Compare four synthetic scenarios by glucose trend, insulin signal, glucagon signal, and target response.</p><a href="#lesson-15" data-page-target="lesson-15">Open in Lesson 15</a></article>
+  </div>
+  <section class="bio-section" aria-labelledby="model-lab-method"><h2 id="model-lab-method">Use a model like a scientist</h2><ol class="bio-numbered-method"><li><strong>Name the variable.</strong> Identify what changes and how it is measured.</li><li><strong>Change one condition.</strong> Select a stage or scenario deliberately.</li><li><strong>Describe the evidence.</strong> Record a trend before explaining it.</li><li><strong>Connect the mechanism.</strong> Use channels, hormones, receptors, or target tissues.</li><li><strong>State the limit.</strong> Explain what the model simplifies or cannot establish.</li></ol></section>
+</section>
+
+<section id="investigation-notebook" class="course-page bio-route bio-hub" hidden>
+  <header class="bio-hub-header"><p class="bio-course-code">Unit workspace</p><h1>Investigation Notebook</h1><p>Keep observations, model evidence, and artifact drafts together. Notebook entries are deliberate saves; lesson responses remain in their original lessons even if you remove a notebook entry.</p></header>
+  <section class="bio-notebook-composer" aria-labelledby="notebook-new-entry">
+    <h2 id="notebook-new-entry">Add a notebook entry</h2>
+    <div class="bio-notebook-fields"><label>Title<input type="text" maxlength="60" data-notebook-title placeholder="Example: Threshold evidence"></label><label>Observation or reasoning<textarea rows="5" maxlength="540" data-notebook-body placeholder="Record the evidence, mechanism, and one question you still have."></textarea></label></div>
+    <div class="bio-notebook-actions"><button type="button" class="bio-primary-button" data-save-notebook-entry>Save entry</button><button type="button" data-clear-notebook-draft>Clear draft</button><span data-notebook-status aria-live="polite">Nothing saved yet</span></div>
+  </section>
+  <section class="bio-section" aria-labelledby="notebook-saved"><div class="bio-section-heading-row"><div><p class="bio-section-label">Saved work</p><h2 id="notebook-saved">Notebook entries</h2></div><span data-notebook-count>0 of 10 entries</span></div><div class="bio-notebook-list" data-notebook-list><p class="bio-empty-state">Saved entries will appear here.</p></div></section>
+  <section class="bio-section" aria-labelledby="notebook-artifacts"><div class="bio-section-heading-row"><div><p class="bio-section-label">Portfolio</p><h2 id="notebook-artifacts">Artifact checkpoints</h2></div><span data-artifact-count>0 of 2 available artifacts saved</span></div><div class="bio-artifact-index" data-artifact-index></div></section>
+  <div class="bio-notebook-export"><button type="button" data-print-notebook>Print / Save as PDF</button><button type="button" data-copy-notebook>Copy notebook summary</button><span data-notebook-export-status aria-live="polite"></span></div>
+</section>
+
+<section id="practice-hub" class="course-page bio-route bio-hub" hidden>
+  <header class="bio-hub-header"><p class="bio-course-code">Unit workspace</p><h1>Practice Hub</h1><p>Practice is non-graded. Use feedback to repair the mechanism, then retry. Saved choices and explanations return after reload.</p></header>
+  <div class="bio-practice-overview" aria-label="Practice progress"><div><strong data-practice-complete-count>0</strong><span>of 6 checks submitted</span></div><div class="bio-practice-meter" aria-hidden="true"><span data-practice-progress-fill></span></div></div>
+  <div class="bio-hub-grid">
+    <article class="bio-hub-card"><div><p>Lesson 4</p><h2>Action potentials</h2><span data-practice-set-status="lesson-04">0 of 3 submitted</span></div><p>Channel sequence, threshold evidence, and stimulus-intensity encoding.</p><a href="#lesson-04" data-page-target="lesson-04">Open Lesson 4 practice</a></article>
+    <article class="bio-hub-card"><div><p>Lesson 15</p><h2>Blood-glucose regulation</h2><span data-practice-set-status="lesson-15">0 of 3 submitted</span></div><p>Pancreatic hormones, tissue response, and responsible urinalysis conclusions.</p><a href="#lesson-15" data-page-target="lesson-15">Open Lesson 15 practice</a></article>
+  </div>
+  <section class="bio-section" aria-labelledby="practice-strategy"><h2 id="practice-strategy">When an answer is wrong</h2><ol class="bio-numbered-method"><li>Read the targeted feedback and name the misconception.</li><li>Return to the figure or model named by the feedback.</li><li>Explain why the selected distractor fails.</li><li>Choose again only after revising the mechanism.</li></ol></section>
+</section>
+
+  </div>
+</main>
+<script>
+const lessonIds = ["lesson-04","lesson-15"];
+const completionIds = ["lesson-04","lesson-15"];
+const completionLabel = "lesson exits";
+const pageIds = ["overview","lessons","lesson-04","lesson-15","model-lab","investigation-notebook","practice-hub"];
+const navGroupIdsByPage = {};
+const STORAGE_KEY = "biology30-unit-a:complete";
+const RESPONSE_STORAGE_KEY = "biology30-unit-a:responses";
+const MANUAL_EVIDENCE_STORAGE_KEY = "biology30-unit-a:manual-evidence-notes";
+const EVIDENCE_PROJECT_SLUG = "biology30-unit-a";
+const EVIDENCE_PROFILE = "short-fiction";
+const lessonsNav = document.querySelector(".lessons-nav");
+const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
+const fallbackStorage = {};
+let saveTimer = null;
+function readStorageValue(key, fallbackValue){
+  try {
+    if (window.localStorage) return window.localStorage.getItem(key) || fallbackValue;
+  } catch {}
+  return Object.prototype.hasOwnProperty.call(fallbackStorage, key) ? fallbackStorage[key] : fallbackValue;
+}
+function writeStorageValue(key, value){
+  try {
+    if (window.localStorage) {
+      window.localStorage.setItem(key, value);
+      return;
+    }
+  } catch {}
+  fallbackStorage[key] = value;
+}
+function readComplete(){
+  try { return new Set(JSON.parse(readStorageValue(STORAGE_KEY, "[]"))); } catch { return new Set(); }
+}
+function writeComplete(values){
+  writeStorageValue(STORAGE_KEY, JSON.stringify(Array.from(values)));
+}
+function readResponses(){
+  try { return JSON.parse(readStorageValue(RESPONSE_STORAGE_KEY, "{}")); } catch { return {}; }
+}
+function writeResponses(values){
+  Object.keys(values).forEach((key) => {
+    if (typeof values[key] === "string" && !values[key].trim()) delete values[key];
+  });
+  writeStorageValue(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+}
+function readManualEvidenceNotes(){
+  try {
+    const notes = JSON.parse(readStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, "[]"));
+    return Array.isArray(notes) ? notes : [];
+  } catch {
+    return [];
+  }
+}
+function writeManualEvidenceNotes(notes){
+  writeStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, JSON.stringify(notes));
+}
+function setLessonsOpen(open){
+  lessonsNav?.classList.toggle("is-open", open);
+  document.querySelector("[data-lessons-toggle]")?.setAttribute("aria-expanded", String(open));
+}
+function getNavGroup(groupId){
+  return navGroups.find((group) => group.getAttribute("data-nav-group") === groupId);
+}
+function setNavGroupOpen(groupId, open){
+  const group = getNavGroup(groupId);
+  if (!group) return;
+  group.classList.toggle("is-open", open);
+  group.querySelector("[data-nav-group-toggle]")?.setAttribute("aria-expanded", String(open));
+}
+function syncNavOpenState(activeGroupId, lessonsOpen){
+  setLessonsOpen(Boolean(lessonsOpen));
+  navGroups.forEach((group) => {
+    const groupId = group.getAttribute("data-nav-group");
+    if (groupId) setNavGroupOpen(groupId, groupId === activeGroupId);
+  });
+}
+function updateComplete(){
+  const complete = readComplete();
+  const count = completionIds.filter((id) => complete.has(id)).length;
+  const percent = completionIds.length ? Math.round((count / completionIds.length) * 100) : 0;
+  document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = count + " / " + completionIds.length + " " + completionLabel);
+  document.querySelectorAll("[data-progress-count-inline]").forEach((node) => node.textContent = count + "/" + completionIds.length);
+  document.querySelectorAll("[data-progress-percent]").forEach((node) => node.textContent = percent + "%");
+  document.querySelectorAll("[data-progress-fill]").forEach((node) => node.style.width = percent + "%");
+  document.querySelectorAll("[data-complete-id]").forEach((button) => {
+    const done = complete.has(button.getAttribute("data-complete-id"));
+    button.textContent = done ? "Completed" : (button.getAttribute("data-complete-label") || "Complete");
+  });
+  document.querySelectorAll("[data-element-complete-for]").forEach((marker) => {
+    const done = complete.has(marker.getAttribute("data-element-complete-for"));
+    marker.textContent = done ? "✓" : "-";
+    marker.classList.toggle("is-complete", done);
+    marker.setAttribute("aria-label", done ? "Complete" : "Not complete");
+  });
+  document.querySelectorAll("[data-elements-complete-summary]").forEach((summary) => {
+    const checklist = summary.closest("[data-elements-checklist]");
+    const ids = Array.from(checklist?.querySelectorAll("[data-element-complete-for]") || []).map((marker) => marker.getAttribute("data-element-complete-for")).filter(Boolean);
+    summary.textContent = ids.filter((id) => complete.has(id)).length + "/" + ids.length + " elements complete";
+  });
+}
+function showPage(id){
+  const fallback = pageIds.includes(id) && document.getElementById(id) ? id : "overview";
+  document.querySelectorAll(".course-page").forEach((page) => page.hidden = page.id !== fallback);
+  const lessonsOpen = fallback === "lessons" || lessonIds.includes(fallback);
+  const navGroupId = navGroupIdsByPage[fallback] || "";
+  document.querySelectorAll("[data-page-target]").forEach((link) => {
+    const target = link.getAttribute("data-page-target");
+    const activeGroupToggle = navGroupId && target === navGroupId && link.hasAttribute("data-nav-group-toggle");
+    link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || activeGroupToggle);
+  });
+  syncNavOpenState(navGroupId, lessonsOpen);
+  if (window.matchMedia("(max-width: 1100px)").matches) setCourseMenuCollapsed(true);
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}
+function route(){
+  showPage((location.hash || "#overview").slice(1));
+}
+function setCourseMenuCollapsed(collapsed){
+  document.body.classList.toggle("sidebar-collapsed", collapsed);
+  const iconText = collapsed ? "dock_to_right" : "dock_to_left";
+  document.querySelectorAll("#sidebar-toggle .material-symbols-outlined, #topbar-menu-toggle .material-symbols-outlined").forEach((icon) => {
+    icon.textContent = iconText;
+  });
+  document.querySelectorAll("#sidebar-toggle, #topbar-menu-toggle").forEach((button) => {
+    button.setAttribute("aria-label", collapsed ? "Open course menu" : "Collapse course menu");
+  });
+}
+function toggleCourseMenu(){
+  setCourseMenuCollapsed(!document.body.classList.contains("sidebar-collapsed"));
+}
+function setResourcePanel(id){
+  document.querySelectorAll("[data-resource-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-resource-panel") !== id;
+  });
+}
+function setActiveFilm(id){
+  if (!id) return;
+  document.querySelectorAll("[data-film-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-film-panel") !== id;
+  });
+}
+function getLibraryDocumentScope(trigger){
+  return trigger?.closest("[data-library-doc-scope], .social-library-browser") || document;
+}
+function setActiveLibraryDocument(id, scope){
+  if (!id) return;
+  const root = scope || document;
+  root.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-library-doc-panel") !== id;
+  });
+  root.querySelectorAll("[data-library-doc-target]").forEach((button) => {
+    const active = button.getAttribute("data-library-doc-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  root.querySelectorAll("[data-library-doc-select]").forEach((select) => {
+    if (select.value !== id) select.value = id;
+  });
+}
+function getStudyTopicScope(trigger){
+  return trigger?.closest("[data-study-topic-scope]") || document;
+}
+function setActiveStudyTopic(group, id, scope){
+  if (!group || !id) return;
+  const root = scope || document;
+  root.querySelectorAll("[data-study-topic-panel='" + group + "']").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-study-topic-id") !== id;
+  });
+}
+function escapeForHtml(value){
+  return String(value || "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char] || char);
+}
+function getLessonEvidenceNotes(){
+  const responses = readResponses();
+  return Array.from(document.querySelectorAll("[data-evidence-note='lesson'][data-response-id]"))
+    .map((field) => {
+      const key = field.getAttribute("data-response-id");
+      const storedValue = key ? responses[key] : "";
+      const value = typeof storedValue === "string" ? storedValue.trim() : "";
+      return {
+        value,
+        title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
+        group: field.getAttribute("data-evidence-lesson-group") || "",
+        number: field.getAttribute("data-evidence-lesson-number") || ""
+      };
+    })
+    .filter((note) => note.value);
+}
+function renderLessonEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
+  if (!lists.length) return;
+  const notes = getLessonEvidenceNotes();
+  lists.forEach((list) => {
+    if (!notes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-lesson-evidence-empty>No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>';
+      return;
+    }
+    list.innerHTML = notes.map((note) => {
+      const meta = [note.number ? "Lesson " + note.number : "", note.group].filter(Boolean).join(" - ");
+      return '<article class="social-lesson-evidence-card">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(meta) + '</div>' +
+        '<h4>' + escapeForHtml(note.title) + '</h4>' +
+        '<p>' + escapeForHtml(note.value) + '</p>' +
+      '</article>';
+    }).join("");
+  });
+}
+function getEvidenceDraftFields(key, scope){
+  const root = scope || document;
+  const scopedFields = Array.from(root.querySelectorAll("[data-evidence-draft='" + key + "']"));
+  if (scopedFields.length) return scopedFields;
+  const fallback = root.querySelector("[data-response-id$=':evidence:" + key + "']");
+  return fallback ? [fallback] : [];
+}
+function getEvidenceFieldValue(field){
+  if (field instanceof HTMLSelectElement) {
+    return field.selectedOptions?.[0]?.textContent || field.value || "";
+  }
+  if (field instanceof HTMLInputElement && field.type === "radio") {
+    if (!field.checked) return "";
+    return field.getAttribute("data-practice-source-title") || field.closest("label")?.textContent?.trim() || field.value || "";
+  }
+  return field.value || "";
+}
+function getEvidenceDraft(scope){
+  const getValue = (key) => {
+    const fields = getEvidenceDraftFields(key, scope);
+    const values = fields
+      .map((field) => {
+        const value = String(getEvidenceFieldValue(field)).trim();
+        if (!value) return "";
+        const label = field.getAttribute("data-evidence-draft-label");
+        return fields.length > 1 && label ? label + ": " + value : value;
+      })
+      .filter(Boolean);
+    return values.join("\n\n");
+  };
+  return {
+    source: getValue("source"),
+    concept: getValue("concept"),
+    detail: getValue("detail"),
+    connection: getValue("connection"),
+    counterpoint: getValue("counterpoint")
+  };
+}
+function setEvidenceNotebookStatus(message, panel){
+  panel = panel || document.querySelector("[data-evidence-notebook-panel]");
+  const saveStatus = panel?.querySelector("[data-save-status]");
+  if (saveStatus) saveStatus.textContent = message;
+}
+function clearEvidenceDraft(scope){
+  const responses = readResponses();
+  ["source", "concept", "detail", "connection", "counterpoint"].forEach((key) => {
+    getEvidenceDraftFields(key, scope).forEach((field) => {
+      if (field instanceof HTMLSelectElement && field.options.length) {
+        field.selectedIndex = 0;
+      } else if (field instanceof HTMLInputElement && field.type === "radio") {
+        field.checked = field.hasAttribute("data-practice-source-default");
+      } else {
+        field.value = "";
+      }
+      const responseId = field.getAttribute("data-response-id");
+      if (responseId) delete responses[responseId];
+    });
+  });
+  writeResponses(responses);
+}
+function getEvidenceBankApi(){
+  const api = window.nextStepEvidenceBank;
+  return api && typeof api.upsert === "function" && typeof api.remove === "function" && typeof api.list === "function"
+    ? api
+    : null;
+}
+function getEvidenceLocatorLabel(note){
+  if (!note?.locator) return "";
+  if (typeof note.locator === "string") return note.locator;
+  if (note.locator.label) return note.locator.label;
+  return [note.locator.act, note.locator.scene, note.locator.chapter, note.locator.timestamp]
+    .filter(Boolean)
+    .join(" | ");
+}
+function renderManualEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
+  if (!lists.length) return;
+  const notes = getEvidenceBankApi()?.list() || [];
+  lists.forEach((list) => {
+    const filterRoot = list.closest("[data-evidence-bank-filters]")?.parentElement || list.closest(".english-evidence-bank-list") || document;
+    const filterFields = Array.from(filterRoot.querySelectorAll("[data-evidence-bank-filter]"));
+    function facetValue(note, facet){
+      if (facet === "activity") return note.activity?.title || note.activity?.id || note.activityId || note.concept || "";
+      if (facet === "work") return note.work?.title || note.work?.id || note.workId || note.source?.title || (typeof note.source === "string" ? note.source : "");
+      if (facet === "locator") return getEvidenceLocatorLabel(note);
+      if (facet === "type") return note.evidenceType || note.entryKind || note.type || (note.responseId ? "collection" : "individual");
+      return "";
+    }
+    filterFields.forEach((field) => {
+      const facet = field.getAttribute("data-evidence-bank-filter") || "";
+      const selected = field.value || "";
+      const defaultLabel = field.options?.[0]?.textContent || "All";
+      const values = notes.map((note) => String(facetValue(note, facet) || "").trim()).filter(Boolean).filter((value, index, all) => all.indexOf(value) === index).sort((left, right) => left.localeCompare(right));
+      field.innerHTML = '<option value="">' + escapeForHtml(defaultLabel) + '</option>' + values.map((value) => '<option value="' + escapeForHtml(value) + '">' + escapeForHtml(value) + '</option>').join("");
+      if (values.includes(selected)) field.value = selected;
+    });
+    const filteredNotes = notes.filter((note) => filterFields.every((field) => {
+      if (!field.value) return true;
+      const facet = field.getAttribute("data-evidence-bank-filter") || "";
+      return String(facetValue(note, facet) || "") === field.value;
+    }));
+    if (!filteredNotes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
+      return;
+    }
+    list.innerHTML = filteredNotes.map((note) => {
+      const contributionId = note.contributionId || note.responseId || note.id || "";
+      const sourceTitle = note.source?.title || note.source?.id || (typeof note.source === "string" ? note.source : "");
+      const workTitle = note.work?.title || "";
+      const title = note.activity?.title || note.activity?.id || note.concept || sourceTitle || "Saved proof note";
+      const locatorLabel = getEvidenceLocatorLabel(note);
+      const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", locatorLabel, note.updatedAt ? "Updated " + new Date(note.updatedAt).toLocaleDateString() : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
+      const promptLabel = note.metadata?.promptLabel || note.promptLabel || "Question";
+      const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
+      const detailLabel = note.metadata?.detailLabel || note.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
+      const detailValue = note.entryKind === "collection" ? (note.answer || note.evidence || "") : (note.evidence || note.answer || "");
+      const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
+      const connectionValue = note.analysis || note.connection || "";
+      const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
+      const counterpointValue = note.metadata?.counterpoint || note.counterpoint || "";
+      const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
+      return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || (note.responseId ? "collection" : "individual")) + '">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+        '<h4>' + escapeForHtml(title) + '</h4>' +
+        prompt +
+        detail +
+        connection +
+        counterpoint +
+        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
+      '</article>';
+    }).join("");
+  });
+}
+function saveEvidenceDraftToNotebook(panel){
+  const draft = getEvidenceDraft(panel);
+  if (!draft.detail && !draft.connection && !draft.counterpoint) {
+    setEvidenceNotebookStatus("Add evidence or analysis before saving.", panel);
+    return;
+  }
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setEvidenceNotebookStatus("Evidence Bank is unavailable.", panel);
+    return;
+  }
+  const configuredContributionId = panel?.getAttribute("data-evidence-contribution-id") || "";
+  const contributionId = configuredContributionId || "manual:" + Date.now().toString(36) + ":" + Math.random().toString(36).slice(2, 9);
+  const now = new Date().toISOString();
+  const sourceTitle = draft.source || "Manual evidence";
+  const activityTitle = draft.concept || "Evidence entry";
+  const analysis = [draft.connection, draft.counterpoint].filter(Boolean).join("\n\n");
+  const entry = {
+    schemaVersion: 2,
+    contributionId,
+    projectSlug: EVIDENCE_PROJECT_SLUG,
+    entryKind: "individual",
+    source: { kind: "activity", id: evidenceSafeId(sourceTitle), title: sourceTitle },
+    activity: { id: evidenceSafeId(activityTitle), profile: EVIDENCE_PROFILE, title: activityTitle },
+    work: draft.source ? { id: evidenceSafeId(draft.source), title: draft.source, kind: EVIDENCE_PROFILE === "film-study" ? "film" : "text" } : undefined,
+    evidence: draft.detail || undefined,
+    analysis: analysis || undefined,
+    tags: [],
+    createdAt: now,
+    updatedAt: now,
+    ...(draft.counterpoint ? { metadata: { counterpoint: draft.counterpoint } } : {})
+  };
+  try {
+    api.upsert(entry);
+  } catch {
+    setEvidenceNotebookStatus("Evidence could not be saved.", panel);
+    return;
+  }
+  clearEvidenceDraft(panel);
+  panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
+  setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
+}
+function setResponseCollectionStatus(button, message){
+  const status = button?.closest("[data-response-collection]")?.querySelector("[data-response-collection-status]");
+  if (status) status.textContent = message;
+}
+function saveResponseCollectionToNotebook(button){
+  const collection = button?.closest("[data-response-collection]");
+  if (!collection) return;
+  const responses = readResponses();
+  const entries = Array.from(collection.querySelectorAll("[data-evidence-question-number]")).map((question) => {
+    const field = question.querySelector("[data-response-id]");
+    const responseId = field?.getAttribute("data-response-id") || "";
+    return {
+      number: question.getAttribute("data-evidence-question-number") || "",
+      prompt: question.getAttribute("data-evidence-question-prompt") || "",
+      answer: String(responses[responseId] || field?.value || "").trim(),
+      responseId
+    };
+  });
+  const answered = entries.filter((entry) => entry.answer);
+  if (!answered.length) {
+    setResponseCollectionStatus(button, "Write at least one answer before saving.");
+    return;
+  }
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setResponseCollectionStatus(button, "Evidence Bank is unavailable.");
+    return;
+  }
+  const collectionId = collection.getAttribute("data-evidence-collection-id") || "question-collection";
+  const responsePrefix = collection.getAttribute("data-evidence-response-prefix") || "";
+  const existing = api.list({ contributionId: collectionId })[0];
+  const savedResponses = answered.map((entry) =>
+    "Question " + entry.number + ": " + entry.prompt + "\nAnswer: " + entry.answer
+  ).join("\n\n");
+  const sourceTitle = collection.getAttribute("data-evidence-source") || "Short Story Questions";
+  const activityTitle = collection.getAttribute("data-evidence-activity-title") || collection.getAttribute("data-evidence-concept") || "Activity";
+  const workTitle = collection.getAttribute("data-evidence-work-title") || "";
+  const locatorLabel = collection.getAttribute("data-evidence-locator") || "";
+  const now = new Date().toISOString();
+  const nextNote = {
+    schemaVersion: 2,
+    contributionId: collectionId,
+    projectSlug: EVIDENCE_PROJECT_SLUG,
+    entryKind: "collection",
+    source: { kind: "question-set", id: evidenceSafeId(sourceTitle), title: sourceTitle },
+    activity: {
+      id: collection.getAttribute("data-evidence-activity-id") || evidenceSafeId(activityTitle),
+      profile: EVIDENCE_PROFILE,
+      title: activityTitle
+    },
+    work: workTitle ? {
+      id: collection.getAttribute("data-evidence-work-id") || evidenceSafeId(workTitle),
+      title: workTitle,
+      kind: EVIDENCE_PROFILE === "film-study" ? "film" : "text"
+    } : undefined,
+    locator: locatorLabel ? { label: locatorLabel } : undefined,
+    prompt: answered.length + " of " + entries.length + " guided responses saved.",
+    answer: savedResponses,
+    responseIds: answered.map((entry) => entry.responseId).filter(Boolean),
+    tags: (collection.getAttribute("data-evidence-tags") || "").split(",").map((tag) => tag.trim()).filter(Boolean),
+    createdAt: existing?.createdAt || now,
+    updatedAt: now,
+    metadata: {
+      promptLabel: collection.getAttribute("data-evidence-prompt-label") || "Question set",
+      detailLabel: collection.getAttribute("data-evidence-detail-label") || "Saved responses"
+    }
+  };
+  if (responsePrefix) {
+    api.list().forEach((note) => {
+      if (note.entryKind === "collection" && note.contributionId !== collectionId && String(note.contributionId || "").startsWith(responsePrefix)) {
+        api.remove(note.contributionId);
+      }
+    });
+  }
+  api.upsert(nextNote);
+  setResponseCollectionStatus(
+    button,
+    existing
+      ? collection.getAttribute("data-evidence-updated-message") || "Story answers updated in Evidence Bank"
+      : collection.getAttribute("data-evidence-saved-message") || "Story answers saved to Evidence Bank"
+  );
+}
+function removeManualEvidenceNote(id){
+  if (!id) return;
+  if (getEvidenceBankApi()?.remove(id)) setEvidenceNotebookStatus("Removed saved note");
+}
+
+function cloneEvidenceValue(value){
+  return typeof value === "undefined" ? undefined : JSON.parse(JSON.stringify(value));
+}
+function normalizeEvidenceIdentity(value){
+  return typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
+}
+function evidenceRecord(value){
+  return value && typeof value === "object" && !Array.isArray(value) ? value : null;
+}
+function evidenceText(value){
+  return typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
+}
+function evidenceFirstText(){
+  for (const value of arguments) {
+    const normalized = evidenceText(value);
+    if (normalized) return normalized;
+  }
+  return "";
+}
+function evidenceSafeId(value){
+  return evidenceText(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "evidence";
+}
+function evidenceValidDate(value, fallbackValue){
+  const normalized = evidenceText(value);
+  return normalized && !Number.isNaN(Date.parse(normalized)) ? normalized : fallbackValue;
+}
+const evidenceSourceKinds = ["lesson", "reading", "question-set", "writing-studio", "activity", "media"];
+const evidenceProfileKinds = ["short-fiction", "modern-drama", "shakespeare-drama", "novel-study", "film-study"];
+const evidenceWorkKinds = ["text", "film", "visual", "paired-text"];
+function getEvidenceIdentities(entry){
+  return [entry?.contributionId, entry?.responseId, entry?.id, entry?.metadata?.responseId]
+    .map(normalizeEvidenceIdentity)
+    .filter((value, index, values) => value && values.indexOf(value) === index);
+}
+function evidenceEntriesShareIdentity(entry, identities){
+  const entryIdentities = getEvidenceIdentities(entry);
+  return entryIdentities.some((identity) => identities.includes(identity));
+}
+function normalizeEvidenceSource(input, entryKind){
+  const source = evidenceRecord(input.source);
+  if (source) {
+    const title = evidenceFirstText(source.title, source.id, input.sourceTitle);
+    const kind = evidenceText(source.kind);
+    return {
+      kind: evidenceSourceKinds.includes(kind) ? kind : entryKind === "collection" ? "question-set" : "activity",
+      id: evidenceFirstText(source.id, title, "evidence-source"),
+      ...(title ? { title } : {})
+    };
+  }
+  const title = evidenceFirstText(input.source, input.sourceTitle, input.text, input.film, input.workTitle, "Evidence source");
+  return {
+    kind: entryKind === "collection" ? "question-set" : "activity",
+    id: evidenceFirstText(input.sourceId, evidenceSafeId(title)),
+    title
+  };
+}
+function normalizeEvidenceActivity(input, profileFallback){
+  const activity = evidenceRecord(input.activity);
+  const profile = evidenceFirstText(activity?.profile, input.profile, profileFallback);
+  if (activity) {
+    const title = evidenceFirstText(activity.title, activity.id, input.concept, "Evidence activity");
+    return {
+      id: evidenceFirstText(activity.id, evidenceSafeId(title)),
+      profile: evidenceProfileKinds.includes(profile) ? profile : profileFallback,
+      ...(title ? { title } : {})
+    };
+  }
+  const title = evidenceFirstText(input.activity, input.activityTitle, input.concept, input.title, "Evidence activity");
+  return {
+    id: evidenceFirstText(input.activityId, evidenceSafeId(title)),
+    profile: evidenceProfileKinds.includes(profile) ? profile : profileFallback,
+    title
+  };
+}
+function normalizeEvidenceWork(input){
+  const work = evidenceRecord(input.work);
+  if (work) {
+    const title = evidenceFirstText(work.title, work.id);
+    if (!title) return undefined;
+    const kind = evidenceText(work.kind);
+    return {
+      id: evidenceFirstText(work.id, evidenceSafeId(title)),
+      title,
+      kind: evidenceWorkKinds.includes(kind) ? kind : "text"
+    };
+  }
+  const title = evidenceFirstText(input.workTitle, input.text, input.film);
+  if (!title) return undefined;
+  return {
+    id: evidenceFirstText(input.workId, evidenceSafeId(title)),
+    title,
+    kind: evidenceText(input.film) ? "film" : "text"
+  };
+}
+function normalizeEvidenceLocator(input){
+  const locator = evidenceRecord(input.locator);
+  if (locator) {
+    const values = {
+      label: evidenceFirstText(locator.label),
+      act: evidenceFirstText(locator.act),
+      scene: evidenceFirstText(locator.scene),
+      chapter: evidenceFirstText(locator.chapter),
+      timestamp: evidenceFirstText(locator.timestamp)
+    };
+    const normalized = Object.fromEntries(Object.entries(values).filter(([, value]) => value));
+    return Object.keys(normalized).length ? normalized : undefined;
+  }
+  const label = evidenceFirstText(input.locator);
+  return label ? { label } : undefined;
+}
+function normalizeEvidenceMetadata(input){
+  const metadata = { ...(evidenceRecord(input.metadata) || {}) };
+  const responseId = evidenceText(input.responseId);
+  const promptLabel = evidenceText(input.promptLabel);
+  const detailLabel = evidenceText(input.detailLabel);
+  const counterpoint = evidenceText(input.counterpoint);
+  if (responseId) metadata.responseId = responseId;
+  if (promptLabel) metadata.promptLabel = promptLabel;
+  if (detailLabel) metadata.detailLabel = detailLabel;
+  if (counterpoint) metadata.counterpoint = counterpoint;
+  return Object.keys(metadata).length ? metadata : undefined;
+}
+function normalizeEvidenceEntry(value){
+  const input = evidenceRecord(value);
+  if (!input) throw new TypeError("Evidence Bank entries must be objects.");
+  const contributionId = evidenceFirstText(input.contributionId, input.responseId, input.id);
+  if (!contributionId) throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
+  const now = new Date().toISOString();
+  const entryKind = input.entryKind === "collection" || (!input.entryKind && evidenceText(input.responseId)) ? "collection" : "individual";
+  const activityRecord = evidenceRecord(input.activity);
+  const requestedProfile = evidenceFirstText(activityRecord?.profile, input.profile, "short-fiction");
+  const profileFallback = evidenceProfileKinds.includes(requestedProfile) ? requestedProfile : "short-fiction";
+  const legacyDetail = evidenceFirstText(input.detail);
+  const explicitEvidence = evidenceFirstText(input.evidence);
+  const answer = evidenceFirstText(input.answer, entryKind === "collection" ? legacyDetail : undefined);
+  const evidence = evidenceFirstText(explicitEvidence, entryKind === "individual" ? legacyDetail : undefined);
+  const connection = evidenceFirstText(input.connection);
+  const counterpoint = evidenceFirstText(input.counterpoint);
+  const analysis = evidenceFirstText(input.analysis, [connection, counterpoint].filter(Boolean).join("\n\n"));
+  const responseIds = Array.isArray(input.responseIds) ? input.responseIds.map(evidenceText).filter(Boolean) : [];
+  if (!answer && !evidence && !analysis && !responseIds.length) {
+    throw new TypeError("Evidence Bank entries require saved content or at least one response id.");
+  }
+  const work = normalizeEvidenceWork(input);
+  const locator = normalizeEvidenceLocator(input);
+  const prompt = evidenceFirstText(input.prompt);
+  const metadata = normalizeEvidenceMetadata(input);
+  return {
+    schemaVersion: 2,
+    contributionId,
+    projectSlug: evidenceFirstText(input.projectSlug, "english-unit"),
+    entryKind,
+    source: normalizeEvidenceSource(input, entryKind),
+    activity: normalizeEvidenceActivity(input, profileFallback),
+    ...(work ? { work } : {}),
+    ...(locator ? { locator } : {}),
+    ...(prompt ? { prompt } : {}),
+    ...(answer ? { answer } : {}),
+    ...(evidence ? { evidence } : {}),
+    ...(analysis ? { analysis } : {}),
+    ...(responseIds.length ? { responseIds } : {}),
+    tags: Array.isArray(input.tags) ? input.tags.map(evidenceText).filter(Boolean) : [],
+    createdAt: evidenceValidDate(input.createdAt, now),
+    updatedAt: evidenceValidDate(input.updatedAt, now),
+    ...(metadata ? { metadata } : {})
+  };
+}
+function tryNormalizeEvidenceEntry(entry){
+  try {
+    return normalizeEvidenceEntry(entry);
+  } catch {
+    return null;
+  }
+}
+function mergeEvidenceEntries(existing, incoming){
+  const merged = { ...(existing || {}), ...incoming };
+  if (evidenceRecord(existing?.activity) && evidenceRecord(incoming.activity)) {
+    merged.activity = { ...existing.activity, ...incoming.activity };
+  } else if (evidenceRecord(existing?.activity) && typeof incoming.activity === "string") {
+    merged.activity = { ...existing.activity, id: incoming.activity, title: incoming.activity };
+  }
+  if (evidenceRecord(existing?.source) && evidenceRecord(incoming.source)) {
+    merged.source = { ...existing.source, ...incoming.source };
+  }
+  if (evidenceRecord(existing?.work) && evidenceRecord(incoming.work)) {
+    merged.work = { ...existing.work, ...incoming.work };
+  }
+  if (evidenceRecord(existing?.locator) && evidenceRecord(incoming.locator)) {
+    merged.locator = { ...existing.locator, ...incoming.locator };
+  }
+  if (evidenceRecord(existing?.metadata) || evidenceRecord(incoming.metadata)) {
+    merged.metadata = { ...(evidenceRecord(existing?.metadata) || {}), ...(evidenceRecord(incoming.metadata) || {}) };
+  }
+  return merged;
+}
+function upsertEvidenceEntry(entry){
+  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+    throw new TypeError("Evidence Bank entries must be objects.");
+  }
+  const incoming = cloneEvidenceValue(entry);
+  const identities = getEvidenceIdentities(incoming);
+  if (!identities.length) {
+    throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
+  }
+  const notes = readManualEvidenceNotes();
+  const existing = notes.find((note) => evidenceEntriesShareIdentity(note, identities));
+  const normalizedExisting = existing ? tryNormalizeEvidenceEntry(existing) : null;
+  const merged = mergeEvidenceEntries(normalizedExisting || existing, incoming);
+  merged.updatedAt = new Date().toISOString();
+  const nextEntry = normalizeEvidenceEntry(merged);
+  writeManualEvidenceNotes([
+    nextEntry,
+    ...notes.filter((note) => !evidenceEntriesShareIdentity(note, identities))
+  ]);
+  renderManualEvidenceBank();
+  return cloneEvidenceValue(nextEntry);
+}
+function removeEvidenceEntry(contributionId){
+  const identity = normalizeEvidenceIdentity(contributionId);
+  if (!identity) return false;
+  const notes = readManualEvidenceNotes();
+  const remaining = notes.filter((note) => !getEvidenceIdentities(note).includes(identity));
+  if (remaining.length === notes.length) return false;
+  writeManualEvidenceNotes(remaining);
+  renderManualEvidenceBank();
+  return true;
+}
+function evidenceValueMatchesFilter(actual, expected){
+  if (Array.isArray(expected)) {
+    return expected.some((value) => evidenceValueMatchesFilter(actual, value));
+  }
+  if (Array.isArray(actual)) {
+    return actual.some((value) => evidenceValueMatchesFilter(value, expected));
+  }
+  return actual === expected;
+}
+function evidenceEntryMatchesFilters(entry, filters){
+  return Object.entries(filters || {}).every(([key, expected]) => {
+    if (typeof expected === "undefined") return true;
+    if (key === "contributionId" || key === "responseId") {
+      if (Array.isArray(expected)) {
+        return expected.some((value) => getEvidenceIdentities(entry).includes(normalizeEvidenceIdentity(value)));
+      }
+      return getEvidenceIdentities(entry).includes(normalizeEvidenceIdentity(expected));
+    }
+    if (key === "tags") {
+      const requestedTags = (Array.isArray(expected) ? expected : [expected]).map(normalizeEvidenceIdentity).filter(Boolean);
+      const entryTags = (Array.isArray(entry.tags) ? entry.tags : []).map(normalizeEvidenceIdentity).filter(Boolean);
+      return requestedTags.every((tag) => entryTags.includes(tag));
+    }
+    if (key === "activityId") return evidenceValueMatchesFilter(entry.activity?.id || entry.activityId, expected);
+    if (key === "activity") {
+      return [entry.activity?.id, entry.activity?.title, entry.activityId, entry.activityTitle, entry.concept]
+        .filter(Boolean)
+        .some((value) => evidenceValueMatchesFilter(value, expected));
+    }
+    if (key === "profile") return evidenceValueMatchesFilter(entry.activity?.profile || entry.profile, expected);
+    if (key === "workId") return evidenceValueMatchesFilter(entry.work?.id || entry.workId, expected);
+    if (key === "text") {
+      return [entry.work?.id, entry.work?.title, entry.workId, entry.workTitle, entry.text, entry.film]
+        .filter(Boolean)
+        .some((value) => evidenceValueMatchesFilter(value, expected));
+    }
+    if (key === "locator") {
+      const values = entry.locator && typeof entry.locator === "object"
+        ? [entry.locator.label, entry.locator.act, entry.locator.scene, entry.locator.chapter, entry.locator.timestamp].filter(Boolean)
+        : [entry.locator].filter(Boolean);
+      return values.some((value) => evidenceValueMatchesFilter(value, expected));
+    }
+    return evidenceValueMatchesFilter(entry[key], expected);
+  });
+}
+function listEvidenceEntries(filters){
+  const normalizedFilters = filters && typeof filters === "object" && !Array.isArray(filters) ? filters : {};
+  const entries = readManualEvidenceNotes().map(tryNormalizeEvidenceEntry).filter(Boolean);
+  return cloneEvidenceValue(entries.filter((entry) => evidenceEntryMatchesFilters(entry, normalizedFilters)));
+}
+window.nextStepEvidenceBank = Object.freeze({
+  upsert: upsertEvidenceEntry,
+  remove: removeEvidenceEntry,
+  list: listEvidenceEntries
+});
+function printEnglishEvidenceBank(route){
+  if (!route || typeof document === "undefined" || typeof window.print !== "function") return;
+  const pages = Array.from(document.querySelectorAll(".course-page"));
+  const hiddenStates = pages.map((page) => page.hidden);
+  pages.forEach((page) => { page.hidden = page !== route; });
+  document.body?.classList.add("english-evidence-printing");
+  let restored = false;
+  const restore = () => {
+    if (restored) return;
+    restored = true;
+    pages.forEach((page, index) => { page.hidden = hiddenStates[index]; });
+    document.body?.classList.remove("english-evidence-printing");
+    window.removeEventListener?.("afterprint", restore);
+  };
+  window.addEventListener?.("afterprint", restore, { once: true });
+  try {
+    window.print();
+  } finally {
+    restore();
+  }
+}
+if (typeof document !== "undefined") {
+  document.addEventListener("click", (event) => {
+    const printButton = event.target?.closest?.("[data-print-writing]");
+    const route = printButton?.closest?.("#evidence-bank");
+    if (!route) return;
+    event.preventDefault();
+    printEnglishEvidenceBank(route);
+  });
+}
+
+function restoreResponses(){
+  const responses = readResponses();
+  document.querySelectorAll("[data-response-id]").forEach((field) => {
+    const key = field.getAttribute("data-response-id");
+    if (!key) return;
+    if (field.type === "checkbox") field.checked = Boolean(responses[key]);
+    else if (field.type === "radio") field.checked = responses[key] ? field.value === responses[key] : field.hasAttribute("data-practice-source-default");
+    else if (field instanceof HTMLSelectElement) {
+      if (typeof responses[key] === "string" && responses[key]) field.value = responses[key];
+    }
+    else field.value = responses[key] || "";
+  });
+  renderLessonEvidenceBank();
+  renderManualEvidenceBank();
+}
+function persistResponseField(field){
+  const key = field.getAttribute("data-response-id");
+  if (!key) return;
+  const responses = readResponses();
+  if (field.type === "checkbox") {
+    responses[key] = field.checked;
+  } else if (field.type === "radio") {
+    if (!field.checked) return;
+    responses[key] = field.value || "";
+  } else {
+    const value = field.value || "";
+    if (value.trim()) responses[key] = value;
+    else delete responses[key];
+  }
+  writeResponses(responses);
+  renderLessonEvidenceBank();
+  const saveStatus = field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]") || document.querySelector("[data-save-status]");
+  if (saveStatus) {
+    saveStatus.textContent = "Saving...";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
+  }
+}
+function clearPrintJob(){
+  document.body.classList.remove("print-job-active");
+  document.querySelectorAll(".print-job-root").forEach((node) => node.remove());
+}
+function syncPrintFormValues(source, clone){
+  const sourceFields = source.querySelectorAll("textarea, input, select");
+  const cloneFields = clone.querySelectorAll("textarea, input, select");
+  cloneFields.forEach((field, index) => {
+    const sourceField = sourceFields[index];
+    if (!sourceField) return;
+    if (field instanceof HTMLTextAreaElement && sourceField instanceof HTMLTextAreaElement) {
+      field.value = sourceField.value;
+      field.textContent = sourceField.value;
+    } else if (field instanceof HTMLInputElement && sourceField instanceof HTMLInputElement) {
+      if (field.type === "checkbox" || field.type === "radio") field.checked = sourceField.checked;
+      else field.value = sourceField.value;
+    } else if (field instanceof HTMLSelectElement && sourceField instanceof HTMLSelectElement) {
+      field.value = sourceField.value;
+      Array.from(field.options).forEach((option) => {
+        option.selected = option.value === sourceField.value;
+      });
+    }
+  });
+}
+function printCourseSection(source){
+  if (!source) {
+    window.print();
+    return;
+  }
+  clearPrintJob();
+  const printRoot = document.createElement("div");
+  printRoot.className = "print-job-root";
+  const clone = source.cloneNode(true);
+  syncPrintFormValues(source, clone);
+  clone.querySelectorAll("script").forEach((node) => node.remove());
+  printRoot.append(clone);
+  document.body.append(printRoot);
+  document.body.classList.add("print-job-active");
+  window.setTimeout(() => window.print(), 0);
+}
+window.printCourseSection = printCourseSection;
+function setActivePracticeSource(id, select){
+  const root = select?.closest("[data-practice-source-region]") || document;
+  const panels = Array.from(root.querySelectorAll("[data-practice-source-panel]"));
+  if (!panels.length) return;
+  const nextId = id || panels[0]?.getAttribute("data-practice-source-panel") || "";
+  panels.forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-practice-source-panel") !== nextId;
+  });
+}
+function initializePracticeSourceRegion(region){
+  if (!region) return;
+  const checked = region.querySelector("[data-practice-source-select]:checked");
+  const control = checked || region.querySelector("[data-practice-source-select]");
+  if (control) setActivePracticeSource(control.value, control);
+}
+document.addEventListener("click", (event) => {
+  const lessonToggle = event.target.closest("[data-lessons-toggle]");
+  if (lessonToggle) {
+    event.preventDefault();
+    const open = !lessonsNav?.classList.contains("is-open");
+    if (open) {
+      history.pushState(null, "", "#lessons");
+      showPage("lessons");
+    }
+    setLessonsOpen(open);
+    return;
+  }
+  const navGroupToggle = event.target.closest("[data-nav-group-toggle]");
+  if (navGroupToggle) {
+    event.preventDefault();
+    const groupId = navGroupToggle.getAttribute("data-nav-group-toggle");
+    if (!groupId) return;
+    const group = getNavGroup(groupId);
+    const collapseCurrentLanding = group?.classList.contains("is-open") && location.hash === "#" + groupId;
+    if (location.hash !== "#" + groupId) {
+      history.pushState(null, "", "#" + groupId);
+    }
+    showPage(groupId);
+    if (collapseCurrentLanding) setNavGroupOpen(groupId, false);
+    return;
+  }
+  const target = event.target.closest("[data-page-target]");
+  if (target) {
+    const id = target.getAttribute("data-page-target");
+    if (id) showPage(id);
+  }
+  const libraryTarget = event.target.closest("[data-library-doc-target]");
+  if (libraryTarget) {
+    setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"), getLibraryDocumentScope(libraryTarget));
+  }
+  const completeButton = event.target.closest("[data-complete-id]");
+  if (completeButton) {
+    const complete = readComplete();
+    const id = completeButton.getAttribute("data-complete-id");
+    if (id) complete.add(id);
+    writeComplete(complete);
+    updateComplete();
+  }
+  const saveEvidenceButton = event.target.closest("[data-save-evidence-note]");
+  if (saveEvidenceButton) {
+    event.preventDefault();
+    saveEvidenceDraftToNotebook(saveEvidenceButton.closest("[data-evidence-notebook-panel]"));
+    return;
+  }
+  const saveResponseCollectionButton = event.target.closest("[data-save-response-collection]");
+  if (saveResponseCollectionButton) {
+    event.preventDefault();
+    saveResponseCollectionToNotebook(saveResponseCollectionButton);
+    return;
+  }
+  const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");
+  if (removeEvidenceButton) {
+    event.preventDefault();
+    removeManualEvidenceNote(removeEvidenceButton.getAttribute("data-remove-evidence-note"));
+    return;
+  }
+  const printButton = event.target.closest("[data-print-writing]");
+  if (printButton) {
+    printCourseSection(printButton.closest("[data-writing-activity-panel]") || printButton.closest(".course-page"));
+  }
+});
+document.addEventListener("input", (event) => {
+  const field = event.target.closest("[data-response-id]");
+  if (!field) return;
+  persistResponseField(field);
+});
+document.addEventListener("change", (event) => {
+  const evidenceFilter = event.target.closest("[data-evidence-bank-filter]");
+  if (evidenceFilter) renderManualEvidenceBank();
+  const responseField = event.target.closest("[data-response-id]");
+  if (responseField) persistResponseField(responseField);
+  const resourceSelect = event.target.closest("[data-resource-select]");
+  if (resourceSelect) setResourcePanel(resourceSelect.value);
+  const filmSelect = event.target.closest("[data-film-select]");
+  if (filmSelect) setActiveFilm(filmSelect.value);
+  const practiceSourceSelect = event.target.closest("[data-practice-source-select]");
+  if (practiceSourceSelect && (!practiceSourceSelect.type || practiceSourceSelect.type !== "radio" || practiceSourceSelect.checked)) {
+    setActivePracticeSource(practiceSourceSelect.value, practiceSourceSelect);
+  }
+  const libraryDocSelect = event.target.closest("[data-library-doc-select]");
+  if (libraryDocSelect) setActiveLibraryDocument(libraryDocSelect.value, getLibraryDocumentScope(libraryDocSelect));
+  const studyTopicSelect = event.target.closest("[data-study-topic-select]");
+  if (studyTopicSelect) {
+    setActiveStudyTopic(
+      studyTopicSelect.getAttribute("data-study-topic-select"),
+      studyTopicSelect.value,
+      getStudyTopicScope(studyTopicSelect)
+    );
+  }
+});
+document.addEventListener("focusout", (event) => {
+  const responseField = event.target.closest("[data-response-id]");
+  if (responseField) persistResponseField(responseField);
+});
+document.getElementById("sidebar-toggle")?.addEventListener("click", toggleCourseMenu);
+document.getElementById("topbar-menu-toggle")?.addEventListener("click", toggleCourseMenu);
+window.addEventListener("hashchange", route);
+window.addEventListener("afterprint", clearPrintJob);
+restoreResponses();
+document.querySelectorAll("[data-resource-select]").forEach((select) => setResourcePanel(select.value));
+document.querySelectorAll("[data-film-select]").forEach((select) => setActiveFilm(select.value));
+document.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
+document.querySelectorAll("[data-library-doc-select]").forEach((select) => {
+  setActiveLibraryDocument(select.value, getLibraryDocumentScope(select));
+});
+document.querySelectorAll("[data-study-topic-select]").forEach((select) => {
+  setActiveStudyTopic(select.getAttribute("data-study-topic-select"), select.value, getStudyTopicScope(select));
+});
+document.querySelectorAll("[data-library-doc-target].active, [data-library-doc-target][aria-pressed='true']").forEach((button) => {
+  setActiveLibraryDocument(button.getAttribute("data-library-doc-target"), getLibraryDocumentScope(button));
+});
+route();
+updateComplete();
+</script>
+<div class="bio-global-save" data-bio-global-save aria-live="polite">Progress saves on this device.</div>
+<script>
+(() => {
+  "use strict";
+  const BIO_STATE_KEY = "biology30-unit-a:state:v1";
+  const BIO_SHELL_COMPLETION_KEY = "biology30-unit-a:complete";
+  const BIO_STATE_LIMIT = 48000;
+  const BIO_SLICE_LESSONS = ["lesson-04", "lesson-15"];
+  const BIO_REQUIRED_LESSONS = Array.from({ length: 17 }, (_, index) => "lesson-" + String(index + 1).padStart(2, "0"));
+  const BIO_REQUIRED_ARTIFACTS = ["regulation-systems-map", "action-potential-evidence", "reflex-investigation", "sensory-investigation", "vision-audiogram-evidence", "glucose-urinalysis", "hormone-technology-integrated-case"];
+  const BIO_ACTIVITIES = {"schemaVersion":1,"projectSlug":"biology30-unit-a","lessons":["lesson-04","lesson-15"],"interactions":[{"id":"interaction-action-potential-explorer","lessonId":"lesson-04","kind":"stage-evidence-explorer","responseIds":["biology30-unit-a:activity:action-potential:model-state"],"completionRule":"Learner inspects all six membrane-potential stages.","fallbackType":"static-model"},{"id":"interaction-blood-glucose-simulator","lessonId":"lesson-15","kind":"synthetic-feedback-simulator","responseIds":["biology30-unit-a:activity:blood-glucose:scenario","biology30-unit-a:activity:blood-glucose:interpretation"],"completionRule":"Learner runs at least two scenarios and records a mechanism-based interpretation.","fallbackType":"supplied-data","datasetId":"dataset-blood-glucose-gate-1"}],"artifacts":[{"id":"action-potential-evidence","lessonIds":["lesson-04"],"outcomeIds":["A1.1k","A1.3s"],"fields":[{"id":"biology30-unit-a:artifact:action-potential-evidence:claim","label":"Claim","maxLength":550},{"id":"biology30-unit-a:artifact:action-potential-evidence:evidence","label":"Graph evidence","maxLength":700},{"id":"biology30-unit-a:artifact:action-potential-evidence:reasoning","label":"Ion-channel reasoning","maxLength":750}],"rubricId":"biology-scientific-evidence-v1","printEnabled":true,"exportSummaryEnabled":true},{"id":"glucose-urinalysis","lessonIds":["lesson-15"],"outcomeIds":["A2.1k","A2.2k","A2.3k","A2.6k","A2.1sts","A2.2s","A2.3s"],"fields":[{"id":"biology30-unit-a:artifact:glucose-urinalysis:pattern","label":"Data pattern","maxLength":500},{"id":"biology30-unit-a:artifact:glucose-urinalysis:mechanism","label":"Feedback mechanism","maxLength":750},{"id":"biology30-unit-a:artifact:glucose-urinalysis:limits","label":"Limits and next evidence","maxLength":750}],"rubricId":"biology-scientific-evidence-v1","printEnabled":true,"exportSummaryEnabled":true}],"practiceItems":[{"id":"lesson-04-check-1","outcomeIds":["A1.1k"],"cognitiveLevel":"remember-understand","sourceRefIds":["notes-action-potential","system-m1-l7","openstax-action-potential"],"prompt":"Which event most directly begins the rapid rising phase after threshold is reached?","choices":{"a":"Voltage-gated sodium channels open and sodium ions enter.","b":"The sodium-potassium pump immediately moves all sodium ions out.","c":"Voltage-gated potassium channels close and potassium ions enter.","d":"The membrane becomes impermeable to every ion."},"answerKey":"a","rationale":"Opening voltage-gated sodium channels produces a rapid inward sodium current, making the inside less negative and then positive.","targetedFeedback":{"b":"The pump maintains the long-term gradients, but it does not create the rapid rising phase of one action potential.","c":"Potassium movement is most important during repolarization, and potassium moves out rather than in.","d":"Selective channels change their open state; the membrane does not become sealed to every ion."}},{"id":"lesson-04-check-2","outcomeIds":["A1.1k","A1.3s"],"cognitiveLevel":"apply","sourceRefIds":["notes-action-potential","system-m1-l7","openstax-action-potential"],"prompt":"A stimulus depolarizes a neuron from −70 mV to −58 mV, below a −55 mV threshold. What should the graph show next?","choices":{"a":"A full action potential with a smaller peak.","b":"A return toward resting potential without a full action potential.","c":"Immediate hyperpolarization to −90 mV.","d":"A permanent change to the threshold."},"answerKey":"b","rationale":"A subthreshold change does not trigger the regenerative opening of enough voltage-gated sodium channels, so no full action potential occurs.","targetedFeedback":{"a":"Action potentials are all-or-none; a subthreshold stimulus does not produce a smaller action potential.","c":"Hyperpolarization follows a completed action potential; the threshold was not reached here.","d":"This single stimulus does not permanently redefine the neuron's threshold."}},{"id":"lesson-04-check-3","outcomeIds":["A1.1k","A1.3s"],"cognitiveLevel":"higher-mental-activity","sourceRefIds":["notes-action-potential","system-m1-l7","openstax-action-potential"],"prompt":"A sensory neuron receives a stronger stimulus after it is already firing. Which change best represents greater stimulus intensity?","choices":{"a":"Each action potential becomes twice as tall.","b":"Action potentials occur more frequently, and additional neurons may be recruited.","c":"The resting potential becomes permanently positive.","d":"The refractory period disappears."},"answerKey":"b","rationale":"Individual action potentials keep a similar amplitude. Intensity is encoded mainly through firing frequency and, in sensory systems, recruitment of additional neurons.","targetedFeedback":{"a":"All-or-none refers to the amplitude of each action potential; stronger stimuli do not make each spike proportionally taller.","c":"The membrane repeatedly returns toward its resting state; it does not stay positive.","d":"The refractory period remains essential for timing and one-way propagation."}},{"id":"lesson-15-check-1","outcomeIds":["A2.1k","A2.2k","A2.3k"],"cognitiveLevel":"remember-understand","sourceRefIds":["notes-pancreas","system-m2-l5","openstax-endocrine-pancreas"],"prompt":"Which pairing correctly identifies the pancreatic endocrine response to falling blood glucose?","choices":{"a":"Beta cells release insulin, increasing liver glucose release.","b":"Alpha cells release glucagon, increasing liver glucose release.","c":"Alpha cells release insulin, increasing muscle glycogen breakdown.","d":"Beta cells release glucagon, preventing all cells from using glucose."},"answerKey":"b","rationale":"Pancreatic alpha cells release glucagon when blood glucose is falling; glucagon promotes liver glycogen breakdown and glucose release.","targetedFeedback":{"a":"Insulin is released by beta cells mainly when blood glucose is rising and supports uptake and storage.","c":"Alpha cells release glucagon, not insulin, and the liver is the key organ that releases free glucose into blood.","d":"Beta cells release insulin; glucagon does not shut down glucose use in every cell."}},{"id":"lesson-15-check-2","outcomeIds":["A2.3k","A2.6k","A2.3s"],"cognitiveLevel":"apply","sourceRefIds":["notes-pancreas","system-m2-l5","niddk-diabetes-causes"],"prompt":"In a synthetic model, insulin rises after a meal but blood glucose remains elevated longer than expected. Which mechanism is most consistent with that evidence?","choices":{"a":"Target tissues are responding weakly to insulin.","b":"Alpha cells are unable to release any glucagon during fasting.","c":"The kidneys are producing insulin instead of the pancreas.","d":"All glucose has already been stored as glycogen."},"answerKey":"a","rationale":"High insulin paired with a prolonged glucose elevation is consistent with reduced insulin responsiveness in target tissues within this model.","targetedFeedback":{"b":"The observation follows a meal and includes elevated insulin; glucagon deficiency does not best explain the prolonged high glucose.","c":"Insulin is produced by pancreatic beta cells, not the kidneys.","d":"If all excess glucose had been stored, blood glucose would be moving back toward its expected range."}},{"id":"lesson-15-check-3","outcomeIds":["A2.1sts","A2.2s","A2.3s"],"cognitiveLevel":"higher-mental-activity","sourceRefIds":["niddk-diabetes-tests","niddk-diabetes-management"],"prompt":"A classroom urinalysis dataset shows glucose and ketones in one synthetic sample. What is the strongest scientifically responsible conclusion?","choices":{"a":"The sample proves that the person has type 1 diabetes.","b":"The pattern suggests disrupted fuel regulation and warrants additional clinical blood evidence; it is not diagnostic by itself.","c":"The pattern proves that the kidneys caused the glucose imbalance.","d":"The person should immediately change medication based on the classroom result."},"answerKey":"b","rationale":"Urine glucose and ketones can reveal a pattern worth investigating, but the pattern is not diagnostic by itself; diabetes diagnosis requires appropriate professional assessment and blood testing.","targetedFeedback":{"a":"Urine findings alone cannot determine a diabetes type or establish a diagnosis.","c":"The kidneys filter and reabsorb substances, but this pattern does not prove they caused the original glucose disturbance.","d":"A classroom activity cannot guide medication changes; those decisions belong with a health-care professional."}}]};
+  const BIO_DATASET = {"schemaVersion":1,"id":"dataset-blood-glucose-gate-1","label":"Synthetic instructional data: blood glucose and urinalysis","synthetic":true,"diagnosticUse":false,"unit":"mmol/L","notice":"Values are designed for mechanism-based classroom interpretation. They do not represent a real person, are not diagnostic, and cannot establish a diagnosis.","simulatorScenarios":[{"id":"regulated-meal","label":"Meal with a regulated response","timesMinutes":[0,30,60,120,180],"glucose":[5,7.4,7.8,6.1,5.2],"insulinSignal":"rises, then falls","glucagonSignal":"suppressed, then returns","mechanism":"Beta-cell insulin signalling supports skeletal-muscle and adipose uptake and promotes liver and muscle storage, reducing the original rise."},{"id":"low-insulin-signal","label":"Meal with a low insulin signal","timesMinutes":[0,30,60,120,180],"glucose":[5.3,8.8,11.7,12.1,10.9],"insulinSignal":"low","glucagonSignal":"not sufficiently suppressed","mechanism":"With too little insulin signalling, glucose uptake and storage do not increase enough to oppose the post-meal rise."},{"id":"reduced-response","label":"Meal with reduced target response","timesMinutes":[0,30,60,120,180],"glucose":[5.4,8.5,10.4,9.3,7.8],"insulinSignal":"high","glucagonSignal":"suppressed","mechanism":"Insulin is present, but modelled muscle, adipose, and liver responses are weaker, so the disturbance resolves slowly."},{"id":"extended-activity","label":"Extended activity between meals","timesMinutes":[0,30,60,120,180],"glucose":[5.2,4.7,4.2,4.5,4.9],"insulinSignal":"low","glucagonSignal":"rises","mechanism":"Falling glucose reduces insulin and increases glucagon. The liver increases glucose output while working muscle also changes fuel use."}],"urinalysisProfiles":[{"id":"sample-a","bloodGlucose":[4.9,7.2,5.5],"timeLabels":["before meal","1 hour","2 hours"],"urineGlucose":"negative","urineKetones":"negative","hydrationMarker":"within expected instructional range"},{"id":"sample-b","bloodGlucose":[7.8,13.6,12.9],"timeLabels":["before meal","1 hour","2 hours"],"urineGlucose":"3+","urineKetones":"2+","hydrationMarker":"concentrated"},{"id":"sample-c","bloodGlucose":[5.1,3.4,3.9],"timeLabels":["before activity","after activity","30 minutes later"],"urineGlucose":"negative","urineKetones":"negative","hydrationMarker":"within expected instructional range"},{"id":"sample-d","bloodGlucose":[8.1,12.2,10.4],"timeLabels":["before meal","1 hour","2 hours"],"urineGlucose":"2+","urineKetones":"negative","hydrationMarker":"dilute"}]};
+  const BIO_PRACTICE = Object.fromEntries(BIO_ACTIVITIES.practiceItems.map((item) => [item.id, item]));
+  const BIO_ARTIFACTS = Object.fromEntries(BIO_ACTIVITIES.artifacts.map((item) => [item.id, item]));
+  const BIO_AP_STAGES = {
+    rest: { name: "Rest", voltage: "−70 mV", channels: "Voltage-gated Na⁺ and K⁺ channels are closed; leak channels remain active.", explanation: "Selective permeability and maintained ion gradients keep the inside negative relative to the outside." },
+    threshold: { name: "Threshold", voltage: "about −55 mV", channels: "Enough voltage-gated Na⁺ channels begin opening to start positive feedback.", explanation: "A subthreshold change fades, but crossing threshold recruits additional sodium channels and triggers a full event." },
+    depolarization: { name: "Rising phase", voltage: "toward +30 mV", channels: "Voltage-gated Na⁺ channels are open; Na⁺ enters rapidly.", explanation: "Sodium entry makes the inside more positive and opens additional sodium channels." },
+    repolarization: { name: "Falling phase", voltage: "falling toward −70 mV", channels: "Na⁺ channels are inactivated; delayed voltage-gated K⁺ channels are open.", explanation: "Potassium leaves the axon, removing positive charge from the inside." },
+    hyperpolarization: { name: "Undershoot", voltage: "below −70 mV", channels: "Some K⁺ channels remain open while Na⁺ channels recover from inactivation.", explanation: "Delayed potassium-channel closing briefly makes the membrane more negative than its resting level." },
+    recovery: { name: "Recovery", voltage: "returning to −70 mV", channels: "Voltage-gated channels return to resting states; leak channels and pumps continue.", explanation: "Channel recovery restores excitability while the sodium-potassium pump maintains the ion gradients over time." }
+  };
+
+  const defaultState = () => ({
+    schemaVersion: 1,
+    updatedAt: new Date(0).toISOString(),
+    location: "overview",
+    responses: {},
+    practice: {},
+    interactions: {
+      actionPotential: { current: "rest", seen: ["rest"] },
+      bloodGlucose: { current: "regulated-meal", seenScenarios: [] }
+    },
+    artifacts: {},
+    notebook: [],
+    completions: [],
+    finalPractice: null
+  });
+  let bioState = defaultState();
+  let lastValidSerialized = JSON.stringify(bioState);
+  let saveTimer = null;
+  let scormApi = null;
+  let scormInitialized = false;
+
+  function globalStatus(message, kind) {
+    const node = document.querySelector("[data-bio-global-save]");
+    if (!node) return;
+    node.textContent = message;
+    node.dataset.status = kind || "neutral";
+  }
+
+  function normalizeState(candidate) {
+    if (!candidate || candidate.schemaVersion !== 1 || typeof candidate !== "object") return defaultState();
+    const base = defaultState();
+    const practice = Object.fromEntries(Object.entries(candidate.practice && typeof candidate.practice === "object" ? candidate.practice : {}).flatMap(([id, record]) => {
+      const choice = typeof record === "string" ? record : record?.choice;
+      return typeof choice === "string" && choice ? [[id, choice]] : [];
+    }));
+    return {
+      ...base,
+      ...candidate,
+      responses: candidate.responses && typeof candidate.responses === "object" ? candidate.responses : {},
+      practice,
+      interactions: {
+        actionPotential: { ...base.interactions.actionPotential, ...(candidate.interactions?.actionPotential || {}) },
+        bloodGlucose: { ...base.interactions.bloodGlucose, ...(candidate.interactions?.bloodGlucose || {}) }
+      },
+      artifacts: candidate.artifacts && typeof candidate.artifacts === "object" ? candidate.artifacts : {},
+      notebook: Array.isArray(candidate.notebook) ? candidate.notebook.slice(0, 10) : [],
+      completions: Array.isArray(candidate.completions) ? candidate.completions : []
+    };
+  }
+
+  function parseState(raw) {
+    if (!raw) return null;
+    try { return normalizeState(JSON.parse(raw)); } catch { return null; }
+  }
+
+  function findScormApi() {
+    let current = window;
+    for (let depth = 0; depth < 10; depth += 1) {
+      try {
+        if (current.API_1484_11) return current.API_1484_11;
+        if (!current.parent || current.parent === current) break;
+        current = current.parent;
+      } catch { break; }
+    }
+    try { return window.opener?.API_1484_11 || null; } catch { return null; }
+  }
+
+  function initializeScorm() {
+    if (scormInitialized) return scormApi;
+    scormInitialized = true;
+    scormApi = findScormApi();
+    if (!scormApi) return null;
+    try {
+      const initialized = scormApi.Initialize("");
+      if (String(initialized).toLowerCase() !== "true") scormApi = null;
+    } catch { scormApi = null; }
+    return scormApi;
+  }
+
+  function readScormState() {
+    const api = initializeScorm();
+    if (!api) return null;
+    try { return parseState(api.GetValue("cmi.suspend_data")); } catch { return null; }
+  }
+
+  function isCourseComplete() {
+    const lessonsDone = BIO_REQUIRED_LESSONS.every((id) => bioState.completions.includes(id));
+    const artifactsDone = BIO_REQUIRED_ARTIFACTS.every((id) => Boolean(bioState.artifacts[id]?.savedAt));
+    return lessonsDone && artifactsDone && Boolean(bioState.finalPractice?.submittedAt);
+  }
+
+  function writeScormState(serialized) {
+    const api = initializeScorm();
+    if (!api) return true;
+    try {
+      api.SetValue("cmi.suspend_data", serialized);
+      api.SetValue("cmi.location", bioState.location || "overview");
+      const completedCount = BIO_REQUIRED_LESSONS.filter((id) => bioState.completions.includes(id)).length;
+      api.SetValue("cmi.progress_measure", String(completedCount / BIO_REQUIRED_LESSONS.length));
+      api.SetValue("cmi.completion_status", isCourseComplete() ? "completed" : "incomplete");
+      api.SetValue("cmi.success_status", "unknown");
+      if (bioState.finalPractice?.submittedAt && Number.isFinite(bioState.finalPractice?.percent)) {
+        api.SetValue("cmi.score.min", "0");
+        api.SetValue("cmi.score.max", "100");
+        api.SetValue("cmi.score.raw", String(bioState.finalPractice.percent));
+      }
+      const committed = api.Commit("");
+      return String(committed).toLowerCase() === "true";
+    } catch { return false; }
+  }
+
+  function loadState() {
+    let localState = null;
+    try { localState = parseState(window.localStorage.getItem(BIO_STATE_KEY)); } catch {}
+    const lmsState = readScormState();
+    const localTime = Date.parse(localState?.updatedAt || "") || 0;
+    const lmsTime = Date.parse(lmsState?.updatedAt || "") || 0;
+    bioState = normalizeState(lmsTime > localTime ? lmsState : localState);
+    lastValidSerialized = JSON.stringify(bioState);
+  }
+
+  function persistState(message) {
+    const candidate = { ...bioState, updatedAt: new Date().toISOString() };
+    const serialized = JSON.stringify(candidate);
+    if (serialized.length >= BIO_STATE_LIMIT) {
+      globalStatus("Save paused: this change would exceed the course state budget. Copy or print your work, then shorten the newest entry.", "error");
+      return false;
+    }
+    try {
+      window.localStorage.setItem(BIO_STATE_KEY, serialized);
+    } catch {
+      globalStatus("This browser could not save locally. Copy or print your work before leaving.", "error");
+      return false;
+    }
+    bioState = candidate;
+    lastValidSerialized = serialized;
+    const lmsSaved = writeScormState(serialized);
+    globalStatus(lmsSaved ? (message || "Progress saved.") : "Saved on this device; the LMS save needs a retry.", lmsSaved ? "saved" : "warning");
+    return lmsSaved;
+  }
+
+  function scheduleSave(message) {
+    window.clearTimeout(saveTimer);
+    saveTimer = window.setTimeout(() => persistState(message), 260);
+  }
+
+  function responseStatus(id, message) {
+    const node = Array.from(document.querySelectorAll("[data-bio-status-for]")).find((item) => item.getAttribute("data-bio-status-for") === id);
+    if (node) node.textContent = message;
+  }
+
+  function saveResponseField(field, immediate) {
+    const id = field.getAttribute("data-bio-response-id");
+    if (!id) return;
+    const maximum = Number(field.getAttribute("maxlength")) || 2000;
+    const value = String(field.value || "").slice(0, maximum);
+    if (value.trim()) bioState.responses[id] = value;
+    else delete bioState.responses[id];
+    responseStatus(id, value.trim() ? "Saved draft" : "Empty response");
+    if (immediate) persistState("Response saved.");
+    else scheduleSave("Response saved.");
+  }
+
+  function restoreResponseFields() {
+    document.querySelectorAll("[data-bio-response-id]").forEach((field) => {
+      const id = field.getAttribute("data-bio-response-id");
+      if (id && Object.prototype.hasOwnProperty.call(bioState.responses, id)) field.value = bioState.responses[id];
+      if (id && String(field.value || "").trim()) responseStatus(id, "Saved draft restored");
+    });
+  }
+
+  function renderPracticeFeedback(article, choice) {
+    const definition = BIO_PRACTICE[article.getAttribute("data-practice-id")];
+    const region = article.querySelector("[data-practice-feedback]");
+    if (!definition || !region || !choice) return;
+    const correct = choice === String(definition.answerKey);
+    const detail = correct ? definition.rationale : (definition.targetedFeedback[choice] || definition.rationale);
+    region.hidden = false;
+    region.classList.toggle("is-correct", correct);
+    region.replaceChildren();
+    const heading = document.createElement("strong");
+    heading.textContent = correct ? "Correct reasoning" : "Revise this idea";
+    const copy = document.createElement("span");
+    copy.textContent = detail;
+    region.append(heading, copy);
+  }
+
+  function submitPractice(button) {
+    const article = button.closest("[data-practice-id]");
+    if (!article) return;
+    const id = article.getAttribute("data-practice-id");
+    const selected = article.querySelector("input[type='radio']:checked");
+    const region = article.querySelector("[data-practice-feedback]");
+    if (!selected) {
+      if (region) { region.hidden = false; region.classList.remove("is-correct"); region.textContent = "Choose one response before checking."; }
+      return;
+    }
+    const definition = BIO_PRACTICE[id];
+    bioState.practice[id] = selected.value;
+    renderPracticeFeedback(article, bioState.practice[id]);
+    persistState("Practice feedback saved.");
+    updatePracticeHub();
+  }
+
+  function restorePractice() {
+    document.querySelectorAll("[data-practice-id]").forEach((article) => {
+      const id = article.getAttribute("data-practice-id");
+      const choice = bioState.practice[id];
+      if (!choice) return;
+      const radio = Array.from(article.querySelectorAll("input[type='radio']")).find((item) => item.value === choice);
+      if (radio) radio.checked = true;
+      renderPracticeFeedback(article, choice);
+    });
+  }
+
+  function updatePracticeHub() {
+    const ids = Object.keys(BIO_PRACTICE);
+    const submitted = ids.filter((id) => Boolean(bioState.practice[id])).length;
+    document.querySelectorAll("[data-practice-complete-count]").forEach((node) => node.textContent = String(submitted));
+    document.querySelectorAll("[data-practice-progress-fill]").forEach((node) => node.style.width = String((submitted / ids.length) * 100) + "%");
+    ["lesson-04", "lesson-15"].forEach((lessonId) => {
+      const lessonIds = ids.filter((id) => id.startsWith(lessonId + "-check"));
+      const count = lessonIds.filter((id) => Boolean(bioState.practice[id])).length;
+      document.querySelectorAll("[data-practice-set-status='" + lessonId + "']").forEach((node) => node.textContent = count + " of " + lessonIds.length + " submitted");
+    });
+  }
+
+  function selectActionPotentialStage(stageId, shouldSave) {
+    const stage = BIO_AP_STAGES[stageId];
+    if (!stage) return;
+    bioState.interactions.actionPotential.current = stageId;
+    const seen = new Set(bioState.interactions.actionPotential.seen || []);
+    seen.add(stageId);
+    bioState.interactions.actionPotential.seen = Array.from(seen);
+    document.querySelectorAll("[data-ap-stage-button]").forEach((button) => button.setAttribute("aria-pressed", String(button.getAttribute("data-ap-stage-button") === stageId)));
+    document.querySelectorAll("[data-ap-stage]").forEach((point) => point.setAttribute("data-active", String(point.getAttribute("data-ap-stage") === stageId)));
+    const values = { "[data-ap-stage-name]": stage.name, "[data-ap-voltage]": stage.voltage, "[data-ap-channels]": stage.channels, "[data-ap-explanation]": stage.explanation };
+    Object.entries(values).forEach(([selector, value]) => document.querySelectorAll(selector).forEach((node) => node.textContent = value));
+    document.querySelectorAll("[data-ap-progress]").forEach((node) => node.textContent = seen.size + " of 6 stages inspected");
+    if (shouldSave) persistState("Model state saved.");
+    updateModelHub();
+  }
+
+  function renderSvgText(group, x, y, textValue, anchor) {
+    const node = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    node.setAttribute("x", String(x)); node.setAttribute("y", String(y));
+    node.setAttribute("fill", "#5b635d"); node.setAttribute("font-size", "14"); node.setAttribute("font-family", "Work Sans, sans-serif");
+    if (anchor) node.setAttribute("text-anchor", anchor);
+    node.textContent = textValue; group.append(node);
+  }
+
+  function renderGlucoseChart(scenario) {
+    const svg = document.querySelector("[data-glucose-chart]");
+    if (!svg) return;
+    const grid = svg.querySelector("[data-glucose-chart-grid]");
+    const pointsGroup = svg.querySelector("[data-glucose-chart-points]");
+    const curve = svg.querySelector("[data-glucose-chart-path]");
+    grid.replaceChildren(); pointsGroup.replaceChildren();
+    const left = 70, right = 720, top = 30, bottom = 300, maxY = 15;
+    [0, 5, 10, 15].forEach((value) => {
+      const y = bottom - (value / maxY) * (bottom - top);
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", String(left)); line.setAttribute("x2", String(right)); line.setAttribute("y1", String(y)); line.setAttribute("y2", String(y)); line.setAttribute("stroke", value === 0 ? "#39423d" : "#d9ded8"); line.setAttribute("stroke-width", "2"); grid.append(line);
+      renderSvgText(grid, left - 12, y + 5, String(value), "end");
+    });
+    const coordinates = scenario.glucose.map((value, index) => {
+      const x = left + (index / (scenario.glucose.length - 1)) * (right - left);
+      const y = bottom - (value / maxY) * (bottom - top);
+      return { x, y, value, time: scenario.timesMinutes[index] };
+    });
+    curve.setAttribute("d", coordinates.map((point, index) => (index ? "L" : "M") + point.x + " " + point.y).join(" "));
+    coordinates.forEach((point) => {
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", String(point.x)); circle.setAttribute("cy", String(point.y)); circle.setAttribute("r", "6"); circle.setAttribute("fill", "#fff"); circle.setAttribute("stroke", "#146c60"); circle.setAttribute("stroke-width", "3"); pointsGroup.append(circle);
+      renderSvgText(pointsGroup, point.x, bottom + 28, point.time + " min", "middle");
+      renderSvgText(pointsGroup, point.x, point.y - 12, String(point.value), "middle");
+    });
+    const description = svg.querySelector("[data-glucose-chart-desc]");
+    if (description) description.textContent = scenario.label + ": glucose values " + scenario.glucose.join(", ") + " millimoles per litre at " + scenario.timesMinutes.join(", ") + " minutes.";
+  }
+
+  function renderGlucoseTable(scenario) {
+    const header = document.querySelector("[data-glucose-time-row]");
+    const values = document.querySelector("[data-glucose-value-row]");
+    if (!header || !values) return;
+    header.replaceChildren(); values.replaceChildren();
+    const blank = document.createElement("th"); blank.scope = "col"; blank.textContent = "Measure"; header.append(blank);
+    const label = document.createElement("th"); label.scope = "row"; label.textContent = "Glucose (mmol/L)"; values.append(label);
+    scenario.timesMinutes.forEach((time, index) => {
+      const heading = document.createElement("th"); heading.scope = "col"; heading.textContent = time + " min"; header.append(heading);
+      const cell = document.createElement("td"); cell.textContent = String(scenario.glucose[index]); values.append(cell);
+    });
+    document.querySelectorAll("[data-glucose-table-caption]").forEach((node) => node.textContent = scenario.label + " values");
+  }
+
+  function runGlucoseScenario(shouldSave) {
+    const select = document.querySelector("[data-glucose-scenario]");
+    const id = select?.value || bioState.interactions.bloodGlucose.current;
+    const scenario = BIO_DATASET.simulatorScenarios.find((item) => item.id === id) || BIO_DATASET.simulatorScenarios[0];
+    if (!scenario) return;
+    bioState.interactions.bloodGlucose.current = scenario.id;
+    const seen = new Set(bioState.interactions.bloodGlucose.seenScenarios || []);
+    if (shouldSave) seen.add(scenario.id);
+    bioState.interactions.bloodGlucose.seenScenarios = Array.from(seen);
+    if (select) select.value = scenario.id;
+    const values = { "[data-glucose-scenario-label]": scenario.label, "[data-glucose-insulin]": scenario.insulinSignal, "[data-glucose-glucagon]": scenario.glucagonSignal, "[data-glucose-mechanism]": scenario.mechanism };
+    Object.entries(values).forEach(([selector, value]) => document.querySelectorAll(selector).forEach((node) => node.textContent = value));
+    renderGlucoseChart(scenario); renderGlucoseTable(scenario);
+    if (shouldSave) persistState("Glucose model state saved.");
+    updateModelHub();
+  }
+
+  function updateModelHub() {
+    const apSeen = new Set(bioState.interactions.actionPotential.seen || []).size;
+    const glucoseSeen = new Set(bioState.interactions.bloodGlucose.seenScenarios || []).size;
+    document.querySelectorAll("[data-model-status='interaction-action-potential-explorer']").forEach((node) => node.textContent = apSeen >= 6 ? "All 6 stages inspected" : apSeen + " of 6 stages inspected");
+    document.querySelectorAll("[data-model-status='interaction-blood-glucose-simulator']").forEach((node) => node.textContent = glucoseSeen + " of 4 scenarios run");
+  }
+
+  function artifactText(id) {
+    const artifact = BIO_ARTIFACTS[id];
+    if (!artifact) return "";
+    const lines = ["Biology 30 — " + id];
+    artifact.fields.forEach((field) => lines.push("\n" + field.label + "\n" + (bioState.responses[field.id] || "")));
+    return lines.join("\n");
+  }
+
+  function saveArtifact(id) {
+    const artifact = BIO_ARTIFACTS[id];
+    if (!artifact) return;
+    artifact.fields.forEach((field) => {
+      const input = Array.from(document.querySelectorAll("[data-bio-response-id]")).find((node) => node.getAttribute("data-bio-response-id") === field.id);
+      if (input) saveResponseField(input, false);
+    });
+    bioState.artifacts[id] = { savedAt: new Date().toISOString(), fieldIds: artifact.fields.map((field) => field.id) };
+    persistState("Artifact draft saved.");
+    updateArtifactViews();
+  }
+
+  function cloneForPrint(node, title) {
+    document.querySelector(".print-job-root")?.remove();
+    const root = document.createElement("main"); root.className = "print-job-root";
+    const heading = document.createElement("h1"); heading.textContent = title; root.append(heading, node.cloneNode(true));
+    document.body.append(root); document.body.classList.add("print-job-active"); window.print();
+  }
+
+  async function copyText(value, statusNode) {
+    try {
+      await navigator.clipboard.writeText(value);
+      if (statusNode) statusNode.textContent = "Copied";
+    } catch {
+      if (statusNode) statusNode.textContent = "Copy unavailable. Select the text and copy manually.";
+    }
+  }
+
+  function updateArtifactViews() {
+    Object.keys(BIO_ARTIFACTS).forEach((id) => {
+      const saved = Boolean(bioState.artifacts[id]?.savedAt);
+      document.querySelectorAll("[data-artifact-status='" + id + "']").forEach((node) => node.textContent = saved ? "Saved draft restored" : "Draft not saved");
+    });
+    const index = document.querySelector("[data-artifact-index]");
+    if (index) {
+      index.replaceChildren();
+      const labels = { "action-potential-evidence": "Action-potential evidence interpretation", "glucose-urinalysis": "Blood-glucose and urinalysis analysis" };
+      Object.keys(BIO_ARTIFACTS).forEach((id) => {
+        const item = document.createElement("article");
+        const title = document.createElement("strong"); title.textContent = labels[id] || id;
+        const status = document.createElement("span"); status.textContent = bioState.artifacts[id]?.savedAt ? "Saved" : "Not saved";
+        item.append(title, status); index.append(item);
+      });
+    }
+    const count = Object.keys(BIO_ARTIFACTS).filter((id) => bioState.artifacts[id]?.savedAt).length;
+    document.querySelectorAll("[data-artifact-count]").forEach((node) => node.textContent = count + " of " + Object.keys(BIO_ARTIFACTS).length + " available artifacts saved");
+  }
+
+  function renderNotebook() {
+    const list = document.querySelector("[data-notebook-list]");
+    if (list) {
+      list.replaceChildren();
+      if (!bioState.notebook.length) {
+        const empty = document.createElement("p"); empty.className = "bio-empty-state"; empty.textContent = "Saved entries will appear here."; list.append(empty);
+      } else {
+        bioState.notebook.forEach((entry) => {
+          const article = document.createElement("article"); article.className = "bio-notebook-entry";
+          const header = document.createElement("header"); const title = document.createElement("h3"); title.textContent = entry.title;
+          const remove = document.createElement("button"); remove.type = "button"; remove.textContent = "Remove"; remove.setAttribute("data-remove-notebook-entry", entry.id); remove.setAttribute("aria-label", "Remove notebook entry " + entry.title);
+          const body = document.createElement("p"); body.textContent = entry.body;
+          const time = document.createElement("small"); time.textContent = "Saved " + new Date(entry.savedAt).toLocaleString();
+          header.append(title, remove); article.append(header, body, time); list.append(article);
+        });
+      }
+    }
+    document.querySelectorAll("[data-notebook-count]").forEach((node) => node.textContent = bioState.notebook.length + " of 10 entries");
+  }
+
+  function saveNotebookEntry() {
+    const titleField = document.querySelector("[data-notebook-title]");
+    const bodyField = document.querySelector("[data-notebook-body]");
+    const status = document.querySelector("[data-notebook-status]");
+    const title = String(titleField?.value || "").trim().slice(0, 60);
+    const body = String(bodyField?.value || "").trim().slice(0, 540);
+    if (!title || !body) { if (status) status.textContent = "Add both a title and an observation before saving."; return; }
+    if (bioState.notebook.length >= 10) { if (status) status.textContent = "Notebook limit reached. Export or remove an entry before adding another."; return; }
+    bioState.notebook.unshift({ id: "note-" + Date.now(), title, body, savedAt: new Date().toISOString() });
+    if (titleField) titleField.value = ""; if (bodyField) bodyField.value = "";
+    persistState("Notebook entry saved."); renderNotebook(); if (status) status.textContent = "Entry saved.";
+  }
+
+  function notebookText() {
+    const lines = ["Biology 30 — Investigation Notebook"];
+    bioState.notebook.forEach((entry) => lines.push("\n" + entry.title + "\n" + entry.body));
+    Object.keys(BIO_ARTIFACTS).forEach((id) => { if (bioState.artifacts[id]?.savedAt) lines.push("\n---\n" + artifactText(id)); });
+    return lines.join("\n");
+  }
+
+  function updateCourseProgress() {
+    const complete = BIO_SLICE_LESSONS.filter((id) => bioState.completions.includes(id));
+    const percent = Math.round((complete.length / BIO_SLICE_LESSONS.length) * 100);
+    document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = complete.length + " / " + BIO_SLICE_LESSONS.length + " lesson exits");
+    document.querySelectorAll("[data-progress-count-inline]").forEach((node) => node.textContent = complete.length + "/" + BIO_SLICE_LESSONS.length);
+    document.querySelectorAll("[data-progress-percent]").forEach((node) => node.textContent = percent + "%");
+    document.querySelectorAll("[data-progress-fill]").forEach((node) => node.style.width = percent + "%");
+    BIO_SLICE_LESSONS.forEach((id) => document.querySelectorAll("[data-lesson-status='" + id + "']").forEach((node) => node.textContent = bioState.completions.includes(id) ? "Lesson completed" : "Exit response required"));
+    try { window.localStorage.setItem(BIO_SHELL_COMPLETION_KEY, JSON.stringify(complete)); } catch {}
+  }
+
+  function completeLesson(id) {
+    const number = id.split("-")[1];
+    const responseId = "biology30-unit-a:lesson:" + number + ":exit";
+    const field = Array.from(document.querySelectorAll("[data-bio-response-id]")).find((node) => node.getAttribute("data-bio-response-id") === responseId);
+    const status = document.querySelector("[data-lesson-status='" + id + "']");
+    if (!field || String(field.value || "").trim().length < 25) {
+      if (status) status.textContent = "Add a specific 2–3 sentence explanation before completing.";
+      field?.focus(); return;
+    }
+    saveResponseField(field, false);
+    if (!bioState.completions.includes(id)) bioState.completions.push(id);
+    persistState("Lesson exit saved."); updateCourseProgress();
+  }
+
+  function restoreAll() {
+    restoreResponseFields(); restorePractice();
+    selectActionPotentialStage(bioState.interactions.actionPotential.current || "rest", false);
+    runGlucoseScenario(false);
+    updatePracticeHub(); updateModelHub(); updateArtifactViews(); renderNotebook(); updateCourseProgress();
+  }
+
+  document.addEventListener("input", (event) => {
+    const field = event.target.closest("[data-bio-response-id]");
+    if (field) saveResponseField(field, false);
+  });
+  document.addEventListener("change", (event) => {
+    const field = event.target.closest("[data-bio-response-id]");
+    if (field) saveResponseField(field, false);
+  });
+  document.addEventListener("click", (event) => {
+    const stageButton = event.target.closest("[data-ap-stage-button]");
+    if (stageButton) selectActionPotentialStage(stageButton.getAttribute("data-ap-stage-button"), true);
+    const runModel = event.target.closest("[data-run-glucose-model]");
+    if (runModel) runGlucoseScenario(true);
+    const check = event.target.closest("[data-check-practice]");
+    if (check) submitPractice(check);
+    const saveArtifactButton = event.target.closest("[data-save-artifact]");
+    if (saveArtifactButton) saveArtifact(saveArtifactButton.getAttribute("data-save-artifact"));
+    const printArtifactButton = event.target.closest("[data-print-artifact]");
+    if (printArtifactButton) { const id = printArtifactButton.getAttribute("data-print-artifact"); const node = document.querySelector("[data-artifact-id='" + id + "']"); if (node) cloneForPrint(node, "Biology 30 — Portfolio Artifact"); }
+    const copyArtifactButton = event.target.closest("[data-copy-artifact]");
+    if (copyArtifactButton) { const id = copyArtifactButton.getAttribute("data-copy-artifact"); copyText(artifactText(id), document.querySelector("[data-artifact-status='" + id + "']")); }
+    const complete = event.target.closest("[data-complete-bio-lesson]");
+    if (complete) completeLesson(complete.getAttribute("data-complete-bio-lesson"));
+    if (event.target.closest("[data-save-notebook-entry]")) saveNotebookEntry();
+    if (event.target.closest("[data-clear-notebook-draft]")) { const title = document.querySelector("[data-notebook-title]"); const body = document.querySelector("[data-notebook-body]"); if (title) title.value = ""; if (body) body.value = ""; }
+    const remove = event.target.closest("[data-remove-notebook-entry]");
+    if (remove) { bioState.notebook = bioState.notebook.filter((entry) => entry.id !== remove.getAttribute("data-remove-notebook-entry")); persistState("Notebook entry removed."); renderNotebook(); }
+    if (event.target.closest("[data-print-notebook]")) { const node = document.querySelector("#investigation-notebook"); if (node) cloneForPrint(node, "Biology 30 — Investigation Notebook"); }
+    if (event.target.closest("[data-copy-notebook]")) copyText(notebookText(), document.querySelector("[data-notebook-export-status]"));
+  });
+  document.addEventListener("keydown", (event) => {
+    const button = event.target.closest("[data-ap-stage-button]");
+    if (!button || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    event.preventDefault();
+    const buttons = Array.from(document.querySelectorAll("[data-ap-stage-button]"));
+    const index = buttons.indexOf(button); const offset = event.key === "ArrowRight" ? 1 : -1;
+    const next = buttons[(index + offset + buttons.length) % buttons.length]; next.focus(); next.click();
+  });
+  window.addEventListener("hashchange", () => { bioState.location = (location.hash || "#overview").slice(1); scheduleSave("Location saved."); });
+  window.addEventListener("beforeunload", () => { window.clearTimeout(saveTimer); persistState("Progress saved."); });
+  window.addEventListener("afterprint", () => { document.body.classList.remove("print-job-active"); document.querySelector(".print-job-root")?.remove(); });
+
+  loadState();
+  bioState.location = (location.hash || ("#" + (bioState.location || "overview"))).slice(1);
+  restoreAll();
+  globalStatus(scormApi ? "Progress restored from available course storage." : "Progress restored on this device.", "saved");
+})();
+</script>
+</body>
+</html>

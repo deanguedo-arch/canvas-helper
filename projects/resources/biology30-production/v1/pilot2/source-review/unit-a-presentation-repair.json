@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T15:17:30.733Z",
+  "authority": "User explicitly requested B/C/D look, organize and function like final Unit A, with existing new content.",
+  "scope": "Adapt final A styles and presentation within the B/C/D owner. Unit A and academic/state inputs preserved.",
+  "reference": {
+    "source": "scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts",
+    "sha256": "89c2b24a0fa4807bf5329c423538b624111f8c0ba87a443cb1332b805b0128d9",
+    "learnerEntrySha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105"
+  },
+  "changes": [
+    "A typography, page framing, five navigation groups and chapter subdivisions",
+    "Question-led overview and chapter roadmap",
+    "A lesson openings: timings, goal/prerequisite strip, verified page links, four anchors and term inventory",
+    "Retrieval follows teaching and illustrated walkthrough",
+    "Search/filter concept reader, progressive unlock, Frayer selection and saved-work return focus",
+    "Model/investigation readers, textbook library and source credits",
+    "Textbook reinforcement precedes practice; existing exact IDs preserved"
+  ],
+  "codeFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-a-presentation.ts",
+      "sha256": "91b4d3a797878ef7cf5657bb9af128af665e5887ab96722f0f7ea43fdbbf8e65"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+      "sha256": "c55de70b8bfe0cb55ed72f9023e3f8072a98ecf6338c0e375aae93e83dc059ee"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "22d527a8f59c9970f06380f7a1027721258f8698b046a0b5605aaa7a327e158f"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-lesson-header.ts",
+      "sha256": "a7c4061bed9779059def4344dcf27348e3df923884b1a9f75cbdca992caf6440"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-runtime.ts",
+      "sha256": "b057c8c808018af70e304b138050cdd012d4c0956205813e9ef3235ac523bb2c"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "a42f08a914b8ec95f1e1639a39ac3ce2b9e1a7d667b82a6a4f5cb1438bf00b57"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "4bdeae8a056f685bf3df9bc48006fc1f5fd1f5c8df808dc1b1bcb8a5f9feca65"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-reference.ts",
+      "sha256": "ce0bbf7ea3f284688115257602f34d5a18472d118347e715ac64f3609daa9b9e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "sha256": "088d9cffa77b8abd23817f18fe08e3140df82ea1fa0237b7e3e3063f40bea2a9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "sha256": "e032d4e521512b7dbabf18360b99b3a5625eee97a898e145853b51bb12f2a004"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-return-links.ts",
+      "sha256": "843c8f00299bde16b0b88b4f836c88b872419787c8595d005718eb22760586da"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+      "sha256": "58e4909063f83dc00d73c01bd799d1687cb83eb2c125b1bf4d0dd14ff290bcea"
+    }
+  ],
+  "verification": {
+    "static": "6/6 targeted checks including actual all-unit content and identity preservation",
+    "browser": "Actual all-unit navigation, progressive vocabulary, model, textbook, save/reload, focus and responsive regression; final build verification follows"
+  },
+  "teacherAcceptance": null,
+  "protectedA": "Read-only reference; no protected source or learner edits",
+  "priorOwnerSha256": "7b0a072b44868bdbcd434ac149c408738c5b18ea4283ad71ad53fb8beef0ceff",
+  "ownerSha256": "1489bad1f27adca5869095281abc5e7cb531edbc3e3efc476ebf3c0e1a5355fe"
+}

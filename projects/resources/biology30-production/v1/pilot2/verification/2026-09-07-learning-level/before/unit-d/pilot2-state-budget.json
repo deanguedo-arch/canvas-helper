@@ -1,0 +1,47 @@
+{
+  "unit": "D",
+  "status": "engine-tests-passed-browser-integration-pending",
+  "schemaSha256": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "fixtures": [
+    {
+      "fixture": "x",
+      "filledTextFields": 85,
+      "serializedCharacters": 25272,
+      "withinTarget": true,
+      "guardWouldAccept": true
+    },
+    {
+      "fixture": "漢",
+      "filledTextFields": 85,
+      "serializedCharacters": 25272,
+      "withinTarget": true,
+      "guardWouldAccept": true
+    },
+    {
+      "fixture": "🧬",
+      "filledTextFields": 85,
+      "serializedCharacters": 25272,
+      "withinTarget": true,
+      "guardWouldAccept": true
+    },
+    {
+      "fixture": "quotes",
+      "filledTextFields": 85,
+      "serializedCharacters": 48852,
+      "withinTarget": false,
+      "guardWouldAccept": false
+    },
+    {
+      "fixture": "JSON-escaped control",
+      "filledTextFields": 85,
+      "serializedCharacters": 143172,
+      "withinTarget": false,
+      "guardWouldAccept": false
+    }
+  ],
+  "policy": "Ordinary and Unicode all-field maximum states fit the target. Heavy JSON escaping and combined legacy work may exceed the guard; reject the write without truncation or replacing the last valid local/LMS payload. Preserve and expose the original legacy payload. This is not live LMS certification.",
+  "browserEvidence": null,
+  "liveLmsCertification": false
+}

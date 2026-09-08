@@ -1,0 +1,2536 @@
+{
+  "schemaVersion": 1,
+  "profileId": "pilot2-topic-sequence-v1",
+  "unit": "C",
+  "status": "frozen",
+  "teacherAcceptance": null,
+  "requiredMinutes": 2400,
+  "optionalMinutes": 480,
+  "topics": [
+    {
+      "id": "c-topic-chromosomes-and-dna",
+      "title": "Chromosomes and DNA",
+      "chapter": 16,
+      "planRowId": "plan-16-row-02",
+      "teacherTextbookAssignment": "552–553 #5,7–12; 555 #4",
+      "slideNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "parts": [
+        {
+          "id": "c-topic-chromosomes-and-dna-dna-packaging",
+          "title": "DNA packaging",
+          "outcomeIds": [
+            "C1.1k"
+          ],
+          "concepts": [
+            "DNA",
+            "chromatin",
+            "chromosome",
+            "gene",
+            "locus"
+          ],
+          "operation": "Relate packaging levels without equating a gene with a whole chromosome"
+        },
+        {
+          "id": "c-topic-chromosomes-and-dna-sets-and-copies",
+          "title": "Sets and copies",
+          "outcomeIds": [
+            "C1.1k"
+          ],
+          "concepts": [
+            "homologous pair",
+            "sister chromatid",
+            "centromere",
+            "haploid",
+            "diploid",
+            "polyploid"
+          ],
+          "operation": "Count chromosomes, DNA molecules and sets separately in diagrams"
+        },
+        {
+          "id": "c-topic-chromosomes-and-dna-reading-karyotypes",
+          "title": "Reading karyotypes",
+          "outcomeIds": [
+            "C1.1k",
+            "C1.3s"
+          ],
+          "concepts": [
+            "autosome",
+            "sex chromosome",
+            "karyotype"
+          ],
+          "operation": "Arrange and interpret a supplied chromosome set with limits on what it reveals"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-dna",
+        "c-term-chromatin",
+        "c-term-chromosome",
+        "c-term-gene",
+        "c-term-locus",
+        "c-term-homologous-pair",
+        "c-term-sister-chromatid",
+        "c-term-centromere",
+        "c-term-haploid",
+        "c-term-diploid",
+        "c-term-polyploid",
+        "c-term-autosome",
+        "c-term-sex-chromosome",
+        "c-term-karyotype",
+        "c-term-dna-replication",
+        "c-term-mitosis",
+        "c-term-sample",
+        "c-term-daughter-chromosome",
+        "c-term-evidence",
+        "c-term-meiosis",
+        "c-term-aneuploidy",
+        "c-term-allele",
+        "c-term-phenotype",
+        "c-term-autosomal",
+        "c-term-individual",
+        "c-term-transmission",
+        "c-term-privacy",
+        "c-term-consent",
+        "c-term-protein",
+        "c-term-base",
+        "c-term-rna",
+        "c-term-substitution",
+        "c-term-uncertainty"
+      ],
+      "reusedTermIds": [],
+      "anchorTermIds": [
+        "c-term-chromosome",
+        "c-term-gene",
+        "c-term-homologous-pair",
+        "c-term-sister-chromatid"
+      ]
+    },
+    {
+      "id": "c-topic-the-cell-cycle",
+      "title": "The Cell Cycle",
+      "chapter": 16,
+      "planRowId": "plan-16-row-03",
+      "teacherTextbookAssignment": "551–552 #2,6; 555 #13,14,3,6; 561 #5",
+      "slideNumbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "parts": [
+        {
+          "id": "c-topic-the-cell-cycle-interphase",
+          "title": "Interphase",
+          "outcomeIds": [
+            "C1.2k"
+          ],
+          "concepts": [
+            "G1",
+            "S phase",
+            "G2",
+            "DNA replication"
+          ],
+          "operation": "Track DNA quantity and chromosome count across interphase"
+        },
+        {
+          "id": "c-topic-the-cell-cycle-control-and-division",
+          "title": "Control and division",
+          "outcomeIds": [
+            "C1.2k"
+          ],
+          "concepts": [
+            "checkpoint",
+            "mitosis",
+            "cytokinesis",
+            "cell-cycle regulation"
+          ],
+          "operation": "Explain transitions and consequences of a failed checkpoint"
+        },
+        {
+          "id": "c-topic-the-cell-cycle-measuring-cell-populations",
+          "title": "Measuring cell populations",
+          "outcomeIds": [
+            "C1.1s",
+            "C1.2s",
+            "C1.3s"
+          ],
+          "concepts": [
+            "mitotic index",
+            "sample",
+            "relative duration"
+          ],
+          "operation": "Calculate proportions from supplied real-cell observations and qualify duration estimates"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-g1",
+        "c-term-s-phase",
+        "c-term-g2",
+        "c-term-checkpoint",
+        "c-term-cytokinesis",
+        "c-term-cell-cycle-regulation",
+        "c-term-mitotic-index",
+        "c-term-relative-duration",
+        "c-term-metaphase",
+        "c-term-photomicrograph",
+        "c-term-sister-separation",
+        "c-term-segregation"
+      ],
+      "reusedTermIds": [
+        "c-term-dna-replication",
+        "c-term-mitosis",
+        "c-term-sample",
+        "c-term-individual",
+        "c-term-consent"
+      ],
+      "anchorTermIds": [
+        "c-term-g1",
+        "c-term-s-phase",
+        "c-term-g2",
+        "c-term-checkpoint"
+      ]
+    },
+    {
+      "id": "c-topic-mitosis",
+      "title": "Mitosis",
+      "chapter": 16,
+      "planRowId": "plan-16-row-04",
+      "teacherTextbookAssignment": "556 #15; 558–559 #17–19; 561 #1–4,6,7",
+      "slideNumbers": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "parts": [
+        {
+          "id": "c-topic-mitosis-preparing-to-separate",
+          "title": "Preparing to separate",
+          "outcomeIds": [
+            "C1.2k"
+          ],
+          "concepts": [
+            "prophase",
+            "spindle",
+            "kinetochore",
+            "metaphase"
+          ],
+          "operation": "Identify and order chromosome arrangement changes"
+        },
+        {
+          "id": "c-topic-mitosis-separating-copies",
+          "title": "Separating copies",
+          "outcomeIds": [
+            "C1.2k"
+          ],
+          "concepts": [
+            "anaphase",
+            "telophase",
+            "daughter chromosome"
+          ],
+          "operation": "Track sister separation and explain count conventions during anaphase"
+        },
+        {
+          "id": "c-topic-mitosis-finishing-cell-division",
+          "title": "Finishing cell division",
+          "outcomeIds": [
+            "C1.2k"
+          ],
+          "concepts": [
+            "cleavage furrow",
+            "cell plate",
+            "cytokinesis"
+          ],
+          "operation": "Compare animal and plant division outcomes"
+        },
+        {
+          "id": "c-topic-mitosis-observation-and-simulation",
+          "title": "Observation and simulation",
+          "outcomeIds": [
+            "C1.2s",
+            "C1.3s",
+            "C1.1s",
+            "C1.4s"
+          ],
+          "concepts": [
+            "photomicrograph",
+            "evidence",
+            "simulation"
+          ],
+          "operation": "Classify actual prepared-cell images and justify each stage from visible structures",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-cell-observations",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-prophase",
+        "c-term-spindle",
+        "c-term-kinetochore",
+        "c-term-anaphase",
+        "c-term-telophase",
+        "c-term-cleavage-furrow",
+        "c-term-cell-plate",
+        "c-term-simulation",
+        "c-term-limitation",
+        "c-term-communication",
+        "c-term-mutation"
+      ],
+      "reusedTermIds": [
+        "c-term-cytokinesis",
+        "c-term-metaphase",
+        "c-term-daughter-chromosome",
+        "c-term-photomicrograph",
+        "c-term-evidence",
+        "c-term-sister-separation",
+        "c-term-meiosis",
+        "c-term-uncertainty"
+      ],
+      "anchorTermIds": [
+        "c-term-spindle",
+        "c-term-metaphase",
+        "c-term-anaphase",
+        "c-term-cytokinesis"
+      ]
+    },
+    {
+      "id": "c-topic-meiosis-part-a",
+      "title": "Meiosis Part A",
+      "chapter": 16,
+      "planRowId": "plan-16-row-05",
+      "teacherTextbookAssignment": "563 #20–22; 566 #23–25",
+      "slideNumbers": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "parts": [
+        {
+          "id": "c-topic-meiosis-part-a-pairing-and-exchange",
+          "title": "Pairing and exchange",
+          "outcomeIds": [
+            "C1.3k",
+            "C1.5k"
+          ],
+          "concepts": [
+            "synapsis",
+            "tetrad",
+            "crossing over",
+            "chiasma"
+          ],
+          "operation": "Model homolog pairing and exchange between nonsister chromatids"
+        },
+        {
+          "id": "c-topic-meiosis-part-a-first-meiotic-division",
+          "title": "First meiotic division",
+          "outcomeIds": [
+            "C1.3k"
+          ],
+          "concepts": [
+            "metaphase I",
+            "independent orientation",
+            "anaphase I",
+            "reduction"
+          ],
+          "operation": "Trace homolog separation and the change in ploidy"
+        },
+        {
+          "id": "c-topic-meiosis-part-a-second-meiotic-division",
+          "title": "Second meiotic division",
+          "outcomeIds": [
+            "C1.3k"
+          ],
+          "concepts": [
+            "meiosis II",
+            "sister separation",
+            "haploid product"
+          ],
+          "operation": "Distinguish sister separation from homolog separation without a second S phase"
+        },
+        {
+          "id": "c-topic-meiosis-part-a-comparing-divisions",
+          "title": "Comparing divisions",
+          "outcomeIds": [
+            "C1.4k",
+            "C1.2s",
+            "C1.3k"
+          ],
+          "concepts": [
+            "mitosis",
+            "meiosis",
+            "genetic variation"
+          ],
+          "operation": "Construct a stage-by-stage comparison of chromosome behaviour and products"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-synapsis",
+        "c-term-tetrad",
+        "c-term-crossing-over",
+        "c-term-chiasma",
+        "c-term-metaphase-i",
+        "c-term-independent-orientation",
+        "c-term-anaphase-i",
+        "c-term-reduction",
+        "c-term-meiosis-ii",
+        "c-term-haploid-product",
+        "c-term-genetic-variation",
+        "c-term-asexual-reproduction",
+        "c-term-gametophyte",
+        "c-term-spore",
+        "c-term-gamete",
+        "c-term-parental",
+        "c-term-recombinant"
+      ],
+      "reusedTermIds": [
+        "c-term-mitosis",
+        "c-term-sister-separation",
+        "c-term-meiosis",
+        "c-term-mutation"
+      ],
+      "anchorTermIds": [
+        "c-term-synapsis",
+        "c-term-crossing-over",
+        "c-term-reduction",
+        "c-term-meiosis-ii"
+      ]
+    },
+    {
+      "id": "c-topic-meiosis-part-b",
+      "title": "Meiosis Part B",
+      "chapter": 16,
+      "planRowId": "plan-16-row-06",
+      "teacherTextbookAssignment": "568 #26; 570–571 #27–30; 572 #1–10",
+      "slideNumbers": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "parts": [
+        {
+          "id": "c-topic-meiosis-part-b-gamete-development",
+          "title": "Gamete development",
+          "outcomeIds": [
+            "C1.3k"
+          ],
+          "concepts": [
+            "spermatogenesis",
+            "oogenesis",
+            "polar body",
+            "meiotic pause"
+          ],
+          "operation": "Compare number, size and timing of gametes"
+        },
+        {
+          "id": "c-topic-meiosis-part-b-sources-of-variation",
+          "title": "Sources of variation",
+          "outcomeIds": [
+            "C1.5k"
+          ],
+          "concepts": [
+            "crossing over",
+            "independent assortment",
+            "random fertilization"
+          ],
+          "operation": "Explain different sources of new allele combinations"
+        },
+        {
+          "id": "c-topic-meiosis-part-b-nondisjunction",
+          "title": "Nondisjunction",
+          "outcomeIds": [
+            "C1.5k",
+            "C1.3s"
+          ],
+          "concepts": [
+            "nondisjunction",
+            "meiosis I error",
+            "meiosis II error",
+            "aneuploidy"
+          ],
+          "operation": "Trace gamete chromosome content for two error timings"
+        },
+        {
+          "id": "c-topic-meiosis-part-b-twins-and-early-development",
+          "title": "Twins and early development",
+          "outcomeIds": [
+            "C1.6k"
+          ],
+          "concepts": [
+            "fraternal twins",
+            "identical twins",
+            "zygote splitting"
+          ],
+          "operation": "Compare origins and genetic relationships without equating genetic similarity with identical traits"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-spermatogenesis",
+        "c-term-oogenesis",
+        "c-term-polar-body",
+        "c-term-meiotic-pause",
+        "c-term-independent-assortment",
+        "c-term-random-fertilization",
+        "c-term-meiosis-i-error",
+        "c-term-meiosis-ii-error",
+        "c-term-fraternal-twins",
+        "c-term-identical-twins",
+        "c-term-zygote-splitting",
+        "c-term-environment",
+        "c-term-generation",
+        "c-term-linked-loci",
+        "c-term-sampling-uncertainty",
+        "c-term-nondisjunction"
+      ],
+      "reusedTermIds": [
+        "c-term-crossing-over",
+        "c-term-aneuploidy",
+        "c-term-individual"
+      ],
+      "anchorTermIds": [
+        "c-term-independent-assortment",
+        "c-term-nondisjunction",
+        "c-term-aneuploidy",
+        "c-term-identical-twins"
+      ]
+    },
+    {
+      "id": "c-topic-reproductive-strategies",
+      "title": "Reproductive Strategies",
+      "chapter": 16,
+      "planRowId": "plan-16-row-07",
+      "teacherTextbookAssignment": "573 #31; 580 #5",
+      "slideNumbers": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "parts": [
+        {
+          "id": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "title": "Sexual and asexual reproduction",
+          "outcomeIds": [
+            "C1.7k"
+          ],
+          "concepts": [
+            "clone",
+            "sexual reproduction",
+            "asexual reproduction"
+          ],
+          "operation": "Compare inheritance, resource cost and environmental context"
+        },
+        {
+          "id": "c-topic-reproductive-strategies-life-cycle-transitions",
+          "title": "Life-cycle transitions",
+          "outcomeIds": [
+            "C1.7k"
+          ],
+          "concepts": [
+            "gametophyte",
+            "sporophyte",
+            "spore",
+            "gamete"
+          ],
+          "operation": "Annotate ploidy and division type in moss and pine cycles"
+        },
+        {
+          "id": "c-topic-reproductive-strategies-animal-strategies",
+          "title": "Animal strategies",
+          "outcomeIds": [
+            "C1.7k"
+          ],
+          "concepts": [
+            "Daphnia",
+            "sea anemone",
+            "polyp",
+            "medusa"
+          ],
+          "operation": "Compare changing reproductive modes and locate mitosis, meiosis and fertilization"
+        },
+        {
+          "id": "c-topic-reproductive-strategies-evidence-and-applications",
+          "title": "Evidence and applications",
+          "outcomeIds": [
+            "C1.1sts",
+            "C1.1s",
+            "C1.4s"
+          ],
+          "concepts": [
+            "cloning",
+            "benefit",
+            "limitation",
+            "communication"
+          ],
+          "operation": "Evaluate an original fictional propagation case and revise a comparison"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-clone",
+        "c-term-sexual-reproduction",
+        "c-term-sporophyte",
+        "c-term-daphnia",
+        "c-term-sea-anemone",
+        "c-term-polyp",
+        "c-term-medusa",
+        "c-term-cloning",
+        "c-term-benefit",
+        "c-term-genotype",
+        "c-term-experimental-control",
+        "c-term-control",
+        "c-term-nuclear-dna",
+        "c-term-mitochondrial-dna",
+        "c-term-binary-fission",
+        "c-term-bacterial-conjugation",
+        "c-term-somatic-cell-nuclear-transfer"
+      ],
+      "reusedTermIds": [
+        "c-term-asexual-reproduction",
+        "c-term-gametophyte",
+        "c-term-spore",
+        "c-term-gamete",
+        "c-term-limitation",
+        "c-term-communication"
+      ],
+      "anchorTermIds": [
+        "c-term-sexual-reproduction",
+        "c-term-asexual-reproduction",
+        "c-term-gametophyte",
+        "c-term-sporophyte"
+      ]
+    },
+    {
+      "id": "c-topic-genes-alleles-and-traits",
+      "title": "Genes, Alleles and Traits",
+      "chapter": 17,
+      "planRowId": "plan-17-row-02",
+      "teacherTextbookAssignment": "587 #1; 590 #6–9",
+      "slideNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "parts": [
+        {
+          "id": "c-topic-genes-alleles-and-traits-inheritance-language",
+          "title": "Inheritance language",
+          "outcomeIds": [
+            "C2.1k",
+            "C2.2k"
+          ],
+          "concepts": [
+            "gene",
+            "allele",
+            "genotype",
+            "phenotype",
+            "homozygous",
+            "heterozygous"
+          ],
+          "operation": "Translate between genetic notation and a stated trait model"
+        },
+        {
+          "id": "c-topic-genes-alleles-and-traits-trait-expression",
+          "title": "Trait expression",
+          "outcomeIds": [
+            "C2.2k"
+          ],
+          "concepts": [
+            "dominant",
+            "recessive",
+            "allele product"
+          ],
+          "operation": "Explain expression without claiming dominant means common or better"
+        },
+        {
+          "id": "c-topic-genes-alleles-and-traits-genes-and-environment",
+          "title": "Genes and environment",
+          "outcomeIds": [
+            "C2.4k"
+          ],
+          "concepts": [
+            "polygenic trait",
+            "environmental influence",
+            "continuous variation"
+          ],
+          "operation": "Compare one-locus and multi-locus evidence using supplied data"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-homozygous",
+        "c-term-heterozygous",
+        "c-term-dominant",
+        "c-term-recessive",
+        "c-term-allele-product",
+        "c-term-polygenic-trait",
+        "c-term-environmental-influence",
+        "c-term-continuous-variation",
+        "c-term-polygenic",
+        "c-term-notation",
+        "c-term-pedigree",
+        "c-term-probability"
+      ],
+      "reusedTermIds": [
+        "c-term-gene",
+        "c-term-allele",
+        "c-term-genotype",
+        "c-term-phenotype"
+      ],
+      "anchorTermIds": [
+        "c-term-allele",
+        "c-term-genotype",
+        "c-term-phenotype",
+        "c-term-heterozygous"
+      ]
+    },
+    {
+      "id": "c-topic-mendelian-genetics",
+      "title": "Mendelian Genetics",
+      "chapter": 17,
+      "planRowId": "plan-17-row-03",
+      "teacherTextbookAssignment": "588–593 #3–6,8–12; 591 Practice Problems 1–2; 596 #4,5",
+      "slideNumbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "parts": [
+        {
+          "id": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+          "title": "Controlled crosses and evidence",
+          "outcomeIds": [
+            "C2.1k"
+          ],
+          "concepts": [
+            "P generation",
+            "F1",
+            "F2",
+            "true breeding",
+            "reciprocal cross"
+          ],
+          "operation": "Explain how a controlled cross tests an inheritance model"
+        },
+        {
+          "id": "c-topic-mendelian-genetics-segregation",
+          "title": "Segregation",
+          "outcomeIds": [
+            "C2.1k"
+          ],
+          "concepts": [
+            "allele pair",
+            "gamete",
+            "segregation"
+          ],
+          "operation": "Connect allele separation to meiotic chromosome behaviour"
+        },
+        {
+          "id": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+          "title": "Inheritance modes and notation",
+          "outcomeIds": [
+            "C2.1k",
+            "C2.2k"
+          ],
+          "concepts": [
+            "autosomal dominant",
+            "autosomal recessive",
+            "Punnett square"
+          ],
+          "operation": "Define model and parental genotypes before predicting offspring; restore skipped slide 26"
+        },
+        {
+          "id": "c-topic-mendelian-genetics-probability-and-test-crosses",
+          "title": "Probability and test crosses",
+          "outcomeIds": [
+            "C2.2k",
+            "C2.3s"
+          ],
+          "concepts": [
+            "test cross",
+            "independent event",
+            "sample fluctuation"
+          ],
+          "operation": "Use a recessive partner and observed offspring as probabilistic evidence"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-p-generation",
+        "c-term-f1",
+        "c-term-f2",
+        "c-term-true-breeding",
+        "c-term-reciprocal-cross",
+        "c-term-allele-pair",
+        "c-term-autosomal-dominant",
+        "c-term-autosomal-recessive",
+        "c-term-punnett-square",
+        "c-term-test-cross",
+        "c-term-independent-event",
+        "c-term-sample-fluctuation",
+        "c-term-gamete-probability",
+        "c-term-phenotype-ratio",
+        "c-term-independent-trials",
+        "c-term-expected-count",
+        "c-term-sample-size",
+        "c-term-inheritance-model",
+        "c-term-affected",
+        "c-term-unaffected"
+      ],
+      "reusedTermIds": [
+        "c-term-gamete",
+        "c-term-segregation",
+        "c-term-probability"
+      ],
+      "anchorTermIds": [
+        "c-term-segregation",
+        "c-term-true-breeding",
+        "c-term-punnett-square",
+        "c-term-test-cross"
+      ]
+    },
+    {
+      "id": "c-topic-single-and-two-trait-crosses",
+      "title": "Single and Two Trait Crosses",
+      "chapter": 17,
+      "planRowId": "plan-17-row-04",
+      "teacherTextbookAssignment": "596 #17; 596 Practice Problems 3–5; 598 #6–9",
+      "slideNumbers": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "parts": [
+        {
+          "id": "c-topic-single-and-two-trait-crosses-monohybrid-crosses",
+          "title": "Monohybrid crosses",
+          "outcomeIds": [
+            "C2.2k"
+          ],
+          "concepts": [
+            "gamete probability",
+            "genotype ratio",
+            "phenotype ratio"
+          ],
+          "operation": "Construct a cross and distinguish genotype from phenotype probabilities"
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-probability-rules",
+          "title": "Probability rules",
+          "outcomeIds": [
+            "C2.2k"
+          ],
+          "concepts": [
+            "product rule",
+            "sum rule",
+            "independent trials"
+          ],
+          "operation": "Calculate joint and alternative events with stated assumptions"
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+          "title": "Dihybrid crosses",
+          "outcomeIds": [
+            "C2.1k",
+            "C2.2k"
+          ],
+          "concepts": [
+            "independent assortment",
+            "four gamete types",
+            "two loci"
+          ],
+          "operation": "Construct gametes and a two-locus cross before interpreting ratios"
+        },
+        {
+          "id": "c-topic-single-and-two-trait-crosses-testing-a-model",
+          "title": "Testing a model",
+          "outcomeIds": [
+            "C2.1s",
+            "C2.2s",
+            "C2.3s",
+            "C2.4s",
+            "C2.2k"
+          ],
+          "concepts": [
+            "observed count",
+            "expected count",
+            "sample size"
+          ],
+          "operation": "Compare supplied offspring counts with model predictions without demanding exact ratios",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-inheritance-data",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-genotype-ratio",
+        "c-term-product-rule",
+        "c-term-sum-rule",
+        "c-term-four-gamete-types",
+        "c-term-two-loci",
+        "c-term-observed-count",
+        "c-term-conditional-probability",
+        "c-term-carrier"
+      ],
+      "reusedTermIds": [
+        "c-term-independent-assortment",
+        "c-term-gamete-probability",
+        "c-term-phenotype-ratio",
+        "c-term-independent-trials",
+        "c-term-expected-count",
+        "c-term-sample-size"
+      ],
+      "anchorTermIds": [
+        "c-term-product-rule",
+        "c-term-sum-rule",
+        "c-term-independent-assortment",
+        "c-term-expected-count"
+      ]
+    },
+    {
+      "id": "c-topic-other-modes-of-inheritance",
+      "title": "Other Modes of Inheritance",
+      "chapter": 17,
+      "planRowId": "plan-17-row-05",
+      "teacherTextbookAssignment": "595 #13,15; 596 Practice Problem 6; 598 #10,11; 603 #8,10; 604–605 #22,25; 606 Practice Problems 11–17; 609 #1–3",
+      "slideNumbers": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "parts": [
+        {
+          "id": "c-topic-other-modes-of-inheritance-incomplete-dominance",
+          "title": "Incomplete dominance",
+          "outcomeIds": [
+            "C2.2k"
+          ],
+          "concepts": [
+            "intermediate heterozygote",
+            "genotype",
+            "phenotype"
+          ],
+          "operation": "Construct a cross and explain why alleles have not blended irreversibly"
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles",
+          "title": "Codominance and multiple alleles",
+          "outcomeIds": [
+            "C2.2k"
+          ],
+          "concepts": [
+            "codominance",
+            "ABO",
+            "multiple alleles"
+          ],
+          "operation": "Solve a stated ABO model with at most two alleles per diploid individual"
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-sex-linkage",
+          "title": "Sex linkage",
+          "outcomeIds": [
+            "C2.5k"
+          ],
+          "concepts": [
+            "X-linked",
+            "Y-linked",
+            "autosomal",
+            "hemizygous"
+          ],
+          "operation": "Trace sex-linked alleles using explicit parental genotypes"
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+          "title": "Many genes and environment",
+          "outcomeIds": [
+            "C2.4k"
+          ],
+          "concepts": [
+            "polygenic",
+            "continuous variation",
+            "environment"
+          ],
+          "operation": "Interpret a trait distribution without assigning a single Mendelian ratio"
+        },
+        {
+          "id": "c-topic-other-modes-of-inheritance-comparing-model-predictions",
+          "title": "Comparing model predictions",
+          "outcomeIds": [
+            "C2.2k",
+            "C2.3s"
+          ],
+          "concepts": [
+            "inheritance model",
+            "notation",
+            "conditional probability"
+          ],
+          "operation": "Select and justify a model before performing its calculation"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-intermediate-heterozygote",
+        "c-term-codominance",
+        "c-term-abo",
+        "c-term-multiple-alleles",
+        "c-term-x-linked",
+        "c-term-y-linked",
+        "c-term-hemizygous",
+        "c-term-x-linked-inheritance",
+        "c-term-risk"
+      ],
+      "reusedTermIds": [
+        "c-term-genotype",
+        "c-term-phenotype",
+        "c-term-continuous-variation",
+        "c-term-autosomal",
+        "c-term-polygenic",
+        "c-term-environment",
+        "c-term-inheritance-model",
+        "c-term-notation",
+        "c-term-conditional-probability"
+      ],
+      "anchorTermIds": [
+        "c-term-intermediate-heterozygote",
+        "c-term-codominance",
+        "c-term-x-linked",
+        "c-term-polygenic"
+      ]
+    },
+    {
+      "id": "c-topic-pedigrees",
+      "title": "Pedigrees",
+      "chapter": 17,
+      "planRowId": "plan-17-row-06",
+      "teacherTextbookAssignment": "612 #30–31; 614 #32; 615 Practice Problems 18–21; 617 #3–4",
+      "slideNumbers": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "parts": [
+        {
+          "id": "c-topic-pedigrees-symbols-and-evidence",
+          "title": "Symbols and evidence",
+          "outcomeIds": [
+            "C2.5k",
+            "C2.2s"
+          ],
+          "concepts": [
+            "pedigree",
+            "generation",
+            "individual",
+            "affected",
+            "unaffected"
+          ],
+          "operation": "Read a fictional pedigree with a clear legend"
+        },
+        {
+          "id": "c-topic-pedigrees-autosomal-hypotheses",
+          "title": "Autosomal hypotheses",
+          "outcomeIds": [
+            "C2.2k",
+            "C2.5k"
+          ],
+          "concepts": [
+            "dominant",
+            "recessive",
+            "carrier",
+            "unknown genotype"
+          ],
+          "operation": "Annotate possible genotypes and preserve uncertainty"
+        },
+        {
+          "id": "c-topic-pedigrees-sex-linked-hypotheses",
+          "title": "Sex-linked hypotheses",
+          "outcomeIds": [
+            "C2.5k"
+          ],
+          "concepts": [
+            "X-linked inheritance",
+            "transmission",
+            "alternative model"
+          ],
+          "operation": "Compare autosomal and sex-linked explanations without relying on one shortcut"
+        },
+        {
+          "id": "c-topic-pedigrees-risk-and-information",
+          "title": "Risk and information",
+          "outcomeIds": [
+            "C2.1sts",
+            "C2.3s",
+            "C2.4s",
+            "C2.5k"
+          ],
+          "concepts": [
+            "probability",
+            "privacy",
+            "consent",
+            "limitation"
+          ],
+          "operation": "Calculate a conditional probability in a fictional pedigree and communicate its limits"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-unknown-genotype",
+        "c-term-alternative-model"
+      ],
+      "reusedTermIds": [
+        "c-term-limitation",
+        "c-term-dominant",
+        "c-term-recessive",
+        "c-term-pedigree",
+        "c-term-generation",
+        "c-term-individual",
+        "c-term-affected",
+        "c-term-unaffected",
+        "c-term-carrier",
+        "c-term-x-linked-inheritance",
+        "c-term-transmission",
+        "c-term-probability",
+        "c-term-privacy",
+        "c-term-consent",
+        "c-term-risk"
+      ],
+      "anchorTermIds": [
+        "c-term-pedigree",
+        "c-term-carrier",
+        "c-term-unknown-genotype",
+        "c-term-probability"
+      ]
+    },
+    {
+      "id": "c-topic-chromosome-mapping",
+      "title": "Chromosome Mapping",
+      "chapter": 17,
+      "planRowId": "plan-17-row-07",
+      "teacherTextbookAssignment": "601 #19–21",
+      "slideNumbers": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "parts": [
+        {
+          "id": "c-topic-chromosome-mapping-linkage-and-recombination",
+          "title": "Linkage and recombination",
+          "outcomeIds": [
+            "C2.3k"
+          ],
+          "concepts": [
+            "linked loci",
+            "parental",
+            "recombinant",
+            "crossing over"
+          ],
+          "operation": "Classify offspring types given parental phase"
+        },
+        {
+          "id": "c-topic-chromosome-mapping-recombination-frequency",
+          "title": "Recombination frequency",
+          "outcomeIds": [
+            "C2.3k",
+            "C2.3s"
+          ],
+          "concepts": [
+            "test cross",
+            "recombinant count",
+            "total offspring",
+            "map unit"
+          ],
+          "operation": "Calculate recombinant fraction and justify the denominator"
+        },
+        {
+          "id": "c-topic-chromosome-mapping-gene-order",
+          "title": "Gene order",
+          "outcomeIds": [
+            "C2.3k"
+          ],
+          "concepts": [
+            "pairwise distance",
+            "gene order",
+            "reversed map"
+          ],
+          "operation": "Construct a three-locus map consistent with supplied distances"
+        },
+        {
+          "id": "c-topic-chromosome-mapping-limits-of-linkage-estimates",
+          "title": "Limits of linkage estimates",
+          "outcomeIds": [
+            "C2.3k",
+            "C2.1s"
+          ],
+          "concepts": [
+            "fifty-percent ceiling",
+            "multiple crossover",
+            "sampling uncertainty"
+          ],
+          "operation": "Explain why distant linked genes can resemble independent assortment"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-recombinant-count",
+        "c-term-total-offspring",
+        "c-term-map-unit",
+        "c-term-pairwise-distance",
+        "c-term-gene-order",
+        "c-term-reversed-map",
+        "c-term-fifty-percent-ceiling",
+        "c-term-multiple-crossover"
+      ],
+      "reusedTermIds": [
+        "c-term-crossing-over",
+        "c-term-test-cross",
+        "c-term-linked-loci",
+        "c-term-parental",
+        "c-term-recombinant",
+        "c-term-sampling-uncertainty"
+      ],
+      "anchorTermIds": [
+        "c-term-linked-loci",
+        "c-term-recombinant",
+        "c-term-map-unit",
+        "c-term-gene-order"
+      ]
+    },
+    {
+      "id": "c-topic-dna-and-its-history",
+      "title": "DNA and its History",
+      "chapter": 18,
+      "planRowId": "plan-18-row-02",
+      "teacherTextbookAssignment": "625 #3; 627 Practice Problems 1,2; 629 #4; 635 #1,3,4,6",
+      "slideNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "parts": [
+        {
+          "id": "c-topic-dna-and-its-history-evidence-for-hereditary-material",
+          "title": "Evidence for hereditary material",
+          "outcomeIds": [
+            "C3.1k"
+          ],
+          "concepts": [
+            "transformation",
+            "experimental control",
+            "DNA",
+            "protein"
+          ],
+          "operation": "Compare competing interpretations of historical experiments"
+        },
+        {
+          "id": "c-topic-dna-and-its-history-nucleotides-and-direction",
+          "title": "Nucleotides and direction",
+          "outcomeIds": [
+            "C3.2k"
+          ],
+          "concepts": [
+            "phosphate",
+            "deoxyribose",
+            "base",
+            "5-prime",
+            "3-prime"
+          ],
+          "operation": "Identify a nucleotide and label strand direction"
+        },
+        {
+          "id": "c-topic-dna-and-its-history-structural-evidence",
+          "title": "Structural evidence",
+          "outcomeIds": [
+            "C3.1k"
+          ],
+          "concepts": [
+            "Franklin",
+            "Watson",
+            "Crick",
+            "X-ray diffraction",
+            "Chargaff"
+          ],
+          "operation": "Connect each contribution to a constraint on the DNA model"
+        },
+        {
+          "id": "c-topic-dna-and-its-history-the-double-helix",
+          "title": "The double helix",
+          "outcomeIds": [
+            "C3.2k"
+          ],
+          "concepts": [
+            "complementary",
+            "antiparallel",
+            "hydrogen bond",
+            "backbone"
+          ],
+          "operation": "Construct complementary strands with correct antiparallel direction"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-transformation",
+        "c-term-phosphate",
+        "c-term-deoxyribose",
+        "c-term-5-prime",
+        "c-term-3-prime",
+        "c-term-franklin",
+        "c-term-watson",
+        "c-term-crick",
+        "c-term-x-ray-diffraction",
+        "c-term-chargaff",
+        "c-term-complementary",
+        "c-term-antiparallel",
+        "c-term-hydrogen-bond",
+        "c-term-backbone",
+        "c-term-template",
+        "c-term-5-prime-to-3-prime",
+        "c-term-complementarity",
+        "c-term-base-pairing",
+        "c-term-direction"
+      ],
+      "reusedTermIds": [
+        "c-term-dna",
+        "c-term-experimental-control",
+        "c-term-protein",
+        "c-term-base"
+      ],
+      "anchorTermIds": [
+        "c-term-dna",
+        "c-term-deoxyribose",
+        "c-term-antiparallel",
+        "c-term-backbone"
+      ]
+    },
+    {
+      "id": "c-topic-dna-replication",
+      "title": "DNA Replication",
+      "chapter": 18,
+      "planRowId": "plan-18-row-03",
+      "teacherTextbookAssignment": "632 #7–10; 635 #9",
+      "slideNumbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "parts": [
+        {
+          "id": "c-topic-dna-replication-semiconservative-replication",
+          "title": "Semiconservative replication",
+          "outcomeIds": [
+            "C3.2k"
+          ],
+          "concepts": [
+            "template",
+            "parental strand",
+            "daughter strand"
+          ],
+          "operation": "Track old and new strands through replication"
+        },
+        {
+          "id": "c-topic-dna-replication-enzymes-and-direction",
+          "title": "Enzymes and direction",
+          "outcomeIds": [
+            "C3.2k"
+          ],
+          "concepts": [
+            "helicase",
+            "primer",
+            "DNA polymerase",
+            "5-prime to 3-prime"
+          ],
+          "operation": "Trace template reading and new-strand synthesis"
+        },
+        {
+          "id": "c-topic-dna-replication-leading-and-lagging-synthesis",
+          "title": "Leading and lagging synthesis",
+          "outcomeIds": [
+            "C3.2k"
+          ],
+          "concepts": [
+            "replication fork",
+            "leading strand",
+            "lagging strand",
+            "Okazaki fragment",
+            "ligase"
+          ],
+          "operation": "Explain continuous and discontinuous synthesis with correct arrows"
+        },
+        {
+          "id": "c-topic-dna-replication-replication-evidence",
+          "title": "Replication evidence",
+          "outcomeIds": [
+            "C3.2k",
+            "C3.3s"
+          ],
+          "concepts": [
+            "proofreading",
+            "mutation",
+            "experimental prediction"
+          ],
+          "operation": "Compare semiconservative predictions with a supplied evidence table"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-parental-strand",
+        "c-term-daughter-strand",
+        "c-term-helicase",
+        "c-term-primer",
+        "c-term-dna-polymerase",
+        "c-term-replication-fork",
+        "c-term-leading-strand",
+        "c-term-lagging-strand",
+        "c-term-okazaki-fragment",
+        "c-term-ligase",
+        "c-term-proofreading",
+        "c-term-experimental-prediction",
+        "c-term-template-strand",
+        "c-term-initiation",
+        "c-term-protein-function"
+      ],
+      "reusedTermIds": [
+        "c-term-template",
+        "c-term-5-prime-to-3-prime",
+        "c-term-mutation"
+      ],
+      "anchorTermIds": [
+        "c-term-template",
+        "c-term-dna-polymerase",
+        "c-term-leading-strand",
+        "c-term-lagging-strand"
+      ]
+    },
+    {
+      "id": "c-topic-transcription",
+      "title": "Transcription",
+      "chapter": 18,
+      "planRowId": "plan-18-row-04",
+      "teacherTextbookAssignment": "635 #7; 640 #15; 642 #1,5",
+      "slideNumbers": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "parts": [
+        {
+          "id": "c-topic-transcription-selecting-a-template",
+          "title": "Selecting a template",
+          "outcomeIds": [
+            "C3.3k"
+          ],
+          "concepts": [
+            "promoter",
+            "template strand",
+            "coding strand",
+            "RNA polymerase"
+          ],
+          "operation": "Identify which strand is read in a defined gene orientation"
+        },
+        {
+          "id": "c-topic-transcription-making-rna",
+          "title": "Making RNA",
+          "outcomeIds": [
+            "C3.3k"
+          ],
+          "concepts": [
+            "RNA",
+            "uracil",
+            "complementarity",
+            "5-prime to 3-prime"
+          ],
+          "operation": "Transcribe a short oriented sequence correctly"
+        },
+        {
+          "id": "c-topic-transcription-processing-and-expression",
+          "title": "Processing and expression",
+          "outcomeIds": [
+            "C3.3k"
+          ],
+          "concepts": [
+            "mRNA",
+            "intron",
+            "exon",
+            "splicing"
+          ],
+          "operation": "Distinguish a simplified eukaryotic transcript from processed mRNA"
+        },
+        {
+          "id": "c-topic-transcription-checking-a-sequence-claim",
+          "title": "Checking a sequence claim",
+          "outcomeIds": [
+            "C3.3k",
+            "C3.3s"
+          ],
+          "concepts": [
+            "base pairing",
+            "direction",
+            "RNA abundance"
+          ],
+          "operation": "Locate an orientation error and explain why RNA abundance alone is limited evidence"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-promoter",
+        "c-term-coding-strand",
+        "c-term-rna-polymerase",
+        "c-term-uracil",
+        "c-term-mrna",
+        "c-term-intron",
+        "c-term-exon",
+        "c-term-splicing",
+        "c-term-rna-abundance",
+        "c-term-codon",
+        "c-term-ribosome",
+        "c-term-amino-acid",
+        "c-term-termination",
+        "c-term-polypeptide",
+        "c-term-somatic-mutation"
+      ],
+      "reusedTermIds": [
+        "c-term-5-prime-to-3-prime",
+        "c-term-template-strand",
+        "c-term-rna",
+        "c-term-complementarity",
+        "c-term-base-pairing",
+        "c-term-direction"
+      ],
+      "anchorTermIds": [
+        "c-term-template-strand",
+        "c-term-coding-strand",
+        "c-term-rna-polymerase",
+        "c-term-mrna"
+      ]
+    },
+    {
+      "id": "c-topic-translation",
+      "title": "Translation",
+      "chapter": 18,
+      "planRowId": "plan-18-row-05",
+      "teacherTextbookAssignment": "636–637 #12,13,14a; Practice Problems 3–5; 638 Practice Problems 6–7; 640 #16; 642 #2,3,7,9,10a",
+      "slideNumbers": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "parts": [
+        {
+          "id": "c-topic-translation-reading-the-genetic-code",
+          "title": "Reading the genetic code",
+          "outcomeIds": [
+            "C3.3k"
+          ],
+          "concepts": [
+            "codon",
+            "reading frame",
+            "start codon",
+            "stop codon"
+          ],
+          "operation": "Use an mRNA codon table with explicit orientation"
+        },
+        {
+          "id": "c-topic-translation-adaptors-and-peptide-bonds",
+          "title": "Adaptors and peptide bonds",
+          "outcomeIds": [
+            "C3.3k"
+          ],
+          "concepts": [
+            "tRNA",
+            "anticodon",
+            "ribosome",
+            "amino acid",
+            "peptide bond"
+          ],
+          "operation": "Match codons with antiparallel anticodons and amino acids"
+        },
+        {
+          "id": "c-topic-translation-initiation-to-termination",
+          "title": "Initiation to termination",
+          "outcomeIds": [
+            "C3.3k"
+          ],
+          "concepts": [
+            "initiation",
+            "elongation",
+            "termination",
+            "release factor"
+          ],
+          "operation": "Sequence the translation cycle without assigning an amino acid to stop"
+        },
+        {
+          "id": "c-topic-translation-from-sequence-to-function",
+          "title": "From sequence to function",
+          "outcomeIds": [
+            "C3.3k",
+            "C3.3s"
+          ],
+          "concepts": [
+            "polypeptide",
+            "folding",
+            "protein function"
+          ],
+          "operation": "Translate a supplied sequence and qualify what it predicts about function"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-reading-frame",
+        "c-term-start-codon",
+        "c-term-stop-codon",
+        "c-term-trna",
+        "c-term-anticodon",
+        "c-term-peptide-bond",
+        "c-term-elongation",
+        "c-term-release-factor",
+        "c-term-folding",
+        "c-term-deletion",
+        "c-term-missense",
+        "c-term-sequence-comparison"
+      ],
+      "reusedTermIds": [
+        "c-term-codon",
+        "c-term-ribosome",
+        "c-term-amino-acid",
+        "c-term-initiation",
+        "c-term-termination",
+        "c-term-polypeptide",
+        "c-term-protein-function"
+      ],
+      "anchorTermIds": [
+        "c-term-codon",
+        "c-term-anticodon",
+        "c-term-ribosome",
+        "c-term-reading-frame"
+      ]
+    },
+    {
+      "id": "c-topic-mutations",
+      "title": "Mutations",
+      "chapter": 18,
+      "planRowId": "plan-18-row-06",
+      "teacherTextbookAssignment": "644 #18–19; 651 #1,2,6",
+      "slideNumbers": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "parts": [
+        {
+          "id": "c-topic-mutations-types-of-sequence-change",
+          "title": "Types of sequence change",
+          "outcomeIds": [
+            "C3.6k"
+          ],
+          "concepts": [
+            "substitution",
+            "insertion",
+            "deletion",
+            "frameshift"
+          ],
+          "operation": "Compare sequence changes and identify frame preservation"
+        },
+        {
+          "id": "c-topic-mutations-effects-on-gene-products",
+          "title": "Effects on gene products",
+          "outcomeIds": [
+            "C3.6k"
+          ],
+          "concepts": [
+            "silent",
+            "missense",
+            "nonsense",
+            "regulatory mutation"
+          ],
+          "operation": "Trace DNA-to-RNA-to-protein consequences in a stated model"
+        },
+        {
+          "id": "c-topic-mutations-inheritance-and-variation",
+          "title": "Inheritance and variation",
+          "outcomeIds": [
+            "C3.6k"
+          ],
+          "concepts": [
+            "somatic mutation",
+            "germ-line mutation",
+            "random origin",
+            "selection"
+          ],
+          "operation": "Distinguish origin, inheritance and later selection"
+        },
+        {
+          "id": "c-topic-mutations-evaluating-mutation-evidence",
+          "title": "Evaluating mutation evidence",
+          "outcomeIds": [
+            "C3.6k",
+            "C3.1s",
+            "C3.3s"
+          ],
+          "concepts": [
+            "mutagen",
+            "dose",
+            "control",
+            "uncertainty"
+          ],
+          "operation": "Analyze supplied experimental evidence without claiming every mutation is harmful"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-insertion",
+        "c-term-frameshift",
+        "c-term-silent",
+        "c-term-nonsense",
+        "c-term-regulatory-mutation",
+        "c-term-germ-line-mutation",
+        "c-term-random-origin",
+        "c-term-selection",
+        "c-term-mutagen",
+        "c-term-dose"
+      ],
+      "reusedTermIds": [
+        "c-term-substitution",
+        "c-term-deletion",
+        "c-term-missense",
+        "c-term-somatic-mutation",
+        "c-term-control",
+        "c-term-uncertainty"
+      ],
+      "anchorTermIds": [
+        "c-term-substitution",
+        "c-term-insertion",
+        "c-term-frameshift",
+        "c-term-germ-line-mutation"
+      ]
+    },
+    {
+      "id": "c-topic-genetic-technologies",
+      "title": "Genetic Technologies",
+      "chapter": 18,
+      "planRowId": "plan-18-row-07",
+      "teacherTextbookAssignment": "647 #21; 651 #7",
+      "slideNumbers": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "parts": [
+        {
+          "id": "c-topic-genetic-technologies-cutting-and-joining-dna",
+          "title": "Cutting and joining DNA",
+          "outcomeIds": [
+            "C3.4k"
+          ],
+          "concepts": [
+            "restriction enzyme",
+            "recognition site",
+            "sticky end",
+            "ligase"
+          ],
+          "operation": "Predict fragments and complementary joining"
+        },
+        {
+          "id": "c-topic-genetic-technologies-transforming-cells",
+          "title": "Transforming cells",
+          "outcomeIds": [
+            "C3.5k"
+          ],
+          "concepts": [
+            "vector",
+            "plasmid",
+            "insert",
+            "transformation",
+            "selection"
+          ],
+          "operation": "Sequence a recombinant-DNA workflow and its controls"
+        },
+        {
+          "id": "c-topic-genetic-technologies-amplifying-and-separating",
+          "title": "Amplifying and separating",
+          "outcomeIds": [
+            "C3.2k",
+            "C3.4k",
+            "C3.2s",
+            "C3.1s",
+            "C3.3s",
+            "C3.4s"
+          ],
+          "concepts": [
+            "PCR",
+            "primer",
+            "gel electrophoresis",
+            "fragment size",
+            "ladder"
+          ],
+          "operation": "Interpret an idealized gel with migration direction and size standards"
+        },
+        {
+          "id": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+          "title": "Genetic evidence and relatedness",
+          "outcomeIds": [
+            "C3.7k",
+            "C3.1s",
+            "C3.2s",
+            "C3.3s",
+            "C3.4s"
+          ],
+          "concepts": [
+            "nuclear DNA",
+            "mitochondrial DNA",
+            "chloroplast DNA",
+            "sequence comparison"
+          ],
+          "operation": "Use supplied sequence differences as evidence of relationships with sampling limits"
+        },
+        {
+          "id": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "title": "Applications and uncertainty",
+          "outcomeIds": [
+            "C3.1sts",
+            "C3.2sts",
+            "C3.3s",
+            "C3.4s",
+            "C3.1s",
+            "C3.2s"
+          ],
+          "concepts": [
+            "gene therapy",
+            "genetic testing",
+            "privacy",
+            "benefit",
+            "risk"
+          ],
+          "operation": "Evaluate a fictional technology claim and distinguish matching DNA from proof of identity or guilt",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-molecular-evidence",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "newTermIds": [
+        "c-term-restriction-enzyme",
+        "c-term-recognition-site",
+        "c-term-sticky-end",
+        "c-term-vector",
+        "c-term-plasmid",
+        "c-term-insert",
+        "c-term-pcr",
+        "c-term-gel-electrophoresis",
+        "c-term-fragment-size",
+        "c-term-ladder",
+        "c-term-chloroplast-dna",
+        "c-term-gene-therapy",
+        "c-term-genetic-testing"
+      ],
+      "reusedTermIds": [
+        "c-term-benefit",
+        "c-term-privacy",
+        "c-term-transformation",
+        "c-term-primer",
+        "c-term-ligase",
+        "c-term-selection",
+        "c-term-nuclear-dna",
+        "c-term-mitochondrial-dna",
+        "c-term-sequence-comparison",
+        "c-term-risk"
+      ],
+      "anchorTermIds": [
+        "c-term-restriction-enzyme",
+        "c-term-plasmid",
+        "c-term-pcr",
+        "c-term-gel-electrophoresis"
+      ]
+    }
+  ],
+  "requiredRoutes": [
+    "c-topic-chromosomes-and-dna",
+    "c-topic-the-cell-cycle",
+    "c-topic-mitosis",
+    "c-topic-meiosis-part-a",
+    "c-topic-meiosis-part-b",
+    "c-topic-reproductive-strategies",
+    "c-chapter-16-practice",
+    "c-topic-genes-alleles-and-traits",
+    "c-topic-mendelian-genetics",
+    "c-topic-single-and-two-trait-crosses",
+    "c-topic-other-modes-of-inheritance",
+    "c-topic-pedigrees",
+    "c-topic-chromosome-mapping",
+    "c-chapter-17-practice",
+    "c-topic-dna-and-its-history",
+    "c-topic-dna-replication",
+    "c-topic-transcription",
+    "c-topic-translation",
+    "c-topic-mutations",
+    "c-topic-genetic-technologies",
+    "c-chapter-18-practice",
+    "c-review-seminar",
+    "c-final-practice"
+  ],
+  "guidedQuestionsPerTopic": 2,
+  "sourceManifestSha256": "7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+  "baselineWorkspaceSha256": "2743103184e0615f793729d118a7e066199904ff7ec8b43e06be5b8539f3f05d",
+  "reviewGates": {
+    "sourceDispositions": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-media-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-plan-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-media-dispositions.json": "c055465a9f5e592b0939652ec5be56e3f3c00800081d2a37d12d24b5bb94be06",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json": "9f9b229983416d6eb3ad33741f8094531727181e6418a650f8a16eac4e8111dd",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-plan-dispositions.json": "143f0cc38cb11d7d9943c2e730e540e5722a50b879a0b80758bf056e9e3a4d11",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json": "ea47645c2804a419febd19fc3bf27e00c6eddcfa30323964f557a519612fccf0"
+      },
+      "scope": "Authored provisional local blocked use; actual learner rendering follows freeze. No external clip selected or caption-review claim."
+    },
+    "curriculumAtomicMap": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json": "22837d7485715d625dadcfaf2e358206208adfa51bb0a22945c36798544fadbe",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      },
+      "scope": "Authored required operations and exact receipts; rendered proof after all-unit freeze."
+    },
+    "performanceColumns": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json"
+      ],
+      "sourceSha256": "72773dbdd42b1c9a778ebf33a70d471e89b621c3c4026e7ca4622ae6542ef794",
+      "registerSha256": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b",
+      "scope": "Actual column placement reviewed only; all atomic curriculum bindings and scientific corrections still require separate review.",
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b"
+      }
+    },
+    "oldSectionDispositions": {
+      "status": "passed",
+      "scope": "Authored source-to-teaching retention of all96 C sections; restored actual depth and seminar. Rendered placement and atomic academic proof remain pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json",
+        "projects/resources/biology30-production/v1/pilot2/old-authored-content.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-retention-authorities.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json": "cb3a1d8486df40ace31879350dbd8c7c0d5e17cb17064d1173754376951f163b",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json": "e6e9c4c86ed78c1456c137d8ed1a1177184aceb77d4f372326f553d83f9f2a14",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json": "b403e14b26b814a500f9605c944d98f5e18c318706a5d1448f5d5ddab43baed7",
+        "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-retention-authorities.json": "b5157971e294a351c2e0ca7e42aa4e4e1cf62696f661b3a23f6467857b6a56ef",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json": "b74432074cc5eff6035338c8afe50427076eec6334c48b7a3e1693226122e751",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "practiceAndKeys": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-semantic-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json": "aa2977ccbbf0e802406044f185cdfc9aa9c9a1c8bbe73064972397937899fc12",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json": "364e785eb80ca6f6fe096261db7fe8b8abc5af84e3d11f28c6b4950d29e384b0",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json": "e95edb51c0fade1126ad5d7f2aed41d9d1b98d783c560fefc66052fdb8259f28",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json": "22837d7485715d625dadcfaf2e358206208adfa51bb0a22945c36798544fadbe",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-semantic-review.json": "ba91ada3b95821fe518d113b9aa95a2648b4fa11a0d848cd05187978235a3455",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json": "b5b0acdbb12479bc6f4f88d19d20ff56a7f8b4eff504d46eb63755bd0c07cfc7",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json": "f4a018b514b99ba0cf257009c8f259466e7bcdfc8bb8304e5ac9ce760e2ca42c",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json": "bcfd9de4009f7ad2aa2a1fda00276d1177d207c4a84af6ba7c8e27537439b2f5",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json": "b74432074cc5eff6035338c8afe50427076eec6334c48b7a3e1693226122e751",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "textbookFoliosAndGuides": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json": "c66ea3c0357234191d39c0f28ec8456b14869bf0b24168b115253ea8aa1f40af",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json": "8b1e2daee60ff39962c59a0af1f56adf0a94b8b7f9f907a6956f64c71a881c17",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json": "7645d2ac98c6ed403810fb31ba08e6bdea5c9ef3619488847b10ce86a938ebf1",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json": "259304032519fb951e1f65e0d744ff2d3a95da843bc08bebfe55edd31fdf8959",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32"
+      }
+    },
+    "vocabularyAndFirstUse": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json": "390517453b26a98eddcac37805a5282d277d6d63bc021b3e6bde336b554fc9a9",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json": "41bf58014ec2ca03897ed9f5e9be4f2d135ee6533ad5bf1783ae238bbcef2541",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311"
+      },
+      "scope": "Provisional authored local candidate; existing scientific reviews and implemented contracts reused. Exact rendered first-use, visual and learner-interaction proof follows build. Teacher acceptance remains null."
+    },
+    "figuresAndRights": {
+      "status": "passed",
+      "scope": "Complete provisional authored figure selection and local blocked use; no teacher choice, public rights or actual learner placement inferred. First-use and atomic curriculum checks remain separate.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+      }
+    },
+    "captionsAndLocalPaths": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json": "ea47645c2804a419febd19fc3bf27e00c6eddcfa30323964f557a519612fccf0",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      },
+      "scope": "Authored provisional local blocked use; actual learner rendering follows freeze. No external clip selected or caption-review claim."
+    },
+    "advancedAndTiming": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json": "60c73ca51dc7fcf7420b0e91224223d3d71d42de64a6d1eb4a417fa65815c703",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json": "0c1c7e2d5ca73d7580398f77cc1bcd84b9bc65b23293e76ec19e2095fd48f145",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      },
+      "scope": "Authored workload realism and optional non-gating Advanced; estimates, not measured learner times or teacher acceptance."
+    },
+    "investigations": {
+      "status": "passed",
+      "scope": "Authored source/data/method/response contracts only; rendered controls and teacher acceptance remain pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigation-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json": "2136bc8dbdcefb22907a9fa5aaa7881421bf45e92caee9abedacc19c24acdf6f",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigation-review.json": "4a5d6dac3b36373f29bae7638eb89c5cf2a8eec2b8d3b9fffb125bd64f5dc1b2",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json": "b74432074cc5eff6035338c8afe50427076eec6334c48b7a3e1693226122e751",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "stateAndMigration": {
+      "status": "passed",
+      "scope": "Authored identity/migration/serialization and collection contracts, supported by exact engine fixtures. Browser lifecycle and live LMS certification remain separate and pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-budget.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-legacy-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-migration.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-activity-index.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json": "c7ac3d263815bf6eb7b211e52b3db8862fdd5faf5989d849668a6527e2d9c238",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-budget.json": "a3a67960ebd109ea7a1ea8bd39fda8a3142268d94bfc4083df230032a0129087",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-legacy-schema.json": "d01a1297309d6bd20c0630b5c8a01286e6d6ba2d6fbe4da19a4a447cc51b083e",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-migration.json": "8ec886a27d8f44d90d83493d7846903d49480df75c4e1dd08d2e38a580915cf8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-activity-index.json": "89861bfc45a94499d42e492cbf8ddad5df11523eaf8d6fbd8a3fb2099c61f596",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json": "19a4c975ebfaf91c0434dc79362a2258ca646acaa4450b5fa21d4abf5625b648",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json": "b403e14b26b814a500f9605c944d98f5e18c318706a5d1448f5d5ddab43baed7",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json": "7645d2ac98c6ed403810fb31ba08e6bdea5c9ef3619488847b10ce86a938ebf1",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json": "b74432074cc5eff6035338c8afe50427076eec6334c48b7a3e1693226122e751",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "transferRules": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-transfer-map.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-transfer-map.json": "3e55239317986b95d528f6742587d13f1110fb9baa82a090edd7dec32ed21685",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+      },
+      "scope": "Provisional authored local candidate; existing scientific reviews and implemented contracts reused. Exact rendered first-use, visual and learner-interaction proof follows build. Teacher acceptance remains null."
+    }
+  },
+  "interpretation": "Authored scope and observable operations only. Component-level prerequisite/teaching/visual/practice/evidence bindings, actual item inventory and reviews must be complete before this can be frozen.",
+  "baselineEntrySha256": "ffe8fdf35d1ee00e4788a8655baa4060838d06ac0e8433371abb88fcc4df07dd",
+  "baselineHashFormat": "SHA256 of sorted relative path + NUL + file SHA256 + LF; includes all workspace assets, matching the immutable intake baseline",
+  "freezeEvidence": {
+    "designSha256": "b1f8ebe8eb5381cc9adaf5c3336dd7dbb6920aca7ab57c494689ad79f3a47cf6",
+    "inputs": {
+      "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b",
+      "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json": "269f2b834477f4abf6afa1b96ebc362e472eee565cab1e4248d78c4ac01f88d4",
+      "projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168/baseline.json": "82a14d44afcd95f754683aefd58311e820231b459eb7a879eecbb6802fdd0db0",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-16.pdf": "cf8928524eb1535bb25342bdfdba5a5268f632b2d4048b796af7a992aaf4bb66",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-17.pdf": "13f3aa36bb4c71d73320fa07e034ae2cf36b6d8bd803e1df6ec9e661b71f9dfc",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-18.pdf": "58af07b1d65f0d67949ae77588eb77c0b65891a715749fcf6b2db4f74d0dd711",
+      "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+      "projects/resources/biology30-production/v1/pilot2/owner-closure.json": "7b0a072b44868bdbcd434ac149c408738c5b18ea4283ad71ad53fb8beef0ceff",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+      "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+      "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json": "60c73ca51dc7fcf7420b0e91224223d3d71d42de64a6d1eb4a417fa65815c703",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-basic-inheritance-diagram-review.json": "210f0e2f0eecd3c7c0591588088674b36a9e1f2283a7e7081c22711ea0c9ffa1",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-cell-division-diagram-review.json": "deba14df80c3837ad4da6fe910d2972392baadf09cbf3bdad4b60230f6924087",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-molecular-genetics-technology-review.json": "c1bd1810f51c91abfbbe91b5774c614e131d84009ee8c39f06349920536935ae",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-reproduction-inheritance-mapping-review.json": "fdc3f05c37238174f9f8919e4721690ef3a672d52c61c299ce5c9faa174bb810",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json": "bcfd9de4009f7ad2aa2a1fda00276d1177d207c4a84af6ba7c8e27537439b2f5",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json": "f4a018b514b99ba0cf257009c8f259466e7bcdfc8bb8304e5ac9ce760e2ca42c",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-retention-authorities.json": "b5157971e294a351c2e0ca7e42aa4e4e1cf62696f661b3a23f6467857b6a56ef",
+      "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+      "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+      "projects/resources/biology30-production/v1/pilot2/source-review/group-panel-first-use-placement-review.json": "b74432074cc5eff6035338c8afe50427076eec6334c48b7a3e1693226122e751",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-chromosome-sets-copies-v1.svg": "d6aaf81c066c25e8f6e36d308862ae899122733957c17373f690239bca828386",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-meiosis-differentiation-v2.svg": "ac3b09c7f51a9166c300a5d04d72019e9bd898e5e927896914a6c3c70f8bc773",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-oocyte-pauses-v2.svg": "dbe8fcf928b94dd8f0b63ebc8cbe5306ebe085f787753505c52dd94b138758e2",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-abo-gamete-square-v1.svg": "9cb5d280238d9f92d830d3623a8c8f7f8bdbf3932e00f7b6c414721d668fe33d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-allele-genotype-phenotype-v1.svg": "57781810cb1470e043e84a9a8ef824fa2176a809f04b29cbd16dd985c9d608ea",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cell-count-denominator-v1.svg": "b468200edecba444bddf7d3e608366df8d2130a9247e86d7755c6095ed67aae6",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-checkpoint-evidence-v1.svg": "c0fc3941576d2932d7aaae48051719104c3c48cf5f3c580d0f092cf854a5c2a4",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-codon-anticodon-translation-cycle-v2.svg": "8a549b0eb475686d991c49f719b3e423bc7858460aab41f07b6e9cad6bc14991",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cross-evidence-counts-v1.svg": "4dc7879b6daaa5242f92380cde16aa914c0a0ba471b4413951f296d9db34c68e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cytokinesis-directions-v1.svg": "895a122ccec36dfa573ecf8c10066de0e9a7872e530f5d419d173a7f67f39a1d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dihybrid-gamete-square-v1.svg": "0de8a04a3393adeec250805240036ad4f4b7e099e191f8392f603bbea8259e55",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dna-evidence-constraints-v1.svg": "f63bcc349c622aef5d6152172a1d1dac0b9c0fa8677517fb7d2e6ca7384d60c4",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dna-packaging-levels-v2.svg": "6f6d95d8b909b5789ef4c5d9c501c10dd9c2a174cf65b276afbd408e00426678",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-eukaryotic-expression-chatgpt-v2.png": "2bacfb954f91a3ae0955dad46d7469990f8bccfb53666d9b1c41eb077aba2b7a",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-expression-model-comparison-v1.svg": "5292e1f95aa7c5376d31e8aa5857df62bdd20b349644568a83c89fd0b2ab5671",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-gel-size-and-resolution-v1.svg": "9e9a6eef788129c856d780d8e950a1a9e4eab7d8062c36b232379513711f26d5",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-interphase-count-trajectory-v1.svg": "969bacdf15b7e719c4567ff8d6f9fd0b9d422fda0c0a971dbf161f6ee727edd1",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-karyotype-count-comparison-v1.svg": "a3d33ef9d2bb38f23c9cfb33635a79bb1891e6c16c0926e41f5b813b95f962cb",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-linkage-phase-and-fraction-v1.svg": "5d6a5b659721762c2c46dc3c66ac6480c51202d10690751cc13d9d28ccea9dcc",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-marker-order-and-limits-v1.svg": "9b4ccec313698dac57d9118205956f21ccfc56d9f0876e9ec533e5dbc19b7c3d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-meiotic-count-model-v1.svg": "0851bd01b48de75398e8c9c355052b795d3975251efd535cacf80e188513e744",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-mitosis-count-boundaries-v2.svg": "bc32106f8bb172ecbf539a1a4a01b98a225847eea430561ef66c6e1f643cc8c9",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-monohybrid-gamete-square-v1.svg": "a1121c233c300ed21936d8f13bd5582fbe05412b255de829529cfee82fdd8ea3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-moss-pine-chatgpt-v1.png": "1984d7b220cabd36359c2a166b0e113b73510aadba417db42e07c9efed824d57",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-mutation-evidence-levels-v2.svg": "c3ed168cf434eb5af35693e9e17b0d0109a1710ed3bc9a7f1a53f31599a34e2d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-mutation-lineage-and-evidence-v1.svg": "b9ec9d8b83b3a9271cda1f068d2e28fb1ec423a4e48d073d48bc65ee08261121",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-mutation-sequence-alignment-v3.svg": "a08fd26b6a8b915bf39449dd86bb3b7683cbf728836c89ddabb1f072733bf563",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nondisjunction-product-trace-v2.svg": "f29545eb9002ed822fafa482dd8783e7bb913ea08d4b9147ebfb0f2ea8fec6c5",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nonsister-exchange-trace-v1.svg": "6f9b3d6bcc8c1f32b63e67a2ea2433e2f32ab49858bad06b34be5daba115494a",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nucleotide-antiparallel-topology-v1.svg": "e90ed5df9a019300e3c7f5f3240100b6e3ee77a1eb7baadcb31c8008f11b6b3d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-oriented-transcription-sequences-v1.svg": "fe1e9da4b98d1e07764bc8bf3b80471e1691fa1c66194f0a8d6783f77d1ec2d3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-paternal-son-x-linked-alternative-v2.svg": "1fe3c38cc5050314c06d7ecc9e157967e5b1d0fd685d53a3646e00ae9e45f601",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-pedigree-observation-and-inference-v1.svg": "4b964cecea4e1cf262a32d3f67997dded841355709e6d36c0647c45183a7c9d4",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-plant-ploidy-transitions-v1.svg": "8f9ec6e4f043565d8bbde38aa04539d1dc529dcb7b81d29e8870c75b942891df",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-probability-comparison-set-v2.svg": "5177558aa16bc63755fee58ecc1d7d6226b321a9f8bc673b5c9464b0466d474d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-propagation-comparison-design-v1.svg": "a65a9989aa756765019950da09cd07285ad96051b6285b39079349338f503e84",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-recombinant-workflow-checkpoints-v1.svg": "f5aca769454becf637cc59d3fc689c34d078c0f8361c008c13830e6c8a9288e3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-replication-fork-directions-v2.svg": "808d67b6eb3c0aa5b99f0db6daba4d91d0157b06c1e2602a6482670dee85a1cb",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-replication-intermediate-evidence-v1.svg": "f5100c22b22ea031d6f0d39343e01e904ab7a079d593d7d384e1b6904dd59f10",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-reproductive-mode-comparison-v1.svg": "d6c220cfec1fa43e41b43a76eacef51d641805f7a86dbb889e96bb40c8dacfb8",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-restriction-cuts-and-joining-v2.svg": "87e49eed613d917972974164879409fa7b49f497b5b48e95b0f5065b61126246",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-semiconservative-strand-lineage-v2.svg": "5b99c6b68a80fba306a91cad209cf40eedb87772ff3a47421b17fcfb9df123c0",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-sequence-sampling-and-identity-limits-v2.svg": "7b1cbf5a81d0652b513efdb8a67c03ba2e11e2234092e2c6fab1f5da1214d7a8",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-sequence-to-function-evidence-v1.svg": "f3ba2494c24ace9b02932b69a4b388db6285e6b8780db9ee867d832316b32000",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-splicing-and-expression-measurements-v1.svg": "836a717cfccc60a5139d63bdac8fa4df94e32a3828e0eee9cfdd0b20171479c8",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-standard-rna-codon-table-v2.svg": "004b5d94990c8ccd200b6c0def26f1af4444f9bb745b6101b091ca65f8c04951",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-survival-conditioned-genotypes-v1.svg": "b7694a600f5875311c82bc15b26973b4be677b9cb7f2e9786e1b73b139257022",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-testcross-alternative-models-v1.svg": "cd9e680a994bd9eca4cf706fc82d135ea83ea8e6ad1d936e5fa3917d1d48e29a",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-trait-distribution-models-v1.svg": "acdbaf0b5534d40ba9166034994fe85c32c1e6b565576ceec02ed2358bddaf0d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-twin-origin-comparison-v2.svg": "10bba5bc231f8c1c546cab5498a355f99d9d6ae2dc829593c2ccfcb797a62e92",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-variation-mechanisms-v1.svg": "94e3455264cee0c881a1bb5f46c2b9dda2616619dc787a59b7100294076162ed",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-x-linked-reciprocal-cross-v1.svg": "80aaed533b269da29bd11ba82e64bed7789ceec53fb36f3fc53be906944b9c5c",
+      "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json": "2136bc8dbdcefb22907a9fa5aaa7881421bf45e92caee9abedacc19c24acdf6f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/required-group-review.json": "f4ee82b9c9a2248762616913fb316c279694810a35d1f3c6127e74725f5a6575",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im1.jpg": "bd1122c6654b1fcbe923a508d0eb464bf20d26aaf178d7728333f1de90a93f37",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im2.jpg": "b72d76aa6f78899a3e2f8f8800b6bf06aac391196c597193ff59a266c587c474",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im3.jpg": "a6715b30d11fd7a9129baaa1ecce0933b2f49c6575628dea78158c6e1bb5bee6",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im4.jpg": "bff6e0bdaf3f3e31043d78bbcd75cbdf83ee08ec0e67aa877306d62a17fdab1c",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/Im5.jpg": "c36dae801b8da3af269245c7d1cfa1a3616841af0c89d44e32e6acb6f1e2e077",
+      "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/textbook-16-8/extraction.json": "fb3355ebe07fa6d4b49a18c94e49c73d61beca5ad834671b411e07e1b0dd9b16",
+      "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json": "aa2977ccbbf0e802406044f185cdfc9aa9c9a1c8bbe73064972397937899fc12",
+      "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+      "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc",
+      "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json": "c7ac3d263815bf6eb7b211e52b3db8862fdd5faf5989d849668a6527e2d9c238",
+      "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json": "c66ea3c0357234191d39c0f28ec8456b14869bf0b24168b115253ea8aa1f40af",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json": "22837d7485715d625dadcfaf2e358206208adfa51bb0a22945c36798544fadbe",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-activity-index.json": "89861bfc45a94499d42e492cbf8ddad5df11523eaf8d6fbd8a3fb2099c61f596",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-alias-scan.json": "d849a8dc0dca63386d40f26bbf70f457df482574bcce75c72455ed23c7b71eca",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json": "390517453b26a98eddcac37805a5282d277d6d63bc021b3e6bde336b554fc9a9",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json": "41bf58014ec2ca03897ed9f5e9be4f2d135ee6533ad5bf1783ae238bbcef2541",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-review.json": "c4d4950bf2c1c51814a650f0bfd0a2ac6d25bd241d0a5ac30468798207a42765",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "6ebfc481815c7a3bf14bfdc88a997c56dd83ac6838f28f55cbe18e550b8e9ef8",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigation-review.json": "4a5d6dac3b36373f29bae7638eb89c5cf2a8eec2b8d3b9fffb125bd64f5dc1b2",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-legacy-schema.json": "d01a1297309d6bd20c0630b5c8a01286e6d6ba2d6fbe4da19a4a447cc51b083e",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json": "ea47645c2804a419febd19fc3bf27e00c6eddcfa30323964f557a519612fccf0",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-media-dispositions.json": "c055465a9f5e592b0939652ec5be56e3f3c00800081d2a37d12d24b5bb94be06",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-migration.json": "8ec886a27d8f44d90d83493d7846903d49480df75c4e1dd08d2e38a580915cf8",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-model-outputs.json": "9caff5c0b863fcf5c81ec1e9989eac480faa47c6e7508ecdcdd0c057593227b5",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json": "19a4c975ebfaf91c0434dc79362a2258ca646acaa4450b5fa21d4abf5625b648",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-observation-images.json": "c36bd96fb8a73e730422a5ad2992599d84bc0e9e54d09e1da054302b113c33ff",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json": "cb3a1d8486df40ace31879350dbd8c7c0d5e17cb17064d1173754376951f163b",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json": "e6e9c4c86ed78c1456c137d8ed1a1177184aceb77d4f372326f553d83f9f2a14",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-outcome-targets.json": "0c2f63926dba5b6dc898629592a4d74b973af4f1cffec24b8a4769c3764067fa",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-plan-dispositions.json": "143f0cc38cb11d7d9943c2e730e540e5722a50b879a0b80758bf056e9e3a4d11",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json": "364e785eb80ca6f6fe096261db7fe8b8abc5af84e3d11f28c6b4950d29e384b0",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json": "b5b0acdbb12479bc6f4f88d19d20ff56a7f8b4eff504d46eb63755bd0c07cfc7",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json": "e95edb51c0fade1126ad5d7f2aed41d9d1b98d783c560fefc66052fdb8259f28",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-reading-report.json": "39c048f9d90ee458dde591342f33d787bab856dac7b22874187a0b108dcf2a6c",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-review-seminar.json": "b403e14b26b814a500f9605c944d98f5e18c318706a5d1448f5d5ddab43baed7",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json": "9f9b229983416d6eb3ad33741f8094531727181e6418a650f8a16eac4e8111dd",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-budget.json": "a3a67960ebd109ea7a1ea8bd39fda8a3142268d94bfc4083df230032a0129087",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json": "7645d2ac98c6ed403810fb31ba08e6bdea5c9ef3619488847b10ce86a938ebf1",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json": "8b1e2daee60ff39962c59a0af1f56adf0a94b8b7f9f907a6956f64c71a881c17",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json": "259304032519fb951e1f65e0d744ff2d3a95da843bc08bebfe55edd31fdf8959",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json": "0c1c7e2d5ca73d7580398f77cc1bcd84b9bc65b23293e76ec19e2095fd48f145",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-transfer-map.json": "3e55239317986b95d528f6742587d13f1110fb9baa82a090edd7dec32ed21685",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-alias-review.json": "53cbfed1be851629890479d6bc796eeafac4c7d4432205825e769a97350022dc",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-corrections.json": "237574bdd7a27078db490f97f4fde9328ea68a9f6ae15a07c7ca2fbf35c65614",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-semantic-review.json": "ba91ada3b95821fe518d113b9aa95a2648b4fa11a0d848cd05187978235a3455",
+      "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+      "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32",
+      "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+    }
+  }
+}

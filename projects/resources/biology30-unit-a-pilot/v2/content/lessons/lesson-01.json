@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-01",
+  "module": "Systems and Signals",
+  "title": "Homeostasis Under Pressure",
+  "inquiry": "During a sprint, a cold walk, and a stressful surprise, what changes inside the body—and what must be kept within workable limits?",
+  "learningIntention": "I am learning to explain how nervous and endocrine systems help maintain homeostasis when internal or external conditions change.",
+  "requiredMinutes": 60,
+  "optionalMinutes": 20,
+  "outcomeIds": ["A2.4k", "A2.5k"],
+  "materials": "A timer is optional. All required evidence is supplied in the lesson.",
+  "safety": "Do not perform intense exercise for this activity. Use the supplied observations if movement is uncomfortable or medically inadvisable.",
+  "targets": [
+    "Distinguish a regulated variable from a response that helps regulate it.",
+    "Trace stimulus, sensor, coordinating centre, signal, effector, and response in a homeostatic system.",
+    "Explain why nervous and endocrine control are complementary rather than competing systems."
+  ],
+  "warmup": {
+    "title": "Three disturbances, one organizing idea",
+    "prompt": "Imagine that you finish a short sprint, step into cold air, and then hear an unexpected alarm. List one internal variable that may change and one response you would notice in each situation.",
+    "placeholder": "Sprint: variable… response…; Cold: variable… response…; Alarm: variable… response…"
+  },
+  "sections": [
+    {
+      "label": "Begin with evidence",
+      "title": "1. Stability is dynamic, not motionless",
+      "paragraphs": [
+        "A resting body is active. Cells consume oxygen and glucose, release carbon dioxide and heat, move ions, and exchange water. A sprint increases ATP demand and heat production. Cold air increases heat loss. A sudden alarm changes attention, heart activity, breathing, and fuel availability. The values do not stay perfectly fixed; they move within ranges compatible with cell function.",
+        "Homeostasis is the coordinated maintenance of a relatively stable internal environment despite internal and external change. The word relatively matters. Body temperature, blood glucose, blood pressure, osmotic concentration, calcium concentration, and carbon dioxide levels fluctuate. Regulation limits the disturbance, often by shifting several effectors at once.",
+        "A regulated variable is a measurable condition the system monitors or controls. Sweating is not the regulated variable in temperature control; body temperature is. Sweating is one response that can increase heat loss. Similarly, insulin is not the regulated variable in glucose control. Blood glucose is the variable, and insulin is one signal involved in responses that oppose a rise."
+      ],
+      "figureIds": ["figure-integrated-control-overview"]
+    },
+    {
+      "label": "Build the system",
+      "title": "2. A control pathway connects change to response",
+      "paragraphs": [
+        "A useful model begins with a disturbance or stimulus that changes a variable. A sensor detects information related to that variable. A coordinating centre compares or integrates the input and organizes an output. A signal travels to an effector, such as a muscle, gland, or target tissue. The effector's response changes the variable or changes the disturbance acting on it.",
+        "These roles can be distributed. In thermoregulation, temperature-sensitive receptors occur in the skin and within the body, while the hypothalamus integrates information. Skeletal muscles can produce heat by shivering, skin blood vessels can alter heat transfer, and sweat glands can increase evaporative cooling. No single arrow explains the whole response.",
+        "A response becomes homeostatic when its effect opposes the original departure from a workable range. A response that merely follows a stimulus is not automatically feedback. To identify feedback, ask a precise question: after the response occurs, does the response reduce the change that triggered it, amplify it, or leave it unaffected?"
+      ]
+    },
+    {
+      "label": "Compare the coordinators",
+      "title": "3. Nervous and endocrine signals solve different timing problems",
+      "paragraphs": [
+        "The nervous system sends information along neurons as electrical changes and across synapses using chemical neurotransmitters. Connections are anatomically directed, so many effects can begin in milliseconds and end quickly. This pattern is useful for reflexes, movement, rapid changes in gland secretion, and immediate adjustment of heart or breathing activity.",
+        "The endocrine system releases hormones into the blood. Circulation distributes a hormone widely, but only cells with suitable receptors and response machinery react. Hormonal effects often begin more slowly and last longer because release, transport, receptor binding, and changes in cell activity take time. Endocrine control is well suited to metabolism, growth, long-duration stress responses, water balance, and coordinated changes across several organs.",
+        "Speed is not an absolute rule. Some hormone effects are rapid, and some neural regulation produces lasting change. More importantly, the systems work together. The hypothalamus receives neural information and controls endocrine pathways. The adrenal medulla receives sympathetic neural input and releases epinephrine into blood. A whole-body response often contains a fast neural phase and a slower hormonal phase."
+      ],
+      "table": {
+        "caption": "Reasoning comparison: nervous and endocrine control",
+        "headers": ["Feature", "Nervous control", "Endocrine control"],
+        "rows": [
+          ["Primary route", "Neurons and synapses", "Bloodstream"],
+          ["Signal", "Electrical change plus neurotransmitter", "Hormone"],
+          ["Typical targeting", "Connected cells at specific junctions", "Cells with the matching receptor"],
+          ["Typical timing", "Often rapid and brief", "Often slower and longer-lasting"],
+          ["Example", "Withdrawal reflex", "Longer-term water or glucose regulation"]
+        ]
+      }
+    },
+    {
+      "label": "Apply the model",
+      "title": "4. Read a phenomenon as a chain of evidence",
+      "paragraphs": [
+        "After a sprint, heat production and carbon dioxide increase. Temperature receptors and chemical receptors provide input to coordinating centres. Neural outputs alter breathing, heart activity, skin blood flow, and sweat-gland activity. Hormonal signals help mobilize fuel and adjust circulation. The observed breathing and sweating are evidence of regulation, but they are not proof that every variable has already returned to baseline.",
+        "In cold conditions, reduced skin blood flow limits heat transfer and shivering can increase heat production. In an unexpected alarm, sympathetic neural activity rapidly changes organ function while adrenal epinephrine supports a broader response. Different disturbances recruit overlapping effectors. The response that is useful in one context can become costly if it continues after the disturbance has passed.",
+        "Scientific models simplify. The control-system diagram does not show every receptor, brain pathway, hormone, delay, or interaction. Its value is that it forces each claim to name a variable, a route, an effector, and an effect. Later lessons will add membrane voltage, synapses, sensory receptors, endocrine glands, and interacting feedback loops to this first map."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-control-system-comparison",
+    "title": "Match a disturbance to the control pattern",
+    "intro": "Choose a phenomenon. The readout separates the variable, the fast response, and the longer support response.",
+    "prompt": "Which evidence best distinguishes the two control systems without treating either as the only cause?",
+    "options": [
+      {"id": "sprint", "label": "Finishing a sprint", "evidence": "Breathing and heart activity change within seconds, while circulating signals help adjust fuel supply and recovery.", "explanation": "Rapid neural outputs and longer endocrine support overlap. The regulated conditions include gases, pH, temperature, and fuel availability."},
+      {"id": "cold", "label": "Standing in cold air", "evidence": "Skin blood flow can change rapidly; hormonal and metabolic adjustments can support heat production over a longer interval.", "explanation": "The response has different time scales. Skin temperature is useful input, while core temperature is a central regulated condition."},
+      {"id": "alarm", "label": "Hearing an unexpected alarm", "evidence": "Sensory pathways and sympathetic outputs act quickly; adrenal epinephrine can distribute the response through blood.", "explanation": "The same event can start with neural detection and recruit a hormone-mediated whole-body phase."}
+    ],
+    "staticFallback": "Sprint: rapid neural changes plus hormonal fuel support. Cold: neural adjustments of muscles and vessels plus longer metabolic support. Alarm: sensory and sympathetic pathways plus adrenal hormone release."
+  },
+  "artifact": {
+    "id": "regulation-systems-map",
+    "number": 1,
+    "prompt": "Create a baseline systems map for one disturbance. Name the variable, sensor information, coordinating centre, signal route, effector, response, and how the response changes the disturbance.",
+    "evidenceRequirements": ["Use at least one nervous-system route.", "Use at least one endocrine-system route or explain why it is not yet needed.", "Mark one uncertainty to revisit in Lesson 17."]
+  },
+  "exit": {
+    "title": "Name the regulated variable",
+    "prompt": "In 2–3 sentences, explain why sweating is a response rather than the regulated variable, and identify what evidence would show that the response is negative feedback.",
+    "placeholder": "Sweating is a response because… It would count as negative feedback if…"
+  },
+  "sources": {
+    "summary": "Built from the Alberta Unit A homeostasis and integration outcomes, supplied notes pages 97–109, the class Homeostasis lesson, the CBE Unit A introduction and endocrine overview, and OpenStax cross-checking.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-homeostasis", "class-day-homeostasis", "system-unit-intro", "system-m2-l1", "openstax-a-and-p"]
+  }
+}

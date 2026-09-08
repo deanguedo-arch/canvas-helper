@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a",
+  "lessons": ["lesson-04", "lesson-15"],
+  "interactions": [
+    {
+      "id": "interaction-action-potential-explorer",
+      "lessonId": "lesson-04",
+      "kind": "stage-evidence-explorer",
+      "responseIds": ["biology30-unit-a:activity:action-potential:model-state"],
+      "completionRule": "Learner inspects all six membrane-potential stages.",
+      "fallbackType": "static-model"
+    },
+    {
+      "id": "interaction-blood-glucose-simulator",
+      "lessonId": "lesson-15",
+      "kind": "synthetic-feedback-simulator",
+      "responseIds": ["biology30-unit-a:activity:blood-glucose:scenario", "biology30-unit-a:activity:blood-glucose:interpretation"],
+      "completionRule": "Learner runs at least two scenarios and records a mechanism-based interpretation.",
+      "fallbackType": "supplied-data",
+      "datasetId": "dataset-blood-glucose-gate-1"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "action-potential-evidence",
+      "lessonIds": ["lesson-04"],
+      "outcomeIds": ["A1.1k", "A1.3s"],
+      "fields": [
+        {"id": "biology30-unit-a:artifact:action-potential-evidence:claim", "label": "Claim", "maxLength": 550},
+        {"id": "biology30-unit-a:artifact:action-potential-evidence:evidence", "label": "Graph evidence", "maxLength": 700},
+        {"id": "biology30-unit-a:artifact:action-potential-evidence:reasoning", "label": "Ion-channel reasoning", "maxLength": 750}
+      ],
+      "rubricId": "biology-scientific-evidence-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "glucose-urinalysis",
+      "lessonIds": ["lesson-15"],
+      "outcomeIds": ["A2.1k", "A2.2k", "A2.3k", "A2.6k", "A2.1sts", "A2.2s", "A2.3s"],
+      "fields": [
+        {"id": "biology30-unit-a:artifact:glucose-urinalysis:pattern", "label": "Data pattern", "maxLength": 500},
+        {"id": "biology30-unit-a:artifact:glucose-urinalysis:mechanism", "label": "Feedback mechanism", "maxLength": 750},
+        {"id": "biology30-unit-a:artifact:glucose-urinalysis:limits", "label": "Limits and next evidence", "maxLength": 750}
+      ],
+      "rubricId": "biology-scientific-evidence-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "practiceItems": [
+    {
+      "id": "lesson-04-check-1",
+      "outcomeIds": ["A1.1k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-action-potential", "system-m1-l7", "openstax-a-and-p"],
+      "prompt": "Which event most directly begins the rapid rising phase after threshold is reached?",
+      "choices": {
+        "a": "Voltage-gated sodium channels open and sodium ions enter.",
+        "b": "The sodium-potassium pump immediately moves all sodium ions out.",
+        "c": "Voltage-gated potassium channels close and potassium ions enter.",
+        "d": "The membrane becomes impermeable to every ion."
+      },
+      "answerKey": "a",
+      "rationale": "Opening voltage-gated sodium channels produces a rapid inward sodium current, making the inside less negative and then positive.",
+      "targetedFeedback": {
+        "b": "The pump maintains the long-term gradients, but it does not create the rapid rising phase of one action potential.",
+        "c": "Potassium movement is most important during repolarization, and potassium moves out rather than in.",
+        "d": "Selective channels change their open state; the membrane does not become sealed to every ion."
+      }
+    },
+    {
+      "id": "lesson-04-check-2",
+      "outcomeIds": ["A1.1k", "A1.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-action-potential", "system-m1-l7", "openstax-a-and-p"],
+      "prompt": "A stimulus depolarizes a neuron from −70 mV to −58 mV, below a −55 mV threshold. What should the graph show next?",
+      "choices": {
+        "a": "A full action potential with a smaller peak.",
+        "b": "A return toward resting potential without a full action potential.",
+        "c": "Immediate hyperpolarization to −90 mV.",
+        "d": "A permanent change to the threshold."
+      },
+      "answerKey": "b",
+      "rationale": "A subthreshold change does not trigger the regenerative opening of enough voltage-gated sodium channels, so no full action potential occurs.",
+      "targetedFeedback": {
+        "a": "Action potentials are all-or-none; a subthreshold stimulus does not produce a smaller action potential.",
+        "c": "Hyperpolarization follows a completed action potential; the threshold was not reached here.",
+        "d": "This single stimulus does not permanently redefine the neuron's threshold."
+      }
+    },
+    {
+      "id": "lesson-04-check-3",
+      "outcomeIds": ["A1.1k", "A1.3s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["notes-action-potential", "system-m1-l7", "openstax-a-and-p"],
+      "prompt": "A sensory neuron receives a stronger stimulus after it is already firing. Which change best represents greater stimulus intensity?",
+      "choices": {
+        "a": "Each action potential becomes twice as tall.",
+        "b": "Action potentials occur more frequently, and additional neurons may be recruited.",
+        "c": "The resting potential becomes permanently positive.",
+        "d": "The refractory period disappears."
+      },
+      "answerKey": "b",
+      "rationale": "Individual action potentials keep a similar amplitude. Intensity is encoded mainly through firing frequency and, in sensory systems, recruitment of additional neurons.",
+      "targetedFeedback": {
+        "a": "All-or-none refers to the amplitude of each action potential; stronger stimuli do not make each spike proportionally taller.",
+        "c": "The membrane repeatedly returns toward its resting state; it does not stay positive.",
+        "d": "The refractory period remains essential for timing and one-way propagation."
+      }
+    },
+    {
+      "id": "lesson-15-check-1",
+      "outcomeIds": ["A2.1k", "A2.2k", "A2.3k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-pancreas", "system-m2-l5", "openstax-a-and-p"],
+      "prompt": "Which pairing correctly identifies the pancreatic endocrine response to falling blood glucose?",
+      "choices": {
+        "a": "Beta cells release insulin, increasing liver glucose release.",
+        "b": "Alpha cells release glucagon, increasing liver glucose release.",
+        "c": "Alpha cells release insulin, increasing muscle glycogen breakdown.",
+        "d": "Beta cells release glucagon, preventing all cells from using glucose."
+      },
+      "answerKey": "b",
+      "rationale": "Pancreatic alpha cells release glucagon when blood glucose is falling; glucagon promotes liver glycogen breakdown and glucose release.",
+      "targetedFeedback": {
+        "a": "Insulin is released by beta cells mainly when blood glucose is rising and supports uptake and storage.",
+        "c": "Alpha cells release glucagon, not insulin, and the liver is the key organ that releases free glucose into blood.",
+        "d": "Beta cells release insulin; glucagon does not shut down glucose use in every cell."
+      }
+    },
+    {
+      "id": "lesson-15-check-2",
+      "outcomeIds": ["A2.3k", "A2.6k", "A2.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-pancreas", "system-m2-l5", "niddk-diabetes"],
+      "prompt": "In a synthetic model, insulin rises after a meal but blood glucose remains elevated longer than expected. Which mechanism is most consistent with that evidence?",
+      "choices": {
+        "a": "Target tissues are responding weakly to insulin.",
+        "b": "Alpha cells are unable to release any glucagon during fasting.",
+        "c": "The kidneys are producing insulin instead of the pancreas.",
+        "d": "All glucose has already been stored as glycogen."
+      },
+      "answerKey": "a",
+      "rationale": "High insulin paired with a prolonged glucose elevation is consistent with reduced insulin responsiveness in target tissues within this model.",
+      "targetedFeedback": {
+        "b": "The observation follows a meal and includes elevated insulin; glucagon deficiency does not best explain the prolonged high glucose.",
+        "c": "Insulin is produced by pancreatic beta cells, not the kidneys.",
+        "d": "If all excess glucose had been stored, blood glucose would be moving back toward its expected range."
+      }
+    },
+    {
+      "id": "lesson-15-check-3",
+      "outcomeIds": ["A2.1sts", "A2.2s", "A2.3s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["niddk-diabetes"],
+      "prompt": "A classroom urinalysis dataset shows glucose and ketones in one synthetic sample. What is the strongest scientifically responsible conclusion?",
+      "choices": {
+        "a": "The sample proves that the person has type 1 diabetes.",
+        "b": "The pattern suggests disrupted fuel regulation and warrants additional clinical blood evidence; it is not diagnostic by itself.",
+        "c": "The pattern proves that the kidneys caused the glucose imbalance.",
+        "d": "The person should immediately change medication based on the classroom result."
+      },
+      "answerKey": "b",
+      "rationale": "Urine glucose and ketones can reveal a pattern worth investigating, but the pattern is not diagnostic by itself; diabetes diagnosis requires appropriate professional assessment and blood testing.",
+      "targetedFeedback": {
+        "a": "Urine findings alone cannot determine a diabetes type or establish a diagnosis.",
+        "c": "The kidneys filter and reabsorb substances, but this pattern does not prove they caused the original glucose disturbance.",
+        "d": "A classroom activity cannot guide medication changes; those decisions belong with a health-care professional."
+      }
+    }
+  ]
+}

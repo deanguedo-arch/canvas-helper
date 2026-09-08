@@ -1,0 +1,79 @@
+{
+  "stage": 83,
+  "checkedAt": "2026-09-07T06:40:28.580799+00:00",
+  "summary": "Connected strict Pilot 2 build to all-unit preflight, exact owner/input closure, in-memory browser compilation, staged assets and metadata, validated transaction and generated project checks. No actual candidate rendered or promoted.",
+  "verification": {
+    "focusedSuite": {
+      "passed": 101,
+      "failed": 0
+    },
+    "finalBrowserChecks": {
+      "passed": 9,
+      "failed": 0
+    },
+    "typecheck": {
+      "unrelatedDiagnostics": 25,
+      "ownedDiagnostics": 0
+    },
+    "sourceChecks": 15,
+    "textbookMemberChecks": 8,
+    "allOriginalLearnerAndProtectedBaselines": "passed",
+    "draftContracts": "passed",
+    "projectAssertionFixture": "save, reload, collection return focus and mobile routes passed in synthetic preview"
+  },
+  "files": [
+    {
+      "path": "scripts/lib/biology30-course/v1/build.ts",
+      "sha256": "fb2538240458cf7aeffc11b52810f932f7b7b89907ee7ca440513dc2b2fbad52"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-build.ts",
+      "sha256": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts",
+      "sha256": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-preflight.ts",
+      "sha256": "a9f999eaf91a7fbba33a534691d3c6414b84f7b8e3986fb5b3829bf914e94f5b"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "90fcbf28958be9c1c955f79e2f7667519fabba6539ab3126da3e8539c57bce75"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-return-links.ts",
+      "sha256": "07d25556a980dab206ec78d78ca48c87ba0d46d9757724797598e8bd0b541bb3"
+    },
+    {
+      "path": "scripts/prepare-biology30-course-resources.py",
+      "sha256": "5608afff7b0e43e6bd5689f132ad1092f71806795f4971ab015a1f5043d36f96"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-owner-closure.test.ts",
+      "sha256": "39f978c3aba66f6ac1e21495d2810c3c92085d9de378b3ca7c0c85b3d4e803dd"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-project-checks.test.ts",
+      "sha256": "9d403083021da1741ee9932377b316b5f66f1675188affca51dc68276ddc27bb"
+    },
+    {
+      "path": "e2e/lib/project-contract-schema.ts",
+      "sha256": "3e859f7926b87fd22e85547051107c4ced41655b9738d6d5438ed4781fa0dde3"
+    },
+    {
+      "path": "e2e/lib/learner-course-assertions.ts",
+      "sha256": "7abcac9b74ef282d1debabf684cc743655d08869751f1ba074e6cc525d6b59fd"
+    }
+  ],
+  "limitations": [
+    "Actual production staging and promotion remain unexercised until all three academic contracts freeze.",
+    "Owner closure discovery implemented but no owner-closure.json frozen yet.",
+    "101-test pass preceded final cancellation guard; final 9 browser tests passed after that guard.",
+    "No actual project E2E, final rendered academic review or teacher acceptance.",
+    "40/127 figure targets bound; 87 pending. All units retain 6/13 review gates."
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false
+}

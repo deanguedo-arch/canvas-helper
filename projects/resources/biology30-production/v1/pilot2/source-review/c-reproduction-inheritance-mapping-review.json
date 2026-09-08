@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "unit": "C",
+  "status": "author-reviewed-provisional",
+  "teacherDecision": null,
+  "checkedAt": "2026-09-07T13:42:04.125768+00:00",
+  "scope": "20 targets,13 new precise SVGs and one new ChatGPT botanical PNG; one previous probability SVG reused.",
+  "canonicalTeachingSha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+  "canonicalInstructionSha256": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+  "sourceReview": "Target core/companion text read; Chapter16 slides73–78 compared; native pine cycle c26a7108 and conifer photo629f2589 inspected. Source cone=gametophyte annotation is explicitly corrected. Existing C07/C11/C13/C14/C15 conceptual figures natively inspected; they lack actual ploidy paths, genotype cells, pedigree or marker intervals now supplied. Earlier Chapter17 exact-text comparison retained.",
+  "nativeReview": "All13 final scientific SVGs and unchanged1536×1024 botanical PNG inspected. Paternal-son arrow-label collision corrected in v2 and re-inspected. SVG text bboxes fit1200×900. Theoretical and synthetic counts, schematic curves and fictional pedigree are labelled honestly.",
+  "comparisonProcess": "20 side-by-side sections with inspected old conceptual figures; plant section additionally includes native authoring-only pine reference. Actual learner placement and teacher review remain pending.",
+  "browserImage": {
+    "conversationUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+    "title": "Moss and Pine Life Cycles",
+    "observedModel": "6Pro unchanged",
+    "reportedGenerationTime": "Worked for1m10s",
+    "finding": "Leafy moss is labelled n and its attached stalk/capsule 2n. Pine tree and cone tissues are labelled 2n. Pollen has two air sacs and a labelled central gametophyte body; an isolated ovule has a distinct inner n female gametophyte and egg. No whole cone or ovule is labelled haploid. The moss bracket locates the stalk/capsule grouping but does not trace the whole stalk; all stalk tissue is part of the sporophyte. The ovule cutaway, tissues, relative sizes and mixed-maturity cone display are schematic, not a synchronized moment, precise cellular section or a seed embryo. Detached spores grow without gamete fusion. Pair this view with the precise ploidy/process loop."
+  },
+  "bindings": [
+    {
+      "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+      "assetIds": [
+        "c-reproductive-mode-comparison-v1",
+        "c-propagation-comparison-design-v1"
+      ],
+      "finding": "The fictional plant runner/seed comparison distinguishes mitotic propagation from fertilization and reshuffling. A Daphnia model permits parthenogenesis in favourable conditions and sexual production of persistent embryos under other conditions, without claiming all species use identical triggers or egg mechanisms. A selected jellyfish cycle has diploid polyp and medusa stages; mitotic asexual production links them, meiosis makes haploid gametes, fertilization restores diploidy and mitotic development returns to the polyp. Intermediate larvae are omitted explicitly. Sea anemones do not acquire a medusa stage by analogy. Animal changes of reproductive mode differ from plant alternation of haploid and diploid generations. Mutation can alter clones; no universal resource or survival ranking is asserted. A two-by-two study design crosses clonal cuttings versus seedlings with stable versus changing conditions. Every cell requires replicated groups over the same measured interval; starting size, care and sampling are controlled. Survival and growth are outcomes distinct from the amount of variation. No numerical outcomes or universal winner are invented. Broader evidence across genotypes and conditions can revise an initial preference. A separate qualification states that in somatic-cell nuclear transfer most nuclear DNA follows the transferred nucleus while most mitochondrial DNA follows the oocyte cytoplasm, and an early embryo is not evidence of identical traits, adult success or successful conservation."
+    },
+    {
+      "partId": "c-topic-reproductive-strategies-life-cycle-transitions",
+      "assetIds": [
+        "c-moss-pine-chatgpt-v1",
+        "c-plant-ploidy-transitions-v1"
+      ],
+      "finding": "Leafy moss is labelled n and its attached stalk/capsule 2n. Pine tree and cone tissues are labelled 2n. Pollen has two air sacs and a labelled central gametophyte body; an isolated ovule has a distinct inner n female gametophyte and egg. No whole cone or ovule is labelled haploid. The moss bracket locates the stalk/capsule grouping but does not trace the whole stalk; all stalk tissue is part of the sporophyte. The ovule cutaway, tissues, relative sizes and mixed-maturity cone display are schematic, not a synchronized moment, precise cellular section or a seed embryo. Detached spores grow without gamete fusion. Pair this view with the precise ploidy/process loop. A five-stage loop shows diploid sporophyte making haploid spores by meiosis, spores growing by mitosis into haploid gametophytes, gametophytes producing haploid gametes by mitosis, fertilization of gametes producing a diploid zygote, and mitotic growth returning to the sporophyte. In moss the leafy plant is the gametophyte and its attached stalk and capsule are the sporophyte. In pine the tree and cone tissues are diploid; pollen is a haploid male gametophyte and the haploid female gametophyte develops inside an ovule. A whole ovule or cone is not haploid. Spores grow without fusion, unlike gametes. Process arrows order stages, not durations."
+    },
+    {
+      "partId": "c-topic-reproductive-strategies-animal-strategies",
+      "assetIds": [
+        "c-reproductive-mode-comparison-v1"
+      ],
+      "finding": "The fictional plant runner/seed comparison distinguishes mitotic propagation from fertilization and reshuffling. A Daphnia model permits parthenogenesis in favourable conditions and sexual production of persistent embryos under other conditions, without claiming all species use identical triggers or egg mechanisms. A selected jellyfish cycle has diploid polyp and medusa stages; mitotic asexual production links them, meiosis makes haploid gametes, fertilization restores diploidy and mitotic development returns to the polyp. Intermediate larvae are omitted explicitly. Sea anemones do not acquire a medusa stage by analogy. Animal changes of reproductive mode differ from plant alternation of haploid and diploid generations. Mutation can alter clones; no universal resource or survival ranking is asserted."
+    },
+    {
+      "partId": "c-topic-reproductive-strategies-evidence-and-applications",
+      "assetIds": [
+        "c-propagation-comparison-design-v1"
+      ],
+      "finding": "A two-by-two study design crosses clonal cuttings versus seedlings with stable versus changing conditions. Every cell requires replicated groups over the same measured interval; starting size, care and sampling are controlled. Survival and growth are outcomes distinct from the amount of variation. No numerical outcomes or universal winner are invented. Broader evidence across genotypes and conditions can revise an initial preference. A separate qualification states that in somatic-cell nuclear transfer most nuclear DNA follows the transferred nucleus while most mitochondrial DNA follows the oocyte cytoplasm, and an early embryo is not evidence of identical traits, adult success or successful conservation."
+    },
+    {
+      "partId": "c-topic-genes-alleles-and-traits-genes-and-environment",
+      "assetIds": [
+        "c-trait-distribution-models-v1",
+        "c-propagation-comparison-design-v1"
+      ],
+      "finding": "On the left, three flower genotype categories from the specified pink-parent cross have relative model weights1,2,1; these are theoretical expectations. On the right, a smooth conceptual trait-frequency curve shows continuous measurements with labelled axes but no numeric scale or invented observations. Its shape is not claimed to be universal or enough to infer a gene count. Several loci, environment and measurement can influence continuous variation. The existing qualitative plant example has a shared genotype with different heights under different light; it calls for controlled comparisons, not rejection of inheritance. Heritability concerns variation in a defined population and conditions, not the fraction of an individual trait caused by genes. A two-by-two study design crosses clonal cuttings versus seedlings with stable versus changing conditions. Every cell requires replicated groups over the same measured interval; starting size, care and sampling are controlled. Survival and growth are outcomes distinct from the amount of variation. No numerical outcomes or universal winner are invented. Broader evidence across genotypes and conditions can revise an initial preference. A separate qualification states that in somatic-cell nuclear transfer most nuclear DNA follows the transferred nucleus while most mitochondrial DNA follows the oocyte cytoplasm, and an early embryo is not evidence of identical traits, adult success or successful conservation. The nursery design illustrates controlling environment and origin; it does not equate all seedlings with one genotype or establish quantitative heritability."
+    },
+    {
+      "partId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+      "assetIds": [
+        "c-cross-evidence-counts-v1"
+      ],
+      "finding": "The worked parental cross AA×aa gives Aa F1, whose cross gives F2 genotype probabilities one-quarter AA, one-half Aa and one-quarter aa. Four existing synthetic samples are tabulated without completing the learner graph: at n10 the observations are3/5/2 and1/7/2 with expectations2.5/5/2.5; at n100 observations24/51/25 and28/48/24 with expectations25/50/25. Expected count is probability times sample size and need not be an integer. These larger samples are closer overall but do not establish a guarantee that every category improves as sample size grows. Repeatability, scoring and survival matter. Reciprocal crosses exchange parental-sex contributions. The table is a teaching reference, not empirical Mendel data."
+    },
+    {
+      "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+      "assetIds": [
+        "c-cross-evidence-counts-v1"
+      ],
+      "finding": "The worked parental cross AA×aa gives Aa F1, whose cross gives F2 genotype probabilities one-quarter AA, one-half Aa and one-quarter aa. Four existing synthetic samples are tabulated without completing the learner graph: at n10 the observations are3/5/2 and1/7/2 with expectations2.5/5/2.5; at n100 observations24/51/25 and28/48/24 with expectations25/50/25. Expected count is probability times sample size and need not be an integer. These larger samples are closer overall but do not establish a guarantee that every category improves as sample size grows. Repeatability, scoring and survival matter. Reciprocal crosses exchange parental-sex contributions. The table is a teaching reference, not empirical Mendel data."
+    },
+    {
+      "partId": "c-topic-other-modes-of-inheritance-incomplete-dominance",
+      "assetIds": [
+        "c-expression-model-comparison-v1"
+      ],
+      "finding": "Three expression models are compared. Complete dominance maps AA and Aa to one phenotype and aa to another, yielding3:1 phenotypes from Aa×Aa. In the fictional incomplete-dominance flower model, RᴿRᴿ is red, RᴿRᵂ pink and RᵂRᵂ white; two pink parents produce these at1/4,1/2,1/4. Genotype and phenotype ratios are1:2:1 because the heterozygote is separately scored. The alleles remain distinct and segregate rather than blending irreversibly. Codominance means both allele-associated products are detectable in a heterozygote, not an intermediate blended product. Dominance relationships depend on the chosen measurement and mechanism."
+    },
+    {
+      "partId": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles",
+      "assetIds": [
+        "c-abo-gamete-square-v1"
+      ],
+      "finding": "The Iᴬi×Iᴮi square combines Iᴬ or i from one parent with Iᴮ or i from the other, each gamete at one-half. Offspring IᴬIᴮ, Iᴬi, Iᴮi and ii each have one-quarter probability and score AB,A,B,O respectively. AB means both A and B antigens are detectable, not a blended antigen. Three named alleles occur in the population while a typical diploid individual carries two at this locus. Multiple alleles describes population diversity; codominance describes products within a genotype. The simplified classroom inheritance model is not sufficient for a medical decision or unique identity inference."
+    },
+    {
+      "partId": "c-topic-other-modes-of-inheritance-sex-linkage",
+      "assetIds": [
+        "c-x-linked-reciprocal-cross-v1"
+      ],
+      "finding": "In the simplified fruit-fly X-linked recessive white-eye model, XᴿXᴿ female crossed with XʷY male gives red XᴿXʷ daughters and red XᴿY sons. Reversing the parental phenotypes gives XᴿXʷ red daughters and XʷY white sons. The first-cross F1 pairing XᴿXʷ×XᴿY yields XᴿXᴿ,XᴿXʷ,XᴿY,XʷY at one-quarter each with equal sex and gamete probabilities. White occurs in half the sons, one-quarter of all offspring. Paternal X goes to daughters and paternal Y to sons. A male-only pattern can also involve other inheritance models, sex-limited expression or chance; it is not unique proof of X linkage."
+    },
+    {
+      "partId": "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+      "assetIds": [
+        "c-trait-distribution-models-v1"
+      ],
+      "finding": "On the left, three flower genotype categories from the specified pink-parent cross have relative model weights1,2,1; these are theoretical expectations. On the right, a smooth conceptual trait-frequency curve shows continuous measurements with labelled axes but no numeric scale or invented observations. Its shape is not claimed to be universal or enough to infer a gene count. Several loci, environment and measurement can influence continuous variation. The existing qualitative plant example has a shared genotype with different heights under different light; it calls for controlled comparisons, not rejection of inheritance. Heritability concerns variation in a defined population and conditions, not the fraction of an individual trait caused by genes."
+    },
+    {
+      "partId": "c-topic-other-modes-of-inheritance-comparing-model-predictions",
+      "assetIds": [
+        "c-expression-model-comparison-v1",
+        "c-survival-conditioned-genotypes-v1"
+      ],
+      "finding": "Three expression models are compared. Complete dominance maps AA and Aa to one phenotype and aa to another, yielding3:1 phenotypes from Aa×Aa. In the fictional incomplete-dominance flower model, RᴿRᴿ is red, RᴿRᵂ pink and RᵂRᵂ white; two pink parents produce these at1/4,1/2,1/4. Genotype and phenotype ratios are1:2:1 because the heterozygote is separately scored. The alleles remain distinct and segregate rather than blending irreversibly. Codominance means both allele-associated products are detectable in a heterozygote, not an intermediate blended product. Dominance relationships depend on the chosen measurement and mechanism. In a separate explicitly fictional Aa×Aa model, genotype weights at conception are AA1/4,Aa1/2,aa1/4, but AA is lethal before scoring. Excluding AA leaves total probability3/4, so conditional survivor probabilities are Aa2/3 and aa1/3. The observed expected2:1 ratio therefore reflects survival rather than a changed meiotic segregation rule. This model must not be silently combined with the recessive-aa-affected pedigree model. Retain the scoring time and condition when comparing model predictions."
+    },
+    {
+      "partId": "c-topic-pedigrees-symbols-and-evidence",
+      "assetIds": [
+        "c-pedigree-observation-and-inference-v1"
+      ],
+      "finding": "Generation I contains unfilled male I-1 and unfilled female I-2 connected as reproductive partners. Their generation II children are filled male II-1, unfilled female II-2 and unfilled male II-3. The explicit simplified legend defines square as male, circle as female, filled as the tracked phenotype present and unfilled as absent; no carrier measurements are shown. Under a fully penetrant autosomal recessive model with accurate relationships and no new mutation, parents are Aa, the filled child aa, and each unfilled child AA or Aa. For either known-unaffected sibling the conditional carrier probability is2/3. This is a fictional teaching family, not a request for personal family disclosure or proof that the recessive model is uniquely correct."
+    },
+    {
+      "partId": "c-topic-pedigrees-autosomal-hypotheses",
+      "assetIds": [
+        "c-pedigree-observation-and-inference-v1"
+      ],
+      "finding": "Generation I contains unfilled male I-1 and unfilled female I-2 connected as reproductive partners. Their generation II children are filled male II-1, unfilled female II-2 and unfilled male II-3. The explicit simplified legend defines square as male, circle as female, filled as the tracked phenotype present and unfilled as absent; no carrier measurements are shown. Under a fully penetrant autosomal recessive model with accurate relationships and no new mutation, parents are Aa, the filled child aa, and each unfilled child AA or Aa. For either known-unaffected sibling the conditional carrier probability is2/3. This is a fictional teaching family, not a request for personal family disclosure or proof that the recessive model is uniquely correct."
+    },
+    {
+      "partId": "c-topic-pedigrees-sex-linked-hypotheses",
+      "assetIds": [
+        "c-paternal-son-x-linked-alternative-v2",
+        "c-x-linked-reciprocal-cross-v1"
+      ],
+      "finding": "An affected XᵃY father and a possible carrier XᴬXᵃ mother can have an affected XᵃY son. Two labelled arrows explicitly route paternal Y and maternal Xᵃ into the son. The father does not transmit his X to that son. Therefore observing an affected father and son does not by itself exclude X-linked recessive inheritance. This is one possible genotype assignment, not proof of the mother’s genotype from a pair of phenotypes. Y-linked and autosomal alternatives need full-family and genotype checks with stated penetrance, mutation and record assumptions. In the simplified fruit-fly X-linked recessive white-eye model, XᴿXᴿ female crossed with XʷY male gives red XᴿXʷ daughters and red XᴿY sons. Reversing the parental phenotypes gives XᴿXʷ red daughters and XʷY white sons. The first-cross F1 pairing XᴿXʷ×XᴿY yields XᴿXᴿ,XᴿXʷ,XᴿY,XʷY at one-quarter each with equal sex and gamete probabilities. White occurs in half the sons, one-quarter of all offspring. Paternal X goes to daughters and paternal Y to sons. A male-only pattern can also involve other inheritance models, sex-limited expression or chance; it is not unique proof of X linkage. These are separate human-style fictional pedigree and fruit-fly teaching models: Xᵃ and Xʷ do not identify the same biological allele."
+    },
+    {
+      "partId": "c-topic-pedigrees-risk-and-information",
+      "assetIds": [
+        "c-pedigree-observation-and-inference-v1",
+        "c-probability-comparison-set-v2"
+      ],
+      "finding": "Generation I contains unfilled male I-1 and unfilled female I-2 connected as reproductive partners. Their generation II children are filled male II-1, unfilled female II-2 and unfilled male II-3. The explicit simplified legend defines square as male, circle as female, filled as the tracked phenotype present and unfilled as absent; no carrier measurements are shown. Under a fully penetrant autosomal recessive model with accurate relationships and no new mutation, parents are Aa, the filled child aa, and each unfilled child AA or Aa. For either known-unaffected sibling the conditional carrier probability is2/3. This is a fictional teaching family, not a request for personal family disclosure or proof that the recessive model is uniquely correct. A weighted genotype display for Aa×Aa gives AA one-quarter, Aa one-half and aa one-quarter. Under a fully penetrant recessive model, knowing the offspring is unaffected excludes aa; retained probability is three-quarters and carrier probability is(1/2)/(3/4)=2/3, rather than the unconditional1/2. The display retains unequal genotype weights instead of treating the three genotypes as equally likely. Separate boxes show the independent joint probability P(aa and bb)=1/16 and the sum of mutually exclusive parental combinations Aa or aA=1/2. The product rule requires independence, and overlapping events require overlap accounting."
+    },
+    {
+      "partId": "c-topic-chromosome-mapping-linkage-and-recombination",
+      "assetIds": [
+        "c-linkage-phase-and-fraction-v1"
+      ],
+      "finding": "The specified heterozygote has AB on one homologue and ab on the other, and the ab/ab tester contributes ab to each offspring. Scored AB40 and ab40 classes are parental; Ab10 and aB10 are recombinant relative to that known phase. Recombination fraction is(10+10)/(40+40+10+10)=20%. Under suitable short-interval assumptions this estimates20centimorgans, not20DNA base pairs. Comparable survival, scoring and gamete representation are necessary. Parental phase, not an intrinsically common phenotype, defines parental classes. A separate denominator example92/1000 yields9.2%. Multiple exchanges can hide some events."
+    },
+    {
+      "partId": "c-topic-chromosome-mapping-recombination-frequency",
+      "assetIds": [
+        "c-linkage-phase-and-fraction-v1"
+      ],
+      "finding": "The specified heterozygote has AB on one homologue and ab on the other, and the ab/ab tester contributes ab to each offspring. Scored AB40 and ab40 classes are parental; Ab10 and aB10 are recombinant relative to that known phase. Recombination fraction is(10+10)/(40+40+10+10)=20%. Under suitable short-interval assumptions this estimates20centimorgans, not20DNA base pairs. Comparable survival, scoring and gamete representation are necessary. Parental phase, not an intrinsically common phenotype, defines parental classes. A separate denominator example92/1000 yields9.2%. Multiple exchanges can hide some events."
+    },
+    {
+      "partId": "c-topic-chromosome-mapping-gene-order",
+      "assetIds": [
+        "c-marker-order-and-limits-v1"
+      ],
+      "finding": "Given A–B14,B–C6,A–C20 map units, B is between A and C because14+6=20. The two line maps draw A–B–C and C–B–A with intervals proportional to14 and6; they represent the same relative order, not two competing solutions. Physical left-right orientation needs an additional landmark. Wider linked intervals can approach50% recombination like independent loci. An even number of exchanges involving a chromatid can restore parental outer-marker phase, so two-point counts can miss events and underestimate long distances. Sampling, survival and scoring matter; a sample fraction above50% does not justify a reliable two-point map exceeding that ceiling."
+    },
+    {
+      "partId": "c-topic-chromosome-mapping-limits-of-linkage-estimates",
+      "assetIds": [
+        "c-marker-order-and-limits-v1"
+      ],
+      "finding": "Given A–B14,B–C6,A–C20 map units, B is between A and C because14+6=20. The two line maps draw A–B–C and C–B–A with intervals proportional to14 and6; they represent the same relative order, not two competing solutions. Physical left-right orientation needs an additional landmark. Wider linked intervals can approach50% recombination like independent loci. An even number of exchanges involving a chromatid can restore parental outer-marker phase, so two-point counts can miss events and underestimate long distances. Sampling, survival and scoring matter; a sample fraction above50% does not justify a reliable two-point map exceeding that ceiling."
+    }
+  ],
+  "assets": [
+    {
+      "id": "c-reproductive-mode-comparison-v1",
+      "sha256": "d6c220cfec1fa43e41b43a76eacef51d641805f7a86dbb889e96bb40c8dacfb8"
+    },
+    {
+      "id": "c-propagation-comparison-design-v1",
+      "sha256": "a65a9989aa756765019950da09cd07285ad96051b6285b39079349338f503e84"
+    },
+    {
+      "id": "c-moss-pine-chatgpt-v1",
+      "sha256": "1984d7b220cabd36359c2a166b0e113b73510aadba417db42e07c9efed824d57"
+    },
+    {
+      "id": "c-plant-ploidy-transitions-v1",
+      "sha256": "8f9ec6e4f043565d8bbde38aa04539d1dc529dcb7b81d29e8870c75b942891df"
+    },
+    {
+      "id": "c-trait-distribution-models-v1",
+      "sha256": "acdbaf0b5534d40ba9166034994fe85c32c1e6b565576ceec02ed2358bddaf0d"
+    },
+    {
+      "id": "c-cross-evidence-counts-v1",
+      "sha256": "4dc7879b6daaa5242f92380cde16aa914c0a0ba471b4413951f296d9db34c68e"
+    },
+    {
+      "id": "c-expression-model-comparison-v1",
+      "sha256": "5292e1f95aa7c5376d31e8aa5857df62bdd20b349644568a83c89fd0b2ab5671"
+    },
+    {
+      "id": "c-abo-gamete-square-v1",
+      "sha256": "9cb5d280238d9f92d830d3623a8c8f7f8bdbf3932e00f7b6c414721d668fe33d"
+    },
+    {
+      "id": "c-x-linked-reciprocal-cross-v1",
+      "sha256": "80aaed533b269da29bd11ba82e64bed7789ceec53fb36f3fc53be906944b9c5c"
+    },
+    {
+      "id": "c-survival-conditioned-genotypes-v1",
+      "sha256": "b7694a600f5875311c82bc15b26973b4be677b9cb7f2e9786e1b73b139257022"
+    },
+    {
+      "id": "c-pedigree-observation-and-inference-v1",
+      "sha256": "4b964cecea4e1cf262a32d3f67997dded841355709e6d36c0647c45183a7c9d4"
+    },
+    {
+      "id": "c-paternal-son-x-linked-alternative-v2",
+      "sha256": "1fe3c38cc5050314c06d7ecc9e157967e5b1d0fd685d53a3646e00ae9e45f601"
+    },
+    {
+      "id": "c-probability-comparison-set-v2",
+      "sha256": "5177558aa16bc63755fee58ecc1d7d6226b321a9f8bc673b5c9464b0466d474d",
+      "priorReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/c-basic-inheritance-diagram-review.json",
+        "evidenceSha256": "210f0e2f0eecd3c7c0591588088674b36a9e1f2283a7e7081c22711ea0c9ffa1",
+        "finding": "Unequal genotype weights are retained when excluding aa in a fully penetrant recessive model, yielding2/3 carrier probability conditional on unaffected. Product-rule independence and exclusive parent-identified paths are distinguished. v2 explicitly uses parent subscripts so Aa/aA are not mistakenly treated as different unphased genotypes."
+      }
+    },
+    {
+      "id": "c-linkage-phase-and-fraction-v1",
+      "sha256": "5d6a5b659721762c2c46dc3c66ac6480c51202d10690751cc13d9d28ccea9dcc"
+    },
+    {
+      "id": "c-marker-order-and-limits-v1",
+      "sha256": "9b4ccec313698dac57d9118205956f21ccfc56d9f0876e9ec533e5dbc19b7c3d"
+    }
+  ],
+  "limitations": [
+    "No teacher acceptance, publication rights expansion or actual learner-placement claim.",
+    "Exact synthetic count table preserves the required independent graph-construction activity.",
+    "Continuous curve is conceptual without invented empirical counts; distribution shape does not establish gene count.",
+    "All-unit academic closure and freeze remain pending."
+  ]
+}

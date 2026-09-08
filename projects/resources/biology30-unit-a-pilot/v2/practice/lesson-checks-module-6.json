@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "setId": "lesson-checks-module-6",
+  "items": [
+    {
+      "id": "lesson-17-check-1",
+      "setId": "lesson-17",
+      "outcomeIds": ["A1.2k", "A2.5k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-integration", "system-m2-summary"],
+      "prompt": "Which response is expected to begin most rapidly after a sudden alarm?",
+      "choices": {"a": "Sympathetic neural output and adrenal-medulla activation", "b": "A long-term change in gene expression caused by cortisol", "c": "Growth-plate expansion caused by hGH", "d": "A permanent increase in blood osmotic concentration"},
+      "answerKey": "a",
+      "rationale": "Sensory and sympathetic neural pathways can act within seconds and directly recruit the adrenal medulla; slower endocrine effects develop later.",
+      "targetedFeedback": {"b": "Cortisol-related genomic effects are slower than the immediate alarm response.", "c": "Growth is not the rapid control need in this situation.", "d": "A disturbance is not expected to become permanent as an adaptive immediate response."}
+    },
+    {
+      "id": "lesson-17-check-2",
+      "setId": "lesson-17",
+      "outcomeIds": ["A2.4k", "A2.5k", "A2.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-integration", "class-review-seminar"],
+      "prompt": "Water loss is followed by rising osmotic concentration, rising ADH, and concentrated urine. Which causal statement is correct?",
+      "choices": {"a": "Water loss raises osmotic concentration; ADH then helps reduce further water loss.", "b": "ADH first raises osmotic concentration so the kidneys can lose water.", "c": "Concentrated urine proves insulin release.", "d": "The urine response amplifies the original water loss."},
+      "answerKey": "a",
+      "rationale": "The disturbance raises osmotic concentration, which increases ADH; kidney water conservation opposes the disturbance.",
+      "targetedFeedback": {"b": "This reverses cause and response: osmotic change drives ADH in the simple loop.", "c": "Urine concentration is principally connected here to water balance, not insulin.", "d": "Reduced urine volume and increased concentration conserve water and oppose further loss."}
+    },
+    {
+      "id": "lesson-17-check-3",
+      "setId": "lesson-17",
+      "outcomeIds": ["A1.3s", "A1.4s", "A2.3s", "A2.4s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "alberta-bulletin"],
+      "prompt": "A novel case fits both reduced hormone release and reduced receptor response. What is the strongest next step?",
+      "choices": {"a": "Measure both circulating hormone and target response under a defined condition.", "b": "Choose the more familiar disorder name.", "c": "Ignore the competing hypothesis.", "d": "Treat one symptom as a complete mechanism."},
+      "answerKey": "a",
+      "rationale": "Paired signal and target-response evidence can distinguish production failure from response failure while keeping the conclusion proportional to the data.",
+      "targetedFeedback": {"b": "Familiarity is not evidence and can bias interpretation.", "c": "Competing explanations should be tested rather than discarded without evidence.", "d": "One symptom can arise through several mechanisms and cannot identify a pathway by itself."}
+    }
+  ]
+}

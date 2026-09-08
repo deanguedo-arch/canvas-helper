@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-16",
+  "module": "Endocrine Control",
+  "title": "Adrenals, Stress, Water/Salt, and Hormone Technology",
+  "inquiry": "Why does an immediate stress response use a different route from a response that supports hours of demand?",
+  "learningIntention": "I am learning to connect adrenal, water-salt, and stress pathways and evaluate a hormone technology using evidence.",
+  "requiredMinutes": 105,
+  "optionalMinutes": 15,
+  "outcomeIds": ["A2.2k", "A2.3k", "A2.5k", "A2.6k", "A2.1s", "A2.2s", "A2.3s", "A2.4s", "A2.2sts"],
+  "materials": "No special materials. Use the supplied cortisol, epinephrine, ADH, aldosterone, blood, and urine dataset.",
+  "safety": "Do not induce stress, restrict water or salt, or change medication. All cases are synthetic and non-diagnostic.",
+  "targets": [
+    "Compare adrenal medulla and adrenal cortex by control route, hormone, timing, and effect.",
+    "Integrate ADH and aldosterone in water and sodium regulation.",
+    "Evaluate a hormone technology using benefits, evidence, limitations, and unintended consequences."
+  ],
+  "warmup": {
+    "title": "Two clocks in one response",
+    "prompt": "A sudden threat changes heart activity within seconds, while altered fuel metabolism can persist. Predict one neural-endocrine route for the fast phase and one hormone axis for the slower phase.",
+    "placeholder": "Fast phase…; slower phase…"
+  },
+  "sections": [
+    {
+      "label": "Separate adrenal regions",
+      "title": "1. The medulla and cortex are different endocrine tissues",
+      "paragraphs": [
+        "The adrenal medulla receives sympathetic neural input and releases epinephrine and norepinephrine into blood. These hormones support rapid changes in heart activity, airway function, blood distribution, and fuel availability. The response can begin quickly because preganglionic neurons directly activate medullary cells.",
+        "The adrenal cortex responds to different signals. ACTH from the anterior pituitary stimulates cortisol release from the cortex. Cortisol supports longer-duration fuel mobilization, influences immune and cardiovascular function, and helps the body respond to sustained demand. The cortex also releases aldosterone, regulated mainly through kidney-related renin-angiotensin signals and blood potassium, rather than ACTH alone.",
+        "Stress is not one hormone or one pathway. Sensory appraisal, sympathetic nerves, adrenal medulla, hypothalamic-pituitary-adrenal axis, behaviour, and recovery systems interact. A useful model separates timing and route before integrating the phases."
+      ],
+      "figureIds": ["figure-stress-response-comparison"]
+    },
+    {
+      "label": "Regulate water and sodium",
+      "title": "2. ADH and aldosterone alter different kidney processes",
+      "paragraphs": [
+        "ADH increases water permeability in kidney collecting ducts, allowing more water to be reabsorbed. Its release responds strongly to osmotic concentration and also to volume or pressure signals. The immediate effect is water conservation and more concentrated urine when the kidneys can respond.",
+        "Aldosterone increases sodium reabsorption and potassium secretion in distal nephron regions. Water can follow retained sodium, supporting extracellular-fluid volume and blood pressure. Aldosterone is part of a broader renin-angiotensin-aldosterone system activated by kidney evidence of reduced perfusion or sodium delivery.",
+        "The hormones are related but not interchangeable. ADH primarily changes water permeability; aldosterone changes sodium transport. Drinking excess water can lower osmotic concentration and suppress ADH without necessarily suppressing aldosterone in the same pattern. Blood and urine evidence must be read together."
+      ],
+      "figureIds": ["figure-water-salt-regulation"]
+    },
+    {
+      "label": "Analyze a data case",
+      "title": "3. Context changes the meaning of hormone values",
+      "paragraphs": [
+        "The supplied case follows a learner through baseline, a brief startling event, two hours without fluid during ordinary activity, and recovery. Epinephrine rises sharply at the startle point and returns quickly. Cortisol rises more slowly. Later, plasma osmotic concentration and ADH rise while urine volume falls and concentration increases.",
+        "Aldosterone rises modestly when volume-related signals increase. The data are consistent with layered regulation: neural-adrenal medulla activity for the rapid phase, an HPA-axis contribution over a longer interval, and kidney-hormone responses during water conservation.",
+        "The pattern does not establish chronic stress, dehydration severity, adrenal disease, or personal health. Values are synthetic, the time points are sparse, and ordinary activity and food intake are simplified. A responsible conclusion names the trend and mechanism without converting the case into a diagnosis."
+      ],
+      "table": {
+        "caption": "Synthetic integrated stress and water-balance data",
+        "headers": ["Time", "Epinephrine signal", "Cortisol signal", "Plasma osmotic concentration", "ADH signal", "Urine pattern"],
+        "rows": [
+          ["Baseline", "1.0", "1.0", "287 mOsm/kg", "1.0", "Moderate volume"],
+          ["5 min after startle", "4.8", "1.3", "288 mOsm/kg", "1.1", "Not sampled"],
+          ["45 min", "1.4", "2.6", "290 mOsm/kg", "1.5", "Lower volume"],
+          ["120 min without fluid", "1.1", "1.7", "295 mOsm/kg", "3.4", "Low volume, concentrated"],
+          ["60 min after water", "1.0", "1.2", "289 mOsm/kg", "1.2", "Increasing volume"]
+        ]
+      }
+    },
+    {
+      "label": "Evaluate technology",
+      "title": "4. Hormone technologies expand capability and create responsibilities",
+      "paragraphs": [
+        "Hormone technologies include recombinant hormone production, insulin-delivery systems, continuous glucose monitoring, receptor agonists and antagonists, replacement therapy, and laboratory hormone assays. Each addresses a defined physiological or measurement problem. Evidence of biochemical effect is not automatically evidence of long-term benefit for every user.",
+        "Evaluation should include scientific accuracy, clinical outcome evidence, safety, access, user burden, privacy, cost, and unintended use. A growth-related hormone can be medically appropriate for specific diagnosed conditions while non-medical use creates different risks and ethical questions. A monitoring device can improve trend awareness while producing alarms, data overload, or inequitable access.",
+        "Science and technology have intended and unintended consequences. A balanced brief identifies the need, mechanism, evidence, affected groups, trade-offs, and next question. It avoids advertising language and does not tell an individual to start, stop, or change treatment."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-water-salt-data-lab",
+    "title": "Read layered hormone evidence",
+    "intro": "Select a time point. The lab links the measured pattern to a mechanism and identifies what cannot be concluded.",
+    "prompt": "Which interpretation respects timing and the regulated variables?",
+    "options": [
+      {"id": "startle", "label": "Five minutes after the startle", "evidence": "Epinephrine is 4.8 times baseline while cortisol is only beginning to rise.", "explanation": "The pattern supports a rapid sympathetic-adrenal-medulla phase, not a claim that cortisol caused the immediate peak."},
+      {"id": "water-limit", "label": "After two hours without fluid", "evidence": "Osmotic concentration and ADH are higher; urine volume is lower and more concentrated.", "explanation": "The pattern is consistent with ADH-mediated water conservation. It does not quantify personal dehydration."},
+      {"id": "recovery", "label": "After water is available", "evidence": "Osmotic concentration and ADH move toward baseline while urine volume begins to rise.", "explanation": "The response opposes the previous osmotic disturbance, illustrating negative feedback and delayed recovery."}
+    ],
+    "staticFallback": "Read the variable first, then hormone timing, then target response. Epinephrine peaks quickly; cortisol is slower; ADH tracks osmotic and volume evidence; aldosterone primarily changes sodium handling."
+  },
+  "artifact": {
+    "id": "hormone-technology-case",
+    "number": 7,
+    "prompt": "Write an evidence brief evaluating one hormone technology, then apply its mechanism to the integrated stress and water-balance case.",
+    "evidenceRequirements": ["Name the physiological problem and mechanism.", "Use at least two evidence types and one limitation.", "Address an intended benefit, an unintended consequence, and an access consideration."]
+  },
+  "collaboration": {
+    "title": "Hormone technology feedback checkpoint",
+    "peerRoute": "Share the claim and two supporting observations in the enabled discussion. Ask a peer to identify an unintended consequence or missing stakeholder.",
+    "teacherRoute": "Submit the same brief to the teacher or complete the evidence-board self-audit. Peer availability never blocks completion."
+  },
+  "exit": {
+    "title": "Put the response on two clocks",
+    "prompt": "In 2–3 sentences, contrast the adrenal-medulla and HPA-axis evidence expected during the first minutes and the following hour of a stress response.",
+    "placeholder": "During the first minutes… Over the following hour…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 134–137, the class Pancreas and Adrenal lesson, CBE Module 2 Lesson 3, OpenStax adrenal and kidney regulation, and official Canadian health-source principles. Dataset values are synthetic instructional data.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-adrenals", "class-day-pancreas-adrenal", "system-m2-l3", "openstax-a-and-p", "health-canada"]
+  }
+}

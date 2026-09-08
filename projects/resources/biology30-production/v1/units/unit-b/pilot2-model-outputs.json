@@ -1,0 +1,372 @@
+{
+  "unit": "B",
+  "models": 3,
+  "cases": 8,
+  "sharedDataBindings": 21,
+  "outputs": [
+    {
+      "modelId": "b-model-signal-pathway",
+      "modelVersion": 1,
+      "choice": "support-defect",
+      "title": "Changed Sertoli support",
+      "columns": [
+        "Observation",
+        "Reference",
+        "Case P"
+      ],
+      "rows": [
+        [
+          "Developing germ cells",
+          "present",
+          "absent"
+        ],
+        [
+          "Sertoli support",
+          "present",
+          "disrupted"
+        ],
+        [
+          "LH signal",
+          "present",
+          "present"
+        ],
+        [
+          "Duct passage",
+          "open",
+          "open"
+        ]
+      ],
+      "explanation": "Germ cells are absent with disrupted support despite a present LH signal and an open duct. Investigate support and production before attributing the finding to an obstruction.",
+      "limitation": "Fictional observations do not diagnose a person or establish fertility.",
+      "visual": "pathway-observations",
+      "values": {
+        "observations": [
+          "absent",
+          "disrupted",
+          "present",
+          "open"
+        ]
+      }
+    },
+    {
+      "modelId": "b-model-signal-pathway",
+      "modelVersion": 1,
+      "choice": "signal-defect",
+      "title": "Reduced upstream signal",
+      "columns": [
+        "Observation",
+        "Reference",
+        "Case S"
+      ],
+      "rows": [
+        [
+          "Developing germ cells",
+          "present",
+          "reduced"
+        ],
+        [
+          "Sertoli support",
+          "present",
+          "present"
+        ],
+        [
+          "LH signal",
+          "present",
+          "reduced"
+        ],
+        [
+          "Duct passage",
+          "open",
+          "open"
+        ]
+      ],
+      "explanation": "Reduced germ cells accompany a reduced LH signal while support is recorded as present and the duct is open. This is consistent with an upstream signal problem; it does not uniquely identify a cause.",
+      "limitation": "Fictional observations do not diagnose a person or establish fertility.",
+      "visual": "pathway-observations",
+      "values": {
+        "observations": [
+          "reduced",
+          "present",
+          "reduced",
+          "open"
+        ]
+      }
+    },
+    {
+      "modelId": "b-model-signal-pathway",
+      "modelVersion": 1,
+      "choice": "duct-obstruction",
+      "title": "Blocked transport",
+      "columns": [
+        "Observation",
+        "Reference",
+        "Case T"
+      ],
+      "rows": [
+        [
+          "Developing germ cells",
+          "present",
+          "present"
+        ],
+        [
+          "Sertoli support",
+          "present",
+          "present"
+        ],
+        [
+          "LH signal",
+          "present",
+          "present"
+        ],
+        [
+          "Duct passage",
+          "open",
+          "blocked"
+        ]
+      ],
+      "explanation": "Germ cells, support and LH are recorded as present while the duct is blocked. Reduced delivery can therefore occur even when the observed production pathway is present.",
+      "limitation": "Fictional observations do not diagnose a person or establish fertility.",
+      "visual": "pathway-observations",
+      "values": {
+        "observations": [
+          "present",
+          "present",
+          "present",
+          "blocked"
+        ]
+      }
+    },
+    {
+      "modelId": "b-model-cycle-sequence",
+      "modelVersion": 1,
+      "choice": "days-2-to-12",
+      "title": "Days 2–12",
+      "columns": [
+        "Day",
+        "FSH index",
+        "LH index",
+        "Estrogen index",
+        "Progesterone index"
+      ],
+      "rows": [
+        [
+          2,
+          5,
+          3,
+          2,
+          1
+        ],
+        [
+          7,
+          4,
+          3,
+          5,
+          1
+        ],
+        [
+          12,
+          3,
+          6,
+          10,
+          1
+        ]
+      ],
+      "explanation": "Read each hormone on its own relative scale. Connect the sampled changes in time: estrogen rises before the highest sampled LH point; the later progesterone rise is consistent with luteal support.",
+      "limitation": "A sparse illustrative cycle cannot date an individual's ovulation. Indices of different hormones are not comparable molar concentrations.",
+      "visual": "separate-line-panels",
+      "values": {
+        "differences": [
+          -2,
+          3,
+          8,
+          0
+        ],
+        "start": 2,
+        "end": 12,
+        "separateHormoneScales": true
+      }
+    },
+    {
+      "modelId": "b-model-cycle-sequence",
+      "modelVersion": 1,
+      "choice": "days-12-to-21",
+      "title": "Days 12–21",
+      "columns": [
+        "Day",
+        "FSH index",
+        "LH index",
+        "Estrogen index",
+        "Progesterone index"
+      ],
+      "rows": [
+        [
+          12,
+          3,
+          6,
+          10,
+          1
+        ],
+        [
+          14,
+          4,
+          18,
+          7,
+          2
+        ],
+        [
+          21,
+          2,
+          2,
+          6,
+          10
+        ]
+      ],
+      "explanation": "Read each hormone on its own relative scale. Connect the sampled changes in time: estrogen rises before the highest sampled LH point; the later progesterone rise is consistent with luteal support.",
+      "limitation": "A sparse illustrative cycle cannot date an individual's ovulation. Indices of different hormones are not comparable molar concentrations.",
+      "visual": "separate-line-panels",
+      "values": {
+        "differences": [
+          -1,
+          -4,
+          -4,
+          9
+        ],
+        "start": 12,
+        "end": 21,
+        "separateHormoneScales": true
+      }
+    },
+    {
+      "modelId": "b-model-cycle-sequence",
+      "modelVersion": 1,
+      "choice": "days-21-to-28",
+      "title": "Days 21–28",
+      "columns": [
+        "Day",
+        "FSH index",
+        "LH index",
+        "Estrogen index",
+        "Progesterone index"
+      ],
+      "rows": [
+        [
+          21,
+          2,
+          2,
+          6,
+          10
+        ],
+        [
+          28,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "explanation": "Read each hormone on its own relative scale. Connect the sampled changes in time: estrogen rises before the highest sampled LH point; the later progesterone rise is consistent with luteal support.",
+      "limitation": "A sparse illustrative cycle cannot date an individual's ovulation. Indices of different hormones are not comparable molar concentrations.",
+      "visual": "separate-line-panels",
+      "values": {
+        "differences": [
+          2,
+          1,
+          -4,
+          -9
+        ],
+        "start": 21,
+        "end": 28,
+        "separateHormoneScales": true
+      }
+    },
+    {
+      "modelId": "b-model-development-timing",
+      "modelVersion": 1,
+      "choice": "early",
+      "title": "Early stage",
+      "columns": [
+        "Group",
+        "Marker M present",
+        "Samples",
+        "Proportion"
+      ],
+      "rows": [
+        [
+          "No agent",
+          4,
+          40,
+          0.1
+        ],
+        [
+          "Agent X",
+          20,
+          40,
+          0.5
+        ]
+      ],
+      "explanation": "Subtract the control proportion from the exposed proportion within this stage. Compare that difference with the other stage before claiming a constant effect.",
+      "limitation": "Synthetic non-human cell-model data concern marker M, not a human birth outcome or a personal risk estimate.",
+      "visual": "paired-proportions",
+      "values": {
+        "difference": 0.4
+      }
+    },
+    {
+      "modelId": "b-model-development-timing",
+      "modelVersion": 1,
+      "choice": "later",
+      "title": "Later stage",
+      "columns": [
+        "Group",
+        "Marker M present",
+        "Samples",
+        "Proportion"
+      ],
+      "rows": [
+        [
+          "No agent",
+          5,
+          40,
+          0.125
+        ],
+        [
+          "Agent X",
+          9,
+          40,
+          0.225
+        ]
+      ],
+      "explanation": "Subtract the control proportion from the exposed proportion within this stage. Compare that difference with the other stage before claiming a constant effect.",
+      "limitation": "Synthetic non-human cell-model data concern marker M, not a human birth outcome or a personal risk estimate.",
+      "visual": "paired-proportions",
+      "values": {
+        "difference": 0.1
+      }
+    }
+  ],
+  "proof": "Deterministic outputs and source/state consistency; scientific source review, graph accessibility and browser interaction remain separate gates.",
+  "inputFiles": [
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-models.json",
+      "sha256": "a307f98f05d445b43255303dcba1f5f2c57f2dee339cef41748624c9aa0898a4"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+      "sha256": "3c3c6898a95b3d70cafe287f5488a8930239df012c3bce4c7f494c1a196c71bf"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+      "sha256": "00ecc3f6519ee2032e71f61daf2f1a71f3363c6adee2a92b4958774dea59cd14"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+      "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+    }
+  ],
+  "browserEvidence": null,
+  "teacherDecision": null
+}

@@ -1,0 +1,221 @@
+{
+  "unit": "C",
+  "status": "all-model-options-authored; scientific-output-and-browser-review-pending",
+  "models": [
+    {
+      "id": "c-model-chromosome-counts",
+      "title": "Track sets and copies through division",
+      "teachingTopicId": "c-topic-meiosis-part-a",
+      "variable": "diploid-number",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "46"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "c-model-chromosome-counts-prediction",
+      "explanationId": "c-model-chromosome-counts-explanation",
+      "testFlag": "c-model-chromosome-counts-tested",
+      "collectionFlag": "c-model-chromosome-counts-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict chromosome number, DNA molecules and sets after each division for the chosen starting cell.",
+      "explanationPrompt": "Explain why DNA replication changes copies without adding chromosome sets, and why meiosis I reduces sets.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "4",
+          "label": "Starting 2n = 4",
+          "parameters": {
+            "diploid": 4
+          }
+        },
+        {
+          "value": "6",
+          "label": "Starting 2n = 6",
+          "parameters": {
+            "diploid": 6
+          }
+        },
+        {
+          "value": "8",
+          "label": "Starting 2n = 8",
+          "parameters": {
+            "diploid": 8
+          }
+        },
+        {
+          "value": "46",
+          "label": "Starting 2n = 46",
+          "parameters": {
+            "diploid": 46
+          }
+        }
+      ],
+      "operation": "c-model-chromosome-counts",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population."
+    },
+    {
+      "id": "c-model-inheritance-cross",
+      "title": "Test one-locus inheritance probabilities",
+      "teachingTopicId": "c-topic-single-and-two-trait-crosses",
+      "variable": "cross",
+      "options": [
+        "AA-aa",
+        "Aa-Aa",
+        "Aa-aa"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "c-model-inheritance-cross-prediction",
+      "explanationId": "c-model-inheritance-cross-explanation",
+      "testFlag": "c-model-inheritance-cross-tested",
+      "collectionFlag": "c-model-inheritance-cross-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict the genotype proportions in the selected one-locus cross.",
+      "explanationPrompt": "Explain the gamete contributions and distinguish predicted proportions from guaranteed counts.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "AA-aa",
+          "label": "AA × aa",
+          "parameters": {
+            "parent1": "AA",
+            "parent2": "aa"
+          }
+        },
+        {
+          "value": "Aa-Aa",
+          "label": "Aa × Aa",
+          "parameters": {
+            "parent1": "Aa",
+            "parent2": "Aa"
+          }
+        },
+        {
+          "value": "Aa-aa",
+          "label": "Aa × aa",
+          "parameters": {
+            "parent1": "Aa",
+            "parent2": "aa"
+          }
+        }
+      ],
+      "operation": "c-model-inheritance-cross",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population."
+    },
+    {
+      "id": "c-model-sequence-expression",
+      "title": "Compare coding changes and peptide predictions",
+      "teachingTopicId": "c-topic-mutations",
+      "variable": "variant",
+      "options": [
+        "reference",
+        "synonymous",
+        "one-base-insertion"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "c-model-sequence-expression-prediction",
+      "explanationId": "c-model-sequence-expression-explanation",
+      "testFlag": "c-model-sequence-expression-tested",
+      "collectionFlag": "c-model-sequence-expression-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict whether the selected coding sequence changes the peptide in the specified frame.",
+      "explanationPrompt": "Use codons and peptide sequence to explain the effect; report a trailing base or missing stop explicitly.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "reference",
+          "label": "Reference coding sequence",
+          "parameters": {
+            "coding5to3": "ATGGAATTTTAA"
+          }
+        },
+        {
+          "value": "synonymous",
+          "label": "One-base substitution",
+          "parameters": {
+            "coding5to3": "ATGGAGTTTTAA"
+          }
+        },
+        {
+          "value": "one-base-insertion",
+          "label": "One-base insertion after ATG",
+          "parameters": {
+            "coding5to3": "ATGAGAATTTTAA"
+          }
+        }
+      ],
+      "operation": "c-model-sequence-expression",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "sourceInvestigationId": "c-investigation-molecular-evidence",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "coding5to3"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "coding5to3"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "coding5to3"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

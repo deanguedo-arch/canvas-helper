@@ -1,0 +1,499 @@
+{
+  "stage": "all required practice passage receipts; not pre-render readiness",
+  "checkedAt": "2026-09-06T21:58:48.154696+00:00",
+  "commands": [
+    {
+      "command": "node --import tsx --test scripts/tests/biology30-{topic-contract,pilot2-science,pilot2-state,pilot2-instruction,pilot2-models,pilot2-learning,pilot2-graph-work}.test.ts",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/tests.log",
+      "sha256": "6ff96bc1dbe6db2c2417076843edef421d204483140107b108d018c322fb6cd9"
+    },
+    {
+      "command": "npm run verify:biology30-course:topic-contracts",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/contracts.log",
+      "sha256": "dedf2907a6bef9e778e28617d393164b935cc59a0c3601a9e4e2d782b79574ff"
+    },
+    {
+      "command": "node --import tsx scripts/audit-biology30-topic-state.ts --write",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/state.log",
+      "sha256": "899ec82b7eaf3932e6a6fffaf8936ac51bbb8a074dde0f4e7a13e51f9350b53f"
+    },
+    {
+      "command": "node --import tsx scripts/audit-biology30-topic-models.ts --write",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/models.log",
+      "sha256": "25412fa002ffe0c1d2581e16b1487bd067f1190f3a54dcb811a1a9c402fb00bb"
+    },
+    {
+      "command": "node --import tsx scripts/audit-biology30-topic-content.ts --write --require-reading",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/content.log",
+      "sha256": "5b85d85fc1f3e3e109638ec71e3e95db22dac3c9bbc983977bd925a40dabe41b"
+    },
+    {
+      "command": "python3 scripts/audit-biology30-first-use.py --write",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/firstuse.log",
+      "sha256": "666ae44ccb7457a88f07db0654ee5d586e28d0e7085d9ababb605e05f0b3e001"
+    },
+    {
+      "command": "python3 scripts/prepare-biology30-course-resources.py --verify-only",
+      "exitCode": 0,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/protection.log",
+      "sha256": "39bd2bc0940069ec405303455d2a3408abd868d6bf57b6ab19ea86dad7f47535"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 2,
+      "output": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-all-practice-passages/typecheck.log",
+      "sha256": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544"
+    }
+  ],
+  "practiceReviews": {
+    "B": 63,
+    "C": 132,
+    "D": 50
+  },
+  "pendingPracticePassageItems": 0,
+  "independentScientificKeys": "pending",
+  "requiredFiguresAndIllustratedPaths": "pending",
+  "fullFirstUseAndWorkload": "pending",
+  "learnerRendering": false,
+  "teacherDecision": null,
+  "inputHashes": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json",
+      "sha256": "2edb64a6993a440502228112351e99a8c3d5b4ddc819989513494c47e8dbd78d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-alias-scan.json",
+      "sha256": "e2d66066c75709b85485f06bd27cb6c9c9b25021fc080b1363414abd595e33e9"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+      "sha256": "b7bc425f38429c6fdf0759b0aaaaad417279ac8cbbc6db2c02c6b2b226c0e922"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json",
+      "sha256": "d5d73f547ec4dbdfdfa7e30d7629c80aa74792364968b9b770f0ae33288f292a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-decisions.json",
+      "sha256": "2940dad97989034114417600b235be5557886c29d585868715f4ca7e8de4102f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-review.json",
+      "sha256": "0247600831f67b58e9b5bcdb36f64462dd404043ae3551f7e74fe503b2a11285"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+      "sha256": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+      "sha256": "08d1ee075c5d4f44b2337b06733e00f238d131333a4905f8bbff7f0ccb26d26b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+      "sha256": "3c3c6898a95b3d70cafe287f5488a8930239df012c3bce4c7f494c1a196c71bf"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-legacy-schema.json",
+      "sha256": "ced84ab19bf3f84803e4767130495bc1c1431bbdc837bd9838499aa1b33c92f9"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json",
+      "sha256": "bea977ebb061984e952e78b0baed0a24f9056455e929076008df4f0d022173e3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-media-dispositions.json",
+      "sha256": "32cf2b61d409b302602c72d3af67b3e608c7dff9c0fd8b9b7c9700ba9861efbe"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-migration.json",
+      "sha256": "7568bcf06b85f7745c2c04f217790763902ec7804d8dcd1c6b955577b4d9b3ac"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-model-outputs.json",
+      "sha256": "e06548c82c42067869ceacd9f5e0c1d45c4c9132e07caaed36de14251e66c49f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-models.json",
+      "sha256": "a307f98f05d445b43255303dcba1f5f2c57f2dee339cef41748624c9aa0898a4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-disposition.json",
+      "sha256": "f6d0d800fa74fafc7456beff3ce5850edd1bf10194c3cd6ba9eced610828a782"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-outcome-targets.json",
+      "sha256": "8b5402d5811576c05d970957d2745b1bc1dd1ca0d347115dbc17c94a55dc7f7a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-plan-dispositions.json",
+      "sha256": "bf37305f0f45ba668ab938a6402c6b198ae9ae2b2d620fe0e48ad0db858bef9f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-passage-review.json",
+      "sha256": "3558a42aec9c5bcb14a44ba52ebb9f41d7d49de71a5e801f0ad8efcc234d6dd1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json",
+      "sha256": "13253adca2a729f1f7cffae26de30ea03532dc12e3be94f899a7805027916cff"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-reading-report.json",
+      "sha256": "41f5b18c7df0f32e0661a4db07b8b5fee14e6889f141372bf30c755397a1f4c1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-slide-dispositions.json",
+      "sha256": "8788206162798837e2d833c92f867d5012b66896b840ca5a5a7dd59eb1207f8e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json",
+      "sha256": "4931646b736c0a3af04cea590c25a72ab846fb93c7b584aa9f48943bf582f3fd"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+      "sha256": "00ecc3f6519ee2032e71f61daf2f1a71f3363c6adee2a92b4958774dea59cd14"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json",
+      "sha256": "5138fd3c6dab6a6e5d1d84b7fbbee46a5592ffb1fde4fd40c6cdda11c1435a4d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook.json",
+      "sha256": "62f2847ebf58218f05d146605a07d15a1741aadd11e032303d836a396f042751"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-time.json",
+      "sha256": "ed0088cec25bfa744d0e8b7e7a8f4b54244774745dcfc2995093117e59174668"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json",
+      "sha256": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-transfer-map.json",
+      "sha256": "2fe64d1abd03cf141efec1f285449d43a7a82d426db04f2401484df7132edae0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-alias-review.json",
+      "sha256": "fec75cd0297d2e3840133097ec38edd8430657039a6c02ac223d11c91a9f60b0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-corrections.json",
+      "sha256": "37c5ec005ce19249969fc798ed2baaf8750ff50037cbdcf1e142200e20dd6ff2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "sha256": "663afa54b7a07d4f67e17cb2cea40882cb1246679b7c20de1de448bf6ff4f743"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+      "sha256": "4d78401708366067ea8b6255ed42f387fdbc9d424a66d9a64633b0dd0e56cc78"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-alias-scan.json",
+      "sha256": "d849a8dc0dca63386d40f26bbf70f457df482574bcce75c72455ed23c7b71eca"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+      "sha256": "2e60b951c6b7a500aac31df04cc49bf6d4915c3a5df7a31391d7e2d1fa6a13f4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "sha256": "aacf04b21b75f0ac9d21fa25c8f752de46ff722b8cd354c61aa654b6dbed0cef"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json",
+      "sha256": "761c7f876418a31266ba62704279c2f5d9efc00f836f9f366d06cef33da54ca6"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-review.json",
+      "sha256": "12f15fb5003e1dc0da9659579042176255f63b2d7d400f2d836ab21c06ba51e9"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json",
+      "sha256": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+      "sha256": "e65c057895dfca374c1a4cf5432162acf5240b2a27c0e80c97fb43d90aaaf011"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+      "sha256": "a976820b7f830e3ba607b59ecf647a4a53e32e9f6a89db6582839c40372500ac"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-legacy-schema.json",
+      "sha256": "d01a1297309d6bd20c0630b5c8a01286e6d6ba2d6fbe4da19a4a447cc51b083e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json",
+      "sha256": "d09ec8739f7beefbdea3cf504ea654247b98a70bbd9d802c929b8d915ec815a4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-media-dispositions.json",
+      "sha256": "6d1191084a4a9bbb9c9d8de53f64cdc8468544d2c5b2cd0ee995021a12dbc948"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-migration.json",
+      "sha256": "f771e0da7c665b3fbddb110aaa4384fe19716342f4258135e8475dca1fffec4c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-model-outputs.json",
+      "sha256": "9caff5c0b863fcf5c81ec1e9989eac480faa47c6e7508ecdcdd0c057593227b5"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+      "sha256": "19a4c975ebfaf91c0434dc79362a2258ca646acaa4450b5fa21d4abf5625b648"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-observation-images.json",
+      "sha256": "c36bd96fb8a73e730422a5ad2992599d84bc0e9e54d09e1da054302b113c33ff"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-disposition.json",
+      "sha256": "741a7275a0a9f6fee002990476b85c81bb08807ce522466d1a021e650ee79e82"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-outcome-targets.json",
+      "sha256": "0c2f63926dba5b6dc898629592a4d74b973af4f1cffec24b8a4769c3764067fa"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-plan-dispositions.json",
+      "sha256": "e5a175637cce7f92ddd7cd80936b479aef8b06b2a1a663b5e19c7c9ec41b0ebf"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json",
+      "sha256": "fb22770a9a07e7373ce9be849a46a3f11f8887a635f3c72b181a660f48eab5b7"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+      "sha256": "2b15be76da927f5dc80f0d10d8d083274453eb5c564e5bbf1aea738617b91a10"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-reading-report.json",
+      "sha256": "eeea222e2febb1723d94d4afe093099beedf1ae35b0a0f69d0e92e9ae6617537"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json",
+      "sha256": "eab2e41740f9e9158dbccf6ed8d10b640d9e3731da51aa90b0bd5ab90b10c904"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-budget.json",
+      "sha256": "e4971c1dfa870cf5425f071f57adc30c6d3a6ca6defe42706b6f2306ea7d57f2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+      "sha256": "44a075aa0a26cbfd222633ab043cb6d20a27b2ae12efbd96961bc5c5ab8742a3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+      "sha256": "d54686774d1a6d6f7990d5a86166d5920f9e0e780770e15da9c9b7cddf97ab9c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+      "sha256": "259304032519fb951e1f65e0d744ff2d3a95da843bc08bebfe55edd31fdf8959"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json",
+      "sha256": "d4ddb7d030ab9c3cfd1b6c39270ef7ac6f37a1d3b97242cd803250a0f52e515f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+      "sha256": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-transfer-map.json",
+      "sha256": "20512a57e63cab80257fc7574fcefcb33302a917afdb4e5e6dba2d597f1c75b3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-alias-review.json",
+      "sha256": "53cbfed1be851629890479d6bc796eeafac4c7d4432205825e769a97350022dc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-corrections.json",
+      "sha256": "237574bdd7a27078db490f97f4fde9328ea68a9f6ae15a07c7ca2fbf35c65614"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "sha256": "4be78f3f7fe7321f3fc63335ac2c6351bb61d390747eade8d2d2b03b9b49d065"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json",
+      "sha256": "16024ad19496a43efc6e3c20c41d67aa5b859f55e957f85be9a093f3de99e7b8"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-alias-scan.json",
+      "sha256": "736055a564b68dbbd4dd904b1f25962b2c74e365da6e787dc75f71ee5b9a7dca"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+      "sha256": "5591d2a9511dd81f71b75e7402773e4958b9317bc610c58062c0558ca7043608"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+      "sha256": "1e54a4d5a8d6cca20cc90f8e3a3cb10f3aa315d1bd58d59b40aa55ff8801a07a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json",
+      "sha256": "634a81fd848aff05f5f8c08527c98b28cac0120215f68aeba7d63ceabdeb66b4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-review.json",
+      "sha256": "dea937a1e053f8a6c10e5ceab0728c6a72af10f7f9a6877f5ecb21566de1c5a5"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json",
+      "sha256": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+      "sha256": "b22d572e6372633080594e5c692c42f91127a158ce2bd855fd8d10372a2d2680"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+      "sha256": "a6f1d11690bbd11760ee3af6cdd867615f6a2da3d17fedd6acf2092b94c6f66e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-legacy-schema.json",
+      "sha256": "54ced15db173c9628a2300b8d9f5d37691035cc1b7861dfda18e75b2d9033efa"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json",
+      "sha256": "4c73291c73113acc08e2c5704c5f685e270b2730f61118f92e76029f81049cc4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-media-dispositions.json",
+      "sha256": "896f2a83a74c6c5953d8e111aae4e7bbca67b4dcfa4fb4a1dfbf8222ce5d09ed"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-migration.json",
+      "sha256": "d66ca00e7ce045de61a4861227e445e306ccf9c6bf839591be60879259d429bc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-model-outputs.json",
+      "sha256": "4cd07c23348e50618604eb360a0c4701625cd8954ccb62d637f4cc8575f15cfb"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json",
+      "sha256": "87a053903d2c08c856b49142379129f1500697cc944ee0d7fa98b2db3497e64d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-disposition.json",
+      "sha256": "c34a334fa5eabde94b6ca902f01681ef504fabce297c7932355a27e22454307f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-outcome-targets.json",
+      "sha256": "6561092d779f5541b2c5188d36a3520c50fcda5ecd7bde5cb4f3cde4a03e2c88"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-plan-dispositions.json",
+      "sha256": "18b1e3e56952018100e1c0994ec6dd204c47679f8f5c02c017eb472ea693d0a7"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-passage-review.json",
+      "sha256": "94917aa506dca9ccf59563fb225e820deb4061a34507e1dda55b1dbf981cfcf8"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json",
+      "sha256": "d534379f3c1fc8936d9898b51f8aee44f41b1318a1b4c748088e22150a4d856d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-reading-report.json",
+      "sha256": "3ec418257a769e2b5946582d81d1da4f50033e2e50d7c43a0c216c7c0e2ec031"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-slide-dispositions.json",
+      "sha256": "66f36252891984c74f420187dfff38ec577c885e99eefc602060c827e8074daa"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json",
+      "sha256": "eef27f572782c373cdf0be8dd645b2b19a211da6d6647d91f2a564de47b4843b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+      "sha256": "0f22ce24684ffe23c49607800b0505207d55fcfbda84846595c2deec630d9246"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json",
+      "sha256": "87ccb2231b2cdc26852766df6956c8adb23528279284f214931ee7c2098b21d8"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook.json",
+      "sha256": "5396b0838d549b967a361b3122099451fd1915923a84a2d26cbc2ee19179df57"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json",
+      "sha256": "c22792201d51060e44f4548b868d40cd2f83cdc69d29b50678741b3faf377745"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json",
+      "sha256": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-transfer-map.json",
+      "sha256": "7f06bd76a76892eaa23db5d9ef02dad70f0328a22593e1f561565b79409d7dc6"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-alias-review.json",
+      "sha256": "cbca142bbfa2428239a53339e9d22b8978ca9d3315e594efd2b0cc2f4a046c08"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-corrections.json",
+      "sha256": "3a07616018ff0ebbacabbe48d046ebc8ea9fadffba417cf605cf3c660d422646"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+      "sha256": "bf8e72639ec35e5f3fecaa9c89dcb3227a6cda1960fff43af1571004a5bc6e19"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-contract.ts",
+      "sha256": "71d1704fa53dde9334809df9baa9d99e55c3205711b534f61f037b05f23c13c3"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-graph-audit.ts",
+      "sha256": "ce36724089a6626fac75f7c0e3ad5af809db4319e4662656d27756fd21bdc1b0"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-graph-work.ts",
+      "sha256": "d1e3aa53c44157876100b434adfa56e4181b14dbef38907921fec7ebfb9856d7"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-instruction-audit.ts",
+      "sha256": "d907535e66a8728e0fdb7f0879e6fbbd19c4e0d84607ad73db37364407fb6cc6"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts",
+      "sha256": "dfb5467e40713d7261756b552d19cb93a9f93c6630356af7945816704d798542"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-model-audit.ts",
+      "sha256": "141d8649a0756aaf595705e1607a3ab9d525c4da2b6d80c53b580bbe06672f7f"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts",
+      "sha256": "e5102235b213d82d24161e5fcb315bddf59df88c0ec2f7c655c8283938dc434b"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-planning-audit.ts",
+      "sha256": "f68243d96beec0c00c3c9f119a1c981694b59013bdcb2e9d97fb2c674fc037a2"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+      "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-state.ts",
+      "sha256": "6063a35ab7c53637444b09710e72e5eab4d656f5c758030c090423f31eef6980"
+    }
+  ]
+}

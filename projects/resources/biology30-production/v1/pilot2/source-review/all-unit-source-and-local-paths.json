@@ -1,0 +1,1239 @@
+{
+  "stage": 90,
+  "status": "authored-source-dispositions-and-local-path-equivalence-reviewed",
+  "scope": "Pre-render local blocked candidate. Reuses completed source-text, visual-purpose, worked-example and exact figure reviews. This does not certify every original image at full resolution, external captions, or actual rendered accessibility.",
+  "teacherAcceptance": null,
+  "externalPolicy": "No external instructional clip or interactive selected. Original URLs and relationships retained for authoring; local teaching and checkpoint attempts own completion. No provider files downloaded.",
+  "units": {
+    "B": {
+      "beforeSha256": {
+        "media-dispositions": "32cf2b61d409b302602c72d3af67b3e608c7dff9c0fd8b9b7c9700ba9861efbe",
+        "slide-dispositions": "8788206162798837e2d833c92f867d5012b66896b840ca5a5a7dd59eb1207f8e",
+        "plan-dispositions": "bf37305f0f45ba668ab938a6402c6b198ae9ae2b2d620fe0e48ad0db858bef9f",
+        "link-dispositions": "bea977ebb061984e952e78b0baed0a24f9056455e929076008df4f0d022173e3"
+      },
+      "slides": 77,
+      "embeddedMedia": 70,
+      "planRows": 12,
+      "linkRelationships": 53,
+      "youtubeCandidates": 17,
+      "selectedExternalClips": 0,
+      "localPaths": [
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "frameId": "b-topic-male-reproductive-structures-compartments-of-the-testes-walkthrough-frame",
+          "workedExampleId": "b-topic-male-reproductive-structures-compartments-of-the-testes-worked",
+          "figureTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-figure",
+          "assetId": "b-testis-compartments-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-male-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "frameId": "b-topic-male-reproductive-structures-the-transport-pathway-walkthrough-frame",
+          "workedExampleId": "b-topic-male-reproductive-structures-the-transport-pathway-worked",
+          "figureTarget": "b-topic-male-reproductive-structures-the-transport-pathway-figure",
+          "assetId": "b-male-tract-vector-v3",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-male-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "frameId": "b-topic-male-reproductive-structures-semen-and-accessory-glands-walkthrough-frame",
+          "workedExampleId": "b-topic-male-reproductive-structures-semen-and-accessory-glands-worked",
+          "figureTarget": "b-topic-male-reproductive-structures-semen-and-accessory-glands-figure",
+          "assetId": "b-semen-contribution-map-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-male-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-male-reproductive-structures",
+          "frameId": "b-topic-male-reproductive-structures-reproductive-development-and-health-walkthrough-frame",
+          "workedExampleId": "b-topic-male-reproductive-structures-reproductive-development-and-health-worked",
+          "figureTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-figure",
+          "assetId": "b-reproductive-signal-targets-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-male-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "frameId": "b-topic-spermatogenesis-gametes-and-chromosome-sets-walkthrough-frame",
+          "workedExampleId": "b-topic-spermatogenesis-gametes-and-chromosome-sets-worked",
+          "figureTarget": "b-topic-spermatogenesis-gametes-and-chromosome-sets-figure",
+          "assetId": "b-chromosome-sets-copies-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-spermatogenesis-media"
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "frameId": "b-topic-spermatogenesis-division-and-differentiation-walkthrough-frame",
+          "workedExampleId": "b-topic-spermatogenesis-division-and-differentiation-worked",
+          "figureTarget": "b-topic-spermatogenesis-division-and-differentiation-figure",
+          "assetId": "b-meiosis-differentiation-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-spermatogenesis-media"
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "frameId": "b-topic-spermatogenesis-hormone-sources-and-targets-walkthrough-frame",
+          "workedExampleId": "b-topic-spermatogenesis-hormone-sources-and-targets-worked",
+          "figureTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-figure",
+          "assetId": "b-hormone-sources-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-spermatogenesis-media"
+        },
+        {
+          "topicId": "b-topic-spermatogenesis",
+          "frameId": "b-topic-spermatogenesis-feedback-and-evidence-walkthrough-frame",
+          "workedExampleId": "b-topic-spermatogenesis-feedback-and-evidence-worked",
+          "figureTarget": "b-topic-spermatogenesis-feedback-and-evidence-figure",
+          "assetId": "b-feedback-pathways-v3",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-spermatogenesis-media"
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "frameId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-walkthrough-frame",
+          "workedExampleId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-worked",
+          "figureTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+          "assetId": "b-ovarian-follicle-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-female-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "frameId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-walkthrough-frame",
+          "workedExampleId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-worked",
+          "figureTarget": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-figure",
+          "assetId": "b-female-tract-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-female-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "frameId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-walkthrough-frame",
+          "workedExampleId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-worked",
+          "figureTarget": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure",
+          "assetId": "b-oocyte-pauses-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-female-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-female-reproductive-structures",
+          "frameId": "b-topic-female-reproductive-structures-structure-and-reproductive-function-walkthrough-frame",
+          "workedExampleId": "b-topic-female-reproductive-structures-structure-and-reproductive-function-worked",
+          "figureTarget": "b-topic-female-reproductive-structures-structure-and-reproductive-function-figure",
+          "assetId": "b-production-transport-case-comparison-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-female-reproductive-structures-media"
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "frameId": "b-topic-menstrual-cycle-two-coordinated-cycles-walkthrough-frame",
+          "workedExampleId": "b-topic-menstrual-cycle-two-coordinated-cycles-worked",
+          "figureTarget": "b-topic-menstrual-cycle-two-coordinated-cycles-figure",
+          "assetId": "b-coordinated-cycles-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-menstrual-cycle-media"
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "frameId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-walkthrough-frame",
+          "workedExampleId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-worked",
+          "figureTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure",
+          "assetId": "b-context-feedback-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-menstrual-cycle-media"
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "frameId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-walkthrough-frame",
+          "workedExampleId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-worked",
+          "figureTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure",
+          "assetId": "b-luteal-withdrawal-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-menstrual-cycle-media"
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "frameId": "b-topic-menstrual-cycle-graphs-and-cycle-variation-walkthrough-frame",
+          "workedExampleId": "b-topic-menstrual-cycle-graphs-and-cycle-variation-worked",
+          "figureTarget": "b-topic-menstrual-cycle-graphs-and-cycle-variation-figure",
+          "assetId": "b-sparse-sampling-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-menstrual-cycle-media"
+        },
+        {
+          "topicId": "b-topic-menstrual-cycle",
+          "frameId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-walkthrough-frame",
+          "workedExampleId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-worked",
+          "figureTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-figure",
+          "assetId": "b-hormonal-methods-and-perspectives-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-menstrual-cycle-media"
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "frameId": "b-topic-fertilization-to-implantation-gametes-meet-walkthrough-frame",
+          "workedExampleId": "b-topic-fertilization-to-implantation-gametes-meet-worked",
+          "figureTarget": "b-topic-fertilization-to-implantation-gametes-meet-figure",
+          "assetId": "b-fertilization-interactions-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-fertilization-to-implantation-media"
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "frameId": "b-topic-fertilization-to-implantation-combining-chromosome-sets-walkthrough-frame",
+          "workedExampleId": "b-topic-fertilization-to-implantation-combining-chromosome-sets-worked",
+          "figureTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-figure",
+          "assetId": "b-pronuclei-and-ploidy-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-fertilization-to-implantation-media"
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "frameId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-walkthrough-frame",
+          "workedExampleId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-worked",
+          "figureTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-figure",
+          "assetId": "b-cleavage-organization-v3",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-fertilization-to-implantation-media"
+        },
+        {
+          "topicId": "b-topic-fertilization-to-implantation",
+          "frameId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-walkthrough-frame",
+          "workedExampleId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-worked",
+          "figureTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-figure",
+          "assetId": "b-ivf-location-and-denominator-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-fertilization-to-implantation-media"
+        },
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "frameId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-walkthrough-frame",
+          "workedExampleId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-worked",
+          "figureTarget": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-figure",
+          "assetId": "b-hcg-source-target-transition-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-hcg-and-gastrulation-media"
+        },
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "frameId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-walkthrough-frame",
+          "workedExampleId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-worked",
+          "figureTarget": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-figure",
+          "assetId": "b-human-trilaminar-disc-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-hcg-and-gastrulation-media"
+        },
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "frameId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-walkthrough-frame",
+          "workedExampleId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-worked",
+          "figureTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-figure",
+          "assetId": "b-germ-layer-tissue-map-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-hcg-and-gastrulation-media"
+        },
+        {
+          "topicId": "b-topic-hcg-and-gastrulation",
+          "frameId": "b-topic-hcg-and-gastrulation-developmental-evidence-walkthrough-frame",
+          "workedExampleId": "b-topic-hcg-and-gastrulation-developmental-evidence-worked",
+          "figureTarget": "b-topic-hcg-and-gastrulation-developmental-evidence-figure",
+          "assetId": "b-developmental-evidence-timing-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-hcg-and-gastrulation-media"
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "frameId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-walkthrough-frame",
+          "workedExampleId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-worked",
+          "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-figure",
+          "assetId": "b-extraembryonic-membranes-chatgpt-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-extraembryonic-structures-and-organogenesis-media"
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "frameId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-walkthrough-frame",
+          "workedExampleId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-worked",
+          "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-figure",
+          "assetId": "b-placental-circulation-source-15-11a",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-extraembryonic-structures-and-organogenesis-media"
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "frameId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-walkthrough-frame",
+          "workedExampleId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-worked",
+          "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-figure",
+          "assetId": "b-developmental-clocks-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-extraembryonic-structures-and-organogenesis-media"
+        },
+        {
+          "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+          "frameId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-walkthrough-frame",
+          "workedExampleId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-worked",
+          "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-figure",
+          "assetId": "b-exposure-confounding-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-extraembryonic-structures-and-organogenesis-media"
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "frameId": "b-topic-parturition-labour-and-positive-feedback-walkthrough-frame",
+          "workedExampleId": "b-topic-parturition-labour-and-positive-feedback-worked",
+          "figureTarget": "b-topic-parturition-labour-and-positive-feedback-figure",
+          "assetId": "b-labour-loop-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-parturition-media"
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "frameId": "b-topic-parturition-birth-and-the-transition-walkthrough-frame",
+          "workedExampleId": "b-topic-parturition-birth-and-the-transition-worked",
+          "figureTarget": "b-topic-parturition-birth-and-the-transition-figure",
+          "assetId": "b-birth-exchange-transition-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-parturition-media"
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "frameId": "b-topic-parturition-milk-synthesis-and-release-walkthrough-frame",
+          "workedExampleId": "b-topic-parturition-milk-synthesis-and-release-worked",
+          "figureTarget": "b-topic-parturition-milk-synthesis-and-release-figure",
+          "assetId": "b-lactation-pathways-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-parturition-media"
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "frameId": "b-topic-parturition-technologies-infertility-and-perspectives-walkthrough-frame",
+          "workedExampleId": "b-topic-parturition-technologies-infertility-and-perspectives-worked",
+          "figureTarget": "b-topic-parturition-technologies-infertility-and-perspectives-figure",
+          "assetId": "b-technology-step-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-parturition-media"
+        },
+        {
+          "topicId": "b-topic-parturition",
+          "frameId": "b-topic-parturition-investigating-and-communicating-a-claim-walkthrough-frame",
+          "workedExampleId": "b-topic-parturition-investigating-and-communicating-a-claim-worked",
+          "figureTarget": "b-topic-parturition-investigating-and-communicating-a-claim-figure",
+          "assetId": "b-developmental-study-design-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "b-topic-parturition-media"
+        }
+      ],
+      "optionalCorrectedSlides": [],
+      "inputsSha256": {
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-media-dispositions.json": "ce9841b197e886fe80de3936d1fce15cd215b9d49270b6c7df3d632ce2920ed0",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-slide-dispositions.json": "c980f167cc04de2258e1df409a68e21d61abe28ed081b6902c15a2b957b893c9",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-plan-dispositions.json": "d3946cbbf98577acb0d2cc7a989cf4365b7b557eabf3b8f4718efcc69d2cc6b6",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json": "df697152e465cf01aea39f97be4c40a22f52a7340d4b8e2b82e9fdf02f25df6d",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84"
+      }
+    },
+    "C": {
+      "beforeSha256": {
+        "media-dispositions": "6d1191084a4a9bbb9c9d8de53f64cdc8468544d2c5b2cd0ee995021a12dbc948",
+        "slide-dispositions": "eab2e41740f9e9158dbccf6ed8d10b640d9e3731da51aa90b0bd5ab90b10c904",
+        "plan-dispositions": "e5a175637cce7f92ddd7cd80936b479aef8b06b2a1a663b5e19c7c9ec41b0ebf",
+        "link-dispositions": "d09ec8739f7beefbdea3cf504ea654247b98a70bbd9d802c929b8d915ec815a4"
+      },
+      "slides": 254,
+      "embeddedMedia": 284,
+      "planRows": 24,
+      "linkRelationships": 134,
+      "youtubeCandidates": 48,
+      "selectedExternalClips": 0,
+      "localPaths": [
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "frameId": "c-topic-chromosomes-and-dna-dna-packaging-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosomes-and-dna-dna-packaging-worked",
+          "figureTarget": "c-topic-chromosomes-and-dna-dna-packaging-figure",
+          "assetId": "c-dna-packaging-levels-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosomes-and-dna-media"
+        },
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "frameId": "c-topic-chromosomes-and-dna-sets-and-copies-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosomes-and-dna-sets-and-copies-worked",
+          "figureTarget": "c-topic-chromosomes-and-dna-sets-and-copies-figure",
+          "assetId": "b-chromosome-sets-copies-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosomes-and-dna-media"
+        },
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "frameId": "c-topic-chromosomes-and-dna-reading-karyotypes-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosomes-and-dna-reading-karyotypes-worked",
+          "figureTarget": "c-topic-chromosomes-and-dna-reading-karyotypes-figure",
+          "assetId": "c-karyotype-count-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosomes-and-dna-media"
+        },
+        {
+          "topicId": "c-topic-the-cell-cycle",
+          "frameId": "c-topic-the-cell-cycle-interphase-walkthrough-frame",
+          "workedExampleId": "c-topic-the-cell-cycle-interphase-worked",
+          "figureTarget": "c-topic-the-cell-cycle-interphase-figure",
+          "assetId": "c-interphase-count-trajectory-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-the-cell-cycle-media"
+        },
+        {
+          "topicId": "c-topic-the-cell-cycle",
+          "frameId": "c-topic-the-cell-cycle-control-and-division-walkthrough-frame",
+          "workedExampleId": "c-topic-the-cell-cycle-control-and-division-worked",
+          "figureTarget": "c-topic-the-cell-cycle-control-and-division-figure",
+          "assetId": "c-checkpoint-evidence-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-the-cell-cycle-media"
+        },
+        {
+          "topicId": "c-topic-the-cell-cycle",
+          "frameId": "c-topic-the-cell-cycle-measuring-cell-populations-walkthrough-frame",
+          "workedExampleId": "c-topic-the-cell-cycle-measuring-cell-populations-worked",
+          "figureTarget": "c-topic-the-cell-cycle-measuring-cell-populations-figure",
+          "assetId": "c-cell-count-denominator-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-the-cell-cycle-media"
+        },
+        {
+          "topicId": "c-topic-mitosis",
+          "frameId": "c-topic-mitosis-preparing-to-separate-walkthrough-frame",
+          "workedExampleId": "c-topic-mitosis-preparing-to-separate-worked",
+          "figureTarget": "c-topic-mitosis-preparing-to-separate-figure",
+          "assetId": "c-mitosis-count-boundaries-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mitosis-media"
+        },
+        {
+          "topicId": "c-topic-mitosis",
+          "frameId": "c-topic-mitosis-separating-copies-walkthrough-frame",
+          "workedExampleId": "c-topic-mitosis-separating-copies-worked",
+          "figureTarget": "c-topic-mitosis-separating-copies-figure",
+          "assetId": "c-mitosis-count-boundaries-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mitosis-media"
+        },
+        {
+          "topicId": "c-topic-mitosis",
+          "frameId": "c-topic-mitosis-finishing-cell-division-walkthrough-frame",
+          "workedExampleId": "c-topic-mitosis-finishing-cell-division-worked",
+          "figureTarget": "c-topic-mitosis-finishing-cell-division-figure",
+          "assetId": "c-cytokinesis-directions-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mitosis-media"
+        },
+        {
+          "topicId": "c-topic-mitosis",
+          "frameId": "c-topic-mitosis-observation-and-simulation-walkthrough-frame",
+          "workedExampleId": "c-topic-mitosis-observation-and-simulation-worked",
+          "figureTarget": "c-topic-mitosis-observation-and-simulation-figure",
+          "assetId": "c-mhr-cell-a",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mitosis-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "frameId": "c-topic-meiosis-part-a-pairing-and-exchange-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-a-pairing-and-exchange-worked",
+          "figureTarget": "c-topic-meiosis-part-a-pairing-and-exchange-figure",
+          "assetId": "c-nonsister-exchange-trace-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-a-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "frameId": "c-topic-meiosis-part-a-first-meiotic-division-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-a-first-meiotic-division-worked",
+          "figureTarget": "c-topic-meiosis-part-a-first-meiotic-division-figure",
+          "assetId": "c-meiotic-count-model-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-a-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "frameId": "c-topic-meiosis-part-a-second-meiotic-division-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-a-second-meiotic-division-worked",
+          "figureTarget": "c-topic-meiosis-part-a-second-meiotic-division-figure",
+          "assetId": "c-meiotic-count-model-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-a-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "frameId": "c-topic-meiosis-part-a-comparing-divisions-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-a-comparing-divisions-worked",
+          "figureTarget": "c-topic-meiosis-part-a-comparing-divisions-figure",
+          "assetId": "c-mitosis-count-boundaries-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-a-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "frameId": "c-topic-meiosis-part-b-gamete-development-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-b-gamete-development-worked",
+          "figureTarget": "c-topic-meiosis-part-b-gamete-development-figure",
+          "assetId": "b-meiosis-differentiation-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-b-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "frameId": "c-topic-meiosis-part-b-sources-of-variation-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-b-sources-of-variation-worked",
+          "figureTarget": "c-topic-meiosis-part-b-sources-of-variation-figure",
+          "assetId": "c-variation-mechanisms-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-b-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "frameId": "c-topic-meiosis-part-b-nondisjunction-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-b-nondisjunction-worked",
+          "figureTarget": "c-topic-meiosis-part-b-nondisjunction-figure",
+          "assetId": "c-nondisjunction-product-trace-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-b-media"
+        },
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "frameId": "c-topic-meiosis-part-b-twins-and-early-development-walkthrough-frame",
+          "workedExampleId": "c-topic-meiosis-part-b-twins-and-early-development-worked",
+          "figureTarget": "c-topic-meiosis-part-b-twins-and-early-development-figure",
+          "assetId": "c-twin-origin-comparison-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-meiosis-part-b-media"
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "frameId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-walkthrough-frame",
+          "workedExampleId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-worked",
+          "figureTarget": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-figure",
+          "assetId": "c-reproductive-mode-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-reproductive-strategies-media"
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "frameId": "c-topic-reproductive-strategies-life-cycle-transitions-walkthrough-frame",
+          "workedExampleId": "c-topic-reproductive-strategies-life-cycle-transitions-worked",
+          "figureTarget": "c-topic-reproductive-strategies-life-cycle-transitions-figure",
+          "assetId": "c-moss-pine-chatgpt-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-reproductive-strategies-media"
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "frameId": "c-topic-reproductive-strategies-animal-strategies-walkthrough-frame",
+          "workedExampleId": "c-topic-reproductive-strategies-animal-strategies-worked",
+          "figureTarget": "c-topic-reproductive-strategies-animal-strategies-figure",
+          "assetId": "c-reproductive-mode-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-reproductive-strategies-media"
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "frameId": "c-topic-reproductive-strategies-evidence-and-applications-walkthrough-frame",
+          "workedExampleId": "c-topic-reproductive-strategies-evidence-and-applications-worked",
+          "figureTarget": "c-topic-reproductive-strategies-evidence-and-applications-figure",
+          "assetId": "c-propagation-comparison-design-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-reproductive-strategies-media"
+        },
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "frameId": "c-topic-genes-alleles-and-traits-inheritance-language-walkthrough-frame",
+          "workedExampleId": "c-topic-genes-alleles-and-traits-inheritance-language-worked",
+          "figureTarget": "c-topic-genes-alleles-and-traits-inheritance-language-figure",
+          "assetId": "c-allele-genotype-phenotype-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genes-alleles-and-traits-media"
+        },
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "frameId": "c-topic-genes-alleles-and-traits-trait-expression-walkthrough-frame",
+          "workedExampleId": "c-topic-genes-alleles-and-traits-trait-expression-worked",
+          "figureTarget": "c-topic-genes-alleles-and-traits-trait-expression-figure",
+          "assetId": "c-allele-genotype-phenotype-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genes-alleles-and-traits-media"
+        },
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "frameId": "c-topic-genes-alleles-and-traits-genes-and-environment-walkthrough-frame",
+          "workedExampleId": "c-topic-genes-alleles-and-traits-genes-and-environment-worked",
+          "figureTarget": "c-topic-genes-alleles-and-traits-genes-and-environment-figure",
+          "assetId": "c-trait-distribution-models-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genes-alleles-and-traits-media"
+        },
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "frameId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-walkthrough-frame",
+          "workedExampleId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-worked",
+          "figureTarget": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-figure",
+          "assetId": "c-cross-evidence-counts-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mendelian-genetics-media"
+        },
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "frameId": "c-topic-mendelian-genetics-segregation-walkthrough-frame",
+          "workedExampleId": "c-topic-mendelian-genetics-segregation-worked",
+          "figureTarget": "c-topic-mendelian-genetics-segregation-figure",
+          "assetId": "c-allele-genotype-phenotype-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mendelian-genetics-media"
+        },
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "frameId": "c-topic-mendelian-genetics-inheritance-modes-and-notation-walkthrough-frame",
+          "workedExampleId": "c-topic-mendelian-genetics-inheritance-modes-and-notation-worked",
+          "figureTarget": "c-topic-mendelian-genetics-inheritance-modes-and-notation-figure",
+          "assetId": "c-testcross-alternative-models-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mendelian-genetics-media"
+        },
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "frameId": "c-topic-mendelian-genetics-probability-and-test-crosses-walkthrough-frame",
+          "workedExampleId": "c-topic-mendelian-genetics-probability-and-test-crosses-worked",
+          "figureTarget": "c-topic-mendelian-genetics-probability-and-test-crosses-figure",
+          "assetId": "c-testcross-alternative-models-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mendelian-genetics-media"
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "frameId": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-walkthrough-frame",
+          "workedExampleId": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-worked",
+          "figureTarget": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-figure",
+          "assetId": "c-monohybrid-gamete-square-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-single-and-two-trait-crosses-media"
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "frameId": "c-topic-single-and-two-trait-crosses-probability-rules-walkthrough-frame",
+          "workedExampleId": "c-topic-single-and-two-trait-crosses-probability-rules-worked",
+          "figureTarget": "c-topic-single-and-two-trait-crosses-probability-rules-figure",
+          "assetId": "c-probability-comparison-set-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-single-and-two-trait-crosses-media"
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "frameId": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-walkthrough-frame",
+          "workedExampleId": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-worked",
+          "figureTarget": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-figure",
+          "assetId": "c-dihybrid-gamete-square-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-single-and-two-trait-crosses-media"
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "frameId": "c-topic-single-and-two-trait-crosses-testing-a-model-walkthrough-frame",
+          "workedExampleId": "c-topic-single-and-two-trait-crosses-testing-a-model-worked",
+          "figureTarget": "c-topic-single-and-two-trait-crosses-testing-a-model-figure",
+          "assetId": "c-cross-evidence-counts-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-single-and-two-trait-crosses-media"
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "frameId": "c-topic-other-modes-of-inheritance-incomplete-dominance-walkthrough-frame",
+          "workedExampleId": "c-topic-other-modes-of-inheritance-incomplete-dominance-worked",
+          "figureTarget": "c-topic-other-modes-of-inheritance-incomplete-dominance-figure",
+          "assetId": "c-expression-model-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-other-modes-of-inheritance-media"
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "frameId": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-walkthrough-frame",
+          "workedExampleId": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-worked",
+          "figureTarget": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-figure",
+          "assetId": "c-abo-gamete-square-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-other-modes-of-inheritance-media"
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "frameId": "c-topic-other-modes-of-inheritance-sex-linkage-walkthrough-frame",
+          "workedExampleId": "c-topic-other-modes-of-inheritance-sex-linkage-worked",
+          "figureTarget": "c-topic-other-modes-of-inheritance-sex-linkage-figure",
+          "assetId": "c-x-linked-reciprocal-cross-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-other-modes-of-inheritance-media"
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "frameId": "c-topic-other-modes-of-inheritance-many-genes-and-environment-walkthrough-frame",
+          "workedExampleId": "c-topic-other-modes-of-inheritance-many-genes-and-environment-worked",
+          "figureTarget": "c-topic-other-modes-of-inheritance-many-genes-and-environment-figure",
+          "assetId": "c-trait-distribution-models-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-other-modes-of-inheritance-media"
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "frameId": "c-topic-other-modes-of-inheritance-comparing-model-predictions-walkthrough-frame",
+          "workedExampleId": "c-topic-other-modes-of-inheritance-comparing-model-predictions-worked",
+          "figureTarget": "c-topic-other-modes-of-inheritance-comparing-model-predictions-figure",
+          "assetId": "c-expression-model-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-other-modes-of-inheritance-media"
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "frameId": "c-topic-pedigrees-symbols-and-evidence-walkthrough-frame",
+          "workedExampleId": "c-topic-pedigrees-symbols-and-evidence-worked",
+          "figureTarget": "c-topic-pedigrees-symbols-and-evidence-figure",
+          "assetId": "c-pedigree-observation-and-inference-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-pedigrees-media"
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "frameId": "c-topic-pedigrees-autosomal-hypotheses-walkthrough-frame",
+          "workedExampleId": "c-topic-pedigrees-autosomal-hypotheses-worked",
+          "figureTarget": "c-topic-pedigrees-autosomal-hypotheses-figure",
+          "assetId": "c-pedigree-observation-and-inference-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-pedigrees-media"
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "frameId": "c-topic-pedigrees-sex-linked-hypotheses-walkthrough-frame",
+          "workedExampleId": "c-topic-pedigrees-sex-linked-hypotheses-worked",
+          "figureTarget": "c-topic-pedigrees-sex-linked-hypotheses-figure",
+          "assetId": "c-paternal-son-x-linked-alternative-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-pedigrees-media"
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "frameId": "c-topic-pedigrees-risk-and-information-walkthrough-frame",
+          "workedExampleId": "c-topic-pedigrees-risk-and-information-worked",
+          "figureTarget": "c-topic-pedigrees-risk-and-information-figure",
+          "assetId": "c-pedigree-observation-and-inference-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-pedigrees-media"
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "frameId": "c-topic-chromosome-mapping-linkage-and-recombination-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosome-mapping-linkage-and-recombination-worked",
+          "figureTarget": "c-topic-chromosome-mapping-linkage-and-recombination-figure",
+          "assetId": "c-linkage-phase-and-fraction-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosome-mapping-media"
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "frameId": "c-topic-chromosome-mapping-recombination-frequency-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosome-mapping-recombination-frequency-worked",
+          "figureTarget": "c-topic-chromosome-mapping-recombination-frequency-figure",
+          "assetId": "c-linkage-phase-and-fraction-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosome-mapping-media"
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "frameId": "c-topic-chromosome-mapping-gene-order-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosome-mapping-gene-order-worked",
+          "figureTarget": "c-topic-chromosome-mapping-gene-order-figure",
+          "assetId": "c-marker-order-and-limits-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosome-mapping-media"
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "frameId": "c-topic-chromosome-mapping-limits-of-linkage-estimates-walkthrough-frame",
+          "workedExampleId": "c-topic-chromosome-mapping-limits-of-linkage-estimates-worked",
+          "figureTarget": "c-topic-chromosome-mapping-limits-of-linkage-estimates-figure",
+          "assetId": "c-marker-order-and-limits-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-chromosome-mapping-media"
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "frameId": "c-topic-dna-and-its-history-evidence-for-hereditary-material-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-and-its-history-evidence-for-hereditary-material-worked",
+          "figureTarget": "c-topic-dna-and-its-history-evidence-for-hereditary-material-figure",
+          "assetId": "c-dna-evidence-constraints-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-and-its-history-media"
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "frameId": "c-topic-dna-and-its-history-nucleotides-and-direction-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-and-its-history-nucleotides-and-direction-worked",
+          "figureTarget": "c-topic-dna-and-its-history-nucleotides-and-direction-figure",
+          "assetId": "c-nucleotide-antiparallel-topology-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-and-its-history-media"
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "frameId": "c-topic-dna-and-its-history-structural-evidence-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-and-its-history-structural-evidence-worked",
+          "figureTarget": "c-topic-dna-and-its-history-structural-evidence-figure",
+          "assetId": "c-dna-evidence-constraints-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-and-its-history-media"
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "frameId": "c-topic-dna-and-its-history-the-double-helix-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-and-its-history-the-double-helix-worked",
+          "figureTarget": "c-topic-dna-and-its-history-the-double-helix-figure",
+          "assetId": "c-nucleotide-antiparallel-topology-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-and-its-history-media"
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "frameId": "c-topic-dna-replication-semiconservative-replication-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-replication-semiconservative-replication-worked",
+          "figureTarget": "c-topic-dna-replication-semiconservative-replication-figure",
+          "assetId": "c-semiconservative-strand-lineage-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-replication-media"
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "frameId": "c-topic-dna-replication-enzymes-and-direction-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-replication-enzymes-and-direction-worked",
+          "figureTarget": "c-topic-dna-replication-enzymes-and-direction-figure",
+          "assetId": "c-replication-fork-directions-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-replication-media"
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "frameId": "c-topic-dna-replication-leading-and-lagging-synthesis-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-replication-leading-and-lagging-synthesis-worked",
+          "figureTarget": "c-topic-dna-replication-leading-and-lagging-synthesis-figure",
+          "assetId": "c-replication-fork-directions-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-replication-media"
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "frameId": "c-topic-dna-replication-replication-evidence-walkthrough-frame",
+          "workedExampleId": "c-topic-dna-replication-replication-evidence-worked",
+          "figureTarget": "c-topic-dna-replication-replication-evidence-figure",
+          "assetId": "c-semiconservative-strand-lineage-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-dna-replication-media"
+        },
+        {
+          "topicId": "c-topic-transcription",
+          "frameId": "c-topic-transcription-selecting-a-template-walkthrough-frame",
+          "workedExampleId": "c-topic-transcription-selecting-a-template-worked",
+          "figureTarget": "c-topic-transcription-selecting-a-template-figure",
+          "assetId": "c-oriented-transcription-sequences-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-transcription-media"
+        },
+        {
+          "topicId": "c-topic-transcription",
+          "frameId": "c-topic-transcription-making-rna-walkthrough-frame",
+          "workedExampleId": "c-topic-transcription-making-rna-worked",
+          "figureTarget": "c-topic-transcription-making-rna-figure",
+          "assetId": "c-oriented-transcription-sequences-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-transcription-media"
+        },
+        {
+          "topicId": "c-topic-transcription",
+          "frameId": "c-topic-transcription-processing-and-expression-walkthrough-frame",
+          "workedExampleId": "c-topic-transcription-processing-and-expression-worked",
+          "figureTarget": "c-topic-transcription-processing-and-expression-figure",
+          "assetId": "c-eukaryotic-expression-chatgpt-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-transcription-media"
+        },
+        {
+          "topicId": "c-topic-transcription",
+          "frameId": "c-topic-transcription-checking-a-sequence-claim-walkthrough-frame",
+          "workedExampleId": "c-topic-transcription-checking-a-sequence-claim-worked",
+          "figureTarget": "c-topic-transcription-checking-a-sequence-claim-figure",
+          "assetId": "c-oriented-transcription-sequences-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-transcription-media"
+        },
+        {
+          "topicId": "c-topic-translation",
+          "frameId": "c-topic-translation-reading-the-genetic-code-walkthrough-frame",
+          "workedExampleId": "c-topic-translation-reading-the-genetic-code-worked",
+          "figureTarget": "c-topic-translation-reading-the-genetic-code-figure",
+          "assetId": "c-standard-rna-codon-table-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-translation-media"
+        },
+        {
+          "topicId": "c-topic-translation",
+          "frameId": "c-topic-translation-adaptors-and-peptide-bonds-walkthrough-frame",
+          "workedExampleId": "c-topic-translation-adaptors-and-peptide-bonds-worked",
+          "figureTarget": "c-topic-translation-adaptors-and-peptide-bonds-figure",
+          "assetId": "c-codon-anticodon-translation-cycle-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-translation-media"
+        },
+        {
+          "topicId": "c-topic-translation",
+          "frameId": "c-topic-translation-initiation-to-termination-walkthrough-frame",
+          "workedExampleId": "c-topic-translation-initiation-to-termination-worked",
+          "figureTarget": "c-topic-translation-initiation-to-termination-figure",
+          "assetId": "c-codon-anticodon-translation-cycle-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-translation-media"
+        },
+        {
+          "topicId": "c-topic-translation",
+          "frameId": "c-topic-translation-from-sequence-to-function-walkthrough-frame",
+          "workedExampleId": "c-topic-translation-from-sequence-to-function-worked",
+          "figureTarget": "c-topic-translation-from-sequence-to-function-figure",
+          "assetId": "c-sequence-to-function-evidence-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-translation-media"
+        },
+        {
+          "topicId": "c-topic-mutations",
+          "frameId": "c-topic-mutations-types-of-sequence-change-walkthrough-frame",
+          "workedExampleId": "c-topic-mutations-types-of-sequence-change-worked",
+          "figureTarget": "c-topic-mutations-types-of-sequence-change-figure",
+          "assetId": "c-mutation-sequence-alignment-v3",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mutations-media"
+        },
+        {
+          "topicId": "c-topic-mutations",
+          "frameId": "c-topic-mutations-effects-on-gene-products-walkthrough-frame",
+          "workedExampleId": "c-topic-mutations-effects-on-gene-products-worked",
+          "figureTarget": "c-topic-mutations-effects-on-gene-products-figure",
+          "assetId": "c-mutation-sequence-alignment-v3",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mutations-media"
+        },
+        {
+          "topicId": "c-topic-mutations",
+          "frameId": "c-topic-mutations-inheritance-and-variation-walkthrough-frame",
+          "workedExampleId": "c-topic-mutations-inheritance-and-variation-worked",
+          "figureTarget": "c-topic-mutations-inheritance-and-variation-figure",
+          "assetId": "c-mutation-lineage-and-evidence-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mutations-media"
+        },
+        {
+          "topicId": "c-topic-mutations",
+          "frameId": "c-topic-mutations-evaluating-mutation-evidence-walkthrough-frame",
+          "workedExampleId": "c-topic-mutations-evaluating-mutation-evidence-worked",
+          "figureTarget": "c-topic-mutations-evaluating-mutation-evidence-figure",
+          "assetId": "c-mutation-evidence-levels-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-mutations-media"
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "frameId": "c-topic-genetic-technologies-cutting-and-joining-dna-walkthrough-frame",
+          "workedExampleId": "c-topic-genetic-technologies-cutting-and-joining-dna-worked",
+          "figureTarget": "c-topic-genetic-technologies-cutting-and-joining-dna-figure",
+          "assetId": "c-restriction-cuts-and-joining-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genetic-technologies-media"
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "frameId": "c-topic-genetic-technologies-transforming-cells-walkthrough-frame",
+          "workedExampleId": "c-topic-genetic-technologies-transforming-cells-worked",
+          "figureTarget": "c-topic-genetic-technologies-transforming-cells-figure",
+          "assetId": "c-recombinant-workflow-checkpoints-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genetic-technologies-media"
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "frameId": "c-topic-genetic-technologies-amplifying-and-separating-walkthrough-frame",
+          "workedExampleId": "c-topic-genetic-technologies-amplifying-and-separating-worked",
+          "figureTarget": "c-topic-genetic-technologies-amplifying-and-separating-figure",
+          "assetId": "c-gel-size-and-resolution-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genetic-technologies-media"
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "frameId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-walkthrough-frame",
+          "workedExampleId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+          "figureTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+          "assetId": "c-sequence-sampling-and-identity-limits-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genetic-technologies-media"
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "frameId": "c-topic-genetic-technologies-applications-and-uncertainty-walkthrough-frame",
+          "workedExampleId": "c-topic-genetic-technologies-applications-and-uncertainty-worked",
+          "figureTarget": "c-topic-genetic-technologies-applications-and-uncertainty-figure",
+          "assetId": "c-sequence-sampling-and-identity-limits-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "c-topic-genetic-technologies-media"
+        }
+      ],
+      "optionalCorrectedSlides": [
+        "deck-16-slide-033",
+        "deck-16-slide-034",
+        "deck-16-slide-035",
+        "deck-16-slide-036",
+        "deck-16-slide-037",
+        "deck-17-slide-065",
+        "deck-17-slide-092",
+        "deck-17-slide-093"
+      ],
+      "inputsSha256": {
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-media-dispositions.json": "c055465a9f5e592b0939652ec5be56e3f3c00800081d2a37d12d24b5bb94be06",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json": "9f9b229983416d6eb3ad33741f8094531727181e6418a650f8a16eac4e8111dd",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-plan-dispositions.json": "143f0cc38cb11d7d9943c2e730e540e5722a50b879a0b80758bf056e9e3a4d11",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json": "ea47645c2804a419febd19fc3bf27e00c6eddcfa30323964f557a519612fccf0",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json": "d00300a4ea11836fa2f215b811faa6e3dcc0dbb0dd93b95141627fd2d47e3c20"
+      }
+    },
+    "D": {
+      "beforeSha256": {
+        "media-dispositions": "896f2a83a74c6c5953d8e111aae4e7bbca67b4dcfa4fb4a1dfbf8222ce5d09ed",
+        "slide-dispositions": "66f36252891984c74f420187dfff38ec577c885e99eefc602060c827e8074daa",
+        "plan-dispositions": "18b1e3e56952018100e1c0994ec6dd204c47679f8f5c02c017eb472ea693d0a7",
+        "link-dispositions": "4c73291c73113acc08e2c5704c5f685e270b2730f61118f92e76029f81049cc4"
+      },
+      "slides": 68,
+      "embeddedMedia": 88,
+      "planRows": 8,
+      "linkRelationships": 39,
+      "youtubeCandidates": 15,
+      "selectedExternalClips": 0,
+      "localPaths": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "frameId": "d-topic-hardy-weinberg-populations-and-allele-counts-walkthrough-frame",
+          "workedExampleId": "d-topic-hardy-weinberg-populations-and-allele-counts-worked",
+          "figureTarget": "d-topic-hardy-weinberg-populations-and-allele-counts-figure",
+          "assetId": "d-allele-counts-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-hardy-weinberg-media"
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "frameId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-walkthrough-frame",
+          "workedExampleId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-worked",
+          "figureTarget": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-figure",
+          "assetId": "d-weighted-genotype-grid-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-hardy-weinberg-media"
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "frameId": "d-topic-hardy-weinberg-equilibrium-assumptions-walkthrough-frame",
+          "workedExampleId": "d-topic-hardy-weinberg-equilibrium-assumptions-worked",
+          "figureTarget": "d-topic-hardy-weinberg-equilibrium-assumptions-figure",
+          "assetId": "d-equilibrium-assumptions-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-hardy-weinberg-media"
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "frameId": "d-topic-hardy-weinberg-solving-and-checking-walkthrough-frame",
+          "workedExampleId": "d-topic-hardy-weinberg-solving-and-checking-worked",
+          "figureTarget": "d-topic-hardy-weinberg-solving-and-checking-figure",
+          "assetId": "d-phenotype-to-frequency-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-hardy-weinberg-media"
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "frameId": "d-topic-hardy-weinberg-a-model-and-its-limits-walkthrough-frame",
+          "workedExampleId": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+          "figureTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+          "assetId": "d-observed-expected-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-hardy-weinberg-media"
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "frameId": "d-topic-mechanisms-of-change-mutation-and-selection-walkthrough-frame",
+          "workedExampleId": "d-topic-mechanisms-of-change-mutation-and-selection-worked",
+          "figureTarget": "d-topic-mechanisms-of-change-mutation-and-selection-figure",
+          "assetId": "d-variant-selection-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-mechanisms-of-change-media"
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "frameId": "d-topic-mechanisms-of-change-chance-and-population-size-walkthrough-frame",
+          "workedExampleId": "d-topic-mechanisms-of-change-chance-and-population-size-worked",
+          "figureTarget": "d-topic-mechanisms-of-change-chance-and-population-size-figure",
+          "assetId": "d-drift-histories-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-mechanisms-of-change-media"
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "frameId": "d-topic-mechanisms-of-change-movement-and-mating-walkthrough-frame",
+          "workedExampleId": "d-topic-mechanisms-of-change-movement-and-mating-worked",
+          "figureTarget": "d-topic-mechanisms-of-change-movement-and-mating-figure",
+          "assetId": "d-gene-flow-pairing-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-mechanisms-of-change-media"
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "frameId": "d-topic-mechanisms-of-change-resistance-and-evidence-walkthrough-frame",
+          "workedExampleId": "d-topic-mechanisms-of-change-resistance-and-evidence-worked",
+          "figureTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-figure",
+          "assetId": "d-resistance-evidence-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-mechanisms-of-change-media"
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "frameId": "d-topic-mechanisms-of-change-testing-explanations-walkthrough-frame",
+          "workedExampleId": "d-topic-mechanisms-of-change-testing-explanations-worked",
+          "figureTarget": "d-topic-mechanisms-of-change-testing-explanations-figure",
+          "assetId": "d-frequency-evidence-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-mechanisms-of-change-media"
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "frameId": "d-topic-population-growth-size-and-density-walkthrough-frame",
+          "workedExampleId": "d-topic-population-growth-size-and-density-worked",
+          "figureTarget": "d-topic-population-growth-size-and-density-figure",
+          "assetId": "d-density-distribution-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-population-growth-media"
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "frameId": "d-topic-population-growth-sampling-populations-walkthrough-frame",
+          "workedExampleId": "d-topic-population-growth-sampling-populations-worked",
+          "figureTarget": "d-topic-population-growth-sampling-populations-figure",
+          "assetId": "d-population-sampling-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-population-growth-media"
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "frameId": "d-topic-population-growth-four-demographic-processes-walkthrough-frame",
+          "workedExampleId": "d-topic-population-growth-four-demographic-processes-worked",
+          "figureTarget": "d-topic-population-growth-four-demographic-processes-figure",
+          "assetId": "d-demographic-processes-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-population-growth-media"
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "frameId": "d-topic-population-growth-rates-and-denominators-walkthrough-frame",
+          "workedExampleId": "d-topic-population-growth-rates-and-denominators-worked",
+          "figureTarget": "d-topic-population-growth-rates-and-denominators-figure",
+          "assetId": "d-rate-denominators-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-population-growth-media"
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "frameId": "d-topic-population-growth-exponential-and-logistic-models-walkthrough-frame",
+          "workedExampleId": "d-topic-population-growth-exponential-and-logistic-models-worked",
+          "figureTarget": "d-topic-population-growth-exponential-and-logistic-models-figure",
+          "assetId": "d-growth-model-shapes-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-population-growth-media"
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "frameId": "d-topic-population-growth-feedback-and-changing-limits-walkthrough-frame",
+          "workedExampleId": "d-topic-population-growth-feedback-and-changing-limits-worked",
+          "figureTarget": "d-topic-population-growth-feedback-and-changing-limits-figure",
+          "assetId": "d-changing-capacity-v2",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-population-growth-media"
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "frameId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-walkthrough-frame",
+          "workedExampleId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-worked",
+          "figureTarget": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-figure",
+          "assetId": "d-life-history-traits-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-life-strategies-and-ecological-relationships-media"
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "frameId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-walkthrough-frame",
+          "workedExampleId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-worked",
+          "figureTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-figure",
+          "assetId": "d-interaction-effects-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-life-strategies-and-ecological-relationships-media"
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "frameId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-walkthrough-frame",
+          "workedExampleId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "figureTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "assetId": "d-competition-comparison-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-life-strategies-and-ecological-relationships-media"
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "frameId": "d-topic-life-strategies-and-ecological-relationships-population-cycles-walkthrough-frame",
+          "workedExampleId": "d-topic-life-strategies-and-ecological-relationships-population-cycles-worked",
+          "figureTarget": "d-topic-life-strategies-and-ecological-relationships-population-cycles-figure",
+          "assetId": "d-population-cycle-evidence-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-life-strategies-and-ecological-relationships-media"
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "frameId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-walkthrough-frame",
+          "workedExampleId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-worked",
+          "figureTarget": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-figure",
+          "assetId": "d-succession-pathways-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-life-strategies-and-ecological-relationships-media"
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "frameId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-walkthrough-frame",
+          "workedExampleId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-worked",
+          "figureTarget": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-figure",
+          "assetId": "d-ecological-study-design-v1",
+          "equivalence": "scenario, ordered steps and conclusion byte-equivalent as parsed strings to reviewed worked example; exact reviewed figure bound",
+          "checkpointId": "d-topic-life-strategies-and-ecological-relationships-media"
+        }
+      ],
+      "optionalCorrectedSlides": [],
+      "inputsSha256": {
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-media-dispositions.json": "f01ac028c05f61cb1224ccbdd1d76c0154b6ceae5699ca8d1cda425af6b074e7",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-slide-dispositions.json": "9d8b2967791863e0afa1f9489a7285e0effac1a602c4afd981b9c20b869c1098",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-plan-dispositions.json": "edbd45896b9c3f0b0700f3db3e3c13f8e22c010cb13d61243f044324ff7c8b24",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json": "b963997fd58ccc0bde0d82f53a36057c9174bd9ceb6178a0818e7cd33845911b",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1"
+      }
+    }
+  }
+}

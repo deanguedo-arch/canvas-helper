@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "unit": "C",
+  "status": "author-reviewed-provisional",
+  "teacherDecision": null,
+  "checkedAt": "2026-09-07T13:09:20.814268+00:00",
+  "scope": "Thirteen teaching targets with eleven new original SVG assets and one existing C meiosis model reused.",
+  "canonicalTeaching": {
+    "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+    "sha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f"
+  },
+  "sourceReview": {
+    "chapter16RelevantText": "Targeted cell-cycle, mitosis, crossing-over, assortment, nondisjunction and twin source text compared with all13 current core parts. Original source survey was already complete; no repeat survey claimed.",
+    "newNativeImages": [
+      "e4acd06e73587733a1a7520f936a55d710749c298c2a5c0963a599d6a3531ad5.jpg",
+      "ba098707e8202679ed8e8da9d24e9a669f457d2146dee52ebe3d23a1e6d66d2b.png",
+      "50121b627353802ecee51d2d1c10c00ad787fa95f3d739f3b9b98816c1456bbe.png",
+      "8301f4b51f5aa9fa39ae2fc97a39048c2300ac087971e8a4cf352f4d20d37c1e.png",
+      "c51b708327310c1e90021fa2246477309a0f6ff9d194b64d6df7563297e498e9.png",
+      "4383eed996315d2c1db0c3c0fd980dd011b33825fdea6080ac0379c7447ee9ee.jpg"
+    ],
+    "sourceClaimsNotTransferred": [
+      "Chromosomes do not only exist when condensed.",
+      "Typical count displays do not exhaust phenotype or sex-chromosome variation.",
+      "No invariant90% interphase duration or diagnosis from a mitotic index.",
+      "Mitosis does not guarantee exact sequence identity.",
+      "Twins are not an accidental mitosis or universally identical after development.",
+      "No sticky-centromere mechanism or unsupported clinical age-risk curve.",
+      "No erroneous source arithmetic for human fertilization combinations."
+    ]
+  },
+  "nativeReview": "All eleven final selected SVGs inspected; no text outside1200×900 in fresh-page native capture. DNA v2 uses continuous strands and a clear unduplicated chromosome; mitosis v2 separates captions; twin v2 moves fertilization labels before zygotes and away from arrows; nondisjunction v2 corrects singular wording.",
+  "comparisonProcess": "Thirteen side-by-side authoring gallery sections prepared from inspected source/prior assets. No claim of a new ChatGPT raster generation or separate inspection of every gallery section.",
+  "assets": [
+    {
+      "id": "c-dna-packaging-levels-v2",
+      "sha256": "6f6d95d8b909b5789ef4c5d9c501c10dd9c2a174cf65b276afbd408e00426678"
+    },
+    {
+      "id": "c-karyotype-count-comparison-v1",
+      "sha256": "a3d33ef9d2bb38f23c9cfb33635a79bb1891e6c16c0926e41f5b813b95f962cb"
+    },
+    {
+      "id": "c-interphase-count-trajectory-v1",
+      "sha256": "969bacdf15b7e719c4567ff8d6f9fd0b9d422fda0c0a971dbf161f6ee727edd1"
+    },
+    {
+      "id": "c-checkpoint-evidence-v1",
+      "sha256": "c0fc3941576d2932d7aaae48051719104c3c48cf5f3c580d0f092cf854a5c2a4"
+    },
+    {
+      "id": "c-cell-count-denominator-v1",
+      "sha256": "b468200edecba444bddf7d3e608366df8d2130a9247e86d7755c6095ed67aae6"
+    },
+    {
+      "id": "c-mitosis-count-boundaries-v2",
+      "sha256": "bc32106f8bb172ecbf539a1a4a01b98a225847eea430561ef66c6e1f643cc8c9"
+    },
+    {
+      "id": "c-cytokinesis-directions-v1",
+      "sha256": "895a122ccec36dfa573ecf8c10066de0e9a7872e530f5d419d173a7f67f39a1d"
+    },
+    {
+      "id": "c-nonsister-exchange-trace-v1",
+      "sha256": "6f9b3d6bcc8c1f32b63e67a2ea2433e2f32ab49858bad06b34be5daba115494a"
+    },
+    {
+      "id": "c-meiotic-count-model-v1",
+      "sha256": "0851bd01b48de75398e8c9c355052b795d3975251efd535cacf80e188513e744",
+      "priorReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "evidenceSha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+        "finding": "The 2n=4 starting cell has four duplicated chromosomes. Each product after meiosis I has two duplicated chromosomes and one homologous set. Counts refer to the outlined products, not an undivided anaphase cell. Long/short marks denote types and colours distinguish homologues; crossing over is explicitly omitted. The same count model continues meiosis I products through sister separation to four haploid products with two unduplicated chromosomes each. There is no intervening S phase. Crossing over is omitted in this model, so its matching final symbols must not imply that actual meiosis II products are always genetically identical or four equally functional gametes."
+      }
+    },
+    {
+      "id": "c-variation-mechanisms-v1",
+      "sha256": "94e3455264cee0c881a1bb5f46c2b9dda2616619dc787a59b7100294076162ed"
+    },
+    {
+      "id": "c-nondisjunction-product-trace-v2",
+      "sha256": "f29545eb9002ed822fafa482dd8783e7bb913ea08d4b9147ebfb0f2ea8fec6c5"
+    },
+    {
+      "id": "c-twin-origin-comparison-v2",
+      "sha256": "10bba5bc231f8c1c546cab5498a355f99d9d6ae2dc829593c2ccfcb797a62e92"
+    }
+  ],
+  "bindings": [
+    {
+      "partId": "c-topic-chromosomes-and-dna-dna-packaging",
+      "assetIds": [
+        "c-dna-packaging-levels-v2"
+      ],
+      "finding": "Three deliberately different scales connect a gene region, chromatin and one unduplicated chromosome. Continuous DNA strands replace an ambiguous repeated-X draft. Condensation reorganizes existing material; no fixed 30-nm packing hierarchy is claimed."
+    },
+    {
+      "partId": "c-topic-chromosomes-and-dna-reading-karyotypes",
+      "assetIds": [
+        "c-karyotype-count-comparison-v1"
+      ],
+      "finding": "A fictional three-type complement distinguishes six chromosomes, one extra type2 chromosome and three complete sets. It is explicitly not a human sample or a diagnosis. Counts refer to chromosomes, even when duplicated, and do not reveal small sequence variants or unsampled lineages."
+    },
+    {
+      "partId": "c-topic-the-cell-cycle-interphase",
+      "assetIds": [
+        "c-interphase-count-trajectory-v1"
+      ],
+      "finding": "The 2n=4 phase-ordered model keeps chromosome count4 and ploidy2n while DNA molecules rise4 to8 during S. Axis widths do not measure stage durations; the illustrative straight slope is not a measured replication rate."
+    },
+    {
+      "partId": "c-topic-the-cell-cycle-control-and-division",
+      "assetIds": [
+        "c-checkpoint-evidence-v1"
+      ],
+      "finding": "Regulated transitions are molecular processes, not organelles. Stage accumulation with little net cell-count change can reflect delay. Comparison populations, completed divisions and cell loss are needed; no exact defect or cancer diagnosis follows."
+    },
+    {
+      "partId": "c-topic-the-cell-cycle-measuring-cell-populations",
+      "assetIds": [
+        "c-cell-count-denominator-v1"
+      ],
+      "finding": "The grid depicts the existing worked teaching count28/100, not newly observed cells or fabricated microscopy. Duration6%×20h=1.2h is conditional on sampling and population assumptions. Required actual-image observations and counts remain separate learner work."
+    },
+    {
+      "partId": "c-topic-mitosis-preparing-to-separate",
+      "assetIds": [
+        "c-mitosis-count-boundaries-v2"
+      ],
+      "finding": "Condensation and equatorial alignment precede sister separation. Four duplicated chromosomes are retained at metaphase in the2n=4 model. Spindle attachments are symbolic; actual image classification requires visible evidence and uncertainty. Per-panel captions remain separate."
+    },
+    {
+      "partId": "c-topic-mitosis-separating-copies",
+      "assetIds": [
+        "c-mitosis-count-boundaries-v2"
+      ],
+      "finding": "The same model names the anaphase boundary: eight daughter chromosomes in the whole cell, four per pole, then four per new nucleus. This2n=4 illustration is separate from the core eight-to-sixteen example. Balanced complements do not prove no sequence mutation."
+    },
+    {
+      "partId": "c-topic-mitosis-finishing-cell-division",
+      "assetIds": [
+        "c-cytokinesis-directions-v1"
+      ],
+      "finding": "An animal furrow narrows inward while a typical plant cell plate expands outward from the centre. The animal waist remains open and the plant plate incomplete: both are snapshots in progress. Two nuclei alone do not prove complete cytokinesis."
+    },
+    {
+      "partId": "c-topic-meiosis-part-a-pairing-and-exchange",
+      "assetIds": [
+        "c-nonsister-exchange-trace-v1"
+      ],
+      "finding": "Linear identity tracks distinguish four chromatids and only two participating nonsisters. Balanced reciprocal exchange gives AB,Ab,aB,ab. The model shows segment identity, not a three-dimensional chiasma. The watermarked source remains reference-only; no source geometry or pixels are copied."
+    },
+    {
+      "partId": "c-topic-meiosis-part-a-comparing-divisions",
+      "assetIds": [
+        "c-mitosis-count-boundaries-v2",
+        "c-meiotic-count-model-v1",
+        "c-nonsister-exchange-trace-v1"
+      ],
+      "finding": "Compare seven features across the paired models. Both normally follow one DNA replication. Mitosis has one nuclear division, separates sisters without meiotic homologue pairing and normally gives two nuclei retaining starting ploidy. Meiosis has two divisions, pairs homologues before their separation, then separates sisters and gives four nuclei with half the starting sets. Crossing over and assortment can vary meiotic products. Neither process guarantees freedom from mutation, and nuclei need not equal functional gametes. The meiotic count panel explicitly omits crossing over; the exchange panel supplies that distinct mechanism."
+    },
+    {
+      "partId": "c-topic-meiosis-part-b-sources-of-variation",
+      "assetIds": [
+        "c-variation-mechanisms-v1",
+        "c-nonsister-exchange-trace-v1"
+      ],
+      "finding": "Whole-homologue assortment, within-chromosome reciprocal exchange, gamete combination and sequence mutation remain distinct. The2² possibilities are across pair orientations, not a promise that one meiosis produces all four types or that small samples contain each type. The companion exchange panel traces only two nonsisters."
+    },
+    {
+      "partId": "c-topic-meiosis-part-b-nondisjunction",
+      "assetIds": [
+        "c-nondisjunction-product-trace-v2"
+      ],
+      "finding": "One meiosis-I error yields tracked-copy counts2,2,0,0; one meiosis-II error after normal meiosis I yields1,1,2,0. Empty symbols omit the tracked chromosome, not all other chromosomes. n±1 denotes a chromosome-specific departure rather than a whole-set change. No individual prognosis."
+    },
+    {
+      "partId": "c-topic-meiosis-part-b-twins-and-early-development",
+      "assetIds": [
+        "c-twin-origin-comparison-v2"
+      ],
+      "finding": "Separate fertilizations give two zygote origins; one fertilization gives a shared zygote origin followed by one early embryo giving rise to two. Fertilization labels are above zygotes, with no arrow/text collision. Membranes and exact splitting times are omitted. Shared origin does not force identical later sequences, expression or development."
+    }
+  ],
+  "limitations": [
+    "Provisional author review, no teacher acceptance.",
+    "Figures explain the supplied core and do not replace required actual microscopy, graph construction or investigation data.",
+    "Source images are comparison-only; no new publisher-image learner clearance.",
+    "Actual placement, first-use and whole-course verification remain pending."
+  ]
+}

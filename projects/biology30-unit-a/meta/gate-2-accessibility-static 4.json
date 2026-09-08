@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-30T04:11:48.257Z",
+  "scope": "static WCAG 2.2 AA-oriented checks; browser axe, zoom, reflow, focus, and interaction checks are Gate 3 evidence",
+  "pass": true,
+  "checks": {
+    "exactRouteInventory": true,
+    "oneH1PerRoute": true,
+    "skipLink": true,
+    "semanticMain": true,
+    "noDuplicateIds": true,
+    "controlsLabeled": true,
+    "tableSemantics": true,
+    "figureTextAlternatives": true,
+    "ariaReferencesResolve": true,
+    "imagesHaveAlt": true,
+    "visibleFocusCss": true,
+    "reducedMotionCss": true,
+    "mobileReflowCss": true,
+    "printCss": true,
+    "noAutoplay": true
+  },
+  "findings": {
+    "duplicateIds": [],
+    "unlabeledControlCount": 0,
+    "badTableCount": 0,
+    "badSvgCount": 0,
+    "missingAriaReferences": []
+  }
+}

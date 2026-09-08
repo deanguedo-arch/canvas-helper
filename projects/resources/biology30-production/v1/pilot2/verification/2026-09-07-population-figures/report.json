@@ -1,0 +1,127 @@
+{
+  "stage": 79,
+  "checkedAt": "2026-09-07T05:41:42.449674+00:00",
+  "summary": "Six original D population diagrams natively and scientifically reviewed, all six side-by-side comparisons inspected, provisionally bound. No real learner HTML.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 27,
+    "pending": 100,
+    "byUnit": {
+      "B": 10,
+      "C": 1,
+      "D": 16
+    }
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "priorWholeSuite": "stage77:91 passed",
+    "draftContracts": "passed",
+    "sourceAndProtectedBaselines": "passed",
+    "nativeSvgReview": "Five final originals1200x900 and sampling1200x960; all text bounds within viewbox. Three v1 drafts revised to v2: movement arrows, initial/final labels, time label."
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+      "sha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "415246085b9ba8043808afb48f87dd7303717944ecab10a3f8042a938f2366e9"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+      "sha256": "0a046ad7cfeb7cf1848268822c73cd3c921141f6c8f45e42ec260f48d591c609"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "51e47be37758c11dba0b2cb7984fed6d5662b39b24de6cab3e78b4a4c4b3c4f4"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/chapter20-physical10.png",
+      "sha256": "65fbe92deb7e24a46a4fb2760d2d79f196fa1e034736d354af5528447baa6003"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/chapter20-physical11.png",
+      "sha256": "b4fcbe2a5b48437013a18ce76cd91b3c48d357cd4040ed290df9170313bd97e1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-changing-capacity-v1-native.png",
+      "sha256": "5bbe6530f3b9c2801badb8dbaba0d4734cd6ed5e99cc1069ae4b27a8b8209932"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-changing-capacity-v2-native.png",
+      "sha256": "678866c9a26d5353d20267e7dfb00f798fb6cddcf9da8001904e25140c245abc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-demographic-processes-v1-native.png",
+      "sha256": "c57bafcab3c42b641af8f51be97e47bda72d22ed9aba7d659465c599ebe3bfd0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-demographic-processes-v2-native.png",
+      "sha256": "4fb8e4c608112e1085a2e77451d6cc6ee58f34867d6ecb18a2ba209b7655e779"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-density-distribution-v1-native.png",
+      "sha256": "107f15e6ff7e1de956c30c0526f76b003331574ed816c4b0e41f7dfa3c6f3461"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-growth-model-shapes-v1-native.png",
+      "sha256": "5a525e55833943b2e65d696d6eb3605708dc80025f59b411cdaabdebe917bf98"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-population-sampling-v1-native.png",
+      "sha256": "9965deb7a6e50579c0b8550fb9de660733196ca5f156d4f437961ae93b2dffbc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-rate-denominators-v1-native.png",
+      "sha256": "8022a5c25b6a8fe331f69fc5aafd5a3fe7ffb69113b6e2dcd3aaa9588567b40d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-rate-denominators-v2-native.png",
+      "sha256": "30b7a4fe3302ccec53ed0dff1b9f811bb75a34097e37c073e74adb24eb311315"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/existing-d-lesson08.png",
+      "sha256": "15955cc7b013b19738575d0c4e6eae0bd11d7141ee2bc758f620ff759ae76bde"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/existing-d-lesson09.png",
+      "sha256": "df32c21a7944fd3ee12332eca35a413592ca76c756af74929e0d590a7a825f4c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/exponential-and-logistic-models-side-by-side.png",
+      "sha256": "dfcd3dc83776b3ce434bb91591f55c3d2c5831dcb6856a9fb11b1f3b19325372"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/feedback-and-changing-limits-side-by-side.png",
+      "sha256": "c132445e7c2344238ac60375d853e4cb4d4421b0f35990ac80b8e231719c2648"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/four-demographic-processes-side-by-side.png",
+      "sha256": "762834f08141dc3e93377848c10a5320a7a0f6ccc4d088c9ccfcc1a891daa785"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/rates-and-denominators-side-by-side.png",
+      "sha256": "738d61ec24211eb6bf43c18380709550d681303cfc918cecab0ea42bd67c89a4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/sampling-populations-side-by-side.png",
+      "sha256": "fecfe5b592a2d0311f921c17cce3feeac211b400642f7a29fc596691f3fa77f4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/size-and-density-side-by-side.png",
+      "sha256": "3e4b801c8b1596f19b2f0a806c6c2f7018aa37919dd4149a9d241785a01f3dc8"
+    }
+  ],
+  "teacherDecision": null,
+  "pending": [
+    "Remaining100 figure targets and seven all-unit review gates",
+    "Video Library, owner transaction/metadata integration and whole-owner closure",
+    "All-unit freeze then actual B/C/D candidates and exact-build review"
+  ]
+}

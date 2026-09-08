@@ -1,0 +1,99 @@
+{
+  "stage": 86,
+  "checkedAt": "2026-09-07T13:10:41.054062+00:00",
+  "summary": "Thirteen C chromosome/cell-cycle/mitosis/meiosis teaching targets bound using eleven new reviewed original SVGs and one existing meiotic-count asset.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 73,
+    "pending": 54,
+    "byUnit": {
+      "B": 33,
+      "C": 18,
+      "D": 22
+    },
+    "uniqueSelectedAssetFiles": 77,
+    "gallerySections": 72
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 6,
+      "failed": 0,
+      "log": "/tmp/bcd-stage86-tests.log"
+    },
+    "draftContracts": "passed; gates remain6/13",
+    "nativeReview": "All11 final new SVGs inspected; no text outside1200×900. DNA/mitosis/twin ambiguity corrected before binding; nondisjunction singular wording corrected.",
+    "gallery": "72sections; all local references resolve; batch comparisons prepared, no separate inspection of every rendered gallery section claimed.",
+    "sourceAndProtectedBaseline": "Last verified stage85 earlier in same run. Stage86 writes only scoped C figure resources, test count and operational docs; no learner/owner edits.",
+    "fullSuite": "Last stage83:101passed; no full-suite/browser rerun for this data-only batch."
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+      "sha256": "2df2880ff1d191e1e69032eb37c9e2b0eacac1527ae3d54374b9a590def48c94"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/c-cell-division-diagram-review.json",
+      "sha256": "deba14df80c3837ad4da6fe910d2972392baadf09cbf3bdad4b60230f6924087"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "4df90c81d53dccf0c7eed36b8ae9ea1aebe09dc2c91458e08b22bd094f061941"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "7930dcda623b4d6a737cd298cb1840ea31cc6ec0e865fcf40c9312539441a2ae"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cell-count-denominator-v1.svg",
+      "sha256": "b468200edecba444bddf7d3e608366df8d2130a9247e86d7755c6095ed67aae6"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-checkpoint-evidence-v1.svg",
+      "sha256": "c0fc3941576d2932d7aaae48051719104c3c48cf5f3c580d0f092cf854a5c2a4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cytokinesis-directions-v1.svg",
+      "sha256": "895a122ccec36dfa573ecf8c10066de0e9a7872e530f5d419d173a7f67f39a1d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dna-packaging-levels-v2.svg",
+      "sha256": "6f6d95d8b909b5789ef4c5d9c501c10dd9c2a174cf65b276afbd408e00426678"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-interphase-count-trajectory-v1.svg",
+      "sha256": "969bacdf15b7e719c4567ff8d6f9fd0b9d422fda0c0a971dbf161f6ee727edd1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-karyotype-count-comparison-v1.svg",
+      "sha256": "a3d33ef9d2bb38f23c9cfb33635a79bb1891e6c16c0926e41f5b813b95f962cb"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-mitosis-count-boundaries-v2.svg",
+      "sha256": "bc32106f8bb172ecbf539a1a4a01b98a225847eea430561ef66c6e1f643cc8c9"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nondisjunction-product-trace-v2.svg",
+      "sha256": "f29545eb9002ed822fafa482dd8783e7bb913ea08d4b9147ebfb0f2ea8fec6c5"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nonsister-exchange-trace-v1.svg",
+      "sha256": "6f9b3d6bcc8c1f32b63e67a2ea2433e2f32ab49858bad06b34be5daba115494a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-twin-origin-comparison-v2.svg",
+      "sha256": "10bba5bc231f8c1c546cab5498a355f99d9d6ae2dc829593c2ccfcb797a62e92"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-variation-mechanisms-v1.svg",
+      "sha256": "94e3455264cee0c881a1bb5f46c2b9dda2616619dc787a59b7100294076162ed"
+    }
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false,
+  "limitations": [
+    "Real learner candidates0/3.",
+    "B1/C53 figures and seven all-unit academic/source gates remain.",
+    "Original SVGs authored directly by Codex; no new ChatGPT raster generation in this batch.",
+    "Latest computer-control state was Mac locked; B membrane anatomy comparison still queued."
+  ]
+}

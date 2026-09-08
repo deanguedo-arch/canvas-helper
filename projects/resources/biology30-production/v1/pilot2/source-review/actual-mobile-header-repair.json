@@ -1,0 +1,10 @@
+{
+  "status": "actual mobile logo/progress overlap repaired",
+  "teacherAcceptance": null,
+  "reason": "Actual390px screenshots exposed overlapping centered logo and progress. Scoped Pilot2-only grid assigns separate menu, logo and progress columns; Unit A and shared shell source untouched.",
+  "previousOwnerClosureSha256": "e5f982da049676815c3e21a4e0a7f2704b5c16a3fc844496704512a0385fc24a",
+  "ownerClosureSha256": "7b0a072b44868bdbcd434ac149c408738c5b18ea4283ad71ad53fb8beef0ceff",
+  "tests": "Exact new CSS applied to actual B preview at390px: all3 header rectangles are distinct and nonoverlapping. Final generated course E2E and reflow checks follow rebuild.",
+  "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+  "sha256": "fe328a910c8062dbea2cabf36f5296ba4c6bec1f1b706846d71d1a122e83afa0"
+}

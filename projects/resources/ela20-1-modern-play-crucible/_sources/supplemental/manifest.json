@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela20-1-modern-play-crucible",
+  "importedAt": "2026-07-16",
+  "originals": [
+    {
+      "path": "originals/ELA 20-1 Unit 6 Stage and Screen The Crucible.docx",
+      "sha256": "8a2a8a60928eac36470c0fd60a8185054ee2514d21467e522eef5e907d221c91",
+      "role": "unit-guide-source"
+    },
+    {
+      "path": "originals/The Crucible script.doc",
+      "sha256": "0a5b93184b1d96af4385d4175c5ab02a80bcd314de56a362055cc840143d9028",
+      "role": "play-script"
+    },
+    {
+      "path": "originals/Crucible Act 1 duplicate.pdf",
+      "sha256": "96fb1a14973f5795d08a49edfc83b36cd159777d7df751d5ac19791fd36a2ab6",
+      "role": "duplicate-question-set",
+      "disposition": "duplicate-of-teacher-archive-act-1"
+    },
+    {
+      "path": "originals/The Crucible full text.pdf",
+      "sha256": "f4cb471b5db4f117477cb54045835d34c39d11e71b7ff7a4a0bc43b22c826ab0",
+      "role": "complete-play-text"
+    },
+    {
+      "path": "originals/The Crucible Movie source.mp4",
+      "sha256": "2ad517de1109c756d6edd21ef48ab7c7cb4ed1735e09fdabe3e76e0c0cd4adf1",
+      "role": "film-source"
+    }
+  ],
+  "derivatives": [
+    {
+      "path": "derived/ELA 20-1 Stage and Screen The Crucible - Learner Guide.docx",
+      "sha256": "bafe2d1eac3d675f63607ef30d9e2f2659011ed66ed47798a69a76ef39adb6f8",
+      "source": "originals/ELA 20-1 Unit 6 Stage and Screen The Crucible.docx",
+      "changes": "Removed obsolete exam submission directions and normalized the unit label while preserving instructional content and questions."
+    },
+    {
+      "path": "derived/ELA 20-1 Stage and Screen The Crucible - Learner Guide.pdf",
+      "sha256": "4aa0eb439789a8f6eabcdc45679460ddfad25d4e8cf0ded5b76a63ad39a039dc",
+      "source": "derived/ELA 20-1 Stage and Screen The Crucible - Learner Guide.docx",
+      "changes": "Rendered portable learner copy."
+    },
+    {
+      "path": "derived/The Crucible Movie - H264 AAC.mp4",
+      "sha256": "9cec60501093c83c8bb37c21b5ce482b7d408a746b035723dd038769a4da5f01",
+      "source": "originals/The Crucible Movie source.mp4",
+      "changes": "Selected the first English audio track; converted to H.264 High 3.1, yuv420p, 720x404, CFR 30000/1001 video and stereo AAC 48 kHz audio; regenerated timestamps and moved the MP4 moov atom to the beginning for progressive playback."
+    }
+  ]
+}

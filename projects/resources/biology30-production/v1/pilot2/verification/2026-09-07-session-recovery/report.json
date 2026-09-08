@@ -1,0 +1,82 @@
+{
+  "stage": 73,
+  "status": "startup-recovery-and-pure-whole-course-shell-assembly-synthetic-browser-verified",
+  "teacherDecision": null,
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "scope": [
+    "Inspect identical/conflicting/current/previous/legacy saves without writes; explicit recovery preserves verified originals and detects intervening local edits",
+    "Startup/session composition connects all controls, readable recovery archives, unsaved graph entries, whole collection and required progress",
+    "Shared NextStep shell pure assembly preserves teacher topic counts and interleaved required chapter/seminar routes; exact index/field ownership is checked",
+    "Textbook hub links to single owning practice guide; Notes has exact collection return target",
+    "Shared shell input sizing corrected locally for radio/checkbox controls; save status moved into visible content; compact progress header"
+  ],
+  "tests": {
+    "focusedTotal": 77,
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "courseWidths": [
+      1440,
+      1024,
+      390
+    ],
+    "typecheckUnrelatedDiagnostics": 25,
+    "typecheckOwnedDiagnostics": 0,
+    "latestRetests": "Three assembled course browser tests pass after final header/save-status placement. Earlier final three startup/recovery browser tests and full77-test suite pass."
+  },
+  "visualReview": {
+    "opened": [
+      "chromium-recovery-390.png",
+      "chromium-course-390.png",
+      "chromium-course-1440.png"
+    ],
+    "findings": "Recovery choices now have readable summaries and separate controls. Native course inspection and geometry caught shared input width overflow; fixed in owner CSS. Screenshots use instant scroll after a smooth-scroll capture artifact. Final save-status/header placement follows that inspection; no real Biology course visual proof."
+  },
+  "verificationLimits": "Synthetic course fixtures only. No actual B/C/D learner lesson or candidate generated. No all-unit contract frozen. Owner build still refuses after its all-unit guard: reviewed asset loader, real media library, production browser-entry source capture/LMS adapter and transaction/metadata integration remain. No live LMS initialization, certification, export or teacher acceptance. videoLibraryHtml is a temporary pure-assembler input, not vetted media evidence.",
+  "sourceChecks": 15,
+  "textbookMemberChecks": 8,
+  "protectedLearnerTreesUnchanged": 6,
+  "protectedUnitAOwnerUnchanged": true,
+  "codeSha256": {
+    "scripts/lib/biology30-course/v1/pilot2-recovery-view.ts": "63fea05c6b61f167b99b1aaf712234c860a5f41cfa8bb3a2d407bc069f0a48db",
+    "scripts/lib/biology30-course/v1/pilot2-render-course.ts": "1225c4653e70607ca4b5c19d8ecb6225c9cade1b5375240b4766f3a7ea8da077",
+    "scripts/lib/biology30-course/v1/pilot2-render-reference.ts": "408a01fe9c975fb584a5d3fb966adb47c451c4687a88b659292e40851c08d903",
+    "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts": "89802b35fd5431e9922b7076702d6324d4f1cd671d76c650e72ecf6a2324e4d1",
+    "scripts/lib/biology30-course/v1/pilot2-render-topic.ts": "3e64cbf0cf03dca5a129f18dd06611aa57e31b7fb2323b7781eae4b22e0c7dd9",
+    "scripts/lib/biology30-course/v1/pilot2-restore.ts": "1101301b4dbcf61891a35cacd4d3a5ccba2d3db7388ebcb05c48e68282fa71be",
+    "scripts/lib/biology30-course/v1/pilot2-session.ts": "65c34bbf175366518220024ef918347740a76e8dfb3b70f21c42f22c346b89c7",
+    "scripts/lib/biology30-course/v1/pilot2-startup.ts": "5b4f86c8fc8d7bd39effde9b66e031e545eee1a85e0af7e04996a7235e919d4e",
+    "scripts/tests/biology30-pilot2-course-browser.test.ts": "e1794807e0fc695202199f7ee7521a4ad18b521554b81beb362f4181accdeb6d",
+    "scripts/tests/biology30-pilot2-course-renderer.test.ts": "7eac6d156a0b1a8e3cf1fd7a28cc0a082c2eb8b8ab9a8c7fb83acc2c1f6207ff",
+    "scripts/tests/biology30-pilot2-reference-renderer.test.ts": "44980fcde2898c96f0de0cb46302a773b7d4e9bb745fae620f901f0d31e41f2a",
+    "scripts/tests/biology30-pilot2-restore.test.ts": "eb114d638d503da83690873ab1a5c9687e7637a195f877c8b206dd29b4e86dea",
+    "scripts/tests/biology30-pilot2-session-browser.test.ts": "f439c5e25697f18c7ca86e123ef54e4b6100b7ebd5b2b950efea9c33ebe039e8",
+    "scripts/tests/fixtures/biology30-pilot2/renderer.ts": "cebf222fb51ba007fc04a14b030ef54928eb295163fb1cc9aab22a4c6fcc1098"
+  },
+  "logSha256": {
+    "all-tests.log": "08abf8f2f7f2795a33dda409859187b03f4b17dfb8cb38ef11bd036459610b88",
+    "contracts.log": "17b55c62a399d29658f1890f977b10b5afdb5c3b07cb4331c32ed61d09b13f49",
+    "course-browser-final.log": "a06977522b7f57243be8198581569495228f6fc7a11620d117f52386f831511a",
+    "initial-course-overflow.log": "9a2020328b1dbdef2745634357ced0a9c208ccf25c945a817a913f52df0578bb",
+    "protection.log": "9b20cb54357648bc70ff1c9c54488106e3338bed07eaed7849cc2f6645090756",
+    "session-browser-final.log": "077f4338845de3f586218466be273becce4ca5520b1633160f07ccfc0826da9d",
+    "typecheck.log": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544"
+  },
+  "screenshots": {
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/chromium-course-1024.png": "9be81cd295d6c20991f09f049c32efbd285abcc2a36cbbf6abe3238798ee60a6",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/chromium-course-1440.png": "80ab079544c3637b23b7a9b913904cb9fc0816a706ab30f275e2795091b00c69",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/chromium-course-390.png": "8b0e2af3311ed823a551beb031646c2c3733e134ed80ddbca09bf6d3c57b6532",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/chromium-recovery-390.png": "b9f79ed9912209add34c34361e43a4603add534c648315278ef9eeea8dd47955",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/firefox-course-1024.png": "43a6a49dadf3ffce36ecbd0b0db7518968d0c0e3e162d924bb77943ec6c91625",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/firefox-course-1440.png": "a72d5cd4ed03c113fdf848369a0e936bd86ba6d012a5965f94b43cd458c145e4",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/firefox-course-390.png": "2a2c08d1dd4d55f60438b9ae3f0a139a1f498ea8bd34fd6799a81d1e889d7852",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/firefox-recovery-390.png": "8a9919559d4b6cb88238f3a256a450403c4256c2985042fa6e6466aeba140853",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/webkit-course-1024.png": "7e51321c737e314142ef99eb4af92aa8ac24cf90bcff97aa7f338ba5970ef724",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/webkit-course-1440.png": "fd9b10d456153e7e3e7dca9a0b35db6aec8312e0c402846eb1a2b1fa32f2f9d4",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/webkit-course-390.png": "9e9f2ae701db4b9bfa966db34cb2d942e59b7c9a10997c475e4e6eca3faca521",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/screenshots/webkit-recovery-390.png": "769ef7e70f788fc6c0c92a1f2a1b92aabe41b7935bcddff201222903f18345b5"
+  }
+}

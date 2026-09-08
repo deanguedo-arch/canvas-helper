@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a-pilot",
+  "baselineWorkspaceTreeSha256": "e89fcf0e78207c0320886bd772192c2a096bb6d6e4c19891ef48d0bce99fbfea",
+  "status": "awaiting-unit-a-audit",
+  "categories": [
+    "academic-accuracy-and-coverage",
+    "instructional-coherence",
+    "learner-language-and-scaffolding",
+    "visual-and-editorial-quality",
+    "figures-and-data-displays",
+    "interactions-and-feedback",
+    "practice-and-artifacts",
+    "accessibility-and-responsive-layout",
+    "offline-runtime-and-persistence",
+    "maintainability-and-rollout"
+  ],
+  "entries": [],
+  "rolloutPolicy": {
+    "targets": [
+      "biology30-unit-b",
+      "biology30-unit-c",
+      "biology30-unit-d"
+    ],
+    "status": "deferred-until-unit-a-acceptance",
+    "rule": "No pilot change transfers automatically. Each accepted rule must identify its owner, applicability, automated test, manual check, and unit-specific adaptation before B-D implementation."
+  }
+}

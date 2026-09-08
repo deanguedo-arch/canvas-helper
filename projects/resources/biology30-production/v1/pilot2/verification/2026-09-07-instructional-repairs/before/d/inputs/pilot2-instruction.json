@@ -1,0 +1,972 @@
+{
+  "unit": "D",
+  "status": "draft-instructional-companions",
+  "parts": [
+    {
+      "partId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+      "outcomeIds": [
+        "D1.1k",
+        "D1.3k"
+      ],
+      "workedExample": {
+        "id": "d-topic-hardy-weinberg-populations-and-allele-counts-worked",
+        "prompt": "A diploid population sample contains 36 AA, 48 Aa and 16 aa individuals. Calculate A and a allele counts and frequencies directly from the observations.",
+        "steps": [
+          "Count 100 individuals and therefore 200 allele copies at this autosomal locus.",
+          "Count A copies: 2(36) + 48 = 120; count a copies: 2(16) + 48 = 80.",
+          "Divide each count by 200 to obtain p = 0.60 and q = 0.40."
+        ],
+        "conclusion": "The observed allele frequencies are 0.60 and 0.40. Direct counting does not require assuming Hardy–Weinberg equilibrium.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-hardy-weinberg-populations-and-allele-counts-stop",
+        "prompt": "Why is 100 the wrong denominator for the A-copy frequency here?",
+        "guide": "Each diploid individual contributes two copies at the locus. The numerator counts allele copies, so the denominator must count all 200 copies.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-hardy-weinberg-populations-and-allele-counts-advanced",
+        "title": "Match the denominator to the biological unit",
+        "paragraphs": [
+          "Individual frequency, genotype frequency and allele frequency use related but different totals. A heterozygote is one individual, one member of a genotype category and a contributor of one copy of each allele. Write the unit beside each count before dividing. This simple habit prevents a plausible-looking fraction from mixing individual counts in one part of a calculation with allele-copy counts in another.",
+          "Population evolution concerns inherited allele frequencies across generations. An individual can grow, acclimate or move without that being the same process. A breeding-population comparison needs a boundary suited to reproductive contributions. Symbols p and q label proportions, not strong and weak alleles.",
+          "For the synthetic 36 AA/48 Aa/16 aa sample, record each contribution: AA supplies 72 A and 0 a; Aa supplies 48 A and 48 a; aa supplies 0 A and 32 a. Totals are 120 A and 80 a in 200 copies. Genotype fractions are 36/100,48/100 and 16/100; allele fractions instead use 200. Keep both denominators in the ledger."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Individual frequency, genotype frequency and allele frequency use related but different totals. A heterozygote is one individual, one member of a genotype category and a contributor of one copy of each allele. Write the unit beside each count before dividing. This simple habit prevents a plausible-looking fraction from mixing individual counts in one part of a calculation with allele-copy counts in another."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+      "outcomeIds": [
+        "D1.3k"
+      ],
+      "workedExample": {
+        "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-worked",
+        "prompt": "Using p = 0.60 and q = 0.40, calculate Hardy–Weinberg expected genotype frequencies and compare them with the observed 36/48/16 sample.",
+        "steps": [
+          "Calculate p² = 0.36, 2pq = 0.48 and q² = 0.16.",
+          "Check that the three expected frequencies sum to 1.",
+          "Compare with observed genotype frequencies 36/100, 48/100 and 16/100 while keeping observed and expected labels separate."
+        ],
+        "conclusion": "The observed frequencies match these expectations in this sample. That numerical match alone does not prove that every equilibrium condition holds or that the frequencies will remain constant across generations.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-stop",
+        "prompt": "Is 2pq an allele frequency?",
+        "guide": "No. It is the expected heterozygote genotype frequency under the model. p and q describe allele frequencies.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-advanced",
+        "title": "A fit is evidence, not a complete history",
+        "paragraphs": [
+          "Different processes can produce a snapshot that resembles equilibrium expectations. A one-time match does not reveal the full mating pattern, migration history or selective conditions. Repeated samples and additional biological observations can test stability and assumptions. The model is useful because it provides a clear expectation against which change or mismatch can be examined, not because a single fit certifies an unchanging population."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-equilibrium-assumptions",
+      "outcomeIds": [
+        "D1.1k"
+      ],
+      "workedExample": {
+        "id": "d-topic-hardy-weinberg-equilibrium-assumptions-worked",
+        "prompt": "A large population mates randomly at one locus but receives immigrants carrying a different allele frequency. Which part of the Hardy–Weinberg model is challenged?",
+        "steps": [
+          "Identify gene flow as movement of alleles into the population.",
+          "Recognize that random mating does not cancel a change in allele frequencies caused by immigration.",
+          "Separate conditions affecting genotype arrangement from conditions maintaining allele frequencies across generations."
+        ],
+        "conclusion": "The no-migration condition is violated. The population could form genotype proportions near p²:2pq:q² after random mating while its p and q have changed through gene flow.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-hardy-weinberg-equilibrium-assumptions-stop",
+        "prompt": "Does being a large population guarantee no selection or mutation?",
+        "guide": "No. Large size reduces the relative importance of random sampling effects in the ideal model but does not remove other evolutionary processes.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-hardy-weinberg-equilibrium-assumptions-advanced",
+        "title": "Assumptions answer more than one question",
+        "paragraphs": [
+          "Hardy–Weinberg reasoning combines a genotype expectation with conditions for stable allele frequencies. A case can satisfy one part while violating another. Name the exact question: predicting a generation's genotype proportions or claiming no allele-frequency change over time. This distinction helps explain why random mating can restore a genotype pattern without erasing changes introduced by migration or selection."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-solving-and-checking",
+      "outcomeIds": [
+        "D1.3k",
+        "D1.3s"
+      ],
+      "workedExample": {
+        "id": "d-topic-hardy-weinberg-solving-and-checking-worked",
+        "prompt": "In a fictional fully penetrant recessive-trait model, 9% of a population shows the recessive phenotype. Assuming Hardy–Weinberg conditions, estimate q, p and the carrier frequency.",
+        "steps": [
+          "Identify the observed group: 9% show the recessive phenotype. Under the stated assumptions, that group is aa and its fraction is q².",
+          "Convert percent to a fraction: 9/100 = 0.09, so q² = 0.09.",
+          "Find the number whose square is 0.09. Since 0.30 × 0.30 = 0.09, q = 0.30.",
+          "Use p + q = 1. Subtract 0.30 from one to get p = 0.70.",
+          "Carriers are heterozygotes. Their expected fraction is 2pq = 2(0.70)(0.30) = 0.42, or 42%.",
+          "Check the whole: p² + 2pq + q² = 0.49 + 0.42 + 0.09 = 1. The genotype fractions account for the complete population."
+        ],
+        "conclusion": "The estimated allele frequencies are q = 0.30 and p = 0.70; the expected carrier frequency is 0.42. These are model-based estimates, not directly counted genotypes.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-hardy-weinberg-solving-and-checking-stop",
+        "prompt": "Could q be set equal to 0.09 simply because 9% show the recessive phenotype?",
+        "guide": "No. The phenotype proportion corresponds to q² under this model. q is its square root, not the same quantity.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-hardy-weinberg-solving-and-checking-advanced",
+        "title": "A phenotype shortcut has prerequisites",
+        "paragraphs": [
+          "Inferring q from a recessive phenotype requires the expression model to identify the relevant genotype and the equilibrium model to connect genotype frequency to q². Incomplete phenotype expression, misclassification or departures from the model can invalidate the shortcut. If genotypes are directly observed, count alleles instead. Choosing the method should follow the evidence available rather than always reaching first for a square root.",
+          "For 1,000 model plants with 90 recessive individuals, q²=90/1000=0.09 gives q=0.30,p=0.70. Expected counts are 490 dominant homozygotes,420 heterozygotes and 90 recessive homozygotes. The 490+420+90 total is 1,000; this remains an expectation under the stated expression and equilibrium models.",
+          "Check that each fraction lies from 0 to 1, allele fractions sum to 1, genotype fractions sum to 1 and expected counts sum toN. Keep extra digits until the final answer. For q²=17/240, carrying the square root through the calculation avoids early rounding drift. Extra decimal places do not make a small sample biologically exact.",
+          "Use each generation’s own denominator when comparing frequencies. A population can double while an allele fraction stays constant, or shrink while that fraction changes. Say “expected heterozygote frequency under the model,” rather than turning a model result into an observed carrier count. Carrier terminology also requires an appropriate inheritance model."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Inferring q from a recessive phenotype requires the expression model to identify the relevant genotype and the equilibrium model to connect genotype frequency to q². Incomplete phenotype expression, misclassification or departures from the model can invalidate the shortcut. If genotypes are directly observed, count alleles instead. Choosing the method should follow the evidence available rather than always reaching first for a square root."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+      "outcomeIds": [
+        "D1.2sts",
+        "D1.1s",
+        "D1.1k",
+        "D1.2s",
+        "D1.3s",
+        "D1.4s"
+      ],
+      "workedExample": {
+        "id": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+        "prompt": "A sample contains 45 AA, 45 Aa and 10 aa individuals. Calculate p directly and compare the observed genotype frequencies with Hardy–Weinberg expectations.",
+        "steps": [
+          "Count A copies: 90 + 45 = 135 out of 200, so p = 0.675 and q = 0.325.",
+          "Calculate expectations p² = 0.455625, 2pq = 0.43875 and q² = 0.105625.",
+          "Compare with observed frequencies 0.45, 0.45 and 0.10 without demanding exact equality in a finite sample."
+        ],
+        "conclusion": "The direct allele count gives p = 0.675. The small observed–expected differences require an appropriate sampling and model assessment before supporting a claim of a particular evolutionary cause.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-hardy-weinberg-a-model-and-its-limits-stop",
+        "prompt": "Would a mismatch uniquely identify natural selection?",
+        "guide": "No. Sampling, mating patterns, migration, measurement and other factors can contribute. A mismatch prompts investigation rather than naming one cause by itself.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-hardy-weinberg-a-model-and-its-limits-advanced",
+        "title": "A useful null model can still be incomplete",
+        "paragraphs": [
+          "A null model supplies a baseline expectation, not a claim that the world is perfectly simple. Its value lies in making comparisons explicit. If data differ, check the quality of the sample and then compare alternative biological explanations. If data fit, preserve the model as a useful description while recognizing that unmeasured processes may still be operating.",
+          "A fit concerns one locus, population and observation time. A different locus or later generation can behave differently. Check all genotype categories, sample size and measurement quality. A formal goodness-of-fit test adds assumptions and uncertainty; a non-significant result does not certify perfect equilibrium or exclude effects too small for the study to detect.",
+          "Population allele frequencies cannot rank people’s worth or abilities. Social categories need not describe fixed breeding populations, and group averages hide within-group variation. A model developed for a stated locus is not evidence for a deterministic complex human trait or personal identity."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "A null model supplies a baseline expectation, not a claim that the world is perfectly simple. Its value lies in making comparisons explicit. If data differ, check the quality of the sample and then compare alternative biological explanations. If data fit, preserve the model as a useful description while recognizing that unmeasured processes may still be operating."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-mutation-and-selection",
+      "outcomeIds": [
+        "D1.2k",
+        "D1.4k"
+      ],
+      "workedExample": {
+        "id": "d-topic-mechanisms-of-change-mutation-and-selection-worked",
+        "prompt": "A fictional bacterial population contains a rare resistance variant before an antibiotic exposure. Its frequency later rises. Separate variant origin from the change in representation.",
+        "steps": [
+          "Identify mutation or prior inheritance as the source of the existing variant.",
+          "During exposure, compare survival and reproduction of carriers and non-carriers.",
+          "Explain the later frequency change through differential contribution to descendants rather than need-directed mutation."
+        ],
+        "conclusion": "Selection can increase a pre-existing resistance variant's representation. The exposure does not show that bacteria intentionally produced the exact mutation they needed.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-mechanisms-of-change-mutation-and-selection-stop",
+        "prompt": "Does natural selection have to create a new allele before it can change allele frequencies?",
+        "guide": "No. It can act on existing heritable variation. Mutation and selection play different roles in the explanation.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-mechanisms-of-change-mutation-and-selection-advanced",
+        "title": "The environment changes the comparison",
+        "paragraphs": [
+          "A variant's effect on reproductive success can depend on the environment. A resistance mechanism might help during one exposure while carrying a cost under another condition. This makes fitness a relationship between a heritable feature and a specified context, not a permanent label meaning strongest or best. A study should compare outcomes under the relevant conditions before predicting how frequencies will change.",
+          "Mutation changes sequence; assortment, exchange and fertilization can reshuffle existing variants. A newly arisen allele need not already have reached offspring. Its transmission depends on whether the changed lineage contributes to reproduction. In a sexually reproducing organism, a change confined to body cells usually does not enter offspring through gametes. New does not mean useful, and common does not mean superior.",
+          "Selection can shift a trait distribution in one direction, favour intermediate values, or favour separated extremes; these are directional, stabilizing and disruptive patterns. Fitness can also depend on how common a variant is. Competing effects can maintain variation. Demonstrate inherited differences in reproductive contribution before assigning one of these mechanisms from a frequency curve alone."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "A variant's effect on reproductive success can depend on the environment. A resistance mechanism might help during one exposure while carrying a cost under another condition. This makes fitness a relationship between a heritable feature and a specified context, not a permanent label meaning strongest or best. A study should compare outcomes under the relevant conditions before predicting how frequencies will change."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-chance-and-population-size",
+      "outcomeIds": [
+        "D1.2k"
+      ],
+      "workedExample": {
+        "id": "d-topic-mechanisms-of-change-chance-and-population-size-worked",
+        "prompt": "Two simulated populations begin with p = 0.50. One samples ten reproductive contributors and the other samples one thousand. Predict which is more likely to show large random frequency swings and distinguish founder and bottleneck cases.",
+        "steps": [
+          "Recognize random sampling as the mechanism in both simulations.",
+          "A smaller sample generally shows larger proportional fluctuations.",
+          "A founder event samples colonists from a source; a bottleneck sharply reduces an existing population before later recovery."
+        ],
+        "conclusion": "The smaller population is more prone to large random swings in this model. Founder and bottleneck effects are different histories that can both intensify drift.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-mechanisms-of-change-chance-and-population-size-stop",
+        "prompt": "Does a random increase in an allele prove that it improved survival?",
+        "guide": "No. Drift can change representation without a selective advantage. A fitness claim requires additional evidence.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-mechanisms-of-change-chance-and-population-size-advanced",
+        "title": "Recovery of numbers need not restore lost variants",
+        "paragraphs": [
+          "A population can regain its former size after a bottleneck while retaining a changed allele distribution. Growth copies the variants that remain; it does not automatically reconstruct those lost by chance. Mutation or migration may later add variants, but those are separate processes. This distinction explains why population size and genetic diversity should be measured separately in a conservation study.",
+          "Gene flow and drift can operate together. Incoming breeding contributions often make connected populations more alike, with the effect depending on migrant numbers and allele frequencies relative to residents. Drift can remove rare variants or change their representation without favouring useful traits. Compare movement records and replicate small-population trajectories instead of using one direction of change as a diagnosis."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "A population can regain its former size after a bottleneck while retaining a changed allele distribution. Growth copies the variants that remain; it does not automatically reconstruct those lost by chance. Mutation or migration may later add variants, but those are separate processes. This distinction explains why population size and genetic diversity should be measured separately in a conservation study."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-movement-and-mating",
+      "outcomeIds": [
+        "D1.2k"
+      ],
+      "workedExample": {
+        "id": "d-topic-mechanisms-of-change-movement-and-mating-worked",
+        "prompt": "A receiving population has 100 diploid individuals with p = 0.60. Ten immigrants each carry AA. Calculate the new allele frequency before reproduction, then contrast a change in mating pattern alone.",
+        "steps": [
+          "The original population has 120 A copies among 200 total copies.",
+          "Add 20 A copies from ten AA immigrants, giving 140/220.",
+          "Calculate p ≈ 0.6364; a mating-pattern change without differential reproduction or other forces can instead alter genotype proportions while leaving allele counts unchanged."
+        ],
+        "conclusion": "Immigration changes p to about 0.6364 in this model. Non-random mating alone need not change p and q, even when it changes heterozygote frequency.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-mechanisms-of-change-movement-and-mating-stop",
+        "prompt": "If heterozygotes become less common, must one allele also have become less common?",
+        "guide": "No. Genotype proportions can change while the allele totals remain the same. Count the copies to test that claim.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-mechanisms-of-change-movement-and-mating-advanced",
+        "title": "Define the population boundary",
+        "paragraphs": [
+          "An immigrant enters one population while leaving another. The measured effect depends on the boundary, time interval and reproductive contribution used in the study. Temporary movement may differ from successful gene flow into later generations. A clear model states whether it counts current residents, breeding individuals or descendant contributions. Without that definition, two studies can report different changes while measuring different populations.",
+          "A heterozygote deficit can reflect relatives mating, similar partners pairing, selection, scoring errors or pooling distinct subpopulations. The same pattern therefore needs different possible tests: parentage, genotype-specific survival, repeated scoring and spatial samples. Compare migrant frequencies and actual breeding contributions before attributing a shift to gene flow."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "An immigrant enters one population while leaving another. The measured effect depends on the boundary, time interval and reproductive contribution used in the study. Temporary movement may differ from successful gene flow into later generations. A clear model states whether it counts current residents, breeding individuals or descendant contributions. Without that definition, two studies can report different changes while measuring different populations."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-resistance-and-evidence",
+      "outcomeIds": [
+        "D1.4k",
+        "D1.1sts"
+      ],
+      "workedExample": {
+        "id": "d-topic-mechanisms-of-change-resistance-and-evidence-worked",
+        "prompt": "An antibiotic-exposed sample becomes enriched for a resistance allele. A comparison sample also changes, but it passed through a severe random bottleneck. What evidence could separate selection from drift?",
+        "steps": [
+          "Compare replicated exposed and unexposed groups under similar sampling conditions.",
+          "Measure whether the allele is associated with differential survival or reproduction during exposure.",
+          "Track bottlenecks and starting frequencies so random sampling remains an explicit alternative."
+        ],
+        "conclusion": "A repeated exposure-linked advantage would support selection more directly than a frequency change alone. A bottleneck can change frequencies by chance and must be considered.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-mechanisms-of-change-resistance-and-evidence-stop",
+        "prompt": "Can every individual becoming acclimated explain a heritable allele-frequency change across generations?",
+        "guide": "No. Individual physiological adjustment and population genetic change are different phenomena. The evidence must track inherited variants and descendant contribution.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-mechanisms-of-change-resistance-and-evidence-advanced",
+        "title": "Similar outcomes can have different causes",
+        "paragraphs": [
+          "An increasing allele frequency is an outcome shared by several mechanisms. To identify a cause, look for evidence unique to a proposed pathway, such as an exposure-dependent reproductive difference or documented immigration. A stronger study also measures alternatives. This causal discipline prevents a familiar resistance example from becoming a rule that every frequency increase must be selection."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-testing-explanations",
+      "outcomeIds": [
+        "D1.1s",
+        "D1.2s",
+        "D1.3s",
+        "D1.4s"
+      ],
+      "workedExample": {
+        "id": "d-topic-mechanisms-of-change-testing-explanations-worked",
+        "prompt": "The supplied population samples are 36/48/16, 45/45/10 and 42/46/12 for AA/Aa/aa. Calculate p for each and evaluate “the allele rose steadily because of selection.”",
+        "steps": [
+          "Use the two-copy denominator in each 100-individual sample.",
+          "Calculate p values 0.60, 0.675 and 0.65.",
+          "Notice the rise followed by a decline, then ask what evidence distinguishes selection from drift, migration and sampling."
+        ],
+        "conclusion": "The allele did not rise steadily. The observations show a changing sampled frequency, while the cause remains unresolved without further evidence.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-mechanisms-of-change-testing-explanations-stop",
+        "prompt": "Which part of the claim can these counts directly refute?",
+        "guide": "The claim of a steady rise: the third sampled p is lower than the second. They do not by themselves establish a unique alternative mechanism.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-mechanisms-of-change-testing-explanations-advanced",
+        "title": "Revision should preserve what the data do show",
+        "paragraphs": [
+          "Rejecting an overclaim does not require discarding the observations. Keep the measured sequence, identify the false trend description and separate that correction from the causal uncertainty. Then propose a targeted next observation, such as migration records or genotype-specific reproductive outcomes. A revised explanation is strongest when it becomes both more accurate and more testable."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-population-growth-size-and-density",
+      "outcomeIds": [
+        "D3.2k",
+        "D3.2s"
+      ],
+      "workedExample": {
+        "id": "d-topic-population-growth-size-and-density-worked",
+        "prompt": "A fictional area contains 240 individuals in 12 hectares. Calculate density and explain why the same density could occur in a population of a different total size.",
+        "steps": [
+          "Divide the count by area: 240/12 = 20.",
+          "Attach units: 20 individuals per hectare.",
+          "Construct a comparison such as 100 individuals in 5 hectares, also 20 per hectare, while retaining different population totals."
+        ],
+        "conclusion": "Density is 20 individuals/ha. Equal density does not imply equal total population size or identical spatial arrangement.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-population-growth-size-and-density-stop",
+        "prompt": "Would “20 individuals” be a complete answer to this density question?",
+        "guide": "No. It omits the area denominator. Density must include the relevant area or volume unit.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-population-growth-size-and-density-advanced",
+        "title": "Scale can change the pattern",
+        "paragraphs": [
+          "A population may look evenly distributed at one spatial scale and clustered at another. Density over an entire region can hide dense patches and empty areas. State the sampling boundary and resolution when comparing sites. This matters when resource use, contact rates or habitat requirements depend on local crowding rather than only the region-wide average.",
+          "Patchy resources, social groups or dispersal can produce clumps. Territoriality or local competition can contribute to uniform spacing. A random model needs an explicit spatial scale and independence assumptions. Similar-looking patterns can have different causes; compare resource and interaction evidence before assigning a mechanism from a map."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "A population may look evenly distributed at one spatial scale and clustered at another. Density over an entire region can hide dense patches and empty areas. State the sampling boundary and resolution when comparing sites. This matters when resource use, contact rates or habitat requirements depend on local crowding rather than only the region-wide average."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-population-growth-sampling-populations",
+      "outcomeIds": [
+        "D3.1s",
+        "D3.2s",
+        "D3.3s",
+        "D3.4s"
+      ],
+      "workedExample": {
+        "id": "d-topic-population-growth-sampling-populations-worked",
+        "prompt": "Five one-square-metre quadrats contain 2, 8, 4, 10 and 6 individuals. Estimate abundance in a comparable 200 m² habitat.",
+        "steps": [
+          "Add the counts: 30 individuals across 5 m².",
+          "Calculate mean density: 30/5 = 6 individuals/m².",
+          "Multiply by 200 m² to estimate 1200 individuals, assuming the sample represents the habitat."
+        ],
+        "conclusion": "The estimate is 1200 individuals. It is not a complete census; patchiness, sampling placement and detection can affect its reliability.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-population-growth-sampling-populations-stop",
+        "prompt": "Would deliberately placing every quadrat in the densest visible patch support an unbiased whole-habitat estimate?",
+        "guide": "No. That placement would overrepresent dense patches. A suitable random or justified stratified design is needed.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-population-growth-sampling-populations-advanced",
+        "title": "Stratification can improve representation",
+        "paragraphs": [
+          "If a habitat contains clearly different zones, a sampling plan can sample each zone and weight its estimate by zone area. This can be more informative than treating all space as interchangeable. The weights must reflect the actual habitat, not equal numbers of quadrats alone. Record the design before sampling so that the estimate's assumptions can be evaluated.",
+          "Random or appropriately weighted stratified quadrats can reduce placement bias. Detectability still matters: hidden or dormant organisms may be missed. For mark–recapture, marks must remain recognizable and should not alter survival or capture. Trap attraction or avoidance, incomplete mixing and movement can bias the estimate. The online task evaluates supplied data and does not require handling wildlife.",
+          "Report method, effort, season, area and uncertainty beside an estimate. Repeated samples show variation; a statistical interval needs a method and assumptions suited to the design. A calculated 847.3 animals is an estimate, not an observation of a fractional animal. Changes in weather, observer or equipment can change detection without changing true abundance."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "If a habitat contains clearly different zones, a sampling plan can sample each zone and weight its estimate by zone area. This can be more informative than treating all space as interchangeable. The weights must reflect the actual habitat, not equal numbers of quadrats alone. Record the design before sampling so that the estimate's assumptions can be evaluated."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-population-growth-four-demographic-processes",
+      "outcomeIds": [
+        "D3.1k",
+        "D3.3k"
+      ],
+      "workedExample": {
+        "id": "d-topic-population-growth-four-demographic-processes-worked",
+        "prompt": "A population starts at 1000. Over ten days it records 120 births, 30 immigrants, 70 deaths and 20 emigrants. Calculate net change and final size.",
+        "steps": [
+          "Add gains: 120 + 30 = 150.",
+          "Add losses: 70 + 20 = 90.",
+          "Subtract to obtain ΔN = 60, then add to the starting size: 1060."
+        ],
+        "conclusion": "The net change is +60 individuals and the final population size is 1060 under this complete-count model.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-population-growth-four-demographic-processes-stop",
+        "prompt": "Why is births minus deaths alone insufficient here?",
+        "guide": "The population is open to movement. Immigration and emigration also change the number inside the defined boundary.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-population-growth-four-demographic-processes-advanced",
+        "title": "A balance equation needs consistent records",
+        "paragraphs": [
+          "Births, deaths and movements must cover the same interval and population boundary. Double-counting an individual or mixing daily counts with ten-day totals can break the balance even when the formula is correct. Compare record definitions before interpreting an unexpected residual. The equation is a bookkeeping model whose reliability depends on complete and compatible inputs.",
+          "Recruitment means entry into the stage being counted, which may occur well after birth. In the separate synthetic frog example,240 counted-stage individuals plus 86 recruits and 18 immigrants, minus 51 deaths and 23 emigrants, gives 270, a net increase of 30. All entries and exits must refer to that same stage and year; do not also count the 86 as births a second time."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Births, deaths and movements must cover the same interval and population boundary. Double-counting an individual or mixing daily counts with ten-day totals can break the balance even when the formula is correct. Compare record definitions before interpreting an unexpected residual. The equation is a bookkeeping model whose reliability depends on complete and compatible inputs."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-population-growth-rates-and-denominators",
+      "outcomeIds": [
+        "D3.1k",
+        "D3.2k"
+      ],
+      "workedExample": {
+        "id": "d-topic-population-growth-rates-and-denominators-worked",
+        "prompt": "Use ΔN = 60, initial N = 1000 and Δt = 10 days to calculate absolute daily change, interval per-initial-individual change and its daily average.",
+        "steps": [
+          "Calculate ΔN/Δt = 60/10 = 6 individuals/day.",
+          "Calculate ΔN/Ninitial = 60/1000 = 0.06 over the interval.",
+          "Divide the interval value by ten to obtain an average 0.006 per day per initial individual."
+        ],
+        "conclusion": "The three summaries are 6 individuals/day, 0.06 per initial individual over ten days, and 0.006 per day per initial individual. The last is an average based on the initial denominator, not a directly fitted continuous intrinsic rate.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-population-growth-rates-and-denominators-stop",
+        "prompt": "Are 6 and 0.006 contradictory growth-rate answers?",
+        "guide": "No. They use different denominators and units. The question must specify which rate is wanted.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-population-growth-rates-and-denominators-advanced",
+        "title": "Discrete and continuous rates differ",
+        "paragraphs": [
+          "A proportional change measured over one interval does not automatically equal a continuous exponential parameter. Converting between rate forms requires a defined model and time unit. A classroom calculation should keep the observed interval summary separate from an inferred growth parameter. This avoids inserting an average initial-population rate into a different equation without checking its meaning."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-population-growth-exponential-and-logistic-models",
+      "outcomeIds": [
+        "D3.2k",
+        "D3.3k"
+      ],
+      "workedExample": {
+        "id": "d-topic-population-growth-exponential-and-logistic-models-worked",
+        "prompt": "Compare two discrete models starting at N = 100 with r = 0.2 per step: exponential Nnext = N + rN and logistic Nnext = N + rN(1 − N/K), with K = 500.",
+        "steps": [
+          "Exponential next size is 100 + 0.2(100) = 120.",
+          "Logistic next size is 100 + 0.2(100)(1 − 100/500) = 116.",
+          "Compare the density-dependent factor while retaining the same initial size, step and r."
+        ],
+        "conclusion": "The first step gives 120 versus 116. In the logistic model, the additional factor reduces growth as N approaches the stated K.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-population-growth-exponential-and-logistic-models-stop",
+        "prompt": "Does the discrete logistic equation guarantee a smooth S-shaped curve for every possible r and starting value?",
+        "guide": "No. Its behaviour depends on parameter values and step size. The classroom curve uses a bounded illustrative parameter choice.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-population-growth-exponential-and-logistic-models-advanced",
+        "title": "An equation is a chosen approximation",
+        "paragraphs": [
+          "The exponential model omits density limits over its stated interval; the logistic model adds a particular feedback form. Neither includes every delay, interaction or environmental change. Compare observations with both predictions and identify systematic departures. A model can be useful over one range while becoming inaccurate outside it, so label the interval and parameter assumptions beside the plotted curve.",
+          "A discrete multiplier λ=Nnext/Ncurrent describes one stated interval. Continuous exponential growth instead uses dN/dt=rN, where r is a rate per unit time. The corresponding parameters are not numerically interchangeable. Fixed positive per-capita increase yields compounding, but age structure, season and resources affect realized rates and limit the interval in which the approximation is useful.",
+          "The simple continuous logistic equation is dN/dt=rN(1−N/K). For fixed positive r and K, total growth is greatest at N=K/2, while per-capita growth falls as N rises. At K, net growth is zero, not every birth and death. The carrying capacity belongs to the stated environmental conditions rather than being a permanent species constant.",
+          "The original separate synthetic herbivore series has N=40,74,128,176,198,203 at years 0–5. Successive increases are 34,54,48,22,5. The largest recorded increase is from year 1 to 2, followed by slower growth. This is consistent with increasing limits near a support level around 200 over this interval, but does not measure a permanent K or identify its cause."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "The exponential model omits density limits over its stated interval; the logistic model adds a particular feedback form. Neither includes every delay, interaction or environmental change. Compare observations with both predictions and identify systematic departures. A model can be useful over one range while becoming inaccurate outside it, so label the interval and parameter assumptions beside the plotted curve."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-population-growth-feedback-and-changing-limits",
+      "outcomeIds": [
+        "D3.2k",
+        "D3.1sts"
+      ],
+      "workedExample": {
+        "id": "d-topic-population-growth-feedback-and-changing-limits-worked",
+        "prompt": "A fictional population initially stabilizes near 500, but a drought reduces available habitat and resources. Evaluate the claim that its carrying capacity must remain 500 forever.",
+        "steps": [
+          "Identify K as a model summary of support under particular conditions.",
+          "Link the environmental change to altered resource availability and possibly a different effective K.",
+          "Consider delayed population responses and other losses rather than forcing the old curve onto the new conditions."
+        ],
+        "conclusion": "The earlier value need not remain valid. A changing environment can alter the support conditions, and the population may respond with delays or fluctuations.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-population-growth-feedback-and-changing-limits-stop",
+        "prompt": "Is density-independent disturbance the same as an effect whose total number of deaths can never vary with population size?",
+        "guide": "No. The term concerns whether the relevant per-capita effect is driven by density in the model, not whether the total count is numerically identical at every size.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-population-growth-feedback-and-changing-limits-advanced",
+        "title": "Feedback can be delayed",
+        "paragraphs": [
+          "Resource depletion, reproduction and mortality do not always respond instantly to current density. Delays can produce overshoot or oscillation around a model's support level. A smooth logistic curve hides those timing effects. If a dataset fluctuates, examine the timing and mechanisms before assuming the carrying-capacity idea is useless or that every fluctuation has the same cause.",
+          "A residual is observed minus predicted value. Plotting residuals can expose repeated departures such as seasonality or a delayed response. Also compare change per individual with N: the exponential model keeps it constant, while the simple logistic model lowers it as N rises. Describe the interval that fits and investigate systematic departures instead of labelling a population permanently logistic."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Resource depletion, reproduction and mortality do not always respond instantly to current density. Delays can produce overshoot or oscillation around a model's support level. A smooth logistic curve hides those timing effects. If a dataset fluctuates, examine the timing and mechanisms before assuming the carrying-capacity idea is useless or that every fluctuation has the same cause."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "outcomeIds": [
+        "D3.4k"
+      ],
+      "workedExample": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-worked",
+        "prompt": "Compare a fictional species producing many small offspring with little parental care and another producing fewer offspring with greater investment. Use r/K language cautiously.",
+        "steps": [
+          "Describe the measured traits rather than beginning with a fixed label.",
+          "Relate offspring number, size, timing and survival under the stated conditions.",
+          "Use r- and K-associated tendencies as an idealized comparison while allowing mixed traits and environmental context."
+        ],
+        "conclusion": "The species show contrasting investment patterns, but real life histories occupy continua. A few traits do not place every organism into two rigid universal boxes.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-stop",
+        "prompt": "Does a species described as K-associated necessarily have zero population growth whenever conditions improve?",
+        "guide": "No. The category is a broad tendency, not a replacement for a growth model or an unchanging rate.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-advanced",
+        "title": "Tradeoffs require evidence",
+        "paragraphs": [
+          "Resources allocated to one function may limit another, but an apparent contrast between species does not reveal every causal tradeoff. Body size, lifespan and habitat can also differ. Compare traits and outcomes in context before asserting that more offspring must always mean lower survival. A useful extension tests a specific predicted relationship rather than treating a category name as its explanation.",
+          "Traits can vary within a species through responses to conditions or population differences. Food and mortality can change maturation or offspring investment. Growth, maintenance, defence and reproduction compete for finite resources, but measured comparisons must test the proposed trade-off. Lifespan and dispersal also affect the context.",
+          "Viability involves diversity, stage and sex structure, connectivity, habitat and environmental variation as well as N. Protecting adults, juvenile habitat or movement routes can yield different effects. A count near current K can still be vulnerable if habitat is shrinking; a seasonal low count may have another meaning.",
+          "In the original fictional options, increased harvest risks lowering adult survival without adding juvenile habitat; restoration may add wetland area but has a response lag; no change can allow the existing decline to continue. Compare quota/effort and stage checks, habitat/recruitment surveys and continued trend monitoring. These are scenario hypotheses, not evidence that an actual management option has been tested."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Resources allocated to one function may limit another, but an apparent contrast between species does not reveal every causal tradeoff. Body size, lifespan and habitat can also differ. Compare traits and outcomes in context before asserting that more offspring must always mean lower survival. A useful extension tests a specific predicted relationship rather than treating a category name as its explanation."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+      "outcomeIds": [
+        "D2.1k"
+      ],
+      "workedExample": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-worked",
+        "prompt": "Classify three fictional interactions: both partners show improved reproductive output; one benefits while the other's measured outcome is unchanged; one benefits while the other is harmed.",
+        "steps": [
+          "Use the defined measured effect for each partner.",
+          "Assign +/+ to mutualism, +/0 to commensalism and +/− to an antagonistic interaction such as parasitism or predation depending on mechanism.",
+          "Avoid choosing a precise mechanism solely from the signs."
+        ],
+        "conclusion": "The effect pattern helps classify the relationship, while the biological mechanism distinguishes interactions sharing the same sign pattern.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-stop",
+        "prompt": "Does observing one species near another prove mutualism?",
+        "guide": "No. Co-occurrence does not measure benefit. Suitable comparisons of relevant outcomes are needed for both partners.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-advanced",
+        "title": "Zero can mean a detection limit",
+        "paragraphs": [
+          "A study reporting no measured effect may have limited sample size, duration or sensitivity. Treat the 0 in a classroom interaction table as “no effect detected or specified under these conditions,” not proof that no effect could ever occur. The relationship can also change with environment or life stage. State the observation window and outcome so the classification remains evidence-based.",
+          "Effect signs summarize measured outcomes: +/+ mutualism, −/− competition, +/− consumer or parasite versus the harmed organism, and +/0 commensalism. A zero means no effect detected or specified. Some partnerships are required for a participant’s usual survival, while others are optional. Herbivory can remove tissue without killing the whole producer.",
+          "An ecosystem includes transfers of energy and matter as well as organisms and non-living conditions. An interaction can act indirectly: a predator may reduce herbivores and thereby reduce damage to plants. A partner’s net effect can shift with nutrients, location or host condition. Trace each link and compare alternative pathways rather than treating every correlation as a direct interaction."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "A study reporting no measured effect may have limited sample size, duration or sensitivity. Treat the 0 in a classroom interaction table as “no effect detected or specified under these conditions,” not proof that no effect could ever occur. The relationship can also change with environment or life stage. State the observation window and outcome so the classification remains evidence-based."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "outcomeIds": [
+        "D2.1k",
+        "D2.2k",
+        "D2.1s",
+        "D2.2s",
+        "D2.3s",
+        "D2.4s"
+      ],
+      "workedExample": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+        "prompt": "The supplied plant comparison gives mean A mass 4.0 in five-A pots, 3.0 in ten-A pots and 2.4 in mixed five-A/five-B pots. What comparisons address density and neighbour identity?",
+        "steps": [
+          "Compare five-A with ten-A pots for an intraspecific density contrast.",
+          "Compare ten-A with mixed pots at ten total plants to hold total density constant while changing neighbour composition.",
+          "Retain replication and resource measurements as limits on a specific causal claim."
+        ],
+        "conclusion": "The mixed pots have lower mean A mass than the same-total-density A-only pots. This supports a neighbour-composition effect in the dataset, while the exact resource mechanism requires more evidence.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-stop",
+        "prompt": "Does the five-A versus mixed comparison alone isolate species identity from total plant density?",
+        "guide": "No. Both composition and total density change. The ten-A comparison helps separate those factors.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-advanced",
+        "title": "Similar defences can send different signals",
+        "paragraphs": [
+          "Batesian mimicry involves a relatively harmless mimic resembling a defended model, while Müllerian mimicry involves defended species sharing warning features. The resemblance alone does not distinguish them; evidence of defence and predator response matters. Keep those mechanisms separate from camouflage, which can reduce detection. A useful diagram labels both the appearance and the proposed effect on the observer.",
+          "Defences include concealment, warning signals, armour, toxins, escape and grouping. Each can carry costs: toxins use resources, and groups may increase visibility or competition. A heritable defence is adaptive only in relation to measured reproductive success in its context. Predators also vary in locating, capturing and processing prey.",
+          "Coevolution means reciprocal evolutionary change as species impose selection on each other. Matching traits alone do not prove it. Test reciprocal responses or suitable geographic and genetic comparisons. A brief behavioural change is not automatically inherited evolutionary change.",
+          "A niche concerns resource use and environmental conditions, not just location. A fundamental niche describes a potential range in the absence of limiting biological interactions; a realized niche describes the observed range under actual constraints. Complete competitors cannot persist indefinitely under the same constant limiting conditions in the simple exclusion model; nature can vary across time and space.",
+          "Resource partitioning can divide use by time, place or resource type. Character displacement is evolved trait divergence associated with coexistence. It needs evidence of inherited and geographic patterns, not merely two species using different feeding heights on one day. Compare each alone and together and measure whether the shared resource is limiting."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Batesian mimicry involves a relatively harmless mimic resembling a defended model, while Müllerian mimicry involves defended species sharing warning features. The resemblance alone does not distinguish them; evidence of defence and predator response matters. Keep those mechanisms separate from camouflage, which can reduce detection. A useful diagram labels both the appearance and the proposed effect on the observer."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+      "outcomeIds": [
+        "D2.1k",
+        "D2.3s"
+      ],
+      "workedExample": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-worked",
+        "prompt": "A fictional prey curve peaks before a predator curve. Explain a plausible interaction and an alternative cause that the graph alone cannot exclude.",
+        "steps": [
+          "Read the time axis and identify the lag between sampled peaks.",
+          "Propose that increased prey availability supports later predator reproduction or survival.",
+          "Consider shared environmental drivers, other prey and sampling effects before claiming a unique cause."
+        ],
+        "conclusion": "The lag is consistent with a predator–prey interaction, but correlation and timing alone do not prove that this mechanism fully explains the cycle.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-stop",
+        "prompt": "Would reversing the vertical scales change the actual time lag between the observed peaks?",
+        "guide": "No. It changes the visual height comparison, not their horizontal time positions. Both axes still need clear units and labels.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-advanced",
+        "title": "Feedback links more than two curves",
+        "paragraphs": [
+          "Predator and prey populations can also depend on resources, disease, weather and other interacting species. A two-species model isolates one feedback relationship to make a prediction. When comparing it with observations, look for departures that suggest a missing driver. Adding every possible factor at once can make a model hard to test, so choose the next factor based on evidence.",
+          "Prey density can change encounter rates, predator reproduction or switching among food sources. Refuges, age structure, movement and external conditions can dampen a cycle. A lag comparison, sometimes quantified by cross-correlation, measures association; a shared resource driver can produce it without predation being the sole cause.",
+          "Compare diet, removal or exclusion experiments, natural contrasts and repeated time series. Label measurement units and actual time spacing; leave missing observations visibly missing. Describe particular peaks, lags and changes. An illustrative smooth curve does not establish that every real predator–prey system cycles regularly."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Predator and prey populations can also depend on resources, disease, weather and other interacting species. A two-species model isolates one feedback relationship to make a prediction. When comparing it with observations, look for departures that suggest a missing driver. Adding every possible factor at once can make a model hard to test, so choose the next factor based on evidence."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+      "outcomeIds": [
+        "D2.3k"
+      ],
+      "workedExample": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-worked",
+        "prompt": "Compare community development on newly exposed rock with recovery after a fire that leaves soil and some surviving organisms. Avoid predicting one inevitable final community.",
+        "steps": [
+          "Use the absence of developed soil as a key feature of the primary-succession example.",
+          "Use retained soil and biological legacies in the secondary-succession example.",
+          "Compare colonization, dispersal, conditions and later disturbance as influences on the pathways."
+        ],
+        "conclusion": "The two starting conditions support different recovery processes and timescales. Neither case guarantees a universal fixed climax community.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-stop",
+        "prompt": "Does secondary succession mean that every species present before the disturbance must return in the same order?",
+        "guide": "No. Surviving organisms, arrivals, changing conditions and repeated disturbance can produce different pathways.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-advanced",
+        "title": "History can leave several kinds of legacy",
+        "paragraphs": [
+          "Soil properties, seed banks, surviving roots and nearby source populations can influence recovery. Two sites with similar current climate may therefore develop differently because their histories differ. Record these legacies before comparing trajectories. A succession model is stronger when it explains plausible processes and alternatives than when it presents one unchangeable sequence of named communities.",
+          "Weathering, microbes and colonists can develop soil on newly exposed rock. After other disturbances, seed banks, roots, organic matter and surviving organisms can speed recovery. Severity can vary across one site, leaving a mosaic of legacies. Primary and secondary describe those starting conditions; neither guarantees a speed or species list.",
+          "Facilitation occurs when early occupants help later establishment, for example by adding organic matter. Tolerance describes later establishment despite earlier occupants and persistence under the conditions that develop. Inhibition occurs when occupants restrict recruitment until death or disturbance opens space. These mechanisms can coexist. Dispersal and arrival order can also change later opportunities, producing priority effects.",
+          "Track species identity, dominance, structure, biomass and soil conditions rather than richness alone. A chronosequence compares different-aged sites instead of repeatedly observing one site. Its age interpretation requires comparable starting conditions and histories; soil, topography and management can otherwise confound the result. Repeated plots provide stronger direct temporal evidence.",
+          "The original synthetic post-fire summary records years 1,5,15,35. Bare-ground percentages are 62,18,6,3; herb cover 30,44,22,9; shrub cover 5,28,41,27; tree seedlings per plot 2,11,34,76. These are separate cover measures and seedling counts, not four parts of one 100% total. The summary supplies no replicate uncertainty and does not prove facilitation or indefinite biomass growth."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Soil properties, seed banks, surviving roots and nearby source populations can influence recovery. Two sites with similar current climate may therefore develop differently because their histories differ. Record these legacies before comparing trajectories. A succession model is stronger when it explains plausible processes and alternatives than when it presents one unchangeable sequence of named communities."
+            ]
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+      "outcomeIds": [
+        "D2.1sts",
+        "D2.1s",
+        "D2.2s",
+        "D2.3s",
+        "D2.4s",
+        "D3.4s"
+      ],
+      "workedExample": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-worked",
+        "prompt": "A fictional Canadian wetland project proposes restoration based on one season of higher plant abundance. What evidence would strengthen a recommendation?",
+        "steps": [
+          "Define the intended outcomes, including biodiversity, water conditions and relevant community priorities.",
+          "Compare with suitable reference or untreated sites across enough time to address seasonal variation.",
+          "Record sampling methods, possible tradeoffs and Indigenous and local perspectives through appropriate respectful engagement rather than inventing agreement."
+        ],
+        "conclusion": "One season's abundance result supports a limited observation, not complete restoration success. A recommendation should connect measured outcomes with uncertainties, alternatives and the perspectives needed for the decision.",
+        "sourceRole": "original classroom model; linked supplied dataset where explicitly named"
+      },
+      "stopCheck": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-stop",
+        "prompt": "Would an increase in one introduced plant automatically demonstrate improved biodiversity?",
+        "guide": "No. Greater abundance of one species can occur alongside reduced diversity or other adverse changes. The outcome must be measured directly.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-advanced",
+        "title": "A recommendation is a reasoned choice",
+        "paragraphs": [
+          "Ecological decisions combine evidence about consequences with values about which consequences matter. Keep those roles visible. A transparent recommendation can favour an option while naming a tradeoff and a condition that would change the decision. It should also identify who needs to be involved in interpreting local impacts. A fictional classroom case must not present invented consultation as actual community endorsement.",
+          "Measure both participants before classifying an interaction. Flower visits show contact; seed production can test a plant benefit, while food collection or reproductive evidence tests the pollinator’s outcome. For competition, compare organisms alone and together at matched total density and resources. Repetition and stated spatial and temporal limits make the comparison interpretable.",
+          "For post-fire succession, define the response and comparison sites. To ask whether herbs facilitate tree establishment, compare seedling establishment with and without herb cover under matched soil, slope and fire severity. A correlation between site age and seedlings does not itself establish that herbs caused the increase.",
+          "Scientific evidence informs likely effects, while decisions also involve values, rights, livelihoods and acceptable risk. Section 35 of the Constitution Act, 1982 recognizes and affirms existing Aboriginal and treaty rights in Canada. Local Indigenous knowledge and authority require appropriate relationships and protocols; a classroom author must not invent consultation, consent or community perspectives. Keep this case synthetic.",
+          "A monitored decision specifies a goal, option, predicted response, indicators, timing and a threshold for revision. Restoration needs habitat and recruitment measures; harvest comparisons also need effort and stage structure. Compare harm from acting with harm from delay, and prefer reversible trials when suitable. Serious uncertainty should be visible in the decision rather than hidden behind one favourable count."
+        ],
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false,
+        "revisionHistory": [
+          {
+            "reason": "Full44-section D retention comparison restores omitted mechanisms, numerical examples and limits.",
+            "previousParagraphs": [
+              "Ecological decisions combine evidence about consequences with values about which consequences matter. Keep those roles visible. A transparent recommendation can favour an option while naming a tradeoff and a condition that would change the decision. It should also identify who needs to be involved in interpreting local impacts. A fictional classroom case must not present invented consultation as actual community endorsement."
+            ]
+          }
+        ],
+        "sourceLinks": [
+          {
+            "label": "Constitution Act,1982: section35",
+            "url": "https://laws.justice.gc.ca/eng/Const/FullText.html"
+          },
+          {
+            "label": "First Nations Information Governance Centre: data governance principles",
+            "url": "https://fnigc.ca/ocap-training/"
+          }
+        ]
+      },
+      "status": "authored; independent source/key/coverage/readability review pending"
+    }
+  ]
+}

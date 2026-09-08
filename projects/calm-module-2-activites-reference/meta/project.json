@@ -14,7 +14,7 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-21T17:03:08.348Z",
   "createdAt": "2026-03-09T21:37:52.321Z",
-  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "updatedAt": "2026-08-27T15:38:47.935Z",
   "workspaceApprovedAt": "2026-04-21T17:03:08.348Z",
   "migrationState": "migrated",
   "preferredWorkflows": [
@@ -42,6 +42,11 @@
     "driverId": "direct-workspace-v1",
     "familyId": "migrated-legacy-workspace",
     "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    },
     "learnerSurfaces": {
       "schemaVersion": 1,
       "mode": "static-pages-complete",
@@ -51,11 +56,6 @@
           "route": ""
         }
       ]
-    },
-    "studioEditing": {
-      "enabled": true,
-      "renameCourse": false,
-      "imageAssets": true
     }
   },
   "sourceOfTruthNotes": "Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio."

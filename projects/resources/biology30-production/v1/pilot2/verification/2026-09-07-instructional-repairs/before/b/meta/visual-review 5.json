@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "biology30-unit-b",
+  "buildSha256": "9f0b61ac8bdd17527ccf6169a88c85af662e26d544abd3cc8f0df9773729688e",
+  "reviewedAt": "2026-08-31T01:59:33Z",
+  "reviewer": "Codex visual inspection",
+  "status": "visual-red-team-complete-awaiting-human-score-and-decision",
+  "requiredViewports": ["1440x900", "1024x768", "390x844"],
+  "requiredRoutes": ["overview", "b-lesson-01", "b-lesson-08", "b-lesson-14", "model-lab", "investigation-notebook", "practice-hub"],
+  "visualAuditReport": "projects/biology30-unit-b/meta/visual-audit.json",
+  "scientificModelCount": 14,
+  "geometry": {
+    "pass": true,
+    "findingCount": 0,
+    "checks": ["content containment", "card overlap", "figure containment", "minimum text size", "page overflow", "responsive transition settling"]
+  },
+  "allContactSheetsOpened": true,
+  "contactSheets": [
+    { "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/routes-desktop-1440x900-01.png", "sha256": "e128db22e299440e19e25873302c73b0cd69009f9e54d9bae452684efb4dbdc5" },
+    { "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/routes-tablet-1024x768-01.png", "sha256": "4c90bded7527285109f73b57b0822b9b31383088d5cb2cc4879ac90412a437e1" },
+    { "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/routes-mobile-390x844-01.png", "sha256": "eed8a223e6fa3622265e8b25b92ddeb1bc8e18a58a046f7f6bf6e407d15142f2" },
+    { "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures-contact-sheet-01.png", "sha256": "8f0e5cec5ffa52c26d97dd0bd68cd5429974e807227708c13f1dd0a75cd3890c" },
+    { "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T01-55-20-132Z/biology30-unit-b/figures-contact-sheet-02.png", "sha256": "8cbb4bc7aa3c76b08eed717c1ca1e44c0149a77b0e93da731ea48414b95135d1" }
+  ],
+  "reviewCriteria": ["information hierarchy", "text fit and overlap", "arrow alignment", "responsive reflow", "scientific legibility", "hub and notebook clarity"],
+  "findings": [],
+  "pass": true,
+  "binaryVisualBlockerFound": false,
+  "humanVisualAcceptance": null
+}

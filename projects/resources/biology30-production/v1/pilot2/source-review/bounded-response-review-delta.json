@@ -1,0 +1,95 @@
+{
+  "stage": 108,
+  "scope": "Approved bounded review: correct Pilot 2 package reference, B/D response capacity from complete authored examples, C batch deferred, current-limit guidance on 18 controls. No new questions, state IDs or completion rules.",
+  "teacherAcceptance": null,
+  "priorOwnerSha256": "f20e54ec9f1a62fbf10407e80f2ff0ea777f3a17ba9343e3feab6d5bb72595bc",
+  "ownerSha256": "794d28011982aa6b4f4c33faee5f5771c1bd6b2deb38526321e403e2b61a3091",
+  "changedOwnerFiles": [
+    {
+      "file": "package.json",
+      "sha256": "6b2efb71baa2d7688cec8f6d1acc7a066e124c010aa1dbaf3d5afc11ea96a132"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts",
+      "sha256": "34cb889155f400ba2604f25a1c9adb05d72bc5993709904322ac9d6153f7ba5b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "151e8572b83b501add1c83409336ebc9344efd245ac730216e6c029ed57e8e95"
+    }
+  ],
+  "changedInputs": [
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+      "beforeSha256": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+      "sha256": "acbc5b734e43b20b80f0524c9f4349b4aae66f1955f5c82e5127bb6909703ca3"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json",
+      "beforeSha256": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+      "sha256": "a8b4402c80a0ad6348828121482cfa33089f13798e599a4b0e0c5f24ce5c25b2"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json",
+      "beforeSha256": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+      "sha256": "462a960e24f8d026da799cf55be73ea511fb890b69dafce63a8cec32e1d92a5d"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json",
+      "beforeSha256": "26e412ec4e534393037fd0b4eff4fb784c0976889f8a60118bf63590e4986160",
+      "sha256": "1a11942d4e82100709ca78a54018f8b18e938b0aa2bd7f42a28159b6c316c24c"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+      "beforeSha256": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+      "sha256": "7e3b4a1f9e45c1c78913f38e6f8ac9f7c22303ecc0feaa58f338ac285a495fb0"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json",
+      "beforeSha256": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+      "sha256": "9efa1b955e586a73db24c14e1f33ab12aed7c954390c399a36feacf0d6387a9c"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json",
+      "beforeSha256": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+      "sha256": "9f677dc524213e84c858dae3e0cc35980563d37f71fa085e082601c07babb16f"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json",
+      "beforeSha256": "fbad29f80c29e7a0853976a2a6a0a879d8f352080869e56dce663758fd4d33bf",
+      "sha256": "3c7796c9bf14b855831fb688175c36bd10df8fe729c16db95d2d2e29f408bb74"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json",
+      "beforeSha256": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6",
+      "sha256": "3b38415bd16cba75e2682e48531609adbfabfe7f232967b88a1055f98c348b08"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json",
+      "beforeSha256": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc",
+      "sha256": "6b6c50ad7af0e765ffe1bf9db15740f62cb3766372ed80472b6bd9ec5baeac34"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-bounded-review/response-fixtures.json",
+      "sha256": "c2473bc19eb9fb1193faf2e57a91b9ee0302d6e56a3970c8c7b779e4c0bac97b"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-bounded-review/repair-decisions.json",
+      "sha256": "4f9327c450f9fe21e4aaa1ee73d8f6200cfcb7a906165555316159ffbb743122"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-bounded-review/coverage-review.json",
+      "sha256": "7f7b516b6ee0374cd7f2561bd67089a2067f5ed0de5577f7346d2af1e6396936"
+    }
+  ],
+  "verificationStatus": "Source and focused checks; final build/browser results recorded separately.",
+  "reviewChecklist": [
+    "scientific accuracy",
+    "evidence or calculation",
+    "reasoning",
+    "limitations where requested"
+  ],
+  "presentationRepair": "Reuse existing capacity note; constrain practice grid track to viewport after focused mobile test exposed clipping."
+}

@@ -1,0 +1,102 @@
+{
+  "stage": 74,
+  "checkedAt": "2026-09-07T04:43:10.856072+00:00",
+  "status": "in progress; six provisional figure bindings and production browser startup implemented; no learner build",
+  "tests": {
+    "focused": 83,
+    "passed": 83,
+    "finalExpandedBrowserAndPayload": 4,
+    "finalBindingAndCapture": 6,
+    "typecheckUnrelated": 25,
+    "typecheckOwned": 0
+  },
+  "sourceProtection": "15 source and 8 textbook members verified; six learner baselines and protected Unit A owner unchanged",
+  "figures": {
+    "required": 127,
+    "bound": 6,
+    "pending": 121,
+    "originalSelections": 5,
+    "restrictedSourceSelections": 1,
+    "teacherDecision": null,
+    "actualLearnerPlacement": "pending"
+  },
+  "browserProof": [
+    "Chromium, Firefox and WebKit whole shell using actual owner entry",
+    "Conflicting device/platform versions require explicit choice and archive originals",
+    "SetValue accepted / Commit failed remains distinct from device save",
+    "Unreadable device storage blocks startup without empty replacement",
+    "Legacy keys retained; exact verified archives prevent repeated migration questions"
+  ],
+  "pending": [
+    "Seven author gates, full figure/source/first-use/media/time/transfer review",
+    "Production asset loader, media renderer and transaction/metadata integration",
+    "All-unit freeze and actual B then C then D generation",
+    "Project E2E, exact-build visual/scientific proof and teacher checklists"
+  ],
+  "files": [
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-browser-environment.ts",
+      "sha256": "e6fee8d5ee0c8ec367077d6d88394582f3399eb0f68d65448d733aa229d4e228"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-browser-entry.ts",
+      "sha256": "7ef3018ca5352b6d55882bb6e39e633f94e2c2e63c10ce09a650b3b366dc94ce"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+      "sha256": "d22b12f6d0a4e0c71f14ab8ccad71a31102d558b48c456bb0285cd7ae430db32"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "3c1ae0587ff951fe5e3fc7c95e6e832369adf5a7fa1931cb28f513f1d56a1183"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "sha256": "77a4dd55f330dbf7560dd0556ce0193553a9eb2587eb7e0d0fca02e500fd75e6"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-browser-environment.test.ts",
+      "sha256": "e99be70ae637ef4bebf3bbd758e1c6da214e4ffc7fb712f2827f9472d9b63081"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "74e20326358267fb27b1d1bbf90e81f62a94f8bc7918ca3aa234f092de578cc6"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+      "sha256": "e1813e044f7322b123253dd8dda8d8d9f1ccf47c570f0a90f4695c322950e75a"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-course-renderer.test.ts",
+      "sha256": "18ac5e2eefc2b9b29cd14c4c3aeb838ba2b85f47d0c4ee0bae9972a7f63af171"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "ff470c566c8e35b3018263d106470b2d8af20132da90db563e5d37fdaa2b40ee"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+      "sha256": "dcce4ccec5b97019ec74bf7fc708dc8845bd6a349652f89369588feeae9765fd"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+      "sha256": "a2dfa9463594acf2698ddf557e57e43f4c79d55dded10a85c8aedd99b430a3e6"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json",
+      "sha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "738d8ad090d53f6cf7bab2ed48a9cf9c67534a6094308707783fda3824b0208d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-image-request.json",
+      "sha256": "a725e98279f1c39764f18a33037d9fa04bbeb571ec742c8e67887f052f1f8c8b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation.json",
+      "sha256": "5dab70cebfd453a24404af55dc4f26fb034e3d1f97156da6f78f53aeb09dcd2b"
+    }
+  ]
+}

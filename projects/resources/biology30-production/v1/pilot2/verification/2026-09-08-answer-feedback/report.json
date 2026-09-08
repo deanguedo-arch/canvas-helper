@@ -1,0 +1,41 @@
+{
+  "status": "implemented and locally verified",
+  "units": {
+    "b": {
+      "entrySha256": "ba067a977291bb8a63b62a4282d8f785c7396fafd426ea71a1a68f420cc731ac",
+      "buildSha256": "d2caea7a0507304843fa359691b8e3d23aa5e62c8c383628c6d227f0161641fa"
+    },
+    "c": {
+      "entrySha256": "20eb028d1ccf88f768392f57ed5ec28799b112c0067300a42e0ea6fd4720de6c",
+      "buildSha256": "151d70e70146d67dbf7c30f9233cfd4a85adc61f765493b22ed8f7b9ed36de28"
+    },
+    "d": {
+      "entrySha256": "7ca9e23ab171bbf41d7603ea5412bdc632697a82f9574048abd2228f9318939a",
+      "buildSha256": "5fa3fb51c8a5847c2df62f2f20a1bd3d73a8074d7c124fff5a87d9378525c791"
+    }
+  },
+  "AEntryUnchanged": "aa28a6548d89a283530ddc49229473f32cbb03c6bd06ac46ed7bf72a27e3d9ee",
+  "changes": [
+    "A-style outlined check/compare button",
+    "Single feedback panel, routine status screen-reader-only; save failure still visible",
+    "Existing mapped lesson textbook reading link, labelled as reading rather than claiming item-exact location",
+    "Return link to first mapped teaching part",
+    "Avoid duplicate Correct prefix"
+  ],
+  "canonicalAcademicInputsChanged": false,
+  "savedStateSchemaChanged": false,
+  "verification": {
+    "focusedCommand": "npx tsx --test scripts/tests/biology30-answer-feedback.test.ts scripts/tests/biology30-pilot2-owner-closure.test.ts",
+    "focusedResult": "5/5 passed",
+    "workspaceChecks": "B/C/D passed",
+    "projectE2E": "B/C/D 1/1 passed; B/C before final CSS specificity adjustment, final focused browser covers all units after adjustment",
+    "browser": "6 desktop/mobile wrong-correct/reload/return flows; all249 practice feedback link destinations and local textbook assets validated",
+    "screenshots": "6 final frames inspected in contact.png",
+    "requestedDoctor": "A2 not-active only, intentionally blocked; no Edit enablement"
+  },
+  "limitations": [
+    "Existing review ZIPs now stale, not regenerated for this UI request",
+    "Real LMS and teacher acceptance unverified",
+    "Prior unrelated checkout changes preserved; generated from current canonical inputs"
+  ]
+}

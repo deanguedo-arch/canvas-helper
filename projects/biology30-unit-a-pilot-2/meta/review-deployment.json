@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
   "projectSlug": "biology30-unit-a-pilot-2",
-  "status": "approved-public-review-only",
+  "status": "included-in-shared-public-review-showcase",
   "authorizedAt": "2026-09-03",
   "authorization": "Project owner explicitly requested deployment of the current Revision Gate A candidate in this Codex conversation.",
   "hosting": {
     "provider": "Firebase Hosting",
     "projectId": "calm-module-one",
     "siteId": "biology30pilot",
-    "url": "https://biology30pilot.web.app"
+    "url": "https://biology30pilot.web.app",
+    "unitReviewUrl": "https://biology30pilot.web.app/#a"
   },
   "source": {
     "canonicalEntry": "projects/biology30-unit-a-pilot-2/workspace/index.html",
     "publicRoot": "projects/biology30-unit-a-pilot-2/workspace",
-    "indexSha256": "912a213fd62e503b99d9c42f28b1094f8a4f4e31d9772513013adbc02ef4707e",
-    "currentLocalIndexSha256": "912a213fd62e503b99d9c42f28b1094f8a4f4e31d9772513013adbc02ef4707e",
-    "deploymentFresh": true,
-    "freshnessNote": "The public teacher-review site contains the current canonical Pilot 2 workspace."
+    "indexSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+    "currentLocalIndexSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+    "deploymentFresh": null,
+    "freshnessNote": "The single-unit deployment is superseded by the shared A-D showcase. Compare current workspace hashes against the authoritative showcase deployment receipt; this historical source hash is not a current freshness assertion."
   },
-  "deployedAt": "2026-09-04T18:07:29Z",
+  "deployedAt": "2026-09-08T03:32:29Z",
   "verification": {
     "hostedFileCount": 22,
     "allHostedFilesMatchCanonical": true,
     "liveRoute": "#lesson-02",
-    "liveTitle": "BIO 30 | Biology 30 — Unit A: Nervous and Endocrine Systems",
+    "liveTitle": "BIO 30 | Biology 30 \u2014 Unit A: Nervous and Endocrine Systems",
     "consoleWarningsOrErrors": 0,
     "noHorizontalOverflow": true
   },
@@ -40,5 +41,6 @@
   "knownRisks": [
     "Firebase Hosting is publicly accessible at the listed URL; share it only with intended reviewers.",
     "Do not add learner data or assessment keys to the review workspace."
-  ]
+  ],
+  "showcaseDeploymentReceipt": "docs/ops/biology30-showcase-deployment.json"
 }

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-09",
+  "module": "Sensory Systems",
+  "title": "Vision: From Light to Perception",
+  "inquiry": "The image on the retina is not the scene you experience. What transformations occur between entering light and visual perception?",
+  "learningIntention": "I am learning to trace light through the eye and explain how the retina and brain transform it into visual perception.",
+  "requiredMinutes": 95,
+  "optionalMinutes": 10,
+  "outcomeIds": ["A1.4k", "A1.2s", "A1.3s", "A1.3sts"],
+  "materials": "Optional blind-spot observation uses a printed or on-screen dot-and-cross card. The supplied explanation is equivalent.",
+  "safety": "Never look at the Sun, a laser, or an intense light source. This activity is not a vision screening or diagnosis.",
+  "targets": [
+    "Trace light through cornea, pupil, lens, vitreous humour, retina, and optic nerve.",
+    "Connect rods, cones, fovea, and retinal circuitry to evidence about light and detail.",
+    "Explain how corrective and assistive technologies solve particular visual problems."
+  ],
+  "warmup": {
+    "title": "An image is not perception",
+    "prompt": "A camera and an eye both focus light, but an eye is living sensory tissue connected to a brain. Name one step after focusing that a camera analogy can hide.",
+    "placeholder": "The analogy hides…"
+  },
+  "sections": [
+    {
+      "label": "Control the light",
+      "title": "1. The front of the eye refracts and regulates incoming light",
+      "paragraphs": [
+        "The sclera is the tough outer coat. At the front it becomes the transparent cornea, which provides much of the eye's refraction. Aqueous humour fills the front chambers and supports pressure and nutrient exchange. The iris contains muscle that changes pupil diameter, regulating how much light enters.",
+        "The lens changes shape to adjust focus for different object distances. Ciliary muscle and suspensory structures alter lens curvature during accommodation. The lens fine-tunes focus; it is not the only refracting surface. Behind it, vitreous humour helps maintain shape and transmits light toward the retina.",
+        "The choroid contains blood vessels and pigment that absorbs stray light. The retina is neural tissue containing photoreceptors and several layers of processing cells. Light must reach this tissue before the visual signal can be converted into neural activity."
+      ],
+      "figureIds": ["figure-eye-anatomy"]
+    },
+    {
+      "label": "Transduce the image",
+      "title": "2. Rods and cones contribute different evidence",
+      "paragraphs": [
+        "Rods are highly sensitive in low light and support night and peripheral vision, but they do not provide colour information. Cones operate best in brighter conditions and support colour and fine spatial detail. Humans typically have three cone classes with overlapping sensitivities.",
+        "The fovea centralis contains densely packed cones and supports highest visual acuity. Peripheral retina contains more rods and is sensitive to dim light and movement. Eye movements continually place important details on the fovea; vision is not one frozen full-resolution image.",
+        "Photoreceptors communicate through bipolar and ganglion-cell pathways. Ganglion-cell axons form the optic nerve. Where the optic nerve exits, no photoreceptors are present, creating the physiological blind spot. The brain usually fills the missing region using surrounding information and input from the other eye."
+      ],
+      "figureIds": ["figure-retina-light-pathway"]
+    },
+    {
+      "label": "Follow the central pathway",
+      "title": "3. Visual fields are reorganized before cortical processing",
+      "paragraphs": [
+        "Light from each side of visual space reaches corresponding parts of both retinas. At the optic chiasm, some optic-nerve fibres cross. This arrangement sends information from the left visual field toward right-hemisphere visual pathways and information from the right visual field toward left-hemisphere pathways.",
+        "Signals relay through the thalamus and reach visual cortex in the occipital lobe, then interact with networks that process form, motion, colour, location, memory, and attention. The brain does not merely flip an upside-down retinal picture. Perception is an active interpretation of patterned neural activity.",
+        "A lesion at the retina, optic nerve, chiasm, tract, or cortex produces different field patterns. A field pattern can help localize a pathway, but appropriate clinical testing is required. An on-screen blind-spot observation cannot diagnose retinal or neurological disease."
+      ]
+    },
+    {
+      "label": "Apply technology",
+      "title": "4. A useful technology targets a defined problem",
+      "paragraphs": [
+        "In myopia, the optical system focuses distant light in front of the retina when accommodation is relaxed. Diverging corrective lenses or appropriately shaped contact lenses shift the focus onto the retina. In hyperopia, focusing tends to fall behind the retina; converging correction can assist, depending on the person's eye and accommodation.",
+        "Other technologies address different boundaries. Cataract surgery replaces a clouded lens. Retinal imaging provides structural evidence. Screen readers convert visual text into speech for users who need nonvisual access. Each technology solves a particular practical problem and has trade-offs involving access, training, cost, risk, and the information it can provide.",
+        "Evaluate a technology by linking design to mechanism. A high-resolution image is not automatically useful if it does not measure the affected structure. A strong claim names the target problem, the evidence of benefit, limitations, and who may be excluded by the design."
+      ],
+      "table": {
+        "caption": "Vision evidence and appropriate conclusions",
+        "headers": ["Evidence", "Supported interpretation", "Unsupported leap"],
+        "rows": [
+          ["Focus falls in front of the retina", "Optical correction can shift focal position", "The lens is necessarily diseased"],
+          ["One dot disappears at a predictable viewing position", "The blind spot lacks photoreceptors", "The eye has permanent vision loss"],
+          ["A retinal image shows structural change", "The structure warrants expert interpretation", "The image alone establishes functional impact"],
+          ["A screen reader improves access to text", "The technology provides a nonvisual route", "All digital content is automatically accessible"]
+        ]
+      }
+    }
+  ],
+  "interaction": {
+    "id": "interaction-eye-light-path",
+    "title": "Trace light and neural information",
+    "intro": "Choose a location. The readout distinguishes an optical structure from a neural-processing structure.",
+    "prompt": "Where does the pathway change from focused light to neural signals?",
+    "options": [
+      {"id": "cornea", "label": "Cornea and lens", "evidence": "These transparent structures refract light.", "explanation": "They shape the optical image but do not perform phototransduction."},
+      {"id": "retina", "label": "Retina", "evidence": "Photoreceptors change membrane signalling in response to light.", "explanation": "The retina is the transition from light energy to patterned neural activity, with processing before the optic nerve."},
+      {"id": "optic-nerve", "label": "Optic nerve", "evidence": "Ganglion-cell axons carry retinal output.", "explanation": "The optic nerve transmits neural information; transduction has already occurred in photoreceptors."},
+      {"id": "cortex", "label": "Visual cortex", "evidence": "Cortical networks process incoming neural patterns.", "explanation": "The cortex supports perception and interpretation, not the initial conversion of light energy."}
+    ],
+    "staticFallback": "Cornea and lens refract light; retina transduces and begins processing; optic nerve carries ganglion-cell output; central pathways reorganize and interpret the signals."
+  },
+  "exit": {
+    "title": "Move beyond the camera analogy",
+    "prompt": "In 2–3 sentences, explain one useful part and one limitation of comparing an eye to a camera.",
+    "placeholder": "The analogy helps because… It fails because…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 78–87, the class Eye lesson, CBE Module 1 Lesson 5, OpenStax visual anatomy, and the National Eye Institute's explanation of how eyes work.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-vision", "class-day-eye", "system-m1-l5", "openstax-a-and-p", "nei-how-eyes-work"]
+  }
+}

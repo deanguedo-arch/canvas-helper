@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+  "status": "scientifically-usable-provisional; learner-placement-pending",
+  "teacherDecision": null,
+  "existingFigureReview": "Native screenshot of existing b-lesson-03-concept-model inspected. Its Develop / Move and fertilize / Prepare and implant boxes explain the route but do not distinguish the oocyte cell from follicular supporting tissue or the corpus luteum.",
+  "sourceReview": {
+    "slide": "Chapter 14 slide 26",
+    "nativeAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/134bb80b1e4f7168348ecb51a5ca59c691ed4adda42ad8ac44071438a6bb7940.png",
+    "finding": "Original 1024 by 768 histology inspected. Large fluid-filled follicles and an off-centre oocyte surrounded by supporting cells are visible. This is observational imagery; the new schematic must not be presented as microscopy evidence.",
+    "textbook": "Chapter 14 physical pages 25 and 26, printed 496 and 497, rendered and visually inspected. Figure 14.14 combines multiple follicular stages in one ovary; the following corpus-luteum task has a blank sketch outline. Need an isolated cell-versus-tissue comparison. The multiple stages in the source are temporal, not migration positions.",
+    "rights": "Source comparison authoring-only; no publisher artwork uploaded. Original schematic requested. Local blocked review only.",
+    "fullResolutionAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/134bb80b1e4f7168348ecb51a5ca59c691ed4adda42ad8ac44071438a6bb7940.png"
+  },
+  "scienceChecklist": [
+    "One oocyte is a single large cell, embedded in a mound of supporting cells attached to the follicle wall.",
+    "Fluid-filled antrum is distinct from oocyte and supporting tissue.",
+    "Corpus luteum is the remaining follicular tissue after ovulation, not the released oocyte.",
+    "No oocyte retained inside the corpus luteum and no fertilization-dependent formation claim.",
+    "Labels attach unambiguously; relative sizes and colours explicitly schematic.",
+    "No claim of microscopy evidence or precise meiotic stage based on the drawing."
+  ],
+  "prompt": "Generate one NEW original educational scientific illustration for Biology 30: two isolated tissue cross-sections comparing a growing ovarian follicle before ovulation with the corpus luteum after ovulation. This is a simplified explanatory schematic, not a photograph, medical scan or microscopy evidence.\n\nLEFT PANEL: a growing antral follicle with a surrounding wall of supporting cells, a large clear fluid-filled antrum, and ONE large round oocyte embedded in a mound of supporting cells attached to the inner follicle wall. The oocyte must not float freely in the middle of the fluid-filled space. Show the oocyte as one cell with a simple nucleus, visibly distinct from the many smaller supporting cells. Do not specify an exact meiotic stage.\n\nRIGHT PANEL: corpus luteum as thick folded glandular tissue derived from the follicular tissue remaining after ovulation. No oocyte inside this structure. A small irregular central space is acceptable, but do not draw another large follicle with a retained egg. No arrow from the oocyte to the corpus luteum; no fertilization or embryo.\n\nUse exactly these six labels: left heading “Growing follicle”; left leaders “Oocyte”, “Supporting cells”, “Fluid-filled space”; right heading “Corpus luteum”; right subheading “After ovulation”. The Oocyte leader ends inside the single large cell, Supporting cells points to a small-cell cluster around it, and Fluid-filled space points into the clear antrum. Thin distinct leaders, no collisions, large readable dark text. No other words, logos, watermark, arrows or decorative elements. Wide 1536 by 1024, pale neutral background, ample margins, restrained textbook-style tissue colours and clean cellular detail. Relative sizes and colours are schematic. Generate the image now.",
+  "authoringChatUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+  "purpose": "Distinguish oocyte, follicular supporting tissue and corpus luteum",
+  "provider": "Authenticated ChatGPT browser Images",
+  "candidates": [
+    {
+      "id": "v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ovarian-follicle-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "1a7a865497483ac62d35e1c8c4fd98a8b857aceeeb55202a84e7eb6b77ed3efb",
+      "scientificReview": "Original 1536 by 1024 PNG inspected at native resolution. One large oocyte lies within a mound of smaller supporting cells continuous with the follicle wall. The antrum is separate. The folded corpus luteum has no retained oocyte. All six requested labels are legible; three leaders terminate within their correct cell, supporting-cell group and fluid compartment. No arrow implies that the oocyte becomes luteal tissue.",
+      "limitations": [
+        "Oocyte leader ends within its nucleus; adjacent explanation identifies the entire large cell as the oocyte, not only the nucleus.",
+        "Idealized separate stages with no shared scale; nuclear appearance does not identify the exact meiotic phase.",
+        "No vascular mechanisms, ovulation rupture or regression sequence shown.",
+        "Inline mobile readability and enlargement placement remain to be verified in the actual learner build; teacher choice is null."
+      ],
+      "teacherDecision": null
+    }
+  ],
+  "provisionalRecommendation": "v1",
+  "caption": "Original schematic comparison of a growing follicle and the corpus luteum after ovulation. The oocyte is one large cell supported by many smaller follicular cells; the fluid-filled space is the antrum. After the oocyte is released, remaining follicular tissue forms the corpus luteum, which secretes hormones including progesterone. The oocyte does not become the corpus luteum. Colours, relative sizes and cellular detail are simplified; this is not microscopy evidence or a diagram of exact meiotic stages.",
+  "comparisonFiles": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-comparison/chapter14-physical25.png",
+      "sha256": "24e2070ea103a97d46ae12d87222a1931cc6b18025ee0640cdaa15c9e8d8113b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-comparison/chapter14-physical26.png",
+      "sha256": "540ad4707c3b4c11b5fd98a695aa544c8d4e8977a33852330bd2dc601ec74922"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-comparison/existing-course.png",
+      "sha256": "5cb43ad5065a166a3c8417ac8c3157278ebbb2cdcccaf139765d6eef9c7091c9"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "setId": "lesson-checks-module-2",
+  "items": [
+    {
+      "id": "lesson-03-check-1",
+      "setId": "lesson-03",
+      "outcomeIds": ["A1.1k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-neurons", "class-day-neuron"],
+      "prompt": "Which structure-to-function pairing is correct?",
+      "choices": {"a": "Dendrites—release hormones into blood", "b": "Axon terminals—release neurotransmitter to a target cell", "c": "Myelin—produces every action potential", "d": "Cell body—forms a peripheral nerve by itself"},
+      "answerKey": "b",
+      "rationale": "An arriving action potential triggers calcium-dependent neurotransmitter release from axon terminals.",
+      "targetedFeedback": {"a": "Dendrites mainly receive synaptic input; they are not endocrine glands.", "c": "Myelin insulates internodes; action potentials are regenerated at excitable membrane regions such as nodes.", "d": "A nerve is a bundle of many peripheral axons plus supporting tissues."}
+    },
+    {
+      "id": "lesson-03-check-2",
+      "setId": "lesson-03",
+      "outcomeIds": ["A1.1k", "A1.2s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-neurons", "system-m1-l3"],
+      "prompt": "Which pathway correctly assigns functional neuron roles in a withdrawal response?",
+      "choices": {"a": "Motor neuron → receptor → sensory neuron → muscle", "b": "Receptor → sensory neuron → spinal interneuron → motor neuron → muscle", "c": "Interneuron → skin → receptor → sensory neuron", "d": "Muscle → motor neuron → brain → receptor"},
+      "answerKey": "b",
+      "rationale": "Sensory neurons carry receptor input toward central integration; motor neurons carry output from the CNS to effectors.",
+      "targetedFeedback": {"a": "The receptor must provide input before motor output, and the direction is reversed.", "c": "Skin contains receptors, but an interneuron does not initiate the peripheral stimulus path.", "d": "The muscle is the effector at the end of the motor path, not the source of receptor input."}
+    },
+    {
+      "id": "lesson-03-check-3",
+      "setId": "lesson-03",
+      "outcomeIds": ["A1.1k"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["notes-neurons", "openstax-a-and-p", "ninds-health-information"],
+      "prompt": "Which claim about myelin and repair is most scientifically defensible?",
+      "choices": {"a": "Every peripheral axon fully regenerates, while no central repair is possible.", "b": "Myelin makes action potentials travel inside the sheath without regeneration.", "c": "Some peripheral axons can regrow under favourable conditions; central regrowth is strongly limited, and recovery varies.", "d": "Oligodendrocytes myelinate only one short segment of one axon."},
+      "answerKey": "c",
+      "rationale": "Repair depends on cell survival, alignment, injury environment, distance, and other factors. The PNS/CNS distinction is useful but not absolute.",
+      "targetedFeedback": {"a": "This repeats an absolute source simplification; neither full peripheral recovery nor zero central repair is guaranteed.", "b": "Current spreads beneath myelin, but the action potential is regenerated at nodes.", "d": "An oligodendrocyte can extend processes to myelinate segments of several central axons."}
+    },
+    {
+      "id": "lesson-05-check-1",
+      "setId": "lesson-05",
+      "outcomeIds": ["A1.1k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-synapses", "class-day-synapse"],
+      "prompt": "What directly triggers synaptic vesicle fusion at a typical chemical synapse?",
+      "choices": {"a": "Calcium entry into the presynaptic terminal", "b": "Sodium leaving the postsynaptic cell", "c": "Cholinesterase entering the axon", "d": "The receptor moving through the bloodstream"},
+      "answerKey": "a",
+      "rationale": "Terminal depolarization opens voltage-gated calcium channels; calcium entry triggers vesicle fusion and transmitter release.",
+      "targetedFeedback": {"b": "Postsynaptic ion movement occurs after transmitter release and receptor activation.", "c": "Cholinesterase terminates acetylcholine action in the cleft; it does not trigger vesicle fusion.", "d": "Synaptic receptors are located on target membranes, not delivered as circulating endocrine signals."}
+    },
+    {
+      "id": "lesson-05-check-2",
+      "setId": "lesson-05",
+      "outcomeIds": ["A1.1k", "A1.2sts"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-synapses", "system-m1-l8"],
+      "prompt": "Transmitter release is normal, but the postsynaptic response is greatly reduced. Which site should be investigated first?",
+      "choices": {"a": "Postsynaptic receptors or their signalling", "b": "Presynaptic action-potential arrival only", "c": "Blood-glucose regulation", "d": "Myelin on every sensory axon"},
+      "answerKey": "a",
+      "rationale": "Normal release with a weak target response directs attention to receptor binding, receptor function, or downstream postsynaptic pathways.",
+      "targetedFeedback": {"b": "Normal release implies that the action potential and calcium-dependent release steps occurred.", "c": "Blood glucose does not directly explain this synaptic mismatch.", "d": "A broad myelin claim does not fit the specific evidence that release occurred but target response failed."}
+    },
+    {
+      "id": "lesson-05-check-3",
+      "setId": "lesson-05",
+      "outcomeIds": ["A1.1k", "A1.1sts", "A1.3sts"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["notes-synapses", "ninds-health-information"],
+      "prompt": "A compound inhibits acetylcholinesterase. Which prediction best distinguishes its action from a receptor antagonist?",
+      "choices": {"a": "Acetylcholine action is prolonged rather than receptor activation being blocked.", "b": "No acetylcholine is synthesized anywhere in the nervous system.", "c": "Calcium cannot enter any cell in the body.", "d": "The compound affects only endocrine glands."},
+      "answerKey": "a",
+      "rationale": "Inhibiting acetylcholinesterase slows signal termination, while an antagonist reduces receptor activation despite transmitter presence.",
+      "targetedFeedback": {"b": "The enzyme breaks down acetylcholine after release; it does not synthesize the transmitter.", "c": "The mechanism is specific to acetylcholine breakdown and does not block all calcium entry.", "d": "Acetylcholine synapses include neuromuscular and autonomic pathways, not only endocrine tissues."}
+    }
+  ]
+}

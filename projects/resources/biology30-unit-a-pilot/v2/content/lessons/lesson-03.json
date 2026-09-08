@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-03",
+  "module": "Neural Communication",
+  "title": "Neurons, Types, and Myelin",
+  "inquiry": "How can one cell receive many inputs, make an electrical decision, and send information over a long distance?",
+  "learningIntention": "I am learning to connect neuron structures, neuron types, and myelin to the direction and speed of information flow.",
+  "requiredMinutes": 80,
+  "optionalMinutes": 15,
+  "outcomeIds": ["A1.1k", "A1.2s"],
+  "materials": "No special materials. A printable neuron-labelling alternative is included in the static figure description.",
+  "safety": "No live electrical or nerve-stimulation activity is required.",
+  "targets": [
+    "Connect each major neuron structure to information flow.",
+    "Distinguish sensory neurons, interneurons, and motor neurons by direction and role.",
+    "Explain how myelin changes conduction and why repair differs between peripheral and central pathways."
+  ],
+  "warmup": {
+    "title": "Follow information, not the picture orientation",
+    "prompt": "A neuron diagram can be rotated or drawn in many shapes. What evidence would you use to decide which end receives most inputs and which end releases a signal to the next cell?",
+    "placeholder": "I would identify… because…"
+  },
+  "sections": [
+    {
+      "label": "Build the cell",
+      "title": "1. Neuron structure supports directional communication",
+      "paragraphs": [
+        "Dendrites and the cell body receive chemical and electrical influences from other cells. The cell body contains the nucleus and much of the machinery needed to maintain the neuron. Inputs are integrated near the beginning of the axon. If the membrane reaches threshold, an action potential begins and travels along the axon toward its terminals.",
+        "Axons can be very short or extend a metre or more. Branches near the terminal allow one neuron to influence several targets. At an axon terminal, an arriving action potential triggers calcium-dependent neurotransmitter release. The next cell may be another neuron, a muscle fibre, or a gland cell.",
+        "Direction is functional, not determined by which side of a page contains the dendrites. Information generally moves from receptive regions toward the axon terminal, but neurons vary greatly in shape. A labelled structure is meaningful only when its role in the pathway is explained."
+      ],
+      "figureIds": ["figure-neuron-anatomy"]
+    },
+    {
+      "label": "Place the cell in a pathway",
+      "title": "2. Sensory, interneuron, and motor describe information roles",
+      "paragraphs": [
+        "A sensory neuron carries information from a receptor toward the central nervous system. The receptor may be part of the neuron or a separate specialized cell. An interneuron lies within the central nervous system and integrates or relays information between neurons. A motor neuron carries output from the central nervous system toward an effector such as skeletal muscle or a gland.",
+        "A simple pathway can be written as receptor → sensory neuron → interneuron or central integration → motor neuron → effector. Real pathways may contain many interneurons, branching routes, and feedback from higher brain regions. The categories describe the neuron's role in a particular circuit; they do not imply that all neurons in a category have the same shape.",
+        "Nerves are bundles of axons in the peripheral nervous system, supported by connective tissue and blood vessels. A nerve can contain sensory axons, motor axons, or both. In the central nervous system, bundles of axons are commonly called tracts. A whole nerve is not one giant neuron."
+      ],
+      "figureIds": ["figure-neuron-types"]
+    },
+    {
+      "label": "Increase conduction speed",
+      "title": "3. Myelin changes where current can cross the membrane",
+      "paragraphs": [
+        "Myelin is a lipid-rich insulating wrapping formed by glial cells around segments of some axons. Gaps called nodes of Ranvier contain high densities of voltage-gated channels. Local current spreads rapidly beneath myelin and the action potential is regenerated at successive nodes. This saltatory conduction is faster and more energy-efficient than continuous regeneration along every adjacent membrane region.",
+        "Schwann cells form myelin around peripheral axons, with one cell supporting one segment of one axon. Oligodendrocytes form central nervous system myelin and can extend processes to segments of several axons. Loss of myelin disrupts the timing and reliability of conduction because current leaks and the next node may not reach threshold.",
+        "A common oversimplification says that peripheral neurons regenerate while central neurons cannot. Outcomes are more nuanced. Some damaged peripheral axons can regrow if the cell body survives and supporting pathways remain aligned, but recovery may be slow or incomplete. Central axon regrowth is strongly limited by the injury environment and inhibitory signals, yet research documents plasticity and restricted repair. Location alone does not guarantee an outcome."
+      ],
+      "figureIds": ["figure-myelin-saltatory-conduction"]
+    },
+    {
+      "label": "Use structural evidence",
+      "title": "4. Structure predicts the pattern of disruption",
+      "paragraphs": [
+        "Damage near dendrites or the cell body can alter how inputs are integrated or threaten the entire cell. Damage to an axon can interrupt communication with distant targets even when the cell body remains alive. Damage to myelin may slow conduction, desynchronize signals, or produce conduction failure while leaving the axon initially intact.",
+        "Multiple sclerosis involves immune-mediated damage within the central nervous system, including myelin and sometimes axons. The location and timing of lesions help explain why symptoms vary. It is inaccurate to reduce the condition to one broken wire or to assume a single predictable course. A scientific case description should connect evidence to affected pathways without diagnosing an individual.",
+        "When comparing tissue images, look for the structure being measured: cell bodies, axons, myelin, nodes, or supporting cells. State what the image can show and what it cannot. A still image can reveal anatomy, but conduction speed and signal reliability require functional evidence."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-neuron-pathway-sort",
+    "title": "Place neurons in an information pathway",
+    "intro": "Choose a pathway description. The model checks direction, location, and effector role.",
+    "prompt": "Which sequence uses neuron categories as functional roles?",
+    "options": [
+      {"id": "withdrawal", "label": "Touch receptor to withdrawal muscle", "evidence": "Skin receptor → sensory neuron → spinal interneuron → motor neuron → skeletal muscle", "explanation": "The sensory neuron carries input inward, the interneuron integrates centrally, and the motor neuron carries output to the effector."},
+      {"id": "gland", "label": "Internal change to gland response", "evidence": "Internal receptor → sensory pathway → central integration → autonomic motor pathway → gland", "explanation": "Motor output can target glands as well as muscles. The pathway category depends on direction and target, not neuron shape."},
+      {"id": "reversed", "label": "A reversed proposal", "evidence": "Effector → motor neuron → interneuron → sensory neuron → receptor", "explanation": "This reverses the usual information roles. Effectors act after motor output; receptors initiate the sensory description."}
+    ],
+    "staticFallback": "Receptor information travels through a sensory neuron toward central integration. Motor neurons carry output from the CNS to effectors. Interneurons link and process within the CNS."
+  },
+  "exit": {
+    "title": "Explain saltatory conduction",
+    "prompt": "In 2–3 sentences, explain why myelin can increase conduction speed without saying that the action potential literally jumps through empty space.",
+    "placeholder": "Current spreads… The action potential is regenerated…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 7–17, the class Neuron Structure lesson, CBE Module 1 Lessons 3 and 7, and OpenStax nervous-tissue cross-checking. The CNS/PNS repair statement corrects the source simplification.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-neurons", "class-day-neuron", "system-m1-l3", "system-m1-l7", "openstax-a-and-p", "ninds-health-information"]
+  }
+}

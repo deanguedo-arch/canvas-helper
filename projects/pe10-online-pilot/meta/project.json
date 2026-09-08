@@ -1,0 +1,90 @@
+{
+  "id": "aa207749-3487-492e-a252-42ef1d93da3e",
+  "slug": "pe10-online-pilot",
+  "title": "Physical Education 10 — Online",
+  "sourcePath": "projects/pe10-online-pilot/raw/original.html",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "raw",
+    "workspace"
+  ],
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
+  "learningSource": "other",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-09-03T18:31:24.473Z",
+  "createdAt": "2026-09-03T18:31:24.473Z",
+  "updatedAt": "2026-09-03T20:55:26.000Z",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course"
+  ],
+  "canonicalEntry": "projects/pe10-online-pilot/workspace/index.html",
+  "canonicalSources": [
+    "projects/pe10-online-pilot/workspace/index.html",
+    "projects/pe10-online-pilot/workspace/styles.css",
+    "projects/pe10-online-pilot/workspace/course.js",
+    "projects/pe10-online-pilot/workspace/assets/brand/nxt-ce-logo-white-with-ce.png",
+    "projects/pe10-online-pilot/workspace/assets/fonts/HankenGrotesk-Variable.ttf",
+    "projects/pe10-online-pilot/workspace/assets/fonts/WorkSans-Variable.ttf",
+    "projects/pe10-online-pilot/workspace/assets/fonts/OFL-Hanken-Grotesk.txt",
+    "projects/pe10-online-pilot/workspace/assets/fonts/OFL-Work-Sans.txt",
+    "projects/pe10-online-pilot/meta/curriculum-assessment-map.json",
+    "projects/pe10-online-pilot/meta/state-contract.json",
+    "projects/pe10-online-pilot/meta/e2e-contract.json",
+    "projects/pe10-online-pilot/meta/brightspace-setup-guide.md",
+    "projects/pe10-online-pilot/meta/pilot-review.json",
+    "projects/pe10-online-pilot/meta/review-deployment.json",
+    "projects/resources/pe10-online-pilot/source-inventory.json"
+  ],
+  "generatedOutputs": [],
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "codex-studio-direct-v1",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  },
+  "injectedComponents": [],
+  "authoringStatus": "blocked",
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": false,
+      "notes": "Pilot is preview-only until the exact build receives teacher approval."
+    },
+    {
+      "target": "scorm",
+      "enabled": false,
+      "notes": "Enable only after teacher approval, Studio Apply/reload/Undo proof, exact-head readiness, package checks, and Brightspace cross-browser persistence acceptance."
+    }
+  ],
+  "referenceOnly": [
+    "projects/pe10-online-pilot/raw/original.html",
+    "projects/pe10-online-pilot/raw/styles.css",
+    "projects/pe10-online-pilot/raw/course.js",
+    "projects/pe10-online-pilot/raw/assets/course-cover.svg",
+    "projects/resources/pe10-online-pilot/_sources/486a556ae732bd2b38aa4f747f868f13aa6a95aae601b28b7d0c8ddc1e536228.docx",
+    "projects/resources/pe10-online-pilot/_sources/f81c55257bc531b6f0a037574dbe0b7b8142d7bcf0427feffb8159efde598287.pdf",
+    "projects/resources/pe10-online-pilot/_sources/80baaae76f19810757b82b1057510aad7ce450251142db15f9038889470ed138.pdf",
+    "projects/resources/pe10-online-pilot/_sources/c4cd74afeb9b3fd15bed265e863e82792792cc7ee15b163f1b46ac19d997101e.pdf",
+    "projects/resources/pe10-online-pilot/_sources/30e31f3b48053677a1471b57a6c292c08b57ee749def58f0b8e9bfa54580867d.pdf",
+    "projects/resources/pe10-online-pilot/_sources/0055aebcc310368eaa658df711da607b7d250c0e4a37b8f94b7984bc496514ed.pdf"
+  ],
+  "sourceOfTruthNotes": "The complete PE10 learner experience is directly authored in workspace/index.html, workspace/styles.css, and workspace/course.js. The raw scaffold is immutable. Supplied PE10 documents are content-addressed, authoring-only references under projects/resources/pe10-online-pilot and are excluded from learner delivery. As a blocked review pilot, it intentionally has no active Studio editability contract; Studio Edit, HTML export, and SCORM export remain disabled until separate exact-build teacher approval and promotion verification enrolls the approved build in studio-routine-content-v1."
+}

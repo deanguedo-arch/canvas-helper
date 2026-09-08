@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "unit": "D",
+  "status": "partial-pre-render-semantic-review; no vocabulary gate promoted",
+  "definitionMoves": 3,
+  "priorQueueTermIds": [
+    "d-term-p-squared",
+    "d-term-q-squared",
+    "d-term-frequency-sum",
+    "d-term-selection-pressure",
+    "d-term-alternative-explanation",
+    "d-term-mark-recapture",
+    "d-term-representative-sample",
+    "d-term-closed-population",
+    "d-term-per-capita-growth-rate",
+    "d-term-j-curve",
+    "d-term-s-curve",
+    "d-term-density-dependence",
+    "d-term-density-independence",
+    "d-term-r-selected",
+    "d-term-k-selected",
+    "d-term-parental-investment",
+    "d-term-producer-consumer",
+    "d-term-toxin",
+    "d-term-behaviour",
+    "d-term-predator-prey-lag",
+    "d-term-perspective",
+    "d-term-revision",
+    "d-term-type-i-survivorship",
+    "d-term-type-ii-survivorship",
+    "d-term-type-iii-survivorship"
+  ],
+  "reviewedEarlierOccurrences": [
+    {
+      "termId": "d-term-behaviour",
+      "alias": "behaviour",
+      "partId": "d-topic-population-growth-exponential-and-logistic-models",
+      "declared": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "excerpt": "mooth S-shaped curve for every possible r and starting value? No. Its behaviour depends on parameter values and step size. The classroom curve uses a bounded illustrative parameter choice.",
+      "decision": "distinct-sense-retained",
+      "reason": "Earlier model behaviour refers to numerical response to parameters; the later definition concerns an organism acting or responding.",
+      "currentDefinitionPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "passageSha256": "86a7377028c85cb226a4c31990eb0de155c34e7dadbae2328f38874fed0aa4e3",
+      "teacherDecision": null
+    }
+  ],
+  "method": "Canonical term inventory read; exact, singular/plural, explicit aliases and selected paraphrases compared with chronological required paragraphs, worked operations and stop checks. Distinct senses reviewed in context rather than automatically moving every match.",
+  "unmatchedPhraseInterpretation": "The prior90 no-exact-phrase records include inflections, accepted synonyms, symbols, compound expressions and teaching labels whose concept is expressed in plain language. Their definitions and sampled current teaching sentences were reviewed; full morphology, implicit prerequisite and all-surface closure are not inferred from this count.",
+  "pending": [
+    "All501 introduced definitions have a wording review; continue full prerequisite dependency ordering and preserved-only glossary meanings.",
+    "Check topic framing, figure labels/captions, local media, practice and optional activity contexts before first explanatory use.",
+    "Verify actual visible definitions before use and future-term disclosure behavior in every rendered route."
+  ],
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "1083a3fa6878d92e028ea2a662127533c7a933af17b7ce705d18348dfda63152",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "b22d572e6372633080594e5c692c42f91127a158ce2bd855fd8d10372a2d2680",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json": "3d6f71c32ff5cab23ee0ea2393f356d030899103c95bc949b7fed423f7718464"
+  },
+  "teacherDecision": null,
+  "subsequentDefinitionReview": "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json"
+}

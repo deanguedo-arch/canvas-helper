@@ -1,0 +1,141 @@
+{
+  "stage": 94,
+  "status": "provisional authored contract closure for local builds",
+  "teacherAcceptance": null,
+  "userDirection": "Proceed with existing reviewed material and stop broad review; build the courses and address concrete failures. This authoring direction is not teacher acceptance.",
+  "vocabularyScope": "Existing full definition wording and required-passage semantic reviews plus73 earlier figure/Advanced definition placements. Different senses are recorded. Definition order/links and accessibility are checked on actual learner output; no claim that phrase scanning alone proves every implicit prerequisite.",
+  "transferScope": "53 source rules per unit mapped to the implemented owning builder and existing focused/synthetic evidence. Actual-course visual and interaction verification follows build, and teacher-selected artwork is replaced with provisional author selection under the explicit user direction.",
+  "units": {
+    "B": {
+      "introducedDefinitions": 153,
+      "preservedDefinitions": 58,
+      "transferRules": 53,
+      "ownerFilesSha256": {
+        "scripts/prepare-biology30-course-resources.py": "5608afff7b0e43e6bd5689f132ad1092f71806795f4971ab015a1f5043d36f96",
+        "scripts/lib/biology30-course/v1/intake.ts": "fe90c22015a26d0471a28b8da01da3c243c407dc26b6506d9ac643a39cdfd30c",
+        "scripts/lib/biology30-course/v1/pilot2-preflight.ts": "a9f999eaf91a7fbba33a534691d3c6414b84f7b8e3986fb5b3829bf914e94f5b",
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts": "89802b35fd5431e9922b7076702d6324d4f1cd671d76c650e72ecf6a2324e4d1",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts": "cb9ded06b952da609d5cec2081a88f1c73ec9ae50944c7cb02b300e6fdc75361",
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts": "adf78480628db23997a52cee67cde44b4553544484440a6120b2b1bd9135e773",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts": "ea2aa508421f543c74ce44f7295d8f6ae3a1886db03edd0bfd805da02af5bb3d",
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110",
+        "scripts/lib/biology30-course/v1/pilot2-media.ts": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a",
+        "scripts/lib/biology30-course/v1/pilot2-build.ts": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e",
+        "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd",
+        "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts": "20c982492ea69b9c59fa515f44a539ad975bb9b4511ce6819ba84909aebf4b30",
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts": "ad58e346fcac5f17445f121fe63f2f2b55dd7f09ffe2443eda0a81760b3da7e9",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts": "ce3b7be3202199edad4cc8b4f0c6be6d69e3aacece4ab47ef0cf5c6d4ea87a81",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts": "e5102235b213d82d24161e5fcb315bddf59df88c0ec2f7c655c8283938dc434b",
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts": "e1f0b0db83a54d0ef5f9d7bc47a1d6f80a25a84e60c116f81557c0a0fbd4776a",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts": "9049b9b7317be37d2eb8f4d1d26ae52171a5d4326dfea9c59cf47b4a19f5efbf",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts": "30dba1fc2545b6102cfa275893b5deba34cc131ebc78aa86a9a1d1ce522679c4",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts": "d22b12f6d0a4e0c71f14ab8ccad71a31102d558b48c456bb0285cd7ae430db32",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts": "c49bd05bf56ce76683d1e8f03fc46123652fd054634bd74fd6b38d819d00608d",
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts": "78edb73622998135f0bc1044e3e82fdf099407542f5058b31bc12f1b84879651",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts": "8ba2bf03056b10c72543359b5c2ad134b1ab30b33affeb04c08cc4805ad7271f",
+        "scripts/lib/biology30-course/v1/pilot2-render-review.ts": "5182c15ecb37bc3eb61b962cc5c282741bc17a60893c6c8dd5994443a23db370"
+      },
+      "inputSha256": {
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-transfer-map.json": "05a170bc0fc04e329e7fdc19b20c8ffb8dec91fa777b7c342d9b54e2dc5b3396",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json": "14b32472e4db07c1588a0e9ab0b777d5f8cbb69654db4c9a7018d7d8ae04a9ef",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-decisions.json": "85c5baca76313fd73d7e4a3406cc58d335faea8bb321a7e21412524204377783",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804"
+      }
+    },
+    "C": {
+      "introducedDefinitions": 249,
+      "preservedDefinitions": 133,
+      "transferRules": 53,
+      "ownerFilesSha256": {
+        "scripts/prepare-biology30-course-resources.py": "5608afff7b0e43e6bd5689f132ad1092f71806795f4971ab015a1f5043d36f96",
+        "scripts/lib/biology30-course/v1/intake.ts": "fe90c22015a26d0471a28b8da01da3c243c407dc26b6506d9ac643a39cdfd30c",
+        "scripts/lib/biology30-course/v1/pilot2-preflight.ts": "a9f999eaf91a7fbba33a534691d3c6414b84f7b8e3986fb5b3829bf914e94f5b",
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts": "89802b35fd5431e9922b7076702d6324d4f1cd671d76c650e72ecf6a2324e4d1",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts": "cb9ded06b952da609d5cec2081a88f1c73ec9ae50944c7cb02b300e6fdc75361",
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts": "adf78480628db23997a52cee67cde44b4553544484440a6120b2b1bd9135e773",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts": "ea2aa508421f543c74ce44f7295d8f6ae3a1886db03edd0bfd805da02af5bb3d",
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110",
+        "scripts/lib/biology30-course/v1/pilot2-media.ts": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a",
+        "scripts/lib/biology30-course/v1/pilot2-build.ts": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e",
+        "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd",
+        "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts": "20c982492ea69b9c59fa515f44a539ad975bb9b4511ce6819ba84909aebf4b30",
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts": "ad58e346fcac5f17445f121fe63f2f2b55dd7f09ffe2443eda0a81760b3da7e9",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts": "ce3b7be3202199edad4cc8b4f0c6be6d69e3aacece4ab47ef0cf5c6d4ea87a81",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts": "e5102235b213d82d24161e5fcb315bddf59df88c0ec2f7c655c8283938dc434b",
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts": "e1f0b0db83a54d0ef5f9d7bc47a1d6f80a25a84e60c116f81557c0a0fbd4776a",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts": "9049b9b7317be37d2eb8f4d1d26ae52171a5d4326dfea9c59cf47b4a19f5efbf",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts": "30dba1fc2545b6102cfa275893b5deba34cc131ebc78aa86a9a1d1ce522679c4",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts": "d22b12f6d0a4e0c71f14ab8ccad71a31102d558b48c456bb0285cd7ae430db32",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts": "c49bd05bf56ce76683d1e8f03fc46123652fd054634bd74fd6b38d819d00608d",
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts": "78edb73622998135f0bc1044e3e82fdf099407542f5058b31bc12f1b84879651",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts": "8ba2bf03056b10c72543359b5c2ad134b1ab30b33affeb04c08cc4805ad7271f",
+        "scripts/lib/biology30-course/v1/pilot2-render-review.ts": "5182c15ecb37bc3eb61b962cc5c282741bc17a60893c6c8dd5994443a23db370"
+      },
+      "inputSha256": {
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-transfer-map.json": "3e55239317986b95d528f6742587d13f1110fb9baa82a090edd7dec32ed21685",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "0a6e9c32646bc77bc8934275e9efcc8875cecd3c71faa8a28a5220e3d3cb009a",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json": "390517453b26a98eddcac37805a5282d277d6d63bc021b3e6bde336b554fc9a9",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json": "41bf58014ec2ca03897ed9f5e9be4f2d135ee6533ad5bf1783ae238bbcef2541",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "ea7a599cdbb79c33ad69cb93042013a6105d918e0bd77f1f30f77bd0eb655311"
+      }
+    },
+    "D": {
+      "introducedDefinitions": 99,
+      "preservedDefinitions": 45,
+      "transferRules": 53,
+      "ownerFilesSha256": {
+        "scripts/prepare-biology30-course-resources.py": "5608afff7b0e43e6bd5689f132ad1092f71806795f4971ab015a1f5043d36f96",
+        "scripts/lib/biology30-course/v1/intake.ts": "fe90c22015a26d0471a28b8da01da3c243c407dc26b6506d9ac643a39cdfd30c",
+        "scripts/lib/biology30-course/v1/pilot2-preflight.ts": "a9f999eaf91a7fbba33a534691d3c6414b84f7b8e3986fb5b3829bf914e94f5b",
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts": "89802b35fd5431e9922b7076702d6324d4f1cd671d76c650e72ecf6a2324e4d1",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts": "cb9ded06b952da609d5cec2081a88f1c73ec9ae50944c7cb02b300e6fdc75361",
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts": "adf78480628db23997a52cee67cde44b4553544484440a6120b2b1bd9135e773",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts": "ea2aa508421f543c74ce44f7295d8f6ae3a1886db03edd0bfd805da02af5bb3d",
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110",
+        "scripts/lib/biology30-course/v1/pilot2-media.ts": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a",
+        "scripts/lib/biology30-course/v1/pilot2-build.ts": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e",
+        "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd",
+        "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts": "20c982492ea69b9c59fa515f44a539ad975bb9b4511ce6819ba84909aebf4b30",
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts": "ad58e346fcac5f17445f121fe63f2f2b55dd7f09ffe2443eda0a81760b3da7e9",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts": "ce3b7be3202199edad4cc8b4f0c6be6d69e3aacece4ab47ef0cf5c6d4ea87a81",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts": "e5102235b213d82d24161e5fcb315bddf59df88c0ec2f7c655c8283938dc434b",
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts": "e1f0b0db83a54d0ef5f9d7bc47a1d6f80a25a84e60c116f81557c0a0fbd4776a",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts": "9049b9b7317be37d2eb8f4d1d26ae52171a5d4326dfea9c59cf47b4a19f5efbf",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts": "30dba1fc2545b6102cfa275893b5deba34cc131ebc78aa86a9a1d1ce522679c4",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts": "d22b12f6d0a4e0c71f14ab8ccad71a31102d558b48c456bb0285cd7ae430db32",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts": "c49bd05bf56ce76683d1e8f03fc46123652fd054634bd74fd6b38d819d00608d",
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts": "78edb73622998135f0bc1044e3e82fdf099407542f5058b31bc12f1b84879651",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts": "8ba2bf03056b10c72543359b5c2ad134b1ab30b33affeb04c08cc4805ad7271f",
+        "scripts/lib/biology30-course/v1/pilot2-render-review.ts": "5182c15ecb37bc3eb61b962cc5c282741bc17a60893c6c8dd5994443a23db370"
+      },
+      "inputSha256": {
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-transfer-map.json": "470a0021cf4adeea08dbc4134c07b9b0a61d3a9dfa570568b35cc9fa0deed147",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json": "b01043493159c657a18d6b9d31099f57a61fabd4399f7ae21ff0ec45da99dcad",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json": "5dcbe7e3de2a07ee787378ee5ffa0022ebafdc86ac59f244ccedee99138ab11d",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012"
+      }
+    }
+  },
+  "retentionDelta": [
+    [
+      "b-lesson-01",
+      3
+    ],
+    [
+      "b-lesson-05",
+      2
+    ],
+    [
+      "b-lesson-06",
+      2
+    ]
+  ]
+}

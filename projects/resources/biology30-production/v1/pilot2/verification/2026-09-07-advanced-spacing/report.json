@@ -1,0 +1,43 @@
+{
+  "stage": 102,
+  "checkedAt": "2026-09-07T16:34:10.668760+00:00",
+  "status": "local-advanced-spacing-repair-verified",
+  "trigger": "User browser comments identify cramped Advanced Learning lesson headings and activity rows.",
+  "changes": [
+    "Restore54px desktop/22px mobile outer padding",
+    "Widen lesson heading column to220px with32px separation",
+    "Activity rows use16px vertical padding and28px column gap",
+    "Container-based stacking prevents crowding at narrow content widths"
+  ],
+  "owner": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "da07614ed20e335cb563cc23eef1569b3ef4642b6b1bddae025639d6be8c1b6c",
+      "contractSha256": "ff143cf77dd2f80121f3dfcc3ed0a2eb45be3e1dd395ca72cb0b7788e306f216",
+      "generatedAt": "2026-09-07T16:31:32.579Z",
+      "previousWorkspaceSha256": "1ed22657ab22df6a2bb0d4e0bae4600d32e2d51129a54822218cdc5652d9b891"
+    },
+    "C": {
+      "buildSha256": "6d2e6b78d6b45e94c60158e46ab511cf5afec81d972f4bde74a6a2684c15ce74",
+      "contractSha256": "c013bd159a40524de57bce7e7b19e7cf971d3fd8be883029f9691441471efe87",
+      "generatedAt": "2026-09-07T16:31:38.481Z",
+      "previousWorkspaceSha256": "42f7d4dcd83d68f4deaae90ed41913a715dd37ed264dcffbd3cba7cd01e0b1ef"
+    },
+    "D": {
+      "buildSha256": "c983ac6a5d3f9dbb25d2d416bdc900ae89af4b18d9366b14d9464dc2fd510a5f",
+      "contractSha256": "f0f1d615263514f904d2ea6e97ac6851cd39d6cf56f297afbe5735b09db66bea",
+      "generatedAt": "2026-09-07T16:31:43.790Z",
+      "previousWorkspaceSha256": "5718251d9e516d3ae4234cd5035ba934da9b08d46e93fa03d8fac7491a8100ca"
+    }
+  },
+  "validation": {
+    "layout": "12 all-unit spacing/overflow checks at1667/1280/900/390px plus checklist save/reload and Open in lesson return pass",
+    "owner": "4/4 pass including protected A and cold preflight",
+    "workspace": "B/C/D pass",
+    "projectE2E": "B/C/D each1/1 pass",
+    "native": "Actual B Advanced Learning inspected after rebuild"
+  },
+  "preserved": "Academic content, state IDs, completed flags, inline videos and sidebar width behavior unchanged; protected A exact",
+  "teacherAcceptance": null,
+  "releaseActions": []
+}

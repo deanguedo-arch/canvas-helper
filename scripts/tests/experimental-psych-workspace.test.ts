@@ -4,6 +4,15 @@ import path from "node:path";
 import test from "node:test";
 
 const mainPath = path.resolve("projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js");
+const indexPath = path.resolve("projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/index.html");
+const reactAssignmentPaths = [
+  "module1-assignment-design.html",
+  "module1-assignment-eating.html",
+  "module3-assignment-1.html",
+  "module3-assignment-2.html"
+].map((fileName) =>
+  path.resolve("projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/assets", fileName)
+);
 
 test("experimental psychology keeps the Next Step theme internally without a learner theme toggle", async () => {
   const source = await readFile(mainPath, "utf8");
@@ -94,6 +103,24 @@ test("experimental psychology assignment cards use classroom hand-in copy and cl
   assert.match(source, /formatAssignmentTitleForCard\(selected\?\.title\)/);
   assert.match(source, /const buttonLabel = isAssignment \? "Open assignment" : "Open test";/);
   assert.match(source, /forensic-assignment-description/);
+});
+
+test("experimental psychology pins the hosted React assignment runtime", async () => {
+  const [mainSource, indexSource, ...assignmentSources] = await Promise.all([
+    readFile(mainPath, "utf8"),
+    readFile(indexPath, "utf8"),
+    ...reactAssignmentPaths.map((assignmentPath) => readFile(assignmentPath, "utf8"))
+  ]);
+
+  for (const source of assignmentSources) {
+    assert.match(source, /https:\/\/unpkg\.com\/@babel\/standalone@7\.29\.7\/babel\.min\.js/);
+    assert.doesNotMatch(source, /https:\/\/unpkg\.com\/@babel\/standalone\/babel\.min\.js/);
+    assert.match(source, /type="text\/babel" data-type="module" data-presets="react"/);
+    assert.doesNotMatch(source, /data-presets="env,react"/);
+  }
+
+  assert.match(mainSource, /v=20260828a/);
+  assert.match(indexSource, /main\.js\?rev=exp-psy-forensics-shell-v3-hosted-assignments/);
 });
 
 test("experimental psychology authoring mode unlocks progressive shell gates", async () => {

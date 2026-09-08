@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "stage": "pre-render-authored-practice-and-key-review",
+  "status": "passed",
+  "reviewer": "same author in a separate prompt-first derivation pass; not an independent human reviewer or formal blinded validation",
+  "reviewed": {
+    "B": 65,
+    "C": 132,
+    "D": 52
+  },
+  "selectedResponseItems": 164,
+  "writtenOperations": 85,
+  "guideCorrections": [
+    {
+      "itemId": "b-chapter-construct-02",
+      "change": "Explicit primary and product chromosome counts alongside unequal cytoplasm and meiotic pause."
+    },
+    {
+      "itemId": "c-investigation-cell-observations-final-transfer",
+      "change": "Visible chromosome-arrangement comparison added to conditional synthetic-count reasoning."
+    }
+  ],
+  "evidenceLimits": [
+    "Matching receipts verify inventory and exact bytes, not scientific truth.",
+    "All171 canonical correct indices are0. The deterministic owner presentation helper varies displayed order without changing saved canonical values; actual renderer integration and browser verification are pending.",
+    "Exact required-passage receipts are complete. Rendered earlier prerequisite visibility, graph construction, full-size observation images, answer reveal and response restoration remain candidate checks."
+  ],
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-passage-review.json": "bc7076780ef5601aefe3c4ddfc0e95fff35771cb5d8bc6d03a01249cd1d58121",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json": "364e785eb80ca6f6fe096261db7fe8b8abc5af84e3d11f28c6b4950d29e384b0",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json": "e95edb51c0fade1126ad5d7f2aed41d9d1b98d783c560fefc66052fdb8259f28",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-graph-work.json": "2cc632a9e2f595429c5052a1211bd987cd716ccb0eedaf748828fdbe09289a0a",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json": "9311e217b28caf9d865a2ebcccdc0d2d30e105c320eb15656c6e04028f5d3321",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-passage-review.json": "ba77b3f15568119f2c9232ba79c848288d08730e96a930ae074ce7d04518af81",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+    "scripts/lib/biology30-course/v1/pilot2-practice-review.ts": "91756728d550799c7d192eb1c5c6ecffb8ad99fb1f8bc91b2a3ee4a829757035",
+    "scripts/lib/biology30-course/v1/pilot2-practice-options.ts": "16777982c5f39ac50e173ef93a110c786392117f04ce3af84627e62637b3cf62",
+    "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts": "e5102235b213d82d24161e5fcb315bddf59df88c0ec2f7c655c8283938dc434b",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "0705c37cbdb5b944748be8114ca41e6d46e1c31ecaca43ed212912a6ceaaa897",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-semantic-review.json": "ec82cc25636e4c4b30ddab9c5896b60dac59710e594528a32b1f91c914ea4c01",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json": "9eda2d10da459c3a027d0c2ed852c31bbc5b01b5e20c52678486b97819491b85",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json": "1fdee1923fd65eaac58fa9428e6aa344f05e06e2004fad6f61eab73b9c150e17",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary-semantic-review.json": "ba91ada3b95821fe518d113b9aa95a2648b4fa11a0d848cd05187978235a3455",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json": "b8c5b4b67fcb50ba9bce3f2d65c01d194ad5e9acb55c8c9a03e952fb41a5b028",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "ac17af06a1c6fbd019343076bac121489daede6b11fe159a52b200bfe9299e5e",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-semantic-review.json": "d6d98c7f9f6fb3fdbec1522b6896340aed635d260859ed3aa0a78cc9d7e83c75",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json": "14b32472e4db07c1588a0e9ab0b777d5f8cbb69654db4c9a7018d7d8ae04a9ef",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json": "390517453b26a98eddcac37805a5282d277d6d63bc021b3e6bde336b554fc9a9",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json": "b01043493159c657a18d6b9d31099f57a61fabd4399f7ae21ff0ec45da99dcad",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json": "b5b0acdbb12479bc6f4f88d19d20ff56a7f8b4eff504d46eb63755bd0c07cfc7",
+    "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "a9ec3711a2b580186630358f6f72da8e5d70f850bd0350e5fdd68e0d41749deb",
+    "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json": "fbab95861b6f554c768a0cad66efb0f10b15494c3c66c5407d04251c345e28e3",
+    "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json": "2427d280121e18dc823d92696aabd969c824a0684bc563a56407dd84957a1af1",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json": "f4a018b514b99ba0cf257009c8f259466e7bcdfc8bb8304e5ac9ce760e2ca42c",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json": "bcfd9de4009f7ad2aa2a1fda00276d1177d207c4a84af6ba7c8e27537439b2f5",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284"
+  },
+  "teacherDecision": null,
+  "subsequentMetadataReviews": [
+    "Required paragraph and worked-example bytes unchanged;21 progressive definition targets advanced after the second vocabulary passage/sense pass. Container hashes refreshed for termIntroductionIds only; academic keys retained.",
+    "Nine investigation datasets and linked required parts were reread. Added explicit operation-response models, source/graph bindings and C codon key; completed D optional expected frequencies. Practice questions/keys and required prose are unchanged. D optional graph observations capacity grows180→320 with legacy prose preserved by codec. Refreshed exact investigation/state container hashes: projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json, projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json, projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json, projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+    "All501 introduced definitions read;48 wording corrections separate chromosome state, pair/singular, ratio/frequency, mutation transmission and remove avoidable future jargon. Shared glossary aliases reviewed for distinct senses; four same-text but different-meaning matches retain original definitions. Practice questions, answer values and required prose unchanged. Definition-review receipts added below.",
+    "B source-retention pass restored required blood-route/prevention teaching and mapped deeper Advanced content. The8 affected practice and15 textbook-guide passage bindings were reread; core investigation parts remain unchanged. Seminar and retained-section proof are separate.",
+    "C full old-section comparison expanded only Advanced teaching in41 companions. Required paragraphs, worked examples, questions, keys and investigation data/models remain byte-identical; their existing exact passage reviews remain applicable.",
+    "D full44-section retention pass changed17 Advanced companions only. Required paragraphs, worked examples, questions, keys and investigation inputs remain unchanged; exact prior passage reviews remain applicable.",
+    "All-unit flag representation adds an exact-map hexadecimal bitset; response IDs, limits, choice meanings and flags are unchanged. Earlier Pilot2 token arrays remain readable. Strict investigation and existing key/passage checks retain their academic validity; schema container hashes refreshed only for marker packing. Ordinary state maxima are B30391/C40269/D26164. Browser lifecycle remains pending.",
+    {
+      "stage": "preserved-glossary-wording-review",
+      "scope": "All236 preserved definitions reviewed;27 wording corrections only. Introduced terms, practice, teaching, state fields, limits and completion rules unchanged. Derived activity-index container source hashes regenerated without entry changes. Learning-input type now declares preserved entries.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/preserved-glossary-stage-review.json"
+    },
+    {
+      "stage": "C132-actual-operation-mappings",
+      "scope": "All56 criteria and132 prompts/answers read; mapping-only correction,15 prerequisite-only. No question/key, passage, response identity/limit or completion change. Eleven components still need other required operation evidence.",
+      "receipt": "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json"
+    },
+    {
+      "stage": "B65-actual-operation-mappings-and-all-unit-integrity-check",
+      "scope": "B43 criteria/65 prompts read; mapping-only correction,5 prerequisite-only. C132 prior mapping review retained; D52 unchanged. New validator rejects accidental required-credit assignment to optional/foundation items. State, completion and writing capacities unchanged; input types now declare mapping fields.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json"
+    },
+    {
+      "stage": "B-required-inquiry-final-repair",
+      "scope": "Three finals revised with new IDs and600-character capacities;65 total items unchanged. New prompts/models and all mapped required passages reread. Existing optional investigation data, procedures and36 examples unchanged; state and collection identifiers updated.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json"
+    },
+    {
+      "stage": "B-three-chapter-operation-replacements",
+      "scope": "Replace three redundant chapter MC questions with missing constructed operations. Keep65 questions,28 chapter items and two guided per topic. Prior whole items retained; new semantic response IDs, no answer equivalence. All new required prose/worked examples read. Two existing practice passage receipts and five textbook guides reread after the one location clarification; related old-section retention target remains complete.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json",
+      "historyPolicy": "Earlier completed stage receipts preserve their original container hashes and measurements. This scoped subsequent review records only the later changes."
+    },
+    {
+      "stage": "C-required-STS-replacements",
+      "scope": "Replace three redundant chapter recognition questions one-for-one with required applied STS cases. All four C STS criteria now have explicit asked sub-operations, supplied contrasting perspectives and revision. Full required paragraphs and worked examples reread; core and worked teaching unchanged. New semantic IDs and prior whole snapshots; no answer equivalence. Fictional observations are not real research or clinical recommendations.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json",
+      "historyPolicy": "Completed prior stage receipts retain their original container hashes and measurements; this scoped review records subsequent changes."
+    },
+    {
+      "stage": "C-required-inquiry-final-repair",
+      "scope": "Three new-ID finals explicitly require a testable question/prediction, controlled repeated comparison, supplied evidence and revision of a supplied claim. All exact mapped core/worked examples reread; data/teaching unchanged. Genetic-technologies applications paragraph is now an additional same-topic required teaching reference. Prior whole questions retained without equivalence.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json",
+      "historyPolicy": "Completed stage receipts preserve historical container hashes/measurements; this scoped subsequent review records later changes."
+    },
+    {
+      "stage": "C-required-comparisons-and-response-packing",
+      "scope": "Four one-for-one C comparison replacements close empty required-practice links using new semantic IDs. Complete mapped core/worked examples reread; unchanged teaching. All nine synthetic sequence substitution counts checked. Full compound-criterion and figure proof still pending. No prior writing capacity shortened. Exact response text now uses fingerprinted ordered presence/text encoding only when smaller; sparse and earlier token pairs remain readable. Wrong maps/counts/unknown bits fail with original work retained. All-unit schema changes are draft manifests; no rebuilt learner payload has existed.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+      "historyPolicy": "Prior completed receipts retain historical hashes; this scoped review binds only subsequently changed draft practice/state inputs."
+    }
+  ],
+  "subsequentAcademicRepairs": [
+    {
+      "unit": "B",
+      "reason": "Actual atomic STS review found that existing practice did not fully assess perspective comparison and revision. Added two chapter constructions, preserving guided/final inventories.",
+      "newItemIds": [
+        "b-application-information-and-hormone-research",
+        "b-application-fertility-evidence-and-perspectives"
+      ],
+      "review": "Separate prompt/criteria check confirms all five dimensions, two-way science/society relationship, raw12/30 and12/50 denominators, IVF pathway limits and justified alternative value choices. Exact required teaching paragraphs were reread.",
+      "capacity": "Both full guides fit with20-percent working room plus20 characters."
+    },
+    {
+      "unit": "D",
+      "reason": "Whole-topic component tags claimed unasked operations. All50 prior mappings narrowed; foundation-only recognition excluded as full evidence. Two STS applications and three replacement final operations explicitly require predictions, controls, evidence limits and response to supplied perspectives.",
+      "newItemIds": [
+        "d-application-resistance-evidence-and-consequences",
+        "d-application-wetland-research-and-models"
+      ],
+      "replacementIdPolicy": "Three expanded final tasks use -revision-v2 IDs; old draft item snapshots retained in revisionHistory and equivalentLegacyResponseMigration=false.",
+      "review": "Actual mapped prose and worked examples reread. Raw frequencies, plant means, quadrat estimates and growth projections reconstructed; logistic step4=174.68704697 before rounding. Intended benefits and potential unintended human/environmental effects distinguished. All five full models fit with20-percent working room plus20 characters.",
+      "stateOrdinaryMaximum": 27874,
+      "validation": "40 focused tests, draft contracts and strict exact key/passage and investigation audits passed."
+    }
+  ]
+}

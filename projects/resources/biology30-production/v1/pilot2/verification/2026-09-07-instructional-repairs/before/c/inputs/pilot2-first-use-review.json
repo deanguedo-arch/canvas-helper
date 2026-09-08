@@ -1,0 +1,578 @@
+{
+  "unit": "C",
+  "status": "non-gating-review-queue",
+  "scope": "Case-insensitive whole-phrase core, worked and stop text; excludes optional Advanced, figures, media and term inventory. Alias/plural/implicit prerequisites need manual review.",
+  "sources": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+      "sha256": "1fdee1923fd65eaac58fa9428e6aa344f05e06e2004fad6f61eab73b9c150e17"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+      "sha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+      "sha256": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb"
+    }
+  ],
+  "findings": [
+    {
+      "termId": "c-term-sister-chromatid",
+      "term": "sister chromatid",
+      "declaredFirstPartId": "c-topic-chromosomes-and-dna-sets-and-copies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-autosome",
+      "term": "autosome",
+      "declaredFirstPartId": "c-topic-chromosomes-and-dna-reading-karyotypes",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-cell-cycle-regulation",
+      "term": "cell-cycle regulation",
+      "declaredFirstPartId": "c-topic-the-cell-cycle-control-and-division",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-independent-orientation",
+      "term": "independent orientation",
+      "declaredFirstPartId": "c-topic-meiosis-part-a-first-meiotic-division",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-haploid-product",
+      "term": "haploid product",
+      "declaredFirstPartId": "c-topic-meiosis-part-a-second-meiotic-division",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-genetic-variation",
+      "term": "genetic variation",
+      "declaredFirstPartId": "c-topic-meiosis-part-a-comparing-divisions",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-spermatogenesis",
+      "term": "spermatogenesis",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-gamete-development",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-meiotic-pause",
+      "term": "meiotic pause",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-gamete-development",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-meiosis-i-error",
+      "term": "meiosis I error",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-nondisjunction",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-meiosis-ii-error",
+      "term": "meiosis II error",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-nondisjunction",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-fraternal-twins",
+      "term": "fraternal twins",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-twins-and-early-development",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-identical-twins",
+      "term": "identical twins",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-twins-and-early-development",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-zygote-splitting",
+      "term": "zygote splitting",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-twins-and-early-development",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-sea-anemone",
+      "term": "sea anemone",
+      "declaredFirstPartId": "c-topic-reproductive-strategies-animal-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-communication",
+      "term": "communication",
+      "declaredFirstPartId": "c-topic-reproductive-strategies-evidence-and-applications",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-dominant",
+      "term": "dominant",
+      "declaredFirstPartId": "c-topic-genes-alleles-and-traits-inheritance-language",
+      "earliestMatchedPartId": "c-topic-reproductive-strategies-life-cycle-transitions",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "c-topic-reproductive-strategies-life-cycle-transitions",
+        "c-topic-genes-alleles-and-traits-inheritance-language",
+        "c-topic-genes-alleles-and-traits-trait-expression",
+        "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+        "c-topic-mendelian-genetics-segregation",
+        "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+        "c-topic-mendelian-genetics-probability-and-test-crosses",
+        "c-topic-single-and-two-trait-crosses-monohybrid-crosses",
+        "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+        "c-topic-pedigrees-autosomal-hypotheses"
+      ],
+      "excerpt": "ains these broad transitions with much reduced gametophytes associated with the dominant sporophyte. Meiosis changes 2n to n, fertilization changes n to 2n, and intervening mitosis preserves the current set number. Plant spores ",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-allele-product",
+      "term": "allele product",
+      "declaredFirstPartId": "c-topic-genes-alleles-and-traits-inheritance-language",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-true-breeding",
+      "term": "true breeding",
+      "declaredFirstPartId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-allele-pair",
+      "term": "allele pair",
+      "declaredFirstPartId": "c-topic-mendelian-genetics-segregation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-gamete-probability",
+      "term": "gamete probability",
+      "declaredFirstPartId": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-individual",
+      "term": "individual",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-nondisjunction",
+      "earliestMatchedPartId": "c-topic-the-cell-cycle-measuring-cell-populations",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "c-topic-the-cell-cycle-measuring-cell-populations",
+        "c-topic-meiosis-part-b-nondisjunction",
+        "c-topic-reproductive-strategies-evidence-and-applications",
+        "c-topic-genes-alleles-and-traits-inheritance-language",
+        "c-topic-mendelian-genetics-segregation",
+        "c-topic-mendelian-genetics-probability-and-test-crosses",
+        "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+        "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles",
+        "c-topic-other-modes-of-inheritance-sex-linkage",
+        "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+        "c-topic-pedigrees-symbols-and-evidence",
+        "c-topic-pedigrees-autosomal-hypotheses",
+        "c-topic-dna-replication-enzymes-and-direction",
+        "c-topic-mutations-evaluating-mutation-evidence"
+      ],
+      "excerpt": " cycle can break the simple assumption. A snapshot is not the same as following individual cells through time.",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-affected",
+      "term": "affected",
+      "declaredFirstPartId": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+      "earliestMatchedPartId": "c-topic-meiosis-part-b-nondisjunction",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "c-topic-meiosis-part-b-nondisjunction",
+        "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+        "c-topic-other-modes-of-inheritance-sex-linkage",
+        "c-topic-pedigrees-symbols-and-evidence",
+        "c-topic-pedigrees-autosomal-hypotheses",
+        "c-topic-pedigrees-sex-linked-hypotheses",
+        "c-topic-dna-replication-replication-evidence"
+      ],
+      "excerpt": ", one n+1 and one n−1. The distribution differs by timing: all four gametes are affected in the simple meiosis-I case, while two remain normal in the specified meiosis-II case. Does n+1 mean that a gamete has acquired an entire ",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-unknown-genotype",
+      "term": "unknown genotype",
+      "declaredFirstPartId": "c-topic-pedigrees-symbols-and-evidence",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-x-linked-inheritance",
+      "term": "X-linked inheritance",
+      "declaredFirstPartId": "c-topic-other-modes-of-inheritance-sex-linkage",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-alternative-model",
+      "term": "alternative model",
+      "declaredFirstPartId": "c-topic-pedigrees-autosomal-hypotheses",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-recombinant-count",
+      "term": "recombinant count",
+      "declaredFirstPartId": "c-topic-chromosome-mapping-recombination-frequency",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-pairwise-distance",
+      "term": "pairwise distance",
+      "declaredFirstPartId": "c-topic-chromosome-mapping-gene-order",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-reversed-map",
+      "term": "reversed map",
+      "declaredFirstPartId": "c-topic-chromosome-mapping-gene-order",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-fifty-percent-ceiling",
+      "term": "fifty-percent ceiling",
+      "declaredFirstPartId": "c-topic-chromosome-mapping-limits-of-linkage-estimates",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-multiple-crossover",
+      "term": "multiple crossover",
+      "declaredFirstPartId": "c-topic-chromosome-mapping-recombination-frequency",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-sampling-uncertainty",
+      "term": "sampling uncertainty",
+      "declaredFirstPartId": "c-topic-meiosis-part-b-sources-of-variation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-experimental-control",
+      "term": "experimental control",
+      "declaredFirstPartId": "c-topic-reproductive-strategies-evidence-and-applications",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-5-prime",
+      "term": "5-prime",
+      "declaredFirstPartId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-3-prime",
+      "term": "3-prime",
+      "declaredFirstPartId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-hydrogen-bond",
+      "term": "hydrogen bond",
+      "declaredFirstPartId": "c-topic-dna-and-its-history-the-double-helix",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-daughter-strand",
+      "term": "daughter strand",
+      "declaredFirstPartId": "c-topic-dna-replication-semiconservative-replication",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-5-prime-to-3-prime",
+      "term": "5-prime to 3-prime",
+      "declaredFirstPartId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-leading-strand",
+      "term": "leading strand",
+      "declaredFirstPartId": "c-topic-dna-replication-leading-and-lagging-synthesis",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-okazaki-fragment",
+      "term": "Okazaki fragment",
+      "declaredFirstPartId": "c-topic-dna-replication-leading-and-lagging-synthesis",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-experimental-prediction",
+      "term": "experimental prediction",
+      "declaredFirstPartId": "c-topic-dna-replication-replication-evidence",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-base-pairing",
+      "term": "base pairing",
+      "declaredFirstPartId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-direction",
+      "term": "direction",
+      "declaredFirstPartId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+      "earliestMatchedPartId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+        "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+        "c-topic-chromosome-mapping-gene-order",
+        "c-topic-dna-and-its-history-nucleotides-and-direction",
+        "c-topic-dna-and-its-history-the-double-helix",
+        "c-topic-dna-replication-enzymes-and-direction",
+        "c-topic-dna-replication-leading-and-lagging-synthesis",
+        "c-topic-transcription-selecting-a-template",
+        "c-topic-transcription-making-rna",
+        "c-topic-transcription-checking-a-sequence-claim",
+        "c-topic-translation-reading-the-genetic-code",
+        "c-topic-translation-adaptors-and-peptide-bonds",
+        "c-topic-genetic-technologies-amplifying-and-separating"
+      ],
+      "excerpt": "l sex contributes each phenotype. Comparing reciprocal results can test whether direction of inheritance matters. Record the actual sample sizes and observations before stating a rule. Agreement with an expected ratio supports a ",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-protein-function",
+      "term": "protein function",
+      "declaredFirstPartId": "c-topic-translation-from-sequence-to-function",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-random-origin",
+      "term": "random origin",
+      "declaredFirstPartId": "c-topic-mutations-inheritance-and-variation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-selection",
+      "term": "selection",
+      "declaredFirstPartId": "c-topic-mutations-inheritance-and-variation",
+      "earliestMatchedPartId": "c-topic-the-cell-cycle-measuring-cell-populations",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "c-topic-the-cell-cycle-measuring-cell-populations",
+        "c-topic-mutations-inheritance-and-variation",
+        "c-topic-genetic-technologies-transforming-cells"
+      ],
+      "excerpt": "e field of dividing cells can also bias the estimate. Plan representative image selection, state classification rules and record uncertain cases. Compare repeated fields before treating a single count as a characteristic of the w",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-control",
+      "term": "control",
+      "declaredFirstPartId": "c-topic-reproductive-strategies-evidence-and-applications",
+      "earliestMatchedPartId": "c-topic-chromosomes-and-dna-dna-packaging",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "c-topic-chromosomes-and-dna-dna-packaging",
+        "c-topic-the-cell-cycle-control-and-division",
+        "c-topic-reproductive-strategies-evidence-and-applications",
+        "c-topic-genetic-technologies-amplifying-and-separating"
+      ],
+      "excerpt": "ed and separated accurately. Packaging helps organize this task, while proteins control access and movement. When reading a diagram, distinguish a chromosome from a short gene region marked on it. A visible band or coloured seg",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-restriction-enzyme",
+      "term": "restriction enzyme",
+      "declaredFirstPartId": "c-topic-genetic-technologies-cutting-and-joining-dna",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-sticky-end",
+      "term": "sticky end",
+      "declaredFirstPartId": "c-topic-genetic-technologies-cutting-and-joining-dna",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-fragment-size",
+      "term": "fragment size",
+      "declaredFirstPartId": "c-topic-genetic-technologies-amplifying-and-separating",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "c-term-sequence-comparison",
+      "term": "sequence comparison",
+      "declaredFirstPartId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    }
+  ]
+}

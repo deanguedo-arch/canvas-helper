@@ -1,0 +1,1453 @@
+{
+  "schemaVersion": 1,
+  "profileId": "pilot2-topic-sequence-v1",
+  "unit": "B",
+  "status": "frozen",
+  "teacherAcceptance": null,
+  "requiredMinutes": 1200,
+  "optionalMinutes": 240,
+  "topics": [
+    {
+      "id": "b-topic-male-reproductive-structures",
+      "title": "Male Reproductive Structures",
+      "chapter": 14,
+      "planRowId": "plan-14-row-02",
+      "teacherTextbookAssignment": "478–481 #1–6; 485 #3,5; 492 #18",
+      "slideNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "parts": [
+        {
+          "id": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+          "title": "Compartments of the testes",
+          "outcomeIds": [
+            "B1.2k",
+            "B1.3k",
+            "B1.2s"
+          ],
+          "concepts": [
+            "testes",
+            "seminiferous tubules",
+            "Sertoli cells",
+            "interstitial cells"
+          ],
+          "operation": "Identify each compartment and connect its location to sperm support or testosterone production"
+        },
+        {
+          "id": "b-topic-male-reproductive-structures-the-transport-pathway",
+          "title": "The transport pathway",
+          "outcomeIds": [
+            "B1.2k"
+          ],
+          "concepts": [
+            "epididymis",
+            "vas deferens",
+            "ejaculatory duct",
+            "urethra",
+            "penis"
+          ],
+          "operation": "Trace sperm movement in order and distinguish production from transport"
+        },
+        {
+          "id": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+          "title": "Semen and accessory glands",
+          "outcomeIds": [
+            "B1.2k"
+          ],
+          "concepts": [
+            "seminal vesicles",
+            "prostate gland",
+            "Cowper glands",
+            "semen"
+          ],
+          "operation": "Match each secretion to its source and role without calling semen a sperm cell"
+        },
+        {
+          "id": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+          "title": "Reproductive development and health",
+          "outcomeIds": [
+            "B1.4k",
+            "B1.5k",
+            "B1.1sts"
+          ],
+          "concepts": [
+            "Y chromosome",
+            "testosterone",
+            "responsive target",
+            "STI",
+            "fertility"
+          ],
+          "operation": "Explain one bounded pathway from a developmental signal or infection to reproductive function"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-testes",
+        "b-term-seminiferous-tubules",
+        "b-term-sertoli-cells",
+        "b-term-interstitial-cells",
+        "b-term-epididymis",
+        "b-term-vas-deferens",
+        "b-term-ejaculatory-duct",
+        "b-term-urethra",
+        "b-term-penis",
+        "b-term-seminal-vesicles",
+        "b-term-prostate-gland",
+        "b-term-cowper-glands",
+        "b-term-semen",
+        "b-term-y-chromosome",
+        "b-term-testosterone",
+        "b-term-responsive-target",
+        "b-term-sti",
+        "b-term-fertility",
+        "b-term-spermatozoon",
+        "b-term-obstruction",
+        "b-term-reproductive-structures",
+        "b-term-timing",
+        "b-term-model",
+        "b-term-observation",
+        "b-term-embryo",
+        "b-term-route"
+      ],
+      "reusedTermIds": [],
+      "anchorTermIds": [
+        "b-term-seminiferous-tubules",
+        "b-term-sertoli-cells",
+        "b-term-interstitial-cells",
+        "b-term-vas-deferens"
+      ]
+    },
+    {
+      "id": "b-topic-spermatogenesis",
+      "title": "Spermatogenesis",
+      "chapter": 14,
+      "planRowId": "plan-14-row-03",
+      "teacherTextbookAssignment": "495 #19; 502 #2,7,8",
+      "slideNumbers": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "parts": [
+        {
+          "id": "b-topic-spermatogenesis-gametes-and-chromosome-sets",
+          "title": "Gametes and chromosome sets",
+          "outcomeIds": [
+            "B1.3k",
+            "B1.2k"
+          ],
+          "concepts": [
+            "diploid",
+            "haploid",
+            "spermatogonium",
+            "primary spermatocyte"
+          ],
+          "operation": "Track chromosome sets before and after meiotic reduction"
+        },
+        {
+          "id": "b-topic-spermatogenesis-division-and-differentiation",
+          "title": "Division and differentiation",
+          "outcomeIds": [
+            "B1.3k"
+          ],
+          "concepts": [
+            "secondary spermatocyte",
+            "spermatid",
+            "spermatozoon",
+            "acrosome",
+            "flagellum"
+          ],
+          "operation": "Sequence gamete development and distinguish meiosis from differentiation"
+        },
+        {
+          "id": "b-topic-spermatogenesis-hormone-sources-and-targets",
+          "title": "Hormone sources and targets",
+          "outcomeIds": [
+            "B2.1k",
+            "B2.3k"
+          ],
+          "concepts": [
+            "GnRH",
+            "FSH",
+            "LH",
+            "testosterone",
+            "hypothalamus",
+            "anterior pituitary",
+            "primary sex characteristic",
+            "secondary sex characteristic"
+          ],
+          "operation": "Construct a source-signal-target-response pathway"
+        },
+        {
+          "id": "b-topic-spermatogenesis-feedback-and-evidence",
+          "title": "Feedback and evidence",
+          "outcomeIds": [
+            "B2.3k",
+            "B2.1s",
+            "B2.3s"
+          ],
+          "concepts": [
+            "negative feedback",
+            "inhibin",
+            "controlled variable"
+          ],
+          "operation": "Use supplied hormone values to predict and qualify a downstream response"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-diploid",
+        "b-term-haploid",
+        "b-term-spermatogonium",
+        "b-term-primary-spermatocyte",
+        "b-term-secondary-spermatocyte",
+        "b-term-spermatid",
+        "b-term-acrosome",
+        "b-term-flagellum",
+        "b-term-gnrh",
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-hypothalamus",
+        "b-term-anterior-pituitary",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic",
+        "b-term-negative-feedback",
+        "b-term-inhibin",
+        "b-term-controlled-variable",
+        "b-term-oocyte",
+        "b-term-feedback-suppression",
+        "b-term-fertilization",
+        "b-term-zygote",
+        "b-term-differentiation",
+        "b-term-muscle",
+        "b-term-variables",
+        "b-term-comparison",
+        "b-term-data",
+        "b-term-anabolic-steroid",
+        "b-term-growth-hormone",
+        "b-term-andropause"
+      ],
+      "reusedTermIds": [
+        "b-term-testosterone",
+        "b-term-spermatozoon"
+      ],
+      "anchorTermIds": [
+        "b-term-haploid",
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-negative-feedback"
+      ]
+    },
+    {
+      "id": "b-topic-female-reproductive-structures",
+      "title": "Female Reproductive Structures",
+      "chapter": 14,
+      "planRowId": "plan-14-row-04",
+      "teacherTextbookAssignment": "484 #7–10; 485 #1,2,4,7",
+      "slideNumbers": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "parts": [
+        {
+          "id": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+          "title": "Ovaries and supporting tissues",
+          "outcomeIds": [
+            "B1.1k",
+            "B1.3k"
+          ],
+          "concepts": [
+            "ovary",
+            "follicle",
+            "oocyte",
+            "corpus luteum"
+          ],
+          "operation": "Identify an oocyte separately from its supporting follicle and later corpus luteum"
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+          "title": "Transport and implantation surfaces",
+          "outcomeIds": [
+            "B1.1k"
+          ],
+          "concepts": [
+            "Fallopian tube",
+            "fimbriae",
+            "uterus",
+            "endometrium",
+            "cervix",
+            "vagina"
+          ],
+          "operation": "Trace oocyte transport and distinguish fertilization site from implantation site"
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+          "title": "Oogenesis and meiotic pauses",
+          "outcomeIds": [
+            "B1.3k"
+          ],
+          "concepts": [
+            "primary oocyte",
+            "secondary oocyte",
+            "polar body",
+            "ovulation"
+          ],
+          "operation": "Compare unequal cytoplasmic division and pause points with spermatogenesis"
+        },
+        {
+          "id": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+          "title": "Structure and reproductive function",
+          "outcomeIds": [
+            "B1.5k",
+            "B1.1s",
+            "B1.3s",
+            "B1.4s",
+            "B1.2s"
+          ],
+          "concepts": [
+            "ciliary transport",
+            "obstruction",
+            "fertility probability"
+          ],
+          "operation": "Interpret a fictional structural case with one supported prediction and one limitation; compare a supplied alternative interpretation and revise the explanation (independent communication evidence, not observed collaboration)",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-structure-function",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-ovary",
+        "b-term-follicle",
+        "b-term-corpus-luteum",
+        "b-term-fallopian-tube",
+        "b-term-fimbriae",
+        "b-term-uterus",
+        "b-term-endometrium",
+        "b-term-cervix",
+        "b-term-vagina",
+        "b-term-primary-oocyte",
+        "b-term-secondary-oocyte",
+        "b-term-polar-body",
+        "b-term-ovulation",
+        "b-term-ciliary-transport",
+        "b-term-fertility-probability",
+        "b-term-estrogen",
+        "b-term-progesterone",
+        "b-term-meiotic-completion",
+        "b-term-blastocyst",
+        "b-term-implantation",
+        "b-term-revision"
+      ],
+      "reusedTermIds": [
+        "b-term-oocyte",
+        "b-term-obstruction"
+      ],
+      "anchorTermIds": [
+        "b-term-follicle",
+        "b-term-oocyte",
+        "b-term-endometrium",
+        "b-term-ovulation"
+      ]
+    },
+    {
+      "id": "b-topic-menstrual-cycle",
+      "title": "Menstrual Cycle",
+      "chapter": 14,
+      "planRowId": "plan-14-row-05",
+      "teacherTextbookAssignment": "495 #5; 498 #21–24; 502 #3,4",
+      "slideNumbers": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "parts": [
+        {
+          "id": "b-topic-menstrual-cycle-two-coordinated-cycles",
+          "title": "Two coordinated cycles",
+          "outcomeIds": [
+            "B2.2k"
+          ],
+          "concepts": [
+            "ovarian cycle",
+            "uterine cycle",
+            "follicular phase",
+            "luteal phase"
+          ],
+          "operation": "Align ovarian events with endometrial changes on separate tracks"
+        },
+        {
+          "id": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+          "title": "Follicle growth and changing feedback",
+          "outcomeIds": [
+            "B2.1k",
+            "B2.2k"
+          ],
+          "concepts": [
+            "FSH",
+            "LH",
+            "estrogen",
+            "positive feedback",
+            "LH surge"
+          ],
+          "operation": "Explain how sustained high estrogen can produce the mid-cycle surge"
+        },
+        {
+          "id": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+          "title": "Corpus luteum and the endometrium",
+          "outcomeIds": [
+            "B2.2k",
+            "B2.1k"
+          ],
+          "concepts": [
+            "progesterone",
+            "negative feedback",
+            "menstruation"
+          ],
+          "operation": "Explain endometrial maintenance and withdrawal when luteal function declines"
+        },
+        {
+          "id": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+          "title": "Graphs and cycle variation",
+          "outcomeIds": [
+            "B2.1s",
+            "B2.2s",
+            "B2.3s",
+            "B2.4s",
+            "B2.2k"
+          ],
+          "concepts": [
+            "axis",
+            "relative concentration",
+            "peak",
+            "cycle variation"
+          ],
+          "operation": "Construct and interpret a hormone graph with named axes and timing limits",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-cycle-graphs",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        },
+        {
+          "id": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+          "title": "Hormonal technologies and perspectives",
+          "outcomeIds": [
+            "B2.1sts",
+            "B2.2sts",
+            "B3.5k"
+          ],
+          "concepts": [
+            "contraception",
+            "feedback suppression",
+            "benefit",
+            "limitation"
+          ],
+          "operation": "Compare mechanism, evidence and perspectives without giving personal treatment advice"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-ovarian-cycle",
+        "b-term-uterine-cycle",
+        "b-term-follicular-phase",
+        "b-term-luteal-phase",
+        "b-term-positive-feedback",
+        "b-term-lh-surge",
+        "b-term-menstruation",
+        "b-term-axis",
+        "b-term-relative-concentration",
+        "b-term-peak",
+        "b-term-cycle-variation",
+        "b-term-contraception",
+        "b-term-benefit",
+        "b-term-limitation",
+        "b-term-hcg",
+        "b-term-barrier-method",
+        "b-term-menopause"
+      ],
+      "reusedTermIds": [
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-negative-feedback",
+        "b-term-estrogen",
+        "b-term-progesterone",
+        "b-term-feedback-suppression"
+      ],
+      "anchorTermIds": [
+        "b-term-estrogen",
+        "b-term-lh-surge",
+        "b-term-progesterone",
+        "b-term-positive-feedback"
+      ]
+    },
+    {
+      "id": "b-topic-fertilization-to-implantation",
+      "title": "Fertilization to Implantation",
+      "chapter": 15,
+      "planRowId": "plan-15-row-02",
+      "teacherTextbookAssignment": "509–511 #1,4,5–8; 518 #1–4",
+      "slideNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "parts": [
+        {
+          "id": "b-topic-fertilization-to-implantation-gametes-meet",
+          "title": "Gametes meet",
+          "outcomeIds": [
+            "B3.1k"
+          ],
+          "concepts": [
+            "fertilization",
+            "capacitation",
+            "acrosome reaction",
+            "zona pellucida"
+          ],
+          "operation": "Sequence the interactions needed for fertilization in a uterine tube"
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+          "title": "Combining chromosome sets",
+          "outcomeIds": [
+            "B3.1k",
+            "B3.2k"
+          ],
+          "concepts": [
+            "meiotic completion",
+            "pronucleus",
+            "zygote",
+            "polyspermy block"
+          ],
+          "operation": "Explain restoration of diploidy and why extra sperm entry is prevented"
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+          "title": "Cleavage and blastocyst formation",
+          "outcomeIds": [
+            "B3.1k",
+            "B3.2k"
+          ],
+          "concepts": [
+            "cleavage",
+            "morula",
+            "blastocyst",
+            "inner cell mass",
+            "trophoblast"
+          ],
+          "operation": "Order stages and distinguish rising cell number from overall growth"
+        },
+        {
+          "id": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+          "title": "Implantation and reproductive technology",
+          "outcomeIds": [
+            "B3.1k",
+            "B3.5k",
+            "B3.1sts"
+          ],
+          "concepts": [
+            "implantation",
+            "receptive endometrium",
+            "IVF",
+            "embryo transfer"
+          ],
+          "operation": "Compare fertilization and implantation and locate IVF steps in the sequence"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-capacitation",
+        "b-term-acrosome-reaction",
+        "b-term-zona-pellucida",
+        "b-term-pronucleus",
+        "b-term-polyspermy-block",
+        "b-term-cleavage",
+        "b-term-morula",
+        "b-term-inner-cell-mass",
+        "b-term-trophoblast",
+        "b-term-receptive-endometrium",
+        "b-term-ivf",
+        "b-term-embryo-transfer",
+        "b-term-placenta",
+        "b-term-artificial-insemination"
+      ],
+      "reusedTermIds": [
+        "b-term-fertilization",
+        "b-term-meiotic-completion",
+        "b-term-zygote",
+        "b-term-blastocyst",
+        "b-term-implantation",
+        "b-term-embryo"
+      ],
+      "anchorTermIds": [
+        "b-term-fertilization",
+        "b-term-zygote",
+        "b-term-blastocyst",
+        "b-term-implantation"
+      ]
+    },
+    {
+      "id": "b-topic-hcg-and-gastrulation",
+      "title": "hCG and Gastrulation",
+      "chapter": 15,
+      "planRowId": "plan-15-row-03",
+      "teacherTextbookAssignment": "511–512 #9,11–12; 518 #4–7",
+      "slideNumbers": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "parts": [
+        {
+          "id": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+          "title": "A signal maintains the early pregnancy",
+          "outcomeIds": [
+            "B3.1k"
+          ],
+          "concepts": [
+            "hCG",
+            "trophoblast",
+            "corpus luteum",
+            "progesterone"
+          ],
+          "operation": "Explain the early hCG-to-progesterone chain and later placental transition"
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+          "title": "Gastrulation establishes layers",
+          "outcomeIds": [
+            "B3.2k"
+          ],
+          "concepts": [
+            "gastrulation",
+            "cell migration",
+            "differentiation",
+            "germ layer"
+          ],
+          "operation": "Sequence cell reorganization and distinguish it from cleavage"
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+          "title": "Layer-to-tissue relationships",
+          "outcomeIds": [
+            "B3.3k"
+          ],
+          "concepts": [
+            "ectoderm",
+            "mesoderm",
+            "endoderm",
+            "nervous tissue",
+            "epidermis",
+            "skeleton",
+            "muscle",
+            "reproductive structures",
+            "digestive lining",
+            "respiratory lining",
+            "endocrine tissue"
+          ],
+          "operation": "Classify named tissue origins while retaining qualifications about different glands"
+        },
+        {
+          "id": "b-topic-hcg-and-gastrulation-developmental-evidence",
+          "title": "Developmental evidence",
+          "outcomeIds": [
+            "B3.1s",
+            "B3.3s"
+          ],
+          "concepts": [
+            "timing",
+            "model",
+            "observation",
+            "causal limit"
+          ],
+          "operation": "Use a supplied timeline to support a developmental explanation"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-gastrulation",
+        "b-term-cell-migration",
+        "b-term-germ-layer",
+        "b-term-ectoderm",
+        "b-term-mesoderm",
+        "b-term-endoderm",
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton",
+        "b-term-digestive-lining",
+        "b-term-respiratory-lining",
+        "b-term-endocrine-tissue",
+        "b-term-causal-limit",
+        "b-term-neural-tube"
+      ],
+      "reusedTermIds": [
+        "b-term-corpus-luteum",
+        "b-term-progesterone",
+        "b-term-trophoblast",
+        "b-term-hcg",
+        "b-term-differentiation",
+        "b-term-muscle",
+        "b-term-reproductive-structures",
+        "b-term-timing",
+        "b-term-model",
+        "b-term-observation"
+      ],
+      "anchorTermIds": [
+        "b-term-hcg",
+        "b-term-gastrulation",
+        "b-term-germ-layer",
+        "b-term-differentiation"
+      ]
+    },
+    {
+      "id": "b-topic-extraembryonic-structures-and-organogenesis",
+      "title": "Extraembryonic Structures and Organogenesis",
+      "chapter": 15,
+      "planRowId": "plan-15-row-04",
+      "teacherTextbookAssignment": "512 #10; 515–518 #15–19,20–23,10",
+      "slideNumbers": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "parts": [
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes",
+          "title": "Support membranes",
+          "outcomeIds": [
+            "B3.1k"
+          ],
+          "concepts": [
+            "amnion",
+            "chorion",
+            "allantois",
+            "placenta",
+            "umbilical cord"
+          ],
+          "operation": "Identify each support structure and explain its contribution"
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+          "title": "Maternal and fetal circulation",
+          "outcomeIds": [
+            "B3.1k"
+          ],
+          "concepts": [
+            "placental exchange",
+            "diffusion",
+            "umbilical artery",
+            "umbilical vein"
+          ],
+          "operation": "Trace oxygen and nutrients across separate circulations without showing normal bulk mixing"
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+          "title": "Organ formation across development",
+          "outcomeIds": [
+            "B3.2k",
+            "B3.3k"
+          ],
+          "concepts": [
+            "organogenesis",
+            "embryo",
+            "fetus",
+            "trimester"
+          ],
+          "operation": "Place major organ-system events on an explicit developmental timeline"
+        },
+        {
+          "id": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+          "title": "Environmental influence and evidence",
+          "outcomeIds": [
+            "B3.4k",
+            "B3.1s",
+            "B3.3s"
+          ],
+          "concepts": [
+            "teratogen",
+            "dose",
+            "route",
+            "timing",
+            "confounder"
+          ],
+          "operation": "Compare supplied exposure evidence and state why a model cannot predict an individual outcome"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-amnion",
+        "b-term-chorion",
+        "b-term-allantois",
+        "b-term-umbilical-cord",
+        "b-term-placental-exchange",
+        "b-term-diffusion",
+        "b-term-umbilical-artery",
+        "b-term-umbilical-vein",
+        "b-term-organogenesis",
+        "b-term-fetus",
+        "b-term-trimester",
+        "b-term-teratogen",
+        "b-term-dose",
+        "b-term-confounder",
+        "b-term-neurulation",
+        "b-term-neural-plate"
+      ],
+      "reusedTermIds": [
+        "b-term-timing",
+        "b-term-placenta",
+        "b-term-embryo",
+        "b-term-route",
+        "b-term-neural-tube"
+      ],
+      "anchorTermIds": [
+        "b-term-amnion",
+        "b-term-placenta",
+        "b-term-umbilical-cord",
+        "b-term-organogenesis"
+      ]
+    },
+    {
+      "id": "b-topic-parturition",
+      "title": "Parturition",
+      "chapter": 15,
+      "planRowId": "plan-15-row-05",
+      "teacherTextbookAssignment": "492 #18; 523 #27–28; 526 #29,31–32; 526 #3,4,6,7; 534 #1,4",
+      "slideNumbers": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "parts": [
+        {
+          "id": "b-topic-parturition-labour-and-positive-feedback",
+          "title": "Labour and positive feedback",
+          "outcomeIds": [
+            "B3.1k"
+          ],
+          "concepts": [
+            "parturition",
+            "cervical stretch",
+            "oxytocin",
+            "prostaglandin"
+          ],
+          "operation": "Construct the stimulus-response feedback loop and identify its stopping event"
+        },
+        {
+          "id": "b-topic-parturition-birth-and-the-transition",
+          "title": "Birth and the transition",
+          "outcomeIds": [
+            "B3.1k",
+            "B3.2k"
+          ],
+          "concepts": [
+            "cervical dilation",
+            "delivery",
+            "placental delivery",
+            "newborn transition"
+          ],
+          "operation": "Sequence the major events and relate them to changing support systems"
+        },
+        {
+          "id": "b-topic-parturition-milk-synthesis-and-release",
+          "title": "Milk synthesis and release",
+          "outcomeIds": [
+            "B3.1k"
+          ],
+          "concepts": [
+            "prolactin",
+            "milk synthesis",
+            "oxytocin",
+            "milk ejection",
+            "suckling"
+          ],
+          "operation": "Distinguish the two hormone pathways in lactation"
+        },
+        {
+          "id": "b-topic-parturition-technologies-infertility-and-perspectives",
+          "title": "Technologies, infertility and perspectives",
+          "outcomeIds": [
+            "B3.5k",
+            "B3.1sts",
+            "B3.2sts"
+          ],
+          "concepts": [
+            "barrier method",
+            "hormonal method",
+            "sterilization",
+            "infertility reversal",
+            "IVF"
+          ],
+          "operation": "Compare mechanisms, uncertainty, access and perspectives in a fictional supplied case"
+        },
+        {
+          "id": "b-topic-parturition-investigating-and-communicating-a-claim",
+          "title": "Investigating and communicating a claim",
+          "outcomeIds": [
+            "B3.1s",
+            "B3.2s",
+            "B3.3s",
+            "B3.4s"
+          ],
+          "concepts": [
+            "variables",
+            "comparison",
+            "data",
+            "limitation",
+            "revision"
+          ],
+          "operation": "Evaluate a supplied investigation and revise a reasoned explanation after a contrasting interpretation",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json#b-investigation-development-evidence",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "newTermIds": [
+        "b-term-parturition",
+        "b-term-cervical-stretch",
+        "b-term-oxytocin",
+        "b-term-prostaglandin",
+        "b-term-cervical-dilation",
+        "b-term-delivery",
+        "b-term-placental-delivery",
+        "b-term-newborn-transition",
+        "b-term-prolactin",
+        "b-term-milk-synthesis",
+        "b-term-milk-ejection",
+        "b-term-suckling",
+        "b-term-hormonal-method",
+        "b-term-sterilization",
+        "b-term-infertility-reversal"
+      ],
+      "reusedTermIds": [
+        "b-term-limitation",
+        "b-term-ivf",
+        "b-term-barrier-method",
+        "b-term-variables",
+        "b-term-comparison",
+        "b-term-data",
+        "b-term-revision"
+      ],
+      "anchorTermIds": [
+        "b-term-parturition",
+        "b-term-oxytocin",
+        "b-term-prolactin",
+        "b-term-milk-ejection"
+      ]
+    }
+  ],
+  "requiredRoutes": [
+    "b-topic-male-reproductive-structures",
+    "b-topic-spermatogenesis",
+    "b-topic-female-reproductive-structures",
+    "b-topic-menstrual-cycle",
+    "b-chapter-14-practice",
+    "b-topic-fertilization-to-implantation",
+    "b-topic-hcg-and-gastrulation",
+    "b-topic-extraembryonic-structures-and-organogenesis",
+    "b-topic-parturition",
+    "b-chapter-15-practice",
+    "b-review-seminar",
+    "b-final-practice"
+  ],
+  "guidedQuestionsPerTopic": 2,
+  "sourceManifestSha256": "7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+  "baselineWorkspaceSha256": "609c283ecb3d9b53f7862f5e1efaa35d4caff820f3929ccf59dd79a938e57576",
+  "reviewGates": {
+    "sourceDispositions": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-media-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-slide-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-plan-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-media-dispositions.json": "ce9841b197e886fe80de3936d1fce15cd215b9d49270b6c7df3d632ce2920ed0",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-slide-dispositions.json": "c980f167cc04de2258e1df409a68e21d61abe28ed081b6902c15a2b957b893c9",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-plan-dispositions.json": "d3946cbbf98577acb0d2cc7a989cf4365b7b557eabf3b8f4718efcc69d2cc6b6",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json": "df697152e465cf01aea39f97be4c40a22f52a7340d4b8e2b82e9fdf02f25df6d"
+      },
+      "scope": "Authored provisional local blocked use; actual learner rendering follows freeze. No external clip selected or caption-review claim."
+    },
+    "curriculumAtomicMap": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7"
+      },
+      "scope": "Authored required operations and exact receipts; rendered proof after all-unit freeze."
+    },
+    "performanceColumns": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json"
+      ],
+      "sourceSha256": "72773dbdd42b1c9a778ebf33a70d471e89b621c3c4026e7ca4622ae6542ef794",
+      "registerSha256": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b",
+      "scope": "Actual column placement reviewed only; all atomic curriculum bindings and scientific corrections still require separate review.",
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b"
+      }
+    },
+    "oldSectionDispositions": {
+      "status": "passed",
+      "scope": "Authored teaching retention of all56 old B sections, including actual repaired depth and seminar. Rendered placement remains pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-disposition.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json",
+        "projects/resources/biology30-production/v1/pilot2/old-authored-content.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/b-retention-authorities.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-disposition.json": "bdf0265eb946e71b26eff9ba4ee1269d8b5c641e0b0be75a6bb916a60e71728c",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-review.json": "51163cb9b27625a9b5a5d6bebddc97f107fb5ab2eec01624710262611fd5785f",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+        "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+        "projects/resources/biology30-production/v1/pilot2/source-review/b-retention-authorities.json": "d09eec5284f73ca33e114e9b4c75cad56461bee929ff80230c78b949574fab4f",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880"
+      }
+    },
+    "practiceAndKeys": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-passage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-semantic-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-operation-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json": "aa2977ccbbf0e802406044f185cdfc9aa9c9a1c8bbe73064972397937899fc12",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-passage-review.json": "c174bc34821ae352769ed63c6a8b856e9ac90eeca5df3c7f52145010f40dae27",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-semantic-review.json": "ec82cc25636e4c4b30ddab9c5896b60dac59710e594528a32b1f91c914ea4c01",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-operation-review.json": "b77f773ea46660bc0f83b630fa74b8200d4eddd6a89864e547611615c4533d1c",
+        "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json": "fbab95861b6f554c768a0cad66efb0f10b15494c3c66c5407d04251c345e28e3",
+        "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json": "2427d280121e18dc823d92696aabd969c824a0684bc563a56407dd84957a1af1",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20"
+      }
+    },
+    "textbookFoliosAndGuides": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-passage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json": "c66ea3c0357234191d39c0f28ec8456b14869bf0b24168b115253ea8aa1f40af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-passage-review.json": "5a156eacec69730c006079c065f77f0bfcc6a79a9c4e120615a2fdef6da95225",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json": "01ba05ea683fbafa0437bf591c294200c29b69aefed0fa6d418687a9c7c1d481",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook.json": "62f2847ebf58218f05d146605a07d15a1741aadd11e032303d836a396f042751",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32"
+      }
+    },
+    "vocabularyAndFirstUse": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-decisions.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json": "14b32472e4db07c1588a0e9ab0b777d5f8cbb69654db4c9a7018d7d8ae04a9ef",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-decisions.json": "85c5baca76313fd73d7e4a3406cc58d335faea8bb321a7e21412524204377783",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804"
+      },
+      "scope": "Provisional authored local candidate; existing scientific reviews and implemented contracts reused. Exact rendered first-use, visual and learner-interaction proof follows build. Teacher acceptance remains null."
+    },
+    "figuresAndRights": {
+      "status": "passed",
+      "scope": "Complete provisional authored figure selection and local blocked use; no teacher choice, public rights or actual learner placement inferred. First-use and atomic curriculum checks remain separate.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+      }
+    },
+    "captionsAndLocalPaths": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json": "df697152e465cf01aea39f97be4c40a22f52a7340d4b8e2b82e9fdf02f25df6d",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c"
+      },
+      "scope": "Authored provisional local blocked use; actual learner rendering follows freeze. No external clip selected or caption-review claim."
+    },
+    "advancedAndTiming": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-time.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json": "60c73ca51dc7fcf7420b0e91224223d3d71d42de64a6d1eb4a417fa65815c703",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-time.json": "907439ffdf42793a3c0e6f3646ddc7acc2a25ab7e42e7410f1afdf7b5746290f",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af"
+      },
+      "scope": "Authored workload realism and optional non-gating Advanced; estimates, not measured learner times or teacher acceptance."
+    },
+    "investigations": {
+      "status": "passed",
+      "scope": "Authored source/data/method/response contracts only; rendered controls and teacher acceptance remain pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigation-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json": "2136bc8dbdcefb22907a9fa5aaa7881421bf45e92caee9abedacc19c24acdf6f",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigation-review.json": "f9a836cc41cdc870d0ec5fe6ceb414c53514051172adf693a664deba2179a2d6",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20"
+      }
+    },
+    "stateAndMigration": {
+      "status": "passed",
+      "scope": "Authored identity/migration/serialization and collection contracts, supported by exact engine fixtures. Browser lifecycle and live LMS certification remain separate and pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-legacy-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-migration.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json": "c7ac3d263815bf6eb7b211e52b3db8862fdd5faf5989d849668a6527e2d9c238",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json": "26e412ec4e534393037fd0b4eff4fb784c0976889f8a60118bf63590e4986160",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-legacy-schema.json": "ced84ab19bf3f84803e4767130495bc1c1431bbdc837bd9838499aa1b33c92f9",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-migration.json": "ffb01ddaa42012ad831d370f0889fe0a51af5371d907976fb3092d4cd4fca4b7",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json": "1c042c3d8d932635075de72a2f8e6707b4e6366fd01aaf6fa4a3c24c01b677fe",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-models.json": "a307f98f05d445b43255303dcba1f5f2c57f2dee339cef41748624c9aa0898a4",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json": "01ba05ea683fbafa0437bf591c294200c29b69aefed0fa6d418687a9c7c1d481",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa"
+      }
+    },
+    "transferRules": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-transfer-map.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-progress-compatibility.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-structure-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-empty-archive-display.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-review-tab-label.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+        "projects/resources/biology30-production/v1/units/unit-b/pilot2-transfer-map.json": "05a170bc0fc04e329e7fdc19b20c8ffb8dec91fa777b7c342d9b54e2dc5b3396",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-repair.json": "a619f96037aa0286c6cc2a440a2a5333319803d7aaea3c37c2fd889c7967d08b",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-progress-compatibility.json": "289b6bb676fab3ef65afcf87cbccce2e326c1f4e385afb24597fff1171fcc3a9",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-structure-repair.json": "ea344134285090199859a0e72fde3a1163e3ce99677497206f29aa012ba951ad",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-empty-archive-display.json": "476f3bd088ea95f76709ac79de0e8c1d26afa6044ea05cd444a9c6c09d5e2b07",
+        "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-review-tab-label.json": "529d549736192e5eec6ca8df668bb634a81937016ab5e656a406620d077a8889"
+      },
+      "scope": "Provisional authored local candidate; existing scientific reviews and implemented contracts reused. Exact rendered first-use, visual and learner-interaction proof follows build. Teacher acceptance remains null."
+    }
+  },
+  "interpretation": "Authored scope and observable operations only. Component-level prerequisite/teaching/visual/practice/evidence bindings, actual item inventory and reviews must be complete before this can be frozen.",
+  "baselineEntrySha256": "87e8db1578ae2f44edce4114ed093adbff63ec8fb0031ffead3ec3eedf7204c1",
+  "baselineHashFormat": "SHA256 of sorted relative path + NUL + file SHA256 + LF; includes all workspace assets, matching the immutable intake baseline",
+  "freezeEvidence": {
+    "designSha256": "fb4c5ac819ea9271fa9f31d20e363e9cf725ae5c44c7fb5a477c65e0aa58c5a7",
+    "inputs": {
+      "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b",
+      "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json": "269f2b834477f4abf6afa1b96ebc362e472eee565cab1e4248d78c4ac01f88d4",
+      "projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168/baseline.json": "82a14d44afcd95f754683aefd58311e820231b459eb7a879eecbb6802fdd0db0",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-14.pdf": "864ea82ed9960000c20e887250997d2f5e8455155f018dd2bf41865461b5365b",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-15.pdf": "fba888617f5066ceb1a46a5759d4523c063d0c20091a1ac3e6b673d5a5c41038",
+      "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+      "projects/resources/biology30-production/v1/pilot2/owner-closure.json": "7052f47ba9391233635f49e103c13ad9717717f37a2170e1818e5c643ea5949c",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+      "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+      "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json": "60c73ca51dc7fcf7420b0e91224223d3d71d42de64a6d1eb4a417fa65815c703",
+      "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json": "2427d280121e18dc823d92696aabd969c824a0684bc563a56407dd84957a1af1",
+      "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json": "fbab95861b6f554c768a0cad66efb0f10b15494c3c66c5407d04251c345e28e3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/b-retention-authorities.json": "d09eec5284f73ca33e114e9b4c75cad56461bee929ff80230c78b949574fab4f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+      "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017",
+      "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/extraembryonic-membranes-chatgpt-review.json": "2cd8fdba9a939302f46b6beefe7e94d1760b649eea5a2b10cd9c495b275c0deb",
+      "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+      "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+      "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-birth-exchange-transition-v2.svg": "bca184f45827b2c3edb2a578b06eea44b2c826863e4c650d4d6f6e6070cc3f1f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-chromosome-sets-copies-v1.svg": "d6aaf81c066c25e8f6e36d308862ae899122733957c17373f690239bca828386",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-cleavage-organization-v3.svg": "34b1a486331e93ee6bea936e99b79f25ece483e0d521fc7aa65384cc4670c356",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-context-feedback-v1.svg": "874942a8890ef18a76efa23572a532640a7a3364cdc9f181568a5eedb94694e7",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-coordinated-cycles-v1.svg": "475e55642f44046108e5a5eb6dc5402be01ac36442326b0f950782b186e9ad75",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-clocks-v1.svg": "77b5c25f8299412fe8dcfe971718e0f070e88e6c3eea6b4358baedb74760c4e3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-evidence-timing-v1.svg": "33ed3de5192bcd4101f8f00898de40bef5043fd679dcf1bc3bbf0282c14d083f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-study-design-v1.svg": "1917a94ce730e19dd9b6d0da80f14280fa3b2d31a7864bde2545eb1dfd646644",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-exposure-confounding-comparison-v1.svg": "479f550f0f13f14168c54402885eacaf6a0d5bb9d7673d023505db78256286a0",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-extraembryonic-membranes-chatgpt-v1.png": "da7778d1762bcbcc3462b93b037ee023e4304efdd2978520853a97cb75025224",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v3.svg": "5bb67f4486644c7d3b9469b8423667c8e0c7a79e4d31cc7acd503adb206ae193",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-female-tract-v1.png": "9829fa5e21332ba3bf82f1648e0eb2b86bf5aed7566e9f0e79e74a94f970b825",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-fertilization-interactions-v2.svg": "f7c040d75ae6d65b2a6a4c604a9d2c0c75a0aa89e991775b4144a2841677b0ef",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-germ-layer-tissue-map-v1.svg": "d64b8ea3fcd1acef62422a3f16fbb02a2dff4694b1362f0880c2cf6d1d19ea39",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hcg-source-target-transition-v1.svg": "9f4fdf9b8f540d66bc696e53763a2296e934d9b90174df82a44172a229cc8648",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormonal-methods-and-perspectives-v1.svg": "950ab1f272c0937553b0f7bd5b93660e5e0c16b3e49f53e92619e75bc4841a6b",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormone-sources-v1.svg": "712add8a56dab35a7ddbc5d4c76c74eabcfb2bcd3b8fba3f809eeb2aaa2da85f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-human-trilaminar-disc-v1.png": "8d4aee5d920523b7946acbf9178bcdc5f0a121cf7984c327322491b6c62a6cce",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ivf-location-and-denominator-v1.svg": "61087ba1daae419a60af4ee169ff653042e5009c1096bf302eaefaeb98bf2c98",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-labour-loop-v1.svg": "a939294786df7a4c38d0e250f4681cc37fea92b96145d15e049cbedbd07076f1",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-lactation-pathways-v2.svg": "696c29769e845a2e9cc84b83905c264736d36a5b7f6e303dfa00bc0c74df0211",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-luteal-withdrawal-v1.svg": "aa7b9e30adbfa87df9b1391a92892d8f9c3cd025556d481161d36a797ad9bb36",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v3.svg": "0979a2f87a30311555cb94ce1d07bd5ad6ecc872d7e1ffe630a42109b00b3dcc",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-meiosis-differentiation-v2.svg": "ac3b09c7f51a9166c300a5d04d72019e9bd898e5e927896914a6c3c70f8bc773",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-menopause-feedback-v1.svg": "3e4ac45fdee4e448b5e0e1859d048a489df191801a7509f49a8fad8f2f56741f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-neurulation-sequence-v1.svg": "47d309855a197a9523ccf544dffdb64270cee2b3e026c1cacc95aab425d1432d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-oocyte-pauses-v2.svg": "dbe8fcf928b94dd8f0b63ebc8cbe5306ebe085f787753505c52dd94b138758e2",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ovarian-follicle-v1.png": "1a7a865497483ac62d35e1c8c4fd98a8b857aceeeb55202a84e7eb6b77ed3efb",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-production-transport-case-comparison-v2.svg": "67bac62c44a447989253a930d37ff4077c6c13ade337626df9c2d96ebd30900f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-pronuclei-and-ploidy-v1.svg": "f71d02f49fda3173d2e3211f6d3baff1e05b92737a7b8338e6c388e3d0d2e1b3",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-reproductive-signal-targets-v1.svg": "668f900be1e078d52b63a853b627652ef75d5ce42d110e5a1a3ea969638c0921",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-semen-contribution-map-v1.svg": "9e1bfea0559e5e3500bdccbe496b6738a5adcfcc2328679b690ea260759efa58",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-sparse-sampling-v1.svg": "2b11df89658d0e2b2620f86cd6b905b74788e03bbab860748465752c44058928",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-technology-step-comparison-v1.svg": "d017547f642c7af8064f74787bac652ae46ac30977f7ba2d9f20c3856c917523",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-testis-compartments-v2.svg": "82cebd4ec89b4da61c3cfe64285ab63ee7765b738c66894473af9f7547b3bf25",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0",
+      "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json": "2136bc8dbdcefb22907a9fa5aaa7881421bf45e92caee9abedacc19c24acdf6f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-image-request.json": "a725e98279f1c39764f18a33037d9fa04bbeb571ec742c8e67887f052f1f8c8b",
+      "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json": "aa2977ccbbf0e802406044f185cdfc9aa9c9a1c8bbe73064972397937899fc12",
+      "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+      "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a",
+      "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation-textbook-15-11a.png": "8b80b7e17359b3994b4988d81a76fdf23f5f624fc6aea01e129de4e18feb2462",
+      "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation.json": "5dab70cebfd453a24404af55dc4f26fb034e3d1f97156da6f78f53aeb09dcd2b",
+      "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json": "c7ac3d263815bf6eb7b211e52b3db8862fdd5faf5989d849668a6527e2d9c238",
+      "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json": "c66ea3c0357234191d39c0f28ec8456b14869bf0b24168b115253ea8aa1f40af",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json": "1c042c3d8d932635075de72a2f8e6707b4e6366fd01aaf6fa4a3c24c01b677fe",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-alias-scan.json": "e2d66066c75709b85485f06bd27cb6c9c9b25021fc080b1363414abd595e33e9",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "84c9d18495b89795fe454ead1b9618a293f8282b04d2905d181c7f6fbbd19804",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-definition-wording-review.json": "14b32472e4db07c1588a0e9ab0b777d5f8cbb69654db4c9a7018d7d8ae04a9ef",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-decisions.json": "85c5baca76313fd73d7e4a3406cc58d335faea8bb321a7e21412524204377783",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-first-use-review.json": "4b0d638b0a3fe1e856d941cb7cfa892262976d4fa05f7717ae3410e172cdad2b",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json": "e4673ef1bc677ce70c5fb36830fb36d16d8bce594787569504c0238efb52ac9e",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigation-review.json": "f9a836cc41cdc870d0ec5fe6ceb414c53514051172adf693a664deba2179a2d6",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-investigations.json": "00f9c5928f5d3310b8827158cbc0198bd436235ab1091d6373aeae9e36b07c65",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-legacy-schema.json": "ced84ab19bf3f84803e4767130495bc1c1431bbdc837bd9838499aa1b33c92f9",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-link-dispositions.json": "df697152e465cf01aea39f97be4c40a22f52a7340d4b8e2b82e9fdf02f25df6d",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-media-dispositions.json": "ce9841b197e886fe80de3936d1fce15cd215b9d49270b6c7df3d632ce2920ed0",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-migration.json": "ffb01ddaa42012ad831d370f0889fe0a51af5371d907976fb3092d4cd4fca4b7",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-model-outputs.json": "e06548c82c42067869ceacd9f5e0c1d45c4c9132e07caaed36de14251e66c49f",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-models.json": "a307f98f05d445b43255303dcba1f5f2c57f2dee339cef41748624c9aa0898a4",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-disposition.json": "bdf0265eb946e71b26eff9ba4ee1269d8b5c641e0b0be75a6bb916a60e71728c",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-old-section-review.json": "51163cb9b27625a9b5a5d6bebddc97f107fb5ab2eec01624710262611fd5785f",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-outcome-targets.json": "8b5402d5811576c05d970957d2745b1bc1dd1ca0d347115dbc17c94a55dc7f7a",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-plan-dispositions.json": "d3946cbbf98577acb0d2cc7a989cf4365b7b557eabf3b8f4718efcc69d2cc6b6",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-operation-review.json": "b77f773ea46660bc0f83b630fa74b8200d4eddd6a89864e547611615c4533d1c",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-passage-review.json": "c174bc34821ae352769ed63c6a8b856e9ac90eeca5df3c7f52145010f40dae27",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-reading-report.json": "1c24fcbe9798c9c5f69c5afa0c7ce3436b4f3c08f40a1971796f966f249d0dd3",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-review-seminar.json": "a9e295516220b2a27a25e68e286f7e2e8b59f38400fdaf3b4327b42afb2556dc",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-slide-dispositions.json": "c980f167cc04de2258e1df409a68e21d61abe28ed081b6902c15a2b957b893c9",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json": "26e412ec4e534393037fd0b4eff4fb784c0976889f8a60118bf63590e4986160",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json": "01ba05ea683fbafa0437bf591c294200c29b69aefed0fa6d418687a9c7c1d481",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-passage-review.json": "5a156eacec69730c006079c065f77f0bfcc6a79a9c4e120615a2fdef6da95225",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook.json": "62f2847ebf58218f05d146605a07d15a1741aadd11e032303d836a396f042751",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-time.json": "907439ffdf42793a3c0e6f3646ddc7acc2a25ab7e42e7410f1afdf7b5746290f",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-topic-teaching.json": "9ba2d45a2bb6573c4b4187f336bf76429ee7fdf9e620ad74fa5688e765cf0e84",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-transfer-map.json": "05a170bc0fc04e329e7fdc19b20c8ffb8dec91fa777b7c342d9b54e2dc5b3396",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-alias-review.json": "fec75cd0297d2e3840133097ec38edd8430657039a6c02ac223d11c91a9f60b0",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-corrections.json": "37c5ec005ce19249969fc798ed2baaf8750ff50037cbdcf1e142200e20dd6ff2",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary-semantic-review.json": "ec82cc25636e4c4b30ddab9c5896b60dac59710e594528a32b1f91c914ea4c01",
+      "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json": "90bad24df6c0400a075ccb1ef943036d46faa4c4ca5505f5e3e8df750ae46e01",
+      "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32",
+      "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac",
+      "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-repair.json": "a619f96037aa0286c6cc2a440a2a5333319803d7aaea3c37c2fd889c7967d08b",
+      "projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts/HankenGrotesk-Variable.ttf": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f",
+      "projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts/WorkSans-Variable.ttf": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63",
+      "projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts/OFL-Hanken-Grotesk.txt": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d",
+      "projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts/OFL-Work-Sans.txt": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272",
+      "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-progress-compatibility.json": "289b6bb676fab3ef65afcf87cbccce2e326c1f4e385afb24597fff1171fcc3a9",
+      "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-structure-repair.json": "ea344134285090199859a0e72fde3a1163e3ce99677497206f29aa012ba951ad",
+      "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-empty-archive-display.json": "476f3bd088ea95f76709ac79de0e8c1d26afa6044ea05cd444a9c6c09d5e2b07",
+      "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-hub-review-tab-label.json": "529d549736192e5eec6ca8df668bb634a81937016ab5e656a406620d077a8889"
+    }
+  }
+}

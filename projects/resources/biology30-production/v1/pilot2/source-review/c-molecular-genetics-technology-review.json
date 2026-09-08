@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "unit": "C",
+  "status": "author-reviewed-provisional",
+  "teacherDecision": null,
+  "checkedAt": "2026-09-07T13:57:55.130690+00:00",
+  "scope": "All25 remaining C molecular-genetics/technology targets,17 precise diagrams and one browser-corrected original PNG.",
+  "canonicalTeachingSha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+  "canonicalInstructionSha256": "d8d936c62744fbb1985053868320fa864e2d504eb505c8984a89f9ceeaa789fb",
+  "sourceReview": "All targeted core paragraphs and relevant worked examples read. Chapter18 slides27–36 and42/44 text compared; coding/template reversal, codon/base-pair confusion, rRNA-only ribosome simplification and transient translation/transcription error=mutation claims are not transferred. Native Chapter18 RNA-processing c0b4bb50 and ribosome86ac6f4f images inspected. Existing C16–24 conceptual figures natively inspected. No publisher artwork uploaded or traced.",
+  "nativeReview": "All17 final diagram surfaces inspected including seven targeted coordinate/topology corrections; mutation v3 further narrows one-base frame claim to insertion/deletion; codon-table v2 adds complete64-entry accessible explanation with identical visible table. Original PNG v1 rejected for repeated exported exons, ChatGPT correction v2 inspected and usable provisionally.",
+  "corrections": [
+    "Explicit branch arrows from each first-round duplex to its two second-round products.",
+    "Fork label moved clear of template line.",
+    "Codon/anticodon letters and corresponding pairing marks positioned independently.",
+    "Aligned restriction-site letters and cut marks, rather than spacing-distorted bars.",
+    "Position6 substitution highlight moved onto the changed base.",
+    "Mutation evidence lines shortened to fit; deletion example added; frame statement limited to indels.",
+    "Complete standard64-codon lookup included in the text equivalent."
+  ],
+  "browserImage": {
+    "conversationUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+    "initialTitle": "Eukaryotic Gene Expression Overview",
+    "correctedTitle": "Gene Expression: Nucleus to Cytoplasm",
+    "observedModel": "6Pro unchanged",
+    "initialReportedTime": "Worked for1m22s",
+    "rejectedCandidate": {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-eukaryotic-expression-chatgpt-v1.png",
+      "sha256": "648bf790516732905b7187ae675b0a12d25003feb4aa88c7ee3dec8cc75e4c44",
+      "reason": "Exported mRNA repeated three-exon block set twice."
+    },
+    "finding": "DNA remains within the nucleus. Transcription produces a primary RNA with blue, pink and green retained regions separated by grey introns. Processing removes the grey segments while retaining the three coloured regions in order. The corrected exported RNA passes through a nuclear pore and contains one blue, one pink and one green region total, continuing through a cytoplasmic ribosome with an adaptor and emerging polypeptide. The first candidate repeated that exon set twice and was rejected. Colours and proportions are schematic, including stretched exon lengths and protein beads; not a literal sequence, exact molecular shape, stage duration or complete cap/poly-A diagram. Separate nuclear and exported drawings represent successive states; no simultaneous direct mechanical DNA-to-protein conversion is implied. Use the exact sequence and splicing maps for polarity, pairing and exon identity.",
+    "retrieval": "Initial image asset inventory temporarily lacked images; supported page reload restored original asset retrieval. No source URL fetch bypass or local pixel editing."
+  },
+  "bindings": [
+    {
+      "partId": "c-topic-dna-and-its-history-evidence-for-hereditary-material",
+      "assetIds": [
+        "c-dna-evidence-constraints-v1"
+      ],
+      "finding": "Griffith-style transformation shows a heritable change in a living bacterial lineage after exposure to material from heat-killed virulent bacteria, but does not alone identify the chemical agent. Avery and colleagues found DNA destruction removed transforming activity in their controlled assay. Hershey and Chase compared DNA-associated and protein-associated radioactive labels during bacterial infection; DNA label was more closely associated with the infected bacterial fraction than most protein label. For structure, Chargaff’s double-stranded DNA base relationships constrain pairing, Franklin’s X-ray diffraction constrains helical form and dimensions, and Wilkins and others contributed structural evidence. Watson and Crick synthesized chemical and structural constraints into a double-helix model whose copying implication required further tests. No source artwork or radioactive data is fabricated."
+    },
+    {
+      "partId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+      "assetIds": [
+        "c-nucleotide-antiparallel-topology-v1"
+      ],
+      "finding": "A DNA nucleotide comprises phosphate, deoxyribose sugar and one base A,T,G or C. The first schematic shows these components without representing full atomic chemistry. Two aligned strands have covalent backbones, abstract sugar/backbone nodes and complementary A–T,T–A,G–C,C–G base pairs. Dashed interstrand connections denote hydrogen-bond relationships without counting individual hydrogen bonds. Ends are5′ left/3′ right on the upper strand and3′ left/5′ right below, so the strands are antiparallel. The complement of5′-ATGC-3′ aligns as3′-TACG-5′ and rewrites in its own5′→3′ direction as5′-GCAT-3′. Direction reflects chemical ends, not page placement. Helical twist, atoms and exact bond counts are intentionally omitted; separating base pairs does not mean cutting every backbone linkage."
+    },
+    {
+      "partId": "c-topic-dna-and-its-history-structural-evidence",
+      "assetIds": [
+        "c-dna-evidence-constraints-v1",
+        "c-nucleotide-antiparallel-topology-v1"
+      ],
+      "finding": "Griffith-style transformation shows a heritable change in a living bacterial lineage after exposure to material from heat-killed virulent bacteria, but does not alone identify the chemical agent. Avery and colleagues found DNA destruction removed transforming activity in their controlled assay. Hershey and Chase compared DNA-associated and protein-associated radioactive labels during bacterial infection; DNA label was more closely associated with the infected bacterial fraction than most protein label. For structure, Chargaff’s double-stranded DNA base relationships constrain pairing, Franklin’s X-ray diffraction constrains helical form and dimensions, and Wilkins and others contributed structural evidence. Watson and Crick synthesized chemical and structural constraints into a double-helix model whose copying implication required further tests. No source artwork or radioactive data is fabricated. A DNA nucleotide comprises phosphate, deoxyribose sugar and one base A,T,G or C. The first schematic shows these components without representing full atomic chemistry. Two aligned strands have covalent backbones, abstract sugar/backbone nodes and complementary A–T,T–A,G–C,C–G base pairs. Dashed interstrand connections denote hydrogen-bond relationships without counting individual hydrogen bonds. Ends are5′ left/3′ right on the upper strand and3′ left/5′ right below, so the strands are antiparallel. The complement of5′-ATGC-3′ aligns as3′-TACG-5′ and rewrites in its own5′→3′ direction as5′-GCAT-3′. Direction reflects chemical ends, not page placement. Helical twist, atoms and exact bond counts are intentionally omitted; separating base pairs does not mean cutting every backbone linkage."
+    },
+    {
+      "partId": "c-topic-dna-and-its-history-the-double-helix",
+      "assetIds": [
+        "c-nucleotide-antiparallel-topology-v1"
+      ],
+      "finding": "A DNA nucleotide comprises phosphate, deoxyribose sugar and one base A,T,G or C. The first schematic shows these components without representing full atomic chemistry. Two aligned strands have covalent backbones, abstract sugar/backbone nodes and complementary A–T,T–A,G–C,C–G base pairs. Dashed interstrand connections denote hydrogen-bond relationships without counting individual hydrogen bonds. Ends are5′ left/3′ right on the upper strand and3′ left/5′ right below, so the strands are antiparallel. The complement of5′-ATGC-3′ aligns as3′-TACG-5′ and rewrites in its own5′→3′ direction as5′-GCAT-3′. Direction reflects chemical ends, not page placement. Helical twist, atoms and exact bond counts are intentionally omitted; separating base pairs does not mean cutting every backbone linkage."
+    },
+    {
+      "partId": "c-topic-dna-replication-semiconservative-replication",
+      "assetIds": [
+        "c-semiconservative-strand-lineage-v2"
+      ],
+      "finding": "A duplex with two heavy original strands is replicated in light material. After one round, two duplexes each contain one heavy original strand and one light new strand. After two rounds, four duplexes include two hybrid and two all-light duplexes, with both original heavy strands conserved across the population. A colour legend explicitly distinguishes original heavy from light-synthesized strands. Under semiconservative assumptions density classes are intermediate after one round and intermediate plus light after two. Conservative replication predicts separate heavy and light after one round; an intermediate first round alone does not exclude all dispersive models. The drawing is a model of molecular provenance, not an experimental tube, band photo or measured intensity."
+    },
+    {
+      "partId": "c-topic-dna-replication-enzymes-and-direction",
+      "assetIds": [
+        "c-replication-fork-directions-v2",
+        "c-replication-intermediate-evidence-v1"
+      ],
+      "finding": "Two rust parental backbones open to the left of a fork moving right. The upper template runs3′ left to5′ right and supports teal leading DNA growing5′ left to3′ right toward the fork. The lower template runs5′ left to3′ right; three short new fragments each have a purple5′ primer at their right end and a3′ growing end toward the left, away from the advancing fork. Every new strand therefore grows5′→3′ while its template is read3′→5′. A leading primer and detailed enzyme structures are omitted explicitly. Helicase separates paired strands rather than shredding backbones; polymerase extends an existing3′ end; primer processing/replacement precedes ligase sealing of suitable nicks. This diagram does not portray the daughter strands as chemically growing backward or ligase filling long sequence gaps. Three qualitative evidence patterns compare open templates with absent starts, completed fragments with unsealed junctions, and more mismatches in a proofreading-deficient model. They suggest different hypotheses about initiation, joining or accuracy but require controls for alternative polymerase, substrate and assay problems. Ligase requires suitable adjacent ends; it does not fill an arbitrary missing DNA interval. Reduced proofreading can raise mismatch frequency without independently establishing a lasting mutation or an organism-level effect, because repair and subsequent copying matter. Measurements of amount, accuracy and function remain distinct. No quantitative experiment is invented."
+    },
+    {
+      "partId": "c-topic-dna-replication-leading-and-lagging-synthesis",
+      "assetIds": [
+        "c-replication-fork-directions-v2"
+      ],
+      "finding": "Two rust parental backbones open to the left of a fork moving right. The upper template runs3′ left to5′ right and supports teal leading DNA growing5′ left to3′ right toward the fork. The lower template runs5′ left to3′ right; three short new fragments each have a purple5′ primer at their right end and a3′ growing end toward the left, away from the advancing fork. Every new strand therefore grows5′→3′ while its template is read3′→5′. A leading primer and detailed enzyme structures are omitted explicitly. Helicase separates paired strands rather than shredding backbones; polymerase extends an existing3′ end; primer processing/replacement precedes ligase sealing of suitable nicks. This diagram does not portray the daughter strands as chemically growing backward or ligase filling long sequence gaps."
+    },
+    {
+      "partId": "c-topic-dna-replication-replication-evidence",
+      "assetIds": [
+        "c-semiconservative-strand-lineage-v2",
+        "c-replication-intermediate-evidence-v1"
+      ],
+      "finding": "A duplex with two heavy original strands is replicated in light material. After one round, two duplexes each contain one heavy original strand and one light new strand. After two rounds, four duplexes include two hybrid and two all-light duplexes, with both original heavy strands conserved across the population. A colour legend explicitly distinguishes original heavy from light-synthesized strands. Under semiconservative assumptions density classes are intermediate after one round and intermediate plus light after two. Conservative replication predicts separate heavy and light after one round; an intermediate first round alone does not exclude all dispersive models. The drawing is a model of molecular provenance, not an experimental tube, band photo or measured intensity. Three qualitative evidence patterns compare open templates with absent starts, completed fragments with unsealed junctions, and more mismatches in a proofreading-deficient model. They suggest different hypotheses about initiation, joining or accuracy but require controls for alternative polymerase, substrate and assay problems. Ligase requires suitable adjacent ends; it does not fill an arbitrary missing DNA interval. Reduced proofreading can raise mismatch frequency without independently establishing a lasting mutation or an organism-level effect, because repair and subsequent copying matter. Measurements of amount, accuracy and function remain distinct. No quantitative experiment is invented."
+    },
+    {
+      "partId": "c-topic-transcription-selecting-a-template",
+      "assetIds": [
+        "c-oriented-transcription-sequences-v1"
+      ],
+      "finding": "Coding DNA5′-ATG GAA TTT TAA-3′ aligns with template3′-TAC CTT AAA ATT-5′ and gives RNA5′-AUG GAA UUU UAA-3′. RNA polymerase reads the template3′→5′ while extending RNA5′→3′; coding DNA matches the RNA except T versus U. A separate explicitly coding fragment5′-TAC ACA TGC ATC-3′ produces5′-UAC ACA UGC AUC-3′, with Tyr–Thr–Cys–Ile only under a stipulated first-base translated frame. The fragment alone supplies no complete initiation context. Promoter orientation determines which strand serves as template for a gene. Sequence role cannot be reversed merely because TAC resembles a familiar start-template example, and sequence prediction does not measure RNA or protein abundance."
+    },
+    {
+      "partId": "c-topic-transcription-making-rna",
+      "assetIds": [
+        "c-oriented-transcription-sequences-v1"
+      ],
+      "finding": "Coding DNA5′-ATG GAA TTT TAA-3′ aligns with template3′-TAC CTT AAA ATT-5′ and gives RNA5′-AUG GAA UUU UAA-3′. RNA polymerase reads the template3′→5′ while extending RNA5′→3′; coding DNA matches the RNA except T versus U. A separate explicitly coding fragment5′-TAC ACA TGC ATC-3′ produces5′-UAC ACA UGC AUC-3′, with Tyr–Thr–Cys–Ile only under a stipulated first-base translated frame. The fragment alone supplies no complete initiation context. Promoter orientation determines which strand serves as template for a gene. Sequence role cannot be reversed merely because TAC resembles a familiar start-template example, and sequence prediction does not measure RNA or protein abundance."
+    },
+    {
+      "partId": "c-topic-transcription-processing-and-expression",
+      "assetIds": [
+        "c-eukaryotic-expression-chatgpt-v2",
+        "c-splicing-and-expression-measurements-v1"
+      ],
+      "finding": "DNA remains within the nucleus. Transcription produces a primary RNA with blue, pink and green retained regions separated by grey introns. Processing removes the grey segments while retaining the three coloured regions in order. The corrected exported RNA passes through a nuclear pore and contains one blue, one pink and one green region total, continuing through a cytoplasmic ribosome with an adaptor and emerging polypeptide. The first candidate repeated that exon set twice and was rejected. Colours and proportions are schematic, including stretched exon lengths and protein beads; not a literal sequence, exact molecular shape, stage duration or complete cap/poly-A diagram. Separate nuclear and exported drawings represent successive states; no simultaneous direct mechanical DNA-to-protein conversion is implied. Use the exact sequence and splicing maps for polarity, pairing and exon identity. A simplified primary RNA transcript contains exon1,intron,exon2,intron,exon3. Two possible mature transcript forms retain1-2-3 and1-3 respectively; matching exon colours and numbers remain in order. Introns are removed in processing and exon2 can be omitted in this illustrative alternative-splicing model. Exons are retained regions and may include untranslated sequence; not every exon base codes for amino acid. Cap and poly-A details are omitted rather than denied. Shared inherited DNA does not imply identical transcript form or abundance across tissues. Protein accumulation also depends on translation and degradation, so abundant RNA alone does not identify the cause of a low protein amount."
+    },
+    {
+      "partId": "c-topic-transcription-checking-a-sequence-claim",
+      "assetIds": [
+        "c-oriented-transcription-sequences-v1",
+        "c-splicing-and-expression-measurements-v1"
+      ],
+      "finding": "Coding DNA5′-ATG GAA TTT TAA-3′ aligns with template3′-TAC CTT AAA ATT-5′ and gives RNA5′-AUG GAA UUU UAA-3′. RNA polymerase reads the template3′→5′ while extending RNA5′→3′; coding DNA matches the RNA except T versus U. A separate explicitly coding fragment5′-TAC ACA TGC ATC-3′ produces5′-UAC ACA UGC AUC-3′, with Tyr–Thr–Cys–Ile only under a stipulated first-base translated frame. The fragment alone supplies no complete initiation context. Promoter orientation determines which strand serves as template for a gene. Sequence role cannot be reversed merely because TAC resembles a familiar start-template example, and sequence prediction does not measure RNA or protein abundance. A simplified primary RNA transcript contains exon1,intron,exon2,intron,exon3. Two possible mature transcript forms retain1-2-3 and1-3 respectively; matching exon colours and numbers remain in order. Introns are removed in processing and exon2 can be omitted in this illustrative alternative-splicing model. Exons are retained regions and may include untranslated sequence; not every exon base codes for amino acid. Cap and poly-A details are omitted rather than denied. Shared inherited DNA does not imply identical transcript form or abundance across tissues. Protein accumulation also depends on translation and degradation, so abundant RNA alone does not identify the cause of a low protein amount."
+    },
+    {
+      "partId": "c-topic-translation-reading-the-genetic-code",
+      "assetIds": [
+        "c-standard-rna-codon-table-v2",
+        "c-sequence-to-function-evidence-v1"
+      ],
+      "finding": "A complete64-codon standard RNA lookup is arranged by first and second base U,C,A,G, with third base U,C,A,G listed within each cell. Every full codon is written5′→3′. Amino acids use standard three-letter names; UAA,UAG,UGA are explicitly termination signals, not amino acids. AUG gives methionine and commonly serves as the start in the stated classroom model. Several codons can specify one amino acid. The table does not determine a fragment’s reading frame, establish every AUG as an initiation site, or cover nonstandard genetic-code exceptions. Complete lookup: UUU  Phe; UUC  Phe; UUA  Leu; UUG  Leu; UCU  Ser; UCC  Ser; UCA  Ser; UCG  Ser; UAU  Tyr; UAC  Tyr; UAA  STOP; UAG  STOP; UGU  Cys; UGC  Cys; UGA  STOP; UGG  Trp; CUU  Leu; CUC  Leu; CUA  Leu; CUG  Leu; CCU  Pro; CCC  Pro; CCA  Pro; CCG  Pro; CAU  His; CAC  His; CAA  Gln; CAG  Gln; CGU  Arg; CGC  Arg; CGA  Arg; CGG  Arg; AUU  Ile; AUC  Ile; AUA  Ile; AUG  Met; ACU  Thr; ACC  Thr; ACA  Thr; ACG  Thr; AAU  Asn; AAC  Asn; AAA  Lys; AAG  Lys; AGU  Ser; AGC  Ser; AGA  Arg; AGG  Arg; GUU  Val; GUC  Val; GUA  Val; GUG  Val; GCU  Ala; GCC  Ala; GCA  Ala; GCG  Ala; GAU  Asp; GAC  Asp; GAA  Glu; GAG  Glu; GGU  Gly; GGC  Gly; GGA  Gly; GGG  Gly. STOP means a termination signal, not an amino acid. The explicitly supplied coding-region RNA5′-AUG GAA UUU UAA-3′ yields methionine,glutamate,phenylalanine and then termination under the standard code and stated start frame. The peptide is Met–Glu–Phe, with no fourth stop amino acid. The diagram distinguishes immediate sequence prediction from folding, processing, protein amount, activity and cellular phenotype. An amino-acid change can have varied effects depending on context, and abundant RNA with little stable protein can arise from translation or degradation differences. It does not infer an organism phenotype or translate later sequence beyond the stop."
+    },
+    {
+      "partId": "c-topic-translation-adaptors-and-peptide-bonds",
+      "assetIds": [
+        "c-codon-anticodon-translation-cycle-v2"
+      ],
+      "finding": "The mRNA codon5′-GAA-3′ aligns antiparallel with tRNA anticodon3′-CUU-5′, equivalently written5′-UUC-3′. This tRNA is charged with glutamate under the standard code. Codon and anticodon belong to different RNA molecules. Ribosomes contain ribosomal proteins and rRNA with structural and catalytic roles. A process sequence connects start/frame establishment, charged tRNA pairing and peptide-bond formation, movement along mRNA, stop-codon recognition by a release factor and chain release. There is no ordinary amino-acid-loaded stop tRNA or stop amino acid. Later folding, processing and stability are needed to infer functional protein accumulation."
+    },
+    {
+      "partId": "c-topic-translation-initiation-to-termination",
+      "assetIds": [
+        "c-codon-anticodon-translation-cycle-v2",
+        "c-sequence-to-function-evidence-v1"
+      ],
+      "finding": "The mRNA codon5′-GAA-3′ aligns antiparallel with tRNA anticodon3′-CUU-5′, equivalently written5′-UUC-3′. This tRNA is charged with glutamate under the standard code. Codon and anticodon belong to different RNA molecules. Ribosomes contain ribosomal proteins and rRNA with structural and catalytic roles. A process sequence connects start/frame establishment, charged tRNA pairing and peptide-bond formation, movement along mRNA, stop-codon recognition by a release factor and chain release. There is no ordinary amino-acid-loaded stop tRNA or stop amino acid. Later folding, processing and stability are needed to infer functional protein accumulation. The explicitly supplied coding-region RNA5′-AUG GAA UUU UAA-3′ yields methionine,glutamate,phenylalanine and then termination under the standard code and stated start frame. The peptide is Met–Glu–Phe, with no fourth stop amino acid. The diagram distinguishes immediate sequence prediction from folding, processing, protein amount, activity and cellular phenotype. An amino-acid change can have varied effects depending on context, and abundant RNA with little stable protein can arise from translation or degradation differences. It does not infer an organism phenotype or translate later sequence beyond the stop."
+    },
+    {
+      "partId": "c-topic-translation-from-sequence-to-function",
+      "assetIds": [
+        "c-sequence-to-function-evidence-v1",
+        "c-eukaryotic-expression-chatgpt-v2"
+      ],
+      "finding": "The explicitly supplied coding-region RNA5′-AUG GAA UUU UAA-3′ yields methionine,glutamate,phenylalanine and then termination under the standard code and stated start frame. The peptide is Met–Glu–Phe, with no fourth stop amino acid. The diagram distinguishes immediate sequence prediction from folding, processing, protein amount, activity and cellular phenotype. An amino-acid change can have varied effects depending on context, and abundant RNA with little stable protein can arise from translation or degradation differences. It does not infer an organism phenotype or translate later sequence beyond the stop. DNA remains within the nucleus. Transcription produces a primary RNA with blue, pink and green retained regions separated by grey introns. Processing removes the grey segments while retaining the three coloured regions in order. The corrected exported RNA passes through a nuclear pore and contains one blue, one pink and one green region total, continuing through a cytoplasmic ribosome with an adaptor and emerging polypeptide. The first candidate repeated that exon set twice and was rejected. Colours and proportions are schematic, including stretched exon lengths and protein beads; not a literal sequence, exact molecular shape, stage duration or complete cap/poly-A diagram. Separate nuclear and exported drawings represent successive states; no simultaneous direct mechanical DNA-to-protein conversion is implied. Use the exact sequence and splicing maps for polarity, pairing and exon identity."
+    },
+    {
+      "partId": "c-topic-mutations-types-of-sequence-change",
+      "assetIds": [
+        "c-mutation-sequence-alignment-v3"
+      ],
+      "finding": "In a stated5′→3′ first-base coding frame, reference ATGGAATTTTAA groups ATG|GAA|TTT|TAA. Adding A immediately after ATG gives ATGAGAATTTTAA, grouped ATG|AGA|ATT|TTA|A, with the final A explicitly incomplete. A separate illustrative in-frame three-base GCT addition at that codon boundary gives ATG|GCT|GAA|TTT|TAA and preserves later grouping; this example does not imply all insertion boundaries leave adjacent codons unchanged. Specified RNA substitutions GAA→GAG,GAA→GUA,GAA→UAA demonstrate synonymous Glu→Glu,missense Glu→Val and nonsense premature-stop consequences respectively. These are sequence predictions, not guarantees of overall phenotype or universal neutrality of synonymous changes. A separate one-base deletion removes position4 G from the reference, yielding ATGAATTTTAA grouped ATG|AAT|TTT|AA, with a terminal incomplete two-base group. It shifts the downstream frame."
+    },
+    {
+      "partId": "c-topic-mutations-effects-on-gene-products",
+      "assetIds": [
+        "c-mutation-sequence-alignment-v3",
+        "c-mutation-evidence-levels-v2"
+      ],
+      "finding": "In a stated5′→3′ first-base coding frame, reference ATGGAATTTTAA groups ATG|GAA|TTT|TAA. Adding A immediately after ATG gives ATGAGAATTTTAA, grouped ATG|AGA|ATT|TTA|A, with the final A explicitly incomplete. A separate illustrative in-frame three-base GCT addition at that codon boundary gives ATG|GCT|GAA|TTT|TAA and preserves later grouping; this example does not imply all insertion boundaries leave adjacent codons unchanged. Specified RNA substitutions GAA→GAG,GAA→GUA,GAA→UAA demonstrate synonymous Glu→Glu,missense Glu→Val and nonsense premature-stop consequences respectively. These are sequence predictions, not guarantees of overall phenotype or universal neutrality of synonymous changes. A separate one-base deletion removes position4 G from the reference, yielding ATGAATTTTAA grouped ATG|AAT|TTT|AA, with a terminal incomplete two-base group. It shifts the downstream frame. A four-level evidence map proceeds from a confirmed oriented sequence change to RNA/protein effects,cell behaviour and a broader biological outcome. Each transition needs evidence rather than an automatic causal arrow: matched processing and activity measurements,reference and perturbation controls,and testing in the relevant setting with alternative causes. Recurrence of a tumour variant is a research lead,not unique causal proof or an individual diagnosis. Mutagen comparisons must specify dose,route,duration,system and detection method. No empirical counts,exposure results or treatment conclusion are fabricated."
+    },
+    {
+      "partId": "c-topic-mutations-inheritance-and-variation",
+      "assetIds": [
+        "c-mutation-lineage-and-evidence-v1"
+      ],
+      "finding": "A somatic mutation can pass to daughter cells by mitosis but, when confined to that body-cell lineage, usually does not enter offspring through the germ line. A mutation in cells contributing to gametes may be inherited depending on which gamete contributes. Mutation creates new sequence variation; meiotic recombination primarily reshuffles existing variants. Neither origin nor inheritance proves a variant will increase in frequency: later reproductive contribution and environmental conditions matter. Mutations are not directed toward an organism’s anticipated need. Harmful,neutral or beneficial effects require a stated context and evidence across molecular,cellular and broader outcomes."
+    },
+    {
+      "partId": "c-topic-mutations-evaluating-mutation-evidence",
+      "assetIds": [
+        "c-mutation-evidence-levels-v2"
+      ],
+      "finding": "A four-level evidence map proceeds from a confirmed oriented sequence change to RNA/protein effects,cell behaviour and a broader biological outcome. Each transition needs evidence rather than an automatic causal arrow: matched processing and activity measurements,reference and perturbation controls,and testing in the relevant setting with alternative causes. Recurrence of a tumour variant is a research lead,not unique causal proof or an individual diagnosis. Mutagen comparisons must specify dose,route,duration,system and detection method. No empirical counts,exposure results or treatment conclusion are fabricated."
+    },
+    {
+      "partId": "c-topic-genetic-technologies-cutting-and-joining-dna",
+      "assetIds": [
+        "c-restriction-cuts-and-joining-v2"
+      ],
+      "finding": "A fictional linear1000-base-pair DNA molecule cut once at400bp yields400bp and600bp fragments whose lengths sum to1000. A single double-strand cut in a circular molecule instead opens one linear molecule of the original length. A separate stipulated staggered site is5′-G|AATTC-3′ aligned with3′-CTTAA|G-5′, producing complementary5′ overhangs after separation. Hydrogen-bond pairing can align compatible ends while ligase seals suitable covalent backbone nicks; neither operation invents an absent gene. This six-base sequence does not derive the independent1000bp map. Fragment,insert,orientation and sequence checks remain necessary before a functional construct claim."
+    },
+    {
+      "partId": "c-topic-genetic-technologies-transforming-cells",
+      "assetIds": [
+        "c-recombinant-workflow-checkpoints-v1"
+      ],
+      "finding": "The recombinant-DNA workflow specifies source,insert,vector and cutting/joining predictions before introducing DNA into cells. Selection identifies a linked survival or detection feature but can retain empty-vector cells. Subsequent tests check insert presence,orientation and sequence with assay controls; then RNA,protein and biological activity are measured separately. A failed insert-specific PCR can reflect absence or assay failure. A plasmid can persist separately rather than necessarily integrate into the host chromosome. The diagram distinguishes successful uptake,selected colony,correct construct,expression and function without inventing a laboratory result."
+    },
+    {
+      "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+      "assetIds": [
+        "c-gel-size-and-resolution-v1"
+      ],
+      "finding": "An ordinary-gel schematic has a size ladder1000,600,400,200bp and reference,substitution,insertion and no-template lanes. Wells are at the negative end,with DNA migration downward toward positive; smaller fragments travel farther in this qualitative model. Reference and substitution each have600+400bp fragments,while insertion has600+401bp. The400/401 bands are intentionally drawn unresolved at this ordinary-gel resolution rather than falsely claiming a visible one-base difference. A clean no-template lane is the stipulated control pattern,not an observed assay. Known positive and sample-specific controls remain necessary for a missing-band inference. Fragment sizes are independently supplied measurements,not derived from the short coding excerpt; matching bands do not imply identical sequences or unique identity."
+    },
+    {
+      "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+      "assetIds": [
+        "c-sequence-sampling-and-identity-limits-v2",
+        "c-gel-size-and-resolution-v1"
+      ],
+      "finding": "Two explicitly oriented classroom coding segments ATGGAATTTTAA and ATGGAGTTTTAA differ at corresponding position6,A versus G. A short region is not a whole-genome comparison,and size matches need not reveal this substitution. Additional informative independent markers may improve discrimination,but relatives can share alleles and assay quality matters. Nuclear DNA generally reflects both parental contributions;human mitochondrial DNA mainly maternal inheritance;chloroplast inheritance varies by plant species. A matching sequence does not by itself establish a unique identity,guilt,relationship or route of genetic transfer. Fictional applications must compare evidence quality,alternative explanations,consent,privacy and access without collecting personal family information. An ordinary-gel schematic has a size ladder1000,600,400,200bp and reference,substitution,insertion and no-template lanes. Wells are at the negative end,with DNA migration downward toward positive; smaller fragments travel farther in this qualitative model. Reference and substitution each have600+400bp fragments,while insertion has600+401bp. The400/401 bands are intentionally drawn unresolved at this ordinary-gel resolution rather than falsely claiming a visible one-base difference. A clean no-template lane is the stipulated control pattern,not an observed assay. Known positive and sample-specific controls remain necessary for a missing-band inference. Fragment sizes are independently supplied measurements,not derived from the short coding excerpt; matching bands do not imply identical sequences or unique identity."
+    },
+    {
+      "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+      "assetIds": [
+        "c-sequence-sampling-and-identity-limits-v2",
+        "c-recombinant-workflow-checkpoints-v1"
+      ],
+      "finding": "Two explicitly oriented classroom coding segments ATGGAATTTTAA and ATGGAGTTTTAA differ at corresponding position6,A versus G. A short region is not a whole-genome comparison,and size matches need not reveal this substitution. Additional informative independent markers may improve discrimination,but relatives can share alleles and assay quality matters. Nuclear DNA generally reflects both parental contributions;human mitochondrial DNA mainly maternal inheritance;chloroplast inheritance varies by plant species. A matching sequence does not by itself establish a unique identity,guilt,relationship or route of genetic transfer. Fictional applications must compare evidence quality,alternative explanations,consent,privacy and access without collecting personal family information. The recombinant-DNA workflow specifies source,insert,vector and cutting/joining predictions before introducing DNA into cells. Selection identifies a linked survival or detection feature but can retain empty-vector cells. Subsequent tests check insert presence,orientation and sequence with assay controls; then RNA,protein and biological activity are measured separately. A failed insert-specific PCR can reflect absence or assay failure. A plasmid can persist separately rather than necessarily integrate into the host chromosome. The diagram distinguishes successful uptake,selected colony,correct construct,expression and function without inventing a laboratory result."
+    }
+  ],
+  "assets": [
+    {
+      "id": "c-dna-evidence-constraints-v1",
+      "sha256": "f63bcc349c622aef5d6152172a1d1dac0b9c0fa8677517fb7d2e6ca7384d60c4"
+    },
+    {
+      "id": "c-nucleotide-antiparallel-topology-v1",
+      "sha256": "e90ed5df9a019300e3c7f5f3240100b6e3ee77a1eb7baadcb31c8008f11b6b3d"
+    },
+    {
+      "id": "c-semiconservative-strand-lineage-v2",
+      "sha256": "5b99c6b68a80fba306a91cad209cf40eedb87772ff3a47421b17fcfb9df123c0"
+    },
+    {
+      "id": "c-replication-fork-directions-v2",
+      "sha256": "808d67b6eb3c0aa5b99f0db6daba4d91d0157b06c1e2602a6482670dee85a1cb"
+    },
+    {
+      "id": "c-replication-intermediate-evidence-v1",
+      "sha256": "f5100c22b22ea031d6f0d39343e01e904ab7a079d593d7d384e1b6904dd59f10"
+    },
+    {
+      "id": "c-oriented-transcription-sequences-v1",
+      "sha256": "fe1e9da4b98d1e07764bc8bf3b80471e1691fa1c66194f0a8d6783f77d1ec2d3"
+    },
+    {
+      "id": "c-eukaryotic-expression-chatgpt-v2",
+      "sha256": "2bacfb954f91a3ae0955dad46d7469990f8bccfb53666d9b1c41eb077aba2b7a"
+    },
+    {
+      "id": "c-splicing-and-expression-measurements-v1",
+      "sha256": "836a717cfccc60a5139d63bdac8fa4df94e32a3828e0eee9cfdd0b20171479c8"
+    },
+    {
+      "id": "c-standard-rna-codon-table-v2",
+      "sha256": "004b5d94990c8ccd200b6c0def26f1af4444f9bb745b6101b091ca65f8c04951"
+    },
+    {
+      "id": "c-sequence-to-function-evidence-v1",
+      "sha256": "f3ba2494c24ace9b02932b69a4b388db6285e6b8780db9ee867d832316b32000"
+    },
+    {
+      "id": "c-codon-anticodon-translation-cycle-v2",
+      "sha256": "8a549b0eb475686d991c49f719b3e423bc7858460aab41f07b6e9cad6bc14991"
+    },
+    {
+      "id": "c-mutation-sequence-alignment-v3",
+      "sha256": "a08fd26b6a8b915bf39449dd86bb3b7683cbf728836c89ddabb1f072733bf563"
+    },
+    {
+      "id": "c-mutation-evidence-levels-v2",
+      "sha256": "c3ed168cf434eb5af35693e9e17b0d0109a1710ed3bc9a7f1a53f31599a34e2d"
+    },
+    {
+      "id": "c-mutation-lineage-and-evidence-v1",
+      "sha256": "b9ec9d8b83b3a9271cda1f068d2e28fb1ec423a4e48d073d48bc65ee08261121"
+    },
+    {
+      "id": "c-restriction-cuts-and-joining-v2",
+      "sha256": "87e49eed613d917972974164879409fa7b49f497b5b48e95b0f5065b61126246"
+    },
+    {
+      "id": "c-recombinant-workflow-checkpoints-v1",
+      "sha256": "f5aca769454becf637cc59d3fc689c34d078c0f8361c008c13830e6c8a9288e3"
+    },
+    {
+      "id": "c-gel-size-and-resolution-v1",
+      "sha256": "9e9a6eef788129c856d780d8e950a1a9e4eab7d8062c36b232379513711f26d5"
+    },
+    {
+      "id": "c-sequence-sampling-and-identity-limits-v2",
+      "sha256": "7b1cbf5a81d0652b513efdb8a67c03ba2e11e2234092e2c6fab1f5da1214d7a8"
+    }
+  ],
+  "limitations": [
+    "Author-reviewed local blocked scope only; teacher decision remains null.",
+    "Chemical topology omits full atom structures/helical twist; process illustration supplies compartment context, not precise sequence or enzyme geometry.",
+    "Gel bands are idealized, not experimental images;400/401bp difference is intentionally unresolved.",
+    "Required graph activity and observations remain separate.",
+    "Actual placement, first-use integration, all-unit academic closure and freeze remain pending."
+  ]
+}

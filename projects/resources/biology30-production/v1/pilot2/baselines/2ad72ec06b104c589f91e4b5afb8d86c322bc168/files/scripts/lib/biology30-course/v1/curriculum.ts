@@ -1,0 +1,312 @@
+export const BIOLOGY30_PROGRAM_OF_STUDIES_URL = "https://education.alberta.ca/media/159727/bio203007.pdf";
+export const BIOLOGY30_PROGRAM_OF_STUDIES_SHA256 = "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f";
+
+export type Biology30ProductionUnitCode = "B" | "C" | "D";
+export type Biology30OutcomeCategory = "knowledge" | "sts" | "skills";
+
+export type Biology30CurriculumOutcome = {
+  id: string;
+  unitCode: Biology30ProductionUnitCode;
+  generalOutcome: 1 | 2 | 3;
+  category: Biology30OutcomeCategory;
+  officialText: string;
+  authorityUrl: typeof BIOLOGY30_PROGRAM_OF_STUDIES_URL;
+  authoritySha256: typeof BIOLOGY30_PROGRAM_OF_STUDIES_SHA256;
+  authorityPdfPage: number;
+};
+
+export type Biology30UnitCurriculum = {
+  code: Biology30ProductionUnitCode;
+  slug: `biology30-unit-${"b" | "c" | "d"}`;
+  title: string;
+  courseTimePercent: 20 | 40 | 15;
+  requiredMinutes: 1200 | 2400 | 900;
+  optionalMinutes: 240 | 480 | 180;
+  chapters: number[];
+  programPages: number[];
+  outcomes: Biology30CurriculumOutcome[];
+};
+
+type OutcomeInput = {
+  id: string;
+  generalOutcome: 1 | 2 | 3;
+  category: Exclude<Biology30OutcomeCategory, "skills">;
+  officialText: string;
+  authorityPdfPage: number;
+};
+
+const COMMON_SKILL_TEXT = [
+  "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+  "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+  "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+  "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results."
+] as const;
+
+function outcome(unitCode: Biology30ProductionUnitCode, input: OutcomeInput): Biology30CurriculumOutcome {
+  return {
+    ...input,
+    unitCode,
+    authorityUrl: BIOLOGY30_PROGRAM_OF_STUDIES_URL,
+    authoritySha256: BIOLOGY30_PROGRAM_OF_STUDIES_SHA256
+  };
+}
+
+function skillOutcomes(
+  unitCode: Biology30ProductionUnitCode,
+  generalOutcome: 1 | 2 | 3,
+  authorityPages: [number, number, number, number]
+): Biology30CurriculumOutcome[] {
+  return COMMON_SKILL_TEXT.map((officialText, index) => ({
+    id: `${unitCode}${generalOutcome}.${index + 1}s`,
+    unitCode,
+    generalOutcome,
+    category: "skills",
+    officialText,
+    authorityUrl: BIOLOGY30_PROGRAM_OF_STUDIES_URL,
+    authoritySha256: BIOLOGY30_PROGRAM_OF_STUDIES_SHA256,
+    authorityPdfPage: authorityPages[index]
+  }));
+}
+
+const UNIT_B_OUTCOMES: Biology30CurriculumOutcome[] = [
+  outcome("B", {
+    id: "B1.1k",
+    generalOutcome: 1,
+    category: "knowledge",
+    officialText: "Identify the structures in the human female reproductive system and describe their functions; i.e., ovaries, Fallopian tubes, uterus, endometrium, cervix, vagina.",
+    authorityPdfPage: 58
+  }),
+  outcome("B", {
+    id: "B1.2k",
+    generalOutcome: 1,
+    category: "knowledge",
+    officialText: "Identify the structures in the human male reproductive system and describe their functions; i.e., testes, seminiferous tubules, interstitial cells, Sertoli cells, epididymides, vasa (ductus) deferentia, Cowper’s glands, seminal vesicles, prostate gland, ejaculatory duct, urethra, penis.",
+    authorityPdfPage: 58
+  }),
+  outcome("B", {
+    id: "B1.3k",
+    generalOutcome: 1,
+    category: "knowledge",
+    officialText: "Distinguish sperm and egg from their supporting structures; i.e., seminiferous tubules, interstitial cells, Sertoli cells, follicle, corpus luteum.",
+    authorityPdfPage: 58
+  }),
+  outcome("B", {
+    id: "B1.4k",
+    generalOutcome: 1,
+    category: "knowledge",
+    officialText: "Describe the chromosomal factors and hormonal influence on the formation of the gonads and reproductive organs in the female and male embryo and fetus; i.e., Y chromosome and role of testosterone.",
+    authorityPdfPage: 58
+  }),
+  outcome("B", {
+    id: "B1.5k",
+    generalOutcome: 1,
+    category: "knowledge",
+    officialText: "Explain how sexually transmitted infections (STIs) can interfere with fertility and reproduction; e.g., chlamydia, gonorrhea, human papilloma virus.",
+    authorityPdfPage: 58
+  }),
+  outcome("B", {
+    id: "B1.1sts",
+    generalOutcome: 1,
+    category: "sts",
+    officialText: "Explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b).",
+    authorityPdfPage: 58
+  }),
+  ...skillOutcomes("B", 1, [59, 59, 59, 59]),
+  outcome("B", {
+    id: "B2.1k",
+    generalOutcome: 2,
+    category: "knowledge",
+    officialText: "Describe the role of hormones, i.e., gonadotropic-releasing hormone (GnRH), follicle-stimulating hormone (FSH), luteinizing hormone (LH), estrogen, progesterone, testosterone, in the regulation of primary and secondary sex characteristics in females and males.",
+    authorityPdfPage: 60
+  }),
+  outcome("B", {
+    id: "B2.2k",
+    generalOutcome: 2,
+    category: "knowledge",
+    officialText: "Identify the principal reproductive hormones in the female and explain their interactions in the maintenance of the menstrual cycle; i.e., estrogen, progesterone, FSH, LH.",
+    authorityPdfPage: 60
+  }),
+  outcome("B", {
+    id: "B2.3k",
+    generalOutcome: 2,
+    category: "knowledge",
+    officialText: "Identify the principal reproductive hormones in the male and explain their interactions in the maintenance and functioning of the male reproductive system; i.e., testosterone, FSH, LH.",
+    authorityPdfPage: 60
+  }),
+  outcome("B", {
+    id: "B2.1sts",
+    generalOutcome: 2,
+    category: "sts",
+    officialText: "Explain how science and technology have influenced, and been influenced by, historical development and societal needs (SEC2).",
+    authorityPdfPage: 60
+  }),
+  outcome("B", {
+    id: "B2.2sts",
+    generalOutcome: 2,
+    category: "sts",
+    officialText: "Explain why decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1].",
+    authorityPdfPage: 60
+  }),
+  ...skillOutcomes("B", 2, [61, 61, 61, 61]),
+  outcome("B", {
+    id: "B3.1k",
+    generalOutcome: 3,
+    category: "knowledge",
+    officialText: "Trace the processes of fertilization, implantation and extra-embryonic membrane formation, i.e., placenta, amnion, chorion, allantois, followed by embryonic and fetal development, parturition and lactation, and describe the control mechanisms of these events, i.e., progesterone, LH, human chorionic gonadotropin (hCG), prostaglandins, oxytocin, prolactin.",
+    authorityPdfPage: 62
+  }),
+  outcome("B", {
+    id: "B3.2k",
+    generalOutcome: 3,
+    category: "knowledge",
+    officialText: "Describe development from fertilization to parturition in the context of the main physiological events that occur in the development of organ systems during each major stage (trimester); i.e., zygote, blastocyst, gastrulation, general morphogenesis.",
+    authorityPdfPage: 62
+  }),
+  outcome("B", {
+    id: "B3.3k",
+    generalOutcome: 3,
+    category: "knowledge",
+    officialText: "Identify major tissues and organs that arise from differentiation and morphological development of the ectoderm, mesoderm and endoderm in the embryo; i.e., ectoderm: nervous system, epidermis; mesoderm: skeleton, muscles, reproductive structures; endoderm: lining of the digestive and respiratory systems, endocrine glands.",
+    authorityPdfPage: 62
+  }),
+  outcome("B", {
+    id: "B3.4k",
+    generalOutcome: 3,
+    category: "knowledge",
+    officialText: "Describe the influence of environmental factors on embryonic and fetal development; e.g., maternal lifestyle, teratogens such as alcohol, drugs, viral infections and radiation.",
+    authorityPdfPage: 62
+  }),
+  outcome("B", {
+    id: "B3.5k",
+    generalOutcome: 3,
+    category: "knowledge",
+    officialText: "Describe the physiological or mechanical basis of different reproductive technologies; i.e., conception control, in vitro fertilization, infertility reversal.",
+    authorityPdfPage: 62
+  }),
+  outcome("B", {
+    id: "B3.1sts",
+    generalOutcome: 3,
+    category: "sts",
+    officialText: "Explain that science and technology are developed to meet societal needs and expand human capability (SEC1).",
+    authorityPdfPage: 62
+  }),
+  outcome("B", {
+    id: "B3.2sts",
+    generalOutcome: 3,
+    category: "sts",
+    officialText: "Explain why decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b).",
+    authorityPdfPage: 62
+  }),
+  ...skillOutcomes("B", 3, [63, 63, 63, 64])
+];
+
+const UNIT_C_OUTCOMES: Biology30CurriculumOutcome[] = [
+  outcome("C", { id: "C1.1k", generalOutcome: 1, category: "knowledge", officialText: "Define and explain the significance of chromosome number in somatic and sex cells; i.e., haploidy, diploidy and polyploidy.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.2k", generalOutcome: 1, category: "knowledge", officialText: "Explain, in general terms, the events of the cell cycle; i.e., interphase, mitosis and cytokinesis.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.3k", generalOutcome: 1, category: "knowledge", officialText: "Describe the process of meiosis (spermatogenesis and oogenesis) and the necessity for the reduction of chromosome number.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.4k", generalOutcome: 1, category: "knowledge", officialText: "Compare the processes of mitosis and meiosis.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.5k", generalOutcome: 1, category: "knowledge", officialText: "Describe the processes of crossing over and nondisjunction and evaluate their significance to organism inheritance and development.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.6k", generalOutcome: 1, category: "knowledge", officialText: "Compare the formation of fraternal and identical offspring in a single birthing event.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.7k", generalOutcome: 1, category: "knowledge", officialText: "Describe the diversity of reproductive strategies by comparing the alternation of generations in a range of organisms; e.g., Daphnia, sea anemone, moss, pine.", authorityPdfPage: 66 }),
+  outcome("C", { id: "C1.1sts", generalOutcome: 1, category: "sts", officialText: "Explain that science and technology are developed to meet societal needs and expand human capability (SEC1).", authorityPdfPage: 66 }),
+  ...skillOutcomes("C", 1, [67, 67, 67, 68]),
+  outcome("C", { id: "C2.1k", generalOutcome: 2, category: "knowledge", officialText: "Describe the evidence for dominance, segregation and the independent assortment of genes on different chromosomes, as investigated by Mendel.", authorityPdfPage: 69 }),
+  outcome("C", { id: "C2.2k", generalOutcome: 2, category: "knowledge", officialText: "Compare ratios and probabilities of genotypes and phenotypes for dominant and recessive, multiple, incompletely dominant, and codominant alleles.", authorityPdfPage: 69 }),
+  outcome("C", { id: "C2.3k", generalOutcome: 2, category: "knowledge", officialText: "Explain the influence of gene linkage and crossing over on variability.", authorityPdfPage: 69 }),
+  outcome("C", { id: "C2.4k", generalOutcome: 2, category: "knowledge", officialText: "Explain the relationship between variability and the number of genes controlling a trait; e.g., one pair of genes, as for Rh factor, versus two or more pairs of genes, as for skin colour and height.", authorityPdfPage: 69 }),
+  outcome("C", { id: "C2.5k", generalOutcome: 2, category: "knowledge", officialText: "Compare the pattern of inheritance produced by genes on the sex chromosomes to that produced by genes on autosomes, as investigated by Morgan and others.", authorityPdfPage: 69 }),
+  outcome("C", { id: "C2.1sts", generalOutcome: 2, category: "sts", officialText: "Explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1].", authorityPdfPage: 69 }),
+  ...skillOutcomes("C", 2, [70, 70, 70, 70]),
+  outcome("C", { id: "C3.1k", generalOutcome: 3, category: "knowledge", officialText: "Summarize the historical events that led to the discovery of the structure of the DNA molecule, including the work of Franklin and Watson and Crick.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.2k", generalOutcome: 3, category: "knowledge", officialText: "Describe, in general, how genetic information is contained in the sequence of bases in DNA molecules in chromosomes and how the DNA molecules replicate themselves.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.3k", generalOutcome: 3, category: "knowledge", officialText: "Describe, in general, how genetic information is transcribed into sequences of bases in RNA molecules and is finally translated into sequences of amino acids in proteins.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.4k", generalOutcome: 3, category: "knowledge", officialText: "Explain, in general, how restriction enzymes cut DNA molecules into smaller fragments and how ligases reassemble them.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.5k", generalOutcome: 3, category: "knowledge", officialText: "Explain, in general, how cells may be transformed by inserting new DNA sequences into their genomes.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.6k", generalOutcome: 3, category: "knowledge", officialText: "Explain how a random change (mutation) in the sequence of bases results in abnormalities or provides a source of genetic variability.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.7k", generalOutcome: 3, category: "knowledge", officialText: "Explain how base sequences in nucleic acids contained in the nucleus, mitochondrion and chloroplast give evidence for the relationships among organisms of different species.", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.1sts", generalOutcome: 3, category: "sts", officialText: "Explain that science and technology have both intended and unintended consequences for humans and the environment (SEC3) [ICT F3–4.1].", authorityPdfPage: 71 }),
+  outcome("C", { id: "C3.2sts", generalOutcome: 3, category: "sts", officialText: "Explain that scientific research and technological development help achieve a sustainable society, economy and environment (SEC4a) [ICT F2–4.2, F2–4.8].", authorityPdfPage: 71 }),
+  ...skillOutcomes("C", 3, [72, 72, 72, 72])
+];
+
+const UNIT_D_OUTCOMES: Biology30CurriculumOutcome[] = [
+  outcome("D", { id: "D1.1k", generalOutcome: 1, category: "knowledge", officialText: "Describe the Hardy-Weinberg principle and explain its significance in population gene-pool stability and nonequilibrium values.", authorityPdfPage: 75 }),
+  outcome("D", { id: "D1.2k", generalOutcome: 1, category: "knowledge", officialText: "Describe the factors that cause the diversity in the gene pool to change; i.e., natural selection, genetic drift, gene flow, nonrandom mating, bottleneck effect, founder effect, migration, mutation.", authorityPdfPage: 75 }),
+  outcome("D", { id: "D1.3k", generalOutcome: 1, category: "knowledge", officialText: "Apply, quantitatively, the Hardy-Weinberg principle to observed and published data to determine allele and genotype frequencies, using the equations p + q = 1 and p² + 2pq + q² = 1.", authorityPdfPage: 75 }),
+  outcome("D", { id: "D1.4k", generalOutcome: 1, category: "knowledge", officialText: "Describe the molecular basis of gene-pool change and the significance of these changes over time; i.e., mutations and natural selection (e.g., drug-resistant bacteria, herbicide-resistant plants).", authorityPdfPage: 75 }),
+  outcome("D", { id: "D1.1sts", generalOutcome: 1, category: "sts", officialText: "Explain that science and technology have both intended and unintended consequences for humans and the environment (SEC3) [ICT F3–4.1].", authorityPdfPage: 75 }),
+  outcome("D", { id: "D1.2sts", generalOutcome: 1, category: "sts", officialText: "Explain how concepts, models and theories are often used in interpreting and explaining observations and in predicting future observations (NS6a).", authorityPdfPage: 75 }),
+  ...skillOutcomes("D", 1, [76, 76, 76, 76]),
+  outcome("D", { id: "D2.1k", generalOutcome: 2, category: "knowledge", officialText: "Describe the basis of species interactions and symbiotic relationships and describe the influence of these interactions on population changes; i.e., predator-prey and producer-consumer relationships; symbiotic relationships: commensalism, mutualism and parasitism; interspecific and intraspecific competition.", authorityPdfPage: 77 }),
+  outcome("D", { id: "D2.2k", generalOutcome: 2, category: "knowledge", officialText: "Explain the role of defence mechanisms in predation and competition; e.g., mimicry, protective coloration, toxins, behaviour.", authorityPdfPage: 77 }),
+  outcome("D", { id: "D2.3k", generalOutcome: 2, category: "knowledge", officialText: "Explain how mixtures of populations that define communities may change over time or remain as a climax community; i.e., primary succession, secondary succession.", authorityPdfPage: 77 }),
+  outcome("D", { id: "D2.1sts", generalOutcome: 2, category: "sts", officialText: "Explain why Canadian society supports scientific research and technological development to facilitate a sustainable society, economy and environment (SEC4a) [ICT F2–4.2, F2–4.8].", authorityPdfPage: 77 }),
+  ...skillOutcomes("D", 2, [78, 78, 78, 78]),
+  outcome("D", { id: "D3.1k", generalOutcome: 3, category: "knowledge", officialText: "Describe and explain, quantitatively, factors that influence population growth; i.e., mortality, natality, immigration, emigration; change in population size, ΔN = [natality + immigration] − [mortality + emigration].", authorityPdfPage: 79 }),
+  outcome("D", { id: "D3.2k", generalOutcome: 3, category: "knowledge", officialText: "Describe the growth of populations in terms of the mathematical relationship among carrying capacity, biotic potential, environmental resistance and the number of individuals in the population; i.e., growth rate, per capita growth rate and population density.", authorityPdfPage: 79 }),
+  outcome("D", { id: "D3.3k", generalOutcome: 3, category: "knowledge", officialText: "Explain the different population growth patterns; i.e., logistic growth pattern (S-shaped curve) and exponential growth pattern (J-shaped curve); open and closed populations.", authorityPdfPage: 79 }),
+  outcome("D", { id: "D3.4k", generalOutcome: 3, category: "knowledge", officialText: "Describe the characteristics and reproductive strategies of r-selected and K-selected organisms.", authorityPdfPage: 79 }),
+  outcome("D", { id: "D3.1sts", generalOutcome: 3, category: "sts", officialText: "Explain how concepts, models and theories are often used in interpreting and explaining observations and in predicting future observations (NS6a).", authorityPdfPage: 79 }),
+  ...skillOutcomes("D", 3, [80, 80, 80, 80])
+];
+
+export const BIOLOGY30_UNIT_CURRICULA: Record<Biology30ProductionUnitCode, Biology30UnitCurriculum> = {
+  B: {
+    code: "B",
+    slug: "biology30-unit-b",
+    title: "Biology 30 — Unit B: Reproduction and Development",
+    courseTimePercent: 20,
+    requiredMinutes: 1200,
+    optionalMinutes: 240,
+    chapters: [14, 15],
+    programPages: [57, 58, 59, 60, 61, 62, 63, 64],
+    outcomes: UNIT_B_OUTCOMES
+  },
+  C: {
+    code: "C",
+    slug: "biology30-unit-c",
+    title: "Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology",
+    courseTimePercent: 40,
+    requiredMinutes: 2400,
+    optionalMinutes: 480,
+    chapters: [16, 17, 18],
+    programPages: [65, 66, 67, 68, 69, 70, 71, 72, 73],
+    outcomes: UNIT_C_OUTCOMES
+  },
+  D: {
+    code: "D",
+    slug: "biology30-unit-d",
+    title: "Biology 30 — Unit D: Population and Community Dynamics",
+    courseTimePercent: 15,
+    requiredMinutes: 900,
+    optionalMinutes: 180,
+    chapters: [19, 20],
+    programPages: [74, 75, 76, 77, 78, 79, 80, 81],
+    outcomes: UNIT_D_OUTCOMES
+  }
+};
+
+export const BIOLOGY30_REMAINING_OUTCOMES = Object.values(BIOLOGY30_UNIT_CURRICULA).flatMap((unit) => unit.outcomes);
+
+export function validateBiology30RemainingCurriculum() {
+  const expectedCounts: Record<Biology30ProductionUnitCode, number> = { B: 30, C: 35, D: 27 };
+  const allIds = new Set<string>();
+  for (const unit of Object.values(BIOLOGY30_UNIT_CURRICULA)) {
+    if (unit.outcomes.length !== expectedCounts[unit.code]) {
+      throw new Error(`Unit ${unit.code} outcome count drift: expected ${expectedCounts[unit.code]}, received ${unit.outcomes.length}.`);
+    }
+    for (const record of unit.outcomes) {
+      if (allIds.has(record.id)) throw new Error(`Duplicate Biology 30 outcome ID: ${record.id}.`);
+      allIds.add(record.id);
+      if (!record.officialText.trim() || record.officialText.length < 20) {
+        throw new Error(`Biology 30 outcome ${record.id} is missing official wording.`);
+      }
+      if (!unit.programPages.includes(record.authorityPdfPage)) {
+        throw new Error(`Biology 30 outcome ${record.id} points outside Unit ${unit.code} curriculum pages.`);
+      }
+      const prefix = `${unit.code}${record.generalOutcome}.`;
+      if (!record.id.startsWith(prefix)) throw new Error(`Biology 30 outcome ${record.id} has a mismatched general outcome.`);
+    }
+  }
+  if (allIds.size !== 92) throw new Error(`Expected 92 remaining Biology 30 outcomes, received ${allIds.size}.`);
+}

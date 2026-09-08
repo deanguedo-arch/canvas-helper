@@ -1,0 +1,34 @@
+{
+  "stage": 64,
+  "status": "preserved-glossary-wording-reviewed",
+  "teacherDecision": null,
+  "reviewedPreserved": {
+    "B": 58,
+    "C": 133,
+    "D": 45
+  },
+  "wordingCorrections": {
+    "B": 7,
+    "C": 13,
+    "D": 7
+  },
+  "focusedTests": 52,
+  "draftContracts": "passed",
+  "typecheck": {
+    "exitCode": 2,
+    "unrelatedDiagnostics": 25,
+    "ownedDiagnostics": 0
+  },
+  "protection": "passed",
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "authoredGatesTotalPerUnit": 13,
+  "scope": "Exact definition wording only; first-use/dependency and rendered proof remain pending. Core prose, introduced definitions, question/key text, state capacities and learner trees unchanged.",
+  "sourceReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/preserved-glossary-stage-review.json",
+  "logSha256": {
+    "contracts.log": "8ab217f4cf976b68636f113ca74449570115584cd7f2bbc24323dd9e995855e4",
+    "typecheck.log": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544",
+    "protection.log": "b423ca754394cb251c2f50179a545de926990af17f3c31e21b5d95d1285d1467",
+    "tests.log": "c88f63280813c9b54dd38ccfc2e6c1e4d5c08089c09ef134dbabd21f0c8d265b"
+  }
+}

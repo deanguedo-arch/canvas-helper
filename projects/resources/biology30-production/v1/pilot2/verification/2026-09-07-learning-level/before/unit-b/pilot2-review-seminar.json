@@ -1,0 +1,85 @@
+{
+  "unit": "B",
+  "id": "b-review-seminar",
+  "status": "authored evidence/operation/key and response-capacity review complete; rendered and workload review pending",
+  "title": "Review Seminar: connect the evidence",
+  "teachingTarget": "b-review-seminar-evidence-synthesis",
+  "introduction": [
+    "Reproduction links cell processes, organs, signals and developmental events. A system diagram should show what each arrow means: movement through a duct, a hormone reaching a target, or feedback changing a signal. Evidence at one step does not establish every later step. Sort the observation by place, scale and timing before selecting a mechanism.",
+    "An evidence ledger keeps the observation, source, units or categories, timing and uncertainty visible. Put inferred events in a separate column. A later outcome cannot by itself prove an earlier cause. Compare more than one explanation and identify an observation that would distinguish them.",
+    "A classroom recommendation should identify what to measure, compare or verify next. Consider access, consent, privacy and other affected perspectives when evaluating how evidence might be used. It should not prescribe treatment or decide anyone’s reproductive choices. A strong conclusion can remain provisional if it explains what new result would change it."
+  ],
+  "case": {
+    "title": "Three checkpoints in separate classroom models",
+    "scope": "Synthetic teaching observations from three different models. They are not one person or one continuous experiment; do not combine them into a diagnosis or a treatment-success estimate.",
+    "columns": [
+      "Model and observation",
+      "Source and timing",
+      "What remains unmeasured"
+    ],
+    "rows": [
+      [
+        "Transport model: developing germ cells and testosterone detected; downstream sperm absent beyond a blocked duct.",
+        "Tissue view, blood assay and duct samples at one model time; categories present/absent.",
+        "Sperm maturation, the original cause of the blockage and other reproductive functions."
+      ],
+      [
+        "Cycle model: progesterone relative index10 on day21 and1 on day28.",
+        "Two supplied samples from the separate illustrative hormone series.",
+        "Intermediate values, exact ovulation time and any individual pregnancy outcome."
+      ],
+      [
+        "Early-development model: a dividing cell group has reached the blastocyst stage.",
+        "A labelled developmental observation after fertilization; no implantation result recorded.",
+        "Endometrial receptivity, successful attachment and later developmental outcomes."
+      ]
+    ]
+  },
+  "activities": [
+    {
+      "id": "b-review-seminar-connect",
+      "prompt": "Connect one mechanism from each model in three short cause-and-effect statements. Label movement, hormonal influence or development; keep the three model sources separate.",
+      "modelResponse": "Transport: blockage reduces downstream passage despite upstream cells. Cycle: lower progesterone support can lead to endometrial shedding. Development: a blastocyst can attach only under suitable uterine conditions. Separate models.",
+      "criteria": [
+        "Three mechanisms, one per model",
+        "Direction and role named",
+        "No invented common subject"
+      ],
+      "attemptBeforeGuide": true
+    },
+    {
+      "id": "b-review-seminar-evaluate",
+      "prompt": "Evaluate the claim that these observations prove a single cause of failed implantation. Distinguish direct observations from inferences and name one useful additional measurement.",
+      "modelResponse": "No implantation failure was recorded, and the observations come from separate models. A blocked duct explains its own transport result, not every later outcome. Observe attachment in the developmental model under defined conditions.",
+      "criteria": [
+        "No invented outcome or joined dataset",
+        "Observation versus causal inference",
+        "Discriminating observation"
+      ],
+      "attemptBeforeGuide": true
+    },
+    {
+      "id": "b-review-seminar-revise",
+      "prompt": "Revise the claim after a peer points out the different sources. State the next evidence step and one consideration for responsible use of reproductive information.",
+      "modelResponse": "Each model supports a limited mechanism; together they do not diagnose a person. Keep sources separate and test attachment with a suitable comparison. Any use of personal reproductive information requires informed consent and privacy.",
+      "criteria": [
+        "Changed claim tied to evidence",
+        "Next comparison",
+        "Consent, privacy or another justified perspective"
+      ],
+      "attemptBeforeGuide": true
+    }
+  ],
+  "optionalExtension": {
+    "id": "b-review-seminar-extension",
+    "minutes": 20,
+    "required": false,
+    "prompt": "Choose a hormone or anatomy model. Predict a result that would contradict your explanation, test the supplied model and revise your evidence ledger.",
+    "modelLinks": [
+      "b-models"
+    ],
+    "collectionPolicy": "Use the existing model response and seminar revision; no duplicate required work or automatic success claim."
+  },
+  "teacherDecision": null,
+  "authorKeyReview": "Separate reading of all three prompts and synthetic source rows: models are independent, no failed implantation was observed, and a duct/hormone/blastocyst result supports only its own bounded mechanism. Three example responses preserve this distinction and fit240-character fields. Alternative justified evidence steps accepted."
+}

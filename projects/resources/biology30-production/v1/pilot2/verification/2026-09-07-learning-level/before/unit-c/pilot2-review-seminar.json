@@ -1,0 +1,86 @@
+{
+  "unit": "C",
+  "id": "c-review-seminar",
+  "status": "authored evidence/operation/key and response-capacity review complete; rendered and workload review pending",
+  "title": "Review Seminar: match each claim to its evidence",
+  "teachingTarget": "c-review-seminar-evidence-synthesis",
+  "introduction": [
+    "Genetic evidence spans chromosomes, crosses, sequences, RNA, proteins and cell traits. Record each result with its method, sample, time, units and resolution. Put raw observations, calculated probabilities and inferred mechanisms in separate columns. One measurement cannot supply all the missing links between a DNA change and a phenotype.",
+    "Different mechanisms may fit the same result. Low protein can reflect low RNA, inefficient translation or rapid breakdown. A small pedigree can fit several inheritance models. Write the alternatives before choosing a test whose predicted results differ. Repeating a measurement that all alternatives predict will not necessarily distinguish them.",
+    "Keep denominators and references visible. A recombination fraction, a cross probability and an assay error rate answer different questions; do not multiply unrelated percentages into a personal prediction. A conclusion should identify what is supported, what remains open and what result would require revision.",
+    "Genetic information can affect relatives and communities. A responsible proposal identifies consent, privacy, access, cultural context and who controls data use, including relevant Indigenous data sovereignty. Use fictional observations here. Recommend an evidence or governance step without diagnosing or prescribing from a classroom model."
+  ],
+  "case": {
+    "title": "Three separate evidence sources",
+    "scope": "Synthetic classroom models, not one person, family or continuous experiment. Their numbers must not be combined into an individual risk score.",
+    "columns": [
+      "Observation",
+      "Method and scope",
+      "Unmeasured question"
+    ],
+    "rows": [
+      [
+        "Chromosome model: 46 chromosomes arranged in the usual paired display.",
+        "One modelled metaphase cell; chromosome count and visible band pattern.",
+        "Small sequence changes and all other cell lineages."
+      ],
+      [
+        "Cross model: 24 AA, 51 Aa and 25 aa among 100 offspring of Aa × Aa.",
+        "Synthetic scored offspring; stated equal segregation and survival model.",
+        "Whether all alternative inheritance and scoring explanations are excluded."
+      ],
+      [
+        "Molecular models: coding GAA becomes GAG in the same frame; both samples have 400- and 600-base fragments.",
+        "Standard code: both GAA and GAG specify glutamate. Fragment lengths describe a separate larger sequence context.",
+        "RNA abundance, protein activity and complete identity of all DNA bases."
+      ]
+    ]
+  },
+  "activities": [
+    {
+      "id": "c-review-seminar-connect",
+      "prompt": "State one supported conclusion from each source, naming its scale. For the cross, include the expected AA/Aa/aa counts; for the molecular model, separate size from sequence.",
+      "modelResponse": "Chromosomes: a typical count in one sampled cell. Cross: 24/51/25 is close to the 25/50/25 expectation. Molecules: GAA→GAG retains glutamate in this frame; matching 400/600-base fragments do not prove identical DNA.",
+      "criteria": [
+        "Three source-specific claims",
+        "Correct expected counts",
+        "Size versus sequence distinction"
+      ],
+      "attemptBeforeGuide": true
+    },
+    {
+      "id": "c-review-seminar-evaluate",
+      "prompt": "Evaluate the claim that these sources prove one person has unchanged protein function and zero inherited risk. Name an alternative explanation or unmeasured step and a test that would address it.",
+      "modelResponse": "The sources are separate and do not establish personal risk. An unchanged encoded amino acid does not measure RNA handling or protein function. Compare RNA and protein activity in matched models before linking the variant to a result.",
+      "criteria": [
+        "Rejects joined personal prediction",
+        "Distinguishes coding result from function",
+        "Relevant discriminating evidence"
+      ],
+      "attemptBeforeGuide": true
+    },
+    {
+      "id": "c-review-seminar-revise",
+      "prompt": "A peer notes that the sources are unrelated and a participant objects to secondary use of genetic data. Revise the claim and proposed next step, including who should control the proposed data use.",
+      "modelResponse": "Keep each source and denominator separate; the combined personal claim is unsupported. Test the molecular hypothesis in a matched fictional model. Define consent and participant or community control before any proposed secondary data use.",
+      "criteria": [
+        "Evidence-based revision",
+        "Matched comparison",
+        "Consent and control over further use"
+      ],
+      "attemptBeforeGuide": true
+    }
+  ],
+  "optionalExtension": {
+    "id": "c-review-seminar-extension",
+    "minutes": 20,
+    "required": false,
+    "prompt": "Choose two inheritance explanations that fit a small sample. Predict one observation that would distinguish them and revise your ledger using the model output.",
+    "modelLinks": [
+      "c-models"
+    ],
+    "collectionPolicy": "Use existing model response and seminar revision; no additional required state."
+  },
+  "teacherDecision": null,
+  "authorKeyReview": "Separately derived 100×1/4,1/2,1/4 =25/50/25; GAA and GAG both encode glutamate; neither a count nor equal fragment lengths establishes every sequence or function. Read the three prompts before comparing these bounded examples. Accept alternative justified tests; no independent human acceptance claimed."
+}

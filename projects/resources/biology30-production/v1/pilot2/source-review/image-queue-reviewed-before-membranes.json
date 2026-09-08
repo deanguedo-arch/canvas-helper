@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "status": "five provisional science choices: three ChatGPT originals and two original SVG schematics; actual learner placement and teacher choice pending",
+  "provider": "Authenticated ChatGPT browser Images for raster illustration gaps; original authored SVG for the labelled pathway under the saved plan",
+  "teacherAcceptance": null,
+  "entries": [
+    {
+      "id": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-figure",
+      "status": "scientifically-usable-provisional; placement-and-teacher-choice-pending",
+      "purpose": "spatial relationship of human trilaminar disc",
+      "existingFigureReview": "Old B concept map supplies text relationships but no embryonic-disc anatomy.",
+      "sourceReview": {
+        "slides": [
+          "deck-15-slide-014",
+          "deck-15-slide-016"
+        ],
+        "textbook": "Chapter 15 printed 513, Figure 15.6; physical page 8 visually inspected",
+        "finding": "Slides show generic spherical invagination; textbook has small multilabel implantation views and labels bilaminar disc ectoderm/endoderm prematurely. Need uncluttered accurate human trilaminar disc illustration.",
+        "fullResolutionAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/6d338dfd690cfd39c75c78b038d64e1190172931b15bc462b12a48ffa94d744a.png"
+      },
+      "scienceChecklist": [
+        "Human flat/shallow disc, not spherical gastrula",
+        "Three separate layers in ectoderm–mesoderm–definitive-endoderm order",
+        "Ectoderm faces amniotic side; endoderm faces yolk-sac side",
+        "No formed fetal anatomy at this stage",
+        "No misleading cavity, through-hole or maternal blood mixing",
+        "Labels precisely attach to matching sheet/side; all text legible at full resolution",
+        "Caption identifies original schematic and explains epiblast origin separately"
+      ],
+      "prompt": "Generate one original scientific educational illustration for a Biology 30 lesson: a human trilaminar embryonic disc after gastrulation, around week 3 after fertilization. This is a schematic learning model, not a photograph or microscopy evidence.\n\nPurpose: make the three germ layers spatially understandable without implying that human gastrulation is a spherical ball folding inward. Show one shallow oval disc in a clean oblique cutaway view, with three thin cellular sheets clearly visible at its cut edge. Ectoderm is the upper blue sheet facing the amniotic space; mesoderm is the middle muted coral sheet; definitive endoderm is the lower gold sheet facing the yolk-sac space. Keep the scale explicitly schematic: no formed fetus, limbs, organs, placenta, umbilical cord or neural tube. The sheets should look like living epithelial/cellular tissue, with restrained scientific detail, not stacked stone, fabric, food or a decorative landscape. Do not show a hole passing through all three layers or a gastric cavity inside a hollow ball. Do not claim an origin from the trophoblast or hypoblast.\n\nComposition: wide 1536 by 1024, pale neutral background, centred disc with generous margins, uncluttered textbook illustration and clear edges. Exactly five permitted labels with thin unambiguous leader lines: “Amniotic side”, “Ectoderm”, “Mesoderm”, “Definitive endoderm”, “Yolk-sac side”. Amniotic side points to the space above the upper surface; yolk-sac side points below the lower surface. Each layer label points to only its matching coloured sheet. No other words, title, legend, numbered stages, logos, watermark or decorative arrows. Leave room below for an HTML caption authored separately. Generate the image now.",
+      "revisions": [],
+      "candidates": [
+        {
+          "id": "v1",
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-human-trilaminar-disc-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "8d4aee5d920523b7946acbf9178bcdc5f0a121cf7984c327322491b6c62a6cce",
+          "scientificReview": "Full original-resolution PNG inspected: all five labels correct and leader points correct; blue upper ectoderm, coral middle mesoderm and gold lower definitive endoderm; amniotic/yolk-sac orientations correct; no spherical invagination or formed fetal structures.",
+          "limitations": [
+            "Idealized representative three-layer view; not a complete embryonic anatomy map or a microscope observation.",
+            "Does not show cell migration through the primitive streak; use separate authored process diagram and adjacent explanation.",
+            "Relative sheet thickness, cell shapes and colours are schematic.",
+            "Inline/enlarged accessibility and placement review remain pending."
+          ],
+          "recommendation": "use provisionally with adjacent equivalence and explicit schematic caption",
+          "teacherDecision": null
+        }
+      ],
+      "provisionalRecommendation": "v1",
+      "rights": "Original prompt requests original illustration; source comparison retained authoring-only; no publisher artwork uploaded.",
+      "authoringChatUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+      "caption": "An original schematic of the three germ layers in a representative region of the early human embryonic disc. Ectoderm faces the amniotic side, mesoderm lies between, and definitive endoderm faces the yolk-sac side. During gastrulation, epiblast cells give rise to these three layers; this still image does not show that movement. Colours, cell shapes and layer thicknesses are simplified."
+    },
+    {
+      "id": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-figure",
+      "status": "scientifically-usable-provisional; placement-and-teacher-choice-pending",
+      "purpose": "Spatial recognition of uterine tubes, open fimbrial ends, endometrial lining and continuous uterine-cervical-vaginal route",
+      "existingFigureReview": "The current owning B lesson 02 uses a text-based pathway concept figure; its female anatomy locator tests mechanisms but supplies no recognizable anatomical cutaway.",
+      "sourceReview": {
+        "slides": [
+          "deck-14-slide-022"
+        ],
+        "fullResolutionAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/cccba4aaca9dfa50599b8fdaae371a85120746d76dcb0f445d73cbd17c22fd10.png",
+        "textbook": "Chapter 14 physical page 11, printed 482, Figure 14.4 visually inspected",
+        "finding": "Supplied slide has a crowded sagittal view and the misleading note that the oviduct connects ovaries to uterus. The textbook adds a very small frontal view. Original isolated frontal cutaway will clarify the open tubal end and distinguish endometrial lining from muscle without redistributing uncleared publisher artwork."
+      },
+      "scienceChecklist": [
+        "Two ovaries and two tubes, with fimbrial ends near but not sealed to ovarian surfaces",
+        "Each tube connects to the upper uterine cavity",
+        "Continuous uterine cavity to cervical canal to vagina",
+        "Endometrium label reaches inner lining; uterine muscle remains visibly distinct",
+        "Correct labels and unambiguous leader endpoints for all seven permitted structures",
+        "No embryo, fetus or implication of diagnostic/patient imagery"
+      ],
+      "prompt": "Generate one NEW original scientific illustration for a Biology 30 anatomy lesson, separate from the earlier embryonic-disc image. Show a frontal cutaway of the adult human female internal reproductive tract, isolated on a pale neutral background: two ovaries, two uterine tubes with open fimbrial ends near the ovaries, central uterus with a cutaway showing its small triangular cavity and endometrial lining, the narrow cervical canal, and the vagina continuing below. The ovarian surface and the fimbrial end must have a small visible gap: a uterine tube is not a sealed pipe directly joined to an ovary. Both uterine tube lumens connect to the upper uterine cavity. Keep the uterine cavity, cervical canal, and vaginal lumen visibly continuous. Distinguish the endometrial lining from the thicker muscular uterine wall. Make anatomically recognizable tissue shapes with restrained textbook-style shading. This is an idealized anatomical schematic, not a medical scan or a patient's anatomy.\n\nExactly seven permitted labels with thin clean leader lines, each ending on the correct structure: “Ovary”, “Uterine tube”, “Fimbriae”, “Uterus”, “Endometrium”, “Cervix”, “Vagina”. Label paired structures only once. The fimbriae leader ends on the fringe, not on the ovary; the cervix leader ends on the narrow lower uterine neck, not on the vaginal wall. Endometrium points to the inner lining, not the empty cavity or outer muscle. No oocyte or sperm, no embryo or fetus, no arrows, no menstrual blood, no bladder, bones, external body, people, surgery, instruments, or decorative elements. No other words, title, logo or watermark. Wide 1536 by 1024, generous uncluttered margins, large readable dark labels outside the tissue, all structures fully in frame. Generate the illustration now.",
+      "revisions": [],
+      "candidates": [
+        {
+          "id": "v1",
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-female-tract-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "9829fa5e21332ba3bf82f1648e0eb2b86bf5aed7566e9f0e79e74a94f970b825",
+          "scientificReview": "Original 1536 by 1024 PNG inspected at full resolution. Paired ovaries/tubes and open fimbrial gaps are visible; both tubes enter upper uterine cavity; uterine-cervical-vaginal lumen is continuous. All seven labels are spelled correctly and leader endpoints identify the named structures. Endometrium leader identifies the inner lining boundary rather than muscle. No fetus or scan/clinical imagery.",
+          "limitations": [
+            "Idealized frontal cutaway: organ scale and cavity width are schematic; the uterine cavity is normally a potential space.",
+            "The pale ovarian ligaments shown between ovaries and uterus are supporting tissue, not tubes or an oocyte route; clarify in adjacent explanation.",
+            "Fimbriae label has a tight left margin; retain full intrinsic image, never crop, and inspect responsive inline/enlarged use before placement approval.",
+            "Does not show sagittal pelvic relationships or external genital anatomy; those need separate scoped teaching."
+          ],
+          "recommendation": "use provisionally with complete adjacent anatomical explanation and keyboard enlargement",
+          "teacherDecision": null
+        }
+      ],
+      "provisionalRecommendation": "v1",
+      "teacherDecision": null,
+      "rights": "Original illustration requested; no publisher artwork uploaded; source comparison authoring only.",
+      "authoringChatUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+      "caption": "An original frontal schematic of the internal reproductive tract. The open fimbrial end of each uterine tube lies near an ovary; it is not sealed to the ovarian surface. The tubes enter the uterus above its inner endometrial lining. The uterine cavity continues through the cervical canal into the vagina. The pale supporting bands between ovaries and uterus are ligaments, not an oocyte route. Relative size and cavity width are simplified."
+    },
+    {
+      "id": "b-topic-male-reproductive-structures-the-transport-pathway-figure",
+      "status": "authored-svg-provisionally-usable; rejected-chatgpt-candidate-retained; learner-placement-pending",
+      "purpose": "Anatomical recognition of sperm transport and accessory-gland junctions",
+      "existingFigureReview": "Old owning lesson01 network/text relationships do not provide a recognizable sagittal anatomy cutaway; retain a separate functional route diagram for direction.",
+      "sourceReview": {
+        "slides": [
+          "deck-14-slide-008"
+        ],
+        "fullResolutionAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/9d21ea0460e3fa6aafb9737f15676e14fedf74fd547fcdfbf7328920a19804bd.png",
+        "finding": "Original 1213×475 anatomy inspected at full resolution. Crowded multi-line functional labels and extraneous urinary/bowel context reduce reading clarity. Need a cleaner original anatomy view with accurately traceable duct connections; retain source as authoring reference."
+      },
+      "scienceChecklist": [
+        "Epididymis follows testis and continues into vas deferens",
+        "Vas joins seminal-vesicle duct to make ejaculatory duct; never enters bladder",
+        "Ejaculatory duct enters urethra through prostate below bladder",
+        "Continuous urethra from bladder through prostate and penis",
+        "Small bulbourethral gland below prostate with duct to urethra",
+        "Testis inside scrotum; paired structures shown schematically as one side",
+        "All ten labels have correct endpoints, full words and clear leader lines",
+        "Full-resolution biological shape/route review required before provisional use; source/alternative comparison author-only"
+      ],
+      "prompt": "Generate one NEW original scientific educational anatomy illustration for a Biology 30 lesson, separate from the previous female and embryonic figures. Show a simplified adult human male reproductive system in a left-facing side cutaway. This is an isolated textbook anatomical schematic, not a photograph or a patient.\n\nThe purpose is to recognize the anatomical transport route and accessory glands. Show one testis inside the scrotal pouch, with the epididymis closely following the back of that testis. The vas deferens must continue from the epididymis upward into the pelvis, curve around the upper/back region of the urinary bladder, and join a short duct from the seminal vesicle behind the bladder to form an ejaculatory duct. That short ejaculatory duct passes through the prostate below the bladder and opens into the urethra. The urethra continues from the bladder through the prostate and along the penis to its exterior opening. Show the seminal vesicle as a small lobulated gland behind the bladder, not as the bladder itself. Show one small bulbourethral gland below the prostate near the base of the penis, with its short duct joining the urethra. Paired reproductive structures are represented by one side for clarity. Keep all duct junctions traceable; the vas deferens must not empty into the bladder. Keep the urethra visibly continuous and separate from the vas deferens. A pale bladder is included only as a position landmark.\n\nExactly ten allowed labels, with thin unambiguous leader lines pointing to the correct tissue or duct: “Testis”, “Epididymis”, “Vas deferens”, “Seminal vesicle”, “Ejaculatory duct”, “Prostate”, “Bulbourethral gland”, “Urethra”, “Penis”, “Scrotum”. Do not label the bladder or add any other words. Label the epididymis on its coiled duct, scrotum on the outer pouch, testis on the organ inside, and urethra on the internal passage rather than the penis surface. No functional claims inside labels. Use restrained natural tissue shading with distinct duct outlines, generous pale background margins, large readable dark labels outside the anatomy and no leader-line collisions. Wide 1536 by 1024. No person, face, rectum, bowel, bones, erection, sexual activity, semen, sperm cells, flow arrows, instruments, surgery, title, logo or watermark. Keep the whole non-erect anatomical schematic inside the frame. Generate the illustration now.",
+      "revisions": [
+        {
+          "fromCandidate": "v1",
+          "reason": "Tail-to-vas continuity must be correct and traceable",
+          "prompt": "Revise this male reproductive anatomy image to fix one crucial duct connection. The vas deferens currently appears to connect to the upper head region of the epididymis, leaving the lower tail as a dead end. This is incorrect for teaching the transport route.\n\nThe epididymis must have a head at the upper pole of the testis, a coiled body along its posterior side, and a tail at the LOWER pole. The coiled tail must visibly continue directly into the vas deferens at the bottom of the testis. From that lower-tail connection, the vas must turn upward and ascend behind/beside the testis into the pelvis. Remove any connection between the ascending vas and the upper epididymal head. Make the tail-to-vas junction unmistakable, and keep the three-dimensional layering simple enough to trace it. Do not add a new duct from the testis straight to the vas. Keep the epididymis leader on its coiled body.\n\nRetain the route of the vas around the bladder and its union with the seminal-vesicle duct to form the ejaculatory duct, which passes through the prostate into the urethra. Keep the continuous urethra and bulbourethral gland connection. Remove the unexplained upright reddish tube behind the seminal vesicle because that extra urinary landmark is outside the intended illustration. Preserve the ten existing labels, generous margins and non-erect isolated textbook side view. No new labels, arrows, captions, logos or other elements. Generate the corrected image now.",
+          "result": {
+            "status": "provider-refusal",
+            "observedText": "We’re so sorry, but the image we created may violate our guardrails around nudity, sexuality, or erotic content. If you think we got it wrong, please retry or edit your prompt.",
+            "assetProduced": false,
+            "action": "No provider bypass or alternate image-generation tool used. Rejected original remains author-only. Anatomy figure gap stays open."
+          }
+        }
+      ],
+      "candidates": [
+        {
+          "id": "v1",
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "390397e86a3cfc98d345e908247c3dd7e81d67bf998c1a6f9d6440bf4eeccea3",
+          "scientificReview": "Full original inspected. Ten labels are legible and broadly correctly placed, but ascending vas appears joined to upper epididymal head while lower tail ends without a traceable continuation. This teaches the wrong transport connection.",
+          "limitations": [
+            "Incorrect or ambiguous epididymal-tail to vas continuity; unsuitable for learner transport diagram.",
+            "Unexplained upright tube behind seminal vesicle adds outside-scope context."
+          ],
+          "recommendation": "reject for learner use; retain author comparison and revise",
+          "teacherDecision": null
+        },
+        {
+          "id": "authored-svg-v3",
+          "medium": "original code-native SVG; not image generation",
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v3.svg",
+          "width": 1200,
+          "height": 880,
+          "sha256": "0979a2f87a30311555cb94ce1d07bd5ad6ecc872d7e1ffe630a42109b00b3dcc",
+          "scientificReview": "Native-size browser SVG inspected against the supplied slide anatomy and the prior rejected image. Lower epididymal tail continuously enters the ascending vas; small upper ducts connect testis to head. Vas stays outside bladder and joins the seminal-vesicle duct. Ejaculatory duct enters the urethra within prostate; bulbourethral duct joins below. The urethra opens at the exterior; ten leaders point to named tissues/ducts. Distinct crossing clearance prevents treating a projected crossing as a duct junction.",
+          "limitations": [
+            "Spatial paths, relative sizes and tissue details are schematic; ducts are separated for visibility. This is anatomical orientation and route teaching, not a scale drawing or clinical image.",
+            "Fine ducts at the upper testis are simplified; no claim that the vas directly enters the testis.",
+            "Inline mobile label legibility, enlargement and focus return remain learner-placement checks."
+          ],
+          "recommendation": "provisional use of authored SVG for the precise labelled transport relationship; preserve rejected ChatGPT comparison",
+          "teacherDecision": null
+        }
+      ],
+      "provisionalRecommendation": "authored-svg-v3",
+      "teacherDecision": null,
+      "rights": "Original text prompt; no publisher artwork uploaded. Source pixels stay authoring-only.",
+      "authoringChatUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+      "caption": "Original schematic side view of one side of the paired reproductive pathway. Small ducts connect the testis to the epididymal head; its coiled body leads to a lower tail that continues into the vas deferens. The vas joins the seminal-vesicle duct to form an ejaculatory duct entering the urethra within the prostate. A bulbourethral duct joins below. The urethra opens through the penis. The pale bladder is a landmark: sperm do not enter its cavity. Ducts are separated for visibility; their projected crossing is not a junction, and proportions and fine tissue detail are simplified.",
+      "codeNativeRevisionHistory": [
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v1.svg",
+          "sha256": "b953d494210bd2b987406bfea4198dcce01019ae0c854dbf379c0524139668ca",
+          "status": "first native browser review found urethral outlet ending within outline and ambiguous gland overlap"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v2.svg",
+          "sha256": "33496d55a8eea0e3b1a6e88a95cf440ffef57818cd0d59775d4d038acdda26e2",
+          "status": "outlet and gland separated; full-path crossing halo created a misleading tail junction gap"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v3.svg",
+          "sha256": "0979a2f87a30311555cb94ce1d07bd5ad6ecc872d7e1ffe630a42109b00b3dcc",
+          "status": "crossing halo limited to projected crossing; tail continuity and outlet reinspected"
+        }
+      ],
+      "codeNativeDecision": "The saved plan explicitly assigns precise label-heavy pathways to authored SVG/HTML. After the anatomy-generation correction was declined, this original schematic was authored and visually corrected in code. No alternate image generator, paid API or provider bypass was used. The rejected bitmap and failed request are retained."
+    },
+    {
+      "id": "b-topic-male-reproductive-structures-compartments-of-the-testes-figure",
+      "status": "authored-svg-provisionally-usable; learner-placement-pending",
+      "purpose": "Distinguish germ cells, tubule support and interstitial hormone release",
+      "existingFigureReview": "The old b-lesson-02 production-to-delivery concept pathway names support and secretion but does not show their separate tissue compartments.",
+      "sourceReview": {
+        "slides": [
+          "deck-14-slide-009",
+          "deck-14-slide-010",
+          "deck-14-slide-012"
+        ],
+        "fullResolutionAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/0aa69f8ef6ef07fe69c6298f87cd8f05031a098547533648363a2a9a577b175c.png",
+        "finding": "Full-resolution source shows whole-testis tubules and transport but not a cellular cross-section. Original inset distinguishes tubule interior, germ-cell lineage, Sertoli support and interstitial secretion without reproducing source pixels."
+      },
+      "scienceChecklist": [
+        "Germ cells develop in tubule wall; later stages approach lumen",
+        "Sertoli support spans tubule wall",
+        "Interstitial cells lie outside tubule beside blood",
+        "Secretion into blood distinct from duct transport",
+        "No exact cell counts, scale or diagnostic inference"
+      ],
+      "codeNativeDecision": "Original SVG under plan section4 for a label-heavy compartment relationship. No raster generator or provider switch used. Native v1 review found blood-vessel label collisions; v2 moved the vessel right while preserving scientific compartments.",
+      "candidates": [
+        {
+          "id": "authored-compartments-v2",
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-testis-compartments-v2.svg",
+          "sha256": "82cebd4ec89b4da61c3cfe64285ab63ee7765b738c66894473af9f7547b3bf25",
+          "width": 1100,
+          "height": 760,
+          "scientificReview": "Native full-size v2 inspected: leader endpoints distinguish supporting and germ cells, lumen and outside compartment; labels fit, hormone arrow ends at the blood vessel.",
+          "limitations": [
+            "Schematic subset of cells, not a tissue photograph or cell-count model",
+            "Use alongside whole-organ pathway; this inset is not the whole testis",
+            "Responsive inline/enlarged placement and focus return pending"
+          ],
+          "teacherDecision": null
+        }
+      ],
+      "revisionHistory": [
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-testis-compartments-v1.svg",
+          "sha256": "8d370c59f9dcd5a94d653d03625d6a71237d491433dacc4584cede986b97143c",
+          "finding": "Correct compartments; right labels collided with blood vessel."
+        }
+      ],
+      "provisionalRecommendation": "authored-compartments-v2",
+      "caption": "Within a testis, germ cells develop among Sertoli supporting cells in a seminiferous tubule. Interstitial cells between tubules release testosterone into blood. A hormone measurement does not establish complete sperm development.",
+      "teacherDecision": null
+    },
+    {
+      "schemaVersion": 1,
+      "id": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+      "status": "scientifically-usable-provisional; learner-placement-pending",
+      "teacherDecision": null,
+      "existingFigureReview": "Native screenshot of existing b-lesson-03-concept-model inspected. Its Develop / Move and fertilize / Prepare and implant boxes explain the route but do not distinguish the oocyte cell from follicular supporting tissue or the corpus luteum.",
+      "sourceReview": {
+        "slide": "Chapter 14 slide 26",
+        "nativeAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/134bb80b1e4f7168348ecb51a5ca59c691ed4adda42ad8ac44071438a6bb7940.png",
+        "finding": "Original 1024 by 768 histology inspected. Large fluid-filled follicles and an off-centre oocyte surrounded by supporting cells are visible. This is observational imagery; the new schematic must not be presented as microscopy evidence.",
+        "textbook": "Chapter 14 physical pages 25 and 26, printed 496 and 497, rendered and visually inspected. Figure 14.14 combines multiple follicular stages in one ovary; the following corpus-luteum task has a blank sketch outline. Need an isolated cell-versus-tissue comparison. The multiple stages in the source are temporal, not migration positions.",
+        "rights": "Source comparison authoring-only; no publisher artwork uploaded. Original schematic requested. Local blocked review only.",
+        "fullResolutionAsset": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/134bb80b1e4f7168348ecb51a5ca59c691ed4adda42ad8ac44071438a6bb7940.png"
+      },
+      "scienceChecklist": [
+        "One oocyte is a single large cell, embedded in a mound of supporting cells attached to the follicle wall.",
+        "Fluid-filled antrum is distinct from oocyte and supporting tissue.",
+        "Corpus luteum is the remaining follicular tissue after ovulation, not the released oocyte.",
+        "No oocyte retained inside the corpus luteum and no fertilization-dependent formation claim.",
+        "Labels attach unambiguously; relative sizes and colours explicitly schematic.",
+        "No claim of microscopy evidence or precise meiotic stage based on the drawing."
+      ],
+      "prompt": "Generate one NEW original educational scientific illustration for Biology 30: two isolated tissue cross-sections comparing a growing ovarian follicle before ovulation with the corpus luteum after ovulation. This is a simplified explanatory schematic, not a photograph, medical scan or microscopy evidence.\n\nLEFT PANEL: a growing antral follicle with a surrounding wall of supporting cells, a large clear fluid-filled antrum, and ONE large round oocyte embedded in a mound of supporting cells attached to the inner follicle wall. The oocyte must not float freely in the middle of the fluid-filled space. Show the oocyte as one cell with a simple nucleus, visibly distinct from the many smaller supporting cells. Do not specify an exact meiotic stage.\n\nRIGHT PANEL: corpus luteum as thick folded glandular tissue derived from the follicular tissue remaining after ovulation. No oocyte inside this structure. A small irregular central space is acceptable, but do not draw another large follicle with a retained egg. No arrow from the oocyte to the corpus luteum; no fertilization or embryo.\n\nUse exactly these six labels: left heading “Growing follicle”; left leaders “Oocyte”, “Supporting cells”, “Fluid-filled space”; right heading “Corpus luteum”; right subheading “After ovulation”. The Oocyte leader ends inside the single large cell, Supporting cells points to a small-cell cluster around it, and Fluid-filled space points into the clear antrum. Thin distinct leaders, no collisions, large readable dark text. No other words, logos, watermark, arrows or decorative elements. Wide 1536 by 1024, pale neutral background, ample margins, restrained textbook-style tissue colours and clean cellular detail. Relative sizes and colours are schematic. Generate the image now.",
+      "authoringChatUrl": "https://chatgpt.com/c/6a9dba2e-0dd0-83e8-b11d-3a207e258519",
+      "purpose": "Distinguish oocyte, follicular supporting tissue and corpus luteum",
+      "provider": "Authenticated ChatGPT browser Images",
+      "candidates": [
+        {
+          "id": "v1",
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ovarian-follicle-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "sha256": "1a7a865497483ac62d35e1c8c4fd98a8b857aceeeb55202a84e7eb6b77ed3efb",
+          "scientificReview": "Original 1536 by 1024 PNG inspected at native resolution. One large oocyte lies within a mound of smaller supporting cells continuous with the follicle wall. The antrum is separate. The folded corpus luteum has no retained oocyte. All six requested labels are legible; three leaders terminate within their correct cell, supporting-cell group and fluid compartment. No arrow implies that the oocyte becomes luteal tissue.",
+          "limitations": [
+            "Oocyte leader ends within its nucleus; adjacent explanation identifies the entire large cell as the oocyte, not only the nucleus.",
+            "Idealized separate stages with no shared scale; nuclear appearance does not identify the exact meiotic phase.",
+            "No vascular mechanisms, ovulation rupture or regression sequence shown.",
+            "Inline mobile readability and enlargement placement remain to be verified in the actual learner build; teacher choice is null."
+          ],
+          "teacherDecision": null
+        }
+      ],
+      "provisionalRecommendation": "v1",
+      "caption": "Original schematic comparison of a growing follicle and the corpus luteum after ovulation. The oocyte is one large cell supported by many smaller follicular cells; the fluid-filled space is the antrum. After the oocyte is released, remaining follicular tissue forms the corpus luteum, which secretes hormones including progesterone. The oocyte does not become the corpus luteum. Colours, relative sizes and cellular detail are simplified; this is not microscopy evidence or a diagram of exact meiotic stages.",
+      "comparisonFiles": [
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-comparison/chapter14-physical25.png",
+          "sha256": "24e2070ea103a97d46ae12d87222a1931cc6b18025ee0640cdaa15c9e8d8113b"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-comparison/chapter14-physical26.png",
+          "sha256": "540ad4707c3b4c11b5fd98a695aa544c8d4e8977a33852330bd2dc601ec74922"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-comparison/existing-course.png",
+          "sha256": "5cb43ad5065a166a3c8417ac8c3157278ebbb2cdcccaf139765d6eef9c7091c9"
+        }
+      ]
+    }
+  ],
+  "browserWorkflowStatus": {
+    "status": "authenticated-browser-access-restored",
+    "checkedAt": "2026-09-06T20:55:18.183067+00:00",
+    "evidence": "CUA selected existing authenticated ChatGPT conversation and read generated image and composer after user unlock.",
+    "existingCandidatePreserved": true,
+    "nextAction": "Continue source comparisons and original illustration queue."
+  }
+}

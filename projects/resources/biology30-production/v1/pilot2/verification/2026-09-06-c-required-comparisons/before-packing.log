@@ -1,0 +1,8 @@
+/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/audit-biology30-topic-state.ts:16
+  if(!results.slice(0,3).every(r=>r.withinTarget))throw new Error(`${unit} maximum ordinary/Unicode state exceeds target`);if(process.argv.includes("--write"))await writeFile(`${base}/pilot2-state-budget.json`,JSON.stringify(report,null,2)+"\n");reports.push(report);
+                                                        ^
+
+Error: C maximum ordinary/Unicode state exceeds target
+    at <anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/audit-biology30-topic-state.ts:16:57)
+
+Node.js v24.14.0

@@ -1,0 +1,96 @@
+{
+  "stage": 75,
+  "checkedAt": "2026-09-07T04:57:54.775446+00:00",
+  "status": "nine additional provisional original SVG figure bindings; no learner rendering",
+  "figures": {
+    "B": 10,
+    "C": 0,
+    "D": 5,
+    "boundTotal": 15,
+    "requiredTotal": 127,
+    "pending": 112,
+    "teacherDecision": null,
+    "actualPlacement": "pending"
+  },
+  "verification": {
+    "figureBindingTests": 2,
+    "passed": 2,
+    "draftContracts": "pass",
+    "priorFullSuite": "stage74 83 pass; no owner code changed since then",
+    "typecheck": "stage74 25 unrelated,0 owned; only asset/manifests and inventory count test changed",
+    "protectedTrees": "stage74 verified; this stage changed source assets/manifests, comparison gallery and one count assertion only"
+  },
+  "science": [
+    "Four hormone diagrams compared against native sources and existing course maps; preserve synthesis/release and inhibitory targets",
+    "Five HWE diagrams use current canonical required teaching examples, with native source comparison and independent Decimal arithmetic",
+    "Native1200x900 originals inspected; label collisions corrected in retained versions",
+    "All short alt texts and captions paired with full adjacent equivalents"
+  ],
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "c5b0b361d5830fb398a50d4c46bccff2664a5a27e550a4e46ebd1c31c278c4dc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+      "sha256": "08b86682bbcc5ad85c8563c183867a5a19872ad6195780770d16f334c8ae2c5c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json",
+      "sha256": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+      "sha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "3d67321c2f1f1e5dd3ca7caee0fb5ba9b702ca852516e77a69bf78c91d2de01d"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "79324e19e1406acb3b35373ccabcd33006c6dfe7b1be66e9aef36d003f99638f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormone-sources-v1.svg",
+      "sha256": "712add8a56dab35a7ddbc5d4c76c74eabcfb2bcd3b8fba3f809eeb2aaa2da85f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v3.svg",
+      "sha256": "5bb67f4486644c7d3b9469b8423667c8e0c7a79e4d31cc7acd503adb206ae193"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-labour-loop-v1.svg",
+      "sha256": "a939294786df7a4c38d0e250f4681cc37fea92b96145d15e049cbedbd07076f1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-lactation-pathways-v2.svg",
+      "sha256": "696c29769e845a2e9cc84b83905c264736d36a5b7f6e303dfa00bc0c74df0211"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-allele-counts-v1.svg",
+      "sha256": "9743d9b0a50a452f34caf6a5cb062678fde8b872bf2d0ec2371ddf6b156ff8c2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-weighted-genotype-grid-v1.svg",
+      "sha256": "c7956ba77529a4b54eadbfa60079933a53f62ca2926c2131c9db8a4b9e8e867e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-equilibrium-assumptions-v1.svg",
+      "sha256": "3657a565ab1c86c14acfa658d64a700be0b0555546f16ab6263daa862b976edd"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-phenotype-to-frequency-v1.svg",
+      "sha256": "835317ceef13eb9d18ae6a6aa8b7b427106d5329acbc038aa7e113fa08f64dde"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-observed-expected-v2.svg",
+      "sha256": "d8c1798e3e040448300fc7323d72ee66cde20897f3c07722661ea73edadd7d04"
+    }
+  ],
+  "pending": [
+    "112 other figure targets",
+    "All-surface vocabulary, source/archive/media, compound criterion, timing and transfer closure",
+    "Production asset/media/transaction integration, all-unit freeze and B then C then D builds"
+  ]
+}

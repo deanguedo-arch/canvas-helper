@@ -1,0 +1,2133 @@
+{
+  "unit": "C",
+  "status": "draft: all132 existing practice prompts reviewed and mapped to actual sub-operations; remaining criterion operations and figures pending",
+  "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+  "outcomeCount": 35,
+  "componentCount": 56,
+  "components": [
+    {
+      "id": "c1-1k-sets-and-copies",
+      "outcomeId": "C1.1k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Define haploidy, diploidy and polyploidy, distinguish homologues from sister chromatids, and count sets versus copies in somatic cells/gametes before and after replication.",
+      "targets": [
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "partId": "c-topic-chromosomes-and-dna-dna-packaging",
+          "teachingTarget": "c-topic-chromosomes-and-dna-dna-packaging-teaching",
+          "visualTarget": "c-topic-chromosomes-and-dna-dna-packaging-figure",
+          "workedTarget": "c-topic-chromosomes-and-dna-dna-packaging-worked",
+          "retrievalTarget": "c-topic-chromosomes-and-dna-dna-packaging-check",
+          "evidenceTarget": "c-topic-chromosomes-and-dna-evidence",
+          "termsToDefineBeforeExplanation": [
+            "DNA",
+            "chromatin",
+            "chromosome",
+            "gene",
+            "locus"
+          ]
+        },
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "partId": "c-topic-chromosomes-and-dna-sets-and-copies",
+          "teachingTarget": "c-topic-chromosomes-and-dna-sets-and-copies-teaching",
+          "visualTarget": "c-topic-chromosomes-and-dna-sets-and-copies-figure",
+          "workedTarget": "c-topic-chromosomes-and-dna-sets-and-copies-worked",
+          "retrievalTarget": "c-topic-chromosomes-and-dna-sets-and-copies-check",
+          "evidenceTarget": "c-topic-chromosomes-and-dna-evidence",
+          "termsToDefineBeforeExplanation": [
+            "homologous pair",
+            "sister chromatid",
+            "centromere",
+            "haploid",
+            "diploid",
+            "polyploid"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-01-c-lesson-01-anchor",
+        "c-practice-guided-c-lesson-01-c-lesson-01-evidence",
+        "c-practice-final-c-lesson-01-c-lesson-01-bounded",
+        "c-practice-chapter-c-lesson-01-c-lesson-01-transfer",
+        "c-topic-chromosomes-and-dna-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-1k-karyotype",
+      "outcomeId": "C1.1k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Use chromosome size, centromere position and band pattern to organize a model karyotype; distinguish ploidy from individual chromosome gain/loss.",
+      "targets": [
+        {
+          "topicId": "c-topic-chromosomes-and-dna",
+          "partId": "c-topic-chromosomes-and-dna-reading-karyotypes",
+          "teachingTarget": "c-topic-chromosomes-and-dna-reading-karyotypes-teaching",
+          "visualTarget": "c-topic-chromosomes-and-dna-reading-karyotypes-figure",
+          "workedTarget": "c-topic-chromosomes-and-dna-reading-karyotypes-worked",
+          "retrievalTarget": "c-topic-chromosomes-and-dna-reading-karyotypes-check",
+          "evidenceTarget": "c-topic-chromosomes-and-dna-evidence",
+          "termsToDefineBeforeExplanation": [
+            "autosome",
+            "sex chromosome",
+            "karyotype"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-06-c-lesson-06-bounded"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-2k-interphase",
+      "outcomeId": "C1.2k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain G1, DNA replication in S, and G2; chromosome number stays unchanged during replication while DNA amount doubles.",
+      "targets": [
+        {
+          "topicId": "c-topic-the-cell-cycle",
+          "partId": "c-topic-the-cell-cycle-interphase",
+          "teachingTarget": "c-topic-the-cell-cycle-interphase-teaching",
+          "visualTarget": "c-topic-the-cell-cycle-interphase-figure",
+          "workedTarget": "c-topic-the-cell-cycle-interphase-worked",
+          "retrievalTarget": "c-topic-the-cell-cycle-interphase-check",
+          "evidenceTarget": "c-topic-the-cell-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "G1",
+            "S phase",
+            "G2",
+            "DNA replication"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-01-c-lesson-01-anchor",
+        "c-practice-final-c-lesson-01-c-lesson-01-bounded",
+        "c-practice-chapter-c-lesson-01-c-lesson-01-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-2k-mitosis",
+      "outcomeId": "C1.2k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Sequence condensation/spindle attachment, metaphase alignment, sister separation, nuclear reformation and daughter chromosome counts.",
+      "targets": [
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-preparing-to-separate",
+          "teachingTarget": "c-topic-mitosis-preparing-to-separate-teaching",
+          "visualTarget": "c-topic-mitosis-preparing-to-separate-figure",
+          "workedTarget": "c-topic-mitosis-preparing-to-separate-worked",
+          "retrievalTarget": "c-topic-mitosis-preparing-to-separate-check",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "prophase",
+            "spindle",
+            "kinetochore",
+            "metaphase"
+          ]
+        },
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-separating-copies",
+          "teachingTarget": "c-topic-mitosis-separating-copies-teaching",
+          "visualTarget": "c-topic-mitosis-separating-copies-figure",
+          "workedTarget": "c-topic-mitosis-separating-copies-worked",
+          "retrievalTarget": "c-topic-mitosis-separating-copies-check",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "anaphase",
+            "telophase",
+            "daughter chromosome"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-02-c-lesson-02-anchor",
+        "c-practice-chapter-c-lesson-02-c-lesson-02-evidence",
+        "c-practice-final-c-lesson-02-c-lesson-02-bounded",
+        "c-practice-chapter-c-lesson-02-c-lesson-02-transfer",
+        "c-chapter-construct-02",
+        "c-investigation-cell-observations-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-2k-cytokinesis",
+      "outcomeId": "C1.2k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare cleavage furrow with cell plate and distinguish cytoplasmic division from mitosis.",
+      "targets": [
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-finishing-cell-division",
+          "teachingTarget": "c-topic-mitosis-finishing-cell-division-teaching",
+          "visualTarget": "c-topic-mitosis-finishing-cell-division-figure",
+          "workedTarget": "c-topic-mitosis-finishing-cell-division-worked",
+          "retrievalTarget": "c-topic-mitosis-finishing-cell-division-check",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "termsToDefineBeforeExplanation": [
+            "cleavage furrow",
+            "cell plate",
+            "cytokinesis"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-topic-mitosis-guided-cytokinesis-comparison"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-2k-cell-cycle-control",
+      "outcomeId": "C1.2k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain the relationship between division, checkpoints and propagation of damaged genetic information.",
+      "targets": [
+        {
+          "topicId": "c-topic-the-cell-cycle",
+          "partId": "c-topic-the-cell-cycle-control-and-division",
+          "teachingTarget": "c-topic-the-cell-cycle-control-and-division-teaching",
+          "visualTarget": "c-topic-the-cell-cycle-control-and-division-figure",
+          "workedTarget": "c-topic-the-cell-cycle-control-and-division-worked",
+          "retrievalTarget": "c-topic-the-cell-cycle-control-and-division-check",
+          "evidenceTarget": "c-topic-the-cell-cycle-evidence",
+          "termsToDefineBeforeExplanation": [
+            "checkpoint",
+            "mitosis",
+            "cytokinesis",
+            "cell-cycle regulation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-03-c-lesson-03-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-3k-meiosis-one",
+      "outcomeId": "C1.3k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain synapsis, homologous pairing, crossing over, independent pair orientation and reduction by separation of homologues.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "partId": "c-topic-meiosis-part-a-pairing-and-exchange",
+          "teachingTarget": "c-topic-meiosis-part-a-pairing-and-exchange-teaching",
+          "visualTarget": "c-topic-meiosis-part-a-pairing-and-exchange-figure",
+          "workedTarget": "c-topic-meiosis-part-a-pairing-and-exchange-worked",
+          "retrievalTarget": "c-topic-meiosis-part-a-pairing-and-exchange-check",
+          "evidenceTarget": "c-topic-meiosis-part-a-evidence",
+          "termsToDefineBeforeExplanation": [
+            "synapsis",
+            "tetrad",
+            "crossing over",
+            "chiasma"
+          ]
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "partId": "c-topic-meiosis-part-a-first-meiotic-division",
+          "teachingTarget": "c-topic-meiosis-part-a-first-meiotic-division-teaching",
+          "visualTarget": "c-topic-meiosis-part-a-first-meiotic-division-figure",
+          "workedTarget": "c-topic-meiosis-part-a-first-meiotic-division-worked",
+          "retrievalTarget": "c-topic-meiosis-part-a-first-meiotic-division-check",
+          "evidenceTarget": "c-topic-meiosis-part-a-evidence",
+          "termsToDefineBeforeExplanation": [
+            "metaphase I",
+            "independent orientation",
+            "anaphase I",
+            "reduction"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-04-c-lesson-04-anchor",
+        "c-practice-chapter-c-lesson-04-c-lesson-04-evidence",
+        "c-practice-chapter-c-lesson-04-c-lesson-04-transfer",
+        "c-topic-meiosis-part-a-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-3k-meiosis-two",
+      "outcomeId": "C1.3k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain sister-chromatid separation without another intervening S phase; track chromosome sets and DNA copies to haploid products.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "partId": "c-topic-meiosis-part-a-second-meiotic-division",
+          "teachingTarget": "c-topic-meiosis-part-a-second-meiotic-division-teaching",
+          "visualTarget": "c-topic-meiosis-part-a-second-meiotic-division-figure",
+          "workedTarget": "c-topic-meiosis-part-a-second-meiotic-division-worked",
+          "retrievalTarget": "c-topic-meiosis-part-a-second-meiotic-division-check",
+          "evidenceTarget": "c-topic-meiosis-part-a-evidence",
+          "termsToDefineBeforeExplanation": [
+            "meiosis II",
+            "sister separation",
+            "haploid product"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-topic-meiosis-part-a-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-3k-gametogenesis",
+      "outcomeId": "C1.3k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare four potential sperm products with unequal oogenesis; explain why reduction followed by fertilization stabilizes chromosome number.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "partId": "c-topic-meiosis-part-b-gamete-development",
+          "teachingTarget": "c-topic-meiosis-part-b-gamete-development-teaching",
+          "visualTarget": "c-topic-meiosis-part-b-gamete-development-figure",
+          "workedTarget": "c-topic-meiosis-part-b-gamete-development-worked",
+          "retrievalTarget": "c-topic-meiosis-part-b-gamete-development-check",
+          "evidenceTarget": "c-topic-meiosis-part-b-evidence",
+          "termsToDefineBeforeExplanation": [
+            "spermatogenesis",
+            "oogenesis",
+            "polar body",
+            "meiotic pause"
+          ]
+        },
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "partId": "c-topic-meiosis-part-a-comparing-divisions",
+          "teachingTarget": "c-topic-meiosis-part-a-comparing-divisions-teaching",
+          "visualTarget": "c-topic-meiosis-part-a-comparing-divisions-figure",
+          "workedTarget": "c-topic-meiosis-part-a-comparing-divisions-worked",
+          "retrievalTarget": "c-topic-meiosis-part-a-comparing-divisions-check",
+          "evidenceTarget": "c-topic-meiosis-part-a-evidence",
+          "termsToDefineBeforeExplanation": [
+            "mitosis",
+            "meiosis",
+            "genetic variation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-05-c-lesson-05-anchor",
+        "c-practice-chapter-c-lesson-05-c-lesson-05-evidence",
+        "c-practice-chapter-c-lesson-05-c-lesson-05-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-4k-compare-divisions",
+      "outcomeId": "C1.4k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare replication count, number of divisions, chromosome pairing, structures separated, product number/ploidy and genetic similarity for mitosis and meiosis.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "partId": "c-topic-meiosis-part-a-comparing-divisions",
+          "teachingTarget": "c-topic-meiosis-part-a-comparing-divisions-teaching",
+          "visualTarget": "c-topic-meiosis-part-a-comparing-divisions-figure",
+          "workedTarget": "c-topic-meiosis-part-a-comparing-divisions-worked",
+          "retrievalTarget": "c-topic-meiosis-part-a-comparing-divisions-check",
+          "evidenceTarget": "c-topic-meiosis-part-a-evidence",
+          "termsToDefineBeforeExplanation": [
+            "mitosis",
+            "meiosis",
+            "genetic variation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-application-complete-division-comparison"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-5k-crossing-over",
+      "outcomeId": "C1.5k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain exchange between nonsister chromatids of homologues, its effects on allele combinations and genetic variation.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-a",
+          "partId": "c-topic-meiosis-part-a-pairing-and-exchange",
+          "teachingTarget": "c-topic-meiosis-part-a-pairing-and-exchange-teaching",
+          "visualTarget": "c-topic-meiosis-part-a-pairing-and-exchange-figure",
+          "workedTarget": "c-topic-meiosis-part-a-pairing-and-exchange-worked",
+          "retrievalTarget": "c-topic-meiosis-part-a-pairing-and-exchange-check",
+          "evidenceTarget": "c-topic-meiosis-part-a-evidence",
+          "termsToDefineBeforeExplanation": [
+            "synapsis",
+            "tetrad",
+            "crossing over",
+            "chiasma"
+          ]
+        },
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "partId": "c-topic-meiosis-part-b-sources-of-variation",
+          "teachingTarget": "c-topic-meiosis-part-b-sources-of-variation-teaching",
+          "visualTarget": "c-topic-meiosis-part-b-sources-of-variation-figure",
+          "workedTarget": "c-topic-meiosis-part-b-sources-of-variation-worked",
+          "retrievalTarget": "c-topic-meiosis-part-b-sources-of-variation-check",
+          "evidenceTarget": "c-topic-meiosis-part-b-evidence",
+          "termsToDefineBeforeExplanation": [
+            "crossing over",
+            "independent assortment",
+            "random fertilization"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-04-c-lesson-04-evidence",
+        "c-practice-final-c-lesson-04-c-lesson-04-bounded"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-5k-nondisjunction",
+      "outcomeId": "C1.5k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare failed separation in meiosis I versus II, resulting gamete chromosome counts and possible zygote aneuploidy; outcomes depend on the chromosome and cannot be diagnosed from a model alone.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "partId": "c-topic-meiosis-part-b-nondisjunction",
+          "teachingTarget": "c-topic-meiosis-part-b-nondisjunction-teaching",
+          "visualTarget": "c-topic-meiosis-part-b-nondisjunction-figure",
+          "workedTarget": "c-topic-meiosis-part-b-nondisjunction-worked",
+          "retrievalTarget": "c-topic-meiosis-part-b-nondisjunction-check",
+          "evidenceTarget": "c-topic-meiosis-part-b-evidence",
+          "termsToDefineBeforeExplanation": [
+            "meiosis I error",
+            "meiosis II error",
+            "aneuploidy"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-05-c-lesson-05-bounded",
+        "c-practice-chapter-c-lesson-06-c-lesson-06-transfer",
+        "c-topic-meiosis-part-b-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-6k-twinning",
+      "outcomeId": "C1.6k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare separate fertilizations with splitting of one early embryo; distinguish shared origin from identical experiences or every phenotype.",
+      "targets": [
+        {
+          "topicId": "c-topic-meiosis-part-b",
+          "partId": "c-topic-meiosis-part-b-twins-and-early-development",
+          "teachingTarget": "c-topic-meiosis-part-b-twins-and-early-development-teaching",
+          "visualTarget": "c-topic-meiosis-part-b-twins-and-early-development-figure",
+          "workedTarget": "c-topic-meiosis-part-b-twins-and-early-development-worked",
+          "retrievalTarget": "c-topic-meiosis-part-b-twins-and-early-development-check",
+          "evidenceTarget": "c-topic-meiosis-part-b-evidence",
+          "termsToDefineBeforeExplanation": [
+            "fraternal twins",
+            "identical twins",
+            "zygote splitting"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-application-twin-origins-and-development"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-7k-reproductive-diversity",
+      "outcomeId": "C1.7k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare sexual and asexual strategies and costs/benefits in a range of organisms.",
+      "targets": [
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+          "teachingTarget": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-teaching",
+          "visualTarget": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-figure",
+          "workedTarget": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-worked",
+          "retrievalTarget": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-check",
+          "evidenceTarget": "c-topic-reproductive-strategies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "clone",
+            "sexual reproduction",
+            "asexual reproduction"
+          ]
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "partId": "c-topic-reproductive-strategies-animal-strategies",
+          "teachingTarget": "c-topic-reproductive-strategies-animal-strategies-teaching",
+          "visualTarget": "c-topic-reproductive-strategies-animal-strategies-figure",
+          "workedTarget": "c-topic-reproductive-strategies-animal-strategies-worked",
+          "retrievalTarget": "c-topic-reproductive-strategies-animal-strategies-check",
+          "evidenceTarget": "c-topic-reproductive-strategies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "Daphnia",
+            "sea anemone",
+            "polyp",
+            "medusa"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-07-c-lesson-07-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-7k-alternating-generations",
+      "outcomeId": "C1.7k",
+      "requiredSourcePage": 66,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Trace haploid gametophyte and diploid sporophyte, meiosis producing spores, mitosis producing gametes and fertilization restoring diploidy; compare plant cycles with animal strategies without labelling every sexual/asexual alternation as plant-style alternation of generations.",
+      "targets": [
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "partId": "c-topic-reproductive-strategies-life-cycle-transitions",
+          "teachingTarget": "c-topic-reproductive-strategies-life-cycle-transitions-teaching",
+          "visualTarget": "c-topic-reproductive-strategies-life-cycle-transitions-figure",
+          "workedTarget": "c-topic-reproductive-strategies-life-cycle-transitions-worked",
+          "retrievalTarget": "c-topic-reproductive-strategies-life-cycle-transitions-check",
+          "evidenceTarget": "c-topic-reproductive-strategies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "gametophyte",
+            "sporophyte",
+            "spore",
+            "gamete"
+          ]
+        },
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "partId": "c-topic-reproductive-strategies-animal-strategies",
+          "teachingTarget": "c-topic-reproductive-strategies-animal-strategies-teaching",
+          "visualTarget": "c-topic-reproductive-strategies-animal-strategies-figure",
+          "workedTarget": "c-topic-reproductive-strategies-animal-strategies-worked",
+          "retrievalTarget": "c-topic-reproductive-strategies-animal-strategies-check",
+          "evidenceTarget": "c-topic-reproductive-strategies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "Daphnia",
+            "sea anemone",
+            "polyp",
+            "medusa"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-07-c-lesson-07-anchor",
+        "c-topic-reproductive-strategies-guided-construct",
+        "c-chapter-construct-03"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-1sts-evidence-and-perspectives",
+      "outcomeId": "C1.1sts",
+      "requiredSourcePage": 66,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that science and technology are developed to meet societal needs and expand human capability (SEC1) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "c-topic-reproductive-strategies",
+          "partId": "c-topic-reproductive-strategies-evidence-and-applications",
+          "teachingTarget": "c-topic-reproductive-strategies-evidence-and-applications-teaching",
+          "evidenceTarget": "c-topic-reproductive-strategies-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "c-application-clonal-capability-and-conservation"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-1s-online-operation",
+      "outcomeId": "C1.1s",
+      "requiredSourcePage": 67,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Which visible features support a phase classification, and what can phase counts tell us? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-observation-and-simulation",
+          "requiredSkillTask": "c-topic-mitosis-observation-and-simulation-skill-task",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "optionalExtension": "c-investigation-cell-observations",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-cell-observations",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-03-c-lesson-03-bounded",
+        "c-investigation-cell-observations-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-2s-online-operation",
+      "outcomeId": "C1.2s",
+      "requiredSourcePage": 67,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-observation-and-simulation",
+          "requiredSkillTask": "c-topic-mitosis-observation-and-simulation-skill-task",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "optionalExtension": "c-investigation-cell-observations",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-cell-observations",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-chapter-construct-02",
+        "c-investigation-cell-observations-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-3s-online-operation",
+      "outcomeId": "C1.3s",
+      "requiredSourcePage": 67,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-observation-and-simulation",
+          "requiredSkillTask": "c-topic-mitosis-observation-and-simulation-skill-task",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "optionalExtension": "c-investigation-cell-observations",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-cell-observations",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-03-c-lesson-03-evidence",
+        "c-practice-final-c-lesson-03-c-lesson-03-bounded",
+        "c-topic-the-cell-cycle-guided-construct",
+        "c-investigation-cell-observations-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c1-4s-online-operation",
+      "outcomeId": "C1.4s",
+      "requiredSourcePage": 68,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "c-topic-mitosis",
+          "partId": "c-topic-mitosis-observation-and-simulation",
+          "requiredSkillTask": "c-topic-mitosis-observation-and-simulation-skill-task",
+          "evidenceTarget": "c-topic-mitosis-evidence",
+          "optionalExtension": "c-investigation-cell-observations",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-cell-observations",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-topic-the-cell-cycle-guided-construct",
+        "c-investigation-cell-observations-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-1k-mendel-evidence",
+      "outcomeId": "C2.1k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Use P, F1 and F2 observations to explain dominance and allele segregation; distinguish evidence from a statement of a rule.",
+      "targets": [
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "partId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+          "teachingTarget": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-teaching",
+          "visualTarget": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-figure",
+          "workedTarget": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-worked",
+          "retrievalTarget": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-check",
+          "evidenceTarget": "c-topic-mendelian-genetics-evidence",
+          "termsToDefineBeforeExplanation": [
+            "P generation",
+            "F1",
+            "F2",
+            "true breeding",
+            "reciprocal cross"
+          ]
+        },
+        {
+          "topicId": "c-topic-mendelian-genetics",
+          "partId": "c-topic-mendelian-genetics-segregation",
+          "teachingTarget": "c-topic-mendelian-genetics-segregation-teaching",
+          "visualTarget": "c-topic-mendelian-genetics-segregation-figure",
+          "workedTarget": "c-topic-mendelian-genetics-segregation-worked",
+          "retrievalTarget": "c-topic-mendelian-genetics-segregation-check",
+          "evidenceTarget": "c-topic-mendelian-genetics-evidence",
+          "termsToDefineBeforeExplanation": [
+            "allele pair",
+            "gamete",
+            "segregation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-08-c-lesson-08-anchor",
+        "c-practice-chapter-c-lesson-08-c-lesson-08-evidence",
+        "c-practice-final-c-lesson-08-c-lesson-08-bounded",
+        "c-topic-mendelian-genetics-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-1k-independent-assortment",
+      "outcomeId": "C2.1k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect independently orienting different chromosome pairs to allele combinations in gametes and a dihybrid cross; specify linkage limitations.",
+      "targets": [
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+          "teachingTarget": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-teaching",
+          "visualTarget": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-figure",
+          "workedTarget": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-worked",
+          "retrievalTarget": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-check",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "termsToDefineBeforeExplanation": [
+            "independent assortment",
+            "four gamete types",
+            "two loci"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-12-c-lesson-12-evidence",
+        "c-topic-single-and-two-trait-crosses-guided-construct",
+        "c-chapter-construct-04"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-2k-dominant-recessive-cross",
+      "outcomeId": "C2.2k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Define parental genotypes, gametes and inheritance assumptions, then calculate genotype and phenotype probabilities in a complete-dominance cross.",
+      "targets": [
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "partId": "c-topic-genes-alleles-and-traits-inheritance-language",
+          "teachingTarget": "c-topic-genes-alleles-and-traits-inheritance-language-teaching",
+          "visualTarget": "c-topic-genes-alleles-and-traits-inheritance-language-figure",
+          "workedTarget": "c-topic-genes-alleles-and-traits-inheritance-language-worked",
+          "retrievalTarget": "c-topic-genes-alleles-and-traits-inheritance-language-check",
+          "evidenceTarget": "c-topic-genes-alleles-and-traits-evidence",
+          "termsToDefineBeforeExplanation": [
+            "gene",
+            "allele",
+            "genotype",
+            "phenotype",
+            "homozygous",
+            "heterozygous"
+          ]
+        },
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "partId": "c-topic-genes-alleles-and-traits-trait-expression",
+          "teachingTarget": "c-topic-genes-alleles-and-traits-trait-expression-teaching",
+          "visualTarget": "c-topic-genes-alleles-and-traits-trait-expression-figure",
+          "workedTarget": "c-topic-genes-alleles-and-traits-trait-expression-worked",
+          "retrievalTarget": "c-topic-genes-alleles-and-traits-trait-expression-check",
+          "evidenceTarget": "c-topic-genes-alleles-and-traits-evidence",
+          "termsToDefineBeforeExplanation": [
+            "dominant",
+            "recessive",
+            "allele product"
+          ]
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-monohybrid-crosses",
+          "teachingTarget": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-teaching",
+          "visualTarget": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-figure",
+          "workedTarget": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-worked",
+          "retrievalTarget": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-check",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "termsToDefineBeforeExplanation": [
+            "gamete probability",
+            "genotype ratio",
+            "phenotype ratio"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-09-c-lesson-09-anchor",
+        "c-practice-chapter-c-lesson-09-c-lesson-09-evidence",
+        "c-practice-chapter-c-lesson-09-c-lesson-09-transfer",
+        "c-practice-chapter-c-lesson-10-c-lesson-10-evidence",
+        "c-practice-final-c-lesson-10-c-lesson-10-bounded",
+        "c-practice-chapter-c-lesson-10-c-lesson-10-transfer",
+        "c-topic-mendelian-genetics-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-2k-probability",
+      "outcomeId": "C2.2k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Apply multiplication to independent joint events and addition to mutually exclusive alternatives; distinguish expected ratios from guaranteed offspring counts.",
+      "targets": [
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-probability-rules",
+          "teachingTarget": "c-topic-single-and-two-trait-crosses-probability-rules-teaching",
+          "visualTarget": "c-topic-single-and-two-trait-crosses-probability-rules-figure",
+          "workedTarget": "c-topic-single-and-two-trait-crosses-probability-rules-worked",
+          "retrievalTarget": "c-topic-single-and-two-trait-crosses-probability-rules-check",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "termsToDefineBeforeExplanation": [
+            "product rule",
+            "sum rule",
+            "independent trials"
+          ]
+        },
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+          "teachingTarget": "c-topic-single-and-two-trait-crosses-testing-a-model-teaching",
+          "visualTarget": "c-topic-single-and-two-trait-crosses-testing-a-model-figure",
+          "workedTarget": "c-topic-single-and-two-trait-crosses-testing-a-model-worked",
+          "retrievalTarget": "c-topic-single-and-two-trait-crosses-testing-a-model-check",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "termsToDefineBeforeExplanation": [
+            "observed count",
+            "expected count",
+            "sample size"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-08-c-lesson-08-transfer",
+        "c-practice-final-c-lesson-09-c-lesson-09-bounded",
+        "c-practice-chapter-c-lesson-10-c-lesson-10-evidence",
+        "c-practice-chapter-c-lesson-12-c-lesson-12-anchor",
+        "c-practice-final-c-lesson-13-c-lesson-13-bounded",
+        "c-practice-final-c-lesson-23-c-lesson-23-bounded",
+        "c-practice-chapter-c-lesson-23-c-lesson-23-transfer",
+        "c-topic-single-and-two-trait-crosses-guided-construct",
+        "c-chapter-construct-04",
+        "c-chapter-construct-05",
+        "c-investigation-inheritance-data-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-2k-other-alleles",
+      "outcomeId": "C2.2k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare incomplete dominance, codominance and multiple alleles with a worked cross for each; a diploid individual carries two alleles per autosomal locus even when the population has more.",
+      "targets": [
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "partId": "c-topic-other-modes-of-inheritance-incomplete-dominance",
+          "teachingTarget": "c-topic-other-modes-of-inheritance-incomplete-dominance-teaching",
+          "visualTarget": "c-topic-other-modes-of-inheritance-incomplete-dominance-figure",
+          "workedTarget": "c-topic-other-modes-of-inheritance-incomplete-dominance-worked",
+          "retrievalTarget": "c-topic-other-modes-of-inheritance-incomplete-dominance-check",
+          "evidenceTarget": "c-topic-other-modes-of-inheritance-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intermediate heterozygote",
+            "genotype",
+            "phenotype"
+          ]
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "partId": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles",
+          "teachingTarget": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-teaching",
+          "visualTarget": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-figure",
+          "workedTarget": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-worked",
+          "retrievalTarget": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-check",
+          "evidenceTarget": "c-topic-other-modes-of-inheritance-evidence",
+          "termsToDefineBeforeExplanation": [
+            "codominance",
+            "ABO",
+            "multiple alleles"
+          ]
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "partId": "c-topic-other-modes-of-inheritance-comparing-model-predictions",
+          "teachingTarget": "c-topic-other-modes-of-inheritance-comparing-model-predictions-teaching",
+          "visualTarget": "c-topic-other-modes-of-inheritance-comparing-model-predictions-figure",
+          "workedTarget": "c-topic-other-modes-of-inheritance-comparing-model-predictions-worked",
+          "retrievalTarget": "c-topic-other-modes-of-inheritance-comparing-model-predictions-check",
+          "evidenceTarget": "c-topic-other-modes-of-inheritance-evidence",
+          "termsToDefineBeforeExplanation": [
+            "inheritance model",
+            "notation",
+            "conditional probability"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-11-c-lesson-11-evidence",
+        "c-practice-final-c-lesson-11-c-lesson-11-bounded",
+        "c-practice-chapter-c-lesson-11-c-lesson-11-transfer",
+        "c-topic-other-modes-of-inheritance-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-3k-linkage",
+      "outcomeId": "C2.3k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain co-inheritance of linked loci and production of recombinant combinations by crossing over.",
+      "targets": [
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "partId": "c-topic-chromosome-mapping-linkage-and-recombination",
+          "teachingTarget": "c-topic-chromosome-mapping-linkage-and-recombination-teaching",
+          "visualTarget": "c-topic-chromosome-mapping-linkage-and-recombination-figure",
+          "workedTarget": "c-topic-chromosome-mapping-linkage-and-recombination-worked",
+          "retrievalTarget": "c-topic-chromosome-mapping-linkage-and-recombination-check",
+          "evidenceTarget": "c-topic-chromosome-mapping-evidence",
+          "termsToDefineBeforeExplanation": [
+            "linked loci",
+            "parental",
+            "recombinant",
+            "crossing over"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-12-c-lesson-12-transfer",
+        "c-practice-final-c-lesson-14-c-lesson-14-bounded",
+        "c-practice-chapter-c-lesson-14-c-lesson-14-transfer",
+        "c-practice-chapter-c-lesson-24-c-lesson-24-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-3k-mapping",
+      "outcomeId": "C2.3k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Classify parental/recombinant offspring, calculate recombinant proportion with the complete denominator, estimate map distance and infer a consistent gene order; discuss sampling and undetected multiple crossovers.",
+      "targets": [
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "partId": "c-topic-chromosome-mapping-recombination-frequency",
+          "teachingTarget": "c-topic-chromosome-mapping-recombination-frequency-teaching",
+          "visualTarget": "c-topic-chromosome-mapping-recombination-frequency-figure",
+          "workedTarget": "c-topic-chromosome-mapping-recombination-frequency-worked",
+          "retrievalTarget": "c-topic-chromosome-mapping-recombination-frequency-check",
+          "evidenceTarget": "c-topic-chromosome-mapping-evidence",
+          "termsToDefineBeforeExplanation": [
+            "test cross",
+            "recombinant count",
+            "total offspring",
+            "map unit"
+          ]
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "partId": "c-topic-chromosome-mapping-gene-order",
+          "teachingTarget": "c-topic-chromosome-mapping-gene-order-teaching",
+          "visualTarget": "c-topic-chromosome-mapping-gene-order-figure",
+          "workedTarget": "c-topic-chromosome-mapping-gene-order-worked",
+          "retrievalTarget": "c-topic-chromosome-mapping-gene-order-check",
+          "evidenceTarget": "c-topic-chromosome-mapping-evidence",
+          "termsToDefineBeforeExplanation": [
+            "pairwise distance",
+            "gene order",
+            "reversed map"
+          ]
+        },
+        {
+          "topicId": "c-topic-chromosome-mapping",
+          "partId": "c-topic-chromosome-mapping-limits-of-linkage-estimates",
+          "teachingTarget": "c-topic-chromosome-mapping-limits-of-linkage-estimates-teaching",
+          "visualTarget": "c-topic-chromosome-mapping-limits-of-linkage-estimates-figure",
+          "workedTarget": "c-topic-chromosome-mapping-limits-of-linkage-estimates-worked",
+          "retrievalTarget": "c-topic-chromosome-mapping-limits-of-linkage-estimates-check",
+          "evidenceTarget": "c-topic-chromosome-mapping-evidence",
+          "termsToDefineBeforeExplanation": [
+            "fifty-percent ceiling",
+            "multiple crossover",
+            "sampling uncertainty"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-12-c-lesson-12-bounded",
+        "c-practice-chapter-c-lesson-14-c-lesson-14-evidence",
+        "c-practice-final-c-lesson-14-c-lesson-14-bounded",
+        "c-practice-chapter-c-lesson-14-c-lesson-14-transfer",
+        "c-topic-chromosome-mapping-guided-construct",
+        "c-chapter-construct-06"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-4k-polygenic-variation",
+      "outcomeId": "C2.4k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare variation when one locus versus several loci contribute to a trait; explain continuous variation and environmental influence without equating gene count with a guaranteed phenotype.",
+      "targets": [
+        {
+          "topicId": "c-topic-genes-alleles-and-traits",
+          "partId": "c-topic-genes-alleles-and-traits-genes-and-environment",
+          "teachingTarget": "c-topic-genes-alleles-and-traits-genes-and-environment-teaching",
+          "visualTarget": "c-topic-genes-alleles-and-traits-genes-and-environment-figure",
+          "workedTarget": "c-topic-genes-alleles-and-traits-genes-and-environment-worked",
+          "retrievalTarget": "c-topic-genes-alleles-and-traits-genes-and-environment-check",
+          "evidenceTarget": "c-topic-genes-alleles-and-traits-evidence",
+          "termsToDefineBeforeExplanation": [
+            "polygenic trait",
+            "environmental influence",
+            "continuous variation"
+          ]
+        },
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "partId": "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+          "teachingTarget": "c-topic-other-modes-of-inheritance-many-genes-and-environment-teaching",
+          "visualTarget": "c-topic-other-modes-of-inheritance-many-genes-and-environment-figure",
+          "workedTarget": "c-topic-other-modes-of-inheritance-many-genes-and-environment-worked",
+          "retrievalTarget": "c-topic-other-modes-of-inheritance-many-genes-and-environment-check",
+          "evidenceTarget": "c-topic-other-modes-of-inheritance-evidence",
+          "termsToDefineBeforeExplanation": [
+            "polygenic",
+            "continuous variation",
+            "environment"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-15-c-lesson-15-anchor",
+        "c-practice-final-c-lesson-15-c-lesson-15-bounded",
+        "c-practice-chapter-c-lesson-15-c-lesson-15-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-5k-sex-linked-autosomal",
+      "outcomeId": "C2.5k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Use Morgan-type evidence and explicit chromosome notation to compare X-linked, Y-linked and autosomal transmission.",
+      "targets": [
+        {
+          "topicId": "c-topic-other-modes-of-inheritance",
+          "partId": "c-topic-other-modes-of-inheritance-sex-linkage",
+          "teachingTarget": "c-topic-other-modes-of-inheritance-sex-linkage-teaching",
+          "visualTarget": "c-topic-other-modes-of-inheritance-sex-linkage-figure",
+          "workedTarget": "c-topic-other-modes-of-inheritance-sex-linkage-worked",
+          "retrievalTarget": "c-topic-other-modes-of-inheritance-sex-linkage-check",
+          "evidenceTarget": "c-topic-other-modes-of-inheritance-evidence",
+          "termsToDefineBeforeExplanation": [
+            "X-linked",
+            "Y-linked",
+            "autosomal",
+            "hemizygous"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-13-c-lesson-13-anchor",
+        "c-practice-chapter-c-lesson-13-c-lesson-13-evidence",
+        "c-practice-final-c-lesson-13-c-lesson-13-bounded",
+        "c-practice-chapter-c-lesson-13-c-lesson-13-transfer",
+        "c-practice-chapter-c-lesson-24-c-lesson-24-transfer",
+        "c-chapter-construct-05"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-5k-pedigree",
+      "outcomeId": "C2.5k",
+      "requiredSourcePage": 69,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Construct and interpret a fictional pedigree, assign possible rather than unjustified certain genotypes, test competing models and calculate a conditional inheritance probability.",
+      "targets": [
+        {
+          "topicId": "c-topic-pedigrees",
+          "partId": "c-topic-pedigrees-symbols-and-evidence",
+          "teachingTarget": "c-topic-pedigrees-symbols-and-evidence-teaching",
+          "visualTarget": "c-topic-pedigrees-symbols-and-evidence-figure",
+          "workedTarget": "c-topic-pedigrees-symbols-and-evidence-worked",
+          "retrievalTarget": "c-topic-pedigrees-symbols-and-evidence-check",
+          "evidenceTarget": "c-topic-pedigrees-evidence",
+          "termsToDefineBeforeExplanation": [
+            "pedigree",
+            "generation",
+            "individual",
+            "affected",
+            "unaffected"
+          ]
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "partId": "c-topic-pedigrees-autosomal-hypotheses",
+          "teachingTarget": "c-topic-pedigrees-autosomal-hypotheses-teaching",
+          "visualTarget": "c-topic-pedigrees-autosomal-hypotheses-figure",
+          "workedTarget": "c-topic-pedigrees-autosomal-hypotheses-worked",
+          "retrievalTarget": "c-topic-pedigrees-autosomal-hypotheses-check",
+          "evidenceTarget": "c-topic-pedigrees-evidence",
+          "termsToDefineBeforeExplanation": [
+            "dominant",
+            "recessive",
+            "carrier",
+            "unknown genotype"
+          ]
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "partId": "c-topic-pedigrees-sex-linked-hypotheses",
+          "teachingTarget": "c-topic-pedigrees-sex-linked-hypotheses-teaching",
+          "visualTarget": "c-topic-pedigrees-sex-linked-hypotheses-figure",
+          "workedTarget": "c-topic-pedigrees-sex-linked-hypotheses-worked",
+          "retrievalTarget": "c-topic-pedigrees-sex-linked-hypotheses-check",
+          "evidenceTarget": "c-topic-pedigrees-evidence",
+          "termsToDefineBeforeExplanation": [
+            "X-linked inheritance",
+            "transmission",
+            "alternative model"
+          ]
+        },
+        {
+          "topicId": "c-topic-pedigrees",
+          "partId": "c-topic-pedigrees-risk-and-information",
+          "teachingTarget": "c-topic-pedigrees-risk-and-information-teaching",
+          "visualTarget": "c-topic-pedigrees-risk-and-information-figure",
+          "workedTarget": "c-topic-pedigrees-risk-and-information-worked",
+          "retrievalTarget": "c-topic-pedigrees-risk-and-information-check",
+          "evidenceTarget": "c-topic-pedigrees-evidence",
+          "termsToDefineBeforeExplanation": [
+            "probability",
+            "privacy",
+            "consent",
+            "limitation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-13-c-lesson-13-evidence",
+        "c-topic-pedigrees-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-1sts-evidence-and-perspectives",
+      "outcomeId": "C2.1sts",
+      "requiredSourcePage": 69,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1] Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "c-topic-pedigrees",
+          "partId": "c-topic-pedigrees-risk-and-information",
+          "teachingTarget": "c-topic-pedigrees-risk-and-information-teaching",
+          "evidenceTarget": "c-topic-pedigrees-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "c-application-genetic-information-and-perspectives"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-1s-online-operation",
+      "outcomeId": "C2.1s",
+      "requiredSourcePage": 70,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "How closely do simulated Aa × Aa offspring match the predicted ratio in different samples? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+          "requiredSkillTask": "c-topic-single-and-two-trait-crosses-testing-a-model-skill-task",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "optionalExtension": "c-investigation-inheritance-data",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-inheritance-data",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-investigation-inheritance-data-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-2s-online-operation",
+      "outcomeId": "C2.2s",
+      "requiredSourcePage": 70,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+          "requiredSkillTask": "c-topic-single-and-two-trait-crosses-testing-a-model-skill-task",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "optionalExtension": "c-investigation-inheritance-data",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-inheritance-data",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-investigation-inheritance-data-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-3s-online-operation",
+      "outcomeId": "C2.3s",
+      "requiredSourcePage": 70,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+          "requiredSkillTask": "c-topic-single-and-two-trait-crosses-testing-a-model-skill-task",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "optionalExtension": "c-investigation-inheritance-data",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-inheritance-data",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-23-c-lesson-23-bounded",
+        "c-practice-chapter-c-lesson-23-c-lesson-23-transfer",
+        "c-investigation-inheritance-data-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c2-4s-online-operation",
+      "outcomeId": "C2.4s",
+      "requiredSourcePage": 70,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "c-topic-single-and-two-trait-crosses",
+          "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+          "requiredSkillTask": "c-topic-single-and-two-trait-crosses-testing-a-model-skill-task",
+          "evidenceTarget": "c-topic-single-and-two-trait-crosses-evidence",
+          "optionalExtension": "c-investigation-inheritance-data",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-inheritance-data",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-investigation-inheritance-data-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-1k-historical-evidence",
+      "outcomeId": "C3.1k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect hereditary-material experiments, base ratios and X-ray diffraction constraints to the double-helix model; accurately identify Franklin’s evidence and Watson and Crick’s model-building contributions.",
+      "targets": [
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "partId": "c-topic-dna-and-its-history-evidence-for-hereditary-material",
+          "teachingTarget": "c-topic-dna-and-its-history-evidence-for-hereditary-material-teaching",
+          "visualTarget": "c-topic-dna-and-its-history-evidence-for-hereditary-material-figure",
+          "workedTarget": "c-topic-dna-and-its-history-evidence-for-hereditary-material-worked",
+          "retrievalTarget": "c-topic-dna-and-its-history-evidence-for-hereditary-material-check",
+          "evidenceTarget": "c-topic-dna-and-its-history-evidence",
+          "termsToDefineBeforeExplanation": [
+            "transformation",
+            "experimental control",
+            "DNA",
+            "protein"
+          ]
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "partId": "c-topic-dna-and-its-history-structural-evidence",
+          "teachingTarget": "c-topic-dna-and-its-history-structural-evidence-teaching",
+          "visualTarget": "c-topic-dna-and-its-history-structural-evidence-figure",
+          "workedTarget": "c-topic-dna-and-its-history-structural-evidence-worked",
+          "retrievalTarget": "c-topic-dna-and-its-history-structural-evidence-check",
+          "evidenceTarget": "c-topic-dna-and-its-history-evidence",
+          "termsToDefineBeforeExplanation": [
+            "Franklin",
+            "Watson",
+            "Crick",
+            "X-ray diffraction",
+            "Chargaff"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-16-c-lesson-16-anchor",
+        "c-practice-chapter-c-lesson-16-c-lesson-16-transfer",
+        "c-topic-dna-and-its-history-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-2k-sequence-information",
+      "outcomeId": "C3.2k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how base order in chromosome DNA carries information; label nucleotide components and complementary antiparallel strands.",
+      "targets": [
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "partId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+          "teachingTarget": "c-topic-dna-and-its-history-nucleotides-and-direction-teaching",
+          "visualTarget": "c-topic-dna-and-its-history-nucleotides-and-direction-figure",
+          "workedTarget": "c-topic-dna-and-its-history-nucleotides-and-direction-worked",
+          "retrievalTarget": "c-topic-dna-and-its-history-nucleotides-and-direction-check",
+          "evidenceTarget": "c-topic-dna-and-its-history-evidence",
+          "termsToDefineBeforeExplanation": [
+            "phosphate",
+            "deoxyribose",
+            "base",
+            "5-prime",
+            "3-prime"
+          ]
+        },
+        {
+          "topicId": "c-topic-dna-and-its-history",
+          "partId": "c-topic-dna-and-its-history-the-double-helix",
+          "teachingTarget": "c-topic-dna-and-its-history-the-double-helix-teaching",
+          "visualTarget": "c-topic-dna-and-its-history-the-double-helix-figure",
+          "workedTarget": "c-topic-dna-and-its-history-the-double-helix-worked",
+          "retrievalTarget": "c-topic-dna-and-its-history-the-double-helix-check",
+          "evidenceTarget": "c-topic-dna-and-its-history-evidence",
+          "termsToDefineBeforeExplanation": [
+            "complementary",
+            "antiparallel",
+            "hydrogen bond",
+            "backbone"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-16-c-lesson-16-evidence",
+        "c-practice-final-c-lesson-16-c-lesson-16-bounded",
+        "c-practice-chapter-c-lesson-16-c-lesson-16-transfer",
+        "c-topic-dna-and-its-history-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-2k-replication",
+      "outcomeId": "C3.2k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Use complementary templates to explain semiconservative copying; show 5′→3′ synthesis, primer dependence and continuous/discontinuous synthesis on an oriented fork.",
+      "targets": [
+        {
+          "topicId": "c-topic-dna-replication",
+          "partId": "c-topic-dna-replication-semiconservative-replication",
+          "teachingTarget": "c-topic-dna-replication-semiconservative-replication-teaching",
+          "visualTarget": "c-topic-dna-replication-semiconservative-replication-figure",
+          "workedTarget": "c-topic-dna-replication-semiconservative-replication-worked",
+          "retrievalTarget": "c-topic-dna-replication-semiconservative-replication-check",
+          "evidenceTarget": "c-topic-dna-replication-evidence",
+          "termsToDefineBeforeExplanation": [
+            "template",
+            "parental strand",
+            "daughter strand"
+          ]
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "partId": "c-topic-dna-replication-enzymes-and-direction",
+          "teachingTarget": "c-topic-dna-replication-enzymes-and-direction-teaching",
+          "visualTarget": "c-topic-dna-replication-enzymes-and-direction-figure",
+          "workedTarget": "c-topic-dna-replication-enzymes-and-direction-worked",
+          "retrievalTarget": "c-topic-dna-replication-enzymes-and-direction-check",
+          "evidenceTarget": "c-topic-dna-replication-evidence",
+          "termsToDefineBeforeExplanation": [
+            "helicase",
+            "primer",
+            "DNA polymerase",
+            "5-prime to 3-prime"
+          ]
+        },
+        {
+          "topicId": "c-topic-dna-replication",
+          "partId": "c-topic-dna-replication-leading-and-lagging-synthesis",
+          "teachingTarget": "c-topic-dna-replication-leading-and-lagging-synthesis-teaching",
+          "visualTarget": "c-topic-dna-replication-leading-and-lagging-synthesis-figure",
+          "workedTarget": "c-topic-dna-replication-leading-and-lagging-synthesis-worked",
+          "retrievalTarget": "c-topic-dna-replication-leading-and-lagging-synthesis-check",
+          "evidenceTarget": "c-topic-dna-replication-evidence",
+          "termsToDefineBeforeExplanation": [
+            "replication fork",
+            "leading strand",
+            "lagging strand",
+            "Okazaki fragment",
+            "ligase"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-17-c-lesson-17-anchor",
+        "c-practice-chapter-c-lesson-17-c-lesson-17-evidence",
+        "c-practice-chapter-c-lesson-17-c-lesson-17-transfer",
+        "c-topic-dna-replication-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-2k-replication-check",
+      "outcomeId": "C3.2k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Predict products under competing replication models and distinguish proofreading from perfect error prevention.",
+      "targets": [
+        {
+          "topicId": "c-topic-dna-replication",
+          "partId": "c-topic-dna-replication-replication-evidence",
+          "teachingTarget": "c-topic-dna-replication-replication-evidence-teaching",
+          "visualTarget": "c-topic-dna-replication-replication-evidence-figure",
+          "workedTarget": "c-topic-dna-replication-replication-evidence-worked",
+          "retrievalTarget": "c-topic-dna-replication-replication-evidence-check",
+          "evidenceTarget": "c-topic-dna-replication-evidence",
+          "termsToDefineBeforeExplanation": [
+            "proofreading",
+            "mutation",
+            "experimental prediction"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-17-c-lesson-17-bounded"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-3k-transcription",
+      "outcomeId": "C3.3k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Given labelled coding and template strands, produce an oriented RNA sequence by reading the template 3′→5′ and synthesizing RNA 5′→3′; explain coding-strand identity except T/U.",
+      "targets": [
+        {
+          "topicId": "c-topic-transcription",
+          "partId": "c-topic-transcription-selecting-a-template",
+          "teachingTarget": "c-topic-transcription-selecting-a-template-teaching",
+          "visualTarget": "c-topic-transcription-selecting-a-template-figure",
+          "workedTarget": "c-topic-transcription-selecting-a-template-worked",
+          "retrievalTarget": "c-topic-transcription-selecting-a-template-check",
+          "evidenceTarget": "c-topic-transcription-evidence",
+          "termsToDefineBeforeExplanation": [
+            "promoter",
+            "template strand",
+            "coding strand",
+            "RNA polymerase"
+          ]
+        },
+        {
+          "topicId": "c-topic-transcription",
+          "partId": "c-topic-transcription-making-rna",
+          "teachingTarget": "c-topic-transcription-making-rna-teaching",
+          "visualTarget": "c-topic-transcription-making-rna-figure",
+          "workedTarget": "c-topic-transcription-making-rna-worked",
+          "retrievalTarget": "c-topic-transcription-making-rna-check",
+          "evidenceTarget": "c-topic-transcription-evidence",
+          "termsToDefineBeforeExplanation": [
+            "RNA",
+            "uracil",
+            "complementarity",
+            "5-prime to 3-prime"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-18-c-lesson-18-anchor",
+        "c-practice-chapter-c-lesson-18-c-lesson-18-evidence",
+        "c-practice-final-c-lesson-19-c-lesson-19-bounded",
+        "c-topic-transcription-guided-construct",
+        "c-chapter-construct-07"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-3k-rna-processing",
+      "outcomeId": "C3.3k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish primary transcript from processed eukaryotic mRNA and explain intron removal/exon joining at the taught general level.",
+      "targets": [
+        {
+          "topicId": "c-topic-transcription",
+          "partId": "c-topic-transcription-processing-and-expression",
+          "teachingTarget": "c-topic-transcription-processing-and-expression-teaching",
+          "visualTarget": "c-topic-transcription-processing-and-expression-figure",
+          "workedTarget": "c-topic-transcription-processing-and-expression-worked",
+          "retrievalTarget": "c-topic-transcription-processing-and-expression-check",
+          "evidenceTarget": "c-topic-transcription-evidence",
+          "termsToDefineBeforeExplanation": [
+            "mRNA",
+            "intron",
+            "exon",
+            "splicing"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-18-c-lesson-18-transfer",
+        "c-practice-chapter-c-lesson-24-c-lesson-24-evidence"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-3k-translation-code",
+      "outcomeId": "C3.3k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Read mRNA codons 5′→3′ from a stated start/frame with a supplied code table; identify amino acids and stop without assigning a stop amino acid.",
+      "targets": [
+        {
+          "topicId": "c-topic-translation",
+          "partId": "c-topic-translation-reading-the-genetic-code",
+          "teachingTarget": "c-topic-translation-reading-the-genetic-code-teaching",
+          "visualTarget": "c-topic-translation-reading-the-genetic-code-figure",
+          "workedTarget": "c-topic-translation-reading-the-genetic-code-worked",
+          "retrievalTarget": "c-topic-translation-reading-the-genetic-code-check",
+          "evidenceTarget": "c-topic-translation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "codon",
+            "reading frame",
+            "start codon",
+            "stop codon"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-19-c-lesson-19-bounded",
+        "c-topic-translation-guided-construct",
+        "c-chapter-construct-07"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-3k-translation-mechanism",
+      "outcomeId": "C3.3k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish mRNA codon from tRNA anticodon, explain ribosome/adaptor roles and peptide bonds, and sequence initiation, elongation and termination.",
+      "targets": [
+        {
+          "topicId": "c-topic-translation",
+          "partId": "c-topic-translation-adaptors-and-peptide-bonds",
+          "teachingTarget": "c-topic-translation-adaptors-and-peptide-bonds-teaching",
+          "visualTarget": "c-topic-translation-adaptors-and-peptide-bonds-figure",
+          "workedTarget": "c-topic-translation-adaptors-and-peptide-bonds-worked",
+          "retrievalTarget": "c-topic-translation-adaptors-and-peptide-bonds-check",
+          "evidenceTarget": "c-topic-translation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "tRNA",
+            "anticodon",
+            "ribosome",
+            "amino acid",
+            "peptide bond"
+          ]
+        },
+        {
+          "topicId": "c-topic-translation",
+          "partId": "c-topic-translation-initiation-to-termination",
+          "teachingTarget": "c-topic-translation-initiation-to-termination-teaching",
+          "visualTarget": "c-topic-translation-initiation-to-termination-figure",
+          "workedTarget": "c-topic-translation-initiation-to-termination-worked",
+          "retrievalTarget": "c-topic-translation-initiation-to-termination-check",
+          "evidenceTarget": "c-topic-translation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "initiation",
+            "elongation",
+            "termination",
+            "release factor"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-guided-c-lesson-19-c-lesson-19-anchor",
+        "c-topic-translation-guided-construct"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-3k-sequence-function",
+      "outcomeId": "C3.3k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Connect amino-acid sequence to folding/function while distinguishing an inferred sequence change from a proven phenotype.",
+      "targets": [
+        {
+          "topicId": "c-topic-translation",
+          "partId": "c-topic-translation-from-sequence-to-function",
+          "teachingTarget": "c-topic-translation-from-sequence-to-function-teaching",
+          "visualTarget": "c-topic-translation-from-sequence-to-function-figure",
+          "workedTarget": "c-topic-translation-from-sequence-to-function-worked",
+          "retrievalTarget": "c-topic-translation-from-sequence-to-function-check",
+          "evidenceTarget": "c-topic-translation-evidence",
+          "termsToDefineBeforeExplanation": [
+            "polypeptide",
+            "folding",
+            "protein function"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-19-c-lesson-19-transfer"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-4k-cut-and-join",
+      "outcomeId": "C3.4k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Match restriction enzymes to recognition sites and show DNA cleavage; explain ligase joining the sugar-phosphate backbone rather than inventing bases or joining any incompatible ends.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-cutting-and-joining-dna",
+          "teachingTarget": "c-topic-genetic-technologies-cutting-and-joining-dna-teaching",
+          "visualTarget": "c-topic-genetic-technologies-cutting-and-joining-dna-figure",
+          "workedTarget": "c-topic-genetic-technologies-cutting-and-joining-dna-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-cutting-and-joining-dna-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "restriction enzyme",
+            "recognition site",
+            "sticky end",
+            "ligase"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-21-c-lesson-21-anchor"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-5k-transformation",
+      "outcomeId": "C3.5k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how a DNA construct can enter a cell and how retained/expressed DNA can change it; distinguish uptake, selection, expression and stable genome integration rather than claiming every plasmid integrates.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-transforming-cells",
+          "teachingTarget": "c-topic-genetic-technologies-transforming-cells-teaching",
+          "visualTarget": "c-topic-genetic-technologies-transforming-cells-figure",
+          "workedTarget": "c-topic-genetic-technologies-transforming-cells-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-transforming-cells-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "vector",
+            "plasmid",
+            "insert",
+            "transformation",
+            "selection"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-21-c-lesson-21-evidence",
+        "c-practice-final-c-lesson-21-c-lesson-21-bounded",
+        "c-practice-chapter-c-lesson-21-c-lesson-21-transfer",
+        "c-practice-final-c-lesson-24-c-lesson-24-bounded"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-6k-mutation-type",
+      "outcomeId": "C3.6k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare substitution, insertion and deletion in a specified reading frame, including when a change causes a frameshift.",
+      "targets": [
+        {
+          "topicId": "c-topic-mutations",
+          "partId": "c-topic-mutations-types-of-sequence-change",
+          "teachingTarget": "c-topic-mutations-types-of-sequence-change-teaching",
+          "visualTarget": "c-topic-mutations-types-of-sequence-change-figure",
+          "workedTarget": "c-topic-mutations-types-of-sequence-change-worked",
+          "retrievalTarget": "c-topic-mutations-types-of-sequence-change-check",
+          "evidenceTarget": "c-topic-mutations-evidence",
+          "termsToDefineBeforeExplanation": [
+            "substitution",
+            "insertion",
+            "deletion",
+            "frameshift"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-topic-mutations-guided-construct",
+        "c-chapter-construct-08",
+        "c-investigation-molecular-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-6k-mutation-effect",
+      "outcomeId": "C3.6k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain silent, missense, nonsense or regulatory effects with sequence evidence; random mutation can be harmful, neutral or beneficial in context.",
+      "targets": [
+        {
+          "topicId": "c-topic-mutations",
+          "partId": "c-topic-mutations-effects-on-gene-products",
+          "teachingTarget": "c-topic-mutations-effects-on-gene-products-teaching",
+          "visualTarget": "c-topic-mutations-effects-on-gene-products-figure",
+          "workedTarget": "c-topic-mutations-effects-on-gene-products-worked",
+          "retrievalTarget": "c-topic-mutations-effects-on-gene-products-check",
+          "evidenceTarget": "c-topic-mutations-evidence",
+          "termsToDefineBeforeExplanation": [
+            "silent",
+            "missense",
+            "nonsense",
+            "regulatory mutation"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-19-c-lesson-19-evidence",
+        "c-practice-final-c-lesson-19-c-lesson-19-bounded",
+        "c-practice-chapter-c-lesson-19-c-lesson-19-transfer",
+        "c-practice-chapter-c-lesson-20-c-lesson-20-evidence",
+        "c-practice-chapter-c-lesson-20-c-lesson-20-transfer",
+        "c-practice-chapter-c-lesson-24-c-lesson-24-evidence",
+        "c-topic-mutations-guided-construct",
+        "c-chapter-construct-08"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-6k-inheritance-route",
+      "outcomeId": "C3.6k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish somatic from germ-line changes and new alleles from recombination; organisms do not mutate because they need a trait.",
+      "targets": [
+        {
+          "topicId": "c-topic-mutations",
+          "partId": "c-topic-mutations-inheritance-and-variation",
+          "teachingTarget": "c-topic-mutations-inheritance-and-variation-teaching",
+          "visualTarget": "c-topic-mutations-inheritance-and-variation-figure",
+          "workedTarget": "c-topic-mutations-inheritance-and-variation-worked",
+          "retrievalTarget": "c-topic-mutations-inheritance-and-variation-check",
+          "evidenceTarget": "c-topic-mutations-evidence",
+          "termsToDefineBeforeExplanation": [
+            "somatic mutation",
+            "germ-line mutation",
+            "random origin",
+            "selection"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-final-c-lesson-20-c-lesson-20-bounded"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-7k-sequence-relatedness",
+      "outcomeId": "C3.7k",
+      "requiredSourcePage": 71,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare aligned homologous sequences from nuclear, mitochondrial and chloroplast DNA to infer relatedness; state inheritance/source differences, alignment limits and why similarity alone is not certainty.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+          "teachingTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-teaching",
+          "visualTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+          "workedTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "nuclear DNA",
+            "mitochondrial DNA",
+            "chloroplast DNA",
+            "sequence comparison"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-application-aligned-sequence-relatedness"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-1sts-evidence-and-perspectives",
+      "outcomeId": "C3.1sts",
+      "requiredSourcePage": 71,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that science and technology have both intended and unintended consequences for humans and the environment (SEC3) [ICT F3–4.1] Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "teachingTarget": "c-topic-genetic-technologies-applications-and-uncertainty-teaching",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "c-application-crop-research-and-sustainability"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-2sts-evidence-and-perspectives",
+      "outcomeId": "C3.2sts",
+      "requiredSourcePage": 71,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that scientific research and technological development help achieve a sustainable society, economy and environment (SEC4a) [ICT F2–4.2, F2–4.8] Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "teachingTarget": "c-topic-genetic-technologies-applications-and-uncertainty-teaching",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "c-application-crop-research-and-sustainability"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-1s-online-operation",
+      "outcomeId": "C3.1s",
+      "requiredSourcePage": 72,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Can sequence and fragment evidence distinguish an insertion from a substitution? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "requiredSkillTask": "c-topic-genetic-technologies-applications-and-uncertainty-skill-task",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "optionalExtension": "c-investigation-molecular-evidence",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+          "teachingTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-teaching",
+          "visualTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+          "workedTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "nuclear DNA",
+            "mitochondrial DNA",
+            "chloroplast DNA",
+            "sequence comparison"
+          ]
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+          "teachingTarget": "c-topic-genetic-technologies-amplifying-and-separating-teaching",
+          "visualTarget": "c-topic-genetic-technologies-amplifying-and-separating-figure",
+          "workedTarget": "c-topic-genetic-technologies-amplifying-and-separating-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-amplifying-and-separating-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "PCR",
+            "primer",
+            "gel electrophoresis",
+            "fragment size",
+            "ladder"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-molecular-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-23-c-lesson-23-evidence",
+        "c-investigation-molecular-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-2s-online-operation",
+      "outcomeId": "C3.2s",
+      "requiredSourcePage": 72,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "requiredSkillTask": "c-topic-genetic-technologies-applications-and-uncertainty-skill-task",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "optionalExtension": "c-investigation-molecular-evidence",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+          "teachingTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-teaching",
+          "visualTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+          "workedTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "nuclear DNA",
+            "mitochondrial DNA",
+            "chloroplast DNA",
+            "sequence comparison"
+          ]
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+          "teachingTarget": "c-topic-genetic-technologies-amplifying-and-separating-teaching",
+          "visualTarget": "c-topic-genetic-technologies-amplifying-and-separating-figure",
+          "workedTarget": "c-topic-genetic-technologies-amplifying-and-separating-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-amplifying-and-separating-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "PCR",
+            "primer",
+            "gel electrophoresis",
+            "fragment size",
+            "ladder"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-molecular-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-investigation-molecular-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-3s-online-operation",
+      "outcomeId": "C3.3s",
+      "requiredSourcePage": 72,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "requiredSkillTask": "c-topic-genetic-technologies-applications-and-uncertainty-skill-task",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "optionalExtension": "c-investigation-molecular-evidence",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+          "teachingTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-teaching",
+          "visualTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+          "workedTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "nuclear DNA",
+            "mitochondrial DNA",
+            "chloroplast DNA",
+            "sequence comparison"
+          ]
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+          "teachingTarget": "c-topic-genetic-technologies-amplifying-and-separating-teaching",
+          "visualTarget": "c-topic-genetic-technologies-amplifying-and-separating-figure",
+          "workedTarget": "c-topic-genetic-technologies-amplifying-and-separating-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-amplifying-and-separating-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "PCR",
+            "primer",
+            "gel electrophoresis",
+            "fragment size",
+            "ladder"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-molecular-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-practice-chapter-c-lesson-23-c-lesson-23-evidence",
+        "c-topic-genetic-technologies-guided-construct",
+        "c-investigation-molecular-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    },
+    {
+      "id": "c3-4s-online-operation",
+      "outcomeId": "C3.4s",
+      "requiredSourcePage": 72,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+          "requiredSkillTask": "c-topic-genetic-technologies-applications-and-uncertainty-skill-task",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "optionalExtension": "c-investigation-molecular-evidence",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+          "teachingTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-teaching",
+          "visualTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+          "workedTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "nuclear DNA",
+            "mitochondrial DNA",
+            "chloroplast DNA",
+            "sequence comparison"
+          ]
+        },
+        {
+          "topicId": "c-topic-genetic-technologies",
+          "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+          "teachingTarget": "c-topic-genetic-technologies-amplifying-and-separating-teaching",
+          "visualTarget": "c-topic-genetic-technologies-amplifying-and-separating-figure",
+          "workedTarget": "c-topic-genetic-technologies-amplifying-and-separating-worked",
+          "retrievalTarget": "c-topic-genetic-technologies-amplifying-and-separating-check",
+          "evidenceTarget": "c-topic-genetic-technologies-evidence",
+          "termsToDefineBeforeExplanation": [
+            "PCR",
+            "primer",
+            "gel electrophoresis",
+            "fragment size",
+            "ladder"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json#c-investigation-molecular-evidence",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "c-investigation-molecular-evidence-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Links identify actual asked sub-operations, not full criterion coverage. Prerequisite-only and optional challenge items do not satisfy required practice. Other evidence tasks and missing operations still need review."
+    }
+  ],
+  "sourceExamplesPolicy": "The 116 illustrative Program examples remain source options. Mandatory i.e. lists in knowledge outcomes are part of the required outcome. Performance-column examples are separately registered and do not independently create required content.",
+  "scientificCorrections": [
+    "D3.2k fractions visually checked against official page 79: gr=ΔN/Δt; cgr=ΔN/N(initial); Dp=N/A or N/V.",
+    "C2.4s optional tongue-rolling/earlobe example is replaced with fictional supplied crosses; it is not taught as a reliable single-gene human trait.",
+    "No independent digital task certifies physical laboratory or live collaboration performance."
+  ],
+  "teacherAcceptance": null,
+  "prerequisitePolicy": "Terms on each target are definitions to introduce before explanation, not a claim that they were already taught. Prior knowledge must be separately authored at topic level."
+}

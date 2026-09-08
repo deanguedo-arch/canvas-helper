@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "status": "repair-list-frozen",
+  "policy": "If the original limit accommodates the complete example leave it unchanged; otherwise ceil(example.length * 1.25 / 50) * 50. C capacity changes are an all-or-defer batch under 44000.",
+  "unitDecisions": [
+    {
+      "unit": "B",
+      "beforeMaximum": 31427,
+      "proposedMaximum": 33957,
+      "appliedMaximum": 33957,
+      "target": 44000,
+      "status": "apply",
+      "reason": "Examples plus margin fit existing target."
+    },
+    {
+      "unit": "C",
+      "beforeMaximum": 43032,
+      "proposedMaximum": 45462,
+      "appliedMaximum": 43032,
+      "target": 44000,
+      "status": "deferred-storage-work",
+      "reason": "Complete capacity batch exceeds target; keep C limits and mappings unchanged. Separate storage work selected."
+    },
+    {
+      "unit": "D",
+      "beforeMaximum": 25318,
+      "proposedMaximum": 27698,
+      "appliedMaximum": 27698,
+      "target": 44000,
+      "status": "apply",
+      "reason": "Examples plus margin fit existing target."
+    }
+  ],
+  "responses": [
+    {
+      "id": "b-review-seminar-connect",
+      "originalLimit": 240,
+      "exampleLength": 539,
+      "proposedLimit": 700,
+      "operations": "Separate movement, hormone influence and development mechanisms; retain separate sources.",
+      "appliedLimit": 700,
+      "status": "apply"
+    },
+    {
+      "id": "b-review-seminar-evaluate",
+      "originalLimit": 240,
+      "exampleLength": 508,
+      "proposedLimit": 650,
+      "operations": "Distinguish observations from inference; reject invented outcome; propose measurement.",
+      "appliedLimit": 650,
+      "status": "apply"
+    },
+    {
+      "id": "b-review-seminar-revise",
+      "originalLimit": 240,
+      "exampleLength": 514,
+      "proposedLimit": 650,
+      "operations": "Revise claim, propose comparison, address consent/privacy.",
+      "appliedLimit": 650,
+      "status": "apply"
+    },
+    {
+      "id": "b-investigation-structure-function-final-transfer-revision-v2",
+      "originalLimit": 600,
+      "exampleLength": 811,
+      "proposedLimit": 1050,
+      "operations": "Prediction; two observations; repeated controlled comparison; counterclaim, alternative, revision and discriminating evidence.",
+      "appliedLimit": 1050,
+      "status": "apply"
+    },
+    {
+      "id": "b-investigation-cycle-graphs-final-transfer-revision-v2",
+      "originalLimit": 600,
+      "exampleLength": 762,
+      "proposedLimit": 1000,
+      "operations": "Temporal prediction; values/days/separate scales; repeated comparison; alternative, revision and independent ovulation evidence.",
+      "appliedLimit": 1000,
+      "status": "apply"
+    },
+    {
+      "id": "b-investigation-development-evidence-final-transfer-revision-v2",
+      "originalLimit": 600,
+      "exampleLength": 787,
+      "proposedLimit": 1000,
+      "operations": "Two proportion contrasts; prediction; controlled randomized repeated comparison; alternative, limited claim and follow-up evidence.",
+      "appliedLimit": 1000,
+      "status": "apply"
+    },
+    {
+      "id": "c-review-seminar-connect",
+      "originalLimit": 240,
+      "exampleLength": 477,
+      "proposedLimit": 600,
+      "operations": "Three biological scales; expected genotype counts; fragment size versus sequence.",
+      "appliedLimit": 240,
+      "status": "deferred-storage-work"
+    },
+    {
+      "id": "c-review-seminar-evaluate",
+      "originalLimit": 240,
+      "exampleLength": 519,
+      "proposedLimit": 650,
+      "operations": "Reject personal risk claim; identify unmeasured mechanism and discriminating test.",
+      "appliedLimit": 240,
+      "status": "deferred-storage-work"
+    },
+    {
+      "id": "c-review-seminar-revise",
+      "originalLimit": 240,
+      "exampleLength": 522,
+      "proposedLimit": 700,
+      "operations": "Revise evidence claim and next step; consent and participant/community control.",
+      "appliedLimit": 240,
+      "status": "deferred-storage-work"
+    },
+    {
+      "id": "c-investigation-cell-observations-final-transfer-revision-v2",
+      "originalLimit": 650,
+      "exampleLength": 806,
+      "proposedLimit": 1050,
+      "operations": "Visible image feature separate from counts; two calculations; prediction; controlled repeats; alternative/revision/discriminating measure.",
+      "appliedLimit": 650,
+      "status": "deferred-storage-work"
+    },
+    {
+      "id": "c-investigation-inheritance-data-final-transfer-revision-v2",
+      "originalLimit": 650,
+      "exampleLength": 802,
+      "proposedLimit": 1050,
+      "operations": "Sample-size question/prediction; small and large observed/expected counts; controls; alternative; revision and test.",
+      "appliedLimit": 650,
+      "status": "deferred-storage-work"
+    },
+    {
+      "id": "c-investigation-molecular-evidence-final-transfer-revision-v2",
+      "originalLimit": 650,
+      "exampleLength": 802,
+      "proposedLimit": 1050,
+      "operations": "Testable method question/prediction; sequence contrast and fragment totals; repeated controls; alternative, revision and discriminating evidence.",
+      "appliedLimit": 650,
+      "status": "deferred-storage-work"
+    },
+    {
+      "id": "d-review-seminar-connect",
+      "originalLimit": 240,
+      "exampleLength": 510,
+      "proposedLimit": 650,
+      "operations": "Abundance percentage, mark–recapture working/assumptions, marker versus diversity.",
+      "appliedLimit": 650,
+      "status": "apply"
+    },
+    {
+      "id": "d-review-seminar-evaluate",
+      "originalLimit": 240,
+      "exampleLength": 532,
+      "proposedLimit": 700,
+      "operations": "Use two percentages with correct scope; observational limitation; repeated controlled comparison.",
+      "appliedLimit": 700,
+      "status": "apply"
+    },
+    {
+      "id": "d-review-seminar-revise",
+      "originalLimit": 240,
+      "exampleLength": 545,
+      "proposedLimit": 700,
+      "operations": "Revise intervention, identify evidence step, time-bound monitoring and early stop.",
+      "appliedLimit": 700,
+      "status": "apply"
+    },
+    {
+      "id": "d-investigation-gene-pool-final-transfer-revision-v2",
+      "originalLimit": 600,
+      "exampleLength": 768,
+      "proposedLimit": 1000,
+      "operations": "At least two p calculations; prediction and repeated sampling; causal limitation, alternative, revision and discriminating evidence.",
+      "appliedLimit": 1000,
+      "status": "apply"
+    },
+    {
+      "id": "d-investigation-competition-final-transfer-revision-v2",
+      "originalLimit": 600,
+      "exampleLength": 729,
+      "proposedLimit": 950,
+      "operations": "Two means/units; prediction; replicated controlled comparison; counterclaim, alternative, revision and mechanism test.",
+      "appliedLimit": 950,
+      "status": "apply"
+    },
+    {
+      "id": "d-investigation-population-growth-final-transfer-revision-v2",
+      "originalLimit": 600,
+      "exampleLength": 692,
+      "proposedLimit": 900,
+      "operations": "Range, density and area estimate; oversampling prediction; repeated controlled sampling; census claim, alternative and further evidence.",
+      "appliedLimit": 900,
+      "status": "apply"
+    }
+  ]
+}

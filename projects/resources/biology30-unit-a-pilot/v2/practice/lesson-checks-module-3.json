@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "setId": "lesson-checks-module-3",
+  "items": [
+    {
+      "id": "lesson-06-check-1",
+      "setId": "lesson-06",
+      "outcomeIds": ["A1.2k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-nervous-organization", "system-m1-l1"],
+      "prompt": "Which structure belongs to the peripheral nervous system?",
+      "choices": {"a": "Spinal cord", "b": "Cerebral cortex", "c": "A spinal nerve carrying sensory and motor axons", "d": "Brainstem"},
+      "answerKey": "c",
+      "rationale": "Nerves outside the brain and spinal cord belong to the peripheral nervous system; the brain and spinal cord form the central nervous system.",
+      "targetedFeedback": {"a": "The spinal cord is part of the central nervous system.", "b": "The cerebral cortex is brain tissue and therefore central nervous system.", "d": "The brainstem is part of the brain and central nervous system."}
+    },
+    {
+      "id": "lesson-06-check-2",
+      "setId": "lesson-06",
+      "outcomeIds": ["A1.2k", "A1.2s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-nervous-organization", "system-m1-l2"],
+      "prompt": "A person understands spoken words and can write a reply, but speech production is slow and effortful. Which evidence-based inference is strongest?",
+      "choices": {"a": "A language-production network may be affected while comprehension networks remain more functional.", "b": "The person must be left-brained and creative.", "c": "The spinal cord is the only possible site of disruption.", "d": "One symptom proves a complete diagnosis."},
+      "answerKey": "a",
+      "rationale": "The contrast between relatively preserved comprehension and disrupted speech production can help localize a functional network, while remaining insufficient for diagnosis.",
+      "targetedFeedback": {"b": "Left-brain/right-brain personality categories are a neuromyth and do not explain this pattern.", "c": "The pattern concerns language processing, which depends strongly on distributed brain networks.", "d": "Localization is an evidence-based hypothesis; diagnosis requires broader clinical evidence."}
+    },
+    {
+      "id": "lesson-06-check-3",
+      "setId": "lesson-06",
+      "outcomeIds": ["A1.1sts", "A1.2s", "A1.3s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "ninds-health-information"],
+      "prompt": "Which finding would most weaken the claim that complex thinking occurs in one isolated brain centre?",
+      "choices": {"a": "Several connected regions change activity as a learner plans and evaluates a response.", "b": "The brain contains two hemispheres.", "c": "A textbook labels the cerebellum.", "d": "A reflex can occur quickly."},
+      "answerKey": "a",
+      "rationale": "Coordinated activity across connected regions directly supports a network explanation of complex cognition.",
+      "targetedFeedback": {"b": "Two hemispheres alone do not show how complex processing is distributed.", "c": "A structural label does not provide functional evidence about complex thinking.", "d": "Reflex speed concerns a different pathway and does not test the isolated-centre claim."}
+    },
+    {
+      "id": "lesson-07-check-1",
+      "setId": "lesson-07",
+      "outcomeIds": ["A1.3k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-reflexes", "system-m1-l3"],
+      "prompt": "Which sequence correctly represents a basic withdrawal reflex arc?",
+      "choices": {"a": "Effector → motor neuron → receptor → sensory neuron", "b": "Receptor → sensory neuron → central integration → motor neuron → effector", "c": "Brain → hormone → receptor → spinal nerve", "d": "Motor neuron → interneuron → receptor → muscle"},
+      "answerKey": "b",
+      "rationale": "A receptor detects the stimulus, sensory input enters the CNS, central synapses organize output, and a motor neuron carries the response to an effector.",
+      "targetedFeedback": {"a": "This reverses the information flow and begins with the effector.", "c": "A withdrawal reflex does not require a hormone route and begins with receptor input.", "d": "The receptor and sensory neuron must occur before motor output."}
+    },
+    {
+      "id": "lesson-07-check-2",
+      "setId": "lesson-07",
+      "outcomeIds": ["A1.2s", "A1.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["system-m1-l3", "alberta-program"],
+      "prompt": "In a ruler-drop investigation, which change best improves reliability without changing the research question?",
+      "choices": {"a": "Use several trials per condition and compare median response distance.", "b": "Tell the participant exactly when the ruler will drop.", "c": "Use a different participant and ruler on every trial.", "d": "Discard every slow result after seeing the data."},
+      "answerKey": "a",
+      "rationale": "Repeated trials reduce the influence of random variation, and a median limits the effect of an unusual trial while preserving the question.",
+      "targetedFeedback": {"b": "Predictable timing changes the task by adding anticipation.", "c": "Changing multiple factors makes condition comparisons harder to interpret.", "d": "Removing results after inspection introduces bias unless a rule was defined in advance."}
+    },
+    {
+      "id": "lesson-07-check-3",
+      "setId": "lesson-07",
+      "outcomeIds": ["A1.2s", "A1.3s", "A1.4s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "system-m1-l3"],
+      "prompt": "Condition A has a median response distance of 18 cm and Condition B has 17 cm, with both ranging from 8–31 cm. What conclusion is best supported?",
+      "choices": {"a": "Condition B is conclusively faster for all people.", "b": "The medians differ slightly, but overlap and variability make a strong causal claim unwarranted.", "c": "The nervous system was inactive in Condition A.", "d": "The extreme values should automatically be deleted."},
+      "answerKey": "b",
+      "rationale": "A one-centimetre median difference is small relative to the broad overlapping ranges, so the result supports caution and more evidence.",
+      "targetedFeedback": {"a": "The overlapping values do not support a universal or conclusive claim.", "c": "A recorded response shows the nervous system was active; the data concern timing variability.", "d": "Extreme values require a pre-defined, evidence-based exclusion rule rather than automatic removal."}
+    }
+  ]
+}

@@ -1,0 +1,1381 @@
+{
+  "schemaVersion": 1,
+  "unit": "C",
+  "teacherDecision": null,
+  "status": "all132 current operations reviewed; no empty required-practice links, full compound criterion/figure proof pending",
+  "method": "Read all56 exact component criteria and all132 current prompts and full correct responses. Restrict links to operations actually asked. An item may assess only one part of a criterion; recognition does not prove construction, and marker profiles do not substitute for aligned-sequence comparison. Retain original question, key, response identity and passage bindings. Three redundant chapter questions replaced with new-ID original cases assessing all four STS criteria; counts unchanged. Three required inquiry finals now explicitly ask question/prediction/control/evidence/claim revision using new semantic IDs; complete source teaching/worked examples reread. Four required comparison replacements use new answer identities; full required teaching reread; count unchanged.",
+  "reviewedItems": [
+    {
+      "itemId": "c-practice-chapter-c-lesson-01-c-lesson-01-anchor",
+      "itemSha256": "1ece39666fc08626911f3b6bfa07d882d29f9c605c60fca746a05fac430c91a0",
+      "componentIds": [
+        "c1-1k-sets-and-copies",
+        "c1-2k-interphase"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify replication without a chromosome-set change.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-01-c-lesson-01-evidence",
+      "itemSha256": "d64cd00e17edba81dc56b0684a523e85f55f68e1fc4b731bcfac43e41ed2bbdc",
+      "componentIds": [
+        "c1-1k-sets-and-copies"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Infer chromosome, chromatid and set counts from centromeres.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-01-c-lesson-01-bounded",
+      "itemSha256": "c5da483d7e8cd74c61f6f01d545ea3ca6546773cd1d7d03416ffc267deff070d",
+      "componentIds": [
+        "c1-1k-sets-and-copies",
+        "c1-2k-interphase"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Count replicated DNA molecules without changing ploidy.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-01-c-lesson-01-transfer",
+      "itemSha256": "1e4edaee0006cfe3a7b1573bafdc1e52a705ad84b7526a5d8e8637bdfd659e0f",
+      "componentIds": [
+        "c1-1k-sets-and-copies",
+        "c1-2k-interphase"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret doubled chromatids with unchanged centromere count.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-02-c-lesson-02-anchor",
+      "itemSha256": "b454299f74560d47521c1c8da6b5fe5991f537118bb4964abb853d8743e9f108",
+      "componentIds": [
+        "c1-2k-mitosis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify the separation event beginning anaphase.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-02-c-lesson-02-evidence",
+      "itemSha256": "cbd870a9a631fa8cd8e13049df454ffe25537a9b2041259043368bb72e742287",
+      "componentIds": [
+        "c1-2k-mitosis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret metaphase alignment and bipolar attachment.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-02-c-lesson-02-bounded",
+      "itemSha256": "4416b9f4d63d728bf40cee68980cb8536f6648c3442ec244a517093a902f3fa0",
+      "componentIds": [
+        "c1-2k-mitosis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Predict daughter chromosome and DNA-molecule counts.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-02-c-lesson-02-transfer",
+      "itemSha256": "fafaaf05266a5f07f3f1aa132615c5b6f491362ce119d0df501ff6ba3e8dcee3",
+      "componentIds": [
+        "c1-2k-mitosis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Classify separation of daughter chromosomes as anaphase.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-03-c-lesson-03-anchor",
+      "itemSha256": "d534823643ac5477dec04226c757884b793cfc41939fcc87ed90b665dc0cc708",
+      "componentIds": [
+        "c1-3s-online-operation"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall the mitotic-index denominator.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-03-c-lesson-03-evidence",
+      "itemSha256": "d265ccacd2d8e0441433a6be0129373413cd159db5ef688de81c32b5748ed6ba",
+      "componentIds": [
+        "c1-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate and qualify mitotic index from supplied counts.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-03-c-lesson-03-bounded",
+      "itemSha256": "f4824571590c8a9ddbbd668e586e509588f867c78eb387e41bdab02117385710",
+      "componentIds": [
+        "c1-1s-online-operation",
+        "c1-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Select a measurement discriminating phase delay from faster entry.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-03-c-lesson-03-transfer",
+      "itemSha256": "5ab541656dd1566cbe678c0c61578f44ca3258f41971acc76e88139f14390948",
+      "componentIds": [
+        "c1-2k-cell-cycle-control"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret phase accumulation as possible delayed checkpoint progression.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-04-c-lesson-04-anchor",
+      "itemSha256": "5219345ab9621de594c30077d53bb23b237485a82c89b3e338e3f891296c69ec",
+      "componentIds": [
+        "c1-3k-meiosis-one"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify the structures separated in meiosis I.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-04-c-lesson-04-evidence",
+      "itemSha256": "dc6017957c609d189e3392fc30fbad46ccda4c3f5791b8ab03ec2d8fc7ef6c94",
+      "componentIds": [
+        "c1-3k-meiosis-one",
+        "c1-5k-crossing-over"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret homologous pairing and nonsister exchange evidence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-04-c-lesson-04-bounded",
+      "itemSha256": "ebedf5cfb9064dffc9dcf757f6ad745708fd6cebc05741722279e46b83b08a98",
+      "componentIds": [
+        "c1-5k-crossing-over"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Predict four chromatid combinations after one exchange.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-04-c-lesson-04-transfer",
+      "itemSha256": "cd45c4b0de7348e223533a657cf9c9974c11841ec772b986b65e88ef75523e39",
+      "componentIds": [
+        "c1-3k-meiosis-one"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish haploidy from replicated chromatids after meiosis I.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-05-c-lesson-05-anchor",
+      "itemSha256": "8aaa71def2d2edee05b3ea487b77addc80043124db76609ccad97356aa96be7e",
+      "componentIds": [
+        "c1-3k-gametogenesis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare reduction, timing and cytoplasmic division in gametogenesis.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-05-c-lesson-05-evidence",
+      "itemSha256": "ba10fc54c4df7cffffabcce783d0b7a084944f013fab569ae519feab357c207b",
+      "componentIds": [
+        "c1-3k-gametogenesis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify the four-cell product pattern of spermatogenesis.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-05-c-lesson-05-bounded",
+      "itemSha256": "82087f7c57936b2b20e94429506d1e46cc8477a3d860c36513d78ff253d42b42",
+      "componentIds": [
+        "c1-5k-nondisjunction"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Predict gamete counts after meiosis-I nondisjunction.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-05-c-lesson-05-transfer",
+      "itemSha256": "b833af010bd66c34d105c5d5fc2637845928c8a671f79c7ac786bde2c69dc77b",
+      "componentIds": [
+        "c1-3k-gametogenesis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret the secondary-oocyte and polar-body pattern.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-06-c-lesson-06-anchor",
+      "itemSha256": "7aaff8ee46aee4093faba78659e30de46b1b92240293538ddff71ec7e2e0ad22",
+      "componentIds": [
+        "c1-1k-karyotype"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall the scope of evidence visible in a karyotype.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-application-twin-origins-and-development",
+      "itemSha256": "f504f37dda5f4da705f6900e8266a513b0423ceff6e2f8ba00d509222db90133",
+      "componentIds": [
+        "c1-6k-twinning"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare twin origins and inherited similarity, explain phenotype differences, and limit membrane-only inference.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-06-c-lesson-06-bounded",
+      "itemSha256": "67107025781e19c913522ab235b2e88acbd8e3418fefe520a7fbb084cf6d5ccc",
+      "componentIds": [
+        "c1-1k-karyotype"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish single-chromosome gain from whole-set change.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-06-c-lesson-06-transfer",
+      "itemSha256": "3606518f7c88029426260f62b46f5456f05c35f7aae082f492d272328f8cf2c0",
+      "componentIds": [
+        "c1-5k-nondisjunction"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Infer meiosis-I failure from the four-product pattern.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-07-c-lesson-07-anchor",
+      "itemSha256": "af780eb0118153761f4a679267ee2ccd489b06db786a98d996bfc3a14ee45d03",
+      "componentIds": [
+        "c1-7k-alternating-generations"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify haploid spores and the multicellular haploid stage.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-application-clonal-capability-and-conservation",
+      "itemSha256": "932cf598aa419396fbc762adeddf1306a6701c48d8fff9022ec9361fde116256",
+      "componentIds": [
+        "c1-1sts-evidence-and-perspectives"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Apply the named STS dimensions to supplied evidence, distinguish values/uncertainty and revise after a contrasting perspective.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-07-c-lesson-07-bounded",
+      "itemSha256": "82e0a068b6bf1176654afe0cfd5c66b4c154d04b221f0892a34afe2b0b0c4d01",
+      "componentIds": [
+        "c1-1sts-evidence-and-perspectives"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Identify nuclear and mitochondrial donors in nuclear transfer.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-07-c-lesson-07-transfer",
+      "itemSha256": "8bc11d3df8ad4770bdd8906a4715d8ad0c3d5551e580bf2a60984fdbc20057a0",
+      "componentIds": [
+        "c1-7k-reproductive-diversity"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Connect sexual variation with possible survival under changed conditions.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-08-c-lesson-08-anchor",
+      "itemSha256": "87bd09f5c9878f3a277bda8eb1b951697822d9dde9d6efe32f567ec006ce4def",
+      "componentIds": [
+        "c2-1k-mendel-evidence"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Explain allele segregation into different gametes.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-08-c-lesson-08-evidence",
+      "itemSha256": "33f1aa00a73f38e4913840ddaed642b5339f82b5ad628c0eba93e39da4358734",
+      "componentIds": [
+        "c2-1k-mendel-evidence"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret F2 evidence under dominance and segregation assumptions.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-08-c-lesson-08-bounded",
+      "itemSha256": "db49fe2efb5e3ed502629a3b3490152af684143ad1df397b73312e35854061d5",
+      "componentIds": [
+        "c2-1k-mendel-evidence"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate a predicted dominant/recessive count from an F2 model.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-08-c-lesson-08-transfer",
+      "itemSha256": "b7658d91fe8faf532b9b0e95420315262b06a47431df0e99b219bb98f1d7347e",
+      "componentIds": [
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish a probabilistic ratio from guaranteed sample counts.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-09-c-lesson-09-anchor",
+      "itemSha256": "00420309f6f7c51868da4ba95244c0a236f128934e7f92408dbdf4cce8c7c8fc",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate one recessive-genotype probability in a test cross.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-09-c-lesson-09-evidence",
+      "itemSha256": "9ece35b496ad3ce30d1e0febb06bcca56aafc6b5a9f57abc8c3f49f2c58f6db8",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Infer offspring genotypes from two parents' gametes.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-09-c-lesson-09-bounded",
+      "itemSha256": "d4946a2f310e061b086a52c784aca89e2359bc7795eda2742fb22ef0b2f7826a",
+      "componentIds": [
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Multiply independent future-offspring probabilities.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-09-c-lesson-09-transfer",
+      "itemSha256": "4ffb83d5ac4fa5318dac9e67c87ae4f793d922f126d00ac9e93e1eb019fe12af",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate genotype probabilities from parental gametes.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-application-genetic-information-and-perspectives",
+      "itemSha256": "789937460a3ea94ba77575d65f8d543d8dff7d06fdc5792979f22ab22b58aa21",
+      "componentIds": [
+        "c2-1sts-evidence-and-perspectives"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Apply the named STS dimensions to supplied evidence, distinguish values/uncertainty and revise after a contrasting perspective.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-10-c-lesson-10-evidence",
+      "itemSha256": "2142483c32cbd18d74cfdbdcb7dc59fd954798cc1f34c64103a85d7cc762bee7",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross",
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Retain two parental hypotheses after a small all-dominant sample.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-10-c-lesson-10-bounded",
+      "itemSha256": "1f3fa1c929f5263c7cee28a27c73f47f2cf8644588116ebf10cd303320f24a26",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify a result excluding homozygous dominance.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-10-c-lesson-10-transfer",
+      "itemSha256": "2851571ecc29b2a4efbfa7391703a6db3c833e4539ab1cde11ae77d55e185d90",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Infer the unknown parent's recessive allele from offspring evidence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-11-c-lesson-11-anchor",
+      "itemSha256": "0d51ddf4addd217f1ffd81997e5b94dcf0cbe1deaa690b2a02ae6e2423b110a2",
+      "componentIds": [
+        "c1-1k-sets-and-copies",
+        "c2-2k-other-alleles"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall two inherited copies at a diploid autosomal locus.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-11-c-lesson-11-evidence",
+      "itemSha256": "96a832167a4804d8050f15be09551e5e3567f22393479125c52c8f3e30162aec",
+      "componentIds": [
+        "c2-2k-other-alleles"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify an intermediate heterozygote phenotype.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-11-c-lesson-11-bounded",
+      "itemSha256": "03e70989f398b774b97c4cdbe78a4f0e48c33d36ef529ee6b0aadae7df4b0915",
+      "componentIds": [
+        "c2-2k-other-alleles"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish simultaneous products from an intermediate colour phenotype.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-11-c-lesson-11-transfer",
+      "itemSha256": "5d518c73e0aef3df0cbb92489e04c93059d0b26fbfec2402efa823415a789b29",
+      "componentIds": [
+        "c2-2k-other-alleles"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret detection of both allele-associated antigens.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-12-c-lesson-12-anchor",
+      "itemSha256": "b19b9db22273f4007db51f5ed0031e99352d29205d844b78ce668061e29599af",
+      "componentIds": [
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Multiply independent two-locus probabilities.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-12-c-lesson-12-evidence",
+      "itemSha256": "03fca9c72a8c6b23b1ac45d4c30ca94cdfc373ae0307133d4579c57cea7ad060",
+      "componentIds": [
+        "c2-1k-independent-assortment"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret a dihybrid phenotype ratio under stated assumptions.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-12-c-lesson-12-bounded",
+      "itemSha256": "a7358a9ca2f515072becee58632cfdcb2a2142c911d73cd30c0aa59dd68c9c90",
+      "componentIds": [
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate recombination with the complete offspring denominator.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-12-c-lesson-12-transfer",
+      "itemSha256": "31889f3cc5ae22843f4731a6bb0482605727a0d8f91a489dfed1a559a68b6c40",
+      "componentIds": [
+        "c2-3k-linkage"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret excess parental combinations as linkage evidence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-13-c-lesson-13-anchor",
+      "itemSha256": "4db18ab9db6f3303030b1de6c8d94278de98857a8380f66666d4f337fa73edb4",
+      "componentIds": [
+        "c2-5k-sex-linked-autosomal"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Explain paternal chromosome transmission in the stated XY model.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-13-c-lesson-13-evidence",
+      "itemSha256": "2a5b68c8b817bea49ffcb15b4a6d156f5687fd4df842ef95c53e11b6c20aae40",
+      "componentIds": [
+        "c2-5k-sex-linked-autosomal",
+        "c2-5k-pedigree"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Test an X-linked model against an incomplete fictional pedigree.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-13-c-lesson-13-bounded",
+      "itemSha256": "51aeb5f2c598474c15e15ef9e788186536c5446d951601b3f155e1f3fa402552",
+      "componentIds": [
+        "c2-5k-sex-linked-autosomal",
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate affected-son probability among all offspring.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-13-c-lesson-13-transfer",
+      "itemSha256": "5f23aa063c8564553ca32523b96c95245c2bbfea6cabf4e5b406ab02de29165e",
+      "componentIds": [
+        "c2-5k-sex-linked-autosomal"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Reject direct paternal X-to-son transmission in the stated model.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-14-c-lesson-14-anchor",
+      "itemSha256": "e8d0b074c4a939c21b17775c4769d79399fd77d8005741d34dd7d07ca3958f1e",
+      "componentIds": [
+        "c2-3k-mapping"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall the recombinant-per-total calculation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-14-c-lesson-14-evidence",
+      "itemSha256": "4a71b336d9514674c5fb5ed5ba8faefbddcbe50a2bdc9ff6f32b9e250c14076b",
+      "componentIds": [
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate and qualify a short-interval linkage estimate.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-14-c-lesson-14-bounded",
+      "itemSha256": "8ad0baf444b9ba026f0d7925d6b51337155ba4f1db808f2687c8a980651fa6b7",
+      "componentIds": [
+        "c2-3k-linkage",
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Select evidence separating physical location from effective independence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-14-c-lesson-14-transfer",
+      "itemSha256": "941244ced6337881f2435d54e0417c5e658ad74a62ebb67f5c087b468035c27f",
+      "componentIds": [
+        "c2-3k-linkage",
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret near-half recombination without asserting physical separation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-15-c-lesson-15-anchor",
+      "itemSha256": "8a4f04c4725065c3279c750a938b8620017b8015dddb9a1b45a8a59a1b3d4b0a",
+      "componentIds": [
+        "c2-4k-polygenic-variation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Consider multilocus and environmental explanations for broad variation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-15-c-lesson-15-evidence",
+      "itemSha256": "0b33ce70e13b8727cf82e4f226f2ef8a433dce8018782e0a2af285ddf3c6d43e",
+      "componentIds": [
+        "c2-4k-polygenic-variation"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Qualify a population-dependent complex-trait association.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-15-c-lesson-15-bounded",
+      "itemSha256": "ae19058e86b2fd5fa6200a8b5194f1d16de4d1e44f20605c8ef74be9f441d9f2",
+      "componentIds": [
+        "c2-4k-polygenic-variation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Select a controlled comparison of an environmental contribution.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-15-c-lesson-15-transfer",
+      "itemSha256": "56e079a50cfb573bbffc441209bdc4b31822e4d1c44026038a182bb63a68c7af",
+      "componentIds": [
+        "c2-4k-polygenic-variation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish family resemblance from isolated genetic causation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-16-c-lesson-16-anchor",
+      "itemSha256": "31084ad149efd1878620a94de6d1fd06e7e593263830d0ad92f35b1777ab3e4b",
+      "componentIds": [
+        "c3-1k-historical-evidence"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify Franklin's diffraction constraints on the DNA model.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-16-c-lesson-16-evidence",
+      "itemSha256": "7b268e29ee54487e6096e37a11d2de06056a3f364200419942d256164ffd1f05",
+      "componentIds": [
+        "c3-2k-sequence-information"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Place complementary bases and external backbones correctly.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-16-c-lesson-16-bounded",
+      "itemSha256": "63aeffab82f8e762d420a6b7cf5d4b255d42cf369dd054c6dcd03bb836abfbad",
+      "componentIds": [
+        "c3-2k-sequence-information"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate base percentages in double-stranded DNA.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-16-c-lesson-16-transfer",
+      "itemSha256": "67d1d926b5d3ad867b2467c77d8f237a3e78715e077f8fb859a3568b81cef27c",
+      "componentIds": [
+        "c3-1k-historical-evidence",
+        "c3-2k-sequence-information"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Evaluate strand direction and complementarity against model constraints.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-17-c-lesson-17-anchor",
+      "itemSha256": "9bbd7ab86c53cc4e0397dc6916e232f4bd0ab18a246b6dee342dd00475d838e5",
+      "componentIds": [
+        "c3-2k-replication"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Explain discontinuous synthesis from antiparallel templates.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-17-c-lesson-17-evidence",
+      "itemSha256": "9f398802074716dc54ffeb5254bea874e630b741d9ae3bd4ceda6c69a3b987a5",
+      "componentIds": [
+        "c3-2k-replication"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify primer dependence as a possible initiation limitation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-17-c-lesson-17-bounded",
+      "itemSha256": "36dadc718e016194526815038dc19a2d35eed29c43a4ac1172063d472b68c2c2",
+      "componentIds": [
+        "c3-2k-replication-check"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Predict the first-round semiconservative isotope pattern.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-17-c-lesson-17-transfer",
+      "itemSha256": "41db3f391651d017bc6dced1562aabc938b725cc21f38555b870cf83b3e14668",
+      "componentIds": [
+        "c3-2k-replication"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify an unsealed backbone after fragment synthesis.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-18-c-lesson-18-anchor",
+      "itemSha256": "297a0319cb77ae71cc334a0f51c930f9167b02a8cb18efff48aa62c13efe3897",
+      "componentIds": [
+        "c3-3k-transcription"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "State template-reading direction during transcription.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-18-c-lesson-18-evidence",
+      "itemSha256": "379c29d888ed3a44146a2456dcf7ba7ff2340d37f59dad25cbd54be2524c03a5",
+      "componentIds": [
+        "c3-3k-transcription"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret evidence of reduced transcription initiation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-18-c-lesson-18-bounded",
+      "itemSha256": "e74e92505cf2325e2784d08267d406aa07768fe772fc13835f65ea09dd5d3120",
+      "componentIds": [
+        "c3-3k-sequence-function"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Distinguish RNA abundance from translation and protein stability.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-18-c-lesson-18-transfer",
+      "itemSha256": "2a6fe28bdb08bc2e7d5f41309b1564426eb4e9021275f64a39bfe86492358800",
+      "componentIds": [
+        "c3-3k-rna-processing"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret different retained exons as alternative splicing.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-19-c-lesson-19-anchor",
+      "itemSha256": "b0b4c6746a201cadcf60603a8e162716bc3dc282cf39843e18255aa3116b1131",
+      "componentIds": [
+        "c3-3k-translation-mechanism"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify the codon-recognizing adaptor during elongation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-19-c-lesson-19-evidence",
+      "itemSha256": "31c8173930ce765c7522a39386ff4ca24455c43a7b0e3b09227f4ec8184cfde2",
+      "componentIds": [
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret a synonymous codon change without overclaiming function.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-19-c-lesson-19-bounded",
+      "itemSha256": "a5842e59310c70ff5c2be08175c237a076c283524e3e7e36bdafb4de95a617d1",
+      "componentIds": [
+        "c3-3k-transcription",
+        "c3-3k-translation-code",
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Transcribe a changed coding triplet and predict its amino acid.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-19-c-lesson-19-transfer",
+      "itemSha256": "3728d711ec8300de3d0ee954f8b3235e785439f391cb17eac3ba29914251841c",
+      "componentIds": [
+        "c3-3k-sequence-function",
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish a missense sequence effect from proven protein function.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-20-c-lesson-20-anchor",
+      "itemSha256": "56454e7752a909531541ef982ec3999d7d9484725941df3ba1942d9df5b8ed49",
+      "componentIds": [
+        "c3-6k-mutation-effect"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall the context dependence of mutation effects.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-20-c-lesson-20-evidence",
+      "itemSha256": "775a5cf92e8feb3ef6186b8a4c35b08e407f2dede19b7cc670d965c4bba1efcc",
+      "componentIds": [
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Qualify an undetected functional effect in the tested conditions.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-20-c-lesson-20-bounded",
+      "itemSha256": "e07ebee7366acce8e0996dcf666f270c70f93e88942412e45445053f039ec894",
+      "componentIds": [
+        "c3-6k-inheritance-route"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Predict cell-lineage inheritance of a somatic mutation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-20-c-lesson-20-transfer",
+      "itemSha256": "e4fcb91beda0fb74f21b853cb7011cf8032247b79b16718222704e4f70ca60fc",
+      "componentIds": [
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret converging evidence for a mutation's growth contribution.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-21-c-lesson-21-anchor",
+      "itemSha256": "02237189d01df824a8eaf305d9302203d1cd8c9f3f3ae9a88431317fe912c164",
+      "componentIds": [
+        "c3-4k-cut-and-join"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify ligase-mediated backbone joining.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-21-c-lesson-21-evidence",
+      "itemSha256": "2c20ee2f389e6d57762bebe0189e916ab451bef946ef267fabc01594a6be41f1",
+      "componentIds": [
+        "c3-5k-transformation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish selection from verified insert presence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-21-c-lesson-21-bounded",
+      "itemSha256": "d45ff4f3ab20d6b79cb8aca1420f5df031c01fff403ca56cc13a57d25c94616d",
+      "componentIds": [
+        "c3-5k-transformation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Select sequence verification of the intended insert and junctions.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-21-c-lesson-21-transfer",
+      "itemSha256": "fb937806bdd37d1a6632b45a9fe5cbd07c767abeebcbdf464b93cbde207288f3",
+      "componentIds": [
+        "c3-5k-transformation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Distinguish DNA presence from correctly regulated expression.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-guided-c-lesson-22-c-lesson-22-anchor",
+      "itemSha256": "f55589f4eb394f0f8627a4a33488ad778b7609604d8ed851160c4ff6182936e3",
+      "componentIds": [
+        "c3-2s-online-operation"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall the purpose of PCR before interpreting molecular observations.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-22-c-lesson-22-evidence",
+      "itemSha256": "a20cb2f4b6b8b42663b75fd7823954b0399beba1b6a8ea203d79c82007baf319",
+      "componentIds": [
+        "c3-7k-sequence-relatedness"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recognize the limits of a partial mixed-marker match.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-22-c-lesson-22-bounded",
+      "itemSha256": "d07f478891e23e640f3244a1ae8c0c31233ef38283b1722436d3b7423deda9d8",
+      "componentIds": [
+        "c3-7k-sequence-relatedness"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Identify additional markers as a source-discrimination improvement.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-22-c-lesson-22-transfer",
+      "itemSha256": "c28c190671951c72a8d1e9207eb8f02497fc33404500183f98299b7a5a132471",
+      "componentIds": [
+        "c3-7k-sequence-relatedness"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Qualify support for a stated relationship model from marker evidence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-23-c-lesson-23-anchor",
+      "itemSha256": "1cd299b5c43c1bc0c8d70f315ed5dba091e371e30d83334de051e90f67d6e290",
+      "componentIds": [
+        "c3-1s-online-operation"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Recall why a negative control is needed.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-23-c-lesson-23-evidence",
+      "itemSha256": "62e93b97ac6b5aff0f387ecbe6f20c9b3021d4fe2b2b05cb32bc46e1a7875159",
+      "componentIds": [
+        "c3-1s-online-operation",
+        "c3-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Identify the missing contamination control in a PCR interpretation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-23-c-lesson-23-bounded",
+      "itemSha256": "7eac2b7a3c23cf0e89868a770b722d49942bb8195e62d6c5209833957c0b1459",
+      "componentIds": [
+        "c2-2k-probability",
+        "c2-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare observed genotype frequencies with model probabilities.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-23-c-lesson-23-transfer",
+      "itemSha256": "35262338db4f838749db6b613988b12a3e010ad746848bca3d59aa75da8f374c",
+      "componentIds": [
+        "c2-2k-probability",
+        "c2-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Recognize sampling variation in a small monohybrid sample.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-application-crop-research-and-sustainability",
+      "itemSha256": "ba6bee1f8b1edcfba4dabae40869e098ccd089063093f1e8e0146552f00084a7",
+      "componentIds": [
+        "c3-1sts-evidence-and-perspectives",
+        "c3-2sts-evidence-and-perspectives"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Apply the named STS dimensions to supplied evidence, distinguish values/uncertainty and revise after a contrasting perspective.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-24-c-lesson-24-evidence",
+      "itemSha256": "11f300eaf3edca7f6692f713d62099ab84d4d53794b7531ed3bb30d05d45bc99",
+      "componentIds": [
+        "c3-3k-rna-processing",
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Connect splice-boundary, RNA and protein observations with limits.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-final-c-lesson-24-c-lesson-24-bounded",
+      "itemSha256": "49ab02bb8642e9855305358db6b138136d71f940db9071c47d7b4ee2256f96ca",
+      "componentIds": [
+        "c3-5k-transformation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Select expression measurements after insert verification.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-practice-chapter-c-lesson-24-c-lesson-24-transfer",
+      "itemSha256": "f8578b9ec2d2715630b056093ac2a1fe50748826d6f518de31e6442b24426764",
+      "componentIds": [
+        "c2-3k-linkage",
+        "c2-5k-sex-linked-autosomal"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Revise a chromosome-location claim using physical and linkage evidence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-chromosomes-and-dna-guided-construct",
+      "itemSha256": "d2102de7e92d5bf06342b7b98cc7ab0972dbbd9c25692a2d5e04e41d6fd5a444",
+      "componentIds": [
+        "c1-1k-sets-and-copies"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct chromosome, chromatid and set counts and distinguish relatives.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-the-cell-cycle-guided-construct",
+      "itemSha256": "9eae086cade49097bbb9996d151c514b7c146a84fbb20cb8b27a06b9c9dcd821",
+      "componentIds": [
+        "c1-3s-online-operation",
+        "c1-4s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct a labelled graph, calculate mitotic index and qualify duration.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-mitosis-guided-cytokinesis-comparison",
+      "itemSha256": "1b42f35caf7e3e5711c41aa5b63d06d796a6db5c8ddf634ccd23bd19b9305cc7",
+      "componentIds": [
+        "c1-2k-cytokinesis"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare the structures and directions of animal/plant cytokinesis; distinguish nuclear division from completed cell separation.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-meiosis-part-a-guided-construct",
+      "itemSha256": "11814ced169d8fd2c89dfcf481420f8f3cab6d512d08c27203eb455d9d3e9f65",
+      "componentIds": [
+        "c1-3k-meiosis-one",
+        "c1-3k-meiosis-two"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Track structures separated and chromosome counts through both divisions.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-meiosis-part-b-guided-construct",
+      "itemSha256": "c9439d6be6b1b011ee48a044ffe6e1750ede28dcf5de1c51bd5efb0c4ae00ca8",
+      "componentIds": [
+        "c1-5k-nondisjunction"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare all four products of meiosis-I and meiosis-II errors.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-reproductive-strategies-guided-construct",
+      "itemSha256": "c70eb675b3048c3d94e34e4ec9472394d130b24a6d38b48a618920cd34e0d37e",
+      "componentIds": [
+        "c1-7k-alternating-generations"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct the alternating-generation ploidy and division sequence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-genes-alleles-and-traits-guided-construct",
+      "itemSha256": "6f220ce1155edd3359815e07ed6d4e98ee730a2df8737f6268097ec2b1491eaa",
+      "componentIds": [
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "prerequisite-only",
+      "observableOperation": "Explain genotype notation and dominance without inferring population frequency.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-mendelian-genetics-guided-construct",
+      "itemSha256": "40d5b9764e0fc09b1ede0cfcd224a952a5ac5b838340f67f74bd16aa2ee9c50b",
+      "componentIds": [
+        "c2-1k-mendel-evidence",
+        "c2-2k-dominant-recessive-cross"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Connect segregation to gametes and monohybrid genotype/phenotype probabilities.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-single-and-two-trait-crosses-guided-construct",
+      "itemSha256": "addb8e9a96dbd7939a903f0b018a06feee9a058ecaf0641ff1b7c641b78d1bab",
+      "componentIds": [
+        "c2-1k-independent-assortment",
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate two-locus probabilities and explain independence.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-other-modes-of-inheritance-guided-construct",
+      "itemSha256": "fc6ca2e04177fc486dc253b2f28157c051fb34baadfe0cd31945a9e4ccfa4fa3",
+      "componentIds": [
+        "c2-2k-other-alleles"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct an ABO cross and distinguish codominance from multiple alleles.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-pedigrees-guided-construct",
+      "itemSha256": "b0fd7f78c6a9ecfdb417e899616018bb6bfa81fc14bd1f52cae83cd48a0c28bb",
+      "componentIds": [
+        "c2-5k-pedigree"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Infer possible parent genotypes and a conditional carrier probability.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-chromosome-mapping-guided-construct",
+      "itemSha256": "8efe5888e4e53a473ce5cd0886408d511383327a1ee883e80232df2800d20ce5",
+      "componentIds": [
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Calculate recombination and infer order from a separate map dataset.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-dna-and-its-history-guided-construct",
+      "itemSha256": "05c4b410afe713a0ca2fa6e8d5ce96fab5304086afb5ea232729a57617e558df",
+      "componentIds": [
+        "c3-1k-historical-evidence",
+        "c3-2k-sequence-information"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct an oriented complement and name a historical constraint.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-dna-replication-guided-construct",
+      "itemSha256": "68c29facfdc27ba64fae8d95b87190b452a5f89937cfb9bc73049d68f43a3554",
+      "componentIds": [
+        "c3-2k-replication"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Explain oriented fork synthesis and primer/polymerase/ligase roles.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-transcription-guided-construct",
+      "itemSha256": "e4721a8d638b6cbd985f8fbea8a5d6223add944d0a1c6b93ec96dc8f7a6a88ec",
+      "componentIds": [
+        "c3-3k-transcription"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct oriented template and RNA sequences.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-translation-guided-construct",
+      "itemSha256": "043b0e8b6f829cb031d37089bb57e54dfe7d787a9ce308fe4a43ce546efa9924",
+      "componentIds": [
+        "c3-3k-translation-code",
+        "c3-3k-translation-mechanism"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Translate a specified frame, construct an anticodon and explain termination.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-mutations-guided-construct",
+      "itemSha256": "f87d64a8694a88da8a88ca4caf7b7c7f96e940bcb29edb50513dc3bd2a864f20",
+      "componentIds": [
+        "c3-6k-mutation-type",
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare synonymous substitution with an out-of-frame insertion.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-genetic-technologies-guided-construct",
+      "itemSha256": "eb1ccd64a3aff89eb0e56b677bca6f280de58cab25885c822e3bfc45a0efc067",
+      "componentIds": [
+        "c3-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Evaluate a contaminated comparison and propose a discriminating next check.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-application-complete-division-comparison",
+      "itemSha256": "2f260ad5be04dee9443246888886c19808174f38da2a8bea4672562823ebd7ee",
+      "componentIds": [
+        "c1-4k-compare-divisions"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct a complete seven-feature comparison of mitosis/meiosis with counts, separation events and qualified genetic similarity.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-02",
+      "itemSha256": "56400d16d0ae0071bc2b28568a990f4c0b733b0a49513944df60d9f8c9edab96",
+      "componentIds": [
+        "c1-2k-mitosis",
+        "c1-2s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Classify supplied authentic images and record uncertain observations.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-03",
+      "itemSha256": "1270c9ca4183dd16662bb8493285cbbaf30c3ea792ed9b15f59a255a73934998",
+      "componentIds": [
+        "c1-7k-alternating-generations"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare plant ploidy alternation with cnidarian body-form phases.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-04",
+      "itemSha256": "a01870853a28fe5761dc409d56e6d6417b194b34f179f914e600f3a518ab42cc",
+      "componentIds": [
+        "c2-1k-independent-assortment",
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct gametes and two-locus test-cross probabilities.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-05",
+      "itemSha256": "90dad783ad9d55f7131b0109954a120c7987ccf73128c0f4b0bf04bb3068ccad",
+      "componentIds": [
+        "c2-5k-sex-linked-autosomal",
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare conditional son risk with risk among all offspring.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-06",
+      "itemSha256": "42e7a40a76a20636723415769d5e173917888312f771153bea04d4b3eac236ee",
+      "componentIds": [
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Infer three-locus order and qualify pairwise distances.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-07",
+      "itemSha256": "3c9187dca388fbd7c0acfc57b3688e7185f9b917245a37f204efce557def094b",
+      "componentIds": [
+        "c3-3k-transcription",
+        "c3-3k-translation-code"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Construct an RNA sequence and translate the stated frame.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-chapter-construct-08",
+      "itemSha256": "d5eb12c963c82a8dc91acc9acfc2d76dcaca4e7fdf8af097cb85fc275fc219db",
+      "componentIds": [
+        "c3-6k-mutation-type",
+        "c3-6k-mutation-effect"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare substitution and insertion lengths against reading-frame effects.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-application-aligned-sequence-relatedness",
+      "itemSha256": "89d004e33eaeb3cdcfd8e2e2478eb057926e6ac3ec487eba38010d440a89a0b8",
+      "componentIds": [
+        "c3-7k-sequence-relatedness"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare actual aligned nuclear/mitochondrial/chloroplast strings, rank similarity and explain inheritance, alignment and inference limits.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-investigation-cell-observations-final-transfer-revision-v2",
+      "itemSha256": "4f958b69fda5935d3f854f7c2f2fd0c11b6da98ae38cf54eca9591892088c99b",
+      "componentIds": [
+        "c1-2k-mitosis",
+        "c1-1s-online-operation",
+        "c1-2s-online-operation",
+        "c1-3s-online-operation",
+        "c1-4s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "State a testable question/prediction, use supplied evidence, design a controlled repeat and revise the supplied claim.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-investigation-inheritance-data-final-transfer-revision-v2",
+      "itemSha256": "b63de0faaa2920ac0f5df238ee6373e0a29fd8e303652aabf694c68e929a878b",
+      "componentIds": [
+        "c2-2k-probability",
+        "c2-1s-online-operation",
+        "c2-2s-online-operation",
+        "c2-3s-online-operation",
+        "c2-4s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "State a testable question/prediction, use supplied evidence, design a controlled repeat and revise the supplied claim.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-investigation-molecular-evidence-final-transfer-revision-v2",
+      "itemSha256": "29b86f02b20be34d93c3798bc07d508a17748e4a7d7d386fcca9d349f5ee30e9",
+      "componentIds": [
+        "c3-6k-mutation-type",
+        "c3-1s-online-operation",
+        "c3-2s-online-operation",
+        "c3-3s-online-operation",
+        "c3-4s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "State a testable question/prediction, use supplied evidence, design a controlled repeat and revise the supplied claim.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-meiosis-part-a-challenge",
+      "itemSha256": "c658e4e419b070c936f832ac75c2e0f0068e04904dd1f8710628f0f1a1564e36",
+      "componentIds": [
+        "c1-5k-nondisjunction"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Compare four-product patterns under alternative nondisjunction events.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-single-and-two-trait-crosses-challenge",
+      "itemSha256": "7ad35400a3b6247d1e73cd8a70fca93caf3d3375fb6844e36773b5c170c5dfeb",
+      "componentIds": [
+        "c2-3k-linkage",
+        "c2-2k-probability"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Recalculate cross probabilities under complete linkage.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-pedigrees-challenge",
+      "itemSha256": "6392587898c971ef55d038acb1fa856b2c8b395bf24b469e756ac3c2d7356694",
+      "componentIds": [
+        "c2-5k-pedigree"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Reconsider a conditional pedigree probability under incomplete penetrance.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-chromosome-mapping-challenge",
+      "itemSha256": "2d0ad9b417ec004ecd811c116a457f498e52219d325c266a5dcf37a28a3c221f",
+      "componentIds": [
+        "c2-3k-mapping"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Explain hidden crossovers and propose a three-locus comparison.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-transcription-challenge",
+      "itemSha256": "30ed68d552190171af6379cab7bf50c379093c7f53ffeac31d6c758652a2daf7",
+      "componentIds": [
+        "c3-3k-transcription"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Reverse-complement a relabelled template to produce oriented RNA.",
+      "teacherDecision": null
+    },
+    {
+      "itemId": "c-topic-genetic-technologies-challenge",
+      "itemSha256": "d9337a9dfde5e9dadf56d7820a6936dafadac20fe8e53cade290e2593956834e",
+      "componentIds": [
+        "c3-3s-online-operation"
+      ],
+      "role": "assessed-suboperation",
+      "observableOperation": "Interpret improved controls without claiming sequence identity.",
+      "teacherDecision": null
+    }
+  ],
+  "remaining": [
+    "full136-component required teaching and figure proof across B/C/D",
+    "explicit C STS required operations and all required inquiry communication dimensions",
+    "actual rendered images and graph controls"
+  ],
+  "componentsWithoutRequiredPractice": []
+}

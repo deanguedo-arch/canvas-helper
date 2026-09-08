@@ -1,0 +1,274 @@
+{
+  "unit": "D",
+  "status": "non-gating-review-queue",
+  "scope": "Case-insensitive whole-phrase core, worked and stop text; excludes optional Advanced, figures, media and term inventory. Alias/plural/implicit prerequisites need manual review.",
+  "sources": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+      "sha256": "ac17af06a1c6fbd019343076bac121489daede6b11fe159a52b200bfe9299e5e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+      "sha256": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+      "sha256": "dace3761c0cc96cadcb414f58a93b22afd1defb510210910b1eee5b94e257d72"
+    }
+  ],
+  "findings": [
+    {
+      "termId": "d-term-p-squared",
+      "term": "p squared",
+      "declaredFirstPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-q-squared",
+      "term": "q squared",
+      "declaredFirstPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-frequency-sum",
+      "term": "frequency sum",
+      "declaredFirstPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-selection-pressure",
+      "term": "selection pressure",
+      "declaredFirstPartId": "d-topic-mechanisms-of-change-mutation-and-selection",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-alternative-explanation",
+      "term": "alternative explanation",
+      "declaredFirstPartId": "d-topic-mechanisms-of-change-testing-explanations",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-mark-recapture",
+      "term": "mark-recapture",
+      "declaredFirstPartId": "d-topic-population-growth-sampling-populations",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-representative-sample",
+      "term": "representative sample",
+      "declaredFirstPartId": "d-topic-population-growth-sampling-populations",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-closed-population",
+      "term": "closed population",
+      "declaredFirstPartId": "d-topic-population-growth-sampling-populations",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-per-capita-growth-rate",
+      "term": "per capita growth rate",
+      "declaredFirstPartId": "d-topic-population-growth-rates-and-denominators",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-j-curve",
+      "term": "J curve",
+      "declaredFirstPartId": "d-topic-population-growth-exponential-and-logistic-models",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-s-curve",
+      "term": "S curve",
+      "declaredFirstPartId": "d-topic-population-growth-exponential-and-logistic-models",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-density-dependence",
+      "term": "density dependence",
+      "declaredFirstPartId": "d-topic-population-growth-exponential-and-logistic-models",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-density-independence",
+      "term": "density independence",
+      "declaredFirstPartId": "d-topic-population-growth-feedback-and-changing-limits",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-r-selected",
+      "term": "r-selected",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-k-selected",
+      "term": "K-selected",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-parental-investment",
+      "term": "parental investment",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-producer-consumer",
+      "term": "producer-consumer",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-toxin",
+      "term": "toxin",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-behaviour",
+      "term": "behaviour",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "earliestMatchedPartId": "d-topic-population-growth-exponential-and-logistic-models",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "d-topic-population-growth-exponential-and-logistic-models",
+        "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ],
+      "excerpt": "rantee a smooth S-shaped curve for every possible r and starting value? No. Its behaviour depends on parameter values and step size. The classroom curve uses a bounded illustrative parameter choice.",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-predator-prey-lag",
+      "term": "predator-prey lag",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-perspective",
+      "term": "perspective",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-revision",
+      "term": "revision",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-type-i-survivorship",
+      "term": "Type I survivorship",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-type-ii-survivorship",
+      "term": "Type II survivorship",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "d-term-type-iii-survivorship",
+      "term": "Type III survivorship",
+      "declaredFirstPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    }
+  ]
+}

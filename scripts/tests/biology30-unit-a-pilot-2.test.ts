@@ -27,18 +27,42 @@ import {
   ADVANCED_LEARNING_MANIFEST_IDS,
   ADVANCED_LESSON_MINUTES
 } from "../lib/biology30-unit-a-pilot-2/advanced-content.js";
-import { buildBiology30UnitAPilot2Full } from "../lib/biology30-unit-a-pilot-2/build-full.js";
+import { buildBiology30UnitAPilot2Full, estimateWorstCaseState } from "../lib/biology30-unit-a-pilot-2/build-full.js";
+import { CHAPTER_11_BASELINE, CHAPTER_11_STUDY_TASKS, studyResponseId } from "../lib/biology30-unit-a-pilot-2/chapter-11-study.js";
 import { buildBiology30UnitAPilot2ProcessCollectionIndex } from "../lib/biology30-unit-a-pilot-2/build-process-collection-index.js";
 import { createBiology30UnitAPilot2, hashTree } from "../lib/biology30-unit-a-pilot-2/create.js";
 import { MODEL_LAB_RECORDS } from "../lib/biology30-unit-a-pilot-2/model-lab-content.js";
 import { PROCESS_ACTIVITY_KINDS, PROCESS_COLLECTION_BASELINE_SHA256 } from "../lib/biology30-unit-a-pilot-2/process-collection-content.js";
 import { TEXTBOOK_REVIEW_ATTEMPT_IDS, TEXTBOOK_REVIEW_SUPPORT } from "../lib/biology30-unit-a-pilot-2/textbook-review-content.js";
+import { buildOnlineFinalizationReport, onlineBaselineDirectory } from "../lib/biology30-unit-a-pilot-2/online-finalization.js";
+import { ONLINE_STUDIES, ONLINE_MICROSCOPY } from "../lib/biology30-unit-a-pilot-2/online-studies.js";
+import { ONLINE_VIDEO_REVIEW } from "../lib/biology30-unit-a-pilot-2/online-video-review.js";
 
 const execFile = promisify(execFileCallback);
 const repoRoot = process.cwd();
 const projectRoot = path.join(repoRoot, "projects", "biology30-unit-a-pilot-2");
 const workspacePath = path.join(projectRoot, "workspace", "index.html");
 const metaRoot = path.join(projectRoot, "meta");
+
+test("online finalization is exact-build, preserves all prior work and supplies complete local media paths",async()=>{
+  const html=await readFile(workspacePath,"utf8"),$=loadHtml(html);
+  const report=await readJson<any>("online-finalization.json");
+  const before=await readFile(path.join(projectRoot,onlineBaselineDirectory,"workspace/index.html"),"utf8");
+  assert.deepEqual(report,buildOnlineFinalizationReport(before,html,report.generatedAt,42738));
+  assert.equal(await sha256File(path.join(projectRoot,"workspace",ONLINE_MICROSCOPY.asset)),ONLINE_MICROSCOPY.sha256);
+  for(const study of ONLINE_STUDIES){
+    assert.equal($(`[data-online-study="${study.id}"] [data-online-pick]`).length,study.rows.length*study.columns.length);
+    study.rows.forEach(row=>row.answers.forEach((answer,index)=>assert.ok(study.options[index][answer])));
+  }
+  for(const video of ONLINE_VIDEO_REVIEW){
+    assert.match(video.sha256,/^[a-f0-9]{64}$/);assert.ok(video.start<video.end&&video.end<=video.sourceSeconds);
+    const src=$(`.required-media[data-video-entry="${video.id}"] [data-video-stage]`).attr("data-video-src")!;
+    const url=new URL(src);assert.equal(url.searchParams.get("autoplay"),"0");assert.equal(url.searchParams.get("start"),String(video.start));assert.equal(url.searchParams.get("end"),String(video.end));
+  }
+  assert.equal(report.teacherDecision,null);assert.equal(report.transferReady,false);
+  assert.match($("[data-online-microscopy]").text(),/not operating a microscope/);
+  assert.equal($('[data-local-equivalent]').parent().filter(".required-media").length,14);
+});
 
 async function readJson<T = Record<string, unknown>>(fileName: string): Promise<T> {
   return JSON.parse(await readFile(path.join(metaRoot, fileName), "utf8")) as T;
@@ -211,7 +235,7 @@ test("Advanced Bridge Gate B renders all forty blocks and resolves every Pilot 1
   ADVANCED_LEARNING_MANIFEST_IDS.forEach((id) => assert.match(report, new RegExp(`\\| ${id} \\|`)));
 });
 
-test("Revision Gate B preserves exact atomic rendered evidence across the complete course", async () => {
+test("The atomic index resolves its rendered references without certifying academic completeness", async () => {
   const atomic = await readJson<any>("atomic-curriculum-map.json");
   const review = await readJson<any>("process-collection-index-review.json");
   const html = await readFile(workspacePath, "utf8");
@@ -219,7 +243,9 @@ test("Revision Gate B preserves exact atomic rendered evidence across the comple
   assert.equal(atomic.workspaceSha256, review.workspaceSha256);
   assert.equal(atomic.status, "revision-gate-b-awaiting-teacher-review");
   assert.equal(atomic.counts.outcomes, 25);
-  assert.equal(atomic.counts.acceptableStandardBehaviours, 53);
+  assert.equal(atomic.counts.acceptableStandardBehaviours, 47);
+  assert.equal(atomic.counts.excellenceStandardBehaviours, 5);
+  assert.equal(atomic.counts.localCurriculumCriteria, 1);
   assert.equal(atomic.components.length, 78);
   assert.equal(new Set(atomic.components.flatMap((entry: any) => entry.outcomeIds)).size, 25);
   const behaviourIds = atomic.components.flatMap((entry: any) => entry.performanceBehaviourIds);
@@ -271,7 +297,7 @@ test("Practice, vocabulary, media, response, reading, and state contracts are co
   assert.ok(Object.values(media.renderedFigureInventory.byLesson).every((count: any) => count >= 4));
   assert.ok(media.renderedFigureInventory.records.every((entry: any) => entry.accessibility.status === "passed" && entry.sourceRefs.length > 0));
   assert.equal(media.videos.length, 14);
-  assert.ok(media.videos.every((entry: any) => entry.requiredLearningStep === true && entry.youtubeRequired === false && entry.localEquivalentStepCount >= 4));
+  assert.ok(media.videos.every((entry: any) => entry.requiredLearningStep === true && entry.youtubeRequired === false && entry.localEquivalentStepCount === 3 && entry.localEquivalentWorkedCase === true));
   assert.ok(media.videos.every((entry: any) => entry.completionImpact === true && entry.requiredInstructionDependency === false && entry.customPlayButton === false && entry.autoplay === false));
   assert.ok(mapping.stateIdMap.length > 100);
   assert.ok(mapping.stateIdMap.every((entry: any) => entry.oldId.startsWith("biology30-unit-a-pilot:") && entry.newId.startsWith("biology30-unit-a-pilot-2:")));
@@ -281,8 +307,9 @@ test("Practice, vocabulary, media, response, reading, and state contracts are co
   assert.ok(reading.revisionGateBCoreLessons.every((entry: any) => entry.longestCoreParagraphWords <= 100));
   assert.ok(reading.revisionGateBCoreLessons.every((entry: any) => entry.wordCount >= 700 && entry.wordCount <= (entry.routeId === "lesson-13" ? 1200 : 1050)));
   assert.equal(practiceReadiness.workspaceSha256, await sha256File(workspacePath));
-  assert.deepEqual(practiceReadiness.counts, { total: 86, required: 80, optional: 6, passed: 86 });
-  assert.ok(practiceReadiness.records.every((entry: any) => entry.readiness === "passed" && entry.prerequisiteEvidence.length && entry.misconceptionFeedbackChoices.length));
+  assert.deepEqual(practiceReadiness.counts, { total: 86, required: 80, optional: 6, structurallyValid: 86, sourceReviewed: 86 });
+  assert.equal(practiceReadiness.academicClearance, false);
+  assert.ok(practiceReadiness.records.every((entry: any) => entry.structuralReview === "passed" && entry.semanticReview === "source-reviewed-preserved-meaning-and-feedback" && entry.choices.length && entry.rationale && entry.textbook.physicalPage));
   assert.equal(stateBudget.schemaVersion, 6);
   assert.equal(stateBudget.encoding, "hashed-v1-plus-advanced-bitset");
   assert.equal(stateBudget.targetMaximumCharacters, 44000);
@@ -380,7 +407,8 @@ test("Revision Gate B learner HTML applies the accepted depth, vocabulary, visua
     const expectedAdvanced = ADVANCED_LEARNING_BLUEPRINT.filter((entry) => entry.lessonId === lessonId);
     assert.equal(lesson.find("details.advanced-learning-block").length, expectedAdvanced.length);
     assert.equal(lesson.find("[data-media-checkpoint-id]").length, lessonId === "lesson-13" ? 2 : 1);
-    assert.ok(lesson.find("[data-local-equivalent] li").length >= (lessonId === "lesson-13" ? 8 : 4));
+    assert.equal(lesson.find("[data-local-equivalent] .walkthrough-panel").length, lessonId === "lesson-13" ? 6 : 3);
+    lesson.find(".walkthrough-panel").each((_i,node)=>{assert.equal($(node).find("figure").length,1);assert.ok($(node).children("p").text().split(/\s+/).length>=45)});
   }
   const lesson1Text = normalizeText($("#lesson-01").text());
   assert.match(lesson1Text, /myelin acts as electrical insulation/i);
@@ -417,9 +445,11 @@ test("Revision Gate B learner HTML applies the accepted depth, vocabulary, visua
   assert.doesNotMatch(html, /Play optional video/i);
   assert.doesNotMatch(html, /autoplay=1/i);
   assert.equal($("[data-media-checkpoint-id]").length, 14);
-  assert.equal($("[data-local-equivalent] ol").length, 14);
-  $("[data-local-equivalent] ol").each((_index, element) => {
-    assert.equal($(element).children("li").length, 4);
+  assert.equal($("[data-local-equivalent]").length, 14);
+  $("[data-local-equivalent]").each((_index, element) => {
+    assert.equal($(element).find(".walkthrough-panel").length, 3);
+    assert.equal($(element).find(".walkthrough-panel figure").length, 3);
+    assert.equal($(element).find(".walkthrough-case").length, 1);
   });
   assert.equal($("#video-library [data-video-panel]").length, 14);
   assert.equal($("[data-media-checkpoint-id] iframe").length, 0);
@@ -462,8 +492,9 @@ test("Revision Gate B learner HTML applies the accepted depth, vocabulary, visua
   assert.equal($("#textbook-library [data-library-panel]").length, 3);
   assert.equal($("#model-lab [data-model-panel]").length, 13);
   assert.equal(normalizeText($("#model-lab h1").text()), "Models and Data Lab");
-  assert.equal($(".lesson-page [data-open-model]").length, 53);
-  assert.equal($(".lesson-page [data-open-model]").filter((_index, element) => $(element).closest(".advanced-learning-block").length === 0).length, 13);
+  assert.equal($(".lesson-page [data-open-model]").length, 67);
+  assert.equal($(".lesson-page [data-open-model]").filter((_index, element) => $(element).closest(".advanced-learning-block").length === 0).length, 27);
+  assert.equal($(".lesson-page [data-online-walkthrough] [data-open-model]").length, 14);
   assert.deepEqual(JSON.parse($("html").attr("data-advanced-manifest") ?? "[]"), ADVANCED_LEARNING_MANIFEST_IDS);
   assert.equal($("#advanced-learning [data-advanced-index-item]").length, 40);
   assert.equal($("#advanced-learning [data-advanced-index-item] [data-advanced-complete]").length, 40);
@@ -481,7 +512,7 @@ test("Revision Gate B learner HTML applies the accepted depth, vocabulary, visua
   });
   assert.equal($("#process-collection [data-model-collection]").length, 0);
   assert.equal($("#process-collection [data-all-work-list]").length, 1);
-  assert.equal($("#model-lab .model-step-copy").length, 52);
+  assert.equal($("#model-lab .model-mechanism .model-step-copy").length, 52);
   assert.equal($("#model-lab [data-model-choice]").length, 49);
   assert.equal($("#model-lab .model-orientation").length, 13);
   assert.equal($("#model-lab .model-plan>div").length, 39);
@@ -493,13 +524,13 @@ test("Revision Gate B learner HTML applies the accepted depth, vocabulary, visua
   assert.match(html, /@container model-reader \(max-width:560px\)\{[^}]*\.model-plan\{grid-template-columns:1fr/);
   assert.match(html, /@container model-reader \(max-width:560px\)\{[^@]*\.model-path\{grid-template-columns:1fr/);
   assert.match(html, /container-name:media-stage;container-type:inline-size/);
-  assert.match(html, /\.illustrated-equivalent ol\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
-  assert.match(html, /@container media-stage \(max-width:480px\)\{\.illustrated-equivalent ol\{grid-template-columns:1fr\}\}/);
+  assert.doesNotMatch(html, /\.illustrated-equivalent li\{display:grid/, "Old numbered-step styling must not squeeze nested feedback diagrams");
+  assert.equal($('[data-local-equivalent] .walkthrough-panel').length, 42);
   $("#model-lab [data-model-panel]").each((_index, element) => {
     const modelId = $(element).attr("data-model-panel");
     const model = MODEL_LAB_RECORDS.find((entry) => entry.id === modelId);
     assert.ok(model, `unknown rendered model ${modelId}`);
-    assert.equal($(element).find(".model-path li").length, 4);
+    assert.equal($(element).find(".model-mechanism .model-path li").length, 4);
     assert.equal($(element).find("[data-model-choice]").length, model.choices.length);
     assert.equal($(element).find("[data-model-result]").length, model.choices.length);
     assert.equal($(element).find(".model-use-sequence span").length, 4);
@@ -574,7 +605,7 @@ test("Process Collection has one complete 178-record index, exact returns, and t
   assert.equal(registry.persistence.addsLearnerStateFields, false);
   assert.equal(registry.stateSchemaVersion, 6);
   assert.equal(stateBudget.schemaVersion, 6);
-  assert.equal(stateBudget.estimatedWorstCaseCharacters, 39061);
+  assert.equal(stateBudget.estimatedWorstCaseCharacters, 42738);
   assert.equal(contract.processCollectionIndex.workspaceSha256, currentSha);
   assert.equal(contract.processCollectionIndex.teacherDecision, null);
   assert.equal(contract.advancedBridgeGateB.workspaceSha256, PROCESS_COLLECTION_BASELINE_SHA256);
@@ -588,6 +619,50 @@ test("Process Collection has one complete 178-record index, exact returns, and t
   assert.ok(manifest.canonicalSources.includes("projects/biology30-unit-a-pilot-2/meta/process-collection-index.json"));
   assert.ok(manifest.canonicalSources.includes("projects/biology30-unit-a-pilot-2/meta/process-collection-index-review.json"));
   assert.ok(manifest.referenceOnly.includes(`projects/biology30-unit-a-pilot-2/raw/process-collection-index-baselines/${PROCESS_COLLECTION_BASELINE_SHA256}/`));
+});
+
+test("Chapter 11 diagram work supplies saved evidence without replacing existing work or required questions", async () => {
+  const html = await readFile(workspacePath, "utf8");
+  const $ = loadHtml(html);
+  const baselinePath = path.join(projectRoot, "raw/chapter-11-academic-baselines", CHAPTER_11_BASELINE, "workspace/index.html");
+  assert.equal(await sha256File(baselinePath), CHAPTER_11_BASELINE);
+  const before = loadHtml(await readFile(baselinePath, "utf8"));
+  const record = await readJson<any>("chapter-11-academic-repair.json");
+  const registry = await readJson<any>("process-collection-index.json");
+  assert.equal(record.workspaceSha256, await sha256File(workspacePath));
+  assert.equal(record.teacherDecision, null);
+  assert.equal($("[data-study-task]").length, 6);
+  assert.equal(new Set(CHAPTER_11_STUDY_TASKS.map(task => studyResponseId(task.id))).size, 6);
+  for (const task of CHAPTER_11_STUDY_TASKS) {
+    const target = $(`[data-study-task="${task.id}"]`);
+    assert.equal(target.closest("[data-model-panel]").attr("data-model-panel"), task.modelId);
+    assert.equal(target.find("textarea").attr("data-response-id"), studyResponseId(task.id));
+    assert.equal(target.find("textarea").attr("maxlength"), String(task.maxLength));
+    assert.equal(target.find("figure").length, 1);
+    assert.ok(target.find("figcaption").text().length > 50);
+    assert.ok(target.find("[data-study-guide]").attr("hidden") !== undefined);
+    assert.ok(target.find("[data-study-guide]").text().includes(task.guide[0]));
+    assert.ok(registry.records.find((entry: any) => entry.id === `model-${task.modelId}`).stateRef.studyTasks.some((entry: any) => entry.responseId === studyResponseId(task.id)));
+  }
+  before("[data-response-id]").each((_i, node) => assert.equal($(`[data-response-id="${before(node).attr("data-response-id")}"]`).length, 1));
+  before("[data-practice-id]").each((_i, node) => {
+    const id = before(node).attr("data-practice-id");
+    assert.equal($(`[data-practice-id="${id}"] h3`).text(), before(node).find("h3").text(), `${id} question unchanged`);
+    for (const attr of ["data-answer", "data-rationale"]) assert.equal($(`[data-practice-id="${id}"] [data-practice-feedback]`).attr(attr), before(node).find("[data-practice-feedback]").attr(attr), `${id} ${attr} unchanged`);
+  });
+  // Both the lesson figure and unlabelled study figure use the same numeric geometry.
+  for (const figure of $("[data-refractory=absolute]").toArray()) {
+    assert.equal($(figure).attr("x"), "355");
+    assert.equal($(figure).attr("width"), "192");
+  }
+  assert.equal($("[data-refractory=absolute]").length, 3);
+  const vocab = await readJson<any>("core-vocabulary.json");
+  const estimate = estimateWorstCaseState(html, vocab.fixedMilestones.map((entry: any) => entry.entryId));
+  assert.equal(estimate.responseCount, 79);
+  assert.equal(estimate.characters, 42738);
+  assert.ok(estimate.characters <= 44000);
+  assert.equal($("[data-practice-id]").length, 86);
+  assert.equal($("[data-advanced-block-id]").length, 40);
 });
 
 test("source files, immutable accepted checkpoints, and protected Pilot 1 / production projects remain exact", async () => {
@@ -608,8 +683,12 @@ test("source files, immutable accepted checkpoints, and protected Pilot 1 / prod
   const preservedRevisionA = path.join(projectRoot, "raw", "revision-gate-a-accepted", "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff", "workspace", "index.html");
   assert.equal(await sha256File(preservedRevisionA), "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff");
   for (const expected of revisionBReview.protectedProjectHashes) {
-    const actual = await hashTree(path.join(repoRoot, "projects", expected.slug), expected.slug, expected.excludedPaths ?? []);
-    assert.deepEqual(actual, expected);
+    // These two new operational reports were authorized with the living playbook.
+    // Exclude only their exact paths when comparing the older protected tree;
+    // every previously recorded source, learner file and metadata byte still matches.
+    const newOperationalReports = expected.slug === "biology30-unit-a-pilot" ? ["meta/biology30-improvement-transfer-contract.json", "meta/bcd-material-readiness.json"] : [];
+    const actual = await hashTree(path.join(repoRoot, "projects", expected.slug), expected.slug, [...(expected.excludedPaths ?? []), ...newOperationalReports]);
+    assert.deepEqual(newOperationalReports.length ? { ...actual, excludedPaths: expected.excludedPaths } : actual, expected);
   }
   assert.equal(await sha256File(workspacePath), processReview.workspaceSha256);
   assert.equal(processReview.baselineWorkspaceSha256, revisionBReview.workspaceSha256);

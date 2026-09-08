@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-13",
+  "module": "Endocrine Control",
+  "title": "Hypothalamus, Pituitary, Growth, and Water Balance",
+  "inquiry": "How can one brain region coordinate growth and water balance through pathways that are anatomically and hormonally different?",
+  "learningIntention": "I am learning to distinguish hypothalamus-pituitary pathways and apply them to growth and water-balance evidence.",
+  "requiredMinutes": 90,
+  "optionalMinutes": 10,
+  "outcomeIds": ["A2.1k", "A2.2k", "A2.3k", "A2.6k", "A2.3s"],
+  "materials": "No special materials. Use the local axis model and supplied hGH/ADH data cases.",
+  "safety": "Cases are synthetic and do not diagnose growth or water-balance disorders. Do not alter fluid intake or medication for this activity.",
+  "targets": [
+    "Distinguish anterior-pituitary control from posterior-pituitary hormone release.",
+    "Trace hGH and ADH pathways using stimulus, source, target, response, and feedback.",
+    "Interpret hormone-variable patterns without confusing diabetes insipidus with diabetes mellitus."
+  ],
+  "warmup": {
+    "title": "One name, two pituitary relationships",
+    "prompt": "Predict one anatomical difference between a pituitary region controlled through blood-borne releasing hormones and a region that releases hormones made in hypothalamic neurons.",
+    "placeholder": "The first region would… while the second…"
+  },
+  "sections": [
+    {
+      "label": "Separate the regions",
+      "title": "1. The anterior and posterior pituitary are controlled differently",
+      "paragraphs": [
+        "Hypothalamic neurosecretory cells release controlling hormones into a portal blood system that carries them directly to the anterior pituitary. Anterior-pituitary endocrine cells respond by releasing hormones such as hGH, TSH, and ACTH into general circulation.",
+        "The posterior pituitary is neural tissue connected to hypothalamic neurons. ADH and oxytocin are synthesized in the hypothalamus, transported down axons, and released from terminals in the posterior pituitary. The posterior pituitary stores and releases these hormones; it does not synthesize them.",
+        "Calling the pituitary a master gland can hide this dependence on hypothalamic control and target-gland feedback. The hypothalamus-pituitary complex is better understood as an integrated neural-endocrine interface."
+      ],
+      "figureIds": ["figure-hypothalamus-pituitary-axes"]
+    },
+    {
+      "label": "Regulate growth",
+      "title": "2. hGH acts directly and through growth factors",
+      "paragraphs": [
+        "Human growth hormone supports growth, protein synthesis, and metabolic adjustments. Many growth effects are mediated through insulin-like growth factors produced in response to hGH, especially by the liver. Secretion is pulsatile and varies with sleep, age, nutrition, activity, and other signals.",
+        "Excess hGH before growth plates close can produce gigantism; excess after closure can produce acromegaly. Insufficient hGH during development can reduce growth. Adult height or one hormone sample cannot identify the cause because genetics, nutrition, thyroid function, chronic illness, timing, and other factors also influence growth.",
+        "Feedback from hGH-related signals helps regulate hypothalamic and pituitary output. Interpreting an hGH case requires timing and growth-factor evidence, not a simple high-or-low label from one random sample."
+      ]
+    },
+    {
+      "label": "Conserve water",
+      "title": "3. ADH changes kidney water permeability",
+      "paragraphs": [
+        "Osmoreceptors in the hypothalamus respond when body-fluid osmotic concentration rises. Hypothalamic neurons increase ADH release from the posterior pituitary. ADH acts mainly on kidney collecting ducts, increasing aquaporin insertion and water reabsorption. Less water is lost in urine, helping lower the osmotic disturbance.",
+        "A decrease in blood volume or pressure can also increase ADH through additional receptor pathways. Thirst and kidney responses cooperate. As osmotic concentration and volume move toward workable ranges, ADH drive decreases. Urine volume and concentration are consequences of the response, not the regulated variable itself.",
+        "Caffeine can modestly affect urine output in some contexts, especially for people who are not habituated, but describing it simply as shutting off ADH is inaccurate. Fluid balance depends on dose, usual intake, kidneys, hormones, and total fluid consumed."
+      ],
+      "figureIds": ["figure-water-balance-loop"]
+    },
+    {
+      "label": "Interpret a disorder pattern",
+      "title": "4. Diabetes insipidus is a water-balance disorder",
+      "paragraphs": [
+        "Central diabetes insipidus involves insufficient ADH production or release. Nephrogenic diabetes insipidus involves reduced kidney response to ADH. Both can produce large volumes of dilute urine and increased thirst, but their hormone patterns differ.",
+        "In a synthetic case, high plasma osmotic concentration with low ADH suggests inadequate central release. High ADH with persistently dilute urine suggests weak kidney response. These are mechanism patterns, not a complete diagnosis; kidney function, medicines, fluid intake, and additional testing matter.",
+        "Diabetes insipidus is unrelated to blood-glucose regulation in diabetes mellitus. The shared historical word refers to increased urination, but the regulated variables and hormones differ. One concerns water balance and ADH; the other concerns glucose regulation and insulin-related pathways."
+      ],
+      "table": {
+        "caption": "Synthetic ADH evidence cases",
+        "headers": ["Case", "Plasma osmotic concentration", "ADH signal", "Urine pattern", "Mechanism candidate"],
+        "rows": [
+          ["A", "High", "Low", "Large volume, dilute", "Insufficient ADH release"],
+          ["B", "High", "High", "Large volume, dilute", "Reduced kidney response"],
+          ["C", "High", "High", "Lower volume, concentrated", "Expected conservation response"],
+          ["D", "Low", "Low", "Larger volume, dilute", "Expected removal of excess water"]
+        ]
+      }
+    }
+  ],
+  "interaction": {
+    "id": "interaction-hypothalamus-pituitary-feedback",
+    "title": "Compare an axis with a neural-release pathway",
+    "intro": "Choose a pathway. The simulator identifies where the hormone is made, released, and fed back.",
+    "prompt": "Which description correctly separates synthesis from release?",
+    "options": [
+      {"id": "adh", "label": "ADH pathway", "evidence": "Hypothalamic neurons synthesize ADH; posterior-pituitary terminals release it; kidney collecting ducts respond.", "explanation": "The posterior pituitary is the release site, not the synthesis site."},
+      {"id": "hgh", "label": "hGH pathway", "evidence": "Hypothalamic releasing and inhibiting signals act through portal blood on anterior-pituitary cells that secrete hGH.", "explanation": "The anterior pituitary synthesizes and releases hGH under hypothalamic and feedback control."},
+      {"id": "tsh", "label": "TSH-thyroxine axis", "evidence": "Hypothalamus → anterior pituitary TSH → thyroid thyroxine, with thyroxine feedback.", "explanation": "This is a multi-level axis: a pituitary tropic hormone controls a target gland."}
+    ],
+    "staticFallback": "ADH: synthesized in hypothalamic neurons, released posteriorly. hGH and TSH: synthesized by anterior-pituitary endocrine cells under hypothalamic portal control."
+  },
+  "exit": {
+    "title": "Distinguish two ADH failures",
+    "prompt": "In 2–3 sentences, compare the expected ADH and urine evidence in central versus nephrogenic diabetes insipidus.",
+    "placeholder": "Central DI would tend to show… Nephrogenic DI would…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 110–120, class Pituitary Hormones Parts 1–2, CBE Module 2 Lessons 2 and 6, and OpenStax pituitary and ADH cross-checking. Data are synthetic instructional patterns.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-pituitary", "class-day-pituitary-1", "class-day-pituitary-2", "system-m2-l2", "system-m2-l6", "openstax-a-and-p"]
+  }
+}

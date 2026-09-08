@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "setId": "lesson-checks-module-1",
+  "items": [
+    {
+      "id": "lesson-01-check-1",
+      "setId": "lesson-01",
+      "outcomeIds": ["A2.4k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-homeostasis", "alberta-program"],
+      "prompt": "Which statement correctly identifies a regulated variable and a response during heat stress?",
+      "choices": {"a": "Sweating is the variable; body temperature is the response.", "b": "Body temperature is the variable; sweating can increase heat loss.", "c": "Insulin is the variable; shivering is the sensor.", "d": "Skin is the variable; the hypothalamus is the effector."},
+      "answerKey": "b",
+      "rationale": "Body temperature is a condition being regulated. Sweating is an effector response that can oppose a rise by increasing evaporative heat loss.",
+      "targetedFeedback": {"a": "This reverses the roles: sweating is an effector response, not the regulated condition.", "c": "Insulin is a hormone signal in glucose regulation, and shivering is a response rather than a sensor.", "d": "Skin contains receptors and effectors, but it is not the regulated variable in this statement."}
+    },
+    {
+      "id": "lesson-01-check-2",
+      "setId": "lesson-01",
+      "outcomeIds": ["A2.5k"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["system-unit-intro", "notes-homeostasis"],
+      "prompt": "A sudden alarm produces an immediate heart-rate change followed by a longer change in fuel availability. Which explanation best fits the evidence?",
+      "choices": {"a": "Only endocrine signalling can act because hormones control all organs.", "b": "Only neural signalling can act because hormones are always too slow.", "c": "Rapid autonomic output and a circulating adrenal-hormone phase can overlap.", "d": "The response cannot involve feedback because two systems are active."},
+      "answerKey": "c",
+      "rationale": "A fast sympathetic neural phase can overlap with adrenal-medulla hormone release and later endocrine support; coordinated systems often operate on different time scales.",
+      "targetedFeedback": {"a": "Neural pathways can change organ activity within seconds and often initiate the response.", "b": "Hormones can contribute during and after rapid neural activation; slow is not an absolute rule.", "d": "Multiple active systems do not prevent feedback. The classification depends on the response's effect on the original disturbance."}
+    },
+    {
+      "id": "lesson-01-check-3",
+      "setId": "lesson-01",
+      "outcomeIds": ["A2.4k", "A2.5k"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "notes-homeostasis"],
+      "prompt": "A model shows cold air → shivering. What is the most important missing evidence before classifying the pathway as negative feedback?",
+      "choices": {"a": "Whether shivering is voluntary", "b": "Whether shivering increases heat production and reduces the temperature departure", "c": "Whether the learner dislikes cold weather", "d": "Whether a hormone name appears in the diagram"},
+      "answerKey": "b",
+      "rationale": "Negative feedback is established by the return effect: the response must oppose the change that initiated it.",
+      "targetedFeedback": {"a": "Voluntary control does not define feedback direction.", "c": "Preference is not evidence about the response's effect on the regulated variable.", "d": "A hormone is not required for every feedback loop; the return relationship is required."}
+    },
+    {
+      "id": "lesson-02-check-1",
+      "setId": "lesson-02",
+      "outcomeIds": ["A2.2k", "A2.4k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-hormone-signalling", "system-m2-l1"],
+      "prompt": "Which sequence correctly separates the stages of endocrine signalling?",
+      "choices": {"a": "Target response → release → receptor → transport", "b": "Hormone release → blood transport → receptor binding → target-cell response", "c": "Receptor binding → gland formation → nerve impulse → target response", "d": "Blood transport → regulated variable → hormone synthesis → receptor disappearance"},
+      "answerKey": "b",
+      "rationale": "An endocrine signal is released, transported in blood, bound by an appropriate receptor, and translated into a target-cell response.",
+      "targetedFeedback": {"a": "The target response occurs after release, transport, and receptor binding.", "c": "A hormone pathway does not require a nerve impulse at the target and receptor binding follows release.", "d": "This sequence omits release and does not connect receptor binding to target action."}
+    },
+    {
+      "id": "lesson-02-check-2",
+      "setId": "lesson-02",
+      "outcomeIds": ["A2.2k"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-hormone-signalling", "openstax-a-and-p"],
+      "prompt": "A hormone concentration is high, but the target response remains weak. Which mechanism is most consistent with that pairing?",
+      "choices": {"a": "The hormone was never released.", "b": "Target receptors or downstream signalling respond poorly.", "c": "Blood cannot transport any hormone.", "d": "Negative feedback always makes target responses stronger."},
+      "answerKey": "b",
+      "rationale": "Hormone presence with a weak response can indicate reduced receptor or downstream sensitivity; concentration and target response must be interpreted together.",
+      "targetedFeedback": {"a": "A high measured concentration contradicts the claim that no hormone was released.", "c": "The measured hormone reached the blood; the evidence points beyond transport.", "d": "Negative feedback reduces a disturbance and may reduce signal drive; it does not guarantee a stronger target response."}
+    },
+    {
+      "id": "lesson-02-check-3",
+      "setId": "lesson-02",
+      "outcomeIds": ["A2.2k", "A2.4k"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "notes-homeostasis"],
+      "prompt": "Blood calcium is low and PTH is high. Which conclusion is strongest?",
+      "choices": {"a": "PTH underproduction is proven.", "b": "The parathyroid response is present; target response or calcium availability may be limiting.", "c": "Blood calcium cannot be a regulated variable.", "d": "High PTH proves that blood calcium is already normal."},
+      "answerKey": "b",
+      "rationale": "High PTH is an expected response to low calcium. Persistent low calcium shifts attention to target pathways, supply, timing, or another limitation.",
+      "targetedFeedback": {"a": "The PTH value is high, not low; the evidence does not support underproduction.", "c": "Blood calcium is a regulated variable central to this loop.", "d": "The measured calcium remains low, so the response has not fully corrected the departure."}
+    }
+  ]
+}

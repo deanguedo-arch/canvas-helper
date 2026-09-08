@@ -7,6 +7,32 @@ import { getProjectPaths } from "../lib/paths.js";
 import { decoratePreviewHtml, resolvePreviewInspection } from "../../app/server/lib/preview-inspection.ts";
 import type { InspectionResolveRequest } from "../../app/shared/inspection.ts";
 
+test("single-pass decoration preserves exact legacy bytes, marker order and source offsets", () => {
+  const source = '<!doctype html>\n<html><head><style>x{color:red}</style></head><body>\n<main data-note="a > b"><h1>Résumé 🧠</h1><img src="x.png"/><input value=">" />\n<template><p>not marked</p></template><script>const x="<div>";</script></main></body></html>';
+  const document = decoratePreviewHtml(source)!;
+  assert.ok(document);
+  let legacy = source;
+  const locations = [...document.nodeLocations];
+  assert.deepEqual(locations.map(([,entry])=>entry.tagName), ["input","img","h1","main","body","html"]);
+  for (const [nodeId, entry] of locations) {
+    const at = source[entry.sourceEnd - 1] === "/" ? entry.sourceEnd - 1 : entry.sourceEnd;
+    legacy = `${legacy.slice(0, at)} data-canvas-helper-inspect-node="${nodeId}"${legacy.slice(at)}`;
+    assert.equal(source.slice(entry.sourceStart,entry.sourceEnd+1).startsWith(`<${entry.tagName}`),true);
+  }
+  assert.equal(document.html,legacy);
+  assert.deepEqual([...document.nodeIds],locations.map(([id])=>id));
+  assert.equal(decoratePreviewHtml('<p data-canvas-helper-inspect-node="forged">x</p>'),null);
+});
+
+test("large static course decoration stays within the preview readiness budget", () => {
+  const source = `<main>${'<section><h2>Observe and explain</h2><p>Use the labelled figure and compare the evidence.</p><select><option>Structure</option><option>Function</option></select></section>'.repeat(12000)}</main>`;
+  const started=performance.now();
+  const document=decoratePreviewHtml(source)!;
+  assert.equal(document.nodeIds.size,72001);
+  assert.equal(document.html.replace(/ data-canvas-helper-inspect-node="ch1:[a-f0-9]{24}:\d+"/g,""),source);
+  assert.ok(performance.now()-started<5000,"Annotation decoration must not consume the ten-second preview readiness window");
+});
+
 function requestFor(slug: string, nodeId: string): InspectionResolveRequest {
   return {
     projectSlug: slug,

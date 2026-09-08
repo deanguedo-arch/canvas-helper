@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a",
+  "buildSha256": "d5d97368a9813ebc62f444dbd011ebe7134e48204412ef03a9bf69cf01162847",
+  "reviewedAt": "2026-08-30T14:32:37Z",
+  "status": "automated-evidence-passed-awaiting-human-decision",
+  "promotionAuthorized": false,
+  "checks": [
+    {
+      "command": "npm run test:biology30-unit-a-v2",
+      "result": "passed",
+      "details": "29 unit, validation, transaction, rollback, ownership-boundary, and shared-shell tests passed."
+    },
+    {
+      "command": "npm run test:e2e:biology30-unit-a-v2",
+      "result": "passed",
+      "details": "11 browser contracts passed across route inventory, axe scans, local-first operation, keyboard interactions, persistence, SCORM reporting, state-budget overflow, responsive reflow, 200 percent text zoom, and visual baselines."
+    },
+    {
+      "command": "npm run test:science-comparison",
+      "result": "passed",
+      "details": "6 preserved-pilot intake, isolation, UTF-16, exclusion, and rollback tests passed."
+    },
+    {
+      "command": "npm run validate:manifests",
+      "result": "passed",
+      "details": "All project metadata validated, including the blocked Biology 30 production candidate."
+    },
+    {
+      "command": "npm run verify:typecheck-baseline",
+      "result": "passed",
+      "details": "The established 10-diagnostic baseline remained unchanged with no diagnostics in changed files."
+    },
+    {
+      "command": "npm run build:studio",
+      "result": "passed",
+      "details": "The Studio production build completed successfully."
+    },
+    {
+      "command": "npm run test:e2e:project -- --project biology30-unit-a",
+      "result": "passed",
+      "details": "The shared learner-course contract passed, including the scoped Investigation Notebook Print/PDF route."
+    },
+    {
+      "command": "npm run test:e2e:smoke",
+      "result": "passed",
+      "details": "The project-agnostic Studio smoke contract passed."
+    }
+  ],
+  "resolvedContractFinding": {
+    "finding": "The working Investigation Notebook Print/PDF control used only a Biology-specific selector and was not discoverable by the shared learner-course contract.",
+    "resolution": "The canonical control now also declares data-worksheet-print while retaining the Biology runtime hook.",
+    "regressionEvidence": "The project-specific shared contract and Biology notebook print test both pass."
+  },
+  "followUpReviewChanges": {
+    "studentFacingPlatformLanguage": "Visible SCORM, Brightspace, LMS, learning-record, and success-status wording was removed from the overview, artifact guidance, Lesson 17, and the runtime save warning.",
+    "criteriaCommunication": "The overview and all 17 lessons now present one I am learning to learning intention and explicit I can success criteria.",
+    "regressionEvidence": "Static validation requires 18 aligned intention-and-criteria blocks and rejects visible platform terms; the full 29-test Biology suite and 11-test browser suite pass."
+  },
+  "prePromotionAuthoringGuard": {
+    "command": "npm run course:doctor -- --project biology30-unit-a",
+    "result": "expected-block",
+    "details": "The command refuses authoring context because the candidate remains blocked under proposal-only-v1. Gate 4 promotion is required before Direct Studio authoring can pass."
+  },
+  "remainingHumanGate": "Score and accept the exact build using gate-3-acceptance-matrix.json. No automated result may promote the course."
+}

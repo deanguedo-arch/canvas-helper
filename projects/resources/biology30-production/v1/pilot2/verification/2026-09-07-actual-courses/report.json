@@ -1,0 +1,81 @@
+{
+  "checkedAt": "2026-09-07T14:44:09.297700+00:00",
+  "status": "all-three-local-candidates-built-and-essential-checks-passed",
+  "builds": {
+    "B": {
+      "buildSha256": "096f3331beb887484404e51a31269ca27ba7b11d4a6d1314ab3653f9de42836e",
+      "contractSha256": "b90ce8715c14dcbb768c752ccc7adbbf2d42b3ee079bffaa9b8334b89a51aa06",
+      "generatedAt": "2026-09-07T14:37:19.411Z",
+      "previousWorkspaceSha256": "bffd0628d486dfcdc163d1cbf92befeea1b19b4b9c5f25668a9b6d169348dcd4"
+    },
+    "C": {
+      "buildSha256": "ff179e7d6c392b61df160b07efc9d87de6bc2cf469b95dbc2d465b97589e7caa",
+      "contractSha256": "0d42749444b81f53325cf6260568ad4cf41a245548aafba1f1820277d0253122",
+      "generatedAt": "2026-09-07T14:37:25.452Z",
+      "previousWorkspaceSha256": "4f8a358c328c498a20eef5987ceaa8530caa875367ac1e165cbf3671999fbcd8"
+    },
+    "D": {
+      "buildSha256": "ca76045399b8d477256968c12539dcb056575cbe3453718469e7334fc711a0d8",
+      "contractSha256": "16faa86c1582f93237d7f7a9cfd981220a91643d6f101027d03a451934a7bdac",
+      "generatedAt": "2026-09-07T14:37:31.169Z",
+      "previousWorkspaceSha256": "e2d34eedeb9659ed59f5ad5bf9340a46af8ab93083140ff8f3c849a9bc068a2e"
+    }
+  },
+  "topics": 30,
+  "requiredRoutes": 43,
+  "totalLearnerRoutes": 76,
+  "practiceItems": 249,
+  "figuresBound": 127,
+  "uniqueSelectedAssets": 115,
+  "gatesPerUnit": "13/13 provisional authored; all3 frozen",
+  "teacherAcceptance": null,
+  "unitAStatus": "provisional; all3 learner trees and protected owner match baseline",
+  "verification": {
+    "projectE2E": "B/C/D actual project command each1/1 passed after final rebuild",
+    "workspace": "B/C/D passed, no missing local assets or external dependencies",
+    "responsive": "172 required route/viewport checks passed at1440/1024/390/720 CSS pixels",
+    "offline": "fresh local-file launch with network offline B/C/D passed, no page errors or broken first-route images",
+    "exactRenderedAcademic": "136 criteria,819 declared target checks,127 exact required prose blocks,501 definition placements,required practice IDs and closed Advanced checked",
+    "focusedTests": "Continuation/textbook3/3 passed. Owner/input run initially7/8 due assertion-message regex; corrected input run3/3 passed, remaining owner tests alreadypassed.",
+    "typecheck": "25 pre-existing unrelated diagnostics;0 in touched Biology owner/tests",
+    "doctor": "B/C/D intentionally blocked/proposal-only; doctor rejects not-active. No editability flag changed to force a pass.",
+    "nativeViews": "Representative actual desktop/mobile and enlarged figures inspected; fixed mobile header overlap. Full exhaustive visual acceptance is not claimed."
+  },
+  "limitations": [
+    "Teacher acceptance and pacing validation pending.",
+    "User requested ending broad review; exact candidate remains provisional. No further general image/science review round is required to produce these local builds.",
+    "720-CSS-pixel reflow is an equivalent narrow layout check, not an assertion that native browser UI zoom was exercised.",
+    "No LMS cross-browser save/restore, export, deployment, publication or Studio Edit.",
+    "Full course doctor eligibility requires a separately authorized supported editing lifecycle; blocked status is intentional.",
+    "Legacy requiredSkillTask planning aliases are not asserted as DOM IDs; exact required practice IDs and the reviewed current teaching targets are checked."
+  ],
+  "buildFixes": [
+    "Null continuation page accepted as absent; invalid numeric pages still rejected.",
+    "Pilot2-scoped mobile header grid prevents menu/logo/progress collisions; shared shell and Unit A untouched."
+  ],
+  "initialEvidenceRetained": [
+    "C initial null-continuation build failure in /tmp/bcd-actual-build-c.log",
+    "Initial CSS zoom-based overflow probe is not a valid native browser zoom measurement; replaced by720-CSS-pixel reflow.",
+    "Initial exact-target checker incorrectly treated omitted STS/skill target properties as IDs; corrected to check declared IDs and every required practice ID."
+  ],
+  "logFiles": [
+    "bcd-final-pre-render.log",
+    "bcd-final-protection.log",
+    "bcd-final-input-tests.log",
+    "bcd-final-owner-tests.log",
+    "bcd-continuation-tests.log",
+    "bcd-final-typecheck.log",
+    "bcd-final-build-b.log",
+    "bcd-final-e2e-b.log",
+    "bcd-final-workspace-b.log",
+    "bcd-doctor-b.log",
+    "bcd-final-build-c.log",
+    "bcd-final-e2e-c.log",
+    "bcd-final-workspace-c.log",
+    "bcd-doctor-c.log",
+    "bcd-final-build-d.log",
+    "bcd-final-e2e-d.log",
+    "bcd-final-workspace-d.log",
+    "bcd-doctor-d.log"
+  ]
+}

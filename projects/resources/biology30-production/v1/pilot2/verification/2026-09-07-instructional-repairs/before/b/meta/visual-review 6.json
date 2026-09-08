@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-b",
+  "buildSha256": "c6e2a1abea00e55bfd1e02bb1480afbed5ff3013f67e5721b7688d22ad81297f",
+  "status": "exact-build-visual-inspection-complete",
+  "reviewedAt": "2026-08-31T02:58:30Z",
+  "requiredViewports": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "requiredRoutes": [
+    "overview",
+    "b-lesson-01",
+    "b-lesson-08",
+    "b-lesson-14",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "sources-and-credits"
+  ],
+  "screenshots": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-b/routes-desktop-1440x900-01.png",
+      "sha256": "17bfa62b0e8e90d7cc3e0d46040aa2501b59d10fbb8b9b4076f98b0e32b720c6"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-b/routes-tablet-1024x768-01.png",
+      "sha256": "67bc494838b8f2b05cd8b73b7f15dbbd45ce88b4145385625135784b69c248c7"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-b/routes-mobile-390x844-01.png",
+      "sha256": "12a3a91de1d2eccbf8d11d3c5234bf307a6cc79f665a598addfebbb9e8c92513"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-b/figures-contact-sheet-01.png",
+      "sha256": "eb5a8d08735d4becb7a1012cc06847b249cfb6dff8518b360027b3ad35777d4d"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-55-03-556Z/biology30-unit-b/figures-contact-sheet-02.png",
+      "sha256": "0da2d158031faf7a14c0e6fafbe0edba8d797ff03313843206df1b781aa112f3"
+    }
+  ],
+  "allListedSheetsOpened": true,
+  "checks": {
+    "noClippedOrOverlappingLearnerContent": true,
+    "scientificModelsFitTheirContainers": true,
+    "arrowAndSequenceAlignment": true,
+    "desktopTabletAndMobileReflow": true,
+    "typographyAndInformationHierarchy": true,
+    "sourcesAndCreditsLegibility": true
+  },
+  "findings": [],
+  "binaryVisualBlockerFound": false,
+  "humanVisualAcceptance": null,
+  "pass": true
+}

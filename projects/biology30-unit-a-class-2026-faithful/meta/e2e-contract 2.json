@@ -1,0 +1,63 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-a-class-2026-faithful",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Local practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "source-1498126-unit-a-chapter-11-notes",
+      "source-1498135-days-11-12-chapter-12-quiz",
+      "source-1498116-textbook-unit-5-a-review-p-466-469-key",
+      "local-notes",
+      "review-matrix",
+      "source-provenance"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "evidenceScenario": {
+      "kind": "collection",
+      "route": "source-1498126-unit-a-chapter-11-notes",
+      "collectionId": "biology30-unit-a-class-2026-faithful:biology-reflection",
+      "responseId": "biology30-unit-a-class-2026-faithful:biology-reflection:response"
+    },
+    "resourceChecks": [
+      {
+        "route": "local-notes",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "source-1498126-unit-a-chapter-11-notes",
+        "source-1498116-textbook-unit-5-a-review-p-466-469-key",
+        "review-matrix"
+      ]
+    }
+  }
+}

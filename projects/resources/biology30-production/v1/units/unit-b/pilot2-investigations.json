@@ -1,0 +1,618 @@
+{
+  "unit": "B",
+  "status": "draft",
+  "investigations": [
+    {
+      "id": "b-investigation-structure-function",
+      "title": "Locate the disrupted step",
+      "generalOutcome": 1,
+      "question": "Which observations distinguish a production problem from a transport obstruction?",
+      "sourceKind": "original schematic observations; not a clinical dataset",
+      "variables": {
+        "compare": "fictional cases",
+        "observe": "tissue, hormone-signal and transport observations",
+        "holdConstant": "same simplified reproductive pathway and observation method"
+      },
+      "dataset": {
+        "columns": [
+          "Case",
+          "Developing germ cells",
+          "Sertoli support",
+          "LH signal",
+          "Duct passage"
+        ],
+        "rows": [
+          [
+            "Reference",
+            "present",
+            "present",
+            "present",
+            "open"
+          ],
+          [
+            "P",
+            "absent",
+            "disrupted",
+            "present",
+            "open"
+          ],
+          [
+            "T",
+            "present",
+            "present",
+            "present",
+            "blocked"
+          ],
+          [
+            "S",
+            "reduced",
+            "present",
+            "reduced",
+            "open"
+          ]
+        ]
+      },
+      "prediction": "Before revealing the observations, predict which two observations would distinguish an obstruction from reduced production.",
+      "procedure": [
+        "Identify testes, tubules, Sertoli cells, interstitial cells, epididymis and duct on the supplied schematic. Record each location and its normal role.",
+        "Choose two cases. Keep the observation method fixed and record differences.",
+        "Use the table to identify the affected step; propose one additional observation that could reject your explanation.",
+        "Read the supplied alternative claim that all low delivery means low production. Explain which case challenges it and revise your claim."
+      ],
+      "expected": "T has a transport obstruction despite observed germ cells and support. P has altered support/production. S is consistent with reduced upstream signalling. No case establishes an individual fertility diagnosis.",
+      "limitations": [
+        "Schematic observations are not microscopy performance.",
+        "Four fictional cases cannot estimate human prevalence or treatment success."
+      ],
+      "saveFields": [
+        "question and prediction",
+        "labelled observations",
+        "comparison and explanation",
+        "alternative and revised claim"
+      ],
+      "coreSkillTopicId": "b-topic-female-reproductive-structures",
+      "coreSkillPartId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "B1.1s",
+        "B1.2s",
+        "B1.3s",
+        "B1.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "responseFields": [
+        {
+          "id": "b-investigation-structure-function-plan",
+          "label": "question and prediction",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Compare T and P: does a blockage explain both? Predict retained upstream germ cells with blocked transport; keep model pathway and observation method fixed.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-structure-function-observations",
+          "label": "labelled observations",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "T: germ cells/support/LH present, duct blocked. P: germ cells absent, support disrupted, LH present, duct open. Locate support inside tubules and interstitial cells outside.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-structure-function-explanation",
+          "label": "comparison and explanation",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "T supports obstruction; P supports disrupted production. Testis/tubules produce, epididymis matures, vas carries sperm. Testosterone uses blood; inspect maturation separately.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-structure-function-revision",
+          "label": "alternative and revised claim",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "The claim that all low delivery means low production fails for T. Revise to at least two possible mechanisms; seek downstream counts and maturation evidence.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "b-investigation-structure-function",
+            "title": "Locate the disrupted step",
+            "generalOutcome": 1,
+            "question": "Which observations distinguish a production problem from a transport obstruction?",
+            "sourceKind": "original schematic observations; not a clinical dataset",
+            "variables": {
+              "compare": "fictional cases",
+              "observe": "tissue, hormone-signal and transport observations",
+              "holdConstant": "same simplified reproductive pathway and observation method"
+            },
+            "dataset": {
+              "columns": [
+                "Case",
+                "Developing germ cells",
+                "Sertoli support",
+                "LH signal",
+                "Duct passage"
+              ],
+              "rows": [
+                [
+                  "Reference",
+                  "present",
+                  "present",
+                  "present",
+                  "open"
+                ],
+                [
+                  "P",
+                  "absent",
+                  "disrupted",
+                  "present",
+                  "open"
+                ],
+                [
+                  "T",
+                  "present",
+                  "present",
+                  "present",
+                  "blocked"
+                ],
+                [
+                  "S",
+                  "reduced",
+                  "present",
+                  "reduced",
+                  "open"
+                ]
+              ]
+            },
+            "prediction": "Before revealing the observations, predict which two observations would distinguish an obstruction from reduced production.",
+            "procedure": [
+              "Identify testes, tubules, Sertoli cells, interstitial cells, epididymis and duct on the supplied schematic. Record each location and its normal role.",
+              "Choose two cases. Keep the observation method fixed and record differences.",
+              "Use the table to identify the affected step; propose one additional observation that could reject your explanation.",
+              "Read the supplied alternative claim that all low delivery means low production. Explain which case challenges it and revise your claim."
+            ],
+            "expected": "T has a transport obstruction despite observed germ cells and support. P has altered support/production. S is consistent with reduced upstream signalling. No case establishes an individual fertility diagnosis.",
+            "limitations": [
+              "Schematic observations are not microscopy performance.",
+              "Four fictional cases cannot estimate human prevalence or treatment success."
+            ],
+            "saveFields": [
+              "question and prediction",
+              "labelled observations",
+              "comparison and explanation",
+              "alternative and revised claim"
+            ],
+            "coreSkillTopicId": "b-topic-female-reproductive-structures",
+            "coreSkillPartId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "B1.1s",
+              "B1.2s",
+              "B1.3s",
+              "B1.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": [
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-male-tract-vector-v3.svg",
+          "sha256": "0979a2f87a30311555cb94ce1d07bd5ad6ecc872d7e1ffe630a42109b00b3dcc",
+          "role": "Original authored SVG; local blocked review, teacher choice pending"
+        },
+        {
+          "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-testis-compartments-v2.svg",
+          "sha256": "82cebd4ec89b4da61c3cfe64285ab63ee7765b738c66894473af9f7547b3bf25",
+          "role": "Original authored SVG; local blocked review, teacher choice pending"
+        }
+      ]
+    },
+    {
+      "id": "b-investigation-cycle-graphs",
+      "title": "Build and test a cycle explanation",
+      "generalOutcome": 2,
+      "question": "How does the order of four hormone changes support a model of ovulation and endometrial maintenance?",
+      "sourceKind": "synthetic relative concentrations on separate hormone scales",
+      "variables": {
+        "compare": "cycle day",
+        "observe": "FSH, LH, estrogen and progesterone",
+        "holdConstant": "one illustrative non-pregnant cycle; each hormone uses its own relative scale"
+      },
+      "dataset": {
+        "columns": [
+          "Day",
+          "FSH index",
+          "LH index",
+          "Estrogen index",
+          "Progesterone index"
+        ],
+        "rows": [
+          [
+            2,
+            5,
+            3,
+            2,
+            1
+          ],
+          [
+            7,
+            4,
+            3,
+            5,
+            1
+          ],
+          [
+            12,
+            3,
+            6,
+            10,
+            1
+          ],
+          [
+            14,
+            4,
+            18,
+            7,
+            2
+          ],
+          [
+            21,
+            2,
+            2,
+            6,
+            10
+          ],
+          [
+            28,
+            4,
+            3,
+            2,
+            1
+          ]
+        ]
+      },
+      "prediction": "Predict which change must precede the LH surge and which hormone would stay raised during a functioning luteal phase.",
+      "procedure": [
+        "Choose labelled axes and plot the four series separately; relative indices do not make hormones equal in molar concentration.",
+        "Read the highest estrogen and LH points in time order. Place a provisional ovulation interval, not an exact diagnosis.",
+        "Compare day 21 with day 28 and connect the progesterone pattern to endometrial support.",
+        "Propose a sampling schedule that could resolve the interval more closely; explain why this model cannot predict a person’s fertile days."
+      ],
+      "expected": "The highest supplied estrogen point is day 12 and LH is day 14. Progesterone is high at day 21 and lower by day 28. The data are consistent with positive feedback followed by luteal support and withdrawal, but sparse points cannot locate the event exactly.",
+      "limitations": [
+        "An illustrative cycle is not a universal 28-day schedule.",
+        "The dataset cannot support personal fertility or contraceptive decisions."
+      ],
+      "saveFields": [
+        "prediction and sampling plan",
+        "four plotted series with axes",
+        "event sequence and supporting values",
+        "limits and revised explanation"
+      ],
+      "coreSkillTopicId": "b-topic-menstrual-cycle",
+      "coreSkillPartId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "B2.1s",
+        "B2.2s",
+        "B2.3s",
+        "B2.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "graphExercise": {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-graph-work.json",
+        "responseId": "b-topic-menstrual-cycle-guided-construct",
+        "relationship": "Open the same saved core graph exercise; do not create a duplicate graph answer or substitute model values.",
+        "requiredForInvestigationExtension": true
+      },
+      "responseFields": [
+        {
+          "id": "b-investigation-cycle-graphs-plan",
+          "label": "prediction and sampling plan",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Does estrogen rise before LH? Predict this order in one synthetic cycle; keep separate hormone scales. Compare day12 with14 and progesterone21 with28.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-cycle-graphs-observations",
+          "label": "four plotted series with axes",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "Use the saved four-series graph exercise. Highest samples: estrogen10@12; LH18@14; progesterone10@21 then1@28. Day is x; each y is its named relative index.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-cycle-graphs-explanation",
+          "label": "event sequence and supporting values",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "Order supports follicular positive feedback, then luteal progesterone support and withdrawal. Highest sampled point need not be the true peak.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-cycle-graphs-revision",
+          "label": "limits and revised explanation",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "An exact ovulation date is unsupported. Sample more frequently near the rise; revise to a bounded sequence. This model cannot predict personal fertile days.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "b-investigation-cycle-graphs",
+            "title": "Build and test a cycle explanation",
+            "generalOutcome": 2,
+            "question": "How does the order of four hormone changes support a model of ovulation and endometrial maintenance?",
+            "sourceKind": "synthetic relative concentrations on separate hormone scales",
+            "variables": {
+              "compare": "cycle day",
+              "observe": "FSH, LH, estrogen and progesterone",
+              "holdConstant": "one illustrative non-pregnant cycle; each hormone uses its own relative scale"
+            },
+            "dataset": {
+              "columns": [
+                "Day",
+                "FSH index",
+                "LH index",
+                "Estrogen index",
+                "Progesterone index"
+              ],
+              "rows": [
+                [
+                  2,
+                  5,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  7,
+                  4,
+                  3,
+                  5,
+                  1
+                ],
+                [
+                  12,
+                  3,
+                  6,
+                  10,
+                  1
+                ],
+                [
+                  14,
+                  4,
+                  18,
+                  7,
+                  2
+                ],
+                [
+                  21,
+                  2,
+                  2,
+                  6,
+                  10
+                ],
+                [
+                  28,
+                  4,
+                  3,
+                  2,
+                  1
+                ]
+              ]
+            },
+            "prediction": "Predict which change must precede the LH surge and which hormone would stay raised during a functioning luteal phase.",
+            "procedure": [
+              "Choose labelled axes and plot the four series separately; relative indices do not make hormones equal in molar concentration.",
+              "Read the highest estrogen and LH points in time order. Place a provisional ovulation interval, not an exact diagnosis.",
+              "Compare day 21 with day 28 and connect the progesterone pattern to endometrial support.",
+              "Propose a sampling schedule that could resolve the interval more closely; explain why this model cannot predict a person’s fertile days."
+            ],
+            "expected": "The highest supplied estrogen point is day 12 and LH is day 14. Progesterone is high at day 21 and lower by day 28. The data are consistent with positive feedback followed by luteal support and withdrawal, but sparse points cannot locate the event exactly.",
+            "limitations": [
+              "An illustrative cycle is not a universal 28-day schedule.",
+              "The dataset cannot support personal fertility or contraceptive decisions."
+            ],
+            "saveFields": [
+              "prediction and sampling plan",
+              "four plotted series with axes",
+              "event sequence and supporting values",
+              "limits and revised explanation"
+            ],
+            "coreSkillTopicId": "b-topic-menstrual-cycle",
+            "coreSkillPartId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "B2.1s",
+              "B2.2s",
+              "B2.3s",
+              "B2.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": []
+    },
+    {
+      "id": "b-investigation-development-evidence",
+      "title": "Timing, exposure and developmental evidence",
+      "generalOutcome": 3,
+      "question": "Does an exposure model support the same developmental effect at every stage?",
+      "sourceKind": "synthetic non-human cell-model experiment; not human risk estimates",
+      "variables": {
+        "compare": "no agent versus agent X at two model stages",
+        "observe": "number showing marker M out of 40 model samples",
+        "holdConstant": "agent amount, exposure duration, marker assay, culture conditions"
+      },
+      "dataset": {
+        "columns": [
+          "Stage",
+          "No agent: marker M / 40",
+          "Agent X: marker M / 40"
+        ],
+        "rows": [
+          [
+            "Early",
+            4,
+            20
+          ],
+          [
+            "Later",
+            5,
+            9
+          ]
+        ]
+      },
+      "prediction": "Predict how you would distinguish a stage effect from an exposure effect using four groups.",
+      "procedure": [
+        "State the question, comparison groups and one controlled condition before reading results.",
+        "Convert all four counts to proportions and compare exposed with unexposed at the same stage.",
+        "Connect the early/late contrast to developmental timing; name the evidence needed to connect the marker to organ formation.",
+        "Read the alternative claim that the model predicts a precise human risk. Reject or qualify it using organism, endpoint and sample-size limits."
+      ],
+      "expected": "Early proportions are 0.10 and 0.50, a difference of 0.40; later proportions are 0.125 and 0.225, a difference of 0.10. These synthetic results suggest the marker response depends on stage in this model. They do not quantify risk to a human embryo.",
+      "limitations": [
+        "Marker M is a model endpoint, not a diagnosis or demonstrated birth outcome.",
+        "Replication, allocation and uncertainty would be needed in a real experiment."
+      ],
+      "saveFields": [
+        "question and group design",
+        "four proportions and stage comparisons",
+        "mechanism and alternative explanation",
+        "model limits and revised claim"
+      ],
+      "coreSkillTopicId": "b-topic-parturition",
+      "coreSkillPartId": "b-topic-parturition-investigating-and-communicating-a-claim",
+      "coreSkillOperationsRequired": true,
+      "investigationExtensionRequired": false,
+      "outcomeIds": [
+        "B3.1s",
+        "B3.2s",
+        "B3.3s",
+        "B3.4s"
+      ],
+      "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "status": "authored-data-and-method-contract; source/rendered review pending",
+      "responseFields": [
+        {
+          "id": "b-investigation-development-evidence-plan",
+          "label": "question and group design",
+          "prompt": "State your question, prediction and a controlled comparison.",
+          "modelResponse": "Does agent X change marker M differently by stage? Compare exposed/control within each stage; fix amount, duration and assay. Predict a larger early difference.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-development-evidence-observations",
+          "label": "four proportions and stage comparisons",
+          "prompt": "Record the supplied observations, coordinates or calculations with labels and units.",
+          "modelResponse": "Early:4/40=.10 vs20/40=.50. Later:5/40=.125 vs9/40=.225. Exposed-minus-control differences are.40 and.10. All four groups are synthetic model samples.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-development-evidence-explanation",
+          "label": "mechanism and alternative explanation",
+          "prompt": "Explain the pattern using evidence and the model assumptions.",
+          "modelResponse": "A larger early contrast supports a stage-related model response. The marker needs validation against organ development; allocation and replication matter.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "b-investigation-development-evidence-revision",
+          "label": "model limits and revised claim",
+          "prompt": "Address the contrasting claim, state a limitation and propose a revision or further test.",
+          "modelResponse": "Reject precise human-risk claims: system and endpoint differ. Add replicated controlled groups and a validated endpoint; revise the conclusion to this model.",
+          "comparisonPolicy": "Author example, not a unique answer. Accept a scientifically justified alternative that completes the requested operation.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "revisionHistory": [
+        {
+          "reason": "Separate source/data/operation review; explicit four-field models and graph/source prerequisites; D complete conditional genotype expectations and C codon key.",
+          "prior": {
+            "id": "b-investigation-development-evidence",
+            "title": "Timing, exposure and developmental evidence",
+            "generalOutcome": 3,
+            "question": "Does an exposure model support the same developmental effect at every stage?",
+            "sourceKind": "synthetic non-human cell-model experiment; not human risk estimates",
+            "variables": {
+              "compare": "no agent versus agent X at two model stages",
+              "observe": "number showing marker M out of 40 model samples",
+              "holdConstant": "agent amount, exposure duration, marker assay, culture conditions"
+            },
+            "dataset": {
+              "columns": [
+                "Stage",
+                "No agent: marker M / 40",
+                "Agent X: marker M / 40"
+              ],
+              "rows": [
+                [
+                  "Early",
+                  4,
+                  20
+                ],
+                [
+                  "Later",
+                  5,
+                  9
+                ]
+              ]
+            },
+            "prediction": "Predict how you would distinguish a stage effect from an exposure effect using four groups.",
+            "procedure": [
+              "State the question, comparison groups and one controlled condition before reading results.",
+              "Convert all four counts to proportions and compare exposed with unexposed at the same stage.",
+              "Connect the early/late contrast to developmental timing; name the evidence needed to connect the marker to organ formation.",
+              "Read the alternative claim that the model predicts a precise human risk. Reject or qualify it using organism, endpoint and sample-size limits."
+            ],
+            "expected": "Early proportions are 0.10 and 0.50, a difference of 0.40; later proportions are 0.125 and 0.225, a difference of 0.10. These synthetic results suggest the marker response depends on stage in this model. They do not quantify risk to a human embryo.",
+            "limitations": [
+              "Marker M is a model endpoint, not a diagnosis or demonstrated birth outcome.",
+              "Replication, allocation and uncertainty would be needed in a real experiment."
+            ],
+            "saveFields": [
+              "question and group design",
+              "four proportions and stage comparisons",
+              "mechanism and alternative explanation",
+              "model limits and revised claim"
+            ],
+            "coreSkillTopicId": "b-topic-parturition",
+            "coreSkillPartId": "b-topic-parturition-investigating-and-communicating-a-claim",
+            "coreSkillOperationsRequired": true,
+            "investigationExtensionRequired": false,
+            "outcomeIds": [
+              "B3.1s",
+              "B3.2s",
+              "B3.3s",
+              "B3.4s"
+            ],
+            "collaborationEvidence": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+            "status": "authored-data-and-method-contract; source/rendered review pending"
+          }
+        }
+      ],
+      "materialFiles": []
+    }
+  ],
+  "teacherAcceptance": null
+}

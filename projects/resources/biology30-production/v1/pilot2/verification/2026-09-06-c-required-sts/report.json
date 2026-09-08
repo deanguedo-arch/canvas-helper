@@ -1,0 +1,41 @@
+{
+  "stage": 68,
+  "status": "C-three-required-STS-replacements-reviewed",
+  "teacherDecision": null,
+  "focusedTests": 53,
+  "draftContracts": "passed",
+  "ordinaryMaximumStateCharacters": {
+    "B": 32498,
+    "C": 42616,
+    "D": 26164
+  },
+  "latestTypecheckReceipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-b-required-chapter/typecheck.log",
+  "latestProtectionReceipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-b-required-chapter/protection.log",
+  "verificationLimits": "Typecheck/protection from stage67 retained explicitly. Subsequent writes only change C canonical resource contracts, derived activity data and operational evidence; learner trees and owner code unchanged.",
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "sourceReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json",
+  "counts": {
+    "C": {
+      "total": 132,
+      "multipleChoice": 93,
+      "written": 39
+    },
+    "allUnits": {
+      "total": 249,
+      "multipleChoice": 165,
+      "written": 84
+    }
+  },
+  "remainingEmptyPracticeLinks": {
+    "B": 0,
+    "C": 7,
+    "D": 0
+  },
+  "logSha256": {
+    "contracts.log": "c31ffbbfb824c4ff0ee829ffd6a9f2c723c3bca9d1d8fb658b73a3289474d137",
+    "state.log": "14a61e8eeb9d49198985a71a4c00c4586068f8c2686af501fe877034122ee157",
+    "activities.log": "bda109c4213a1f4a92ca6600f6c3b0c7f83f60ae0a514eb93544c200aa12b1b1",
+    "tests.log": "a82733e9356841da8854336b2de8566a821db9af91640ae8e14abaefbf2c9124"
+  }
+}

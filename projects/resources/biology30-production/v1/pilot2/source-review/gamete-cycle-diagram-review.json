@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "status": "eight original provisional diagrams in seven required B targets; actual placement and first use pending",
+  "teacherDecision": null,
+  "medium": "Original code-native SVG; no publisher pixels copied",
+  "sourceReview": {
+    "existing": "Existing b-lessons02/03/06 native production/delivery, oocyte/implantation and cycle concept maps viewed. They do not supply per-cell copy counts, meiotic pauses, separately aligned organ tracks or sampling uncertainty.",
+    "slides": "Relevant chapter14 slides12\u201314,24\u201325,28\u201334 text read. Native image10 testis/tubule diagram and image22 cycle diagram inspected. Reject wording that spermatogonia undergo two cycles of meiosis, that all menopause hormones decline, or that example day14 applies universally.",
+    "textbook": "Chapter16 physical26 printed569 Figure16.16 and chapter14 physical26 printed497 natively viewed; selected chapter16 physical20 and chapter14 physical25\u201326 prose read. Early pauses and unequal division use stage-specific count qualifications.",
+    "selection": "Original SVG supports precise per-cell sets/copies, legible branched divisions, signs and aligned tracks. The uncertainty diagram is a separate illustrative dataset; keyed six-day graph remains separate."
+  },
+  "numericVerification": "Picture counts4 unduplicated\u21924 duplicated\u21922 duplicated per model cell; typical human chromosomes46\u219246\u219223 and DNA molecules46\u219292\u219246; two meiotic divisions1\u21922\u21924 products; sparse plot coordinates map to(day,index)(2,2),(4,8),(6,4).",
+  "sourceNativeAssets": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/d458ca3a1e0164e627317b36d8b7e31fecb527d815878602f22d3ec1fffd2b8c.png",
+      "sha256": "d458ca3a1e0164e627317b36d8b7e31fecb527d815878602f22d3ec1fffd2b8c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/1c8f6298611aad02ab948afa164a8b01ce87e98c61bf35e58c41b1470b4b5959.png",
+      "sha256": "1c8f6298611aad02ab948afa164a8b01ce87e98c61bf35e58c41b1470b4b5959"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-14.pdf",
+      "sha256": "864ea82ed9960000c20e887250997d2f5e8455155f018dd2bf41865461b5365b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-16.pdf",
+      "sha256": "cf8928524eb1535bb25342bdfdba5a5268f632b2d4048b796af7a992aaf4bb66"
+    }
+  ],
+  "entries": [
+    {
+      "targetId": "b-topic-spermatogenesis-gametes-and-chromosome-sets-figure",
+      "assetId": "b-chromosome-sets-copies-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-chromosome-sets-copies-v1.svg",
+      "sha256": "d6aaf81c066c25e8f6e36d308862ae899122733957c17373f690239bca828386",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native2n=4 symbolic set model has two long/two short unduplicated chromosomes, the same four duplicated chromosomes, then one long/one short duplicated in one meiotic-I product. Human count row46/46,46/92,23/46 matches chromosomes/DNA molecules per cell; picture and human counts are explicitly distinct.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-chromosome-sets-copies-v1-native.png",
+      "screenshotSha256": "e881b463ea690a6db82a7dee976e67eafa1881634640c473a12ccf4f6668418c",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-spermatogenesis-division-and-differentiation-figure",
+      "assetId": "b-meiosis-differentiation-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-meiosis-differentiation-v2.svg",
+      "sha256": "ac3b09c7f51a9166c300a5d04d72019e9bd898e5e927896914a6c3c70f8bc773",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "One\u2192two\u2192four cell inventory and46 duplicated\u219223 duplicated\u219223 unduplicated per-cell counts verified. v2 moves tree right to separate labels from circles. Differentiation does not halve counts; no replication between divisions.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-meiosis-differentiation-v2-native.png",
+      "screenshotSha256": "0d91f22b3a062da5c9a9e3a070d290a94f13b1c98ae0e9e1e03bc3d9c5bf2a47",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure",
+      "assetId": "b-oocyte-pauses-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-oocyte-pauses-v2.svg",
+      "sha256": "dbe8fcf928b94dd8f0b63ebc8cbe5306ebe085f787753505c52dd94b138758e2",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Prophase-I prenatal and metaphase-II ovulatory pauses,46 duplicated\u219223 duplicated\u219223 unduplicated maternal counts, and unequal polar-body branches verified. v2 routes both branches clear of text. Final count excludes sperm; no three-polar-body inevitability or completed meiosis at ovulation.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-oocyte-pauses-v2-native.png",
+      "screenshotSha256": "82238d98999024eb1d4c09d699881a1a70ae8990dbb4e36ecb3f43593dd6763e",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-menstrual-cycle-two-coordinated-cycles-figure",
+      "assetId": "b-coordinated-cycles-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-coordinated-cycles-v1.svg",
+      "sha256": "475e55642f44046108e5a5eb6dc5402be01ac36442326b0f950782b186e9ad75",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Separate ovarian/uterine tracks align on one explicit illustrative1\u201328day axis. Day1 starts bleeding; follicular phase includes early shedding on the separate uterine track. Event overlap and individual variability explicit; not universal day14 ovulation.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-coordinated-cycles-v1-native.png",
+      "screenshotSha256": "16363be42e89176c41b5f76434d1046bb48909e0daf1432a15efc601e261932c",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure",
+      "assetId": "b-context-feedback-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-context-feedback-v1.svg",
+      "sha256": "874942a8890ef18a76efa23572a532640a7a3364cdc9f181568a5eedb94694e7",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Both forward and return arrows inspected with explicit negative/positive signs. Sustained high estrogen and suitable context qualify positive feedback. Sparse peak values do not prove a universal threshold or exact ovulation time.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-context-feedback-v1-native.png",
+      "screenshotSha256": "6b7d2f70bb0f1b1305e3149a06774e49e6a63d1b41d126d86ebf4d8f5a755fa3",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure",
+      "assetId": "b-luteal-withdrawal-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-luteal-withdrawal-v1.svg",
+      "sha256": "aa7b9e30adbfa87df9b1391a92892d8f9c3cd025556d481161d36a797ad9bb36",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Ovarian corpus luteum\u2192steroid support\u2192uterine maintenance chain distinct from conditional withdrawal. hCG maintains early ovarian support, progesterone supports lining; menstrual tissue is not the oocyte.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-luteal-withdrawal-v1-native.png",
+      "screenshotSha256": "1d8253ee88215aeb540e4d3c17dc81f37d47b8a56fce4cae5926576178235569",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-menstrual-cycle-graphs-and-cycle-variation-figure",
+      "assetId": "b-sparse-sampling-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-sparse-sampling-v1.svg",
+      "sha256": "2b11df89658d0e2b2620f86cd6b905b74788e03bbab860748465752c44058928",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Sample dots2/2,4/8,6/4 share a0\u201310relative axis. Two paths pass all three and peak before versus after day4, demonstrating unmeasured uncertainty. Illustration distinct from required six-day keyed graph and from actual measured concentration.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-sparse-sampling-v1-native.png",
+      "screenshotSha256": "9d61020f3415f440f640abe925d857e36284b9ce8a96e1bf8110669598f65108",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "b-topic-menstrual-cycle-graphs-and-cycle-variation-figure",
+      "assetId": "b-menopause-feedback-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-menopause-feedback-v1.svg",
+      "sha256": "3e4ac45fdee4e448b5e0e1859d048a489df191801a7509f49a8fad8f2f56741f",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Qualitative follicular decline, changed ovarian support, end of recurring cycles and possible higher pituitary FSH retain feedback direction. No fixed age, individual diagnosis or assertion that all hormones fall.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-menopause-feedback-v1-native.png",
+      "screenshotSha256": "70048504cb3771951f2084e24c1f6ea3e82c41b1da8a2f6527e332583bc4ac42",
+      "teacherDecision": null
+    }
+  ],
+  "revisions": [
+    {
+      "asset": "b-meiosis-differentiation",
+      "originalSha256": "60e13464597368b41f1f9c718482b9e6a77e89dc7bffe5b5e7354f910ec393d2",
+      "finding": "Move branching cells clear of stage/count labels"
+    },
+    {
+      "asset": "b-oocyte-pauses",
+      "originalSha256": "706b25d797c07afd12e5c80562f544e95626aef1a4cafa0fedcc64bb33d48a42",
+      "finding": "Route polar-body branches around stage labels"
+    }
+  ],
+  "limitations": [
+    "Provisional author review, not teacher acceptance",
+    "Actual learner placement, all-surface first use and exact-build accessibility pending",
+    "Illustrative timing and data are not individual predictions"
+  ]
+}

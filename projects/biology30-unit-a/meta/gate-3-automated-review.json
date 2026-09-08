@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "biology30-unit-a",
+  "buildSha256": "4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0",
+  "reviewedAt": "2026-08-31T01:59:33Z",
+  "status": "automated-evidence-passed-awaiting-human-decision",
+  "promotionAuthorized": false,
+  "checks": [
+    {
+      "command": "npm run build:biology30-unit-a-v2 -- --project biology30-unit-a --strict",
+      "result": "passed",
+      "details": "Transactional rebuild produced the blocked exact candidate at workspace SHA-256 4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0 under the amended 95-point quality floor."
+    },
+    {
+      "command": "npm run test:biology30-unit-a-v2",
+      "result": "passed",
+      "details": "34 unit, validation, transaction, rollback, ownership-boundary, quality-floor, and shared-shell tests passed; a 94-point decision is explicitly refused."
+    },
+    {
+      "command": "npm run audit:biology30-unit-a-v2:figures -- --project biology30-unit-a",
+      "result": "passed",
+      "details": "All 27 unique figures in 28 learner-route placements passed overlap, clipping, connector, label-size, page-overflow, and responsive-containment checks at desktop, tablet, and mobile widths."
+    },
+    {
+      "command": "npm run verify:biology30-unit-a-v2:figure-review -- --project biology30-unit-a",
+      "result": "passed",
+      "details": "Four exact-build contact sheets were opened and reviewed; their hashes and all 27 unique figure IDs match the current candidate with no unresolved visual findings."
+    },
+    {
+      "command": "npm run test:e2e:biology30-unit-a-v2",
+      "result": "passed",
+      "details": "14 browser contracts passed, including exact Model Lab and Practice Hub landing and focus, the all-figure three-viewport geometry regression, route inventory, axe scans, local-first operation, keyboard interactions, persistence, score reporting, state-budget overflow, responsive reflow, text zoom, and visual baselines."
+    },
+    {
+      "command": "npm run test:science-comparison",
+      "result": "passed",
+      "details": "6 preserved-pilot intake, isolation, UTF-16, exclusion, and rollback tests passed."
+    },
+    {
+      "command": "npm run validate:manifests",
+      "result": "passed",
+      "details": "All project metadata validated, including the blocked Biology 30 production candidate."
+    },
+    {
+      "command": "npm run verify:typecheck-baseline",
+      "result": "passed",
+      "details": "The established 10-diagnostic baseline remained unchanged with no diagnostics in changed files."
+    },
+    {
+      "command": "npm run build:studio",
+      "result": "passed",
+      "details": "The Studio production build completed successfully."
+    },
+    {
+      "command": "npm run test:e2e:project -- --project biology30-unit-a",
+      "result": "passed",
+      "details": "The shared learner-course contract passed."
+    },
+    {
+      "command": "npm run test:e2e:smoke",
+      "result": "passed",
+      "details": "The project-agnostic Studio smoke contract passed."
+    }
+  ],
+  "resolvedReviewFinding": {
+    "finding": "The prior visual evidence used isolated figure renders and six route-top screenshots, allowing a real label and arrow collision to survive teacher review.",
+    "resolution": "The Biology-specific audit now renders every placement in the real course lane at three widths, fails measurable geometry defects, creates exact-hash contact sheets for mandatory visual inspection, and verifies the inspection record separately.",
+    "regressionEvidence": "The audit and verifier pass, and the regular Biology E2E suite now includes the same 28-placement geometry contract."
+  },
+  "resolvedModelLabFinding": {
+    "finding": "Model Lab cards opened the beginning of a lesson instead of the model named on the selected card.",
+    "resolution": "Every card now carries its exact interaction ID; after the lesson route opens, the runtime scrolls to that model and moves accessible focus to its heading.",
+    "regressionEvidence": "Static validation covers all 17 card-to-model mappings, and Playwright verifies direct landing and heading focus for both approved and standard model renderers."
+  },
+  "resolvedPracticeHubFinding": {
+    "finding": "Practice Hub lesson-check cards opened the beginning of a lesson instead of the guided-practice set named by the selected card.",
+    "resolution": "Every lesson-check card now carries its exact lesson ID; after the lesson route opens, the runtime scrolls to that lesson's guided-practice section and moves accessible focus to its heading.",
+    "regressionEvidence": "Static validation covers all 17 card-to-practice mappings, and Playwright verifies direct landing and heading focus for both specially authored and standard lesson renderers."
+  },
+  "prePromotionAuthoringGuard": {
+    "command": "npm run course:doctor -- --project biology30-unit-a",
+    "result": "expected-block",
+    "details": "The command refuses authoring context because the candidate remains blocked under proposal-only-v1. Gate 4 promotion is required before Direct Studio authoring can pass."
+  },
+  "persistenceEvidence": {
+    "worstCaseSuspendDataCharacters": 33236,
+    "buildGuardLimit": 48000,
+    "remainingCharacters": 14764,
+    "lastValidStatePreservedOnOverflow": true
+  },
+  "qualityFloor": {
+    "minimumTotal": 95,
+    "categoryMinimumsStillRequired": true,
+    "binaryBlockersStillDisqualify": true
+  },
+  "remainingHumanGate": "Score and accept the exact build at 95/100 or higher using gate-3-acceptance-matrix.json. No automated result may populate scores or promote the course."
+}

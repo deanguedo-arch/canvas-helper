@@ -1,0 +1,44 @@
+import {collectTopicWork,validateTopicActivityIndex,type ActivityEntry,type WorkEntry} from './pilot2-activity-index.js';
+import type {TopicState,TopicStateSchema} from './pilot2-state.js';
+import type {GraphWork} from './pilot2-graph-work.js';
+import type {Biology30SuspendDataSchema} from './suspend-data.js';
+import {topicHtml as h} from './pilot2-render-common.js';
+
+export function renderTopicCollectionPage(){return `<div class="p2-topic"><header class="page-header"><p class="eyebrow">Process Collection</p><h1>Process Collection</h1><p>See the work you have started across the course, then return to any exact question, prompt, concept, or investigation. This collection does not change course progress.</p><nav class="collection-shortcuts" data-p2-collection-shortcuts aria-label="Process Collection tools"></nav></header><section class="collection-section"><div class="collection-heading"><div><p class="section-label">Saved and started records</p><h2>All My Work</h2></div><span data-pilot2-work-status role="status"></span></div><p>Only work you have started or saved appears. Filters change this view only; Copy and Print include the complete collection.</p><div class="collection-tools"><label>Chapter<select data-p2-work-chapter><option value="">All chapters</option></select></label><label>Activity type<select data-pilot2-work-category><option value="">All activity types</option></select></label><div class="collection-actions"><button type="button" data-pilot2-copy-all>Copy complete collection</button><button type="button" data-pilot2-print-all>Print / Save as PDF</button></div></div><label class="glossary-search">Find work<input type="search" data-pilot2-work-search></label><textarea data-pilot2-copy-fallback readonly aria-label="Whole collection for manual copying" rows="10" hidden></textarea><div class="all-work-list" data-pilot2-work-list></div><div class="p2-print-only" data-pilot2-print-work></div></section><div data-p2-collection-continue></div></div>`;}
+/** Extend capacities only for displaying/copying live drafts. Save and completion
+ * keep the original schema and their guards. Unknown/malformed fields still fail. */
+export function currentTopicWork(index:ActivityEntry[],state:TopicState,schema:TopicStateSchema,graphs:GraphWork[]=[],legacySchema?:Biology30SuspendDataSchema) {
+  validateTopicActivityIndex(index,schema);
+  const displaySchema={...schema,responses:Object.fromEntries(Object.entries(schema.responses).map(([id,field])=>[id,{...field,limit:Math.max(field.limit,typeof state.responses[id]==='string'?state.responses[id].length:0)}]))};
+  return collectTopicWork(index,state,displaySchema,graphs,legacySchema);
+}
+export function collectedWorkText(entries:WorkEntry[]){return entries.map(entry=>`${entry.title}\n${entry.category}\n${entry.fields.map(field=>`${field.label}\n${field.text}`).join('\n\n')}`).join('\n\n────\n\n');}
+function workHtml(entries:WorkEntry[],withReturn:boolean,groupFor:(entry:WorkEntry)=>string=e=>e.category){return [...new Set(entries.map(groupFor))].map(category=>`<section class="process-work-group"><h3>${h(category)}</h3>${entries.filter(e=>groupFor(e)===category).map(entry=>`<article class="process-work-item p2-work-entry"><div><p class="process-work-context">${h(entry.category)}</p><h4>${h(entry.title)}</h4>${entry.fields.map(field=>`<section><p class="process-work-prompt">${h(field.label)}</p><p class="process-work-response p2-preserved-text">${h(field.text)}</p></section>`).join('')}</div><div class="process-work-side">${withReturn&&entry.routeId&&entry.focusId?`<a href="#${h(entry.routeId)}" data-pilot2-return-route="${h(entry.routeId)}" data-pilot2-return-focus="${h(entry.focusId)}">Return to this activity</a>`:''}</div></article>`).join('')}</section>`).join('');}
+export function mountTopicCollection(root:HTMLElement,index:ActivityEntry[],state:TopicState,schema:TopicStateSchema,graphs:GraphWork[]=[],legacySchema?:Biology30SuspendDataSchema,extraDrafts:()=>WorkEntry[]=()=>[]) {
+  const search=root.querySelector<HTMLInputElement>('[data-pilot2-work-search]'),category=root.querySelector<HTMLSelectElement>('[data-pilot2-work-category]'),list=root.querySelector<HTMLElement>('[data-pilot2-work-list]'),status=root.querySelector<HTMLElement>('[data-pilot2-work-status]'),fallback=root.querySelector<HTMLTextAreaElement>('[data-pilot2-copy-fallback]'),print=root.querySelector<HTMLElement>('[data-pilot2-print-work]');
+  if(!search||!category||!list||!status||!fallback||!print)throw new Error('Incomplete collection controls');
+  const chapter=root.querySelector<HTMLSelectElement>('[data-p2-work-chapter]');
+  const chapterFor=(entry:WorkEntry)=>{const route=entry.routeId?root.querySelector<HTMLElement>(`#${CSS.escape(entry.routeId)}`):null;const target=entry.focusId?root.querySelector<HTMLElement>(`#${CSS.escape(entry.focusId)}`):null;const unlock=target?.dataset.p2UnlockRoute;const taught=unlock?root.querySelector<HTMLElement>(`#${CSS.escape(unlock)}`):null;const n=target?.dataset.p2Chapter??taught?.dataset.p2Chapter??route?.dataset.p2Chapter;return n?`Chapter ${n}`:/seminar|final|challenge/.test(entry.routeId??'')?'Unit review':'Personal and collection work';};
+  let current:WorkEntry[]=[];
+  const refresh=()=>{
+    try{current=[...currentTopicWork(index,state,schema,graphs,legacySchema),...extraDrafts()];}
+    catch{status.textContent='Some current work cannot be interpreted. Keep the visible responses and recovery text before leaving.';return false;}
+    const selected=category.value,categories=[...new Set(current.map(entry=>entry.category))].sort();category.replaceChildren(new Option('All types',''),...categories.map(value=>new Option(value,value)));category.value=categories.includes(selected)?selected:'';
+    if(chapter){const selectedChapter=chapter.value,chapters=[...new Set(current.map(chapterFor))].sort();chapter.replaceChildren(new Option('All chapters',''),...chapters.map(value=>new Option(value,value)));chapter.value=chapters.includes(selectedChapter)?selectedChapter:'';}
+    const query=search.value.trim().toLocaleLowerCase(),filtered=current.filter(entry=>(!chapter?.value||chapterFor(entry)===chapter.value)&&(!category.value||entry.category===category.value)&&(!query||[entry.title,...entry.fields.flatMap(field=>[field.label,field.text])].join(' ').toLocaleLowerCase().includes(query)));
+    list.innerHTML=filtered.length?workHtml(filtered,true,chapterFor):'<p>No work matches this view.</p>';status.textContent=`Showing ${filtered.length} of ${current.length} work entries.`;return true;
+  };
+  let printParent:Node|null=null,printNext:ChildNode|null=null;
+  const finishPrint=()=>{root.ownerDocument.body.classList.remove('p2-printing-work');if(printParent){printParent.insertBefore(print,printNext?.parentNode===printParent?printNext:null);printParent=null;}};
+  window.addEventListener('afterprint',finishPrint);
+  const click=async(event:Event)=>{
+    const button=event.target instanceof Element?event.target.closest<HTMLButtonElement>('button'):null;if(!button||!root.contains(button))return;
+    if(button.hasAttribute('data-pilot2-copy-all')){
+      if(!refresh())return;const text=collectedWorkText(current);try{await navigator.clipboard.writeText(text);status.textContent='Whole collection copied.';fallback.hidden=true;}
+      catch{fallback.value=text;fallback.hidden=false;fallback.focus();fallback.select();status.textContent='Automatic copying is unavailable. The whole collection is selected below for copying.';}
+    }else if(button.hasAttribute('data-pilot2-print-all')){if(!refresh())return;finishPrint();print.innerHTML=`<h1>All My Work</h1>${workHtml(current,false,chapterFor)}`;printParent=print.parentNode;printNext=print.nextSibling;root.ownerDocument.body.append(print);root.ownerDocument.body.classList.add('p2-printing-work');try{window.print();}catch{finishPrint();status.textContent='Printing did not open. Copy all work to keep a readable copy.';}}
+  };
+  root.addEventListener('click',click);root.addEventListener('pilot2-state-change',refresh);root.addEventListener('pilot2-draft-change',refresh);search.addEventListener('input',refresh);category.addEventListener('change',refresh);chapter?.addEventListener('change',refresh);refresh();
+  return {refresh,dispose(){finishPrint();window.removeEventListener('afterprint',finishPrint);root.removeEventListener('click',click);root.removeEventListener('pilot2-state-change',refresh);root.removeEventListener('pilot2-draft-change',refresh);search.removeEventListener('input',refresh);category.removeEventListener('change',refresh);chapter?.removeEventListener('change',refresh);}};
+}
+export const TOPIC_COLLECTION_CSS=`.p2-preserved-text{white-space:pre-wrap;overflow-wrap:anywhere}.p2-print-only{display:none}@media print{body.p2-printing-work>*{display:none!important}body.p2-printing-work>[data-pilot2-print-work]{display:block!important}}`;

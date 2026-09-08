@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T16:06:47.927Z",
+  "priorOwnerSha256": "4a585c807a7b5f99c66f29018c3a65356dd0081cf1204bdbbfdc7259c759b07b",
+  "ownerSha256": "250a14781c5c2c9a7cb1c98d3facf24217ac141e53e2dd5dfe3abfa1598eaaaf",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+      "sha256": "618351064901e5f2ce18120c2535c942c362807c3559398f1b5f8fa004b6258e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-source-videos.ts",
+      "sha256": "53b3512a6edc8ce5b9bdf096fd2693e86afdcf83bb85008934734b136fc18d54"
+    }
+  ],
+  "reason": "Sort and group original videos by source deck/slide; restore compare label after editing; show offline fallback for existing player.",
+  "teacherAcceptance": null
+}

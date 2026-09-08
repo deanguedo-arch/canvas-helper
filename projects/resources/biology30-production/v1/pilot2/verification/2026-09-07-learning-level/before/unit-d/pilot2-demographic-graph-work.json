@@ -1,0 +1,45 @@
+{
+  "unit": "D",
+  "responseId": "d-investigation-population-growth-observations",
+  "explanationLimit": 160,
+  "modelExplanation": "Quadrats:30/5=6/m²; ×200=1200 estimated. Graph population is separate:1000→1060 over10days. Two points do not establish curve shape.",
+  "graphs": [
+    {
+      "id": "d-demographic-two-points",
+      "title": "Two observations of the separate demographic population",
+      "kind": "line",
+      "x": [
+        0,
+        10
+      ],
+      "series": [
+        {
+          "id": "population",
+          "label": "Population size N",
+          "expected": [
+            1000,
+            1060
+          ]
+        }
+      ],
+      "xLabels": [
+        "Elapsed time (days)",
+        "Quadrat area (m²)"
+      ],
+      "yLabels": [
+        "Population size (individuals)",
+        "Density (individuals/m²)"
+      ],
+      "maxima": [
+        1000,
+        1200,
+        2000
+      ],
+      "expectedAxes": [
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

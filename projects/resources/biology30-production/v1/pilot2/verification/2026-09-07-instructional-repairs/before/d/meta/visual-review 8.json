@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-d",
+  "buildSha256": "2de02a6971189a32382a71630fd60106b75428231ff5a4435c40ebdd571eea6b",
+  "status": "all-route-exact-build-visual-inspection-complete",
+  "reviewedAt": "2026-08-31T03:35:31Z",
+  "requiredViewports": [
+    "desktop-1440x900",
+    "tablet-1024x768",
+    "mobile-390x844"
+  ],
+  "requiredRoutes": [
+    "overview",
+    "d-lesson-01",
+    "d-lesson-02",
+    "d-lesson-03",
+    "d-lesson-04",
+    "d-lesson-05",
+    "d-lesson-06",
+    "d-lesson-07",
+    "d-lesson-08",
+    "d-lesson-09",
+    "d-lesson-10",
+    "d-lesson-11",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "glossary-and-data",
+    "sources-and-credits"
+  ],
+  "scope": {
+    "routeCount": 17,
+    "routeViewportCount": 51,
+    "scientificFigureCount": 11,
+    "scientificFigureKindCount": 7,
+    "contactSheetCount": 10,
+    "allListedSheetsOpened": true
+  },
+  "evidence": {
+    "visualAuditPath": "meta/visual-audit.json",
+    "visualAuditSha256": "bf7960089b7e0444e3c919d784cfbfcbc90937f944b3cde3f52d2b621405a344",
+    "orderedSheetHashListSha256": "0f697cb3028a8708ab099b39c5fd50053a81e5f68768962d70f4dcce4eeac33d",
+    "screenshots": [
+      { "kind": "routes", "viewport": "desktop-1440x900", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-desktop-1440x900-01.png", "sha256": "0b099e246d214fdd9d45e1c0388d2a5e1055152a015a584079757d74ef265a16" },
+      { "kind": "routes", "viewport": "desktop-1440x900", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-desktop-1440x900-02.png", "sha256": "f87c067d4e83c45aeee2d426caed93ad4f1acab60eb780f2463d230cc23e6f22" },
+      { "kind": "routes", "viewport": "desktop-1440x900", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-desktop-1440x900-03.png", "sha256": "b49fb8b8f76ba57214d04a84860038d94dd349797706e2be38ac3a72a62abe81" },
+      { "kind": "routes", "viewport": "tablet-1024x768", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-tablet-1024x768-01.png", "sha256": "e64e4ea42ef7d033eb0f4d3b3ce849b7c1ef9617affebec5a4e7a2e10b56d5d2" },
+      { "kind": "routes", "viewport": "tablet-1024x768", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-tablet-1024x768-02.png", "sha256": "2f08a2e39f0216b551681e9a3d43e290903f25771fb0e50813cc8fe41d6a7570" },
+      { "kind": "routes", "viewport": "tablet-1024x768", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-tablet-1024x768-03.png", "sha256": "d7539250880530e387d46c88bfb3f93318fc14ee899c7eb412bf0cdba68082bc" },
+      { "kind": "routes", "viewport": "mobile-390x844", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-mobile-390x844-01.png", "sha256": "b208afd2809a114da9a9317df971bc9547974fbbf143f954922dcd0b0aa0fe23" },
+      { "kind": "routes", "viewport": "mobile-390x844", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-mobile-390x844-02.png", "sha256": "4a6bec3bb2b9c27403d5f529b8c316668eb52b4bf7c5241d0e24a0fe61a7c39b" },
+      { "kind": "routes", "viewport": "mobile-390x844", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/routes-mobile-390x844-03.png", "sha256": "fa88c83eb1534be3a0340aa26907ad41864d38848f5b7934eb573a8dc986b453" },
+      { "kind": "figures", "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T03-31-38-343Z/biology30-unit-d/figures-contact-sheet-01.png", "sha256": "03e08c35099c93ccb8e12bf1daf6bd113828a43639879c421a4d1f4f68461e2b" }
+    ]
+  },
+  "checks": {
+    "allLearnerRoutesInspected": true,
+    "desktopTabletMobileInspected": true,
+    "variedScientificFigureGrammar": true,
+    "noTextClippingOrOverlap": true,
+    "modelTextFits": true,
+    "connectorsAligned": true,
+    "responsiveReflowClear": true,
+    "hierarchyAndLegibilityClear": true,
+    "binaryBlockerFound": false
+  },
+  "findings": [],
+  "humanVisualAcceptance": null,
+  "pass": true
+}

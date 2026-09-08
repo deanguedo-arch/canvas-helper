@@ -1,0 +1,2660 @@
+{
+  "schemaVersion": 1,
+  "profileId": "biology30-production-95-v1",
+  "family": "biology30-production",
+  "unitCode": "B",
+  "project": {
+    "slug": "biology30-unit-b",
+    "title": "Biology 30 — Unit B: Reproduction and Development",
+    "courseCode": "BIO 30",
+    "version": "production-candidate-v1"
+  },
+  "status": {
+    "authoringStatus": "blocked",
+    "driverId": "proposal-only-v1",
+    "reviewGate": "gate-0-ready",
+    "studioEditingEnabled": false,
+    "exportEnabled": false
+  },
+  "curriculum": {
+    "courseTimePercent": 20,
+    "programOfStudiesUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+    "programOfStudiesSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+    "programPages": [
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "biologyBulletinSchoolYear": "2025-26",
+    "biologyBulletin2026_27Found": false,
+    "authorityCheckedAt": "2026-08-31T00:02:59.328Z"
+  },
+  "delivery": {
+    "mode": "independent-first-asynchronous",
+    "requiredMinutes": 1200,
+    "optionalMinutes": 240,
+    "requiredInternet": false,
+    "requiredTeacherPresence": false,
+    "requiredPeerAvailability": false
+  },
+  "quality": {
+    "minimumHumanScore": 95,
+    "minimumCategoryPercent": 80,
+    "automaticPromotion": false,
+    "binaryBlockers": [
+      "mandatory outcome unmapped",
+      "factual error",
+      "teacher-only test or key exposure",
+      "inaccessible required activity",
+      "required internet dependency",
+      "unresolved local asset",
+      "learner-state loss",
+      "missing investigation fallback",
+      "slide controls or placeholders",
+      "unresolved rights status",
+      "LMS restore failure"
+    ]
+  },
+  "assessment": {
+    "boundary": "formative-practice-and-submission-ready-artifacts",
+    "secureSummativeLocation": "brightspace",
+    "practiceBlueprint": {
+      "lessonChecks": 42,
+      "moduleChecks": 20,
+      "finalPractice": 24,
+      "total": 86
+    },
+    "sourceVisibleQuestionInventory": 58
+  },
+  "learnerRoutes": [
+    "overview",
+    "b-lesson-01",
+    "b-lesson-02",
+    "b-lesson-03",
+    "b-lesson-04",
+    "b-lesson-05",
+    "b-lesson-06",
+    "b-lesson-07",
+    "b-lesson-08",
+    "b-lesson-09",
+    "b-lesson-10",
+    "b-lesson-11",
+    "b-lesson-12",
+    "b-lesson-13",
+    "b-lesson-14",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "glossary-and-data",
+    "sources-and-credits"
+  ],
+  "modules": [
+    {
+      "id": "b-module-1",
+      "unitCode": "B",
+      "title": "Reproductive Structures and Development",
+      "lessonIds": [
+        "b-lesson-01",
+        "b-lesson-02",
+        "b-lesson-03",
+        "b-lesson-04"
+      ]
+    },
+    {
+      "id": "b-module-2",
+      "unitCode": "B",
+      "title": "Chemical Control and Reproductive Health",
+      "lessonIds": [
+        "b-lesson-05",
+        "b-lesson-06",
+        "b-lesson-07"
+      ]
+    },
+    {
+      "id": "b-module-3",
+      "unitCode": "B",
+      "title": "Human Development",
+      "lessonIds": [
+        "b-lesson-08",
+        "b-lesson-09",
+        "b-lesson-10",
+        "b-lesson-11",
+        "b-lesson-12"
+      ]
+    },
+    {
+      "id": "b-module-4",
+      "unitCode": "B",
+      "title": "Technology and Integration",
+      "lessonIds": [
+        "b-lesson-13",
+        "b-lesson-14"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "B1.1k",
+      "officialText": "Identify the structures in the human female reproductive system and describe their functions; i.e., ovaries, Fallopian tubes, uterus, endometrium, cervix, vagina.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 58,
+      "teachRoutes": [
+        "b-lesson-03",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-03#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-anatomy-evidence",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B1.2k",
+      "officialText": "Identify the structures in the human male reproductive system and describe their functions; i.e., testes, seminiferous tubules, interstitial cells, Sertoli cells, epididymides, vasa (ductus) deferentia, Cowper’s glands, seminal vesicles, prostate gland, ejaculatory duct, urethra, penis.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 58,
+      "teachRoutes": [
+        "b-lesson-02",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-02#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-anatomy-evidence",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B1.3k",
+      "officialText": "Distinguish sperm and egg from their supporting structures; i.e., seminiferous tubules, interstitial cells, Sertoli cells, follicle, corpus luteum.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 58,
+      "teachRoutes": [
+        "b-lesson-02",
+        "b-lesson-03",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-02#practice",
+        "b-lesson-03#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-anatomy-evidence",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B1.4k",
+      "officialText": "Describe the chromosomal factors and hormonal influence on the formation of the gonads and reproductive organs in the female and male embryo and fetus; i.e., Y chromosome and role of testosterone.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 58,
+      "teachRoutes": [
+        "b-lesson-04",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-04#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B1.5k",
+      "officialText": "Explain how sexually transmitted infections (STIs) can interfere with fertility and reproduction; e.g., chlamydia, gonorrhea, human papilloma virus.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 58,
+      "teachRoutes": [
+        "b-lesson-07",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-07#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-fertility-evidence-brief",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B1.1sts",
+      "officialText": "Explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b).",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 58,
+      "teachRoutes": [
+        "b-lesson-01",
+        "b-lesson-07"
+      ],
+      "practiceRoutes": [
+        "b-lesson-01#practice",
+        "b-lesson-07#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-fertility-evidence-brief"
+      ]
+    },
+    {
+      "id": "B1.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 59,
+      "teachRoutes": [
+        "b-lesson-01",
+        "b-lesson-07"
+      ],
+      "practiceRoutes": [
+        "b-lesson-01#practice",
+        "b-lesson-07#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-fertility-evidence-brief"
+      ]
+    },
+    {
+      "id": "B1.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 59,
+      "teachRoutes": [
+        "b-lesson-02",
+        "b-lesson-03"
+      ],
+      "practiceRoutes": [
+        "b-lesson-02#practice",
+        "b-lesson-03#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-anatomy-evidence"
+      ]
+    },
+    {
+      "id": "B1.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 59,
+      "teachRoutes": [
+        "b-lesson-04",
+        "b-lesson-07",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-04#practice",
+        "b-lesson-07#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-fertility-evidence-brief",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B1.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 59,
+      "teachRoutes": [
+        "b-lesson-07"
+      ],
+      "practiceRoutes": [
+        "b-lesson-07#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-fertility-evidence-brief"
+      ]
+    },
+    {
+      "id": "B2.1k",
+      "officialText": "Describe the role of hormones, i.e., gonadotropic-releasing hormone (GnRH), follicle-stimulating hormone (FSH), luteinizing hormone (LH), estrogen, progesterone, testosterone, in the regulation of primary and secondary sex characteristics in females and males.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 60,
+      "teachRoutes": [
+        "b-lesson-05",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-05#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B2.2k",
+      "officialText": "Identify the principal reproductive hormones in the female and explain their interactions in the maintenance of the menstrual cycle; i.e., estrogen, progesterone, FSH, LH.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 60,
+      "teachRoutes": [
+        "b-lesson-06",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-06#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-cycle-data-lab",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B2.3k",
+      "officialText": "Identify the principal reproductive hormones in the male and explain their interactions in the maintenance and functioning of the male reproductive system; i.e., testosterone, FSH, LH.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 60,
+      "teachRoutes": [
+        "b-lesson-05",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-05#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B2.1sts",
+      "officialText": "Explain how science and technology have influenced, and been influenced by, historical development and societal needs (SEC2).",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 60,
+      "teachRoutes": [
+        "b-lesson-05"
+      ],
+      "practiceRoutes": [
+        "b-lesson-05#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map"
+      ]
+    },
+    {
+      "id": "B2.2sts",
+      "officialText": "Explain why decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 60,
+      "teachRoutes": [
+        "b-lesson-07",
+        "b-lesson-13"
+      ],
+      "practiceRoutes": [
+        "b-lesson-07#practice",
+        "b-lesson-13#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-fertility-evidence-brief",
+        "investigation-notebook#b-technology-decision-brief"
+      ]
+    },
+    {
+      "id": "B2.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 61,
+      "teachRoutes": [
+        "b-lesson-06"
+      ],
+      "practiceRoutes": [
+        "b-lesson-06#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-cycle-data-lab"
+      ]
+    },
+    {
+      "id": "B2.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 61,
+      "teachRoutes": [
+        "b-lesson-06"
+      ],
+      "practiceRoutes": [
+        "b-lesson-06#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-cycle-data-lab"
+      ]
+    },
+    {
+      "id": "B2.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 61,
+      "teachRoutes": [
+        "b-lesson-06",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-06#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-cycle-data-lab",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B2.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 61,
+      "teachRoutes": [
+        "b-lesson-06"
+      ],
+      "practiceRoutes": [
+        "b-lesson-06#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-cycle-data-lab"
+      ]
+    },
+    {
+      "id": "B3.1k",
+      "officialText": "Trace the processes of fertilization, implantation and extra-embryonic membrane formation, i.e., placenta, amnion, chorion, allantois, followed by embryonic and fetal development, parturition and lactation, and describe the control mechanisms of these events, i.e., progesterone, LH, human chorionic gonadotropin (hCG), prostaglandins, oxytocin, prolactin.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-08",
+        "b-lesson-09",
+        "b-lesson-12",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-08#practice",
+        "b-lesson-09#practice",
+        "b-lesson-12#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-regulation-map",
+        "investigation-notebook#b-development-timeline",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B3.2k",
+      "officialText": "Describe development from fertilization to parturition in the context of the main physiological events that occur in the development of organ systems during each major stage (trimester); i.e., zygote, blastocyst, gastrulation, general morphogenesis.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-10",
+        "b-lesson-11",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-10#practice",
+        "b-lesson-11#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-development-timeline",
+        "investigation-notebook#b-development-risk-analysis",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B3.3k",
+      "officialText": "Identify major tissues and organs that arise from differentiation and morphological development of the ectoderm, mesoderm and endoderm in the embryo; i.e., ectoderm: nervous system, epidermis; mesoderm: skeleton, muscles, reproductive structures; endoderm: lining of the digestive and respiratory systems, endocrine glands.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-09",
+        "b-lesson-10",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-09#practice",
+        "b-lesson-10#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-development-timeline",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B3.4k",
+      "officialText": "Describe the influence of environmental factors on embryonic and fetal development; e.g., maternal lifestyle, teratogens such as alcohol, drugs, viral infections and radiation.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-11",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-11#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-development-risk-analysis",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B3.5k",
+      "officialText": "Describe the physiological or mechanical basis of different reproductive technologies; i.e., conception control, in vitro fertilization, infertility reversal.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-13",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-13#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-technology-decision-brief",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B3.1sts",
+      "officialText": "Explain that science and technology are developed to meet societal needs and expand human capability (SEC1).",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-13"
+      ],
+      "practiceRoutes": [
+        "b-lesson-13#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-technology-decision-brief"
+      ]
+    },
+    {
+      "id": "B3.2sts",
+      "officialText": "Explain why decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b).",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 62,
+      "teachRoutes": [
+        "b-lesson-13"
+      ],
+      "practiceRoutes": [
+        "b-lesson-13#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-technology-decision-brief"
+      ]
+    },
+    {
+      "id": "B3.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 63,
+      "teachRoutes": [
+        "b-lesson-11"
+      ],
+      "practiceRoutes": [
+        "b-lesson-11#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-development-risk-analysis"
+      ]
+    },
+    {
+      "id": "B3.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 63,
+      "teachRoutes": [
+        "b-lesson-11",
+        "b-lesson-13"
+      ],
+      "practiceRoutes": [
+        "b-lesson-11#practice",
+        "b-lesson-13#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-development-risk-analysis",
+        "investigation-notebook#b-technology-decision-brief"
+      ]
+    },
+    {
+      "id": "B3.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 63,
+      "teachRoutes": [
+        "b-lesson-10",
+        "b-lesson-11",
+        "b-lesson-13",
+        "b-lesson-14"
+      ],
+      "practiceRoutes": [
+        "b-lesson-10#practice",
+        "b-lesson-11#practice",
+        "b-lesson-13#practice",
+        "b-lesson-14#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-development-timeline",
+        "investigation-notebook#b-development-risk-analysis",
+        "investigation-notebook#b-technology-decision-brief",
+        "investigation-notebook#b-integrated-case"
+      ]
+    },
+    {
+      "id": "B3.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 64,
+      "teachRoutes": [
+        "b-lesson-13"
+      ],
+      "practiceRoutes": [
+        "b-lesson-13#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#b-technology-decision-brief"
+      ]
+    }
+  ],
+  "sourceRefs": [
+    {
+      "id": "b-lesson-01:class:1498085",
+      "sourceId": "class-2026-27",
+      "itemId": "1498085",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-01:system:2367",
+      "sourceId": "system-2020",
+      "itemId": "2367",
+      "sourcePath": "Unit B > Unit B Introduction",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-01:system:2368",
+      "sourceId": "system-2020",
+      "itemId": "2368",
+      "sourcePath": "Unit B > Unit B Organizer",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-01:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-02:class:1498148",
+      "sourceId": "class-2026-27",
+      "itemId": "1498148",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 24: Male Reproductive Structures",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-02:class:1498149",
+      "sourceId": "class-2026-27",
+      "itemId": "1498149",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 25: Spermatogenesis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-02:system:2374",
+      "sourceId": "system-2020",
+      "itemId": "2374",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-02:system:2384",
+      "sourceId": "system-2020",
+      "itemId": "2384",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-02:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-03:class:1498150",
+      "sourceId": "class-2026-27",
+      "itemId": "1498150",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 26: Female Reproductive Structures",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-03:system:2379",
+      "sourceId": "system-2020",
+      "itemId": "2379",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 2",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-03:system:2384",
+      "sourceId": "system-2020",
+      "itemId": "2384",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-03:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-04:class:1498150",
+      "sourceId": "class-2026-27",
+      "itemId": "1498150",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 26: Female Reproductive Structures",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-04:system:2390",
+      "sourceId": "system-2020",
+      "itemId": "2390",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 4",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-04:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        66,
+        67,
+        68
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-05:class:1498149",
+      "sourceId": "class-2026-27",
+      "itemId": "1498149",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 25: Spermatogenesis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-05:class:1498151",
+      "sourceId": "class-2026-27",
+      "itemId": "1498151",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 27: Menstrual Cycle",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-05:system:2400",
+      "sourceId": "system-2020",
+      "itemId": "2400",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 6",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-05:system:2405",
+      "sourceId": "system-2020",
+      "itemId": "2405",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 7",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-05:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-05:notes:2",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        27,
+        28
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-06:class:1498151",
+      "sourceId": "class-2026-27",
+      "itemId": "1498151",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Day 27: Menstrual Cycle",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-06:system:2410",
+      "sourceId": "system-2020",
+      "itemId": "2410",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 8",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-06:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-07:class:1498145",
+      "sourceId": "class-2026-27",
+      "itemId": "1498145",
+      "sourcePath": "Unit B - Reproduction and Development > Days 24-29: Chapter 14 > Days 28-29: Ch. 14 Quiz",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-07:system:2395",
+      "sourceId": "system-2020",
+      "itemId": "2395",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 5",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-07:system:2415",
+      "sourceId": "system-2020",
+      "itemId": "2415",
+      "sourcePath": "Unit B > Module 3 > Unit B - M3: Lesson 9",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-07:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        65
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-08:class:1498152",
+      "sourceId": "class-2026-27",
+      "itemId": "1498152",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Day 30: Fertilization to Implantation",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-08:system:2426",
+      "sourceId": "system-2020",
+      "itemId": "2426",
+      "sourcePath": "Unit B > Module 4 > Unit B - M4: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-08:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-09:class:1498157",
+      "sourceId": "class-2026-27",
+      "itemId": "1498157",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Day 32: Extraembryonic Structures and Organogenesis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-09:system:2426",
+      "sourceId": "system-2020",
+      "itemId": "2426",
+      "sourcePath": "Unit B > Module 4 > Unit B - M4: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-09:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        52,
+        53,
+        54,
+        55
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-10:class:1498153",
+      "sourceId": "class-2026-27",
+      "itemId": "1498153",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Day 31: hCG + Gastrulation",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-10:class:1498157",
+      "sourceId": "class-2026-27",
+      "itemId": "1498157",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Day 32: Extraembryonic Structures and Organogenesis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-10:system:2426",
+      "sourceId": "system-2020",
+      "itemId": "2426",
+      "sourcePath": "Unit B > Module 4 > Unit B - M4: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-10:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-11:class:1498157",
+      "sourceId": "class-2026-27",
+      "itemId": "1498157",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Day 32: Extraembryonic Structures and Organogenesis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-11:system:2432",
+      "sourceId": "system-2020",
+      "itemId": "2432",
+      "sourcePath": "Unit B > Module 4 > Unit B - M4: Lesson 2",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-11:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        56,
+        57,
+        58,
+        59
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-12:class:1498158",
+      "sourceId": "class-2026-27",
+      "itemId": "1498158",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Day 33: Parturition",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-12:system:2437",
+      "sourceId": "system-2020",
+      "itemId": "2437",
+      "sourcePath": "Unit B > Module 4 > Unit B - M4: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-12:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-13:class:1498154",
+      "sourceId": "class-2026-27",
+      "itemId": "1498154",
+      "sourcePath": "Unit B - Reproduction and Development > Days 30-35: Chapter 15 > Days 34-35: Ch. 15 Quiz",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-13:system:2442",
+      "sourceId": "system-2020",
+      "itemId": "2442",
+      "sourcePath": "Unit B > Module 4 > Unit B - M4: Lesson 4 - Ditigal Citizenship",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-13:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "b-lesson-14:class:1498147",
+      "sourceId": "class-2026-27",
+      "itemId": "1498147",
+      "sourcePath": "Unit B - Reproduction and Development > Days 36-38: Unit B Review and Exam > Unit B Review Seminar Notes",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-14:system:2368",
+      "sourceId": "system-2020",
+      "itemId": "2368",
+      "sourcePath": "Unit B > Unit B Organizer",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "b-lesson-14:notes:1",
+      "sourceId": "unit-b-notes",
+      "sourcePath": "Unit B Reproduction and Development Notes (1).pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b-lesson-01",
+      "unitCode": "B",
+      "moduleId": "b-module-1",
+      "order": 1,
+      "title": "Reproduction as a Control System",
+      "inquiry": "How can one coordinated system preserve continuity while creating variation?",
+      "requiredMinutes": 75,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B1.1sts",
+        "B1.1s"
+      ],
+      "classItemIds": [
+        "1498085"
+      ],
+      "systemItemIds": [
+        "2367",
+        "2368"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-regulation-map"
+      ],
+      "interactionKind": "reproductive-system-overview",
+      "sourceRefIds": [
+        "b-lesson-01:class:1498085",
+        "b-lesson-01:system:2367",
+        "b-lesson-01:system:2368",
+        "b-lesson-01:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-02",
+      "unitCode": "B",
+      "moduleId": "b-module-1",
+      "order": 2,
+      "title": "Male Reproductive Anatomy and Spermatogenesis",
+      "inquiry": "How does structure support sperm production, maturation, and delivery?",
+      "requiredMinutes": 85,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B1.2k",
+        "B1.3k",
+        "B1.2s"
+      ],
+      "classItemIds": [
+        "1498148",
+        "1498149"
+      ],
+      "systemItemIds": [
+        "2374",
+        "2384"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-anatomy-evidence"
+      ],
+      "interactionKind": "male-reproductive-pathway",
+      "sourceRefIds": [
+        "b-lesson-02:class:1498148",
+        "b-lesson-02:class:1498149",
+        "b-lesson-02:system:2374",
+        "b-lesson-02:system:2384",
+        "b-lesson-02:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-03",
+      "unitCode": "B",
+      "moduleId": "b-module-1",
+      "order": 3,
+      "title": "Female Reproductive Anatomy and Oogenesis",
+      "inquiry": "How do follicles, hormones, and reproductive structures coordinate egg development?",
+      "requiredMinutes": 85,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B1.1k",
+        "B1.3k",
+        "B1.2s"
+      ],
+      "classItemIds": [
+        "1498150"
+      ],
+      "systemItemIds": [
+        "2379",
+        "2384"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-anatomy-evidence"
+      ],
+      "interactionKind": "female-reproductive-pathway",
+      "sourceRefIds": [
+        "b-lesson-03:class:1498150",
+        "b-lesson-03:system:2379",
+        "b-lesson-03:system:2384",
+        "b-lesson-03:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-04",
+      "unitCode": "B",
+      "moduleId": "b-module-1",
+      "order": 4,
+      "title": "Chromosomes, Hormones, and Sexual Development",
+      "inquiry": "How can chromosomes and hormone signals influence reproductive development?",
+      "requiredMinutes": 80,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B1.4k",
+        "B1.3s"
+      ],
+      "classItemIds": [
+        "1498150"
+      ],
+      "systemItemIds": [
+        "2390"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            66,
+            67,
+            68
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-regulation-map"
+      ],
+      "interactionKind": "development-evidence-model",
+      "sourceRefIds": [
+        "b-lesson-04:class:1498150",
+        "b-lesson-04:system:2390",
+        "b-lesson-04:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-05",
+      "unitCode": "B",
+      "moduleId": "b-module-2",
+      "order": 5,
+      "title": "Reproductive Hormones and Feedback",
+      "inquiry": "How do GnRH, FSH, LH, and gonadal hormones coordinate reproductive function?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "B2.1k",
+        "B2.3k",
+        "B2.1sts"
+      ],
+      "classItemIds": [
+        "1498149",
+        "1498151"
+      ],
+      "systemItemIds": [
+        "2400",
+        "2405"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            27,
+            28
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-regulation-map"
+      ],
+      "interactionKind": "reproductive-feedback-model",
+      "sourceRefIds": [
+        "b-lesson-05:class:1498149",
+        "b-lesson-05:class:1498151",
+        "b-lesson-05:system:2400",
+        "b-lesson-05:system:2405",
+        "b-lesson-05:notes:1",
+        "b-lesson-05:notes:2"
+      ]
+    },
+    {
+      "id": "b-lesson-06",
+      "unitCode": "B",
+      "moduleId": "b-module-2",
+      "order": 6,
+      "title": "Menstrual and Ovarian Cycle Data Lab",
+      "inquiry": "What can changing hormone concentrations reveal about events in the cycle?",
+      "requiredMinutes": 100,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "B2.2k",
+        "B2.1s",
+        "B2.2s",
+        "B2.3s",
+        "B2.4s"
+      ],
+      "classItemIds": [
+        "1498151"
+      ],
+      "systemItemIds": [
+        "2410"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-cycle-data-lab"
+      ],
+      "interactionKind": "cycle-hormone-graph",
+      "sourceRefIds": [
+        "b-lesson-06:class:1498151",
+        "b-lesson-06:system:2410",
+        "b-lesson-06:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-07",
+      "unitCode": "B",
+      "moduleId": "b-module-2",
+      "order": 7,
+      "title": "Fertility, STIs, and Reproductive Health",
+      "inquiry": "How should biological evidence guide decisions about fertility and prevention?",
+      "requiredMinutes": 85,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B1.5k",
+        "B1.1sts",
+        "B1.1s",
+        "B1.3s",
+        "B1.4s",
+        "B2.2sts"
+      ],
+      "classItemIds": [
+        "1498145"
+      ],
+      "systemItemIds": [
+        "2395",
+        "2415"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            65
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-fertility-evidence-brief"
+      ],
+      "interactionKind": "fertility-evidence-board",
+      "sourceRefIds": [
+        "b-lesson-07:class:1498145",
+        "b-lesson-07:system:2395",
+        "b-lesson-07:system:2415",
+        "b-lesson-07:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-08",
+      "unitCode": "B",
+      "moduleId": "b-module-3",
+      "order": 8,
+      "title": "Fertilization and Implantation",
+      "inquiry": "Which events must occur for fertilization to become an implanted pregnancy?",
+      "requiredMinutes": 85,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B3.1k"
+      ],
+      "classItemIds": [
+        "1498152"
+      ],
+      "systemItemIds": [
+        "2426"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-development-timeline"
+      ],
+      "interactionKind": "fertilization-sequence",
+      "sourceRefIds": [
+        "b-lesson-08:class:1498152",
+        "b-lesson-08:system:2426",
+        "b-lesson-08:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-09",
+      "unitCode": "B",
+      "moduleId": "b-module-3",
+      "order": 9,
+      "title": "Extra-embryonic Membranes and the Placenta",
+      "inquiry": "How do temporary structures sustain and protect a developing embryo?",
+      "requiredMinutes": 80,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B3.1k",
+        "B3.3k"
+      ],
+      "classItemIds": [
+        "1498157"
+      ],
+      "systemItemIds": [
+        "2426"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            52,
+            53,
+            54,
+            55
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-development-timeline"
+      ],
+      "interactionKind": "placenta-exchange-model",
+      "sourceRefIds": [
+        "b-lesson-09:class:1498157",
+        "b-lesson-09:system:2426",
+        "b-lesson-09:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-10",
+      "unitCode": "B",
+      "moduleId": "b-module-3",
+      "order": 10,
+      "title": "Gastrulation, Germ Layers, and Organogenesis",
+      "inquiry": "How can three germ layers generate the tissues and organ systems of the body?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "B3.2k",
+        "B3.3k",
+        "B3.3s"
+      ],
+      "classItemIds": [
+        "1498153",
+        "1498157"
+      ],
+      "systemItemIds": [
+        "2426"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            47,
+            48,
+            49,
+            50,
+            51
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-development-timeline"
+      ],
+      "interactionKind": "germ-layer-fate-map",
+      "sourceRefIds": [
+        "b-lesson-10:class:1498153",
+        "b-lesson-10:class:1498157",
+        "b-lesson-10:system:2426",
+        "b-lesson-10:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-11",
+      "unitCode": "B",
+      "moduleId": "b-module-3",
+      "order": 11,
+      "title": "Fetal Development and Environmental Evidence",
+      "inquiry": "How does developmental timing change the effects of environmental exposure?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "B3.2k",
+        "B3.4k",
+        "B3.1s",
+        "B3.2s",
+        "B3.3s"
+      ],
+      "classItemIds": [
+        "1498157"
+      ],
+      "systemItemIds": [
+        "2432"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            56,
+            57,
+            58,
+            59
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-development-risk-analysis"
+      ],
+      "interactionKind": "development-risk-evidence",
+      "sourceRefIds": [
+        "b-lesson-11:class:1498157",
+        "b-lesson-11:system:2432",
+        "b-lesson-11:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-12",
+      "unitCode": "B",
+      "moduleId": "b-module-3",
+      "order": 12,
+      "title": "Parturition and Lactation",
+      "inquiry": "How do positive feedback and changing hormone signals coordinate birth and lactation?",
+      "requiredMinutes": 80,
+      "optionalMinutes": 15,
+      "outcomeIds": [
+        "B3.1k"
+      ],
+      "classItemIds": [
+        "1498158"
+      ],
+      "systemItemIds": [
+        "2437"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            60,
+            61,
+            62,
+            63,
+            64
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-regulation-map"
+      ],
+      "interactionKind": "birth-feedback-model",
+      "sourceRefIds": [
+        "b-lesson-12:class:1498158",
+        "b-lesson-12:system:2437",
+        "b-lesson-12:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-13",
+      "unitCode": "B",
+      "moduleId": "b-module-4",
+      "order": 13,
+      "title": "Reproductive Technologies, Evidence, and Ethics",
+      "inquiry": "How should evidence, risk, access, and values shape a reproductive-technology decision?",
+      "requiredMinutes": 90,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "B3.5k",
+        "B3.1sts",
+        "B3.2sts",
+        "B3.2s",
+        "B3.3s",
+        "B3.4s",
+        "B2.2sts"
+      ],
+      "classItemIds": [
+        "1498154"
+      ],
+      "systemItemIds": [
+        "2442"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-technology-decision-brief"
+      ],
+      "interactionKind": "technology-evidence-matrix",
+      "sourceRefIds": [
+        "b-lesson-13:class:1498154",
+        "b-lesson-13:system:2442",
+        "b-lesson-13:notes:1"
+      ]
+    },
+    {
+      "id": "b-lesson-14",
+      "unitCode": "B",
+      "moduleId": "b-module-4",
+      "order": 14,
+      "title": "Integrated Reproduction and Development Case",
+      "inquiry": "Can one evidence chain connect anatomy, hormones, development, risk, and technology?",
+      "requiredMinutes": 70,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "B1.1k",
+        "B1.2k",
+        "B1.3k",
+        "B1.4k",
+        "B1.5k",
+        "B2.1k",
+        "B2.2k",
+        "B2.3k",
+        "B3.1k",
+        "B3.2k",
+        "B3.3k",
+        "B3.4k",
+        "B3.5k",
+        "B1.3s",
+        "B2.3s",
+        "B3.3s"
+      ],
+      "classItemIds": [
+        "1498147"
+      ],
+      "systemItemIds": [
+        "2368"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-b-notes",
+          "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75
+          ]
+        }
+      ],
+      "artifactIds": [
+        "b-integrated-case"
+      ],
+      "interactionKind": "integrated-reproduction-case",
+      "sourceRefIds": [
+        "b-lesson-14:class:1498147",
+        "b-lesson-14:system:2368",
+        "b-lesson-14:notes:1"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "b-regulation-map",
+      "unitCode": "B",
+      "title": "Regulation Map",
+      "lessonIds": [
+        "b-lesson-01",
+        "b-lesson-04",
+        "b-lesson-05",
+        "b-lesson-12"
+      ],
+      "outcomeIds": [
+        "B1.1sts",
+        "B1.1s",
+        "B1.4k",
+        "B1.3s",
+        "B2.1k",
+        "B2.3k",
+        "B2.1sts",
+        "B3.1k"
+      ],
+      "fields": [
+        {
+          "id": "b-regulation-map:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-regulation-map:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-regulation-map:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-regulation-map:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-anatomy-evidence",
+      "unitCode": "B",
+      "title": "Anatomy Evidence",
+      "lessonIds": [
+        "b-lesson-02",
+        "b-lesson-03"
+      ],
+      "outcomeIds": [
+        "B1.2k",
+        "B1.3k",
+        "B1.2s",
+        "B1.1k"
+      ],
+      "fields": [
+        {
+          "id": "b-anatomy-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-anatomy-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-anatomy-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-anatomy-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-cycle-data-lab",
+      "unitCode": "B",
+      "title": "Cycle Data Lab",
+      "lessonIds": [
+        "b-lesson-06"
+      ],
+      "outcomeIds": [
+        "B2.2k",
+        "B2.1s",
+        "B2.2s",
+        "B2.3s",
+        "B2.4s"
+      ],
+      "fields": [
+        {
+          "id": "b-cycle-data-lab:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-cycle-data-lab:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-cycle-data-lab:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-cycle-data-lab:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-fertility-evidence-brief",
+      "unitCode": "B",
+      "title": "Fertility Evidence Brief",
+      "lessonIds": [
+        "b-lesson-07"
+      ],
+      "outcomeIds": [
+        "B1.5k",
+        "B1.1sts",
+        "B1.1s",
+        "B1.3s",
+        "B1.4s",
+        "B2.2sts"
+      ],
+      "fields": [
+        {
+          "id": "b-fertility-evidence-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-fertility-evidence-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-fertility-evidence-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-fertility-evidence-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-development-timeline",
+      "unitCode": "B",
+      "title": "Development Timeline",
+      "lessonIds": [
+        "b-lesson-08",
+        "b-lesson-09",
+        "b-lesson-10"
+      ],
+      "outcomeIds": [
+        "B3.1k",
+        "B3.3k",
+        "B3.2k",
+        "B3.3s"
+      ],
+      "fields": [
+        {
+          "id": "b-development-timeline:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-timeline:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-timeline:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-timeline:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-development-risk-analysis",
+      "unitCode": "B",
+      "title": "Development Risk Analysis",
+      "lessonIds": [
+        "b-lesson-11"
+      ],
+      "outcomeIds": [
+        "B3.2k",
+        "B3.4k",
+        "B3.1s",
+        "B3.2s",
+        "B3.3s"
+      ],
+      "fields": [
+        {
+          "id": "b-development-risk-analysis:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-risk-analysis:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-risk-analysis:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-risk-analysis:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-technology-decision-brief",
+      "unitCode": "B",
+      "title": "Technology Decision Brief",
+      "lessonIds": [
+        "b-lesson-13"
+      ],
+      "outcomeIds": [
+        "B3.5k",
+        "B3.1sts",
+        "B3.2sts",
+        "B3.2s",
+        "B3.3s",
+        "B3.4s",
+        "B2.2sts"
+      ],
+      "fields": [
+        {
+          "id": "b-technology-decision-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-technology-decision-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-technology-decision-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-technology-decision-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-integrated-case",
+      "unitCode": "B",
+      "title": "Integrated Case",
+      "lessonIds": [
+        "b-lesson-14"
+      ],
+      "outcomeIds": [
+        "B1.1k",
+        "B1.2k",
+        "B1.3k",
+        "B1.4k",
+        "B1.5k",
+        "B2.1k",
+        "B2.2k",
+        "B2.3k",
+        "B3.1k",
+        "B3.2k",
+        "B3.3k",
+        "B3.4k",
+        "B3.5k",
+        "B1.3s",
+        "B2.3s",
+        "B3.3s"
+      ],
+      "fields": [
+        {
+          "id": "b-integrated-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-integrated-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-integrated-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-integrated-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "interactions": [
+    {
+      "id": "b-lesson-01:interaction",
+      "kind": "reproductive-system-overview",
+      "lessonId": "b-lesson-01",
+      "responseIds": [
+        "biology30-unit-b:activity:reproductive-system-overview:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-02:interaction",
+      "kind": "male-reproductive-pathway",
+      "lessonId": "b-lesson-02",
+      "responseIds": [
+        "biology30-unit-b:activity:male-reproductive-pathway:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-03:interaction",
+      "kind": "female-reproductive-pathway",
+      "lessonId": "b-lesson-03",
+      "responseIds": [
+        "biology30-unit-b:activity:female-reproductive-pathway:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-04:interaction",
+      "kind": "development-evidence-model",
+      "lessonId": "b-lesson-04",
+      "responseIds": [
+        "biology30-unit-b:activity:development-evidence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-05:interaction",
+      "kind": "reproductive-feedback-model",
+      "lessonId": "b-lesson-05",
+      "responseIds": [
+        "biology30-unit-b:activity:reproductive-feedback-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-06:interaction",
+      "kind": "cycle-hormone-graph",
+      "lessonId": "b-lesson-06",
+      "responseIds": [
+        "biology30-unit-b:activity:cycle-hormone-graph:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-07:interaction",
+      "kind": "fertility-evidence-board",
+      "lessonId": "b-lesson-07",
+      "responseIds": [
+        "biology30-unit-b:activity:fertility-evidence-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-08:interaction",
+      "kind": "fertilization-sequence",
+      "lessonId": "b-lesson-08",
+      "responseIds": [
+        "biology30-unit-b:activity:fertilization-sequence:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-09:interaction",
+      "kind": "placenta-exchange-model",
+      "lessonId": "b-lesson-09",
+      "responseIds": [
+        "biology30-unit-b:activity:placenta-exchange-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-10:interaction",
+      "kind": "germ-layer-fate-map",
+      "lessonId": "b-lesson-10",
+      "responseIds": [
+        "biology30-unit-b:activity:germ-layer-fate-map:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-11:interaction",
+      "kind": "development-risk-evidence",
+      "lessonId": "b-lesson-11",
+      "responseIds": [
+        "biology30-unit-b:activity:development-risk-evidence:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-12:interaction",
+      "kind": "birth-feedback-model",
+      "lessonId": "b-lesson-12",
+      "responseIds": [
+        "biology30-unit-b:activity:birth-feedback-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-13:interaction",
+      "kind": "technology-evidence-matrix",
+      "lessonId": "b-lesson-13",
+      "responseIds": [
+        "biology30-unit-b:activity:technology-evidence-matrix:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "b-lesson-14:interaction",
+      "kind": "integrated-reproduction-case",
+      "lessonId": "b-lesson-14",
+      "responseIds": [
+        "biology30-unit-b:activity:integrated-reproduction-case:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    }
+  ],
+  "sourcePolicy": {
+    "requiredLocalFirst": true,
+    "slideImagesAsLessons": false,
+    "externalLinksRequiredForCompletion": false,
+    "visibleChapterQuizzesBecomeNonGradedPractice": true,
+    "secureTestsKeysAndPrintableQuizzesExcluded": true,
+    "sourceTextCopiedVerbatim": false
+  },
+  "reviewRubric": {
+    "total": 100,
+    "minimumPassingTotal": 95,
+    "categories": [
+      {
+        "id": "academic",
+        "points": 25,
+        "minimum": 20
+      },
+      {
+        "id": "coherence",
+        "points": 20,
+        "minimum": 16
+      },
+      {
+        "id": "visual",
+        "points": 15,
+        "minimum": 12
+      },
+      {
+        "id": "practice",
+        "points": 15,
+        "minimum": 12
+      },
+      {
+        "id": "accessibility",
+        "points": 10,
+        "minimum": 8
+      },
+      {
+        "id": "runtime",
+        "points": 10,
+        "minimum": 8
+      },
+      {
+        "id": "maintainability",
+        "points": 5,
+        "minimum": 4
+      }
+    ],
+    "promotionRequiresExplicitUserAcceptance": true
+  },
+  "generatedAt": "2026-08-31T00:02:59.328Z"
+}

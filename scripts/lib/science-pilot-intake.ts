@@ -20,8 +20,11 @@ export type SciencePilotIntakeRequest = {
 };
 
 export type SciencePilotResource = {
-  id: "brightspace-export" | "teacher-resources";
-  role: "brightspace-export" | "teacher-resource";
+  /** Stable caller-defined resource identifier; never derived from a host path. */
+  id: string;
+  label: string;
+  kind: "brightspace-export" | "teacher-resources";
+  role: "primary" | "reference" | "supplemental";
   path: string;
   sha256: string;
   originalName: string;
@@ -64,6 +67,8 @@ async function copyScienceSource(input: {
   stageResourceDir: string;
   projectSlug: string;
   id: SciencePilotResource["id"];
+  label: string;
+  kind: SciencePilotResource["kind"];
   role: SciencePilotResource["role"];
 }): Promise<SciencePilotResource> {
   const absoluteSourcePath = path.resolve(input.sourcePath);
@@ -72,7 +77,7 @@ async function copyScienceSource(input: {
     throw new Error(`Science pilot source must be a real file: ${input.sourcePath}`);
   }
   if (path.extname(absoluteSourcePath).toLowerCase() !== ".zip") {
-    throw new Error(`Science pilot ${input.role} must be a .zip archive: ${input.sourcePath}`);
+    throw new Error(`Science pilot ${input.kind} must be a .zip archive: ${input.sourcePath}`);
   }
   const sha256 = await sha256File(absoluteSourcePath);
   const destinationPath = path.join(input.stageResourceDir, "_sources", `${sha256}.zip`);
@@ -80,6 +85,8 @@ async function copyScienceSource(input: {
   await copyFile(absoluteSourcePath, destinationPath);
   return {
     id: input.id,
+    label: input.label,
+    kind: input.kind,
     role: input.role,
     path: `projects/resources/${input.projectSlug}/_sources/${sha256}.zip`,
     sha256,
@@ -239,7 +246,9 @@ export async function intakeSciencePilot(request: SciencePilotIntakeRequest): Pr
           stageResourceDir,
           projectSlug,
           id: "brightspace-export",
-          role: "brightspace-export"
+          label: "Brightspace export",
+          kind: "brightspace-export",
+          role: "primary"
         })
       );
     }
@@ -250,7 +259,9 @@ export async function intakeSciencePilot(request: SciencePilotIntakeRequest): Pr
           stageResourceDir,
           projectSlug,
           id: "teacher-resources",
-          role: "teacher-resource"
+          label: "Teacher resources",
+          kind: "teacher-resources",
+          role: "supplemental"
         })
       );
     }

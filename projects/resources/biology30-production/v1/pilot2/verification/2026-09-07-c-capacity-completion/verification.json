@@ -1,0 +1,92 @@
+{
+  "stage": 109,
+  "checkedAt": "2026-09-08T03:53:30.533Z",
+  "scope": "Complete the remaining bounded C response repair; no full curriculum certification or live LMS certification.",
+  "candidates": [
+    {
+      "unit": "A",
+      "project": "biology30-unit-a-pilot-2",
+      "entrySha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+      "candidateTreeSha256": "3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a",
+      "teachingCount": 13,
+      "teachingUnit": "lessons",
+      "practiceItems": 86,
+      "requiredPracticeItems": 80
+    },
+    {
+      "unit": "B",
+      "project": "biology30-unit-b",
+      "entrySha256": "028bda8ae41e2354b4771699720b7b416dd371236c11507ad2a43524284b0dba",
+      "candidateTreeSha256": "06cdd0ca1245c331f5be6fd854d0fee844a318384be600ae2a4c225f8c52f9b8",
+      "teachingCount": 8,
+      "teachingUnit": "teaching topics",
+      "practiceItems": 65,
+      "requiredPracticeItems": 61
+    },
+    {
+      "unit": "C",
+      "project": "biology30-unit-c",
+      "entrySha256": "2b155812526df8a3b57cfc3e1d79b7772c2134ff73ffdd713f6936e7c590c647",
+      "candidateTreeSha256": "3903f1136f1fadf806e933b89a3c33c96afa88d2e7c92090ff467ab3849a90e8",
+      "teachingCount": 18,
+      "teachingUnit": "teaching topics",
+      "practiceItems": 132,
+      "requiredPracticeItems": 126
+    },
+    {
+      "unit": "D",
+      "project": "biology30-unit-d",
+      "entrySha256": "ba2f4e9a869f51f4fa399a39479c842e49ec42252bbc7db435e2eb9529f4ec78",
+      "candidateTreeSha256": "2ec3333db5d1d838b7c489a06754f10082d8420834facea8d33412abcb5ed540",
+      "teachingCount": 4,
+      "teachingUnit": "teaching topics",
+      "practiceItems": 52,
+      "requiredPracticeItems": 48
+    }
+  ],
+  "tests": {
+    "focusedPassed": 17,
+    "browserPassed": true,
+    "completeExamplesSavedAndReloaded": 18,
+    "priorCSaveRestored": true,
+    "all18BoundaryAndOversizeChecks": true,
+    "ordinaryUnicodeMaximumForEveryCOptionalFrayerPair": true,
+    "visual": "18 screenshots across six routes and 1440/1024/390 viewports; all three contact sheets inspected",
+    "protectedAEntries": "unchanged",
+    "workspace": "B/C/D passed",
+    "projectE2E": "B/C/D passed",
+    "sharedSmoke": "passed"
+  },
+  "storage": {
+    "C": {
+      "prior": 43032,
+      "uncompressedProposal": 45462,
+      "appliedLongestRouteMaximum": 43440,
+      "target": 44000,
+      "headroom": 560,
+      "hardGuard": 48000,
+      "format": "opt-in choices-routes-v1",
+      "compatibility": "Earlier v3 choice pairs and string visited routes remain readable; writing/response IDs/flags/choices/visited order preserved.",
+      "limitation": "Older runtime cannot read new indexed saves; do not roll back the runtime after new saves without a conversion path. Heavy escaping or combined legacy overflow still rejects atomically without truncating drafts or replacing last valid saves."
+    },
+    "B": {
+      "encodingUnchanged": true,
+      "previousMaximum": 33957
+    },
+    "D": {
+      "encodingUnchanged": true,
+      "previousMaximum": 27698
+    }
+  },
+  "dispositions": {
+    "responses": "All 18 applied, including the six previously deferred C responses.",
+    "sumRule": "Narrow check closed with no supported change; existing required genotype/phenotype work combines AA and Aa. Isolated rule naming/selection is not separately established."
+  },
+  "limitations": [
+    "Repository typecheck still has 25 unrelated diagnostics; zero touched-file diagnostics.",
+    "Earlier unrelated draft-contract/passage-review baseline failures remain outside this repair; not rerun or represented as fixed.",
+    "Legacy production-profile visual audit does not match Pilot2 receipts; current-profile bounded browser visuals and project E2E used.",
+    "Local preview-only candidates; no deployment, LMS certification, promotion or teacher acceptance."
+  ],
+  "archiveVerification": "Recorded after the single final packaging run in projects/biology30-unit-a/meta/archive-verification.json."
+}

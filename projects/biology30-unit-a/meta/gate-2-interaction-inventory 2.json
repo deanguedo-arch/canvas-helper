@@ -1,0 +1,546 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-30T03:45:30.445Z",
+  "interactionCount": 17,
+  "artifactCount": 7,
+  "interactions": [
+    {
+      "id": "interaction-control-system-comparison",
+      "kind": "control-system-comparison",
+      "lessonId": "lesson-01",
+      "responseIds": [
+        "biology30-unit-a:activity:control-system-comparison:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-negative-feedback-builder",
+      "kind": "negative-feedback-builder",
+      "lessonId": "lesson-02",
+      "responseIds": [
+        "biology30-unit-a:activity:negative-feedback-builder:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-neuron-pathway-sort",
+      "kind": "neuron-pathway-sort",
+      "lessonId": "lesson-03",
+      "responseIds": [
+        "biology30-unit-a:activity:neuron-pathway-sort:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-action-potential-explorer",
+      "kind": "action-potential-graph",
+      "lessonId": "lesson-04",
+      "responseIds": [
+        "biology30-unit-a:activity:action-potential-explorer:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-synapse-sequence",
+      "kind": "synapse-sequence",
+      "lessonId": "lesson-05",
+      "responseIds": [
+        "biology30-unit-a:activity:synapse-sequence:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-brain-symptom-locator",
+      "kind": "brain-symptom-locator",
+      "lessonId": "lesson-06",
+      "responseIds": [
+        "biology30-unit-a:activity:brain-symptom-locator:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-reflex-arc-builder",
+      "kind": "reflex-arc-builder",
+      "lessonId": "lesson-07",
+      "responseIds": [
+        "biology30-unit-a:activity:reflex-arc-builder:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-sensory-investigation-planner",
+      "kind": "investigation-planner",
+      "lessonId": "lesson-08",
+      "responseIds": [
+        "biology30-unit-a:activity:sensory-investigation-planner:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-eye-light-path",
+      "kind": "eye-light-path",
+      "lessonId": "lesson-09",
+      "responseIds": [
+        "biology30-unit-a:activity:eye-light-path:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-audiogram-evidence-explorer",
+      "kind": "audiogram-evidence",
+      "lessonId": "lesson-10",
+      "responseIds": [
+        "biology30-unit-a:activity:audiogram-evidence-explorer:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-sensory-evidence-board",
+      "kind": "evidence-board",
+      "lessonId": "lesson-11",
+      "responseIds": [
+        "biology30-unit-a:activity:sensory-evidence-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "printable",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-endocrine-body-map",
+      "kind": "endocrine-body-map",
+      "lessonId": "lesson-12",
+      "responseIds": [
+        "biology30-unit-a:activity:endocrine-body-map:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-hypothalamus-pituitary-feedback",
+      "kind": "feedback-simulator",
+      "lessonId": "lesson-13",
+      "responseIds": [
+        "biology30-unit-a:activity:hypothalamus-pituitary-feedback:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-thyroid-calcium-feedback",
+      "kind": "feedback-simulator",
+      "lessonId": "lesson-14",
+      "responseIds": [
+        "biology30-unit-a:activity:thyroid-calcium-feedback:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-blood-glucose-simulator",
+      "kind": "blood-glucose-simulator",
+      "lessonId": "lesson-15",
+      "responseIds": [
+        "biology30-unit-a:activity:blood-glucose-simulator:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-water-salt-data-lab",
+      "kind": "water-salt-data-lab",
+      "lessonId": "lesson-16",
+      "responseIds": [
+        "biology30-unit-a:activity:water-salt-data-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    },
+    {
+      "id": "interaction-integrated-case-board",
+      "kind": "integrated-case-board",
+      "lessonId": "lesson-17",
+      "responseIds": [
+        "biology30-unit-a:activity:integrated-case-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning prompt and receives or reveals explanatory feedback.",
+      "fallbackType": "printable",
+      "keyboardOperable": true,
+      "persistent": true,
+      "scopedReset": true,
+      "networkRequired": false,
+      "fallbackPresent": true
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "regulation-systems-map",
+      "title": "Baseline and final regulation systems map",
+      "lessonIds": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-12",
+        "lesson-17"
+      ],
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.4k",
+        "A2.5k"
+      ],
+      "fields": [
+        {
+          "id": "regulation-systems-map:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "regulation-systems-map:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "regulation-systems-map:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "regulation-systems-map:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "action-potential-evidence",
+      "title": "Action-potential evidence interpretation",
+      "lessonIds": [
+        "lesson-04"
+      ],
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "fields": [
+        {
+          "id": "action-potential-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "action-potential-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "action-potential-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "action-potential-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "reflex-investigation",
+      "title": "Reflex investigation",
+      "lessonIds": [
+        "lesson-07"
+      ],
+      "outcomeIds": [
+        "A1.3k",
+        "A1.2s",
+        "A1.3s",
+        "A1.4s"
+      ],
+      "fields": [
+        {
+          "id": "reflex-investigation:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "reflex-investigation:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "reflex-investigation:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "reflex-investigation:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "sensory-investigation",
+      "title": "Sensory investigation design and data analysis",
+      "lessonIds": [
+        "lesson-08",
+        "lesson-11"
+      ],
+      "outcomeIds": [
+        "A1.6k",
+        "A1.1s",
+        "A1.2s",
+        "A1.3s",
+        "A1.4s"
+      ],
+      "fields": [
+        {
+          "id": "sensory-investigation:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "sensory-investigation:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "sensory-investigation:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "sensory-investigation:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "sensory-evidence-case",
+      "title": "Vision or audiogram evidence case",
+      "lessonIds": [
+        "lesson-09",
+        "lesson-10",
+        "lesson-11"
+      ],
+      "outcomeIds": [
+        "A1.4k",
+        "A1.5k",
+        "A1.3sts",
+        "A1.3s"
+      ],
+      "fields": [
+        {
+          "id": "sensory-evidence-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "sensory-evidence-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "sensory-evidence-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "sensory-evidence-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "glucose-urinalysis",
+      "title": "Blood-glucose and urinalysis analysis",
+      "lessonIds": [
+        "lesson-15"
+      ],
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.6k",
+        "A2.1sts",
+        "A2.2s",
+        "A2.3s"
+      ],
+      "fields": [
+        {
+          "id": "glucose-urinalysis:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "glucose-urinalysis:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "glucose-urinalysis:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "glucose-urinalysis:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "hormone-technology-case",
+      "title": "Hormone-technology and integrated-regulation case",
+      "lessonIds": [
+        "lesson-16",
+        "lesson-17"
+      ],
+      "outcomeIds": [
+        "A2.2k",
+        "A2.3k",
+        "A2.5k",
+        "A2.6k",
+        "A2.1s",
+        "A2.2s",
+        "A2.3s",
+        "A2.4s",
+        "A2.2sts"
+      ],
+      "fields": [
+        {
+          "id": "hormone-technology-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "hormone-technology-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "hormone-technology-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "hormone-technology-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-unit-a-artifact-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "packageKind": "biology30-chatgpt-review-v1",
+  "generatedAt": "2026-09-07T18:22:53.316Z",
+  "projectSlug": "biology30-unit-d",
+  "unitCode": "D",
+  "candidateStatus": "blocked",
+  "ownership": "proposal-only-v1",
+  "sourceWorkspacePath": "biology30-unit-d/workspace",
+  "candidateTreeHashAlgorithm": "path\\0fileSha256\\n",
+  "candidateTreeSha256": "d8698293a7f0490568fe8ae2115dd2304a6c4d1c378243ae8d81a39f2cd66c34",
+  "entryPath": "course/index.html",
+  "entrySha256": "50cf90d2447634fa87eb44a5f54a132436809b3a6ac3403668c74ac8b7abbba7",
+  "fileCount": 34,
+  "byteCount": 17642762,
+  "files": [
+    {
+      "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+      "size": 53313,
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "path": "assets/figures/d-allele-counts-v1.svg",
+      "size": 4639,
+      "sha256": "9743d9b0a50a452f34caf6a5cb062678fde8b872bf2d0ec2371ddf6b156ff8c2"
+    },
+    {
+      "path": "assets/figures/d-changing-capacity-v2.svg",
+      "size": 4661,
+      "sha256": "5e3dbbc6b46e2d54913dbcfda950d90481c74d07efffa8f2a13955e3bc3c1418"
+    },
+    {
+      "path": "assets/figures/d-competition-comparison-v1.svg",
+      "size": 4359,
+      "sha256": "54bfa4ce32e301078b6fd91a0e8d3b84a20cb4415104f8ea4b9258a549957e25"
+    },
+    {
+      "path": "assets/figures/d-demographic-processes-v2.svg",
+      "size": 3284,
+      "sha256": "9eecefbfb6d8e2b6eff46b9c90ffd6328b368825cf2af68d78b062a721a06380"
+    },
+    {
+      "path": "assets/figures/d-density-distribution-v1.svg",
+      "size": 7476,
+      "sha256": "b8427264b40211cfc4290ae314f2612ac2260e608395282a204715a95f7bf7cf"
+    },
+    {
+      "path": "assets/figures/d-drift-histories-v1.svg",
+      "size": 7842,
+      "sha256": "cd51d95d50a34e5e921f8ff08a2e2c5a268f3382477e39c5a7c6240966830121"
+    },
+    {
+      "path": "assets/figures/d-ecological-study-design-v1.svg",
+      "size": 4243,
+      "sha256": "1e7bd11bf65ce76e87118cf3aafb2ff924714d04422975daf67aaf73ed9dbc60"
+    },
+    {
+      "path": "assets/figures/d-equilibrium-assumptions-v1.svg",
+      "size": 4005,
+      "sha256": "3657a565ab1c86c14acfa658d64a700be0b0555546f16ab6263daa862b976edd"
+    },
+    {
+      "path": "assets/figures/d-frequency-evidence-v1.svg",
+      "size": 4457,
+      "sha256": "45b3503f7457304614221494c4fdd6196c6af8ca3ac3267a9d2d5c9f8bfa4c1e"
+    },
+    {
+      "path": "assets/figures/d-gene-flow-pairing-v1.svg",
+      "size": 7250,
+      "sha256": "a9072cf00653593dd322ed3ccc35ad8f152898e8635778fba931733868e508d9"
+    },
+    {
+      "path": "assets/figures/d-growth-model-shapes-v1.svg",
+      "size": 6925,
+      "sha256": "65eb6909eda32148e96d49ec6a10033576d984b7aae208f9f8e0766b5e42470f"
+    },
+    {
+      "path": "assets/figures/d-interaction-effects-v1.svg",
+      "size": 4823,
+      "sha256": "c29a3f385206ff387f16f6a6110929f68825f80ebe9c4508b6aea774cc18b743"
+    },
+    {
+      "path": "assets/figures/d-life-history-traits-v1.svg",
+      "size": 3991,
+      "sha256": "6efa92564d03e29b69710180af79f8335601ff40c60a6f7eb8fdcb181dc5ac16"
+    },
+    {
+      "path": "assets/figures/d-mimicry-comparison-v1.svg",
+      "size": 4140,
+      "sha256": "3b0503043102faec042b2dae76c1925a1fce95d8e6129be3f928d13f3ef5f5b1"
+    },
+    {
+      "path": "assets/figures/d-observed-expected-v2.svg",
+      "size": 4286,
+      "sha256": "d8c1798e3e040448300fc7323d72ee66cde20897f3c07722661ea73edadd7d04"
+    },
+    {
+      "path": "assets/figures/d-phenotype-to-frequency-v1.svg",
+      "size": 3532,
+      "sha256": "835317ceef13eb9d18ae6a6aa8b7b427106d5329acbc038aa7e113fa08f64dde"
+    },
+    {
+      "path": "assets/figures/d-population-cycle-evidence-v1.svg",
+      "size": 4933,
+      "sha256": "9ee506ed9a54341bb6e2e283933ca5414041aa551c8c8817f54307599c83a5ae"
+    },
+    {
+      "path": "assets/figures/d-population-sampling-v1.svg",
+      "size": 5973,
+      "sha256": "b80d4745f2dd659c10e07a8f29c41d301ffe4d807de50edff8ad8a113ad5e6cf"
+    },
+    {
+      "path": "assets/figures/d-rate-denominators-v2.svg",
+      "size": 4321,
+      "sha256": "3c31f0bde2f8431b94dd9393ea6e54ced053390a8ec5be723404c8446993db91"
+    },
+    {
+      "path": "assets/figures/d-resistance-evidence-v1.svg",
+      "size": 4587,
+      "sha256": "c5b7285fd7638fd1fd8558cddaa12192901de9b2e5e353fd41d6044d0db95a6e"
+    },
+    {
+      "path": "assets/figures/d-resource-partitioning-v1.svg",
+      "size": 11657,
+      "sha256": "b60b51d42afacadd8f6069bd56baed2fafcc061eb2ad3cf05e5aa46eeb741d8c"
+    },
+    {
+      "path": "assets/figures/d-succession-pathways-v1.svg",
+      "size": 4561,
+      "sha256": "fa9c51ae26299d49f01633ac0a475b4930027464df905d167e5ebc80e0ec494f"
+    },
+    {
+      "path": "assets/figures/d-survivorship-forms-v1.svg",
+      "size": 13043,
+      "sha256": "a8696110ab549d0550bc6efd876b72c899c8484f6e2796b704d62620e94d57c6"
+    },
+    {
+      "path": "assets/figures/d-variant-selection-v1.svg",
+      "size": 12632,
+      "sha256": "eb1a61e48d3d327b6cc4690e2591ebc5d350a3e27d76fb6141ddc76ded25defd"
+    },
+    {
+      "path": "assets/figures/d-weighted-genotype-grid-v1.svg",
+      "size": 3215,
+      "sha256": "c7956ba77529a4b54eadbfa60079933a53f62ca2926c2131c9db8a4b9e8e867e"
+    },
+    {
+      "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+      "size": 132892,
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+    },
+    {
+      "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+      "size": 4402,
+      "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+    },
+    {
+      "path": "assets/fonts/OFL-Work-Sans.txt",
+      "size": 4396,
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "path": "assets/fonts/WorkSans-Variable.ttf",
+      "size": 361072,
+      "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+    },
+    {
+      "path": "assets/pilot2-course.js",
+      "size": 154560,
+      "sha256": "5af8e39a0f8c906afe1379ba0206951d3589413c76d4b78c500d4f9716de3e08"
+    },
+    {
+      "path": "assets/textbook/chapter-19.pdf",
+      "size": 8112928,
+      "sha256": "39937a2bd45b4a0869ab6502cd56134e94d25204bb6c1b2a7a1d8a27c22b4a4c"
+    },
+    {
+      "path": "assets/textbook/chapter-20.pdf",
+      "size": 7057438,
+      "sha256": "39cdf3ffc3bc1a520340efbde970731019c77d3120b048a3d395cc9f7c38afd2"
+    },
+    {
+      "path": "index.html",
+      "size": 1616926,
+      "sha256": "50cf90d2447634fa87eb44a5f54a132436809b3a6ac3403668c74ac8b7abbba7"
+    }
+  ],
+  "sourceContractPath": "projects/resources/biology30-production/v1/units/unit-d/production-contract.json",
+  "sourceContractSha256": "bd8c4bce9ec0ae9109208d865b0befcb18cb2c9b71ca001793cde1d68e30718e",
+  "includedScope": "Canonical learner entry and referenced local assets only; numbered historical A HTML snapshots are excluded.",
+  "releaseBoundary": {
+    "teacherAcceptance": false,
+    "studioEditing": false,
+    "export": false,
+    "brightspaceUpload": false,
+    "publication": false
+  }
+}

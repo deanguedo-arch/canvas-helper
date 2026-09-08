@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    "B",
+    "C"
+  ],
+  "status": "author-reviewed-provisional",
+  "teacherDecision": null,
+  "checkedAt": "2026-09-07T12:55:40.213488+00:00",
+  "scope": "Eight teaching targets: four B targets with five new SVGs, four C targets with one new SVG and three exact reviewed B assets reused.",
+  "canonicalTeaching": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+      "sha256": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+      "sha256": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f"
+    }
+  ],
+  "sourceReview": {
+    "chapter15": "Previously read full deck and native extraembryonic/development figures; additional native neurulation image c444533b and birth-positive-feedback image 50e5e5ef inspected. The latter shows feedback, not the three birth stages.",
+    "chapter16SlidesRead": [
+      48,
+      49,
+      50,
+      51,
+      52
+    ],
+    "chapter16Native": [
+      "2369aff3e168727d021c881357d4a72388ad335d967a222ec28fa1d5398c35f0.png",
+      "25729d74fbb4f9b294b88d0bfbff32063c8a1805e366418d64cfc8fdf0d38db5.png"
+    ],
+    "correctedSourceClaims": [
+      "Meiosis I products do not necessarily contain an entirely maternal or entirely paternal chromosome set.",
+      "No intervening S phase does not mean every possible interkinesis event is absent.",
+      "Meiosis II products are not universally genetically identical; prior crossing over can distinguish sisters.",
+      "Haploid nuclei, spermatids and mature functional gametes are distinct outcomes."
+    ]
+  },
+  "nativeReview": "All six newly selected final SVGs inspected. Existing B asset reviews reused without regeneration. Birth v2 oxygen labels remove exchange-arrow ambiguity.",
+  "comparisonProcess": "Batch side-by-side gallery sections prepared from inspected native source/current figures and selected original SVGs. No claim that every rendered gallery section was separately re-inspected.",
+  "assets": [
+    {
+      "id": "b-developmental-clocks-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-clocks-v1.svg",
+      "sha256": "77b5c25f8299412fe8dcfe971718e0f070e88e6c3eea6b4358baedb74760c4e3"
+    },
+    {
+      "id": "b-neurulation-sequence-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-neurulation-sequence-v1.svg",
+      "sha256": "47d309855a197a9523ccf544dffdb64270cee2b3e026c1cacc95aab425d1432d"
+    },
+    {
+      "id": "b-exposure-confounding-comparison-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-exposure-confounding-comparison-v1.svg",
+      "sha256": "479f550f0f13f14168c54402885eacaf6a0d5bb9d7673d023505db78256286a0"
+    },
+    {
+      "id": "b-birth-exchange-transition-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-birth-exchange-transition-v2.svg",
+      "sha256": "bca184f45827b2c3edb2a578b06eea44b2c826863e4c650d4d6f6e6070cc3f1f"
+    },
+    {
+      "id": "b-technology-step-comparison-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-technology-step-comparison-v1.svg",
+      "sha256": "d017547f642c7af8064f74787bac652ae46ac30977f7ba2d9f20c3856c917523"
+    },
+    {
+      "id": "b-chromosome-sets-copies-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-chromosome-sets-copies-v1.svg",
+      "sha256": "d6aaf81c066c25e8f6e36d308862ae899122733957c17373f690239bca828386",
+      "priorReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Native2n=4 symbolic set model has two long/two short unduplicated chromosomes, the same four duplicated chromosomes, then one long/one short duplicated in one meiotic-I product. Human count row46/46,46/92,23/46 matches chromosomes/DNA molecules per cell; picture and human counts are explicitly distinct."
+      }
+    },
+    {
+      "id": "c-meiotic-count-model-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-meiotic-count-model-v1.svg",
+      "sha256": "0851bd01b48de75398e8c9c355052b795d3975251efd535cacf80e188513e744"
+    },
+    {
+      "id": "b-meiosis-differentiation-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-meiosis-differentiation-v2.svg",
+      "sha256": "ac3b09c7f51a9166c300a5d04d72019e9bd898e5e927896914a6c3c70f8bc773",
+      "priorReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "One→two→four cell inventory and46 duplicated→23 duplicated→23 unduplicated per-cell counts verified. v2 moves tree right to separate labels from circles. Differentiation does not halve counts; no replication between divisions."
+      }
+    },
+    {
+      "id": "b-oocyte-pauses-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-oocyte-pauses-v2.svg",
+      "sha256": "dbe8fcf928b94dd8f0b63ebc8cbe5306ebe085f787753505c52dd94b138758e2",
+      "priorReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "evidenceSha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad",
+        "finding": "Prophase-I prenatal and metaphase-II ovulatory pauses,46 duplicated→23 duplicated→23 unduplicated maternal counts, and unequal polar-body branches verified. v2 routes both branches clear of text. Final count excludes sperm; no three-polar-body inevitability or completed meiosis at ovulation."
+      }
+    }
+  ],
+  "bindings": [
+    {
+      "unit": "B",
+      "partId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+      "assetIds": [
+        "b-developmental-clocks-v1",
+        "b-neurulation-sequence-v1"
+      ],
+      "finding": "Approximate post-fertilization and obstetric ages stay distinct. The embryonic/fetal distinction and overlapping trimester patterns accompany a schematic plate-to-groove-to-tube sequence; closure varies across time and position. These are explanatory models, not clinical schedules or microscopic observations."
+    },
+    {
+      "unit": "B",
+      "partId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+      "assetIds": [
+        "b-exposure-confounding-comparison-v1"
+      ],
+      "finding": "Fictional qualitative groups differ in both agent exposure and culture temperature. Their marker difference cannot isolate a single cause. This separate example does not alter the required four-count investigation dataset or supply its answer graph."
+    },
+    {
+      "unit": "B",
+      "partId": "b-topic-parturition-birth-and-the-transition",
+      "assetIds": [
+        "b-birth-exchange-transition-v2"
+      ],
+      "finding": "Dilation, delivery and placental delivery are broad events. Oxygen arrows distinguish placental exchange between distinct bloodstreams from newborn lung exchange. Effective ventilation and circulatory adaptation are required; the illustration does not show maternal blood flowing into fetal blood."
+    },
+    {
+      "unit": "B",
+      "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "assetIds": [
+        "b-technology-step-comparison-v1"
+      ],
+      "finding": "Barrier, hormonal, transport and outside-body fertilization mechanisms have different targets. Mechanism alone does not guarantee pregnancy outcomes. Denominator, time interval and five perspectives remain explicit; no personal recommendation or ranking of families."
+    },
+    {
+      "unit": "C",
+      "partId": "c-topic-chromosomes-and-dna-sets-and-copies",
+      "assetIds": [
+        "b-chromosome-sets-copies-v1"
+      ],
+      "finding": "Exact reviewed B asset reused for the same chromosome-count distinction. Its picture uses 2n=4 and its separately labelled human row uses 2n=46; C prose also supplies a distinct 2n=8 worked example. These examples must not be conflated. Replication changes DNA copies without doubling ploidy."
+    },
+    {
+      "unit": "C",
+      "partId": "c-topic-meiosis-part-a-first-meiotic-division",
+      "assetIds": [
+        "c-meiotic-count-model-v1"
+      ],
+      "finding": "The 2n=4 starting cell has four duplicated chromosomes. Each product after meiosis I has two duplicated chromosomes and one homologous set. Counts refer to the outlined products, not an undivided anaphase cell. Long/short marks denote types and colours distinguish homologues; crossing over is explicitly omitted."
+    },
+    {
+      "unit": "C",
+      "partId": "c-topic-meiosis-part-a-second-meiotic-division",
+      "assetIds": [
+        "c-meiotic-count-model-v1"
+      ],
+      "finding": "The same count model continues meiosis I products through sister separation to four haploid products with two unduplicated chromosomes each. There is no intervening S phase. Crossing over is omitted in this model, so its matching final symbols must not imply that actual meiosis II products are always genetically identical or four equally functional gametes."
+    },
+    {
+      "unit": "C",
+      "partId": "c-topic-meiosis-part-b-gamete-development",
+      "assetIds": [
+        "b-meiosis-differentiation-v2",
+        "b-oocyte-pauses-v2"
+      ],
+      "finding": "Exact reviewed B models compare four similarly sized spermatids followed by differentiation with unequal oocyte divisions, prenatal prophase I arrest and ovulatory metaphase II arrest. The final oocyte-panel chromosome count is maternal only. Final haploid nuclei and functional gametes are not interchangeable counts."
+    }
+  ],
+  "limitations": [
+    "Provisional author review only; no teacher acceptance.",
+    "Native publisher figures are comparison references only, with no new learner reuse clearance.",
+    "Mac remains locked for the final B membrane raster comparison.",
+    "All-unit freeze, first-use and actual learner placement remain pending."
+  ]
+}

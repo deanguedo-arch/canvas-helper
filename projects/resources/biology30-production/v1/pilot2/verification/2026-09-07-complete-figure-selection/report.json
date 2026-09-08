@@ -1,0 +1,79 @@
+{
+  "stage": 89,
+  "checkedAt": "2026-09-07T14:03:25.719720+00:00",
+  "summary": "All127 B/C/D figure targets bound, all three figure manifests complete-author-review and figuresAndRights gates passed for local blocked review. No learner candidate built.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 127,
+    "pending": 0,
+    "byUnit": {
+      "B": 34,
+      "C": 71,
+      "D": 22
+    },
+    "uniqueSelectedAssetFiles": 115,
+    "gallerySections": 126
+  },
+  "gatesPassedPerUnit": 7,
+  "verification": {
+    "focusedTests": "6/6 pass; /tmp/bcd-stage89-tests-final-v2.log",
+    "initialClosureFailure": "Input inventory test still expected draft figure status; updated to completed provisional selection while retaining all-unit freeze refusal. /tmp/bcd-stage89-tests-final.log retained.",
+    "draftContracts": "passed; /tmp/bcd-stage89-contracts-final.log",
+    "sourceAndProtectedBaselines": "passed; /tmp/bcd-stage89-protection.log",
+    "figureClosure": "127 targets,115 unique selected files,18 exact scientific review receipts,126 gallery sections and540 resolving local references.",
+    "nativeReview": "17 molecular diagram surfaces plus corrected ChatGPT PNG inspected; exact corrections in the molecular review.",
+    "fullSuite": "Not repeated for data-only figure additions; prior101 owner and9 browser proof remains historical synthetic coverage."
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json",
+      "sha256": "eec8545f46261ece95fde34ef8d30a9cc9c36bf7ab67541bb413263ad7fce64d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+      "sha256": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "sha256": "43f2c97fadcd58b73835f5370458b76628d1b51fe883d5d94c626531763f5d25"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+      "sha256": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+      "sha256": "3628bef240cace4464b253716bcd60f958c1fdd24a07ae0fe782e00b40add2d3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/c-molecular-genetics-technology-review.json",
+      "sha256": "c1bd1810f51c91abfbbe91b5774c614e131d84009ee8c39f06349920536935ae"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json",
+      "sha256": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json",
+      "sha256": "5f0e172e3f285727725abb5b2b1fbb35e4ca239357e1585dfa185de4c9b19964"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "28a2b863e6f06fe96a7104b06e7e1af8355b5a3bb8e13cd53eec85fcded22721"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "b35612615caae75f7d38bca42a6f2c85ba4b2a24e27a5bbc7f772f29ba09e3e9"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-inputs.test.ts",
+      "sha256": "d05451656382b739c89657d276cfddbaac274bc265af2d77e8bf3b5ba6911175"
+    }
+  ],
+  "teacherDecision": null,
+  "nextAction": "Complete source/media dispositions, atomic curriculum operations, all-surface first use, local walkthrough/media equivalence, Advanced/workload and159 Unit A transfers. Then freeze all3 contracts and build B→C→D."
+}

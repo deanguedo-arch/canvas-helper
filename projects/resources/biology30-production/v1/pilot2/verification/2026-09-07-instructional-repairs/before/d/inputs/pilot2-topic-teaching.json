@@ -1,0 +1,465 @@
+{
+  "unit": "D",
+  "status": "draft-topic-framing-and-narration; no visual or equivalence pass",
+  "topics": [
+    {
+      "topicId": "d-topic-hardy-weinberg",
+      "observableQuestion": "When can allele frequencies be counted directly, and when are they inferred through a model?",
+      "learningGoal": "Calculate allele and genotype frequencies with correct denominators and distinguish observations from equilibrium expectations.",
+      "priorKnowledgeSupport": "A diploid individual has two allele copies at an autosomal locus. For a frequency, divide the part by the matching whole. Start by counting copies directly. Then use the model to connect allele frequencies with expected genotypes. The worked example shows each square-root step.",
+      "retrieval": {
+        "responseId": "d-topic-hardy-weinberg-retrieval",
+        "prompt": "From 36 AA, 48 Aa and 16 aa, calculate p.",
+        "comparisonGuide": "A copies = 2(36) + 48 = 120; all copies = 200, so p = 0.60.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "d-topic-hardy-weinberg-evidence",
+        "prompt": "Solve one supplied population case and state whether its allele frequency was counted or inferred, including a relevant assumption.",
+        "criteria": [
+          "Show the denominator or q² step.",
+          "Check frequency sums.",
+          "Label observed versus expected and state a model limit."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "d-topic-hardy-weinberg-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "d-topic-hardy-weinberg-populations-and-allele-counts-walkthrough-frame",
+            "partId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+            "title": "Populations and allele counts",
+            "figureTarget": "d-topic-hardy-weinberg-populations-and-allele-counts-figure",
+            "scenario": "A diploid population sample contains 36 AA, 48 Aa and 16 aa individuals. Calculate A and a allele counts and frequencies directly from the observations.",
+            "orderedExplanation": [
+              "Count 100 individuals and therefore 200 allele copies at this autosomal locus.",
+              "Count A copies: 2(36) + 48 = 120; count a copies: 2(16) + 48 = 80.",
+              "Divide each count by 200 to obtain p = 0.60 and q = 0.40."
+            ],
+            "conclusion": "The observed allele frequencies are 0.60 and 0.40. Direct counting does not require assuming Hardy–Weinberg equilibrium.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-walkthrough-frame",
+            "partId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+            "title": "Allele and genotype frequencies",
+            "figureTarget": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-figure",
+            "scenario": "Using p = 0.60 and q = 0.40, calculate Hardy–Weinberg expected genotype frequencies and compare them with the observed 36/48/16 sample.",
+            "orderedExplanation": [
+              "Calculate p² = 0.36, 2pq = 0.48 and q² = 0.16.",
+              "Check that the three expected frequencies sum to 1.",
+              "Compare with observed genotype frequencies 36/100, 48/100 and 16/100 while keeping observed and expected labels separate."
+            ],
+            "conclusion": "The observed frequencies match these expectations in this sample. That numerical match alone does not prove that every equilibrium condition holds or that the frequencies will remain constant across generations.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-hardy-weinberg-equilibrium-assumptions-walkthrough-frame",
+            "partId": "d-topic-hardy-weinberg-equilibrium-assumptions",
+            "title": "Equilibrium assumptions",
+            "figureTarget": "d-topic-hardy-weinberg-equilibrium-assumptions-figure",
+            "scenario": "A large population mates randomly at one locus but receives immigrants carrying a different allele frequency. Which part of the Hardy–Weinberg model is challenged?",
+            "orderedExplanation": [
+              "Identify gene flow as movement of alleles into the population.",
+              "Recognize that random mating does not cancel a change in allele frequencies caused by immigration.",
+              "Separate conditions affecting genotype arrangement from conditions maintaining allele frequencies across generations."
+            ],
+            "conclusion": "The no-migration condition is violated. The population could form genotype proportions near p²:2pq:q² after random mating while its p and q have changed through gene flow.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-hardy-weinberg-solving-and-checking-walkthrough-frame",
+            "partId": "d-topic-hardy-weinberg-solving-and-checking",
+            "title": "Solving and checking",
+            "figureTarget": "d-topic-hardy-weinberg-solving-and-checking-figure",
+            "scenario": "In a fictional fully penetrant recessive-trait model, 9% of a population shows the recessive phenotype. Assuming Hardy–Weinberg conditions, estimate q, p and the carrier frequency.",
+            "orderedExplanation": [
+              "Identify the observed group: 9% show the recessive phenotype. Under the stated assumptions, that group is aa and its fraction is q².",
+              "Convert percent to a fraction: 9/100 = 0.09, so q² = 0.09.",
+              "Find the number whose square is 0.09. Since 0.30 × 0.30 = 0.09, q = 0.30.",
+              "Use p + q = 1. Subtract 0.30 from one to get p = 0.70.",
+              "Carriers are heterozygotes. Their expected fraction is 2pq = 2(0.70)(0.30) = 0.42, or 42%.",
+              "Check the whole: p² + 2pq + q² = 0.49 + 0.42 + 0.09 = 1. The genotype fractions account for the complete population."
+            ],
+            "conclusion": "The estimated allele frequencies are q = 0.30 and p = 0.70; the expected carrier frequency is 0.42. These are model-based estimates, not directly counted genotypes.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-hardy-weinberg-a-model-and-its-limits-walkthrough-frame",
+            "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+            "title": "A model and its limits",
+            "figureTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+            "scenario": "A sample contains 45 AA, 45 Aa and 10 aa individuals. Calculate p directly and compare the observed genotype frequencies with Hardy–Weinberg expectations.",
+            "orderedExplanation": [
+              "Count A copies: 90 + 45 = 135 out of 200, so p = 0.675 and q = 0.325.",
+              "Calculate expectations p² = 0.455625, 2pq = 0.43875 and q² = 0.105625.",
+              "Compare with observed frequencies 0.45, 0.45 and 0.10 without demanding exact equality in a finite sample."
+            ],
+            "conclusion": "The direct allele count gives p = 0.675. The small observed–expected differences require an appropriate sampling and model assessment before supporting a claim of a particular evolutionary cause.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "d-topic-hardy-weinberg-media",
+          "prompt": "Does direct allele counting from observed diploid genotypes require equilibrium?",
+          "comparisonGuide": "No. It uses the observed copies; equilibrium is needed for particular predictions or inference shortcuts.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "d-topic-mechanisms-of-change"
+    },
+    {
+      "topicId": "d-topic-mechanisms-of-change",
+      "observableQuestion": "How can the same frequency change arise through different mechanisms?",
+      "learningGoal": "Separate mutation, selection, drift, movement and mating effects, using supplied population data to compare explanations.",
+      "priorKnowledgeSupport": "Allele frequencies track copies across a defined population. Genotype proportions can change without changing allele totals. A trend alone does not establish its cause.",
+      "retrieval": {
+        "responseId": "d-topic-mechanisms-of-change-retrieval",
+        "prompt": "Do the sampled p values 0.60, 0.675 and 0.65 show a steady rise?",
+        "comparisonGuide": "No. They rise and then decline; the mechanism also remains unresolved from those counts alone.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "d-topic-mechanisms-of-change-evidence",
+        "prompt": "Revise a selection or resistance claim with a measured frequency change, a mechanism and one alternative needing evidence.",
+        "criteria": [
+          "Cite the counts or frequencies.",
+          "Separate origin from changing representation.",
+          "Name a discriminating follow-up."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "d-topic-mechanisms-of-change-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "d-topic-mechanisms-of-change-mutation-and-selection-walkthrough-frame",
+            "partId": "d-topic-mechanisms-of-change-mutation-and-selection",
+            "title": "Mutation and selection",
+            "figureTarget": "d-topic-mechanisms-of-change-mutation-and-selection-figure",
+            "scenario": "A fictional bacterial population contains a rare resistance variant before an antibiotic exposure. Its frequency later rises. Separate variant origin from the change in representation.",
+            "orderedExplanation": [
+              "Identify mutation or prior inheritance as the source of the existing variant.",
+              "During exposure, compare survival and reproduction of carriers and non-carriers.",
+              "Explain the later frequency change through differential contribution to descendants rather than need-directed mutation."
+            ],
+            "conclusion": "Selection can increase a pre-existing resistance variant's representation. The exposure does not show that bacteria intentionally produced the exact mutation they needed.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-mechanisms-of-change-chance-and-population-size-walkthrough-frame",
+            "partId": "d-topic-mechanisms-of-change-chance-and-population-size",
+            "title": "Chance and population size",
+            "figureTarget": "d-topic-mechanisms-of-change-chance-and-population-size-figure",
+            "scenario": "Two simulated populations begin with p = 0.50. One samples ten reproductive contributors and the other samples one thousand. Predict which is more likely to show large random frequency swings and distinguish founder and bottleneck cases.",
+            "orderedExplanation": [
+              "Recognize random sampling as the mechanism in both simulations.",
+              "A smaller sample generally shows larger proportional fluctuations.",
+              "A founder event samples colonists from a source; a bottleneck sharply reduces an existing population before later recovery."
+            ],
+            "conclusion": "The smaller population is more prone to large random swings in this model. Founder and bottleneck effects are different histories that can both intensify drift.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-mechanisms-of-change-movement-and-mating-walkthrough-frame",
+            "partId": "d-topic-mechanisms-of-change-movement-and-mating",
+            "title": "Movement and mating",
+            "figureTarget": "d-topic-mechanisms-of-change-movement-and-mating-figure",
+            "scenario": "A receiving population has 100 diploid individuals with p = 0.60. Ten immigrants each carry AA. Calculate the new allele frequency before reproduction, then contrast a change in mating pattern alone.",
+            "orderedExplanation": [
+              "The original population has 120 A copies among 200 total copies.",
+              "Add 20 A copies from ten AA immigrants, giving 140/220.",
+              "Calculate p ≈ 0.6364; a mating-pattern change without differential reproduction or other forces can instead alter genotype proportions while leaving allele counts unchanged."
+            ],
+            "conclusion": "Immigration changes p to about 0.6364 in this model. Non-random mating alone need not change p and q, even when it changes heterozygote frequency.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-mechanisms-of-change-resistance-and-evidence-walkthrough-frame",
+            "partId": "d-topic-mechanisms-of-change-resistance-and-evidence",
+            "title": "Resistance and evidence",
+            "figureTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-figure",
+            "scenario": "An antibiotic-exposed sample becomes enriched for a resistance allele. A comparison sample also changes, but it passed through a severe random bottleneck. What evidence could separate selection from drift?",
+            "orderedExplanation": [
+              "Compare replicated exposed and unexposed groups under similar sampling conditions.",
+              "Measure whether the allele is associated with differential survival or reproduction during exposure.",
+              "Track bottlenecks and starting frequencies so random sampling remains an explicit alternative."
+            ],
+            "conclusion": "A repeated exposure-linked advantage would support selection more directly than a frequency change alone. A bottleneck can change frequencies by chance and must be considered.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-mechanisms-of-change-testing-explanations-walkthrough-frame",
+            "partId": "d-topic-mechanisms-of-change-testing-explanations",
+            "title": "Testing explanations",
+            "figureTarget": "d-topic-mechanisms-of-change-testing-explanations-figure",
+            "scenario": "The supplied population samples are 36/48/16, 45/45/10 and 42/46/12 for AA/Aa/aa. Calculate p for each and evaluate “the allele rose steadily because of selection.”",
+            "orderedExplanation": [
+              "Use the two-copy denominator in each 100-individual sample.",
+              "Calculate p values 0.60, 0.675 and 0.65.",
+              "Notice the rise followed by a decline, then ask what evidence distinguishes selection from drift, migration and sampling."
+            ],
+            "conclusion": "The allele did not rise steadily. The observations show a changing sampled frequency, while the cause remains unresolved without further evidence.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "d-topic-mechanisms-of-change-media",
+          "prompt": "Can non-random mating alone alter genotype proportions without changing p and q?",
+          "comparisonGuide": "Yes, under the stated model without other forces or differential reproductive contribution.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "d-chapter-19-practice"
+    },
+    {
+      "topicId": "d-topic-population-growth",
+      "observableQuestion": "How do boundaries, units and time affect a population-growth answer?",
+      "learningGoal": "Estimate abundance and density, calculate demographic change and rates, and compare bounded growth models.",
+      "priorKnowledgeSupport": "Counts, area and elapsed time have different units. Population gains and losses must use one boundary and interval. A model equation expresses specified assumptions, not every cause.",
+      "retrieval": {
+        "responseId": "d-topic-population-growth-retrieval",
+        "prompt": "From N₀ = 1000, B = 120, I = 30, D = 70 and E = 20 over ten days, give final N and absolute daily change.",
+        "comparisonGuide": "Final N = 1060; absolute change rate = 60/10 = 6 individuals/day.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "d-topic-population-growth-evidence",
+        "prompt": "Use a sampling or growth calculation to support a prediction, including units and one design/model limit.",
+        "criteria": [
+          "Show the calculation and denominator.",
+          "State the interval or area.",
+          "Identify representativeness or changing-condition limits."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "d-topic-population-growth-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "d-topic-population-growth-size-and-density-walkthrough-frame",
+            "partId": "d-topic-population-growth-size-and-density",
+            "title": "Size and density",
+            "figureTarget": "d-topic-population-growth-size-and-density-figure",
+            "scenario": "A fictional area contains 240 individuals in 12 hectares. Calculate density and explain why the same density could occur in a population of a different total size.",
+            "orderedExplanation": [
+              "Divide the count by area: 240/12 = 20.",
+              "Attach units: 20 individuals per hectare.",
+              "Construct a comparison such as 100 individuals in 5 hectares, also 20 per hectare, while retaining different population totals."
+            ],
+            "conclusion": "Density is 20 individuals/ha. Equal density does not imply equal total population size or identical spatial arrangement.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-population-growth-sampling-populations-walkthrough-frame",
+            "partId": "d-topic-population-growth-sampling-populations",
+            "title": "Sampling populations",
+            "figureTarget": "d-topic-population-growth-sampling-populations-figure",
+            "scenario": "Five one-square-metre quadrats contain 2, 8, 4, 10 and 6 individuals. Estimate abundance in a comparable 200 m² habitat.",
+            "orderedExplanation": [
+              "Add the counts: 30 individuals across 5 m².",
+              "Calculate mean density: 30/5 = 6 individuals/m².",
+              "Multiply by 200 m² to estimate 1200 individuals, assuming the sample represents the habitat."
+            ],
+            "conclusion": "The estimate is 1200 individuals. It is not a complete census; patchiness, sampling placement and detection can affect its reliability.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-population-growth-four-demographic-processes-walkthrough-frame",
+            "partId": "d-topic-population-growth-four-demographic-processes",
+            "title": "Four demographic processes",
+            "figureTarget": "d-topic-population-growth-four-demographic-processes-figure",
+            "scenario": "A population starts at 1000. Over ten days it records 120 births, 30 immigrants, 70 deaths and 20 emigrants. Calculate net change and final size.",
+            "orderedExplanation": [
+              "Add gains: 120 + 30 = 150.",
+              "Add losses: 70 + 20 = 90.",
+              "Subtract to obtain ΔN = 60, then add to the starting size: 1060."
+            ],
+            "conclusion": "The net change is +60 individuals and the final population size is 1060 under this complete-count model.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-population-growth-rates-and-denominators-walkthrough-frame",
+            "partId": "d-topic-population-growth-rates-and-denominators",
+            "title": "Rates and denominators",
+            "figureTarget": "d-topic-population-growth-rates-and-denominators-figure",
+            "scenario": "Use ΔN = 60, initial N = 1000 and Δt = 10 days to calculate absolute daily change, interval per-initial-individual change and its daily average.",
+            "orderedExplanation": [
+              "Calculate ΔN/Δt = 60/10 = 6 individuals/day.",
+              "Calculate ΔN/Ninitial = 60/1000 = 0.06 over the interval.",
+              "Divide the interval value by ten to obtain an average 0.006 per day per initial individual."
+            ],
+            "conclusion": "The three summaries are 6 individuals/day, 0.06 per initial individual over ten days, and 0.006 per day per initial individual. The last is an average based on the initial denominator, not a directly fitted continuous intrinsic rate.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-population-growth-exponential-and-logistic-models-walkthrough-frame",
+            "partId": "d-topic-population-growth-exponential-and-logistic-models",
+            "title": "Exponential and logistic models",
+            "figureTarget": "d-topic-population-growth-exponential-and-logistic-models-figure",
+            "scenario": "Compare two discrete models starting at N = 100 with r = 0.2 per step: exponential Nnext = N + rN and logistic Nnext = N + rN(1 − N/K), with K = 500.",
+            "orderedExplanation": [
+              "Exponential next size is 100 + 0.2(100) = 120.",
+              "Logistic next size is 100 + 0.2(100)(1 − 100/500) = 116.",
+              "Compare the density-dependent factor while retaining the same initial size, step and r."
+            ],
+            "conclusion": "The first step gives 120 versus 116. In the logistic model, the additional factor reduces growth as N approaches the stated K.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-population-growth-feedback-and-changing-limits-walkthrough-frame",
+            "partId": "d-topic-population-growth-feedback-and-changing-limits",
+            "title": "Feedback and changing limits",
+            "figureTarget": "d-topic-population-growth-feedback-and-changing-limits-figure",
+            "scenario": "A fictional population initially stabilizes near 500, but a drought reduces available habitat and resources. Evaluate the claim that its carrying capacity must remain 500 forever.",
+            "orderedExplanation": [
+              "Identify K as a model summary of support under particular conditions.",
+              "Link the environmental change to altered resource availability and possibly a different effective K.",
+              "Consider delayed population responses and other losses rather than forcing the old curve onto the new conditions."
+            ],
+            "conclusion": "The earlier value need not remain valid. A changing environment can alter the support conditions, and the population may respond with delays or fluctuations.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "d-topic-population-growth-media",
+          "prompt": "Are 6 individuals/day and 0.006 per day per initial individual the same numerical quantity?",
+          "comparisonGuide": "No. They summarize the same change with different denominators and units.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "d-topic-life-strategies-and-ecological-relationships"
+    },
+    {
+      "topicId": "d-topic-life-strategies-and-ecological-relationships",
+      "observableQuestion": "How do interactions and history shape a community's possible future?",
+      "learningGoal": "Compare life histories, interaction mechanisms, cycles and succession, then make a qualified ecological recommendation.",
+      "priorKnowledgeSupport": "An interaction's effect must be measured for each partner. Correlation differs from a causal mechanism. Communities carry biological and environmental legacies after disturbance.",
+      "retrieval": {
+        "responseId": "d-topic-life-strategies-and-ecological-relationships-retrieval",
+        "prompt": "Why does soil remaining after disturbance matter when distinguishing primary and secondary succession?",
+        "comparisonGuide": "Retained soil and biological legacies change starting conditions and can support recovery pathways unlike development on bare rock.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "d-topic-life-strategies-and-ecological-relationships-evidence",
+        "prompt": "Use one interaction or restoration dataset to recommend a bounded next step, with evidence and a meaningful uncertainty or tradeoff.",
+        "criteria": [
+          "Name the measured effect.",
+          "Connect it to a plausible mechanism or action.",
+          "Retain alternatives and relevant local perspectives."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "d-topic-life-strategies-and-ecological-relationships-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-walkthrough-frame",
+            "partId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+            "title": "Life-history strategies",
+            "figureTarget": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-figure",
+            "scenario": "Compare a fictional species producing many small offspring with little parental care and another producing fewer offspring with greater investment. Use r/K language cautiously.",
+            "orderedExplanation": [
+              "Describe the measured traits rather than beginning with a fixed label.",
+              "Relate offspring number, size, timing and survival under the stated conditions.",
+              "Use r- and K-associated tendencies as an idealized comparison while allowing mixed traits and environmental context."
+            ],
+            "conclusion": "The species show contrasting investment patterns, but real life histories occupy continua. A few traits do not place every organism into two rigid universal boxes.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-walkthrough-frame",
+            "partId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+            "title": "Interactions and their effects",
+            "figureTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-figure",
+            "scenario": "Classify three fictional interactions: both partners show improved reproductive output; one benefits while the other's measured outcome is unchanged; one benefits while the other is harmed.",
+            "orderedExplanation": [
+              "Use the defined measured effect for each partner.",
+              "Assign +/+ to mutualism, +/0 to commensalism and +/− to an antagonistic interaction such as parasitism or predation depending on mechanism.",
+              "Avoid choosing a precise mechanism solely from the signs."
+            ],
+            "conclusion": "The effect pattern helps classify the relationship, while the biological mechanism distinguishes interactions sharing the same sign pattern.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-walkthrough-frame",
+            "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+            "title": "Competition and defence",
+            "figureTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+            "scenario": "The supplied plant comparison gives mean A mass 4.0 in five-A pots, 3.0 in ten-A pots and 2.4 in mixed five-A/five-B pots. What comparisons address density and neighbour identity?",
+            "orderedExplanation": [
+              "Compare five-A with ten-A pots for an intraspecific density contrast.",
+              "Compare ten-A with mixed pots at ten total plants to hold total density constant while changing neighbour composition.",
+              "Retain replication and resource measurements as limits on a specific causal claim."
+            ],
+            "conclusion": "The mixed pots have lower mean A mass than the same-total-density A-only pots. This supports a neighbour-composition effect in the dataset, while the exact resource mechanism requires more evidence.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles-walkthrough-frame",
+            "partId": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+            "title": "Population cycles",
+            "figureTarget": "d-topic-life-strategies-and-ecological-relationships-population-cycles-figure",
+            "scenario": "A fictional prey curve peaks before a predator curve. Explain a plausible interaction and an alternative cause that the graph alone cannot exclude.",
+            "orderedExplanation": [
+              "Read the time axis and identify the lag between sampled peaks.",
+              "Propose that increased prey availability supports later predator reproduction or survival.",
+              "Consider shared environmental drivers, other prey and sampling effects before claiming a unique cause."
+            ],
+            "conclusion": "The lag is consistent with a predator–prey interaction, but correlation and timing alone do not prove that this mechanism fully explains the cycle.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-walkthrough-frame",
+            "partId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+            "title": "Succession and disturbance",
+            "figureTarget": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-figure",
+            "scenario": "Compare community development on newly exposed rock with recovery after a fire that leaves soil and some surviving organisms. Avoid predicting one inevitable final community.",
+            "orderedExplanation": [
+              "Use the absence of developed soil as a key feature of the primary-succession example.",
+              "Use retained soil and biological legacies in the secondary-succession example.",
+              "Compare colonization, dispersal, conditions and later disturbance as influences on the pathways."
+            ],
+            "conclusion": "The two starting conditions support different recovery processes and timescales. Neither case guarantees a universal fixed climax community.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-walkthrough-frame",
+            "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+            "title": "Ecological decisions and communication",
+            "figureTarget": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-figure",
+            "scenario": "A fictional Canadian wetland project proposes restoration based on one season of higher plant abundance. What evidence would strengthen a recommendation?",
+            "orderedExplanation": [
+              "Define the intended outcomes, including biodiversity, water conditions and relevant community priorities.",
+              "Compare with suitable reference or untreated sites across enough time to address seasonal variation.",
+              "Record sampling methods, possible tradeoffs and Indigenous and local perspectives through appropriate respectful engagement rather than inventing agreement."
+            ],
+            "conclusion": "One season's abundance result supports a limited observation, not complete restoration success. A recommendation should connect measured outcomes with uncertainties, alternatives and the perspectives needed for the decision.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "d-topic-life-strategies-and-ecological-relationships-media",
+          "prompt": "Does higher abundance of one plant automatically show greater biodiversity?",
+          "comparisonGuide": "No. Abundance of one species and diversity are different outcomes that need separate measurements.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "d-chapter-20-practice"
+    }
+  ]
+}

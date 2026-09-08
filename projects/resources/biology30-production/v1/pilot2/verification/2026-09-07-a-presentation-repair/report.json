@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T15:26:31.679314+00:00",
+  "stage": 97,
+  "status": "local-presentation-repair-verified",
+  "request": "Make B/C/D look, organize and function like final Unit A with existing new content.",
+  "cause": "Generic shared shell and independently authored topic presentation replaced A presentation; feature inventory tests did not prove visual or organizational equivalence.",
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "54122aec1f200185072eebefc32044eeda2bac552950320ca32faab868caef27",
+      "contractSha256": "b12d56359a39e32f57826f889f0d080b114806318b874ba95437a8e3bc469804",
+      "generatedAt": "2026-09-07T15:22:55.675Z",
+      "previousWorkspaceSha256": "0b5be9fcc230cf59371bba17ed3b3fd11b8bd2e5e04402cd791ca0dfb803dcc5"
+    },
+    "C": {
+      "buildSha256": "b2c71bd2718e2ffdae95b1098497c7a6ff850862857440fc98ecff70e83e3f6d",
+      "contractSha256": "a261cf5eab24edec135955b5c720805c70668491ce88e5b0339bb2c922109fdd",
+      "generatedAt": "2026-09-07T15:23:01.616Z",
+      "previousWorkspaceSha256": "5f7863d123d66ab5e1cf13d51ea24c8cf505e65e7b198a246a45363d8ef6516f"
+    },
+    "D": {
+      "buildSha256": "bdb71a83e2166bc4ee3e850aa29f09fee1c9133e7df28aa1065136408de4db7d",
+      "contractSha256": "40df6358559696412e1b0efda87f26b7e7b5cc400e688969293c2ec1fe67ba0c",
+      "generatedAt": "2026-09-07T15:23:07.725Z",
+      "previousWorkspaceSha256": "01b62f8a17c6c82aea54e559fd3b54b6d28e41823adc5a9b13651e946055ea55"
+    }
+  },
+  "repair": [
+    "A literal presentation CSS and local fonts, five navigation groups and chapter organization",
+    "Question-led overview, route explanation and chapter map",
+    "Lesson timings, goal/prerequisite panels, physical textbook page links, four anchor words and full term inventory",
+    "Teaching and illustrated walkthrough before retrieval, followed by guided practice and saved evidence",
+    "Searchable progressive vocabulary reader with existing 6 fixed plus 2 chosen Frayers",
+    "Single-panel model/investigation readers, textbook library and sources panel",
+    "Textbook reinforcement before chapter practice",
+    "Saved-work returns reveal the correct reader and focus the saved response",
+    "Established Studio progress hooks restored"
+  ],
+  "preservation": {
+    "coreParagraphs": 127,
+    "indexedActivities": 825,
+    "requiredRoutes": 43,
+    "imagesRegenerated": 0,
+    "stateSchemaChanged": false,
+    "protectedA": "All three learner trees and A2 owner verified against saved baseline; untouched",
+    "sourceInputs": "Cold verification passed: 15 source and 8 textbook member checks"
+  },
+  "verification": {
+    "focusedTests": "11/11 passed, including all actual unit content, activity identity and protected baseline checks",
+    "projectE2E": "B/C/D each 1/1 passed on final generated workspaces",
+    "workspace": "B/C/D each passed",
+    "browser": "All actual-input B/C/D regression passed: A font match, vocabulary lock/unlock and search, Frayer collect/save/reload/return focus, model selection/test, textbook reader/attempt/reload, mobile menu, no page errors",
+    "responsive": "244 route/width checks at 1440/1024/720/390 pixels; no horizontal overflow",
+    "nativeInspection": "Actual local B/C/D inspected through in-app browser; retained comparative screenshots in this directory",
+    "typecheck": "25 unrelated baseline diagnostics; no touched Biology owner/test diagnostics"
+  },
+  "limitations": [
+    "Teacher acceptance and observed student pacing remain unclaimed",
+    "Full exhaustive visual acceptance is not claimed",
+    "Native browser 200 percent zoom, fresh offline launches and LMS/release certification not repeated for this repair"
+  ],
+  "teacherAcceptance": null,
+  "unitAStatus": "provisional",
+  "releaseActions": [],
+  "receipts": [
+    "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-repair.json",
+    "projects/resources/biology30-production/v1/pilot2/source-review/unit-a-presentation-progress-compatibility.json"
+  ]
+}

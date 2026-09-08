@@ -1,0 +1,99 @@
+{
+  "stage": 78,
+  "checkedAt": "2026-09-07T05:33:56.013328+00:00",
+  "summary": "Five original D mechanisms diagrams natively and scientifically reviewed, side-by-side comparisons inspected, and provisionally bound. No real learner HTML.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 21,
+    "pending": 106,
+    "byUnit": {
+      "B": 10,
+      "C": 1,
+      "D": 10
+    }
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "priorWholeSuite": "stage77:91 passed",
+    "draftContracts": "passed",
+    "sourceAndProtectedBaselines": "passed",
+    "nativeSvgReview": "Five originals at1200x900; all text bounding boxes within viewbox; five source/candidate gallery sections inspected."
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+      "sha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "eff3b5634ec7e66e27d5ed6e2a0c556bf917b1497197f99f9c279f815ca12615"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+      "sha256": "c9b3b154e3c27899eab8096711bbf5c5cffe0ac4ee15bebf89f4eb4ffcbbde0e"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "121f61822bee5882061bfa949d0e5193a2c3d46560996ed75e0a85510907108f"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/chance-and-population-size-side-by-side.png",
+      "sha256": "a17e0c66543be997a4cb0443a463ff706c3f0b76fb5818ffe7bae7d50877e886"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/chapter19-physical23.png",
+      "sha256": "87e819fdf46f79ef63cbb7a9bc68b758ffeb9ff2a1c0cf1a034eb5b11cc71d59"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-drift-histories-v1-native.png",
+      "sha256": "bb95c1328c66eefed87caf9562a02ce8c2c3b4f11f7ee31358c297ff8746aa93"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-frequency-evidence-v1-native.png",
+      "sha256": "9eec247d70abc740f8f4c49aaa8249e58104d19ce2cef73cdc08f47425065fd2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-gene-flow-pairing-v1-native.png",
+      "sha256": "a66bb40da70511bfe6389b89cf0439f67b7bae3d476a82d6626f03b36f833c10"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-resistance-evidence-v1-native.png",
+      "sha256": "4058aa1062d50845905c3b35e4d4c3aa33bad26f1816664548b3750de12eaf61"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-variant-selection-v1-native.png",
+      "sha256": "e53614bcc7cdaf6b9cd7410fc0f0f3e19bfcc2982aff90712a0da8cb3c863e33"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/existing-d-lesson04.png",
+      "sha256": "19dc0f5215354fcecee3e3a004549a5fef02ec42d922a56e22ed1012c684ee32"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/movement-and-mating-side-by-side.png",
+      "sha256": "b3a7759d6fe4cc9729ba91fdeacf4c122779c9f5f88307dd4394e414be869d54"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/mutation-and-selection-side-by-side.png",
+      "sha256": "50ef6cab7e4d04465a2bc538330b599976c7afca6f183bd28533022331e6056e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/resistance-and-evidence-side-by-side.png",
+      "sha256": "2a7f92b377ad36de2bf11fb0b5270885a74e6dec634227e478e6ffcb3c48f9bd"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/testing-explanations-side-by-side.png",
+      "sha256": "40851889fd696be21246d097be9566ea4be43f8b01ca2376389d3e1065ab3100"
+    }
+  ],
+  "teacherDecision": null,
+  "pending": [
+    "Remaining106 figure targets and seven all-unit review gates",
+    "Real Video Library, owner transaction/metadata integration and whole-owner closure",
+    "All-unit freeze then actual B/C/D candidates and exact-build review"
+  ]
+}

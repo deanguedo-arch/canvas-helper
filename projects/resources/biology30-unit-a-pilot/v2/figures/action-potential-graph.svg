@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="action-potential-title action-potential-desc" data-figure-id="figure-action-potential-graph" id="ap-graph">
+  <title id="action-potential-title">Membrane potential during one action potential</title>
+  <desc id="action-potential-desc">A voltage-versus-time graph begins near negative 70 millivolts, crosses a negative 55 millivolt threshold, rises to about positive 30 millivolts during depolarization, returns during repolarization, briefly falls below rest during hyperpolarization, and then returns to rest.</desc>
+  <style>
+    .ap-axis{stroke:#39423d;stroke-width:3}.ap-grid{stroke:#d9ded8;stroke-width:2}.ap-guide{stroke:#5b635d;stroke-width:2;stroke-dasharray:8 8}.ap-curve{fill:none;stroke:#146c60;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.ap-label{font:600 19px 'Work Sans',sans-serif;fill:#171b1b}.ap-small{font:500 16px 'Work Sans',sans-serif;fill:#4f5852}.ap-point{fill:#fff;stroke:#154212;stroke-width:4}.ap-point[data-active='true']{fill:#f0b44a;stroke:#171b1b;stroke-width:5}.ap-callout{fill:#fff;stroke:#d9ded8;stroke-width:2}
+  </style>
+  <rect width="1000" height="560" fill="#fff"/>
+  <line class="ap-grid" x1="112" y1="122" x2="928" y2="122"/>
+  <line class="ap-grid" x1="112" y1="308" x2="928" y2="308"/>
+  <line class="ap-grid" x1="112" y1="350" x2="928" y2="350"/>
+  <line class="ap-grid" x1="112" y1="446" x2="928" y2="446"/>
+  <line class="ap-axis" x1="112" y1="54" x2="112" y2="492"/>
+  <line class="ap-axis" x1="112" y1="492" x2="930" y2="492"/>
+  <line class="ap-guide" x1="112" y1="308" x2="928" y2="308"/>
+  <line class="ap-guide" x1="112" y1="350" x2="928" y2="350"/>
+  <text class="ap-small" x="46" y="129">+30</text><text class="ap-small" x="74" y="315">−55</text><text class="ap-small" x="74" y="357">−70</text><text class="ap-small" x="74" y="453">−90</text>
+  <text class="ap-label" transform="translate(28 348) rotate(-90)">Membrane potential (mV)</text>
+  <text class="ap-label" x="452" y="538">Time (ms)</text>
+  <text class="ap-small" x="792" y="299">threshold</text><text class="ap-small" x="805" y="341">resting level</text>
+  <path class="ap-curve" d="M120 350 C210 350 238 348 270 340 C302 330 320 292 348 218 C376 142 401 80 432 122 C460 164 468 278 496 336 C524 394 566 466 620 446 C676 425 704 368 742 354 C785 338 846 350 920 350"/>
+  <g data-ap-stage="rest" data-active="true"><circle class="ap-point" cx="184" cy="350" r="12"/><text class="ap-small" x="133" y="391">rest</text></g>
+  <g data-ap-stage="threshold"><circle class="ap-point" cx="315" cy="308" r="12"/><text class="ap-small" x="264" y="281">threshold</text></g>
+  <g data-ap-stage="depolarization"><circle class="ap-point" cx="396" cy="122" r="12"/><text class="ap-small" x="330" y="84">depolarization</text></g>
+  <g data-ap-stage="repolarization"><circle class="ap-point" cx="506" cy="350" r="12"/><text class="ap-small" x="492" y="236">repolarization</text></g>
+  <g data-ap-stage="hyperpolarization"><circle class="ap-point" cx="620" cy="446" r="12"/><text class="ap-small" x="548" y="482">hyperpolarization</text></g>
+  <g data-ap-stage="recovery"><circle class="ap-point" cx="782" cy="350" r="12"/><text class="ap-small" x="750" y="391">recovery</text></g>
+</svg>

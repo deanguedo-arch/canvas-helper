@@ -3,8 +3,9 @@ import process from "node:process";
 import { buildBiology30UnitAPilot2Full } from "./lib/biology30-unit-a-pilot-2/build-full.js";
 import { buildBiology30UnitAPilot2ProcessCollectionIndex } from "./lib/biology30-unit-a-pilot-2/build-process-collection-index.js";
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
+import { PROCESS_COLLECTION_BASELINE_SHA256 } from "./lib/biology30-unit-a-pilot-2/process-collection-content.js";
 
-const KNOWN_FLAGS = new Set(["project", "accepted-gate-1-sha", "baseline-gate-2-sha", "accepted-revision-gate-a-sha", "accepted-advanced-gate-a-sha", "baseline-advanced-gate-b-sha", "revision", "gate", "help", "h"]);
+const KNOWN_FLAGS = new Set(["project", "accepted-gate-1-sha", "baseline-gate-2-sha", "accepted-revision-gate-a-sha", "accepted-advanced-gate-a-sha", "baseline-advanced-gate-b-sha", "baseline-workspace-sha", "revision", "gate", "help", "h"]);
 
 function usage() {
   return [
@@ -22,7 +23,13 @@ function usage() {
     "npm run build:biology30-unit-a-pilot-2 -- \\",
     "  --project biology30-unit-a-pilot-2 \\",
     "  --baseline-advanced-gate-b-sha 11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c \\",
-    "  --gate process-collection-index"
+    "  --gate process-collection-index",
+    "",
+    "Or rebuild the checkpointed final academic-review candidate:",
+    "",
+    "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2",
+    "  --gate final-academic-review",
+    "  --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc"
   ].join("\n");
 }
 
@@ -41,14 +48,15 @@ async function main() {
     return;
   }
   const gate = requiredFlag(args, "gate");
-  if (gate === "process-collection-index") {
+  if (gate === "process-collection-index" || gate === "final-academic-review") {
     const result = await buildBiology30UnitAPilot2ProcessCollectionIndex({
       repoRoot: process.cwd(),
       project: requiredFlag(args, "project"),
-      baselineAdvancedGateBSha256: requiredFlag(args, "baseline-advanced-gate-b-sha"),
+      baselineAdvancedGateBSha256: gate === "final-academic-review" ? PROCESS_COLLECTION_BASELINE_SHA256 : requiredFlag(args, "baseline-advanced-gate-b-sha"),
+      baselineWorkspaceSha256: gate === "final-academic-review" ? requiredFlag(args, "baseline-workspace-sha") : undefined,
       gate
     });
-    console.log("Biology 30 Unit A Pilot 2 Process Collection Index was built transactionally.");
+    console.log(`Biology 30 Unit A Pilot 2 ${gate} was built transactionally.`);
     console.log(`- Project: ${result.projectDir}`);
     console.log(`- Workspace SHA-256: ${result.workspaceSha256}`);
     console.log(`- Workspace tree SHA-256: ${result.workspaceTreeSha256}`);
@@ -56,7 +64,7 @@ async function main() {
     console.log(`- Learner state schema: version ${result.stateSchemaVersion}`);
     console.log(`- Worst-case saved state estimate: ${result.estimatedWorstCaseStateCharacters} characters`);
     console.log(`- Protected Pilot 1 / Units A-D verified unchanged: ${result.protectedProjectHashes.length}`);
-    console.log("Status: blocked, preview-only, Studio Edit disabled, awaiting exact-build Process Collection review.");
+    console.log(gate === "final-academic-review" ? "Status: blocked; see meta/final-academic-review.json for the current academic findings. Complete-build teacher acceptance is separate." : "Status: blocked, preview-only, Studio Edit disabled, awaiting exact-build Process Collection review.");
     return;
   }
   const result = await buildBiology30UnitAPilot2Full({

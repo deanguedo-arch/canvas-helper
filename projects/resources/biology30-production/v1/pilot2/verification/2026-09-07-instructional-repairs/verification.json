@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "status": "targeted repairs implemented and locally verified; full independent curriculum verification and external acceptance remain open",
+  "branch": "codex/studio-direct-editing-v1",
+  "commit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+  "units": {
+    "A": {
+      "project": "biology30-unit-a-pilot-2",
+      "entry": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "entrySha256": "aa28a6548d89a283530ddc49229473f32cbb03c6bd06ac46ed7bf72a27e3d9ee",
+      "builderReportedTreeSha256": "99a9e607eb13f12f1a6fe7dfa849768a7ccdd00fee994f0359356193b1bc835c",
+      "authoringStatus": "blocked"
+    },
+    "B": {
+      "project": "biology30-unit-b",
+      "entry": "projects/biology30-unit-b/workspace/index.html",
+      "entrySha256": "490dc244e94a614c4d8579c684beede69b06184a80d7a8ed2c280d7a2f9e5d70",
+      "builderReportedTreeSha256": "ea8f089f743b5202a3c30e31ef3e68fbddd84f0ced5400b3e7610c506a55ea66",
+      "authoringStatus": "blocked"
+    },
+    "C": {
+      "project": "biology30-unit-c",
+      "entry": "projects/biology30-unit-c/workspace/index.html",
+      "entrySha256": "0ae6586219836a0392c3b1fe13f106715cfe2fb1b5935a3a7eea3cd334077231",
+      "builderReportedTreeSha256": "ccea10ecd84594d1f75d496570a2f8a2eb64e30be433520f1d429e3425a1505b",
+      "authoringStatus": "blocked"
+    },
+    "D": {
+      "project": "biology30-unit-d",
+      "entry": "projects/biology30-unit-d/workspace/index.html",
+      "entrySha256": "d6f9882003b188003050ff713f3852fe526a711bc2169d486afaff8592c97ed4",
+      "builderReportedTreeSha256": "994a03acb3b324089f0cbceab940b4f47c8d0c3b70216dbeac8a26516d108258",
+      "authoringStatus": "blocked"
+    }
+  },
+  "checks": [
+    {
+      "command": "npx tsx --test scripts/tests/biology30-instructional-staging.test.ts scripts/tests/biology30-pilot2-owner-closure.test.ts scripts/tests/biology30-bounded-response.test.ts scripts/tests/biology30-c-indexed-state.test.ts",
+      "result": "10/10 passed before adding the additional C assertion; includes owner/source protection, legacy C state and full capacity fixtures"
+    },
+    {
+      "command": "npx tsx --test scripts/tests/biology30-instructional-staging.test.ts",
+      "result": "final 3/3 passed; seven A exact repairs, C first use, eight staged tasks and unchanged schemas/keys"
+    },
+    {
+      "command": "npx tsx --test scripts/tests/biology30-instructional-staging-browser.test.ts scripts/tests/biology30-review-package.test.ts",
+      "result": "3/3 passed; sixteen desktop/mobile synthetic save/reload task flows and correct Pilot2 package lineage"
+    },
+    {
+      "command": "npm run verify -- --project <each current unit slug> --mode workspace",
+      "result": "all four passed; BCD full output in workspace-checks.json"
+    },
+    {
+      "command": "npm run test:e2e:project -- --project <each current unit slug>",
+      "result": "all four passed, one Chromium project-contract test each; local synthetic tests, not actual LMS"
+    },
+    {
+      "command": "npm run course:doctor -- --project <each current unit slug>",
+      "result": "all four return not-active only; deliberately blocked candidates retained",
+      "details": "doctor-results.json"
+    },
+    {
+      "command": "npm run test:biology30-unit-a-pilot-2",
+      "result": "failed one historical Pilot1 full-project metadata protection assertion: expected98 files, current100. Source/teaching/state/online checks passed; no fixture weakened."
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "failed with25 existing diagnostics in unrelated builders/tests; zero diagnostics in changed sources or new tests",
+      "details": "typecheck.log"
+    }
+  ],
+  "persistence": {
+    "schemaChanges": 0,
+    "promptSemanticChanges": 0,
+    "fieldIdChanges": 0,
+    "capacityChanges": 0,
+    "migrationRequired": false,
+    "legacyResponses": "original prompt and IDs preserved; prior C v3 migration tests pass",
+    "stage109ResponseFixtures": "18 existing concise/expanded fixtures retained and tested",
+    "AStateVersion": 6,
+    "AEstimatedChars": 42738,
+    "ACollectionRecords": 178,
+    "CFullValidStateChars": 43440,
+    "CTarget": 44000,
+    "CGuard": 48000,
+    "CHistoryCaution": "New indexed-state saves still require the current runtime; no downgrade without converter.",
+    "stagedTaskReload": "all8 tasks at1440 and390; line breaks, mathematical symbols and accented synthetic text retained"
+  },
+  "workload": {
+    "requiredActivitiesAdded": 0,
+    "responseFieldsAdded": 0,
+    "operationsAdded": 0,
+    "removedOperations": 0,
+    "optionalReclassifications": 0,
+    "stagedExistingTasks": 8,
+    "observedStudentTime": null
+  },
+  "visualSampling": {
+    "screenshots": 18,
+    "widths": [
+      1440,
+      390
+    ],
+    "contactSheetsOpened": [
+      "a-contact.png",
+      "b-contact.png",
+      "c-contact.png",
+      "d-contact.png"
+    ],
+    "scope": "A channels paragraph plus eight BCD staged tasks; not full scientific figure re-review"
+  },
+  "remaining": {
+    "curriculum": "214 source/criterion records,335 bank items and43 teaching sequences traced. Retained author/key/passage reviews are evidence, not a new independent demand-by-demand certification; A mappings include outcome-matched candidate sources.",
+    "human": "No teacher acceptance or observed student understanding/pacing/usability. Use human-review.md.",
+    "LMS": "No real supported LMS round-trip; local/mock evidence only.",
+    "accessibility": "Desktop/narrow-screen geometry and project-contract interactions tested; no new full-course keyboard, screen-reader or zoom audit.",
+    "physicalPerformance": "Online representations do not certify physical/collaborative performance requirements."
+  },
+  "actionsNotTaken": [
+    "commit",
+    "push",
+    "deploy",
+    "publish",
+    "Studio Edit enablement",
+    "approval flag changes"
+  ]
+}

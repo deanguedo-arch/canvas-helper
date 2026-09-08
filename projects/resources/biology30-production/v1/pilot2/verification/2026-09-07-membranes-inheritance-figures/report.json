@@ -1,0 +1,91 @@
+{
+  "stage": 87,
+  "checkedAt": "2026-09-07T13:25:33.226896+00:00",
+  "summary": "B final support-membranes target bound from a newly generated ChatGPT original; eight C inheritance targets bound with five precise SVGs and reviewed model reuse.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 82,
+    "pending": 45,
+    "byUnit": {
+      "B": 34,
+      "C": 26,
+      "D": 22
+    },
+    "uniqueSelectedAssetFiles": 83,
+    "gallerySections": 81
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 6,
+      "failed": 0,
+      "log": "/tmp/bcd-stage87-tests-v2.log"
+    },
+    "initialFailure": "Four earlier assets pinned the mutable image queue; adding a queue entry changed its hash. Reconstructed the exact pre-change evidence bytes with the existing3d0ce1e3 SHA and moved those four references to an immutable snapshot, preserving their scientific evidence and hash. Initial failing log retained at/tmp/bcd-stage87-tests.log.",
+    "draftContracts": "passed;6/13 each",
+    "sourceAndProtectedBaselines": "passed; all original learner/protected A owner hashes",
+    "nativeReview": "One1536×1024 ChatGPT PNG and five final1200×900 SVGs reviewed; conditional probability v2 distinguishes parental paths from unphased genotype.",
+    "gallery": "81sections; all local references resolve; batch comparisons prepared.",
+    "browser": "Restored access, observed unchanged6Pro, submitted Prompt6, retrieved original PNG; response displayed Worked for1m30s. Generation complete; nothing running."
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "1b414c8b06086bceda6baa5ffff90a0a5dba60a518166d4ed01f9e475ce7cd75"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+      "sha256": "2dd8e71aa2d4edf0e88d6be956d44d2d2e93264763d944e61ea55097a59efe13"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/extraembryonic-membranes-chatgpt-review.json",
+      "sha256": "2cd8fdba9a939302f46b6beefe7e94d1760b649eea5a2b10cd9c495b275c0deb"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/c-basic-inheritance-diagram-review.json",
+      "sha256": "210f0e2f0eecd3c7c0591588088674b36a9e1f2283a7e7081c22711ea0c9ffa1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json",
+      "sha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "9c3b4acf66b87229dc897d48016e99120e2d84bf7395025bcf488578a15030ea"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "ca7abaedaead77cb8fd22c74c518a11e5a67518023ce9a0d94a3298ee5d90514"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-extraembryonic-membranes-chatgpt-v1.png",
+      "sha256": "da7778d1762bcbcc3462b93b037ee023e4304efdd2978520853a97cb75025224"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-allele-genotype-phenotype-v1.svg",
+      "sha256": "57781810cb1470e043e84a9a8ef824fa2176a809f04b29cbd16dd985c9d608ea"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-monohybrid-gamete-square-v1.svg",
+      "sha256": "a1121c233c300ed21936d8f13bd5582fbe05412b255de829529cfee82fdd8ea3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-testcross-alternative-models-v1.svg",
+      "sha256": "cd9e680a994bd9eca4cf706fc82d135ea83ea8e6ad1d936e5fa3917d1d48e29a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-probability-comparison-set-v2.svg",
+      "sha256": "5177558aa16bc63755fee58ecc1d7d6226b321a9f8bc673b5c9464b0466d474d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dihybrid-gamete-square-v1.svg",
+      "sha256": "0de8a04a3393adeec250805240036ad4f4b7e099e191f8392f603bbea8259e55"
+    }
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false,
+  "limitations": [
+    "45C targets and seven all-unit academic/source gates remain.",
+    "Real learner candidates0/3.",
+    "User authorized retaining current work and improving workflow going forward; this is not teacher acceptance."
+  ]
+}

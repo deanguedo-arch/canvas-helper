@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T15:41:03.807Z",
+  "authority": "Final native hub inspection: match A collection buttons and suppress empty recovery placeholders while retaining all archived data and all nonempty archived writing.",
+  "priorOwnerSha256": "a92cc4b0510b79be6c0bd06d1843a64ac8ed40e5f7ceb4af0a38b5bdae07f70c",
+  "ownerSha256": "894a802855ffe5fb519133efa6e9e919a8960406751ed6a988ec10a645d121fd",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "cccef756f695ee1d8d46396a062df88ce352f9f8bf644a2d875a2af8d5a65e8a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+      "sha256": "7d43ae24e732ed3a1d0d974155cde70456700a176fbfc21c9a09c4324c452a22"
+    }
+  ],
+  "changes": [
+    "Keep empty recovery archives stored but do not render them as started-work records",
+    "Apply A secondary and text button styles to collection copy/print actions"
+  ],
+  "state": "No schema/key or academic input changes. Embedded routes retain their original IDs. Sources and Credits has a presentation-only route without saved fields.",
+  "verification": "7 focused tests and all-unit browser regression pass, including saved note/filter/reload, Advanced synchronization, textbook tabs, embedded challenge, all existing activities and 244 responsive checks. Final owner rebuild and Studio checks follow.",
+  "teacherAcceptance": null
+}

@@ -1,0 +1,820 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a",
+  "generatedAt": "2026-08-30T00:10:19.494Z",
+  "rule": "No external factual content enters learner instruction without a registered source, retrieval date, rights status, exact lesson locator, and usage treatment.",
+  "sources": [
+    {
+      "id": "class-2026-27",
+      "label": "2026-27 class course",
+      "kind": "brightspace-export",
+      "role": "primary",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+      "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "originalName": "D2LExport_156587_26-27 _ S1 _ Biology 30 _ Per 1(A) _ Sec 10_202682838.zip",
+      "rightsStatus": "authorized-local-course-source",
+      "allowedUse": "Local course development and Brightspace delivery; source files remain unchanged."
+    },
+    {
+      "id": "system-2020",
+      "label": "CBE system course (2020)",
+      "kind": "brightspace-export",
+      "role": "reference",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "originalName": "D2LExport_6661_CBE System Biology 30 (Winter 2020)_202682803.zip",
+      "rightsStatus": "authorized-local-course-source",
+      "allowedUse": "Local course development and Brightspace delivery; source files remain unchanged."
+    },
+    {
+      "id": "unit-a-notes",
+      "label": "Unit A Nervous and Endocrine Systems Notes",
+      "kind": "source-pdf",
+      "role": "primary",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit A Nervous and Endocrine Systems Notes.pdf",
+      "sha256": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035",
+      "originalName": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "origins": [
+        {
+          "kind": "shared-archive-entry",
+          "locator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit A Nervous and Endocrine Systems Notes.pdf",
+          "sha256": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035"
+        },
+        {
+          "kind": "supplied-download",
+          "locator": "/Users/deanguedo/Downloads/Unit A Nervous and Endocrine Systems Notes.pdf",
+          "sha256": "538f58fffe4aa0459dfcf49c5675948d8c7231a95a6fb2b61d7cde56e06a6035"
+        }
+      ],
+      "rightsStatus": "authorized-local-course-source",
+      "allowedUse": "Rewrite and redraw as local native instruction; do not deliver slide images as lessons."
+    },
+    {
+      "id": "alberta-program-of-studies",
+      "label": "Alberta Biology 20–30 Program of Studies",
+      "kind": "official-curriculum",
+      "role": "authority",
+      "url": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-public-curriculum",
+      "allowedUse": "Outcome authority, quotation of outcome wording, mapping, and citation."
+    },
+    {
+      "id": "alberta-performance-standards",
+      "label": "Biology 30 Student-based Performance Standards",
+      "kind": "official-curriculum",
+      "role": "authority",
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-public-performance-guidance",
+      "allowedUse": "Performance evidence, cognitive demand, investigation, and data-interpretation guidance."
+    },
+    {
+      "id": "alberta-biology-bulletin-2025-26",
+      "label": "Biology 30 Information Bulletin 2025–2026",
+      "kind": "official-curriculum",
+      "role": "authority",
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology-30-info-bulletin.pdf",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-public-assessment-guidance",
+      "allowedUse": "Diploma blueprint and cognitive-level guidance; refresh before Gate 1."
+    },
+    {
+      "id": "alberta-diploma-general-2026-27",
+      "label": "Diploma Examination General Information Bulletin 2026–2027",
+      "kind": "official-curriculum",
+      "role": "authority",
+      "url": "https://www.alberta.ca/system/files/ecc-diploma-exam-general-information-bulletin-2026-27.pdf",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-public-assessment-guidance",
+      "allowedUse": "Current diploma-examination process context only."
+    },
+    {
+      "id": "openstax-anatomy-physiology-2e",
+      "label": "OpenStax Anatomy and Physiology 2e",
+      "kind": "authoritative-supplement",
+      "role": "supplement",
+      "url": "https://openstax.org/details/books/anatomy-and-physiology-2e",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "CC-BY-4.0",
+      "allowedUse": "Factual cross-checking and attributed adaptation; no untracked copying."
+    },
+    {
+      "id": "ninds-health-information",
+      "label": "NINDS Health Information",
+      "kind": "authoritative-supplement",
+      "role": "supplement",
+      "url": "https://www.ninds.nih.gov/health-information",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-government-source; page-specific rights and retrieval must be verified before Gate 1 use",
+      "allowedUse": "Current factual cross-checking and paraphrase after page-specific source registration."
+    },
+    {
+      "id": "niddk-diabetes",
+      "label": "NIDDK: What Is Diabetes?",
+      "kind": "authoritative-supplement",
+      "role": "supplement",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-government-source; page-specific rights and retrieval must be verified before Gate 1 use",
+      "allowedUse": "Current factual cross-checking and paraphrase after page-specific source registration."
+    },
+    {
+      "id": "nei-how-eyes-work",
+      "label": "National Eye Institute: How the Eyes Work",
+      "kind": "authoritative-supplement",
+      "role": "supplement",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/healthy-vision/how-eyes-work",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-government-source; page-specific rights and retrieval must be verified before Gate 1 use",
+      "allowedUse": "Current factual cross-checking and paraphrase after page-specific source registration."
+    },
+    {
+      "id": "nidcd-how-hearing-works",
+      "label": "NIDCD: How Do We Hear?",
+      "kind": "authoritative-supplement",
+      "role": "supplement",
+      "url": "https://www.nidcd.nih.gov/health/how-do-we-hear",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-government-source; page-specific rights and retrieval must be verified before Gate 1 use",
+      "allowedUse": "Current factual cross-checking and paraphrase after page-specific source registration."
+    },
+    {
+      "id": "health-canada",
+      "label": "Health Canada",
+      "kind": "authoritative-supplement",
+      "role": "supplement",
+      "url": "https://www.canada.ca/en/health-canada.html",
+      "retrievedAt": "2026-08-30T00:10:19.494Z",
+      "rightsStatus": "official-government-source; page-specific rights and retrieval must be verified before Gate 1 use",
+      "allowedUse": "Current factual cross-checking and paraphrase after page-specific source registration."
+    }
+  ],
+  "explicitSelections": [
+    {
+      "id": "alberta-program",
+      "sourceId": "alberta-program-of-studies",
+      "url": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "role": "core",
+      "rightsStatus": "official-public-curriculum",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "alberta-performance",
+      "sourceId": "alberta-performance-standards",
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf",
+      "role": "core",
+      "rightsStatus": "official-public-performance-guidance",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "alberta-bulletin",
+      "sourceId": "alberta-biology-bulletin-2025-26",
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology-30-info-bulletin.pdf",
+      "role": "core",
+      "rightsStatus": "official-public-assessment-guidance",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "openstax-a-and-p",
+      "sourceId": "openstax-anatomy-physiology-2e",
+      "url": "https://openstax.org/details/books/anatomy-and-physiology-2e",
+      "role": "cross-check",
+      "rightsStatus": "CC-BY-4.0; attribution required for adapted material",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "ninds-health-information",
+      "sourceId": "ninds-health-information",
+      "url": "https://www.ninds.nih.gov/health-information",
+      "role": "cross-check",
+      "rightsStatus": "official-US-government-health-source; verify page-specific reuse before Gate 1",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "niddk-diabetes",
+      "sourceId": "niddk-diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes",
+      "role": "cross-check",
+      "rightsStatus": "official-US-government-health-source; verify page-specific reuse before Gate 1",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "nei-how-eyes-work",
+      "sourceId": "nei-how-eyes-work",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/healthy-vision/how-eyes-work",
+      "role": "cross-check",
+      "rightsStatus": "official-US-government-health-source; verify page-specific reuse before Gate 1",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "nidcd-how-hearing-works",
+      "sourceId": "nidcd-how-hearing-works",
+      "url": "https://www.nidcd.nih.gov/health/how-do-we-hear",
+      "role": "cross-check",
+      "rightsStatus": "official-US-government-health-source; verify page-specific reuse before Gate 1",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "health-canada",
+      "sourceId": "health-canada",
+      "url": "https://www.canada.ca/en/health-canada.html",
+      "role": "cross-check",
+      "rightsStatus": "official-Canadian-government-health-source; select page-specific references before Gate 1",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "notes-neurons",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-reflexes",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        18,
+        19,
+        20
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-action-potential",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-synapses",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-nervous-organization",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-sensory-receptors",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-vision",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-hearing",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-homeostasis",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-hormone-signalling",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        106,
+        107,
+        108,
+        109
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-pituitary",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-thyroid",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-pancreas",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        129,
+        130,
+        131,
+        132,
+        133
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-adrenals",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        134,
+        135,
+        136,
+        137
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "notes-integration",
+      "sourceId": "unit-a-notes",
+      "sourcePath": "Unit A Nervous and Endocrine Systems Notes.pdf",
+      "pdfPages": [
+        138,
+        139
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-unit-root",
+      "sourceId": "class-2026-27",
+      "itemId": "1498071",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-neuron",
+      "sourceId": "class-2026-27",
+      "itemId": "1498120",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Day 1: Neuron Structure",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-action-potential",
+      "sourceId": "class-2026-27",
+      "itemId": "1498122",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Day 2: Action Potentials",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-synapse",
+      "sourceId": "class-2026-27",
+      "itemId": "1498123",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Day 3: Synaptic Transmission",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-pns-cns",
+      "sourceId": "class-2026-27",
+      "itemId": "1498124",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Day 4: PNS and CNS",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-brain",
+      "sourceId": "class-2026-27",
+      "itemId": "1498131",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Day 5: The Brain",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-sensory",
+      "sourceId": "class-2026-27",
+      "itemId": "1498130",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 8-12: Chapter 12 > Day 8: Sensory Reception",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-eye",
+      "sourceId": "class-2026-27",
+      "itemId": "1498132",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 8-12: Chapter 12 > Day 9: Photoreception and the Eye",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-ear",
+      "sourceId": "class-2026-27",
+      "itemId": "1498133",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 8-12: Chapter 12 > Day 10: Hearing and Balance",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-homeostasis",
+      "sourceId": "class-2026-27",
+      "itemId": "1498138",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Day 13: Homeostasis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-pituitary-1",
+      "sourceId": "class-2026-27",
+      "itemId": "1498140",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Days 14: Pituitary Hormones Part 1",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-pituitary-2",
+      "sourceId": "class-2026-27",
+      "itemId": "1498141",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Day 15: Pituitary Hormones Part 2",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-thyroid",
+      "sourceId": "class-2026-27",
+      "itemId": "1498142",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Day 16: Thyroid and Parathyroid Glands",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-day-pancreas-adrenal",
+      "sourceId": "class-2026-27",
+      "itemId": "1498143",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Day 17: Pancreas and Adrenal Glands",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-review-seminar",
+      "sourceId": "class-2026-27",
+      "itemId": "1498128",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 20-23: Unit A Review and Exam > B30 Unit A Review Seminar",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-quiz-11",
+      "sourceId": "class-2026-27",
+      "itemId": "1498237",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 1-7: Chapter 11 > Days 6-7: Ch 11 Quiz > Chapter 11 Quiz",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-quiz-12",
+      "sourceId": "class-2026-27",
+      "itemId": "1498238",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 8-12: Chapter 12 > Days 11-12: Chapter 12 Quiz > Biology 30 Unit A - Chapter 12 Quiz",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "class-quiz-13",
+      "sourceId": "class-2026-27",
+      "itemId": "1498239",
+      "sourcePath": "Unit A - Nervous & Endocrine Systems > Days 13-19: Chapter 13 > Days 18-19: Chapter 13 Quiz > Biology 30 Unit A - Chapter 13 Quiz",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-unit-intro",
+      "sourceId": "system-2020",
+      "itemId": "2241",
+      "sourcePath": "Unit A > Unit A Introduction",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l1",
+      "sourceId": "system-2020",
+      "itemId": "2248",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1: Lesson 1",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l2",
+      "sourceId": "system-2020",
+      "itemId": "2253",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1: Lesson 2",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l3",
+      "sourceId": "system-2020",
+      "itemId": "2258",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1: Lesson 3",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l4",
+      "sourceId": "system-2020",
+      "itemId": "2265",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1: Lesson 4",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l5",
+      "sourceId": "system-2020",
+      "itemId": "2273",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1: Lesson 5",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l6",
+      "sourceId": "system-2020",
+      "itemId": "2282",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1: Lesson 6",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l7",
+      "sourceId": "system-2020",
+      "itemId": "2293",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1:Lesson 7",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-l8",
+      "sourceId": "system-2020",
+      "itemId": "2301",
+      "sourcePath": "Unit A > Module 1 > Unit A - M1:Lesson 8",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m1-summary",
+      "sourceId": "system-2020",
+      "itemId": "2311",
+      "sourcePath": "Unit A > Module 1 > Module 1 Summary",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-l1",
+      "sourceId": "system-2020",
+      "itemId": "2317",
+      "sourcePath": "Unit A > Module 2 > Unit A - M2: Lesson 1",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-l2",
+      "sourceId": "system-2020",
+      "itemId": "2326",
+      "sourcePath": "Unit A > Module 2 > Unit A - M2: Lesson 2",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-l3",
+      "sourceId": "system-2020",
+      "itemId": "2335",
+      "sourcePath": "Unit A > Module 2 > Unit A - M2: Lesson 3",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-l4",
+      "sourceId": "system-2020",
+      "itemId": "2343",
+      "sourcePath": "Unit A > Module 2 > Unit A - M2: Lesson 4",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-l5",
+      "sourceId": "system-2020",
+      "itemId": "2350",
+      "sourcePath": "Unit A > Module 2 > Unit A - M2: Lesson 5",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-l6",
+      "sourceId": "system-2020",
+      "itemId": "2359",
+      "sourcePath": "Unit A > Module 2 > Unit A - M2: Lesson 6",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "system-m2-summary",
+      "sourceId": "system-2020",
+      "itemId": "2365",
+      "sourcePath": "Unit A > Module 2 > Module 2 Summary",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    }
+  ]
+}

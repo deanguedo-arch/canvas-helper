@@ -1,0 +1,44 @@
+{
+  "stage": 105,
+  "checkedAt": "2026-09-07T17:38:54.985841+00:00",
+  "status": "optional-completion-spacing-repair-verified",
+  "authority": "Unit C review-set-v4 request; user then explicitly confirmed the same issue in B and D.",
+  "cause": "Inline optional-completion labels sat against the lower disclosure divider without row spacing.",
+  "changes": [
+    "Consistent16px top/20px bottom row margin and44px minimum target",
+    "10px gap and20px nonshrinking checkbox aligned with first text line",
+    "Wrapped label text aligned on mobile; existing green accent reused"
+  ],
+  "scope": "All127 lesson Advanced completion labels in B/C/D. CSS only; content, IDs and persistence logic unchanged.",
+  "owner": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "7308adce02d142a24196e314c2e4a66f79370eaab3a4e2814480ccc99adc8f79",
+      "contractSha256": "45d019576335fd3687e692b71c9b0460f67756118b6fc4ee5acb555a752159b1",
+      "generatedAt": "2026-09-07T17:36:48.644Z",
+      "previousWorkspaceSha256": "a0b7857d10301805342abd6895665e0711a6ad0280fbad834604e8a539d27e9c"
+    },
+    "C": {
+      "buildSha256": "f317656fc3cb0a030b3c6201b990ed5dc82d633cf6458d87a19ef72e57772ee9",
+      "contractSha256": "b7fec3facb55d7d60fd374befdc57dcf3cabac83593c3933c3c5ba6cfaf9b9d9",
+      "generatedAt": "2026-09-07T17:36:55.268Z",
+      "previousWorkspaceSha256": "c271344e0721f81b5b1774e18765a816be19109f08d7bb12962e116b54483495"
+    },
+    "D": {
+      "buildSha256": "d8698293a7f0490568fe8ae2115dd2304a6c4d1c378243ae8d81a39f2cd66c34",
+      "contractSha256": "e08a4cc1974eb0d819c08adc76eb8ce2a17fc2a82ebecf771a630d5187494774",
+      "generatedAt": "2026-09-07T17:37:01.274Z",
+      "previousWorkspaceSha256": "95a7836d6a3ca1e936f9e83364d83b52b3f47b9e28d997400aeda5bb3053cdad"
+    }
+  },
+  "validation": {
+    "focused": "5/5 owner/protected and browser tests pass; label inventories34/71/22; representative per-unit checkbox reload, non-gating progress,1440px/390px bounds and divider clearance pass",
+    "workspace": "B/C/D pass",
+    "projectE2E": "B/C/D each1/1 pass on final builds",
+    "doctorC": "Expected not-active only: intentionally blocked proposal-only project",
+    "visual": "Native C inspected; all6 final desktop/mobile screenshots opened and inspected",
+    "protected": "A learner trees and A2 owner unchanged"
+  },
+  "teacherAcceptance": null,
+  "releaseActions": []
+}

@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "git": {
+    "branch": "codex/studio-direct-editing-v1",
+    "commit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168"
+  },
+  "predecessor": {
+    "path": "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-07-instructional-repairs/baseline.json",
+    "sha256": "53b6a29fdef9be5efdaff3282d40f7d2aed365fb0df60fd605eb96fcd4645e51"
+  },
+  "authority": "User-approved all-required-route first-use repair; seven exact A passage replacements, no state/activity changes.",
+  "trees": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace",
+      "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783",
+      "files": [
+        {
+          "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+          "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+        },
+        {
+          "path": "assets/font-manifest.json",
+          "sha256": "d2dc91426b371d9b264a0ef7b1988a34f920352cb87f438daa0257492dbcda1e"
+        },
+        {
+          "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+          "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+        },
+        {
+          "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+          "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+        },
+        {
+          "path": "assets/fonts/OFL-Work-Sans.txt",
+          "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+        },
+        {
+          "path": "assets/fonts/WorkSans-Variable.ttf",
+          "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+        },
+        {
+          "path": "assets/generated-visuals/lesson-04-resting-membrane-1014f22e.png",
+          "sha256": "1014f22e1094a52f129d4071f5672ea415c63f883058e38823cbc31328623311"
+        },
+        {
+          "path": "assets/generated-visuals/lesson-12-endocrine-map-2dd61d4a.png",
+          "sha256": "2dd61d4af2e816fe65290c27a9beff5a5b3183fe6bd48ab8b250bd2bf84febbe"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-01-integrated-control-selected.png",
+          "sha256": "1831ffce6cb7c622ad5eeee791bd9e79779d6907c919346058f2db1357f98efc"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-02-control-comparison-selected.png",
+          "sha256": "300813bb15619ba5e3e55760e490b12c2d0817533a9fa5065e1f5b1c0d3a3251"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-03-myelin-saltatory-selected.png",
+          "sha256": "affbd32cff3c307760fbfb22ec6f94d4dc525553e5529f5fe85b7597c0c87a68"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-03-neuron-roles-selected.png",
+          "sha256": "d92def382caf511caba2f3cddbe790aa43e7367857635384622249144af8f57a"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-05-synaptic-transmission-selected.png",
+          "sha256": "f2796be6d65438fe85dc4934f657c4ca16bab12e615a13921e67af07c849d03b"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-08-sensory-receptor-families-selected.png",
+          "sha256": "e4a62b3a7cc74e9ea3e6f9a5ff459dce6f0c74f9659397fedc1361d9acc0a594"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-09-retina-pathway-selected.png",
+          "sha256": "f09adc0df078dbbfba2034bf6a9bac435bda19d8f0ae1464c85c533c28ecbba3"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-10-equilibrium-selected.png",
+          "sha256": "69e2d2db6acda825009b6ad9f70be59d9452137da1255beb2295545c0e3a624b"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-16-stress-response-selected.png",
+          "sha256": "1090bca5ab98b066a5f63acb88ae29c0f89c66adaa24e97ed1cf5ff9b7b729c5"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-17-integrated-regulation-selected.png",
+          "sha256": "03b59ded4cad82320f2bc3400bdf6e2b2699f1126a91a7600ddca6d845a7dec1"
+        },
+        {
+          "path": "assets/review/unit-a-review-seminar-source.pdf",
+          "sha256": "8a9fe5be03068d31092d87d0bee489b50a44fa8e0b172111eea752fde69c5526"
+        },
+        {
+          "path": "assets/source-visuals/brain-functional-regions.webp",
+          "sha256": "2ccd2feeb389d399e179e77df4875d3ad0382f9606ad544784341846d8f469ae"
+        },
+        {
+          "path": "assets/source-visuals/ear-anatomy-source.webp",
+          "sha256": "d9150b7a1840adcc884ce4a9eadef07b2345ec1bf5f40a4f9eff67f8e7888abb"
+        },
+        {
+          "path": "assets/source-visuals/endocrine-capillary-network.webp",
+          "sha256": "eafe018f91a04ad38a88a22eaa2160c90f0b6567725a18b9f03f6733d392dfb5"
+        },
+        {
+          "path": "assets/source-visuals/eye-anatomy-source.webp",
+          "sha256": "1f207508408cfb4e3369752cb798cdcfcfbc3a353cb49d2960dcdd58b240a4d7"
+        },
+        {
+          "path": "assets/source-visuals/hypothalamus-pituitary-source.webp",
+          "sha256": "3485775921626e8d2382b94cc9cfc5a2563f0c865940e4dee29f9a14ea588dbe"
+        },
+        {
+          "path": "assets/source-visuals/neural-tissue-micrograph.webp",
+          "sha256": "086bc8ac52670b6d20aaea029999b72ba3a528015a643bd0aa13cc7b54311a32"
+        },
+        {
+          "path": "assets/source-visuals/neuron-anatomy-source.webp",
+          "sha256": "758a72139aa73523e2e51d65f33ed66973a431fe2fb0196159e1b9e228112d81"
+        },
+        {
+          "path": "assets/source-visuals/reflex-arc-anatomy-source.webp",
+          "sha256": "ea3e88fe2b4d704223ada8a7de70b96e27b44ff230ce1cd60fa845c7b83f2652"
+        },
+        {
+          "path": "assets/source-visuals/spinal-cord-cross-section-source.webp",
+          "sha256": "d8c383855d03b08f1050793183108869c8f180ffbe68fde4b95874d3681d3507"
+        },
+        {
+          "path": "assets/textbook/chapter-11.pdf",
+          "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+        },
+        {
+          "path": "assets/textbook/chapter-12.pdf",
+          "sha256": "f6f2050fab98f05beb7ca3a589b1d95f1966b6a67ac0b7e1dfe263247205e10d"
+        },
+        {
+          "path": "assets/textbook/chapter-13.pdf",
+          "sha256": "e69ed45e05ab0cdc55490aada364ee415197e21aaf59445f8983a8c17d92a251"
+        },
+        {
+          "path": "index.html",
+          "sha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee"
+        }
+      ]
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace",
+      "sha256": "811472451cff8ced2c6c7da9339a48bd0d1b14245ed8ef84eb37198ea3e11912",
+      "files": [
+        {
+          "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+          "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+        },
+        {
+          "path": "assets/font-manifest.json",
+          "sha256": "d2dc91426b371d9b264a0ef7b1988a34f920352cb87f438daa0257492dbcda1e"
+        },
+        {
+          "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+          "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+        },
+        {
+          "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+          "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+        },
+        {
+          "path": "assets/fonts/OFL-Work-Sans.txt",
+          "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+        },
+        {
+          "path": "assets/fonts/WorkSans-Variable.ttf",
+          "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+        },
+        {
+          "path": "assets/generated-visuals/lesson-04-resting-membrane-1014f22e.png",
+          "sha256": "1014f22e1094a52f129d4071f5672ea415c63f883058e38823cbc31328623311"
+        },
+        {
+          "path": "assets/generated-visuals/lesson-12-endocrine-map-2dd61d4a.png",
+          "sha256": "2dd61d4af2e816fe65290c27a9beff5a5b3183fe6bd48ab8b250bd2bf84febbe"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-01-integrated-control-selected.png",
+          "sha256": "1831ffce6cb7c622ad5eeee791bd9e79779d6907c919346058f2db1357f98efc"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-02-control-comparison-selected.png",
+          "sha256": "300813bb15619ba5e3e55760e490b12c2d0817533a9fa5065e1f5b1c0d3a3251"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-03-myelin-saltatory-selected.png",
+          "sha256": "affbd32cff3c307760fbfb22ec6f94d4dc525553e5529f5fe85b7597c0c87a68"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-03-neuron-roles-selected.png",
+          "sha256": "d92def382caf511caba2f3cddbe790aa43e7367857635384622249144af8f57a"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-05-synaptic-transmission-selected.png",
+          "sha256": "f2796be6d65438fe85dc4934f657c4ca16bab12e615a13921e67af07c849d03b"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-08-sensory-receptor-families-selected.png",
+          "sha256": "e4a62b3a7cc74e9ea3e6f9a5ff459dce6f0c74f9659397fedc1361d9acc0a594"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-09-retina-pathway-selected.png",
+          "sha256": "f09adc0df078dbbfba2034bf6a9bac435bda19d8f0ae1464c85c533c28ecbba3"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-10-equilibrium-selected.png",
+          "sha256": "69e2d2db6acda825009b6ad9f70be59d9452137da1255beb2295545c0e3a624b"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-16-stress-response-selected.png",
+          "sha256": "1090bca5ab98b066a5f63acb88ae29c0f89c66adaa24e97ed1cf5ff9b7b729c5"
+        },
+        {
+          "path": "assets/generated-visuals/selected/lesson-17-integrated-regulation-selected.png",
+          "sha256": "03b59ded4cad82320f2bc3400bdf6e2b2699f1126a91a7600ddca6d845a7dec1"
+        },
+        {
+          "path": "assets/online-science/cdc-2756.jpg",
+          "sha256": "742ee51f9ee2cecae29b34c1d472e25336e668e9885025113c503d6f290ede3f"
+        },
+        {
+          "path": "assets/textbook/chapter-11.pdf",
+          "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+        },
+        {
+          "path": "assets/textbook/chapter-12.pdf",
+          "sha256": "f6f2050fab98f05beb7ca3a589b1d95f1966b6a67ac0b7e1dfe263247205e10d"
+        },
+        {
+          "path": "assets/textbook/chapter-13.pdf",
+          "sha256": "e69ed45e05ab0cdc55490aada364ee415197e21aaf59445f8983a8c17d92a251"
+        },
+        {
+          "path": "index.html",
+          "sha256": "aa28a6548d89a283530ddc49229473f32cbb03c6bd06ac46ed7bf72a27e3d9ee"
+        }
+      ]
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace",
+      "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b",
+      "files": [
+        {
+          "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+          "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+        },
+        {
+          "path": "assets/font-manifest.json",
+          "sha256": "d2dc91426b371d9b264a0ef7b1988a34f920352cb87f438daa0257492dbcda1e"
+        },
+        {
+          "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+          "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+        },
+        {
+          "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+          "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+        },
+        {
+          "path": "assets/fonts/OFL-Work-Sans.txt",
+          "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+        },
+        {
+          "path": "assets/fonts/WorkSans-Variable.ttf",
+          "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+        },
+        {
+          "path": "index 10.html",
+          "sha256": "903b2fe1939ecdd38a9ae5c7c70a94b5173990346345f834f9360a9772bcfe29"
+        },
+        {
+          "path": "index 11.html",
+          "sha256": "5cbd7d453589235a22a3317dc9b4310f768651c642d76127143e629c5d0dd411"
+        },
+        {
+          "path": "index 12.html",
+          "sha256": "b4e0da47487752e73ba9dcb27841d7650e1201ed3c3dba7b8228c76f8545ed18"
+        },
+        {
+          "path": "index 13.html",
+          "sha256": "06345a6647e41ede8fe6d3964c24112153e4fabd09e3823babc69f8367fbfc20"
+        },
+        {
+          "path": "index 14.html",
+          "sha256": "2437cc55e083a291be66288eb44b972ad11b4a9b895c32814d55fc0be8d54d59"
+        },
+        {
+          "path": "index 15.html",
+          "sha256": "1fc3f4e8e0bf9a8838e5cd682abd58821627d4e15947b8ac281258853b11a8a1"
+        },
+        {
+          "path": "index 16.html",
+          "sha256": "5581c9af333b03bd39ecea833453501946e3334e6c3c9544ee1d89397944f421"
+        },
+        {
+          "path": "index 17.html",
+          "sha256": "3fc5d888a37be8d4b54c546822d2c7fd5663075320e3a0071d5e63ff2fe217ac"
+        },
+        {
+          "path": "index 18.html",
+          "sha256": "9c74fc7bd4a706db86f439ec68f3dc174483fd2c909ef0aa8f048896c7236979"
+        },
+        {
+          "path": "index 2.html",
+          "sha256": "0ab7ef058b705303f6548f41fba24e5ec0669f81eac5ec1a979f12f5387e1658"
+        },
+        {
+          "path": "index 3.html",
+          "sha256": "09d5e00d629997a3a43620ae7c644bdb80b7a2a790170c9f13a22f416988a719"
+        },
+        {
+          "path": "index 4.html",
+          "sha256": "aababfb26bc350aefa20015e8ca0df68069d90b862e4ceb33b534b6bb54abf59"
+        },
+        {
+          "path": "index 5.html",
+          "sha256": "f6164566162c371496770fb8e1dd7370afd3b87bd012dc7913320a1c8891d633"
+        },
+        {
+          "path": "index 6.html",
+          "sha256": "02cf98093e0e10e0d7ba94c71e6da22b466f2002b3f5bdc93e59cd8882f10f41"
+        },
+        {
+          "path": "index 7.html",
+          "sha256": "80e9b8a6d42958ef03edfd1f1253d54d7efba1d27d77643dbd530b85bc9b4b48"
+        },
+        {
+          "path": "index 8.html",
+          "sha256": "a726156bae0102ef364d0cdcd7ed4e33c2cb941eb1e551783b315f9f4b6c18c9"
+        },
+        {
+          "path": "index 9.html",
+          "sha256": "6e9c76ee12a1f96c275b27ec97b47f38acc599e119d0e021e0139fe3c99f7db5"
+        },
+        {
+          "path": "index.html",
+          "sha256": "9c74fc7bd4a706db86f439ec68f3dc174483fd2c909ef0aa8f048896c7236979"
+        }
+      ]
+    },
+    {
+      "path": "scripts/lib/biology30-unit-a-pilot-2",
+      "sha256": "318dddbf9fd8547225249ac861233714b966af68c23fffc1b1ea42ede6cd9c1e",
+      "files": [
+        {
+          "path": "academic-corrections.ts",
+          "sha256": "7d5811700dfedb8204ecade060c6db72ebf3137dc6381393a4e8f7215ec8b129"
+        },
+        {
+          "path": "academic-evidence.ts",
+          "sha256": "65e4a401cb046a06b5edf6d866d94f8850d06ef3be2e5b9e0486fc8be3c844eb"
+        },
+        {
+          "path": "advanced-content.ts",
+          "sha256": "b8fab56a7228efad30a80a2400e5fdb6baafd166074871f0f9ce76026166f6a7"
+        },
+        {
+          "path": "atomic-contract.ts",
+          "sha256": "c84bc74cce34d52cfc67113d5ce3c79077ed784651ea175a34b2382e80d6d660"
+        },
+        {
+          "path": "build-full.ts",
+          "sha256": "d1e0214a5f61e1d4d39d6cc3edca421158d953ee3cc644fe8e37feb0b2de2ea5"
+        },
+        {
+          "path": "build-process-collection-index.ts",
+          "sha256": "03115fba45116a1443c99dadd91daaa3b60bb9e97375cb53a45556a85380d163"
+        },
+        {
+          "path": "chapter-11-study.ts",
+          "sha256": "a65965ae1386430b32124c589e7d6f78f36895889b2c2a4e96b09c48ec2e065f"
+        },
+        {
+          "path": "contracts.ts",
+          "sha256": "84ed81329645436b91e21ea4ced76841a43aa2a7416b01108ae4d240a375519e"
+        },
+        {
+          "path": "create.ts",
+          "sha256": "8a64df79106a580096a48ff932f6633b982d4d9ade48553846588abb7d8cd488"
+        },
+        {
+          "path": "final-academic-audit.ts",
+          "sha256": "703f76aaae5824364fc1ee7c537d378a6119a14e8e9428d6e047508da1765e45"
+        },
+        {
+          "path": "first-use-repair.ts",
+          "sha256": "769c70f56b1833282198ce640b1cc47c374b58cc467e8fbde021db5691d3ad16"
+        },
+        {
+          "path": "full-content.ts",
+          "sha256": "7c52b27459eb2d30412d26684bb50e0afa3874716fb0dedbef9d00c6bf4946c2"
+        },
+        {
+          "path": "model-lab-content.ts",
+          "sha256": "85c08cb5e4e026bb9f5beee4e0a97da665857b3ffc72e787a90297a6145a61ef"
+        },
+        {
+          "path": "online-finalization.ts",
+          "sha256": "7e9945523ddccfb6c9d44ea9a8af5074fa67a3ee9da23e36dd3c78fea5db841b"
+        },
+        {
+          "path": "online-investigations.ts",
+          "sha256": "bcf19570d8be63b7ead4b3a7d65c898f283e3b6f847b20d82b24336c0e2824ce"
+        },
+        {
+          "path": "online-media.ts",
+          "sha256": "8e65a5834762d7c905a420259d72b5f2627509fe8b30ea49012753f02447fc56"
+        },
+        {
+          "path": "online-studies.ts",
+          "sha256": "e2605838ce0eeca320d9d9a3ab89f7e9d53882a4797387af7f2b0eef7c8e2fa4"
+        },
+        {
+          "path": "online-video-review.ts",
+          "sha256": "fd1f92602ae053a24ac1e3ca6cf108536b57cad17d7ea493ecd1f299ca3f57c6"
+        },
+        {
+          "path": "practice-academic-review.ts",
+          "sha256": "e826fb93e6df40a4e3d3b1cd2c4e20ecd0c4fb5916222af8650d9f5fe6d2aec5"
+        },
+        {
+          "path": "practice-corrections.ts",
+          "sha256": "4228c8c88da877efe2caeb73407ac9f3803e21d31e3dc12d9d26455837410fde"
+        },
+        {
+          "path": "process-collection-content.ts",
+          "sha256": "de5f06faafae1d1d07ec03f59315b366904ed27ec6e43b5371abfbf81ba85fc8"
+        },
+        {
+          "path": "remaining-academic-review.ts",
+          "sha256": "50c850a262d421bb073e7e1196f533dc4cfb881afe320bee27ae048fb51d34a9"
+        },
+        {
+          "path": "render-gate1.ts",
+          "sha256": "e5f7e0f7630a8fea5ee5612d2be309cc06ffb6ba56bcc98c37fb4535ae2f560c"
+        },
+        {
+          "path": "render-online.ts",
+          "sha256": "c66d67d863ff32bb652bea2d723fe105bcfe044bd45d3be65ef6ea77713f63f3"
+        },
+        {
+          "path": "review-academic-source-evidence.py",
+          "sha256": "92bb05005ecad28dba92d3986362ef9d9374653b55a154ac6b317cd93e1ff808"
+        },
+        {
+          "path": "review-history.ts",
+          "sha256": "82d8d89eabd0176466bfd37efb6bab36964c8baacc30162d6d47d2aa3aea8d89"
+        },
+        {
+          "path": "textbook-review-content.ts",
+          "sha256": "68c7120b5c7d308083fc5080a2ac8fb3706e5e6349e4ba7d33bb21a7ea67ec13"
+        }
+      ]
+    }
+  ],
+  "teacherAcceptance": null
+}

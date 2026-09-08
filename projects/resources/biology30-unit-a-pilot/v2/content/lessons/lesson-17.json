@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-17",
+  "module": "Integration",
+  "title": "Integrated Regulation and Unit Mastery",
+  "inquiry": "Can one evidence pattern be explained by sensory detection, neural signalling, endocrine feedback, and target-organ response together?",
+  "learningIntention": "I am learning to integrate sensory, nervous, and endocrine evidence into one testable explanation of whole-body regulation.",
+  "requiredMinutes": 120,
+  "optionalMinutes": 55,
+  "outcomeIds": ["A1.1k", "A1.2k", "A1.3k", "A1.4k", "A1.5k", "A1.6k", "A1.1sts", "A1.2sts", "A1.3sts", "A1.1s", "A1.2s", "A1.3s", "A1.4s", "A2.1k", "A2.2k", "A2.3k", "A2.4k", "A2.5k", "A2.6k", "A2.1sts", "A2.2sts", "A2.1s", "A2.2s", "A2.3s", "A2.4s"],
+  "materials": "No special materials. Use the local integrated case board, supplied data, portfolio drafts, and final practice set.",
+  "safety": "The case is synthetic. It is not a health assessment and should not be compared with a person's symptoms or medication.",
+  "targets": [
+    "Integrate sensory, neural, endocrine, glucose, and osmolality evidence in one causal model.",
+    "Revise an explanation when a new result contradicts the first hypothesis.",
+    "Complete the seven portfolio artifacts and use the 24-item final practice to identify a next learning step."
+  ],
+  "warmup": {
+    "title": "Return to your first map",
+    "prompt": "Review the regulation systems map from Lesson 1. Name one arrow you can now explain at the cellular level and one uncertainty that still requires evidence.",
+    "placeholder": "I can now explain… I still need evidence about…"
+  },
+  "sections": [
+    {
+      "label": "Meet the case",
+      "title": "1. A changing environment recruits overlapping control systems",
+      "paragraphs": [
+        "A synthetic learner walks from a warm building into cold air, hears a sudden traffic signal, then continues a long walk without a drink. Before leaving, the learner ate a meal containing carbohydrate. The case includes pupil observations, heart activity, blood-glucose trends, hormone signals, plasma osmotic concentration, and urine data.",
+        "Cold receptors and auditory hair cells transduce different forms of energy. Sensory neurons carry patterned activity into central pathways. The brain integrates the information, organizes voluntary action, and changes autonomic output. Sympathetic pathways rapidly influence pupils, heart, vessels, and adrenal medulla.",
+        "At the same time, pancreatic islets respond to changing blood glucose, and hypothalamic pathways respond to osmotic and volume evidence. The case is not one chain. It is a network of regulated variables, signals, targets, delays, and feedback loops."
+      ],
+      "figureIds": ["figure-integrated-nervous-endocrine-case"]
+    },
+    {
+      "label": "Read before explaining",
+      "title": "2. Separate observations by time and variable",
+      "paragraphs": [
+        "At five minutes, heart activity and epinephrine are high while cortisol has changed little. This timing supports rapid sympathetic and adrenal-medulla involvement. At forty-five minutes, epinephrine is closer to baseline while cortisol is elevated. The later pattern supports a slower HPA-axis contribution.",
+        "Blood glucose rises after the meal, insulin signalling rises, and glucose trends back toward baseline. During continued walking, glucose begins to fall and glucagon signalling increases. The variable and hormone move in directions consistent with feedback; a hormone value alone would not reveal the full pattern.",
+        "After two hours without fluid, osmotic concentration and ADH are elevated while urine volume is low and concentrated. This is consistent with water conservation. The response reduces water loss but cannot immediately replace water already lost. Homeostasis limits disturbance; it does not make resources unlimited."
+      ],
+      "table": {
+        "caption": "Synthetic integrated case timeline",
+        "headers": ["Time", "Key sensory/neural evidence", "Glucose evidence", "Water/stress evidence"],
+        "rows": [
+          ["Baseline after meal", "Pupils and heart activity near baseline", "Glucose 7.4 mmol/L; insulin signal elevated", "Osmotic concentration 287 mOsm/kg"],
+          ["5 min after cold and alarm", "Pupils larger; heart activity +28%; epinephrine 4.2×", "Glucose 7.0 mmol/L", "Cortisol 1.2×; ADH 1.1×"],
+          ["45 min walking", "Heart activity +12%; epinephrine 1.3×", "Glucose 5.8 mmol/L; insulin falling", "Cortisol 2.1×; osmotic concentration 291"],
+          ["120 min walking without fluid", "Heart activity +10%", "Glucose 4.6 mmol/L; glucagon rising", "Osmotic concentration 296; ADH 3.5×; urine low and concentrated"],
+          ["60 min after water and rest", "Pupils and heart activity near baseline", "Glucose 5.1 mmol/L", "Osmotic concentration 289; ADH 1.3×"]
+        ]
+      }
+    },
+    {
+      "label": "Test hypotheses",
+      "title": "3. Contradictory evidence improves the model",
+      "paragraphs": [
+        "A first hypothesis might claim that cortisol caused the immediate heart response. The five-minute evidence weakens that claim because epinephrine and autonomic output change rapidly while cortisol has barely risen. The hypothesis should be revised: the immediate phase is primarily neural and adrenal-medulla supported, while cortisol contributes later metabolic support.",
+        "A second hypothesis might claim that rising ADH caused the osmotic concentration to increase. The causal direction is reversed. Water loss raised osmotic concentration, which increased ADH release; ADH then reduced further water loss. The return effect is the defining feedback link.",
+        "A third hypothesis might claim that insulin acts identically on every tissue. The course model instead identifies tissue-specific responses: muscle and adipose uptake, liver storage and reduced output, and tissues with glucose transport that is not insulin-dependent in the same way. Precision prevents a useful simplification from becoming a factual error."
+      ]
+    },
+    {
+      "label": "Prepare evidence",
+      "title": "4. A complete portfolio shows mechanism, data, and limits",
+      "paragraphs": [
+        "Review the seven artifact checkpoints in the Investigation Notebook. Each draft should contain a specific claim, relevant evidence, a mechanism linking the two, and limitations. Investigation artifacts also need variables, procedure or supplied-data route, safety, and a conclusion proportional to the design.",
+        "Revise the regulation systems map from Lesson 1. Add named receptors, neural routes, endocrine glands, hormones, target tissues, and return effects. Use at least one fast neural pathway and one slower endocrine pathway. Mark where the systems interact through the hypothalamus, autonomic output, adrenal glands, or regulated variables.",
+        "The 24-item final practice is context based. Complete it once to record your result, then use the rationales to identify strong areas, repair weak reasoning, and choose a next learning step."
+      ]
+    },
+    {
+      "label": "Evaluate mastery",
+      "title": "5. Transfer means applying the model to a new context",
+      "paragraphs": [
+        "Mastery is more than naming structures. You should be able to infer a pathway from a data pattern, predict the result of a disruption, distinguish a signal from a regulated variable, and identify evidence that would change your conclusion.",
+        "For nervous control, connect receptor transduction, neuron structure, action potentials, synapses, central integration, and effectors. For endocrine control, connect release, transport, receptor binding, target response, clearance, and feedback. For both, identify timing, uncertainty, and interaction.",
+        "When a question provides unfamiliar data, begin with what changed. Name the variable and unit, compare conditions, and identify timing. Only then select a mechanism. If two hypotheses fit, state the additional evidence that would distinguish them."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-integrated-case-board",
+    "title": "Revise the case explanation",
+    "intro": "Choose a claim. The board weighs supporting and contradicting evidence before offering a revision.",
+    "prompt": "Which revision uses timing and feedback most accurately?",
+    "options": [
+      {"id": "immediate-stress", "label": "Cortisol caused the five-minute heart peak", "evidence": "Epinephrine is 4.2× baseline at five minutes; cortisol is only 1.2×.", "explanation": "Revise: rapid sympathetic and adrenal-medulla pathways best match the immediate evidence; cortisol contributes over a longer interval."},
+      {"id": "adh-direction", "label": "ADH caused osmotic concentration to rise", "evidence": "Osmotic concentration rises before the strongest ADH response, and urine becomes concentrated afterward.", "explanation": "Revise: water loss raises osmotic concentration, which increases ADH; kidney water conservation then opposes further rise."},
+      {"id": "glucose", "label": "Glucose returned toward baseline despite changing activity", "evidence": "Insulin rises after the meal, then falls as glucose declines; glucagon rises later during activity.", "explanation": "This is consistent with coordinated negative feedback and changing demand, not one hormone acting alone."}
+    ],
+    "staticFallback": "Use timing to separate rapid neural/adrenal-medulla effects from slower endocrine effects. Use the direction of the return effect to identify feedback."
+  },
+  "exit": {
+    "title": "Integrate one complete pathway",
+    "prompt": "In 3–4 sentences, explain one case pattern from stimulus through sensor, neural or endocrine signal, target response, and return effect. Include one limitation.",
+    "placeholder": "The disturbance changed… Receptors detected… The signal… The target response… A limitation is…"
+  },
+  "sources": {
+    "summary": "Built from Alberta Unit A performance expectations, supplied notes pages 138–139, the class review seminar and visible chapter practice, and the CBE Module 1–2 summaries. All case values are synthetic instructional data.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "alberta-bulletin", "notes-integration", "class-review-seminar", "class-quiz-11", "class-quiz-12", "class-quiz-13", "system-m1-summary", "system-m2-summary"]
+  }
+}

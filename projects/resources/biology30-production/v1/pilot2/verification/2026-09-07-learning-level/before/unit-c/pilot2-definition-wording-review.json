@@ -1,0 +1,2110 @@
+{
+  "schemaVersion": 1,
+  "unit": "C",
+  "status": "All introduced and preserved glossary definition wording author-reviewed; all-surface first use remains pending",
+  "method": "Read every introduced term and complete definition in all three units. Corrected chromosome state, pair/category and ratio/frequency errors, mutation transmission wording and avoidable future jargon. Exact shared glossary definitions synchronized; distinct senses untouched. This does not close introductory ordering or all-surface vocabulary review. Same-text glossary collisions were explicitly checked: homologue/pair, probability/ratio, linkage/loci and confounding/confounder retain their different meanings.",
+  "reviewedIntroductions": [
+    {
+      "id": "c-term-dna",
+      "definitionSha256": "f32c4859566f629acb770fd90498f022aad4e838cd00a0223333408378d1c8a1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-chromatin",
+      "definitionSha256": "5484658fc921986d25ad0d658708693fa9fa719d8a3348348ca2c1b7d7136e0d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-chromosome",
+      "definitionSha256": "5fe0a916b0a06098d40270ed5cc38676747826d81c3a79be5b374a7bc4eb24ef",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gene",
+      "definitionSha256": "58fa9d08bd7e3c5762897dffd128ed1791c571848147d2a9621b6cea939935e1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-locus",
+      "definitionSha256": "65d44b078b70035018ac3ceb22c649780536195319ca81c844c6cd014c25ee5c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-homologous-pair",
+      "definitionSha256": "1a862fb417cf70e6ac50d6ecae4cd6e24054e4416162e85c3305c25dc7706f41",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sister-chromatid",
+      "definitionSha256": "73333decd80e8b9be9424ad8d830039e2d34810e92bb11d92628fc16228d7d07",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-centromere",
+      "definitionSha256": "ae8cfc1bb3be5d4264df87b7c659a173d904deaf910d625d5cf55ef8f36e7ace",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-haploid",
+      "definitionSha256": "996be0dfbae0c95fbebc626a66e5424b493faf602ca53e8afdd14d32f559d6d2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-diploid",
+      "definitionSha256": "fd2b1c39e255ce865ba4539618f8f6c1c6fc49581272f88e8c51f4ff3c1764e7",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-polyploid",
+      "definitionSha256": "378ae5b12a5bacf0d005b8afb3aae5e8b799d181f560d0b9efc8f7f38d5b4dd2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-autosome",
+      "definitionSha256": "a07b5e2a6e4c28b29abd5da12045c408fec4fc1f662cfa1739f96f3ea3c90516",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sex-chromosome",
+      "definitionSha256": "ecaa7dcaa8b16fd20a2a36e0e6ce8dced3ec4aacaf378d1addea32fd18bf8efb",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-karyotype",
+      "definitionSha256": "7daa2cff3518b9f6489592a8914166d90667ca1b60fa9a531f79814fca3b9c8d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-g1",
+      "definitionSha256": "0a93bb43b81b247451a0b1e1bb803e020e09135dde067738a4611d2a381058ef",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-s-phase",
+      "definitionSha256": "39b1fe5851430ef36ef68a40e947fc430a61c067bef1394e6ce0cf3c0eb10f2e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-g2",
+      "definitionSha256": "a521e4c88778ff750698cef1ecc8a26e26035804dfc4363c9de1ff35e707cb12",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-dna-replication",
+      "definitionSha256": "847c87587de0e85bb675932e0488ecd1e956344a92229493f76bf060bdeb1f0f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-checkpoint",
+      "definitionSha256": "2eb0a95529ceb1a38a540fba0f57989ea02eb735a5692edb4f59e42bbbdbf44b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-mitosis",
+      "definitionSha256": "8a29458b5bf17ade3941b6748ae65ef1acca1a4eae4d7fd1c8257d7c3d78c5c5",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-cytokinesis",
+      "definitionSha256": "13467e387a0b2d8b3261057e6258495d72dfa1ee02e962424eb984e27eb014f4",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-cell-cycle-regulation",
+      "definitionSha256": "7e297e45bb4363c6007ae19bd273b2a377e216aaf9bee0bfb096ef092b9e6353",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-mitotic-index",
+      "definitionSha256": "971eca64adb92de8995a4a3f077090ff937f5c315261b95093f3b15744c29b0d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sample",
+      "definitionSha256": "a471b8509a8281021a9af6671878618a798d9d377907a5936084cf67198c195c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-relative-duration",
+      "definitionSha256": "05fbf1675ac079247521fb87d5d23777c9c3f707951a1a7b2fe08fcec37b1080",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-prophase",
+      "definitionSha256": "35dfde4394efa4ef5a52c90f7a8ed04d3cdcb52cb0d3cba6de19209184a88bc8",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-spindle",
+      "definitionSha256": "1ffffa393d3a2e385e5041a89bc4b141bc9afa5496a3b7b2a4a6fb69ec15390f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-kinetochore",
+      "definitionSha256": "e533547c89ccb4f22db670833a996141382dc4026f2c4ec7f4de1a6d40702051",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-metaphase",
+      "definitionSha256": "99fab24feb6e4c96bb166768512c615b9d3ab2947edfd7dc46a0e08b39f48978",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-anaphase",
+      "definitionSha256": "e314c97d31bb7c906e4a42e390340e5895c64bf4a2011501559020ebfb0a0fd1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-telophase",
+      "definitionSha256": "3b3563884ce1307ed9df24ce82d1513ba6f6c0c8cf1b8d8ee0f4b61c27b08bd9",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-daughter-chromosome",
+      "definitionSha256": "454cbb06c1ef2ad9bd893db21983b40235469e06a71e7bf0e489a46be52bc54b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-cleavage-furrow",
+      "definitionSha256": "97d903ca598ea37f1b80820b323a7447eb50b83b0efb9ec443534066a74f69d6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-cell-plate",
+      "definitionSha256": "d273db5f372f9bc2424a7b74b124dcaeaea3b199ab3692fddeafe2cbbb049522",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-photomicrograph",
+      "definitionSha256": "6493aae3c0e62a07a4fd4ddf7f7ecaead51a7568cd39eed136f64ba7682af9a2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-evidence",
+      "definitionSha256": "29d43e4dc47f56980284e19e79a2c11031cd5abe2e0dbf91cde2148d4bb7277c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-simulation",
+      "definitionSha256": "38beb115c78e2028ebb3a42e28b155420e99929bd171793aa3d682ec05ce0c58",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-synapsis",
+      "definitionSha256": "2568e75f17fd7aa76835288478542f5d71404317e4fb574c6a185f348a3614e8",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-tetrad",
+      "definitionSha256": "d95365af104caac142ae125434c223b1067560edaf457849bac4ba42dce9e2c0",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-crossing-over",
+      "definitionSha256": "7fe7daaabf315dae6f1d5d7c5cc51a6ee25c1f971eebb231bf5f38458ef435b3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-chiasma",
+      "definitionSha256": "413148aaddb5ee685ab9077b8864872d4151037fd8d27aa19b686fe85c800be2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-metaphase-i",
+      "definitionSha256": "95748cc4feb97929b4221eff89fecc5199347ea85977e2ccfcbfde085d5dffc4",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-independent-orientation",
+      "definitionSha256": "412d825ef8cb01af0d67726662403c9c1707db9676ddc8768a2a248ff0be20da",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-anaphase-i",
+      "definitionSha256": "bb203568e79234545c76b82372f3989007fcb0b4e6cbaf3203049bfad166f204",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-reduction",
+      "definitionSha256": "985e2fbc3f33c575e17eaddbb0f1a95b12c24d5a614ef8e9c5e3a732d7ad6960",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-meiosis-ii",
+      "definitionSha256": "d0fe7c5522145f546377b89c9c2757e2a8c499e0c29ec383b514fd379322e8d9",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sister-separation",
+      "definitionSha256": "69c2d6da873a5b5ce3a7c28c2d38bd55bba9f59023157c5ddf75723a5b2e0208",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-haploid-product",
+      "definitionSha256": "b060950511acf01217d9669c0e6592922fd3daefc82e722b8a84c8a510938dfb",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-meiosis",
+      "definitionSha256": "c89e78573a560e289d6404a2df6ac94121c4e3835331a2db9dfa325e7640d74b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-genetic-variation",
+      "definitionSha256": "e2657185c28747ec5a8f83911328e0240bd51e31aa7879d3e0784dd2441a9c6a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-spermatogenesis",
+      "definitionSha256": "33d1fc51cebf7577082901d17660c94c6618dc4e9d5fbb31df775c7aab3ce289",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-oogenesis",
+      "definitionSha256": "d22747d607bc07132f93fe2b6faec725222c3862d61ca6e1818db451ca98b78c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-polar-body",
+      "definitionSha256": "29c6152c711188c3936b8e3ac9d2f6d94fbf5ebb024892d4290e43dd8a7893bf",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-meiotic-pause",
+      "definitionSha256": "382ea2268a9f428e567bada37ff6753b3488b23096c01fdb3643016ba445c64a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-independent-assortment",
+      "definitionSha256": "82151d81623473390c636080a961262e6db367cd9d6fea236e1df8c0363837f8",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-random-fertilization",
+      "definitionSha256": "8d5c062012e1788e54fd221a30fa0735177afa2e3ab4fa2117b93a2e7e4ef4ed",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-meiosis-i-error",
+      "definitionSha256": "f7dfe29e9eaa82f94431b477bc8e3a20bb11091c7aa22855388fae5b073559ae",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-meiosis-ii-error",
+      "definitionSha256": "d2ce4b0499ce9b20a88d1e9cfc4ae3a3ca3db71f2d98276e3efdd3100e87c7f6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-aneuploidy",
+      "definitionSha256": "8a72b8b64997d45bf1d2fb1a71ec50b8e47419e70b008eb2728db79b2e07baac",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-fraternal-twins",
+      "definitionSha256": "63d2c8624aceec5bdb9e22b099b8113af83be08d363816da597d069c3cc6cd69",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-identical-twins",
+      "definitionSha256": "7718b4d8c1d05be49294d0aa55434844d846abb2461559d112f73ed2fc4094c4",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-zygote-splitting",
+      "definitionSha256": "14cd4dc8ddb2898cf4b1ff1bab4ca91f4547219ef34f806d13c54d319c0713dd",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-clone",
+      "definitionSha256": "120d82106030c2d4f49f2a3748944786060db2e1a652fad9f82198e75934f858",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sexual-reproduction",
+      "definitionSha256": "3a37775c3fce0d9a321204a02bde200be9c00dce7a573857e508b289c80c9824",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-asexual-reproduction",
+      "definitionSha256": "4fdce0061d26466b78849d09a4f2701457c9e4dac1267ef7dbc48b493f09a063",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gametophyte",
+      "definitionSha256": "0e9e86fb28cfc0594290c2cb8ffaad76a8b5f4b9d361275ead7048502c5f76c8",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sporophyte",
+      "definitionSha256": "6821d90a9d8b42ba86c026ee19b65cd92179017d8c9d0e4f250f8a7f4d630f6a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-spore",
+      "definitionSha256": "f2ecd01a8632d45f00ac3b97acd2165343857f9f169f5ed925797fefdeb1c84c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gamete",
+      "definitionSha256": "fc608a9e4227fe2e882ad9c332e699d1959e29584523bd0676e1b24946c63c5e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-daphnia",
+      "definitionSha256": "0c5cad208a0f219b3495eef15d971fd5811047e9d6f3739008039281bc29a746",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sea-anemone",
+      "definitionSha256": "b6e8100e9cbaeb3ad6fe5d5db7cc7bf05296507d1b103174434a274c1057b481",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-polyp",
+      "definitionSha256": "e7021dba7c46da169fc473a9c458e9a5fecc809b341ec46640c1dec14684c6f7",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-medusa",
+      "definitionSha256": "de5e553541756572e652388e3604ee67e4e3301b25f489a8a19f5a32f630a724",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-cloning",
+      "definitionSha256": "7a71dae5464f3149c9e54123909296a3226cd0b79bdb40dc111f07ce12f43cea",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-benefit",
+      "definitionSha256": "41744c87c9b9b663f64d18f9a955c7af4e1407e760fda1c544da693cc5bbf98a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-limitation",
+      "definitionSha256": "5ea8e814c9179847552baf5d058d761b75bdcac6fc76063df97f7f9351d60c94",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-communication",
+      "definitionSha256": "5aa40dc41ad3a25ede66682dbf987f4120b83a9f527fc9c9d7aa683890f65b74",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-allele",
+      "definitionSha256": "950374fe94e5344af8c72dd7a1acdd47543261d1ff58460bb31a18fe0096330d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-genotype",
+      "definitionSha256": "2e3b348fd25f4d665f4a6f34ad1bb47c16f53b4f52dee9154319eec4d498571a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-phenotype",
+      "definitionSha256": "477b1b540b3fa7d73f04af45d9a5faace2aa89fb6b8c706ab00acbd3d4a308be",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-homozygous",
+      "definitionSha256": "32f2b318b2e4c9fced95e58b4bff345f4a0b830bc9246660744dcae20c0e63cb",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-heterozygous",
+      "definitionSha256": "5189889388adae9dd5fd14a0f5afad54a1bb76f839a7c49fa2c7e4e8351a7a73",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-dominant",
+      "definitionSha256": "71c0136ece2ce4efbf68c44f77156767af4b86b46fee7ec884d70812b5d3d104",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-recessive",
+      "definitionSha256": "6426a7bf2e29d7bd58df6b571e33c0d9b3818cbb981ca48afbc7702c980bd730",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-allele-product",
+      "definitionSha256": "fb14fd2e01eff10d5dcc568b739006ec44066eaca6c2b77d244e03dc896379c3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-polygenic-trait",
+      "definitionSha256": "d92ff2539e0db41e69c8207d7c788e32ff9276103c56b8330343fd83bf19ffca",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-environmental-influence",
+      "definitionSha256": "24bf42ed7c8e6c8046292d3cf031ef68eac54e43c37f4818ef194b5194eb0d9e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-continuous-variation",
+      "definitionSha256": "ab9dd9f5085a5a4ea51dbc0829b79915fec9070fc1b6007cc57d79f7621aba83",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-p-generation",
+      "definitionSha256": "03ecca96c5efcd92cc8551b6367b13224ed51b245e89499a648a07cbbf14d4b2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-f1",
+      "definitionSha256": "c9a094ff0bfcf528993c1d768eff20861ea72f2634ad90ca85c0f181c8d69bcc",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-f2",
+      "definitionSha256": "9a77b45591700699a16d045bbe849f21d56310a75013d70a4dabf7aa535746e7",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-true-breeding",
+      "definitionSha256": "997616547be0076caf099bdd3a11a9d75bf1bcbb24323a8bc66dc75c48586d2e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-reciprocal-cross",
+      "definitionSha256": "9780ca544beaeca264b9d60f363362a9ec72e5eb6c2ac11014593cc23f30ea08",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-allele-pair",
+      "definitionSha256": "c3dda49264b2740ac0d6374d2569d07a59a3f2f8aa942810c876433b46a0dbcb",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-segregation",
+      "definitionSha256": "cb384483c185fa4ba7197d6bb60253a52ad89603b22b37e66c1b4e769ece4e29",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-autosomal-dominant",
+      "definitionSha256": "2d4753a7853de104d7977d68ea39fbe2e00d79a45d2e0539bd9d0f367aba7f1a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-autosomal-recessive",
+      "definitionSha256": "284c4f04ef18e496632b362811deadc836a0363666f63b614b9d75e2b916b488",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-punnett-square",
+      "definitionSha256": "5196c37b1f574b995e5cd3910d40c309e9c455f9932187ba4b91422baefad7b1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-test-cross",
+      "definitionSha256": "503f8cd91e85413430d1a0dccc8181c39411f35404fc3f00fde8504a7a20b27d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-independent-event",
+      "definitionSha256": "a930dc706149942b958b1bcb64c83d2509a1927ccb7a45395fdea78046d34d36",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sample-fluctuation",
+      "definitionSha256": "caca971726e1e8decf01f196cf54f84880556bcd31ab0ff00a03e6600d4bb701",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gamete-probability",
+      "definitionSha256": "ee76b955c366a570fb14db5f2bbbd37b369bcc3cb72cfec6c9d2ceb45664b5a5",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-genotype-ratio",
+      "definitionSha256": "4d0497a12f4e0b9bd61b8260a71634b02b6a4c214ffc974f3a3db6673713782d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-phenotype-ratio",
+      "definitionSha256": "78c512d2bbba01047888acd0b6b6487507983f06c3065a1d92180d0c99eea52a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-product-rule",
+      "definitionSha256": "426a6c70843caa078389d184ff4e32dede5434639040540eb85c7766b4ebb455",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sum-rule",
+      "definitionSha256": "eb0d29a7cec3b04625f42ce75c19f4a22db1c195a0e1038e7c2d80ad152ce56d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-independent-trials",
+      "definitionSha256": "458058a03d224baf5ef487880628aa46e66df9b05cbd67cba9954fb4f9da7524",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-four-gamete-types",
+      "definitionSha256": "017d4e28d1c44042fc057fc04892f5e254acacfb9309b495a3a6510d619a97b3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-two-loci",
+      "definitionSha256": "398eb8517faa466db3d5b482f11b466ccfd9307fa5dc45e429074ef6cbf92d92",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-observed-count",
+      "definitionSha256": "6b4ca9d1d779be3ad7e60f6ded9d991b9ec46e3372041dd091676e0ae8601541",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-expected-count",
+      "definitionSha256": "e4a7c4b5dcbbd1345de407d80d613eb8f1b72dd914410547fe9e3468c6c5a60f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sample-size",
+      "definitionSha256": "ddb003d02cd887f10b574bb7e30d474160fb36a2ad0b20e238b295c44505adb5",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-intermediate-heterozygote",
+      "definitionSha256": "3766dc5a94d1c44b1627f3a4186f49e28f08ba5b2a0d61a0bd2f2d35f4e63d8a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-codominance",
+      "definitionSha256": "10a1539568163292f53116a01c8c3fd9d32df61834998d532708a0948b642520",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-abo",
+      "definitionSha256": "ba829dbfbc84a1d5a019f0c6d05b09cacb45aad233f5dae8afaa1720dd89968f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-multiple-alleles",
+      "definitionSha256": "e3b5adf1716e38e15df3ce00def8430175d152c7450f2cdf6a5858115feef2a3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-x-linked",
+      "definitionSha256": "e214c90a7645ca845f07b61b9ec4db3ed2c64d1629be9a85ac5380d9ca0d7798",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-y-linked",
+      "definitionSha256": "65806aef56167d7acf9c7183bdfabdad2f10425034159eef98704b027bdf6b08",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-autosomal",
+      "definitionSha256": "8cd0ae2dbb380105c82f1168db77169b15e8548de34c5f1c8fd3bb8b0e2025d4",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-hemizygous",
+      "definitionSha256": "9b69d7f92f2e75531a70b1f5cba5d47ecf9c9161ffbff4b21e87a76bf5e56d25",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-polygenic",
+      "definitionSha256": "d92ff2539e0db41e69c8207d7c788e32ff9276103c56b8330343fd83bf19ffca",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-environment",
+      "definitionSha256": "3d9fcc1bce534e04f6ef928bfe0379020b718b0634e12638e66ff2438d7fb70d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-inheritance-model",
+      "definitionSha256": "63bcf18bb3476a79ffcbd3e04ce714d0044c4b839b0417309f81d4effd35545d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-notation",
+      "definitionSha256": "a2fcbe228fda68ae74f66fa0b76edbb9104f6e7aa9367c45bd9dcf9449f83714",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-conditional-probability",
+      "definitionSha256": "aaf4ec124dd201d2f40fb7f7a68e6bb1e51ba5b57811de509d5341603f8f8eeb",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-pedigree",
+      "definitionSha256": "d42bb507a80e0fed276c4286c980fadbce95c06b76d8e518f2d3c15a80b0140a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-generation",
+      "definitionSha256": "926a105818603b965c637e3c91590e716dc335ae300d581bd6ab92f4b8e85bfd",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-individual",
+      "definitionSha256": "acdf810e813c7df8a619b0ec47c72a73e838c696759aa68c977a7834a90e3a1c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-affected",
+      "definitionSha256": "338faad22a45b302e2900bf125c4267245edfc20c0f642c6ec98c73a6b0d762e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-unaffected",
+      "definitionSha256": "139886ae818f74cbb1040ec1a6152adde543c63fad35f3acda5f4a8d0944d119",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-carrier",
+      "definitionSha256": "d516ca15a7c6b1d3069a17edd0209205e26773e37ebdb74ce1ec657e510b0e0a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-unknown-genotype",
+      "definitionSha256": "3bceb9bbd95f0e53aa20983da792ce58134ced1e0a8298d90d42120ded26f01b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-x-linked-inheritance",
+      "definitionSha256": "e214c90a7645ca845f07b61b9ec4db3ed2c64d1629be9a85ac5380d9ca0d7798",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-transmission",
+      "definitionSha256": "d2c6335b7ca7c3f22cfef8c40daa58853c0b214e7c428e368f7975c50afd8c36",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-alternative-model",
+      "definitionSha256": "45f38c861bea94b307575c04b17332ce2e00c2f90b2b56b2d5edbf9ae067e8f2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-probability",
+      "definitionSha256": "4d0b401aefe3dd464565feb4cfb90e9dadc7799ffb1203cccee8810e386e56e2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-privacy",
+      "definitionSha256": "bcb1fa49cb587841e21fce0040bed750910cc261faa1e0b2a62eac032e9b0d10",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-consent",
+      "definitionSha256": "864e59ebc6b9b24f946e1c2f957ec515e040107db8214b9764a86e2610eb33fa",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-linked-loci",
+      "definitionSha256": "adbba034367f91a9377a03dd7a2747a6e8c771975b98a1b1e7d684769efe7230",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-parental",
+      "definitionSha256": "baa1916ecd7e6ca4e5b4e8b3e4fb06db21d77ffaa7ab2058e123c9a1f49562cc",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-recombinant",
+      "definitionSha256": "80f5e8a5997435076d88d3413b33eebd3e28cdb49763733e482ac85d1ae0e2b1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-recombinant-count",
+      "definitionSha256": "3aaa3dd46c0da478e27e2d149f710717c5299d8461ff78659e6b7f57bfc161cf",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-total-offspring",
+      "definitionSha256": "d71beaec073c998097d872bf6b9dcd140d0d1630f6dc3fc904fd152728efa851",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-map-unit",
+      "definitionSha256": "b86de33a40ab981aa7759ae97b046c7e6bb7331402f819342ee58ae7172fb054",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-pairwise-distance",
+      "definitionSha256": "b2c9cccf3615d3a2d0ab81d32f221671ec8893321632ea5efa33423b1a8979de",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gene-order",
+      "definitionSha256": "3c2024971a0fadbb1159feb5cff87545a6791e18fdcdaa3938fe5ac8cbe80658",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-reversed-map",
+      "definitionSha256": "e51b97c33fd03c5d352e6fcb2dcd5d508858eb55314e51ce9303e62b04088ef1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-fifty-percent-ceiling",
+      "definitionSha256": "5865fdfc1c32b3feec14a53dc2683fcfd19ad9dcc711d404adaae51390e47afb",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-multiple-crossover",
+      "definitionSha256": "0dea02cd13e3f915395f6025234c2e107fdf9936be2760df449fdda9767eda02",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sampling-uncertainty",
+      "definitionSha256": "665a1403043a331ab2797d5d4f8a6757b7c30bfe66080738a3fa129838d26be5",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-transformation",
+      "definitionSha256": "4c275249aeca773f76da37764affdb1d15249ba4a3a6c3a4718759d82f0b1df1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-experimental-control",
+      "definitionSha256": "a1ea98d048787dc2bb106a248840b2c473db1f7d69094fa850e53baca20e3184",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-protein",
+      "definitionSha256": "caf3cbc60cafadeafcbb108b403143aee6097110e69ea1c9cbb7b01851a3081b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-phosphate",
+      "definitionSha256": "5afe8511ee4d22c101d763d8b17b880d763d089e16b404038cb7dbe2ac5a3c99",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-deoxyribose",
+      "definitionSha256": "30ef3326004fa8b0d3f80c664c459b31e6fc7f62d17b432528223370e5c3326b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-base",
+      "definitionSha256": "c7a85fb98d4dc7f754fa8d0c55eae6c3fd048c2d5c3be484aaa1965119b05fc1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-5-prime",
+      "definitionSha256": "f34232b82f20cd0b55052caf263534af5fb4cdc5bffe7238cd526c9d37202fc3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-3-prime",
+      "definitionSha256": "b48a47883b7a51312bec3d31db6dbe0c0ef5d9c5722d331fcecb4c9605c76503",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-franklin",
+      "definitionSha256": "603c87e5023f59b0b3d7e3b604968070a51dbeb23fed880bbdc6c264cd77b6ad",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-watson",
+      "definitionSha256": "abd14798b6db905edfd4f28118c66eb23811b5250c19bcf552b254f996766e0c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-crick",
+      "definitionSha256": "f6bad503307c39c97b915a8ddb8f2d145074041a2f7e5f111867a246df49e22a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-x-ray-diffraction",
+      "definitionSha256": "cbe02b9e34f8f5d37d328f5227d9e406cae98a4b285532672fb04eab248ee00c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-chargaff",
+      "definitionSha256": "f3ee384fb1ee939359e3e493fc7479ec443f641b7b2ac88bb3bbe34014e36d60",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-complementary",
+      "definitionSha256": "c11eadb62a29ed06a929d799503293a970f275c243abe0937818b373a9494127",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-antiparallel",
+      "definitionSha256": "910cfa04f89d8d2b4ac18213bc38ffd2a94bc87e68900216a00a97941b1bf115",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-hydrogen-bond",
+      "definitionSha256": "3f9592dfa35fd754a8e6b3e847c3b5c872615c5e9a914f76ac18da8447b624a1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-backbone",
+      "definitionSha256": "e7aa3da92874518b118d27137e100e5d013927d4cc6e27626d317d1aa550e2c6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-template",
+      "definitionSha256": "56f8939aea83687291f2d7461a4eb25c3ab2e4a31b00764c6f96a4e095b5d2e3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-parental-strand",
+      "definitionSha256": "247a38fb0b79ca5dd2410025541d141e586dcebc932e5dfe9ed84dbcc8eee4d9",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-daughter-strand",
+      "definitionSha256": "c585715eb84699fef8c7ef15239451efcfe2493389e82cdffd7484b90ad50b26",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-helicase",
+      "definitionSha256": "203273ed4b534dc040a3e5929b86fefcf79e89e4f83751d1f3d82790358f69c1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-primer",
+      "definitionSha256": "49d5cf92bb1b5e7b506f20ae0ae7c8130d78957de582c18d19246cbf06a10e74",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-dna-polymerase",
+      "definitionSha256": "480145707a8d67db11fe8aa1d2d8d994347142dffcd7b0418e17b139552b93bf",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-5-prime-to-3-prime",
+      "definitionSha256": "ef38ab11075fe3166cd03bfa98db87e5c5faa7f83af5c3d7652fc446a3b3db1f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-replication-fork",
+      "definitionSha256": "b051084bec9f410263afeab9253c320ff305774c33cedf8ead0b7a7c6ee7d6c8",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-leading-strand",
+      "definitionSha256": "38ac2ce0244babd1121c0d301da7091808285ebb618d6a172db9f8f32290147c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-lagging-strand",
+      "definitionSha256": "3a95c915eca55b9bd1104836f1a7a0872a5cb93ac2c5262a313cfd39a68ef178",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-okazaki-fragment",
+      "definitionSha256": "50103900310224fb862ae09557f9716c8b6501da1586ccdf0c25fe32d075ae86",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-ligase",
+      "definitionSha256": "74bd5cf7eefa63de0502da2392df031025a77aca96668983903e5eeb11aa8d0f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-proofreading",
+      "definitionSha256": "0ab6ba8fd066aac2cb159520ec88a3497c57138612e1991f651df777bbb1438b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-mutation",
+      "definitionSha256": "4329dca204a00e8b22014d84d70daa6505c2cec1f232a119aff61b14d6b09b41",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-experimental-prediction",
+      "definitionSha256": "23a05cfdbb7df24601fb8af3f94d1893554469fdea7547681b8beefc8d6c95cd",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-promoter",
+      "definitionSha256": "d49fe3fbdd33d1cb5010e4e0181a3464095ba046639fb8c3cf4a0f0effe6be9b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-template-strand",
+      "definitionSha256": "3eda7bc288d7ec4d20fd0cd394caae31cd79f64c00c158bd3764e7d9fc86b8a1",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-coding-strand",
+      "definitionSha256": "2c786fc7ce13cb95b1be9af51ad26a702bb5b3d679fc2719cd906ed1e77186cf",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-rna-polymerase",
+      "definitionSha256": "d1009674a533957162462f5aa38da1271ee55412fc0634d7b77196e9a626fc1d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-rna",
+      "definitionSha256": "9f55e73768b67d8802269426bb06425748cfbc66c826f6561aac03faeb44f9e2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-uracil",
+      "definitionSha256": "31313af7a1ada1dd1c150147612c7d3a51119dd944fe5c29ce9615bc46a07308",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-complementarity",
+      "definitionSha256": "fc518c55c8e0263414bf1f468ff03ef68e7608a4140c0de824f75af9e7d2cc86",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-mrna",
+      "definitionSha256": "16c42bacdc9f100f2ab5806e1557a999b550b4ef55ff5dbf7fe1246f2c8408db",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-intron",
+      "definitionSha256": "7f786c00a9c3e14af25eb8222a59d285ed95d0a826be6c83f6daaf18049e4353",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-exon",
+      "definitionSha256": "7b4bbe2c38e91972507f3b458bcc35f3e10b63788b97c142c28800bb7e7d2850",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-splicing",
+      "definitionSha256": "a197aa73f670b6df23761bde0b4076cb05b0125ae8d3ea452e4aad151c01eeaf",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-base-pairing",
+      "definitionSha256": "fc518c55c8e0263414bf1f468ff03ef68e7608a4140c0de824f75af9e7d2cc86",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-direction",
+      "definitionSha256": "a5bd35e780d271aa53a3f095bf05b4754c077c3d459160b4603540685bdc4677",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-rna-abundance",
+      "definitionSha256": "e8d2e97fe72f04ff4b351efde2ef8b5ae49b986c85aab13d1c50c4bb8f9b19c6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-codon",
+      "definitionSha256": "a29e0aa1f2b4cbbcb903094279b238527648332fa3a3a5d63f2425e298f25993",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-reading-frame",
+      "definitionSha256": "a3965b15a14a792e162694c9cea471002e76e9ff26abd809c162213a1276397b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-start-codon",
+      "definitionSha256": "4b7c649d41ff970c2dae63a48a0431b8d3c708b81c668960e508c5dd08e46234",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-stop-codon",
+      "definitionSha256": "9b79153809c12e87072215afd7cea01f59e7b8d6d532a1c38092eaeaf5aa008c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-trna",
+      "definitionSha256": "62386861f9116ae6da0ce950acb362d5c936eed85f4d4fa2833279b5106b8b18",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-anticodon",
+      "definitionSha256": "0e7feb7e6e997533ee76f457828b9495588a6e05426b2509bd098ff7d2f52392",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-ribosome",
+      "definitionSha256": "bcbed7ddbcb92b3a6cedff441c6d257ffe447e23bf3f4956e3ff283aeffd93d4",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-amino-acid",
+      "definitionSha256": "9995d26b56c95ecddf78bd0c2f1059b6c2e7a1c7d151e32075df85e88d709755",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-peptide-bond",
+      "definitionSha256": "b1c6ce8ec5c5f93e3f8e186ca70de39710d53540b617358fa566cf5ba41a5d29",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-initiation",
+      "definitionSha256": "cab6b6153c09677d42c87f86732684fc9d4d87aab5af2ad9e1b1239816ac957e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-elongation",
+      "definitionSha256": "602ec2bd4b294a01bf82e674f2d8274b54d9d6b045ddd382210930064fba473d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-termination",
+      "definitionSha256": "0d86512f7aa221f70dc3977632a3d50af6c3dc3fcd0d4491388d40b856dafcf3",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-release-factor",
+      "definitionSha256": "ae69c6dac7d1f9464346870e75df1b861ffe33ed78ab9b075680fa651e3e5e37",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-polypeptide",
+      "definitionSha256": "b979d151efc36c9731360dbe36dee70c8bd98d3f0b49eb12316856f4e249565d",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-folding",
+      "definitionSha256": "b6ec4f26b1fcd008eb96b67ebfb4acaf0ca065457a677a989837f4273e15f4f9",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-protein-function",
+      "definitionSha256": "8e18138646788d897db9e554a31a627febefb5cd2ac78fd80554f97858ed1ca6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-substitution",
+      "definitionSha256": "1dd2dea3101985208a4b6b9609e2e353979507ddea9da16cc626d1797ec36962",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-insertion",
+      "definitionSha256": "ddc1798782fbed1c398f0785aef9261a84d8ea9b702298bd39157b7866486313",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-deletion",
+      "definitionSha256": "404077b3f1fb99627fbcd642d203128a394ee48f39259a5629086838b2ee734f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-frameshift",
+      "definitionSha256": "10138573c8ce951e858c96e9b9712e8456685777090f5c03815e617b1c7738c6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-silent",
+      "definitionSha256": "dff038885f390762286e98983c59d3be9a150c1343d75e53d603ee7a171a1c9e",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-missense",
+      "definitionSha256": "59b689bb9033c9307e73645175cc64a106922bce68c9bc8fb8efd6bcc3615e70",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-nonsense",
+      "definitionSha256": "88f9436819860029134fd087a94c09018501a1f384e4f707c795f35360d225db",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-regulatory-mutation",
+      "definitionSha256": "774193ae5b97b08d5d543a14255a1d830e26643a1217bc7120cf0ca81e66f2f6",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-somatic-mutation",
+      "definitionSha256": "9a227d59a8bf1386e15b47bd8fbeb828de980eb3fd755208c884e6a465d49f81",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-germ-line-mutation",
+      "definitionSha256": "1f7a7b908d10fc4a0a1a8fe361bf3b5008272178bb36f248247261397dbe6741",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-random-origin",
+      "definitionSha256": "e9f922f35a1fd8fdf988927e353e71bd23b7c06bfb66d8c714bb79bf54a16eb8",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-selection",
+      "definitionSha256": "a0187f1a2e85f2ebc5c237533f1915cb05d281fac6d31b234b0641f121907d4a",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-mutagen",
+      "definitionSha256": "451c94b855d0c6a50d23e6a619d3032a3560f93f5cb2dcb0d38c0452d6da736c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-dose",
+      "definitionSha256": "e5f5c14c965c9a68fc4f53679964e702c391e3d015fdf45feba621a3321ddcb7",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-control",
+      "definitionSha256": "2267ca728a67fd80e265e521607ab2327126fae1a8e88e7ca791fce1c29966bf",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-uncertainty",
+      "definitionSha256": "9f5afa466d793bf3c496ed9bf6a11b4de4f176d942579fd4f3daf37d2857a681",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-restriction-enzyme",
+      "definitionSha256": "39d3ed8e923b203f180585c146118a4fe5a4a8a6325aa9edb2697eecb42d4a9b",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-recognition-site",
+      "definitionSha256": "ba0c63d1058ddeba24f8c328bcb719f5f4839007695c9f78564f530f96a26a44",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sticky-end",
+      "definitionSha256": "1ab0365796ab5661d45d25db664a21d21684b11a1820c88cb44f521f65a63abe",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-vector",
+      "definitionSha256": "2358edb7a179c22c603c39eff4ac777555ae8da15095d03fe2e1c48baa5424e5",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-plasmid",
+      "definitionSha256": "85fde1fdc4c6a6294aa367a880ecaf4e1b2edbfdfebe9a810162bbb9ec806f23",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-insert",
+      "definitionSha256": "82115e043fc5d07bf2cd20a75ac7c0e5c370c10a2a0c02ed577b3e4986716fc4",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-pcr",
+      "definitionSha256": "1b3af1a94bac75984b53a3b2c2e377d82c50aab618561e10929bcd05957be1a9",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gel-electrophoresis",
+      "definitionSha256": "32eb1b1a051822515da7ef8c075c4c1a3fa270baaa7b0f15619d5607d0901d08",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-fragment-size",
+      "definitionSha256": "0cc941b2a2a92482677586d9f5ee17dfdde1237bfa9b4c2bf4a6eb915282cbf2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-ladder",
+      "definitionSha256": "229212bf07ee38a1c0c09af7fb9792c2358add75f3f11bb6a10ce2c4645e4e59",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-nuclear-dna",
+      "definitionSha256": "8ef2f4187e15b1905631bcee9f62cabb1525b8dd5d68ec5ad7b70c1b84231ae9",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-mitochondrial-dna",
+      "definitionSha256": "6efcac351f68458896f8e478e3d8c10ded98aa5b4043b529b989a40f01dfc32c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-chloroplast-dna",
+      "definitionSha256": "60327b86c9fcc984c76e8f37e8e92669be454ed781810f4fbb903fc5ed9f20c5",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-sequence-comparison",
+      "definitionSha256": "1befb1aee35e81eb3d7cb9f90d684cd1d8663b8d57936d08a23484a798092bae",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-gene-therapy",
+      "definitionSha256": "a658cd7594991137e31b3765ba05af45bc2eea7d57d9d75a11eba70c98695941",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-genetic-testing",
+      "definitionSha256": "054b0bf409b39c1907743db60b3711507d2c88212fc92b76dd772e9ae2c61b6f",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-risk",
+      "definitionSha256": "ad2a77ac0b80a378d18a269a7f5a5215efa4fce356d1773678697cf946c26798",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-nondisjunction",
+      "definitionSha256": "ed73d9c049c803be648a9be41b25501da8e1c0055b161c439e33ced29f6b9cc2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-binary-fission",
+      "definitionSha256": "904e9f7e2b7a2dbf9d44df45e5e1c7724a6fc1d34f5290abca74c4f882d1319c",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-bacterial-conjugation",
+      "definitionSha256": "5d687439bfde9a619de0401fd94b137d4288aaea36894e017911546b957a00e2",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    },
+    {
+      "id": "c-term-somatic-cell-nuclear-transfer",
+      "definitionSha256": "022d805694b79f24debcdef200d1f493e84c11d8dcafede72ff22905f008b4dd",
+      "decision": "Current definition wording author-reviewed; placement and all-surface prerequisite proof separate"
+    }
+  ],
+  "corrections": [
+    {
+      "id": "c-term-dna",
+      "term": "DNA",
+      "prior": "Deoxyribonucleic acid; the nucleotide polymer that stores hereditary information in most organisms.",
+      "corrected": "Deoxyribonucleic acid: a long molecule whose sequence of chemical units carries hereditary information."
+    },
+    {
+      "id": "c-term-chromosome",
+      "term": "chromosome",
+      "prior": "One continuous DNA molecule with associated proteins and organized genes and regulatory regions.",
+      "corrected": "An organized DNA–protein structure. Before copying, it contains one DNA molecule. After copying, it contains two attached copies; when they separate, each is counted as a chromosome."
+    },
+    {
+      "id": "c-term-gene",
+      "term": "gene",
+      "prior": "A DNA region whose transcription contributes to a functional RNA or protein product, together with relevant regulation.",
+      "corrected": "A region of DNA whose information contributes to a functional RNA molecule or protein."
+    },
+    {
+      "id": "c-term-homologous-pair",
+      "term": "homologous pair",
+      "prior": "One of a pair of chromosomes with corresponding loci, one typically inherited from each parent, though alleles may differ.",
+      "corrected": "Two chromosomes with corresponding gene positions, usually one inherited from each parent; they may carry different versions of the same genes."
+    },
+    {
+      "id": "c-term-centromere",
+      "term": "centromere",
+      "prior": "A chromosome region where sister chromatids remain joined and the kinetochore assembles.",
+      "corrected": "A chromosome region involved in joining sister chromatids and attaching the chromosome to the cell-division machinery."
+    },
+    {
+      "id": "c-term-dna-replication",
+      "term": "DNA replication",
+      "prior": "The semiconservative copying of DNA before cell division.",
+      "corrected": "Copying DNA so that each resulting double-stranded molecule has one original strand and one newly made strand."
+    },
+    {
+      "id": "c-term-spindle",
+      "term": "spindle",
+      "prior": "A microtubule-based structure that attaches to and moves chromosomes during cell division.",
+      "corrected": "A system of protein fibres that positions and moves chromosomes during cell division."
+    },
+    {
+      "id": "c-term-kinetochore",
+      "term": "kinetochore",
+      "prior": "A protein complex assembled at the centromere that attaches a chromosome to spindle microtubules.",
+      "corrected": "A protein attachment structure at a chromosome’s centromere that connects it to spindle fibres."
+    },
+    {
+      "id": "c-term-metaphase",
+      "term": "metaphase",
+      "prior": "The division stage when chromosomes align at the cell's metaphase plate and attach to spindle structures.",
+      "corrected": "A division stage in which chromosomes align near the middle of the cell with attachments to the spindle."
+    },
+    {
+      "id": "c-term-spore",
+      "term": "spore",
+      "prior": "A haploid reproductive cell that can grow by mitosis into a multicellular haploid organism without gamete fusion.",
+      "corrected": "In the plant life cycles studied here, a haploid reproductive cell that grows by cell division into the haploid stage without first joining another reproductive cell."
+    },
+    {
+      "id": "c-term-protein",
+      "term": "protein",
+      "prior": "A molecule built from amino acids whose sequence and folded structure contribute to biological function.",
+      "corrected": "A molecule made of a chain or chains of small building blocks called amino acids; its sequence and folded shape help determine its function."
+    },
+    {
+      "id": "c-term-base",
+      "term": "base",
+      "prior": "The information-bearing part of a nucleotide: A, T, G or C in ordinary DNA, with U replacing T in RNA.",
+      "corrected": "One of the information-bearing chemical units in DNA or RNA; ordinary DNA uses A, T, G and C, while RNA usually uses U in place of T."
+    },
+    {
+      "id": "c-term-genotype-ratio",
+      "term": "genotype ratio",
+      "prior": "The proportion of individuals in a population that have a particular genotype.",
+      "corrected": "The relative numbers or probabilities of specified genotype classes, written in a stated order; for example, AA:Aa:aa = 1:2:1."
+    },
+    {
+      "id": "c-term-phenotype-ratio",
+      "term": "phenotype ratio",
+      "prior": "The probability of a scored characteristic after translating genotype possibilities through the inheritance model.",
+      "corrected": "The relative numbers or probabilities of specified observable trait classes, written in a stated order; for example, dominant:recessive = 3:1 in a simple complete-dominance cross."
+    },
+    {
+      "id": "c-term-linked-loci",
+      "term": "linked loci",
+      "prior": "Tendency of loci on the same chromosome to be inherited together, especially when they are physically close.",
+      "corrected": "Gene positions on the same chromosome; nearby positions tend to be inherited together because crossing over separates them less often."
+    },
+    {
+      "id": "c-term-mutation",
+      "term": "mutation",
+      "prior": "A change in DNA sequence that can create a new allele when inherited.",
+      "corrected": "A change in DNA sequence that can create a new allele; whether it reaches offspring depends on the cell lineage and reproduction."
+    },
+    {
+      "id": "c-term-rna",
+      "term": "RNA",
+      "prior": "Ribonucleic acid, a nucleic acid with ribose and typically uracil that has informational, adaptor and catalytic roles.",
+      "corrected": "Ribonucleic acid: a molecule related to DNA whose chemical units usually use U instead of T; different RNAs carry information, help assemble proteins or carry out other cellular functions."
+    },
+    {
+      "id": "c-term-amino-acid",
+      "term": "amino acid",
+      "prior": "A building block joined by peptide bonds into a polypeptide.",
+      "corrected": "One of the small chemical building blocks joined into a protein chain."
+    }
+  ],
+  "synchronizedPreservedGlossaryTerms": [
+    "replication"
+  ],
+  "teacherDecision": null,
+  "glossarySenseChecks": [
+    {
+      "term": "gene linkage",
+      "decision": "Restored original correct definition; distinct meaning from the introduced pair, locus, ratio or factor term."
+    },
+    {
+      "term": "homologous chromosome",
+      "decision": "Restored original correct definition; distinct meaning from the introduced pair, locus, ratio or factor term."
+    },
+    {
+      "term": "phenotype probability",
+      "decision": "Restored original correct definition; distinct meaning from the introduced pair, locus, ratio or factor term."
+    }
+  ],
+  "preservedMethod": "Read every complete preserved glossary definition (B58/C133/D45), including terms with different names or senses from introduced entries. Correct only identified wording errors. Keep the one exact-name C nondisjunction duplicate as preserved provenance and bind it to the introduced entry for a later single learner glossary display. This review establishes wording integrity, not occurrence placement or teacher acceptance.",
+  "reviewedPreserved": [
+    {
+      "term": "9:3:3:1 ratio",
+      "definitionSha256": "7102f9b3fd1386c69db56c523410f22fbebb7092c2cfd8a6b602271f6ab72eba",
+      "decision": "Name the double-heterozygote cross; a generic dihybrid cross does not imply this ratio."
+    },
+    {
+      "term": "A site",
+      "definitionSha256": "06698d3cc57a3644c048530b776da27a57ae2ac47f7eb0c082e73943fa8f13ff",
+      "decision": "Qualify elongation rather than implying every translation event uses the A site this way."
+    },
+    {
+      "term": "ABO blood group",
+      "definitionSha256": "ba829dbfbc84a1d5a019f0c6d05b09cacb45aad233f5dae8afaa1720dd89968f",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "Chargaff's rules",
+      "definitionSha256": "cc1ab2211b6c2aa64e1b4989bac7b76eee8556f6913b998e126e94a1bc6de153",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "DNA ligase",
+      "definitionSha256": "74bd5cf7eefa63de0502da2392df031025a77aca96668983903e5eeb11aa8d0f",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "DNA profile",
+      "definitionSha256": "51376674675c5e9b9eee9ca4f2985a31a4b41b7a81ba790ca29481c78f9e4605",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "DNA sequencing",
+      "definitionSha256": "b63f8b32bf15d1dbd05a997defbb246e9521c83aad3ccb36309376cbe06f0639",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "E site",
+      "definitionSha256": "9af78409c971ee54bbd797e54dfd6337f08beda532e16809332ed3fcc8a9a134",
+      "decision": "Describe the exit state without confusing transfer of the growing chain with donation of one amino acid."
+    },
+    {
+      "term": "P site",
+      "definitionSha256": "160406701a0695dabe2981bc5b2fa2b1a99df641a6dac650df8f901fccddd534",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "Photo 51",
+      "definitionSha256": "545ac705d96660aa17da6ad78eb9a36f73c3d46ae8e2d5b5105ff2666a6438b4",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "RNA splicing",
+      "definitionSha256": "a197aa73f670b6df23761bde0b4076cb05b0125ae8d3ea452e4aad151c01eeaf",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "X-inactivation",
+      "definitionSha256": "6a393864ae097e39ccd11fade75b2a56c5ef8373bc5f9de1141873ea4f8c5e2e",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "actionability",
+      "definitionSha256": "1a6b6de4a477d559cbe69aa9818044aaeab4bd78dcb5480f8b115ca607f7e638",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "addition rule",
+      "definitionSha256": "eb0d29a7cec3b04625f42ce75c19f4a22db1c195a0e1038e7c2d80ad152ce56d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "alternation of generations",
+      "definitionSha256": "9603e5532c50e92fc57382c59d23b3bb0922bf20664612e8ed6c8c521c7914fb",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "alternative splicing",
+      "definitionSha256": "6ea59f67b607bb203c3c2f363f97ab85e56dff0304b481340a5ebb754227246c",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "analytical validity",
+      "definitionSha256": "c18c99a15102bb6aff820b1499ae0ecdd22430d2e8036d1c242c943263c24f53",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "antigen",
+      "definitionSha256": "cf6831b6d3036697c5adce0f7615f61af5591155d7674e90b358977065aa880b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "apoptosis",
+      "definitionSha256": "4cde83c2ab6538152633dfd2b8f9a9e0411bff07ed12f8ebf449f2006fd36d49",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "banding pattern",
+      "definitionSha256": "84bc927f3f40d8b7633aa423d72618112cd81111b392ea9a73f32f568a9da2e2",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "blinding",
+      "definitionSha256": "eaf0ada8ab0f89263aa34bcfeea05d6f9380cbda03147d98215921f41e9e46e1",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "blunt end",
+      "definitionSha256": "9b5525426c4f860158057ebfae0637dca68b9d8cbd9495fff01c5d7c546da6ef",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "branch method",
+      "definitionSha256": "cf76a82c3f5b79ad88aabd12c49b5251d5642d4fa4ac2f479e8598b839a98679",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "cancer",
+      "definitionSha256": "eca0f5538902d4d37ca16af6c66f044c5076e4c58d50dc14cb56141b9c5b3c5a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "cell cycle",
+      "definitionSha256": "90ebccd8aabd1e6040c073f16722caf4809ab55d1ca381c42d2520ec53521c54",
+      "decision": "Qualify the dividing-cell context; not every cell continuously follows this cycle."
+    },
+    {
+      "term": "centimorgan",
+      "definitionSha256": "e5c66cfe73792cd33c98c7fe89da31e266e4e9db7f0237971d2d95a87d23e260",
+      "decision": "Keep the short-interval approximation and distinguish genetic distance from base-pair distance."
+    },
+    {
+      "term": "chain of custody",
+      "definitionSha256": "52039912e360240b5d674dfa882884c4c860979372c388116863f85e1f33ecbf",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "chromatid",
+      "definitionSha256": "97f8d077d640d66bd809b51df5d702919a5bea5f93727ef9d04d1c84ca2821f8",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "clinical validity",
+      "definitionSha256": "57500b21011241b2ddd81ae3847b0df11b89636cebb2f4281dcde13b18ee8ebc",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "complementary base pairing",
+      "definitionSha256": "fc518c55c8e0263414bf1f468ff03ef68e7608a4140c0de824f75af9e7d2cc86",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "complete dominance",
+      "definitionSha256": "580253637a7d8dea33ca0051a0d679edf41af3346286428b13c849c159005100",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "controlled variable",
+      "definitionSha256": "334512e3b87397f19c7b8659d70ce276ed379a5308a2e3dac70af4b2bb34d5a2",
+      "decision": "Holding a factor consistent helps control a comparison but does not guarantee absence of all confounding."
+    },
+    {
+      "term": "converging evidence",
+      "definitionSha256": "88925091acc7c1a208b9d01b3eecd35e03ad5636298601bf9bd302f783e8c2cf",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "cyclin",
+      "definitionSha256": "732c97580b157fbbc4181892c174891784463af695eca2c92a12023e775a51d4",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "cyclin-dependent kinase",
+      "definitionSha256": "99f3217e5cecda535d31787682af9052cf99eefbe255638a8094a54b1eb3f3cf",
+      "decision": "Cyclin binding is not the only activation control; explain phosphorylation in ordinary words."
+    },
+    {
+      "term": "data sovereignty",
+      "definitionSha256": "c1be67dd506d9007ad96b6e3d04e95b07cd04ee71b47403d6bc0f9f6786fb65a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "dependent variable",
+      "definitionSha256": "bb1b45dd18df173aee8ea3829d04997533f113680b75a9ed5a9536dcc45651c6",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "dihybrid cross",
+      "definitionSha256": "2221fea1ffa52aa3696db535397cfe7a18eece6b571d4b59e673acb76e7e1087",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "diploid-dominant",
+      "definitionSha256": "984b0b95101bef70e9896afb7da29f76fd07472d4ea94cb1c2e622c33edb678c",
+      "decision": "Do not generalize the animal gamete-only haploid stage to every diploid-dominant life cycle."
+    },
+    {
+      "term": "double crossover",
+      "definitionSha256": "15054e0fa843b00f82d5c9dd4ef59cd744b0cd0a0300c662cc560fce80a391f7",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "double helix",
+      "definitionSha256": "227e637188ab3b98374a34eaf7d4e62b13ae1b5dbef7cb0b2aefc7a7f9088a91",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "driver mutation",
+      "definitionSha256": "49e0d7f3b6bda747cfed4c7608444352a61998f82718021a731840b52fa6d79d",
+      "decision": "Define the causal effect without requiring somatic origin in the general term."
+    },
+    {
+      "term": "epigenetic",
+      "definitionSha256": "d11c34c32488e440890348b87e67a4a2d1faba279db229d5a11cfcea985ebc4d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "evidence scale",
+      "definitionSha256": "3ecd8589be6ccc34d4963085fa7e82bc6e583b79bb8c738e7c90a98e83023086",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "expressivity",
+      "definitionSha256": "a99b05a962eec9f1ef140ac69243e062cba66bbbc4870fc6e57cbe8fa4abd384",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "functional assay",
+      "definitionSha256": "e2d42661a87aafec44be8ff43d399fbeb8a767cd90db23a9db61e32731597966",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "gene linkage",
+      "definitionSha256": "74b2ddc20a2f031c1a8119af2adcdb101278713f05e2a441e990e6aeb636d5c2",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "gene-environment interaction",
+      "definitionSha256": "149c266be9349ec46cb52ed683ee19aef641f2793da3a4b5936119ac77643dba",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "genetic counselling",
+      "definitionSha256": "7317e9067ecf8a6eef41334b44e279be94f9471f61cbaeaab2614186f9f15393",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "genetic privacy",
+      "definitionSha256": "e078fe8c1787269fdd0ceb1fe1965b4efea2ce33953550d93d34d8dca9b1f2ae",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "genotype probability",
+      "definitionSha256": "f70bb4c0091a553b98e8efa74ecb8daca93ddf9a5cbb51f7bd98b4e655486335",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "genotype-phenotype map",
+      "definitionSha256": "4d594db0b1c5724b8e9a5f2aef417acbc37102f16bf741d6fc5876020804f8e1",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "goodness of fit",
+      "definitionSha256": "599036896768910dfa5ee424677a9edef1e03bc9c7ed867bc74b66e4d49b9b75",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "haploid-dominant",
+      "definitionSha256": "78a5bdb848c223f93e6650eb6b5b31cb0ac7a7c75b5f5a73fbbe4f5985061f03",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "heritability",
+      "definitionSha256": "4ca9224b037338b103bd97a03657939537a670c723f9edef8d800cee6d946733",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "heteroplasmy",
+      "definitionSha256": "0ff95529cecc7a68c47fb08ea97415685863fd32848cf852b4e9a55af4fca074",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "homologous chromosome",
+      "definitionSha256": "8ff5fd339373fd0baaf8c4219e0e98c4b54a02b0483d813276729a4d84daeb57",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "hypothesis",
+      "definitionSha256": "908529f47d4eb224ca891c6f3253821ff111f1675994e5314f2fb47666d7f334",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "incidental finding",
+      "definitionSha256": "9e683e1461efccf724bef58fe10b7eb00e1e456cc44c31fd16c982ca86904fb3",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "incomplete dominance",
+      "definitionSha256": "142bfa744da2d46484cea12a698ddd83e4658e9821d2cc76bb199fa1011fcade",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "independent variable",
+      "definitionSha256": "c94c0191acf627cc1dcbaf6f56cc15466e2a77ebc42828a85be05baa553d822b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "interphase",
+      "definitionSha256": "1573cb20607d771299a9c573db270f06ec3ff79f017819ef7dbc406cc95103d0",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "joint probability",
+      "definitionSha256": "1031b040c4d4fdd722aa278e675c23da3b0e3a7097027d828212e19981fb8950",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "law of segregation",
+      "definitionSha256": "fabf8db067fd5c8f32c58bb7b8cf52f74307900b5f6b2a30cf6b6eac56c7f89c",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "life cycle",
+      "definitionSha256": "855bae2bf234e46ee15599ba1ece9b6201967401fe7d5370bac7e6c9535c1a6c",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "likelihood",
+      "definitionSha256": "31cf8dcd945d95525c27aa6afb8ebda1e9c80d0f913fa33cb0858b35d4d37faf",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "likelihood ratio",
+      "definitionSha256": "33e0369df48dc38e728541cfce600df879dc8585e9562a54785d8b534975a080",
+      "decision": "Specify the ratio of probabilities of the same evidence, not a ratio of hypothesis probabilities."
+    },
+    {
+      "term": "meiosis I",
+      "definitionSha256": "94a4cf7ec65e5dff74182bb89ceba134b23200218057f0f7e2d4bff48dc5a5de",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "messenger RNA",
+      "definitionSha256": "16c42bacdc9f100f2ab5806e1557a999b550b4ef55ff5dbf7fe1246f2c8408db",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "microtubule",
+      "definitionSha256": "165250288276b23b494d6957e60c3f9ec88ea448344060159de09ff7ba7be2e2",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "mitochondrial inheritance",
+      "definitionSha256": "0a1cd3f40253ec425267366dba78b033494e590e644059373c0374655a55e40d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "model assumption",
+      "definitionSha256": "09b79851ddd472593972f720ffd529e1226c0e88b519401032daecff8a0d18a3",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "model calibration",
+      "definitionSha256": "5a91b9a27571d67b3faf507e270ab5652e58b416ad4861fae3eafab55f9aea8b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "monohybrid cross",
+      "definitionSha256": "dc35bff26a3bca47eff386fffe7ef593d67421d57f49e98b3279b694bc53407a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "monosomy",
+      "definitionSha256": "31f313289d6ed64c9988370498074ce0a57f9c4a571d5876b32fdf5083fc08d6",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "mosaicism",
+      "definitionSha256": "202002e73bc1d3462c786c49afc5f4cfe1881dec3034bf62f46b893a7c5680ae",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "multifactorial trait",
+      "definitionSha256": "a483db377e483d0ced375cdbee2725247027dba229f519c38b498f1022adaa75",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "multiplication rule",
+      "definitionSha256": "426a6c70843caa078389d184ff4e32dede5434639040540eb85c7766b4ebb455",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "mutually exclusive",
+      "definitionSha256": "4fdcd60f8cb9c8d25af5ddc0a26a4867a7aca180b062d543edd43ed97e84b19b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "negative control",
+      "definitionSha256": "b60f78326cc19c935504d3a66358cf3dbdbeb6754fda86dfe32166df754bee5a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "nondisjunction",
+      "definitionSha256": "c3fa181f8ca60ed7a62fb8f89616c70fd49006bf7aed078c0c688159166bd9f5",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "nucleotide",
+      "definitionSha256": "5a41ab780da7e17caa3abefd7884a893847d810788baad2072f91619b29c72ea",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "origin of replication",
+      "definitionSha256": "fa79af734fc5fe42c87882ac359da9bdf959f2371ded04a2e8204ebe4dce49d5",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "parental combination",
+      "definitionSha256": "20aba3df870df52ee488031cefee76cbc971c2e08a1d04d0cb72eaa53d8dc533",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "passenger mutation",
+      "definitionSha256": "8a51bd219a03483c9fd3c591aca8a26ab1f31c574382cd03e61546c0b3a0c878",
+      "decision": "Retain the lineage-specific lack of advantage without restricting the general term to somatic origin."
+    },
+    {
+      "term": "penetrance",
+      "definitionSha256": "0e6abec50b4533bbdf37f49ebd170ed98380da3706aa9c172c603d635d7b2c9f",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "phenotype probability",
+      "definitionSha256": "d4f10389373a1ee2ed57f30897e1af35f5547bfa0b0cd3fb61e6788e1a053241",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "phosphodiester bond",
+      "definitionSha256": "3c3f76db496fb1bc3a2e295c12a1ed8361b5fed75ab4f0c750fad994ba7db65d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "ploidy",
+      "definitionSha256": "eead42271c40ede328bf4d96317e9582d5bc83d3e65fa6f3b42d07b86f7b9bca",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "polygenic score",
+      "definitionSha256": "27c7627a422f5612176c8088b5fc0e16413ef4e475b78e0f64bda3fd1c5ce73c",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "positive control",
+      "definitionSha256": "138b86839cc6e1c4d654a129be16c290c61610be301d9b204941610100c7ab1d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "pre-mRNA",
+      "definitionSha256": "6c9d51fdfc01faf79d4318687b1323929069e98dbe4377dd7ade5556a5fca28f",
+      "decision": "Allow intronless precursors; not every pre-mRNA contains introns."
+    },
+    {
+      "term": "primary oocyte",
+      "definitionSha256": "84cd037b5ccdf66d14c60b0f1ae37a5c84096463b5f562e4b9a522a743f57d77",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "primary spermatocyte",
+      "definitionSha256": "b13390504869fa63b4407670b79e2ba3da36c5961755404e3036dd0c605eb45a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "primase",
+      "definitionSha256": "f6d43069676ad03fe62a259dde75a801828aa271be10861d9f6f809425374622",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "proto-oncogene",
+      "definitionSha256": "570e49d946416d0dc201670572dfcb789b9b1062b21f021fbb64ead3b438c7ca",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "randomization",
+      "definitionSha256": "a38e28bff701d847cd772fef41706d3f4d748c217b2c7ec02083c56a6c5b0c1a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "recombinant DNA",
+      "definitionSha256": "9228ff7b33fde70d80e86b863f305f153cb29e032a6e9eb99ae3b18e0ee509d2",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "recombinant chromatid",
+      "definitionSha256": "5f4c6fff7b5ecbddcbb1b99e39928327fc1b4fbfe674353430adc483cfee568b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "recombinant combination",
+      "definitionSha256": "80f5e8a5997435076d88d3413b33eebd3e28cdb49763733e482ac85d1ae0e2b1",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "recombination",
+      "definitionSha256": "4aa5fda7977aa1a949bcde927d3ce9a938a552cac5cfc4c4b03b8e97f71c4e05",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "recombination frequency",
+      "definitionSha256": "f4df5834a4ecc225e4c1759dec9e774746a7db7cc954316b2035f36462627670",
+      "decision": "Preserve the existing course distinction between theoretical expectation, observed sampling variation and long genetic map distances."
+    },
+    {
+      "term": "reduction division",
+      "definitionSha256": "a2cb7f2b2451d304ca703ebdc78dac94a5eb93fff08abe389ba1c32dfa4ec942",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "reference population",
+      "definitionSha256": "68b425f574ad1411fa4660342d5145a1e5162d9181e5e55836532e0c1febe60c",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "replication",
+      "definitionSha256": "847c87587de0e85bb675932e0488ecd1e956344a92229493f76bf060bdeb1f0f",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "reporter gene",
+      "definitionSha256": "95cc0e949f65e4081c2736ec339f983f829ef50add1fcf2e34a69a5ff6f4e74d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "reproducibility",
+      "definitionSha256": "8be5813184bb8ab96dee95bd1bf5472cb7776e47ceba6d9aa5af1b670769d6bb",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "resolution",
+      "definitionSha256": "468a3ae47f6d7f6ba33e60e8c222ae65a5f1e432116bc4394d236ad41ae45bfe",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "restriction endonuclease",
+      "definitionSha256": "39d3ed8e923b203f180585c146118a4fe5a4a8a6325aa9edb2697eecb42d4a9b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "revision rule",
+      "definitionSha256": "bfbe39c1d09ad6f03e1dbb1f4c0c2f29eb71a3fcf9acfba3d1f7ac5a77f438e0",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "sampling variation",
+      "definitionSha256": "665a1403043a331ab2797d5d4f8a6757b7c30bfe66080738a3fa129838d26be5",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "secondary oocyte",
+      "definitionSha256": "5d2a8a392ab5763223304b200722f1532e450294c6c930a9fd9cdd617b64caa6",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "secondary spermatocyte",
+      "definitionSha256": "188fa85b069f2a0f2ee10cb9338a6fbd3280a46b809fda83ddff1b215817762d",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "selectable marker",
+      "definitionSha256": "7922e6326c81045ef32d36ba8d9d12448898f18c6b375348951b97238a5ab8ce",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "semiconservative replication",
+      "definitionSha256": "c3acc7135363b8c181bacf2dc91f3d9950542b46fc436e9b4e843b6abb706e84",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "sex-linked",
+      "definitionSha256": "5efe034247ea1dd57e568ffdbe8333e4314a04085ff7780f23379ba8eeb1737a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "short tandem repeat",
+      "definitionSha256": "bd33307246e377054ca2d88df8184650f9c70f85ee5640fe1167a23d86abfd33",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "single-nucleotide polymorphism",
+      "definitionSha256": "2574aac9a15d3ebf26eebe3df053d0540016ce007589682f46cf6c31c0bf4ac6",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "somatic cell nuclear transfer",
+      "definitionSha256": "20e571d6a4c4a12b57cabdf086f808117c71f19c9413eb74c525f2089dab1d62",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "spermatid",
+      "definitionSha256": "d8a04889f4747df437c5a8130a62333de54f7af8cac2ae070c0b28071981befc",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "spermatogonium",
+      "definitionSha256": "f029eb0f1e2fd466563bd804492dbcf10a18aa8dd2f96fd0c50cd7aef10cc282",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "telomere",
+      "definitionSha256": "40442550842cfaf2c45f77decaad4cedec252702a6696b544a5be3f7f35f3860",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "test-cross class",
+      "definitionSha256": "24820d92f48f8ee7cf53f8138f4351894773d991b0692150653acc51a950908a",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "testable question",
+      "definitionSha256": "4efad023b0b86345b2afb109e6fedc3eb89916bda0930501c4a75dd1bec7f461",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "three-point cross",
+      "definitionSha256": "f5fe5e06eeda23bb0bd74c16a49bf0d0a1dbd1d9219eb15b0530b6e9bfc1514f",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "transcription",
+      "definitionSha256": "6bc5fa693b5b21cf362cbcf7b46cf6ba10815b3f9623ed28eec7a9aab3e578e6",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "transfer RNA",
+      "definitionSha256": "62386861f9116ae6da0ce950acb362d5c936eed85f4d4fa2833279b5106b8b18",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "translation",
+      "definitionSha256": "e8cd1c6fa5a2d49889c8972596f2836d4bc74de2b33af7457e9ebc8164baf8d1",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "trisomy",
+      "definitionSha256": "d803d82ac0eb706adbf833c4183334904a86614b695b648102ae0c430be05398",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "tumour heterogeneity",
+      "definitionSha256": "72ebdac0399e57bada0ecbf40211e0f55f4a5ff248dbddc0f16393ca1aeec4cd",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "tumour suppressor",
+      "definitionSha256": "63b5d54c1fe241a722105b17902e59e31e78a69382cec6c793e46a82290e4980",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "two-point cross",
+      "definitionSha256": "a7f05b21a5466c79c3d985d9cb6b24cfaa91dc87e227fd91d562500f9ca4829b",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    },
+    {
+      "term": "unequal cytokinesis",
+      "definitionSha256": "3294835d916280f6184a2f07499c6a8d462bbd6b977223659b5236ea3535cb15",
+      "decision": "Current wording author-reviewed and retained; first-use and dependency placement remain separate."
+    }
+  ],
+  "preservedCorrections": [
+    {
+      "term": "9:3:3:1 ratio",
+      "reason": "Name the double-heterozygote cross; a generic dihybrid cross does not imply this ratio."
+    },
+    {
+      "term": "A site",
+      "reason": "Qualify elongation rather than implying every translation event uses the A site this way."
+    },
+    {
+      "term": "E site",
+      "reason": "Describe the exit state without confusing transfer of the growing chain with donation of one amino acid."
+    },
+    {
+      "term": "cell cycle",
+      "reason": "Qualify the dividing-cell context; not every cell continuously follows this cycle."
+    },
+    {
+      "term": "centimorgan",
+      "reason": "Keep the short-interval approximation and distinguish genetic distance from base-pair distance."
+    },
+    {
+      "term": "controlled variable",
+      "reason": "Holding a factor consistent helps control a comparison but does not guarantee absence of all confounding."
+    },
+    {
+      "term": "cyclin-dependent kinase",
+      "reason": "Cyclin binding is not the only activation control; explain phosphorylation in ordinary words."
+    },
+    {
+      "term": "diploid-dominant",
+      "reason": "Do not generalize the animal gamete-only haploid stage to every diploid-dominant life cycle."
+    },
+    {
+      "term": "driver mutation",
+      "reason": "Define the causal effect without requiring somatic origin in the general term."
+    },
+    {
+      "term": "passenger mutation",
+      "reason": "Retain the lineage-specific lack of advantage without restricting the general term to somatic origin."
+    },
+    {
+      "term": "likelihood ratio",
+      "reason": "Specify the ratio of probabilities of the same evidence, not a ratio of hypothesis probabilities."
+    },
+    {
+      "term": "pre-mRNA",
+      "reason": "Allow intronless precursors; not every pre-mRNA contains introns."
+    },
+    {
+      "term": "recombination frequency",
+      "reason": "Preserve the existing course distinction between theoretical expectation, observed sampling variation and long genetic map distances."
+    }
+  ],
+  "preservedIntroducedOverlap": [
+    {
+      "preservedTerm": "nondisjunction",
+      "introducedId": "c-term-nondisjunction",
+      "decision": "Same scientific sense with inconsequential wording difference; preserve source entry and resolve to one learner term without deleting provenance."
+    }
+  ]
+}

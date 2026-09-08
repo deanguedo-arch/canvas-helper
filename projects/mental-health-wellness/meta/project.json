@@ -46,6 +46,11 @@
     "driverId": "direct-workspace-v1",
     "familyId": "mental-health-wellness-shell",
     "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
+    },
     "learnerSurfaces": {
       "schemaVersion": 1,
       "mode": "static-pages-complete",
@@ -55,11 +60,6 @@
           "route": ""
         }
       ]
-    },
-    "studioEditing": {
-      "enabled": true,
-      "renameCourse": true,
-      "imageAssets": true
     }
   },
   "generatedOutputs": [],
@@ -80,6 +80,6 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-21T10:57:46",
-  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "updatedAt": "2026-08-27T15:38:50.856Z",
   "workspaceApprovedAt": "2026-05-21T20:48:48.006Z"
 }

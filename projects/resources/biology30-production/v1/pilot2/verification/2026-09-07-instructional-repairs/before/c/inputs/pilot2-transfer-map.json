@@ -1,0 +1,1264 @@
+{
+  "unit": "C",
+  "ruleCount": 53,
+  "automaticAcceptance": false,
+  "rules": [
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:transactional-local-textbook-intake",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/prepare-biology30-course-resources.py",
+      "procedure": "source",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/intake.ts",
+      "implementationOwners": [
+        "scripts/prepare-biology30-course-resources.py",
+        "scripts/lib/biology30-course/v1/intake.ts",
+        "scripts/lib/biology30-course/v1/pilot2-preflight.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:three-document-library-and-exact-page-links",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "procedure": "textbook",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:attempt-before-answer-with-isolated-persistence",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "procedure": "textbook",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:practice-feedback-textbook-crosswalk",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "procedure": "textbook",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:chapter-grouped-lessons-and-review-navigation",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:native-corrected-review-experience",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "procedure": "textbook",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:secure-assessment-exclusion",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/prepare-biology30-course-resources.py",
+      "procedure": "source",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/intake.ts",
+      "implementationOwners": [
+        "scripts/prepare-biology30-course-resources.py",
+        "scripts/lib/biology30-course/v1/intake.ts",
+        "scripts/lib/biology30-course/v1/pilot2-preflight.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:point-of-use-safety-notes",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:retrieval-response-layout",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:transactional-powerpoint-media-intake",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/prepare-biology30-course-resources.py",
+      "procedure": "source",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-slide-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/intake.ts",
+      "implementationOwners": [
+        "scripts/prepare-biology30-course-resources.py",
+        "scripts/lib/biology30-course/v1/intake.ts",
+        "scripts/lib/biology30-course/v1/pilot2-preflight.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:transactional-source-visual-preparation",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:selective-source-informed-visual-upgrade",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:optional-visible-preview-video-library",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "procedure": "video",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-media.ts",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:exact-build-visual-contact-sheet-gate",
+      "disposition": "retain-exact-build-review-requirement; actual-course-receipt-after-build",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-build.ts",
+      "procedure": "verification",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/acceptance.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-build.ts",
+        "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts",
+        "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:lesson-04-membrane-contrast-and-generated-base-review",
+      "disposition": "process-only-no-unit-a-content",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:lesson-12-endocrine-body-map-generated-base-review",
+      "disposition": "process-only-no-unit-a-content",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:teacher-selected-generated-figure-replacements",
+      "disposition": "adapt-explicit-provisional-author-selection; teacher-selection-not-claimed",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:deduplicate-final-lesson-textbook-review",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "procedure": "textbook",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:one-based-learner-practice-numbering",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "procedure": "practice",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:process-collection-exit-slip-aggregation",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot:science-core-vocabulary-and-frayer-process-collection",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "procedure": "vocabulary",
+      "sourceEvidence": "projects/biology30-unit-a-pilot/meta/improvement-ledger.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:topic-sequence-from-teacher-plans",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/gate-2-content-audit.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:prerequisite-first-science-language",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/reading-level-report.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:teach-then-retrieve",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:required-core-versus-advanced-learning",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "procedure": "advanced",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-review.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:two-purposeful-visuals-per-lesson",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/figure-media-plan.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:curricular-practice-only",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "procedure": "practice",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/practice-blueprint.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:manageable-non-gating-investigations",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:atomic-curriculum-component-coverage",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "procedure": "practice",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "sourceAcceptance": "revision-gate-a-slice",
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:expanded-readable-core-explanations",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "sourceAcceptance": "revision-gate-a-slice",
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:four-anchors-plus-complete-term-inventory",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "procedure": "vocabulary",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "sourceAcceptance": "revision-gate-a-slice",
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:required-media-or-local-equivalent",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "procedure": "video",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "sourceAcceptance": "revision-gate-a-slice",
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-media.ts",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:media-aware-nondestructive-state-migration",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-a-review.json",
+      "sourceAcceptance": "revision-gate-a-slice",
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/suspend-data.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:complete-thirteen-lesson-depth-propagation",
+      "disposition": "adapt-to-all-unit-specific-required-topics",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/reading-level-report.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:all-lesson-purposeful-visual-density",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "procedure": "visual",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:curricular-prerequisite-practice-readiness",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "procedure": "practice",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/practice-readiness-audit.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:full-course-required-media-equivalent-parity",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "procedure": "video",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/figure-media-plan.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-media.ts",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:restored-collapsible-course-navigation",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "procedure": "instruction",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:process-collection-resource-grouping",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:lesson-model-lab-and-collected-evidence",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-content-audit.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:responsive-model-mechanism-layout",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:pilot-1-interaction-depth-adapted-to-pilot-2",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/model-lab-interaction-map.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:guided-model-investigation-cycle",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/model-lab-interaction-map.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:compact-backward-compatible-learner-state",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/state-budget.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/suspend-data.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:responsive-illustrated-walkthrough-steps",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "procedure": "video",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-media.ts",
+        "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:operable-locked-core-vocabulary-preview",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "procedure": "vocabulary",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/revision-gate-b-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:optional-attempt-gated-textbook-review-guides",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "procedure": "textbook",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/textbook-review-integration.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+        "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:pilot-1-to-pilot-2-advanced-learning-bridge",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "procedure": "advanced",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/advanced-learning-bridge.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-old-section-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-review.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:explicit-academic-evidence-without-route-fallbacks",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "procedure": "practice",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts",
+        "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:exact-first-use-vocabulary-links",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "procedure": "vocabulary",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-first-use-decisions.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/content-c.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+        "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-topic.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:append-only-improvement-history",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-build.ts",
+      "procedure": "verification",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/final-academic-review.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/acceptance.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-build.ts",
+        "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts",
+        "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:complete-online-investigation-and-media-paths",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/online-finalization.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    },
+    {
+      "ruleId": "projects/biology30-unit-a-pilot-2:unified-process-collection-index-and-truthful-save-status",
+      "disposition": "adapt-unit-specific-implementation",
+      "owner": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "procedure": "evidence",
+      "sourceEvidence": "projects/biology30-unit-a-pilot-2/meta/process-collection-index.json",
+      "sourceAcceptance": null,
+      "executionAuthority": "2026-09-06 explicit provisional-use B/C/D rebuild instruction",
+      "targetContract": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+      "implementationStatus": "implemented-for-provisional-local-candidate; actual-course verification follows build",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json"
+      ],
+      "teacherAcceptance": null,
+      "previousOwner": "scripts/lib/biology30-course/v1/render.ts",
+      "implementationOwners": [
+        "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+        "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+        "scripts/lib/biology30-course/v1/pilot2-state.ts",
+        "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts"
+      ]
+    }
+  ]
+}

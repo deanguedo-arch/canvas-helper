@@ -1,0 +1,2156 @@
+{
+  "sourceChecks": 15,
+  "textbookMemberChecks": 8,
+  "baseline": {
+    "path": "projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+    "preserved": true,
+    "trees": [
+      {
+        "path": "projects/biology30-unit-a-pilot/workspace",
+        "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783",
+        "checkpointSha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783"
+      },
+      {
+        "path": "projects/biology30-unit-a-pilot-2/workspace",
+        "sha256": "3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a",
+        "checkpointSha256": "3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a"
+      },
+      {
+        "path": "projects/biology30-unit-a/workspace",
+        "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b",
+        "checkpointSha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b"
+      },
+      {
+        "path": "projects/biology30-unit-b/workspace",
+        "sha256": "609c283ecb3d9b53f7862f5e1efaa35d4caff820f3929ccf59dd79a938e57576",
+        "checkpointSha256": "609c283ecb3d9b53f7862f5e1efaa35d4caff820f3929ccf59dd79a938e57576"
+      },
+      {
+        "path": "projects/biology30-unit-c/workspace",
+        "sha256": "2743103184e0615f793729d118a7e066199904ff7ec8b43e06be5b8539f3f05d",
+        "checkpointSha256": "2743103184e0615f793729d118a7e066199904ff7ec8b43e06be5b8539f3f05d"
+      },
+      {
+        "path": "projects/biology30-unit-d/workspace",
+        "sha256": "e87cf63413626d8f51ee53ce1cacbe60d3268ceb3721959410cb00ed0d909efb",
+        "checkpointSha256": "e87cf63413626d8f51ee53ce1cacbe60d3268ceb3721959410cb00ed0d909efb"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1",
+        "sha256": "dcc6f3bbbb90f8f6fa8102cb5062c98e11bc1b4b40965ca67cd1416279e30fdd",
+        "checkpointSha256": "dcc6f3bbbb90f8f6fa8102cb5062c98e11bc1b4b40965ca67cd1416279e30fdd"
+      },
+      {
+        "path": "scripts/lib/biology30-unit-a-pilot-2",
+        "sha256": "d6a9830891d7823cd5d27575607030bf83d2c2dde9e7ec307801ef2a770c3767",
+        "checkpointSha256": "d6a9830891d7823cd5d27575607030bf83d2c2dde9e7ec307801ef2a770c3767"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1",
+        "sha256": "bff744d73c60491f2cbb9a313a26ee470eb35a528ae386da8c5e819e5575248b",
+        "checkpointSha256": "bff744d73c60491f2cbb9a313a26ee470eb35a528ae386da8c5e819e5575248b"
+      }
+    ]
+  },
+  "intake": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+  "prepared": true,
+  "readyForRendering": true,
+  "videoLinkCheckRequested": false,
+  "stage": "105-optional-completion-spacing-verified",
+  "checkedAt": "2026-09-07T15:46:35.389402+00:00",
+  "updatedAt": "2026-09-07T17:38:54.985841+00:00",
+  "draftCounts": {
+    "B": {
+      "topics": 8,
+      "parts": 34,
+      "requiredRoutes": 12,
+      "atomicComponents": 43,
+      "textbookGuides": 84,
+      "introducedTerms": 153,
+      "onlineInvestigations": 3,
+      "conceptFamilies": 28,
+      "practice": {
+        "guided": 16,
+        "chapter": 28,
+        "final": 17,
+        "challenge": 4
+      },
+      "chapterPractice": {
+        "14": 14,
+        "15": 14
+      },
+      "ordinaryMaximumStateCharacters": 31386,
+      "modelContracts": 3,
+      "authoredCoreParts": 34,
+      "coreWordCount": 6846,
+      "coreReadingEstimate": "topic ceiling passes; individual passages and complete teaching remain under review",
+      "workedExamples": 34,
+      "stopChecks": 34,
+      "advancedExplanations": 34,
+      "topicFramingAndNarrationPaths": 8,
+      "deterministicModelCases": 8,
+      "finalSelectedResponseRevisions": 14
+    },
+    "C": {
+      "topics": 18,
+      "parts": 71,
+      "requiredRoutes": 23,
+      "atomicComponents": 56,
+      "textbookGuides": 91,
+      "introducedTerms": 249,
+      "onlineInvestigations": 3,
+      "conceptFamilies": 40,
+      "practice": {
+        "guided": 36,
+        "chapter": 63,
+        "final": 27,
+        "challenge": 6
+      },
+      "chapterPractice": {
+        "16": 18,
+        "17": 21,
+        "18": 24
+      },
+      "ordinaryMaximumStateCharacters": 42988,
+      "modelContracts": 3,
+      "authoredCoreParts": 71,
+      "coreWordCount": 13060,
+      "coreReadingEstimate": "topic ceiling passes; individual passages and complete teaching remain under review",
+      "workedExamples": 71,
+      "stopChecks": 71,
+      "advancedExplanations": 71,
+      "topicFramingAndNarrationPaths": 18,
+      "deterministicModelCases": 10,
+      "finalSelectedResponseRevisions": 24
+    },
+    "D": {
+      "topics": 4,
+      "parts": 22,
+      "requiredRoutes": 8,
+      "atomicComponents": 37,
+      "textbookGuides": 68,
+      "introducedTerms": 99,
+      "onlineInvestigations": 3,
+      "conceptFamilies": 24,
+      "practice": {
+        "guided": 8,
+        "chapter": 26,
+        "final": 14,
+        "challenge": 4
+      },
+      "chapterPractice": {
+        "19": 10,
+        "20": 16
+      },
+      "ordinaryMaximumStateCharacters": 25272,
+      "modelContracts": 3,
+      "authoredCoreParts": 22,
+      "coreWordCount": 4128,
+      "coreReadingEstimate": "topic ceiling passes; individual passages and complete teaching remain under review",
+      "workedExamples": 22,
+      "stopChecks": 22,
+      "advancedExplanations": 22,
+      "topicFramingAndNarrationPaths": 4,
+      "deterministicModelCases": 9,
+      "finalSelectedResponseRevisions": 11
+    }
+  },
+  "preservedExternalDeckRelationships": 90,
+  "reviewedPerformanceExamples": {
+    "acceptable": 190,
+    "excellence": 155
+  },
+  "tests": 77,
+  "pending": [
+    "Teacher review/acceptance only if requested; no release or Studio editing authorized"
+  ],
+  "reviewedProgramOutcomes": 92,
+  "reviewedIllustrativeProgramExamples": 116,
+  "textbookReviewPagesVisuallyInspected": 26,
+  "preAttemptTextbookCorrectionNotices": 50,
+  "latestCommands": [
+    "npm run test:e2e:project -- --project biology30-unit-b",
+    "npm run test:e2e:project -- --project biology30-unit-c",
+    "npm run test:e2e:project -- --project biology30-unit-d",
+    "npx tsx --test scripts/tests/biology30-pilot2-a-presentation-browser.test.ts"
+  ],
+  "firstUseReview": {
+    "definitionTargetsAdvanced": 145,
+    "earlierExactPhraseMatchesRemaining": 9,
+    "termsWithoutExactRequiredPhrase": 90,
+    "senseAndAliasReview": "Second required-text pass accounted for33 earlier exact/inflected/alias matches, moved21 targets and retained distinct-sense decisions; definition wording, other surfaces and rendered first use remain pending.",
+    "definitionCorrections": 54,
+    "secondPassDefinitionMoves": {
+      "B": 6,
+      "C": 12,
+      "D": 3
+    },
+    "reviewedEarlierInflectedOccurrences": 33,
+    "definitionWordingReviewed": 501,
+    "definitionWordingCorrectionsThisPass": 48,
+    "preservedDefinitionsReviewed": 236,
+    "preservedWordingCorrections": 27,
+    "allSurfaceFirstUse": "pending"
+  },
+  "sourceTextReview": {
+    "B": {
+      "slides": 77,
+      "specificQualificationNotes": 48,
+      "visualReview": "all visual purposes surveyed; selected full-resolution and individual reuse clearance pending"
+    },
+    "C": {
+      "slides": 254,
+      "specificQualificationNotes": 150,
+      "visualReview": "all visual purposes surveyed; selected full-resolution and individual reuse clearance pending"
+    },
+    "D": {
+      "slides": 68,
+      "specificQualificationNotes": 54,
+      "visualReview": "all visual purposes surveyed; selected full-resolution and individual reuse clearance pending"
+    }
+  },
+  "lastProtectionVerification": {
+    "status": "passed",
+    "log": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/protection.log"
+  },
+  "visualSurvey": {
+    "slides": 399,
+    "scope": "composition and teaching-purpose survey; selected full-resolution and individual reuse clearance pending"
+  },
+  "imageWorkflow": {
+    "provider": "authenticated ChatGPT browser Images",
+    "generatedCandidates": 3,
+    "fullResolutionReviewed": 3,
+    "provisionalUsable": 4,
+    "teacherDecision": null,
+    "queue": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json",
+    "authorComparisons": 4,
+    "comparisonPath": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+    "openGap": "All127 figure targets author-reviewed, local blocked scope only; actual placement/first use pending. Browser idle, nothing generating.",
+    "codeNativeCandidates": 2,
+    "currentFigureBindings": {
+      "total": 127,
+      "bound": 127,
+      "pending": 0,
+      "byUnit": {
+        "B": 34,
+        "C": 71,
+        "D": 22
+      },
+      "uniqueSelectedAssetFiles": 115,
+      "gallerySections": 126
+    },
+    "currentSelectedRasterIllustrations": 6
+  },
+  "practiceRevision": {
+    "specificAlternativeModelChallenges": 14,
+    "finalSelectedResponseItemsRewritten": 49,
+    "legacyAnswerEquivalence": false,
+    "sourceAndIdsPreserved": true,
+    "exactPassageAndIndependentKeyReview": "All249 items have exact author required-passage and key/operation receipts. Two D STS cases and three new-ID final operation revisions close identified omissions; full atomic and rendered proof remain pending.",
+    "requiredPassageReviews": 249,
+    "unitCNonfinalSelectedResponseRepairs": 72,
+    "fullWrittenGuidesRepaired": "B3, C2 and D3 final responses explicitly address requested alternative/next observation; other model-boundary repairs retained in revision history.",
+    "independentAuthorKeyReview": {
+      "B": 65,
+      "C": 132,
+      "D": 52,
+      "selectedResponse": 164,
+      "written": 85,
+      "teacherDecision": null,
+      "stageReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json"
+    },
+    "atomicCoverageRepairs": {
+      "B": "All65 current prompts have reviewed sub-operation links. Three required inquiry finals and three chapter replacements now explicitly ask missing operations. No empty links; full criterion/teaching/figure proof remains pending.",
+      "D": "50 prior mappings narrowed to asked sub-operations. Two STS cases plus three replacement finals explicitly require prediction/control/evidence revision. No full-component coverage claim from tags alone.",
+      "C": "All132 current prompts reviewed; four final empty links repaired through required new-ID comparison tasks. No empty links remain; full compound teaching/figure proof still pending."
+    },
+    "operationReview": "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+    "bInquiryRepairs": {
+      "items": 3,
+      "responseLimit": 600,
+      "modelCharacters": [
+        470,
+        467,
+        479
+      ],
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json"
+    },
+    "bChapterRepairs": {
+      "replacements": 3,
+      "newSemanticIds": true,
+      "totalItemsUnchanged": 65,
+      "oneCoreLocationClarification": true,
+      "modelCharacters": [
+        404,
+        477,
+        392
+      ],
+      "responseLimits": [
+        550,
+        600,
+        500
+      ],
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json"
+    },
+    "cStsRepairs": {
+      "replacements": 3,
+      "newSemanticIds": true,
+      "totalItemsUnchanged": 132,
+      "modelCharacters": [
+        499,
+        610,
+        630
+      ],
+      "responseLimits": [
+        650,
+        850,
+        850
+      ],
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json"
+    },
+    "cInquiryRepairs": {
+      "replacements": 3,
+      "newSemanticIds": true,
+      "responseLimitEach": 650,
+      "modelCharacters": [
+        495,
+        501,
+        506
+      ],
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json"
+    }
+  },
+  "freezeContract": {
+    "status": "all3 frozen",
+    "gatesPerUnit": 13,
+    "ownerFiles": 80
+  },
+  "browserBlocker": {
+    "status": "cleared",
+    "checkedAt": "2026-09-07T13:25:33.226896+00:00",
+    "evidence": "Browser generation and original-image retrieval succeeded."
+  },
+  "sourceDispositionInventory": {
+    "planRows": 44,
+    "embeddedAssets": 442,
+    "mediaRelationships": 476,
+    "externalPackageRelationships": 226,
+    "youtubeOccurrences": 82,
+    "uniqueYoutubeCandidates": 80,
+    "learnerVideosSelected": 0,
+    "replacementFiguresAndCaptionReview": "pending"
+  },
+  "latestVerificationReceipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-hub-repair/report.json",
+  "graphWork": {
+    "graphs": 6,
+    "plottedValues": 39,
+    "ordinaryMaximumEncodedResponses": {
+      "B": 728,
+      "C": 410,
+      "D": 592
+    },
+    "status": "Contract/save codec and drawing kernel tested; six source-bound model figures intrinsically reviewed; learner UI/persistence/collection pending",
+    "authorReview": "projects/resources/biology30-production/v1/pilot2/source-review/graph-figures/author-review.json",
+    "optionalDemographicGraphs": 1,
+    "optionalDemographicPoints": 2
+  },
+  "observationImage": {
+    "unit": "C",
+    "status": "unchanged open-license onion-root original inspected; attribution and observation limits recorded; placement pending",
+    "manifest": "projects/resources/biology30-production/v1/units/unit-c/pilot2-observation-images.json"
+  },
+  "textbookReview": {
+    "secondAuthorReviewed": {
+      "B": 84,
+      "C": 91,
+      "D": 68
+    },
+    "remaining": 0,
+    "guideRevisions": 47,
+    "optionalPreAttemptContexts": 32,
+    "preAttemptSourceNotices": 50,
+    "stageReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json",
+    "status": "authored source/key and required-passage pre-render gate passed; rendered and teacher review remain pending"
+  },
+  "investigationReview": {
+    "reviewed": 9,
+    "modelResponses": 36,
+    "stageReport": "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json",
+    "teacherAcceptance": null
+  },
+  "oldSectionReview": {
+    "B": 56,
+    "C": 96,
+    "D": 44,
+    "pending": {
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "scope": "authored teaching only; rendered and whole-unit academic proof pending"
+  },
+  "buildTransaction": {
+    "status": "tested owner helper; complete renderer integration pending",
+    "source": "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts",
+    "workspaceGuard": "whole tree including assets; baselineEntrySha256 retains prior index-only receipt",
+    "tests": 5,
+    "actualCandidatePromotions": 0
+  },
+  "stateAndCollectionReview": {
+    "ordinaryMaximumCharacters": {
+      "B": 31386,
+      "C": 42988,
+      "D": 25272
+    },
+    "activityInventory": {
+      "B": {
+        "entries": 243,
+        "responses": 184,
+        "choices": 42,
+        "flags": 237
+      },
+      "C": {
+        "entries": 396,
+        "responses": 275,
+        "choices": 96,
+        "flags": 380
+      },
+      "D": {
+        "entries": 186,
+        "responses": 149,
+        "choices": 36,
+        "flags": 184
+      }
+    },
+    "writtenResponseLimitsChanged": "Flag compaction reduced no limits. Subsequent B changes expand three new-ID inquiry fields to600 and replace three MC questions with550/600/500-character written tasks; prior items preserved without answer equivalence. C subsequently replaces three MC items with650/850/850-character STS tasks; complete guides retained. C inquiry finals then expand to650 each using new IDs; no existing writing field shortened.",
+    "flagRepresentation": "hex-v1 with exact map fingerprint; prior token-array payloads readable",
+    "legacySupport": "Compact-v2, state-v1 and the three old shell stores preserve originals; no new response/completion equivalence.",
+    "code": [
+      "pilot2-state.ts",
+      "pilot2-activity-index.ts",
+      "pilot2-legacy-work.ts"
+    ],
+    "browserIntegration": "Synthetic startup/session, explicit recovery archives, current unsaved graph collection and full-shell returns tested in three browsers; real build and live LMS remain unproved",
+    "stageReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json"
+  },
+  "stage70": {
+    "receipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-c-required-comparisons/report.json",
+    "newResponseLimits": [
+      500,
+      700,
+      550,
+      750
+    ],
+    "responsePacking": "ordered-text-v1; exact map fingerprint, explicit presence, lossless text; sparse/earlier token pairs remain supported",
+    "allUnitActivityInventory": {
+      "entries": 825,
+      "responses": 609,
+      "choices": 173,
+      "flags": 801
+    },
+    "buildDistance": "Still pre-build: seven review gates pending per unit and actual renderer unimplemented. No short ETA or near-completion claim."
+  },
+  "rendererComponents": {
+    "status": "synthetic-whole-course-shell-and-session-browser-verified",
+    "receipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-session-recovery/report.json",
+    "wholeCourseAssembly": "pure assembler implemented; reviewed loader/media/browser entry/transaction integration pending",
+    "learnerCandidates": 0
+  },
+  "stage74": {
+    "stage": 74,
+    "checkedAt": "2026-09-07T04:43:10.856072+00:00",
+    "status": "in progress; six provisional figure bindings and production browser startup implemented; no learner build",
+    "tests": {
+      "focused": 83,
+      "passed": 83,
+      "finalExpandedBrowserAndPayload": 4,
+      "finalBindingAndCapture": 6,
+      "typecheckUnrelated": 25,
+      "typecheckOwned": 0
+    },
+    "sourceProtection": "15 source and 8 textbook members verified; six learner baselines and protected Unit A owner unchanged",
+    "figures": {
+      "required": 127,
+      "bound": 6,
+      "pending": 121,
+      "originalSelections": 5,
+      "restrictedSourceSelections": 1,
+      "teacherDecision": null,
+      "actualLearnerPlacement": "pending"
+    },
+    "browserProof": [
+      "Chromium, Firefox and WebKit whole shell using actual owner entry",
+      "Conflicting device/platform versions require explicit choice and archive originals",
+      "SetValue accepted / Commit failed remains distinct from device save",
+      "Unreadable device storage blocks startup without empty replacement",
+      "Legacy keys retained; exact verified archives prevent repeated migration questions"
+    ],
+    "pending": [
+      "Seven author gates, full figure/source/first-use/media/time/transfer review",
+      "Production asset loader, media renderer and transaction/metadata integration",
+      "All-unit freeze and actual B then C then D generation",
+      "Project E2E, exact-build visual/scientific proof and teacher checklists"
+    ],
+    "files": [
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-browser-environment.ts",
+        "sha256": "e6fee8d5ee0c8ec367077d6d88394582f3399eb0f68d65448d733aa229d4e228"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-browser-entry.ts",
+        "sha256": "7ef3018ca5352b6d55882bb6e39e633f94e2c2e63c10ce09a650b3b366dc94ce"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+        "sha256": "d22b12f6d0a4e0c71f14ab8ccad71a31102d558b48c456bb0285cd7ae430db32"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "sha256": "3c1ae0587ff951fe5e3fc7c95e6e832369adf5a7fa1931cb28f513f1d56a1183"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "sha256": "77a4dd55f330dbf7560dd0556ce0193553a9eb2587eb7e0d0fca02e500fd75e6"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-browser-environment.test.ts",
+        "sha256": "e99be70ae637ef4bebf3bbd758e1c6da214e4ffc7fb712f2827f9472d9b63081"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "74e20326358267fb27b1d1bbf90e81f62a94f8bc7918ca3aa234f092de578cc6"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+        "sha256": "e1813e044f7322b123253dd8dda8d8d9f1ccf47c570f0a90f4695c322950e75a"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-course-renderer.test.ts",
+        "sha256": "18ac5e2eefc2b9b29cd14c4c3aeb838ba2b85f47d0c4ee0bae9972a7f63af171"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "ff470c566c8e35b3018263d106470b2d8af20132da90db563e5d37fdaa2b40ee"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "sha256": "dcce4ccec5b97019ec74bf7fc708dc8845bd6a349652f89369588feeae9765fd"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "sha256": "a2dfa9463594acf2698ddf557e57e43f4c79d55dded10a85c8aedd99b430a3e6"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json",
+        "sha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "738d8ad090d53f6cf7bab2ed48a9cf9c67534a6094308707783fda3824b0208d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ovarian-image-request.json",
+        "sha256": "a725e98279f1c39764f18a33037d9fa04bbeb571ec742c8e67887f052f1f8c8b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/source-figures/b-placental-circulation.json",
+        "sha256": "5dab70cebfd453a24404af55dc4f26fb034e3d1f97156da6f78f53aeb09dcd2b"
+      }
+    ]
+  },
+  "stage75": {
+    "stage": 75,
+    "checkedAt": "2026-09-07T04:57:54.775446+00:00",
+    "status": "nine additional provisional original SVG figure bindings; no learner rendering",
+    "figures": {
+      "B": 10,
+      "C": 0,
+      "D": 5,
+      "boundTotal": 15,
+      "requiredTotal": 127,
+      "pending": 112,
+      "teacherDecision": null,
+      "actualPlacement": "pending"
+    },
+    "verification": {
+      "figureBindingTests": 2,
+      "passed": 2,
+      "draftContracts": "pass",
+      "priorFullSuite": "stage74 83 pass; no owner code changed since then",
+      "typecheck": "stage74 25 unrelated,0 owned; only asset/manifests and inventory count test changed",
+      "protectedTrees": "stage74 verified; this stage changed source assets/manifests, comparison gallery and one count assertion only"
+    },
+    "science": [
+      "Four hormone diagrams compared against native sources and existing course maps; preserve synthesis/release and inhibitory targets",
+      "Five HWE diagrams use current canonical required teaching examples, with native source comparison and independent Decimal arithmetic",
+      "Native1200x900 originals inspected; label collisions corrected in retained versions",
+      "All short alt texts and captions paired with full adjacent equivalents"
+    ],
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "c5b0b361d5830fb398a50d4c46bccff2664a5a27e550a4e46ebd1c31c278c4dc"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "sha256": "08b86682bbcc5ad85c8563c183867a5a19872ad6195780770d16f334c8ae2c5c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/hormone-diagram-review.json",
+        "sha256": "90cdbd154bdd25a5c592a9c827baa5de9b18ffec4cabbd6ff23d21bdb2217adf"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+        "sha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "3d67321c2f1f1e5dd3ca7caee0fb5ba9b702ca852516e77a69bf78c91d2de01d"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "79324e19e1406acb3b35373ccabcd33006c6dfe7b1be66e9aef36d003f99638f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormone-sources-v1.svg",
+        "sha256": "712add8a56dab35a7ddbc5d4c76c74eabcfb2bcd3b8fba3f809eeb2aaa2da85f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-feedback-pathways-v3.svg",
+        "sha256": "5bb67f4486644c7d3b9469b8423667c8e0c7a79e4d31cc7acd503adb206ae193"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-labour-loop-v1.svg",
+        "sha256": "a939294786df7a4c38d0e250f4681cc37fea92b96145d15e049cbedbd07076f1"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-lactation-pathways-v2.svg",
+        "sha256": "696c29769e845a2e9cc84b83905c264736d36a5b7f6e303dfa00bc0c74df0211"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-allele-counts-v1.svg",
+        "sha256": "9743d9b0a50a452f34caf6a5cb062678fde8b872bf2d0ec2371ddf6b156ff8c2"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-weighted-genotype-grid-v1.svg",
+        "sha256": "c7956ba77529a4b54eadbfa60079933a53f62ca2926c2131c9db8a4b9e8e867e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-equilibrium-assumptions-v1.svg",
+        "sha256": "3657a565ab1c86c14acfa658d64a700be0b0555546f16ab6263daa862b976edd"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-phenotype-to-frequency-v1.svg",
+        "sha256": "835317ceef13eb9d18ae6a6aa8b7b427106d5329acbc038aa7e113fa08f64dde"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-observed-expected-v2.svg",
+        "sha256": "d8c1798e3e040448300fc7323d72ee66cde20897f3c07722661ea73edadd7d04"
+      }
+    ],
+    "pending": [
+      "112 other figure targets",
+      "All-surface vocabulary, source/archive/media, compound criterion, timing and transfer closure",
+      "Production asset/media/transaction integration, all-unit freeze and B then C then D builds"
+    ]
+  },
+  "stage76": {
+    "stage": 76,
+    "checkedAt": "2026-09-07T05:10:23.929289+00:00",
+    "status": "required five-photo source group and owner multi-panel renderer implemented; no actual learner lesson generated",
+    "figures": {
+      "B": 10,
+      "C": 1,
+      "D": 5,
+      "bound": 16,
+      "required": 127,
+      "pending": 111,
+      "teacherDecision": null
+    },
+    "verification": {
+      "focusedTests": 88,
+      "passed": 88,
+      "typecheckUnrelated": 25,
+      "typecheckOwned": 0,
+      "draftContracts": "pass",
+      "sourceProtection": "15 sources,8 textbook members,six learner trees and protected Unit A owner pass"
+    },
+    "browserProof": [
+      "Synthetic group originals and separate enlargement/focus return in Chromium,Firefox,WebKit",
+      "Actual five originalJPEGs independently enlarged and focus-return checked in authoring-only Chromium component",
+      "Native authoring screenshots at1440 and390 plusoriginal-sizeD inspected; these are not whole-lesson visual proof"
+    ],
+    "initialFailure": "Full run first had one Chromium screenshot scroll-position failure after a focused response was resized; existing focus return assertion passed. Static screenshot setup now blurs caret and stops smooth scrolling before waiting two layout frames and moving to top. Full rerun88passes. No learner controller changed for this fixture issue.",
+    "files": [
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+        "sha256": "616c5883aee69dd496a86ec2fc1f93a6207b05d499b48b7e9c07163faf6153f8"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+        "sha256": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-group.test.ts",
+        "sha256": "6028a63cc1d524710c752257fe97faaf0ee474f8573cdc28df7a4f1c03c78425"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "743000c83d5cff6408764c8c4ed5dccfa256f96020863135a0f21189284f216c"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+        "sha256": "295d2677a6ca789ccada16c23ce9ec20f57ac4b2f4f95eb71d56ad6051463c73"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "sha256": "437fa7511411621080bd003ba3add9bfb5f46e0b9af87ca486cdad6e538f0191"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/required-group-review.json",
+        "sha256": "f4ee82b9c9a2248762616913fb316c279694810a35d1f3c6127e74725f5a6575"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "7fc4fcb066bc94f5df0ece1bef7d4344052239f08a08fb2a57bfe6565ad7f5a9"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/screenshots/micrographs-390.png",
+        "sha256": "829a4aa50bc1e5ec34417ac0f798d511c0f46a28a902414e604bffeab450855c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/screenshots/micrograph-d-original-390.png",
+        "sha256": "f2c6778976a13fe543c3f538479fe720ffb65844e765a047c72b1ba8417a6d51"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-microscopy-group/screenshots/micrographs-1440.png",
+        "sha256": "315585c38877ce32e60cf3f3236ed40986ef453b865c90347d6320807e929da9"
+      }
+    ],
+    "pending": [
+      "111 figure targets plus all-source/academic/first-use/media/timing/transfer review",
+      "Production asset/media/transaction and metadata integration, full code/asset closure",
+      "All-unit freeze, actual B then C then D builds and exact-build review"
+    ]
+  },
+  "stage77": {
+    "stage": 77,
+    "checkedAt": "2026-09-07T05:22:55.845140+00:00",
+    "summary": "Read-only actual B/C/D input assembly and in-memory production browser bundling. No actual learner HTML generated.",
+    "counts": {
+      "activities": [
+        243,
+        396,
+        186
+      ],
+      "graphActivities": [
+        4,
+        1,
+        2
+      ],
+      "investigationImages": [
+        2,
+        5,
+        0
+      ],
+      "assetCopyPlans": [
+        13,
+        9,
+        8
+      ]
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 91,
+        "failed": 0
+      },
+      "typecheck": {
+        "unrelatedDiagnostics": 25,
+        "ownedDiagnostics": 0
+      },
+      "sourceAndProtectedBaselines": "passed",
+      "draftContracts": "passed"
+    },
+    "files": [
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+        "sha256": "b5052cb82118f4f867a0843c65541399fe7958894b8dd60cf9b427da4f58e09c"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-browser-bundle.ts",
+        "sha256": "ff7be5282d65f82f5f4b520cffa5b4d5839dfb9091792cd816a549a75d3b8f76"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-inputs.test.ts",
+        "sha256": "33a810f460293f4a60977f3172b4120ffc680487c9e6713579d8710ba95f01ef"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+        "sha256": "3571e22600e7cc65a58d63af1037457c26caeb155e0eb92f83a7caa7430ba3cb"
+      }
+    ],
+    "limitations": [
+      "All-unit freeze still6/13 gates each;16/127 figures bound",
+      "Input and browser asset assembly do not yet complete owner transaction/metadata integration or transitive whole-owner closure",
+      "No actual candidate, teacher acceptance, deployment, export or Studio Edit"
+    ]
+  },
+  "stage78": {
+    "stage": 78,
+    "checkedAt": "2026-09-07T05:33:56.013328+00:00",
+    "summary": "Five original D mechanisms diagrams natively and scientifically reviewed, side-by-side comparisons inspected, and provisionally bound. No real learner HTML.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 21,
+      "pending": 106,
+      "byUnit": {
+        "B": 10,
+        "C": 1,
+        "D": 10
+      }
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "priorWholeSuite": "stage77:91 passed",
+      "draftContracts": "passed",
+      "sourceAndProtectedBaselines": "passed",
+      "nativeSvgReview": "Five originals at1200x900; all text bounding boxes within viewbox; five source/candidate gallery sections inspected."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+        "sha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "eff3b5634ec7e66e27d5ed6e2a0c556bf917b1497197f99f9c279f815ca12615"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "sha256": "c9b3b154e3c27899eab8096711bbf5c5cffe0ac4ee15bebf89f4eb4ffcbbde0e"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "121f61822bee5882061bfa949d0e5193a2c3d46560996ed75e0a85510907108f"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/chance-and-population-size-side-by-side.png",
+        "sha256": "a17e0c66543be997a4cb0443a463ff706c3f0b76fb5818ffe7bae7d50877e886"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/chapter19-physical23.png",
+        "sha256": "87e819fdf46f79ef63cbb7a9bc68b758ffeb9ff2a1c0cf1a034eb5b11cc71d59"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-drift-histories-v1-native.png",
+        "sha256": "bb95c1328c66eefed87caf9562a02ce8c2c3b4f11f7ee31358c297ff8746aa93"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-frequency-evidence-v1-native.png",
+        "sha256": "9eec247d70abc740f8f4c49aaa8249e58104d19ce2cef73cdc08f47425065fd2"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-gene-flow-pairing-v1-native.png",
+        "sha256": "a66bb40da70511bfe6389b89cf0439f67b7bae3d476a82d6626f03b36f833c10"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-resistance-evidence-v1-native.png",
+        "sha256": "4058aa1062d50845905c3b35e4d4c3aa33bad26f1816664548b3750de12eaf61"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-variant-selection-v1-native.png",
+        "sha256": "e53614bcc7cdaf6b9cd7410fc0f0f3e19bfcc2982aff90712a0da8cb3c863e33"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/existing-d-lesson04.png",
+        "sha256": "19dc0f5215354fcecee3e3a004549a5fef02ec42d922a56e22ed1012c684ee32"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/movement-and-mating-side-by-side.png",
+        "sha256": "b3a7759d6fe4cc9729ba91fdeacf4c122779c9f5f88307dd4394e414be869d54"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/mutation-and-selection-side-by-side.png",
+        "sha256": "50ef6cab7e4d04465a2bc538330b599976c7afca6f183bd28533022331e6056e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/resistance-and-evidence-side-by-side.png",
+        "sha256": "2a7f92b377ad36de2bf11fb0b5270885a74e6dec634227e478e6ffcb3c48f9bd"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/testing-explanations-side-by-side.png",
+        "sha256": "40851889fd696be21246d097be9566ea4be43f8b01ca2376389d3e1065ab3100"
+      }
+    ],
+    "teacherDecision": null,
+    "pending": [
+      "Remaining106 figure targets and seven all-unit review gates",
+      "Real Video Library, owner transaction/metadata integration and whole-owner closure",
+      "All-unit freeze then actual B/C/D candidates and exact-build review"
+    ]
+  },
+  "stage79": {
+    "stage": 79,
+    "checkedAt": "2026-09-07T05:41:42.449674+00:00",
+    "summary": "Six original D population diagrams natively and scientifically reviewed, all six side-by-side comparisons inspected, provisionally bound. No real learner HTML.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 27,
+      "pending": 100,
+      "byUnit": {
+        "B": 10,
+        "C": 1,
+        "D": 16
+      }
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "priorWholeSuite": "stage77:91 passed",
+      "draftContracts": "passed",
+      "sourceAndProtectedBaselines": "passed",
+      "nativeSvgReview": "Five final originals1200x900 and sampling1200x960; all text bounds within viewbox. Three v1 drafts revised to v2: movement arrows, initial/final labels, time label."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "sha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "415246085b9ba8043808afb48f87dd7303717944ecab10a3f8042a938f2366e9"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "sha256": "0a046ad7cfeb7cf1848268822c73cd3c921141f6c8f45e42ec260f48d591c609"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "51e47be37758c11dba0b2cb7984fed6d5662b39b24de6cab3e78b4a4c4b3c4f4"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/chapter20-physical10.png",
+        "sha256": "65fbe92deb7e24a46a4fb2760d2d79f196fa1e034736d354af5528447baa6003"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/chapter20-physical11.png",
+        "sha256": "b4fcbe2a5b48437013a18ce76cd91b3c48d357cd4040ed290df9170313bd97e1"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-changing-capacity-v1-native.png",
+        "sha256": "5bbe6530f3b9c2801badb8dbaba0d4734cd6ed5e99cc1069ae4b27a8b8209932"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-changing-capacity-v2-native.png",
+        "sha256": "678866c9a26d5353d20267e7dfb00f798fb6cddcf9da8001904e25140c245abc"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-demographic-processes-v1-native.png",
+        "sha256": "c57bafcab3c42b641af8f51be97e47bda72d22ed9aba7d659465c599ebe3bfd0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-demographic-processes-v2-native.png",
+        "sha256": "4fb8e4c608112e1085a2e77451d6cc6ee58f34867d6ecb18a2ba209b7655e779"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-density-distribution-v1-native.png",
+        "sha256": "107f15e6ff7e1de956c30c0526f76b003331574ed816c4b0e41f7dfa3c6f3461"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-growth-model-shapes-v1-native.png",
+        "sha256": "5a525e55833943b2e65d696d6eb3605708dc80025f59b411cdaabdebe917bf98"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-population-sampling-v1-native.png",
+        "sha256": "9965deb7a6e50579c0b8550fb9de660733196ca5f156d4f437961ae93b2dffbc"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-rate-denominators-v1-native.png",
+        "sha256": "8022a5c25b6a8fe331f69fc5aafd5a3fe7ffb69113b6e2dcd3aaa9588567b40d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-rate-denominators-v2-native.png",
+        "sha256": "30b7a4fe3302ccec53ed0dff1b9f811bb75a34097e37c073e74adb24eb311315"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/existing-d-lesson08.png",
+        "sha256": "15955cc7b013b19738575d0c4e6eae0bd11d7141ee2bc758f620ff759ae76bde"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/existing-d-lesson09.png",
+        "sha256": "df32c21a7944fd3ee12332eca35a413592ca76c756af74929e0d590a7a825f4c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/exponential-and-logistic-models-side-by-side.png",
+        "sha256": "dfcd3dc83776b3ce434bb91591f55c3d2c5831dcb6856a9fb11b1f3b19325372"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/feedback-and-changing-limits-side-by-side.png",
+        "sha256": "c132445e7c2344238ac60375d853e4cb4d4421b0f35990ac80b8e231719c2648"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/four-demographic-processes-side-by-side.png",
+        "sha256": "762834f08141dc3e93377848c10a5320a7a0f6ccc4d088c9ccfcc1a891daa785"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/rates-and-denominators-side-by-side.png",
+        "sha256": "738d61ec24211eb6bf43c18380709550d681303cfc918cecab0ea42bd67c89a4"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/sampling-populations-side-by-side.png",
+        "sha256": "fecfe5b592a2d0311f921c17cce3feeac211b400642f7a29fc596691f3fa77f4"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/size-and-density-side-by-side.png",
+        "sha256": "3e4b801c8b1596f19b2f0a806c6c2f7018aa37919dd4149a9d241785a01f3dc8"
+      }
+    ],
+    "teacherDecision": null,
+    "pending": [
+      "Remaining100 figure targets and seven all-unit review gates",
+      "Video Library, owner transaction/metadata integration and whole-owner closure",
+      "All-unit freeze then actual B/C/D candidates and exact-build review"
+    ]
+  },
+  "stage80": {
+    "stage": 80,
+    "checkedAt": "2026-09-07T05:58:14.920707+00:00",
+    "summary": "Nine original ecology diagrams in six groups provisionally bound; all final originals and six comparison sections inspected. No real learner HTML.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 33,
+      "pending": 94,
+      "byUnit": {
+        "B": 10,
+        "C": 1,
+        "D": 22
+      }
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "priorWholeSuite": "stage77:91 passed",
+      "draftContracts": "passed",
+      "sourceAndProtectedBaselines": "passed",
+      "nativeSvgReview": "Nine originals1200x900; source comparisons and mathematical checks documented; full SVG text bounds valid. One initial heading screenshot artifact resolved with fresh capture, no asset edit."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "sha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "876d8239252ae64c100fc54aac5821edf215cbc4f6ae3dd466222bb2c75d2954"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "sha256": "f715f44a16dbe135fbb3d168787b81168db289f85f62a1e2c4c63a78def88913"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "a29e969a4ad3118fb20a1a28a0e286013a248750e060a863ca2b4915819314ec"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/chapter20-physical20.png",
+        "sha256": "e47a5576525089e08202e0256fa1dfc20d272e0c1695c04c2d03692a94437ceb"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/chapter20-physical22.png",
+        "sha256": "fd1c5632dd4455c42a35d867dd6c6d37b382efba41f941b3cd0c60e1fb179f8a"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-competition-comparison-v1-native-stable.png",
+        "sha256": "66b44eb628456e5768644ccefb8a29c8017f8993bbcd3a6271683141cffce3ec"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-competition-comparison-v1-native.png",
+        "sha256": "66b44eb628456e5768644ccefb8a29c8017f8993bbcd3a6271683141cffce3ec"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-ecological-study-design-v1-native-stable.png",
+        "sha256": "4df0dbf996d8d2e7490c16cb8940653d4fcc482a0e27b5b083f209f8e592a54a"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-ecological-study-design-v1-native.png",
+        "sha256": "4df0dbf996d8d2e7490c16cb8940653d4fcc482a0e27b5b083f209f8e592a54a"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-interaction-effects-v1-native-stable.png",
+        "sha256": "eaea4040ec3d41a157313581e6ab3533d7d46f66c991ac10972b84b19edf9467"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-interaction-effects-v1-native.png",
+        "sha256": "eaea4040ec3d41a157313581e6ab3533d7d46f66c991ac10972b84b19edf9467"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-life-history-traits-v1-native-stable.png",
+        "sha256": "ef59bedfa388f76ed0c5b68af5343c763b6fa4c551949731b5c4b3e6bdc5fb4e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-life-history-traits-v1-native.png",
+        "sha256": "ef59bedfa388f76ed0c5b68af5343c763b6fa4c551949731b5c4b3e6bdc5fb4e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-mimicry-comparison-v1-native-stable.png",
+        "sha256": "3ad8dcb966053d82de41d99e12042672be99f9f5f2e64f4342968ae01560636b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-mimicry-comparison-v1-native.png",
+        "sha256": "3ad8dcb966053d82de41d99e12042672be99f9f5f2e64f4342968ae01560636b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-population-cycle-evidence-v1-native-stable.png",
+        "sha256": "a0af001dc9b7245e3b71cec64b096880327c3373272a7d0929ea9c02f870ac18"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-population-cycle-evidence-v1-native.png",
+        "sha256": "a0af001dc9b7245e3b71cec64b096880327c3373272a7d0929ea9c02f870ac18"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-resource-partitioning-v1-native-stable.png",
+        "sha256": "20610f5225089131294aa2726b4919f27cc053b3c7ecd731eaff308ff33a7fd0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-resource-partitioning-v1-native.png",
+        "sha256": "20610f5225089131294aa2726b4919f27cc053b3c7ecd731eaff308ff33a7fd0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-succession-pathways-v1-native-stable.png",
+        "sha256": "5508991088a4860d253222107b64f4e7d38464239f348299de72b838eb232a07"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-succession-pathways-v1-native.png",
+        "sha256": "5508991088a4860d253222107b64f4e7d38464239f348299de72b838eb232a07"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-survivorship-forms-v1-native-stable.png",
+        "sha256": "52010ee969a20995db94aa1db147f63d82f156ae59a81c4027d162af5e8e3b4e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-survivorship-forms-v1-native.png",
+        "sha256": "52010ee969a20995db94aa1db147f63d82f156ae59a81c4027d162af5e8e3b4e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/existing-d-lesson05.png",
+        "sha256": "cbbc7d0f4c47b1d74f46e96853ae5988244b4724ba52a839df5f57ce6ebe0989"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/existing-d-lesson06.png",
+        "sha256": "19128e5cd5ca7e10139f4c893fee1d503273fe301ef66bf34febee88eff563f6"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/existing-d-lesson07.png",
+        "sha256": "a876e3a9a13b7f6519133185a7845d9abea0ba38d86dce1dd25b3e2419e8472f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/existing-d-lesson10.png",
+        "sha256": "ee3479ded63154ffe4c63069053ddff297873ce36166d69e8c31414fcf8b9b21"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/existing-d-lesson11.png",
+        "sha256": "3cc46002af66a68d3cc9ac91d0916d0dcf53f37e0014ba310fa9ed878d3a8799"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/side-by-side-competition-and-defence.png",
+        "sha256": "50322335e1924b82a18a7335334935344d268d4e9cc7ae7f85f4a24dc32b6915"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/side-by-side-ecological-decisions-and-communication.png",
+        "sha256": "c1e57b9cb8a20cbe7ff5305cffef9d349073d625a58dea1bf5315ef42d82cb73"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/side-by-side-interactions-and-their-effects.png",
+        "sha256": "e1c48260bb52ed5c2ebc28fb5ddb32ff38910128ebf19e9583974c649ae4219b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/side-by-side-life-history-strategies.png",
+        "sha256": "68375a6518f0442165ce32cbfdbe80773a9afea1286a9243604a64419dd39418"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/side-by-side-population-cycles.png",
+        "sha256": "f14a26a332caa733bc2d0107b5ac780cc6611bda5c32b1a1830a1075ea962efc"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/side-by-side-succession-and-disturbance.png",
+        "sha256": "d0bcf8c5fc922e8827819532caeed6626dc554816581fc67360269a31c7bdeb5"
+      }
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false
+  },
+  "stage81": {
+    "stage": 81,
+    "checkedAt": "2026-09-07T06:07:49.472484+00:00",
+    "summary": "Eight original gamete/cycle diagrams in seven B targets; all native originals and seven comparison sections inspected. No learner HTML.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 40,
+      "pending": 87,
+      "byUnit": {
+        "B": 17,
+        "C": 1,
+        "D": 22
+      }
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "priorWholeSuite": "stage77:91 passed",
+      "draftContracts": "passed",
+      "sourceAndProtectedBaselines": "passed"
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-diagram-review.json",
+        "sha256": "2e2306c5f1eef621884876e99eb53acfbb3d3acc68aa854344ab21ccbab2c3ad"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "8e191062e52af0ab79277485c8a198207149e4d20ab2e1caffc4255e4b72a44d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "1285f810011d6f5427a7332e4ccc6903dbac1d72d1456dce6c9a90bf1a397c40"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "b4bbc38e780234bf40efefc3b4dbc66398c0e596f849691d7ef3135d21c0d2fb"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-chromosome-sets-copies-v1-native.png",
+        "sha256": "e881b463ea690a6db82a7dee976e67eafa1881634640c473a12ccf4f6668418c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-context-feedback-v1-native.png",
+        "sha256": "6b7d2f70bb0f1b1305e3149a06774e49e6a63d1b41d126d86ebf4d8f5a755fa3"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-coordinated-cycles-v1-native.png",
+        "sha256": "16363be42e89176c41b5f76434d1046bb48909e0daf1432a15efc601e261932c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-luteal-withdrawal-v1-native.png",
+        "sha256": "1d8253ee88215aeb540e4d3c17dc81f37d47b8a56fce4cae5926576178235569"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-meiosis-differentiation-v1-native.png",
+        "sha256": "1d7c98e3c2d98b13f34e7d6a1ffa31d4dfd8988fdfa1fa2cfde5b8546944dc34"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-meiosis-differentiation-v2-native.png",
+        "sha256": "0d91f22b3a062da5c9a9e3a070d290a94f13b1c98ae0e9e1e03bc3d9c5bf2a47"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-menopause-feedback-v1-native.png",
+        "sha256": "70048504cb3771951f2084e24c1f6ea3e82c41b1da8a2f6527e332583bc4ac42"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-oocyte-pauses-v1-native.png",
+        "sha256": "2834a85bc8e8a5ad2b0c93e58f3d7570837d007da5f9bd9891988fb541c21e27"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-oocyte-pauses-v2-native.png",
+        "sha256": "82238d98999024eb1d4c09d699881a1a70ae8990dbb4e36ecb3f43593dd6763e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/b-sparse-sampling-v1-native.png",
+        "sha256": "9d61020f3415f440f640abe925d857e36284b9ce8a96e1bf8110669598f65108"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/chapter16-physical26.png",
+        "sha256": "d687014d91628d20c8ee02b5e5a9cd10137479982496ae31ff168edf27d9cc7b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/existing-b-lesson-02.png",
+        "sha256": "f3d5ccb6a8337aae8dd264464c17a039cda93e04502fa44112e30ac35ab1ee8e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/existing-b-lesson-03.png",
+        "sha256": "db9aff94bd9490fa03d85df9ae6b835e83a03d0bd100b9392c14bb03bc6f35b8"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/existing-b-lesson-06.png",
+        "sha256": "16d999fb7007cfd2fc87553c540ff96d1a31e63eb253dce642778102711f606c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure.png",
+        "sha256": "5b4430bfa7cd0e57c883385f2d862e5bbbfe5e17979cbc1516f440e53e0dccc1"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure.png",
+        "sha256": "1270050f0ca2c696b107f59d089cc277355772414415aa413e7e4247943f94b2"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure.png",
+        "sha256": "0bcde039b2dbae2a155fe52c15daef752ffd5a33be0a7c09e9dba29139a340c8"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-graphs-and-cycle-variation-figure.png",
+        "sha256": "2bb8a64571a5b126b791f3cad5daeee65de0b91d977ee85c5fe463f5053ced49"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-menstrual-cycle-two-coordinated-cycles-figure.png",
+        "sha256": "615074332b4bab10a6900a725e78ba4dfc52da5e00ec5e98bacf3dee9a699922"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-spermatogenesis-division-and-differentiation-figure.png",
+        "sha256": "4d920162e196952587a6a2730b627198dc41fb442cea68b11c203778d99ad29f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/gamete-cycle-comparison/side-by-side-b-topic-spermatogenesis-gametes-and-chromosome-sets-figure.png",
+        "sha256": "ac7901eb43f629a7a767adff92f27ed8f9a2ba57cc49e5ec3643e3de32d38534"
+      }
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false
+  },
+  "stage82": {
+    "stage": 82,
+    "checkedAt": "2026-09-07T06:19:12.137415+00:00",
+    "summary": "Owner media selection/Video Library/inline previews integrated; stable local walkthrough and same checkpoint links. Synthetic tests only; zero actual selected videos or learner candidates.",
+    "verification": {
+      "focusedSuite": {
+        "passed": 96,
+        "failed": 0
+      },
+      "latestMediaCaptureTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "browsers": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "typecheck": {
+        "unrelatedDiagnostics": 25,
+        "ownedDiagnostics": 0
+      },
+      "draftContracts": "passed",
+      "sourceAndProtectedBaselines": "passed",
+      "testedMediaBehavior": [
+        "unreviewed selections rejected",
+        "all source occurrence identities retained; deduplicated selected library",
+        "complete reviewed local figure mapping required",
+        "no load before visibility and no autoplay",
+        "native provider cue of reviewed segment",
+        "provider error and API-script load failure open local option",
+        "offline local return and same checkpoint persists across reload",
+        "failure removes empty preview area",
+        "390px no horizontal overflow"
+      ]
+    },
+    "figureCounts": {
+      "total": 127,
+      "bound": 40,
+      "pending": 87,
+      "byUnit": {
+        "B": 17,
+        "C": 1,
+        "D": 22
+      }
+    },
+    "files": [
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+        "sha256": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+        "sha256": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+        "sha256": "adf78480628db23997a52cee67cde44b4553544484440a6120b2b1bd9135e773"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+        "sha256": "ea2aa508421f543c74ce44f7295d8f6ae3a1886db03edd0bfd805da02af5bb3d"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+        "sha256": "efe6aa590dcccdc11ed39538973d82d9d3e05b7e8e2255f782b652819a6b5139"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+        "sha256": "84836db5a1da36a46f1381a2492aa9ff5ce5a122c22c71514d1eab3cef6d8b6c"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-media.test.ts",
+        "sha256": "fd1b28c6e48da79e55fc94c480ea85ee52ac01829f918de06f96cccc80fa4ccf"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-inputs.test.ts",
+        "sha256": "d8f803d5bdfd9e39ee0fca1f6c871f2e592a3f951952f78ca59ec417b3f42426"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+        "sha256": "9df8d18cd588c7a35581e8b770090ff2f8e46d07215b9517e803bf265aac4908"
+      },
+      {
+        "path": "scripts/tests/fixtures/biology30-pilot2/renderer.ts",
+        "sha256": "1243468ef8a9f8e2786f18c595368bfb4505fe30fa5184eebf292a3d30e8dd71"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/media-component-comparison/chromium-media-fallback-390-v3.png",
+        "sha256": "c8fcd6a662b65e1618087e7b5225bc0f4dae9dda384a581a504d1795e5a9cb8f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/media-component-comparison/firefox-media-fallback-390-v3.png",
+        "sha256": "7a1c7cd18c950e9e0f105e1a8971edd12395af26a21f4d1d83a9dba33f1b02d0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/media-component-comparison/webkit-media-fallback-390-v3.png",
+        "sha256": "3ec96864dc962db87975a930310492b879e8c99ea0314ae804f76f3f0c6aff1e"
+      }
+    ],
+    "references": [
+      "https://developers.google.com/youtube/iframe_api_reference"
+    ],
+    "limitations": [
+      "Provider API tests use synthetic mocked native API; no actual clip caption/science review or selected video",
+      "All-unit gates remain6/13; actual learner rendering and production promotion pending",
+      "No teacher acceptance or LMS certification",
+      "Three-browser390px media component screenshots do not replace all-route exact-build visual review"
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false
+  },
+  "stage83": {
+    "stage": 83,
+    "checkedAt": "2026-09-07T06:40:28.580799+00:00",
+    "summary": "Connected strict Pilot 2 build to all-unit preflight, exact owner/input closure, in-memory browser compilation, staged assets and metadata, validated transaction and generated project checks. No actual candidate rendered or promoted.",
+    "verification": {
+      "focusedSuite": {
+        "passed": 101,
+        "failed": 0
+      },
+      "finalBrowserChecks": {
+        "passed": 9,
+        "failed": 0
+      },
+      "typecheck": {
+        "unrelatedDiagnostics": 25,
+        "ownedDiagnostics": 0
+      },
+      "sourceChecks": 15,
+      "textbookMemberChecks": 8,
+      "allOriginalLearnerAndProtectedBaselines": "passed",
+      "draftContracts": "passed",
+      "projectAssertionFixture": "save, reload, collection return focus and mobile routes passed in synthetic preview"
+    },
+    "files": [
+      {
+        "path": "scripts/lib/biology30-course/v1/build.ts",
+        "sha256": "fb2538240458cf7aeffc11b52810f932f7b7b89907ee7ca440513dc2b2fbad52"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-build.ts",
+        "sha256": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts",
+        "sha256": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-preflight.ts",
+        "sha256": "a9f999eaf91a7fbba33a534691d3c6414b84f7b8e3986fb5b3829bf914e94f5b"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+        "sha256": "90fcbf28958be9c1c955f79e2f7667519fabba6539ab3126da3e8539c57bce75"
+      },
+      {
+        "path": "scripts/lib/biology30-course/v1/pilot2-return-links.ts",
+        "sha256": "07d25556a980dab206ec78d78ca48c87ba0d46d9757724797598e8bd0b541bb3"
+      },
+      {
+        "path": "scripts/prepare-biology30-course-resources.py",
+        "sha256": "5608afff7b0e43e6bd5689f132ad1092f71806795f4971ab015a1f5043d36f96"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-owner-closure.test.ts",
+        "sha256": "39f978c3aba66f6ac1e21495d2810c3c92085d9de378b3ca7c0c85b3d4e803dd"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-project-checks.test.ts",
+        "sha256": "9d403083021da1741ee9932377b316b5f66f1675188affca51dc68276ddc27bb"
+      },
+      {
+        "path": "e2e/lib/project-contract-schema.ts",
+        "sha256": "3e859f7926b87fd22e85547051107c4ced41655b9738d6d5438ed4781fa0dde3"
+      },
+      {
+        "path": "e2e/lib/learner-course-assertions.ts",
+        "sha256": "7abcac9b74ef282d1debabf684cc743655d08869751f1ba074e6cc525d6b59fd"
+      }
+    ],
+    "limitations": [
+      "Actual production staging and promotion remain unexercised until all three academic contracts freeze.",
+      "Owner closure discovery implemented but no owner-closure.json frozen yet.",
+      "101-test pass preceded final cancellation guard; final 9 browser tests passed after that guard.",
+      "No actual project E2E, final rendered academic review or teacher acceptance.",
+      "40/127 figure targets bound; 87 pending. All units retain 6/13 review gates."
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false
+  },
+  "stage84": {
+    "stage": 84,
+    "checkedAt": "2026-09-07T06:51:06.093134+00:00",
+    "summary": "Seven early-development B figure targets natively reviewed, compared side by side and provisionally bound.",
+    "verification": {
+      "focusedTests": {
+        "passed": 10,
+        "failed": 0
+      },
+      "draftContracts": "passed",
+      "sourceAndProtectedBaselines": "passed",
+      "nativeSvgAndSideBySideReview": "seven each passed",
+      "latestFullOwnerSuite": "stage83:101passed; final9browserchecks passed"
+    },
+    "figureCounts": {
+      "total": 127,
+      "bound": 47,
+      "pending": 80,
+      "byUnit": {
+        "B": 24,
+        "C": 1,
+        "D": 22
+      }
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "a199f945dc4e4c61a3aa031ef8ddc0b7d68cdfe001f87d1d91cbad02d628fb4d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-diagram-review.json",
+        "sha256": "35569f1def56ae4bba32bdd771a1fd7477a13fe626f31c70b696383efaf8aeb3"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "5ec1d8b88115755d462d15fc1f998cc3b8d3412646b29c9017c5e59f9a6fdf10"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "abb1bfa965688dfaad3b9b50e96af0fbdda897324815bbb683c21c47f92f74b9"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-fertilization-interactions-v2.svg",
+        "sha256": "f7c040d75ae6d65b2a6a4c604a9d2c0c75a0aa89e991775b4144a2841677b0ef"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-pronuclei-and-ploidy-v1.svg",
+        "sha256": "f71d02f49fda3173d2e3211f6d3baff1e05b92737a7b8338e6c388e3d0d2e1b3"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-cleavage-organization-v3.svg",
+        "sha256": "34b1a486331e93ee6bea936e99b79f25ece483e0d521fc7aa65384cc4670c356"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-ivf-location-and-denominator-v1.svg",
+        "sha256": "61087ba1daae419a60af4ee169ff653042e5009c1096bf302eaefaeb98bf2c98"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hcg-source-target-transition-v1.svg",
+        "sha256": "9f4fdf9b8f540d66bc696e53763a2296e934d9b90174df82a44172a229cc8648"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-germ-layer-tissue-map-v1.svg",
+        "sha256": "d64b8ea3fcd1acef62422a3f16fbb02a2dff4694b1362f0880c2cf6d1d19ea39"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-evidence-timing-v1.svg",
+        "sha256": "33ed3de5192bcd4101f8f00898de40bef5043fd679dcf1bc3bbf0282c14d083f"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-fertilization-interactions-v2-native-stable.png",
+        "sha256": "48192b09811f61c9982b48b6b40425e39cf287f6aeaeebb9c77d9f70740a05a0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-fertilization-interactions-v2-side-by-side.png",
+        "sha256": "3142c147129c314975d21c227d00b982ec19bbb59424e374c7d232118b77493f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-pronuclei-and-ploidy-v1-native-stable.png",
+        "sha256": "a14e50508af7f44107d389af89bf6b6d265b5bfe784359f8a91826b58dee6d42"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-pronuclei-and-ploidy-v1-side-by-side.png",
+        "sha256": "ba07f4670a12cafcae71dc01ce17d4608537af604561bfffaef63c5a28a721d0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-cleavage-organization-v3-native-stable.png",
+        "sha256": "e145c8fba948c1da20d80ca06dfa685f1ddea478b0b571fc8bb173adfe197177"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-cleavage-organization-v3-side-by-side.png",
+        "sha256": "e6faf78d6db5ad772c881435fe22de5407d3a1c4fba034e0a15a18a36fff585b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-ivf-location-and-denominator-v1-native-stable.png",
+        "sha256": "f55af23ead8997473769f391e9bbb8c35b4c90a0e2deee758aed82e4964d800e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-ivf-location-and-denominator-v1-side-by-side.png",
+        "sha256": "39769877e52ac99468aa6178d81d91a6ea693e1fed5e5c6b4680b69337cb42c8"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-hcg-source-target-transition-v1-native-stable.png",
+        "sha256": "3b422bdc225219dea47877dcab787e7c8c7be4311c603e93ac5c789e8c1ee402"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-hcg-source-target-transition-v1-side-by-side.png",
+        "sha256": "c6c1ae2a69899892b7bfd2127784e78c1bbcac8f4852aa20c20543e06eda289e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-germ-layer-tissue-map-v1-native-stable.png",
+        "sha256": "6a11a996a17eaf5212c13273364f5234cded3a7f688b2dbf390c63872acad65d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-germ-layer-tissue-map-v1-side-by-side.png",
+        "sha256": "df98e40edbd2ed2e0e133e1f6f794c79d6a9f47928307aabdd712f18f52cb232"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-developmental-evidence-timing-v1-native-stable.png",
+        "sha256": "63adb89593c9b10c96e81477f95f195ec4d764c417c80881bd42f42f5a68b632"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/early-development-comparison/b-developmental-evidence-timing-v1-side-by-side.png",
+        "sha256": "5d03758a71b0a271e1904de30b1ca489532f335cfe6770a8fbef9787b0511384"
+      }
+    ],
+    "limitations": [
+      "All-unit academic gates remain6/13 each.",
+      "Actual learner placement, whole-course build and exact-build E2E remain pending.",
+      "Mac reported locked; ChatGPT Images unavailable in this batch.",
+      "Original SVG precision diagrams selected; no new raster comparison or teacher acceptance claimed."
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false
+  },
+  "stage85": {
+    "stage": 85,
+    "checkedAt": "2026-09-07T12:58:35.958415+00:00",
+    "summary": "Thirteen additional teaching targets provisionally bound: nine B and four C. Eleven new original SVG files and three exact previously reviewed B assets reused for C.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 60,
+      "pending": 67,
+      "byUnit": {
+        "B": 33,
+        "C": 5,
+        "D": 22
+      },
+      "uniqueSelectedAssetFiles": 66,
+      "gallerySections": 59
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 11,
+        "failed": 0,
+        "log": "/tmp/bcd-stage85-tests.log"
+      },
+      "draftContracts": "passed; gates remain6/13 each",
+      "sourceAndProtectedBaselines": "passed; all six original learner trees and protected A owner unchanged",
+      "nativeScientificReview": "Eleven new final SVGs reviewed against governed teaching/source models; three prior asset reviews reused.",
+      "gallery": "59 sections; all local image and reference links resolve. Batch comparisons prepared; no assertion that all stage85 gallery screenshots were separately viewed.",
+      "fullOwnerSuite": "Last full suite stage83:101passed; not rerun for figure data alone."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "3e21acbc4679866b52b7d024b2119586c6b3db0d7398ab9422ecb44b6d22b02c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "sha256": "27b524dbf8346cd2b164333a2095414d8a4b0e699cc804b57858549c35ea356b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+        "sha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+        "sha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "f4679a8edc2bc7c71698eecdabe370010660b928d75aceddff89493e266de8b8"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "b4dd9a4e7a44162972fd3924b5aa8ba855b6121b7e84c8d8ddad9b1ed6f7ab0e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-semen-contribution-map-v1.svg",
+        "sha256": "9e1bfea0559e5e3500bdccbe496b6738a5adcfcc2328679b690ea260759efa58"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-reproductive-signal-targets-v1.svg",
+        "sha256": "668f900be1e078d52b63a853b627652ef75d5ce42d110e5a1a3ea969638c0921"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-production-transport-case-comparison-v2.svg",
+        "sha256": "67bac62c44a447989253a930d37ff4077c6c13ade337626df9c2d96ebd30900f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormonal-methods-and-perspectives-v1.svg",
+        "sha256": "950ab1f272c0937553b0f7bd5b93660e5e0c16b3e49f53e92619e75bc4841a6b"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-study-design-v1.svg",
+        "sha256": "1917a94ce730e19dd9b6d0da80f14280fa3b2d31a7864bde2545eb1dfd646644"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-clocks-v1.svg",
+        "sha256": "77b5c25f8299412fe8dcfe971718e0f070e88e6c3eea6b4358baedb74760c4e3"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-neurulation-sequence-v1.svg",
+        "sha256": "47d309855a197a9523ccf544dffdb64270cee2b3e026c1cacc95aab425d1432d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-exposure-confounding-comparison-v1.svg",
+        "sha256": "479f550f0f13f14168c54402885eacaf6a0d5bb9d7673d023505db78256286a0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-birth-exchange-transition-v2.svg",
+        "sha256": "bca184f45827b2c3edb2a578b06eea44b2c826863e4c650d4d6f6e6070cc3f1f"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-technology-step-comparison-v1.svg",
+        "sha256": "d017547f642c7af8064f74787bac652ae46ac30977f7ba2d9f20c3856c917523"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-meiotic-count-model-v1.svg",
+        "sha256": "0851bd01b48de75398e8c9c355052b795d3975251efd535cacf80e188513e744"
+      }
+    ],
+    "limitations": [
+      "No real B/C/D learner candidate yet.",
+      "B support-membranes target still needs its ChatGPT anatomy comparison; latest computer-control result was Mac locked.",
+      "C66 figure targets and seven all-unit academic/source gates remain.",
+      "No teacher acceptance, deployment, export, publication, commit, push or Studio Edit."
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false
+  },
+  "stage86": {
+    "stage": 86,
+    "checkedAt": "2026-09-07T13:10:41.054062+00:00",
+    "summary": "Thirteen C chromosome/cell-cycle/mitosis/meiosis teaching targets bound using eleven new reviewed original SVGs and one existing meiotic-count asset.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 73,
+      "pending": 54,
+      "byUnit": {
+        "B": 33,
+        "C": 18,
+        "D": 22
+      },
+      "uniqueSelectedAssetFiles": 77,
+      "gallerySections": 72
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 6,
+        "failed": 0,
+        "log": "/tmp/bcd-stage86-tests.log"
+      },
+      "draftContracts": "passed; gates remain6/13",
+      "nativeReview": "All11 final new SVGs inspected; no text outside1200\u00d7900. DNA/mitosis/twin ambiguity corrected before binding; nondisjunction singular wording corrected.",
+      "gallery": "72sections; all local references resolve; batch comparisons prepared, no separate inspection of every rendered gallery section claimed.",
+      "sourceAndProtectedBaseline": "Last verified stage85 earlier in same run. Stage86 writes only scoped C figure resources, test count and operational docs; no learner/owner edits.",
+      "fullSuite": "Last stage83:101passed; no full-suite/browser rerun for this data-only batch."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "sha256": "2df2880ff1d191e1e69032eb37c9e2b0eacac1527ae3d54374b9a590def48c94"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/c-cell-division-diagram-review.json",
+        "sha256": "deba14df80c3837ad4da6fe910d2972392baadf09cbf3bdad4b60230f6924087"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "4df90c81d53dccf0c7eed36b8ae9ea1aebe09dc2c91458e08b22bd094f061941"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "7930dcda623b4d6a737cd298cb1840ea31cc6ec0e865fcf40c9312539441a2ae"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cell-count-denominator-v1.svg",
+        "sha256": "b468200edecba444bddf7d3e608366df8d2130a9247e86d7755c6095ed67aae6"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-checkpoint-evidence-v1.svg",
+        "sha256": "c0fc3941576d2932d7aaae48051719104c3c48cf5f3c580d0f092cf854a5c2a4"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-cytokinesis-directions-v1.svg",
+        "sha256": "895a122ccec36dfa573ecf8c10066de0e9a7872e530f5d419d173a7f67f39a1d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dna-packaging-levels-v2.svg",
+        "sha256": "6f6d95d8b909b5789ef4c5d9c501c10dd9c2a174cf65b276afbd408e00426678"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-interphase-count-trajectory-v1.svg",
+        "sha256": "969bacdf15b7e719c4567ff8d6f9fd0b9d422fda0c0a971dbf161f6ee727edd1"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-karyotype-count-comparison-v1.svg",
+        "sha256": "a3d33ef9d2bb38f23c9cfb33635a79bb1891e6c16c0926e41f5b813b95f962cb"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-mitosis-count-boundaries-v2.svg",
+        "sha256": "bc32106f8bb172ecbf539a1a4a01b98a225847eea430561ef66c6e1f643cc8c9"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nondisjunction-product-trace-v2.svg",
+        "sha256": "f29545eb9002ed822fafa482dd8783e7bb913ea08d4b9147ebfb0f2ea8fec6c5"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-nonsister-exchange-trace-v1.svg",
+        "sha256": "6f9b3d6bcc8c1f32b63e67a2ea2433e2f32ab49858bad06b34be5daba115494a"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-twin-origin-comparison-v2.svg",
+        "sha256": "10bba5bc231f8c1c546cab5498a355f99d9d6ae2dc829593c2ccfcb797a62e92"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-variation-mechanisms-v1.svg",
+        "sha256": "94e3455264cee0c881a1bb5f46c2b9dda2616619dc787a59b7100294076162ed"
+      }
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false,
+    "limitations": [
+      "Real learner candidates0/3.",
+      "B1/C53 figures and seven all-unit academic/source gates remain.",
+      "Original SVGs authored directly by Codex; no new ChatGPT raster generation in this batch.",
+      "Latest computer-control state was Mac locked; B membrane anatomy comparison still queued."
+    ]
+  },
+  "stage87": {
+    "stage": 87,
+    "checkedAt": "2026-09-07T13:25:33.226896+00:00",
+    "summary": "B final support-membranes target bound from a newly generated ChatGPT original; eight C inheritance targets bound with five precise SVGs and reviewed model reuse.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 82,
+      "pending": 45,
+      "byUnit": {
+        "B": 34,
+        "C": 26,
+        "D": 22
+      },
+      "uniqueSelectedAssetFiles": 83,
+      "gallerySections": 81
+    },
+    "verification": {
+      "focusedTests": {
+        "passed": 6,
+        "failed": 0,
+        "log": "/tmp/bcd-stage87-tests-v2.log"
+      },
+      "initialFailure": "Four earlier assets pinned the mutable image queue; adding a queue entry changed its hash. Reconstructed the exact pre-change evidence bytes with the existing3d0ce1e3 SHA and moved those four references to an immutable snapshot, preserving their scientific evidence and hash. Initial failing log retained at/tmp/bcd-stage87-tests.log.",
+      "draftContracts": "passed;6/13 each",
+      "sourceAndProtectedBaselines": "passed; all original learner/protected A owner hashes",
+      "nativeReview": "One1536\u00d71024 ChatGPT PNG and five final1200\u00d7900 SVGs reviewed; conditional probability v2 distinguishes parental paths from unphased genotype.",
+      "gallery": "81sections; all local references resolve; batch comparisons prepared.",
+      "browser": "Restored access, observed unchanged6Pro, submitted Prompt6, retrieved original PNG; response displayed Worked for1m30s. Generation complete; nothing running."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "1b414c8b06086bceda6baa5ffff90a0a5dba60a518166d4ed01f9e475ce7cd75"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "sha256": "2dd8e71aa2d4edf0e88d6be956d44d2d2e93264763d944e61ea55097a59efe13"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/extraembryonic-membranes-chatgpt-review.json",
+        "sha256": "2cd8fdba9a939302f46b6beefe7e94d1760b649eea5a2b10cd9c495b275c0deb"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/c-basic-inheritance-diagram-review.json",
+        "sha256": "210f0e2f0eecd3c7c0591588088674b36a9e1f2283a7e7081c22711ea0c9ffa1"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue-reviewed-before-membranes.json",
+        "sha256": "3d0ce1e3ca04743490d7eb7e322ffc9fa03b8ba4ddbcb979cfaa9c4e935b31c0"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "9c3b4acf66b87229dc897d48016e99120e2d84bf7395025bcf488578a15030ea"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "ca7abaedaead77cb8fd22c74c518a11e5a67518023ce9a0d94a3298ee5d90514"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-extraembryonic-membranes-chatgpt-v1.png",
+        "sha256": "da7778d1762bcbcc3462b93b037ee023e4304efdd2978520853a97cb75025224"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-allele-genotype-phenotype-v1.svg",
+        "sha256": "57781810cb1470e043e84a9a8ef824fa2176a809f04b29cbd16dd985c9d608ea"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-monohybrid-gamete-square-v1.svg",
+        "sha256": "a1121c233c300ed21936d8f13bd5582fbe05412b255de829529cfee82fdd8ea3"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-testcross-alternative-models-v1.svg",
+        "sha256": "cd9e680a994bd9eca4cf706fc82d135ea83ea8e6ad1d936e5fa3917d1d48e29a"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-probability-comparison-set-v2.svg",
+        "sha256": "5177558aa16bc63755fee58ecc1d7d6226b321a9f8bc673b5c9464b0466d474d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-dihybrid-gamete-square-v1.svg",
+        "sha256": "0de8a04a3393adeec250805240036ad4f4b7e099e191f8392f603bbea8259e55"
+      }
+    ],
+    "teacherDecision": null,
+    "readyForRendering": false,
+    "limitations": [
+      "45C targets and seven all-unit academic/source gates remain.",
+      "Real learner candidates0/3.",
+      "User authorized retaining current work and improving workflow going forward; this is not teacher acceptance."
+    ]
+  },
+  "userWorkflowSteering": {
+    "recordedAt": "2026-09-07T13:25:33.226896+00:00",
+    "instruction": "Keep reviewed work; use ChatGPT browser for new illustrations and code-native SVG for precise graphs/genetic grids. Reduce repeated work.",
+    "acceptanceBoundary": "Permission to continue with provisional assets; no teacher acceptance or Unit A acceptance inferred."
+  },
+  "stage88": {
+    "stage": 88,
+    "checkedAt": "2026-09-07T13:43:15.030156+00:00",
+    "summary": "20 C figure targets bound using one ChatGPT botanical illustration,13 precise diagrams and previous probability-panel reuse.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 102,
+      "pending": 25,
+      "byUnit": {
+        "B": 34,
+        "C": 46,
+        "D": 22
+      },
+      "uniqueSelectedAssetFiles": 97,
+      "gallerySections": 101
+    },
+    "reviewPath": "projects/resources/biology30-production/v1/pilot2/source-review/c-reproduction-inheritance-mapping-review.json",
+    "reviewSha256": "fdc3f05c37238174f9f8919e4721690ef3a672d52c61c299ce5c9faa174bb810",
+    "verification": {
+      "focusedTests": "6/6 pass; /tmp/bcd-stage88-tests-v2.log",
+      "initialFailure": "Count expectation remained82 after the first writer; corrected to102. No science evidence hash failure.",
+      "nativeReview": "All14 selected new assets inspected; paternal-son label collision corrected in v2. Geometry checks fit viewport.",
+      "fullSuite": "Not repeated for data-only additions; prior stage83 owner proof retained.",
+      "sourceProtection": "No learner/Unit A files edited; stage87 source hash proof retained until end-of-batch cold verification."
+    },
+    "teacherDecision": null,
+    "nextAction": "25 C molecular/technology figures; ChatGPT gene-expression result awaiting native review; then academic closure and all-unit freeze."
+  },
+  "stage89": {
+    "stage": 89,
+    "checkedAt": "2026-09-07T14:03:25.719720+00:00",
+    "summary": "All127 B/C/D figure targets bound, all three figure manifests complete-author-review and figuresAndRights gates passed for local blocked review. No learner candidate built.",
+    "figureCounts": {
+      "total": 127,
+      "bound": 127,
+      "pending": 0,
+      "byUnit": {
+        "B": 34,
+        "C": 71,
+        "D": 22
+      },
+      "uniqueSelectedAssetFiles": 115,
+      "gallerySections": 126
+    },
+    "gatesPassedPerUnit": 7,
+    "verification": {
+      "focusedTests": "6/6 pass; /tmp/bcd-stage89-tests-final-v2.log",
+      "initialClosureFailure": "Input inventory test still expected draft figure status; updated to completed provisional selection while retaining all-unit freeze refusal. /tmp/bcd-stage89-tests-final.log retained.",
+      "draftContracts": "passed; /tmp/bcd-stage89-contracts-final.log",
+      "sourceAndProtectedBaselines": "passed; /tmp/bcd-stage89-protection.log",
+      "figureClosure": "127 targets,115 unique selected files,18 exact scientific review receipts,126 gallery sections and540 resolving local references.",
+      "nativeReview": "17 molecular diagram surfaces plus corrected ChatGPT PNG inspected; exact corrections in the molecular review.",
+      "fullSuite": "Not repeated for data-only figure additions; prior101 owner and9 browser proof remains historical synthetic coverage."
+    },
+    "files": [
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+        "sha256": "62ff8ae4a267986c9d9a344ca88eef15ec525f07fda754b57deda1fe6ee9855c"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-contract.json",
+        "sha256": "eec8545f46261ece95fde34ef8d30a9cc9c36bf7ab67541bb413263ad7fce64d"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+        "sha256": "8afbb3ec42ee3f74c6f5c71654111a3e43e43d50407ab7654b514aebbd0f1c94"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-contract.json",
+        "sha256": "43f2c97fadcd58b73835f5370458b76628d1b51fe883d5d94c626531763f5d25"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "sha256": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "sha256": "3628bef240cace4464b253716bcd60f958c1fdd24a07ae0fe782e00b40add2d3"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/c-molecular-genetics-technology-review.json",
+        "sha256": "c1bd1810f51c91abfbbe91b5774c614e131d84009ee8c39f06349920536935ae"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json",
+        "sha256": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-queue.json",
+        "sha256": "5f0e172e3f285727725abb5b2b1fbb35e4ca239357e1585dfa185de4c9b19964"
+      },
+      {
+        "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+        "sha256": "28a2b863e6f06fe96a7104b06e7e1af8355b5a3bb8e13cd53eec85fcded22721"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+        "sha256": "b35612615caae75f7d38bca42a6f2c85ba4b2a24e27a5bbc7f772f29ba09e3e9"
+      },
+      {
+        "path": "scripts/tests/biology30-pilot2-inputs.test.ts",
+        "sha256": "d05451656382b739c89657d276cfddbaac274bc265af2d77e8bf3b5ba6911175"
+      }
+    ],
+    "teacherDecision": null,
+    "nextAction": "Complete source/media dispositions, atomic curriculum operations, all-surface first use, local walkthrough/media equivalence, Advanced/workload and159 Unit A transfers. Then freeze all3 contracts and build B\u2192C\u2192D."
+  },
+  "stage90": {
+    "checkedAt": "2026-09-07T14:18:36.379475+00:00",
+    "summary": "All399 slides/442 embedded media/44 plan rows/226 link relationships dispositioned. All127 local frames exactly match reviewed worked examples and have reviewed figures. Zero external instructional clips selected. Source/local-path gates passed,9/13."
+  },
+  "stage91": {
+    "checkedAt": "2026-09-07T14:18:36.379475+00:00",
+    "summary": "73 earlier definition placements including grouped panels reviewed and repaired; unchanged definitions/core prose/practice keys/state IDs. Different senses explicitly excluded. Full vocabulary gate still pending."
+  },
+  "stage92": {
+    "checkedAt": "2026-09-07T14:18:36.379475+00:00",
+    "summary": "Actual core/definition/figure-panel word counts and activity allocations reviewed. Required75h and optional15h maintained; authored estimates, not measured timing. Advanced/timing gate passed,10/13."
+  },
+  "actualLearnerCandidates": 3,
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "7308adce02d142a24196e314c2e4a66f79370eaab3a4e2814480ccc99adc8f79",
+      "contractSha256": "45d019576335fd3687e692b71c9b0460f67756118b6fc4ee5acb555a752159b1",
+      "generatedAt": "2026-09-07T17:36:48.644Z",
+      "previousWorkspaceSha256": "a0b7857d10301805342abd6895665e0711a6ad0280fbad834604e8a539d27e9c"
+    },
+    "C": {
+      "buildSha256": "f317656fc3cb0a030b3c6201b990ed5dc82d633cf6458d87a19ef72e57772ee9",
+      "contractSha256": "b7fec3facb55d7d60fd374befdc57dcf3cabac83593c3933c3c5ba6cfaf9b9d9",
+      "generatedAt": "2026-09-07T17:36:55.268Z",
+      "previousWorkspaceSha256": "c271344e0721f81b5b1774e18765a816be19109f08d7bb12962e116b54483495"
+    },
+    "D": {
+      "buildSha256": "d8698293a7f0490568fe8ae2115dd2304a6c4d1c378243ae8d81a39f2cd66c34",
+      "contractSha256": "e08a4cc1974eb0d819c08adc76eb8ce2a17fc2a82ebecf771a630d5187494774",
+      "generatedAt": "2026-09-07T17:37:01.274Z",
+      "previousWorkspaceSha256": "95a7836d6a3ca1e936f9e83364d83b52b3f47b9e28d997400aeda5bb3053cdad"
+    }
+  },
+  "stage93": {
+    "summary": "136 compound criteria reviewed against all127 core parts; required ovarian puberty explanation added; direct skill-data targets and outcome declarations synchronized."
+  },
+  "stage94": {
+    "summary": "Existing vocabulary/transfer evidence consolidated under user direction to end broad review;73 definition placements moved earlier,159 transfer rules mapped;all3 contracts frozen."
+  },
+  "stage95": {
+    "summary": "Actual B/C/D local candidates built, continuation-page and mobile-header defects repaired, final3 project tests and172 responsive checks passed.",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-actual-courses/report.json"
+  },
+  "stage97": {
+    "checkedAt": "2026-09-07T15:26:31.679314+00:00",
+    "summary": "A presentation and organization adapted through BCD owner; final project/workspace and focused browser checks pass; protected A unchanged; teacher review pending.",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-presentation-repair/report.json"
+  },
+  "nextAction": "Address specific learner findings against current local candidates. No broad review, image cycle, or release action.",
+  "stage98": {
+    "summary": "User-identified Practice & Review, Process Collection and Resources structures corrected; final actual checks pass.",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-a-hub-repair/report.json",
+    "checkedAt": "2026-09-07T15:46:35.389402+00:00"
+  },
+  "stage99": {
+    "checkedAt": "2026-09-07T16:13:12.347992+00:00",
+    "summary": "Restore80 original optional PowerPoint video links and missing vocabulary controls; final focused/workspace/project checks pass.3 links unavailable; no clip-review acceptance inferred.",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-vocabulary-source-videos/report.json"
+  },
+  "stage100": {
+    "checkedAt": "2026-09-07T16:17:33.868838+00:00",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-sidebar-content-width/report.json",
+    "summary": "Content fills available space in both sidebar positions and mobile; final layout/workspace/project checks pass."
+  },
+  "stage101": {
+    "checkedAt": "2026-09-07T16:29:16.488236+00:00",
+    "summary": "Correct stage99 omission: actual players now embedded inside lessons, not only library links. Existing checkpoint/state retained; final checks pass.",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-inline-powerpoint-videos/report.json"
+  },
+  "stage102": {
+    "checkedAt": "2026-09-07T16:34:10.668760+00:00",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-advanced-spacing/report.json",
+    "summary": "User-marked Advanced headings/rows corrected; responsive spacing and existing behavior verified."
+  },
+  "stage103": {
+    "checkedAt": "2026-09-07T16:47:50.903966+00:00",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-model-lab-process/report.json",
+    "summary": "A investigation presentation and gated case-prediction-evidence-save flow transferred to existing9 BCD models; final tests pass."
+  },
+  "stage104": {
+    "checkedAt": "2026-09-07T17:16:21.703912+00:00",
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-learning-level/report.json",
+    "summary": "33 core blocks and3 worked/local-path examples revised; per-block reading guard added; final source/rendered/project checks pass. No teacher acceptance."
+  },
+  "stage105": {
+    "report": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-c-optional-label/report.json",
+    "checkedAt": "2026-09-07T17:38:54.985841+00:00",
+    "summary": "User-scoped correction expanded from C to B/D. Completion checkbox row spacing/wrapping repaired; all-unit final checks pass."
+  }
+}

@@ -1,0 +1,907 @@
+{
+  "schemaVersion": 1,
+  "status": "sources-prepared-academic-contracts-incomplete",
+  "sourceWorkspaceSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+  "archiveChecks": [
+    {
+      "id": "class-2026-27",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+      "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+      "status": "hash-verified"
+    },
+    {
+      "id": "system-2020",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+      "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+      "status": "hash-verified"
+    }
+  ],
+  "availabilityOverlay": {
+    "manifestPath": "projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json",
+    "manifestSha256": "7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+    "preparedIntakePath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+    "relationshipPath": "projects/resources/biology30-production/v1/pilot2/relationships/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+    "externalDeckRelationships": 90,
+    "suppliedChecks": [
+      {
+        "unit": "BCD",
+        "kind": "archive",
+        "originalName": "D2LExport_6661_CBE System Biology 30 (Winter 2020)_202682803.zip",
+        "preservedPath": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+        "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "BCD",
+        "kind": "archive",
+        "originalName": "D2LExport_156587_26-27 _ S1 _ Biology 30 _ Per 1(A) _ Sec 10_202682838.zip",
+        "preservedPath": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+        "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "B",
+        "kind": "powerpoint",
+        "originalName": "Unit B Chapter 14 Notes (1).pptx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229.pptx",
+        "sha256": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "B",
+        "kind": "powerpoint",
+        "originalName": "Unit B Chapter 15 Notes.pptx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84.pptx",
+        "sha256": "38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "C",
+        "kind": "powerpoint",
+        "originalName": "Unit C Chapter 16 Notes.pptx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061.pptx",
+        "sha256": "a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "C",
+        "kind": "powerpoint",
+        "originalName": "Unit C Part B Mendelian Genetics .pptx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985.pptx",
+        "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "C",
+        "kind": "powerpoint",
+        "originalName": "Unit C Part C Molecular Genetics.pptx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/bd9400705c1cd91d3d9ca6d383876e86898d3ce1ca40b340f8ae5aad4d5cae9d.pptx",
+        "sha256": "bd9400705c1cd91d3d9ca6d383876e86898d3ce1ca40b340f8ae5aad4d5cae9d",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "D",
+        "kind": "powerpoint",
+        "originalName": "Unit D Population Dynamics Notes.pptx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/5267cad1695357076458c22cce95c0709d414d9082db45f76e318271be5f22f3.pptx",
+        "sha256": "5267cad1695357076458c22cce95c0709d414d9082db45f76e318271be5f22f3",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "B",
+        "kind": "daily-plan",
+        "originalName": "Chapter 14 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/ec9ec83e713966a3ede8071e42b2121a14ab53a9ba469a6e7e4bc71760aa6691.docx",
+        "sha256": "ec9ec83e713966a3ede8071e42b2121a14ab53a9ba469a6e7e4bc71760aa6691",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "B",
+        "kind": "daily-plan",
+        "originalName": "Chapter 15 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/6a55bb842c957ea1728125158261cbc6cebcbff862059019c20d65c8defb6dd6.docx",
+        "sha256": "6a55bb842c957ea1728125158261cbc6cebcbff862059019c20d65c8defb6dd6",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "C",
+        "kind": "daily-plan",
+        "originalName": "Chapter 16 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251.docx",
+        "sha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "C",
+        "kind": "daily-plan",
+        "originalName": "Chapter 17 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb.docx",
+        "sha256": "4c744d97931423fba0ef353d20c161e01c36ac0721ce2fcbbb72ac653b5286eb",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "C",
+        "kind": "daily-plan",
+        "originalName": "Chapter 18 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e.docx",
+        "sha256": "27fa1682f0926ede09d3c931e926abcb52ae898f42fe2665c1e084a2a917434e",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "D",
+        "kind": "daily-plan",
+        "originalName": "Chapter 19 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65.docx",
+        "sha256": "11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65",
+        "status": "preserved-hash-verified-academic-review-pending"
+      },
+      {
+        "unit": "D",
+        "kind": "daily-plan",
+        "originalName": "Chapter 20 Daily Plans.docx",
+        "preservedPath": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/originals/239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa.docx",
+        "sha256": "239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa",
+        "status": "preserved-hash-verified-academic-review-pending"
+      }
+    ],
+    "counts": {
+      "slides": 399,
+      "embeddedMediaFiles": 442,
+      "youtubeOccurrences": 82,
+      "distinctYoutubeIds": 80
+    },
+    "executionAuthorization": "Provisional Unit A process use and complete sequential B/C/D rebuild authorized; no teacher acceptance or release authority."
+  },
+  "units": [
+    {
+      "unit": "B",
+      "project": "biology30-unit-b",
+      "contractPath": "projects/resources/biology30-production/v1/units/unit-b/production-contract.json",
+      "contractSha256": "37014e1774cd242e10590842791f0ffa55483734ec3f19c91d2339b3b390d44a",
+      "workspaceSha256": "87e8db1578ae2f44edce4114ed093adbff63ec8fb0031ffead3ec3eedf7204c1",
+      "owner": "scripts/lib/biology30-course/v1/",
+      "lessonCount": 14,
+      "practiceCount": 86,
+      "requiredMinutes": 1200,
+      "optionalMinutes": 240,
+      "readyForOnePassBuild": false,
+      "presentNotes": [
+        {
+          "unit": "B",
+          "id": "unit-b-notes",
+          "locator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit B Reproduction and Development Notes (1).pdf",
+          "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+          "pageCount": 75,
+          "status": "hash-verified-content-needs-current-audit"
+        }
+      ],
+      "presentUnauditedArchiveCandidates": [
+        {
+          "title": "Unit B Reproduction and Development Notes (1)",
+          "locator": "class-2026-27#Unit B Reproduction and Development Notes (1).pdf",
+          "disposition": "transformed-local-replacement"
+        },
+        {
+          "title": "Days 24-29: Chapter 14",
+          "locator": "class-2026-27#1498085",
+          "disposition": "included"
+        },
+        {
+          "title": "Unit B Chapter 14 Notes",
+          "locator": "class-2026-27#https://docs.google.com/presentation/d/1Wmk7OA_4lJg8sDzWM0oqHHWcxAwkwfgnPEtBBEopYtY/edit?usp=drivesdk",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 24: Male Reproductive Structures",
+          "locator": "class-2026-27#1498148",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 25: Spermatogenesis",
+          "locator": "class-2026-27#1498149",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 26: Female Reproductive Structures",
+          "locator": "class-2026-27#1498150",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 27: Menstrual Cycle",
+          "locator": "class-2026-27#1498151",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 28-29: Ch. 14 Quiz",
+          "locator": "class-2026-27#1498145",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 14 Textbook KEYs",
+          "locator": "class-2026-27#1498144",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 14 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch14.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 14.1 Review p.485 (KEY)",
+          "locator": "class-2026-27#Content\\Section-14-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 14.2 Review p.491 (KEY)",
+          "locator": "class-2026-27#Content\\Section-14-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 14.3 Review p.502 (KEY)",
+          "locator": "class-2026-27#Content\\Section-14-3.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 14 Review p.504-505 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch14.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Days 30-35: Chapter 15",
+          "locator": "class-2026-27#1498086",
+          "disposition": "included"
+        },
+        {
+          "title": "Chapter 15 Notes",
+          "locator": "class-2026-27#https://docs.google.com/presentation/d/1J1jIzOSAzTM4PFAToPK8ycoqaCdIP1ECOs8KgzkwTDM/edit#slide=id.p40",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 30: Fertilization to Implantation",
+          "locator": "class-2026-27#1498152",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 31: hCG + Gastrulation",
+          "locator": "class-2026-27#1498153",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 32: Extraembryonic Structures and Organogenesis",
+          "locator": "class-2026-27#1498157",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 33: Parturition",
+          "locator": "class-2026-27#1498158",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 34-35: Ch. 15 Quiz",
+          "locator": "class-2026-27#1498154",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 15 Textbook KEYs",
+          "locator": "class-2026-27#1498155",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 15 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch15.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 15.2 Review p.528 (KEY)",
+          "locator": "class-2026-27#Content\\Section-15-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 15.1 Review p.518 (KEY)",
+          "locator": "class-2026-27#Content\\Section-15-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 15.3 Review p.534 (KEY)",
+          "locator": "class-2026-27#Content\\Section-15-3.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Chapter 15 Review",
+          "locator": "class-2026-27#Chapter 15 Review.html",
+          "disposition": "included"
+        },
+        {
+          "title": "Textbook Chapter 15 Review p.536-537 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch15.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Days 36-38: Unit B Review and Exam",
+          "locator": "class-2026-27#1498090",
+          "disposition": "included"
+        },
+        {
+          "title": "Unit B Review Seminar Notes",
+          "locator": "class-2026-27#Unit B Review Seminar Notes.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Textbook Unit 6(B) Review p.540-543 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_review_unit_6.pdf",
+          "disposition": "included-check-your-work"
+        }
+      ],
+      "needBeforeBuild": [
+        {
+          "material": "Current teacher topic/daily/review plans",
+          "status": "supplied-preserved-rows-inventoried",
+          "action": "Use the supplied teacher order and daily-plans.json; complete row dispositions. No re-upload or topic-order confirmation is needed."
+        },
+        {
+          "material": "Original editable PowerPoints",
+          "status": "supplied-preserved-slides-media-links-inventoried",
+          "action": "Use decks.json and preserved originals; complete individual visual/science/rights dispositions before learner reuse."
+        },
+        {
+          "material": "Textbook chapters and visible review questions",
+          "status": "all-chapters-normalized-original-part-mapped",
+          "action": "Use textbooks.json and preserved archive members; visually verify folios and review every assigned question before adapting guides."
+        },
+        {
+          "material": "Learner-authorized review guidance",
+          "status": "archive-candidates-present-needs-rights-and-answer-audit",
+          "action": "Separate visible textbook guidance from secure quizzes/teacher-only keys; rewrite and scientifically verify native answers."
+        },
+        {
+          "material": "Videos, captions, segments and duration",
+          "status": "needs-unit-link-and-transcript-inventory",
+          "action": "Extract every link from supplied decks and notes, record dispositions, and review captions, facts, pace and local equivalents."
+        },
+        {
+          "material": "Figures, rights and teacher choices",
+          "status": "needs-current-context-review",
+          "action": "Compare existing figures, native PPT/PDF images and original candidates. Reuse the documented ChatGPT comparison process only for gaps."
+        },
+        {
+          "material": "Investigations and data",
+          "status": "needs-teacher-approved-skills-paths",
+          "action": "Inventory real or supplied data, tools, safety and accommodations. Do not call analysis evidence proof of performing a physical procedure."
+        }
+      ]
+    },
+    {
+      "unit": "C",
+      "project": "biology30-unit-c",
+      "contractPath": "projects/resources/biology30-production/v1/units/unit-c/production-contract.json",
+      "contractSha256": "2afb7b9182df48a6f34840c9c573615ca5137e6e9e20d87969b842791c956289",
+      "workspaceSha256": "ffe8fdf35d1ee00e4788a8655baa4060838d06ac0e8433371abb88fcc4df07dd",
+      "owner": "scripts/lib/biology30-course/v1/",
+      "lessonCount": 24,
+      "practiceCount": 160,
+      "requiredMinutes": 2400,
+      "optionalMinutes": 480,
+      "readyForOnePassBuild": false,
+      "presentNotes": [
+        {
+          "unit": "C",
+          "id": "unit-c-cell-division-notes",
+          "locator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pageCount": 79,
+          "status": "hash-verified-content-needs-current-audit"
+        },
+        {
+          "unit": "C",
+          "id": "unit-c-mendelian-genetics-notes",
+          "locator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pageCount": 114,
+          "status": "hash-verified-content-needs-current-audit"
+        },
+        {
+          "unit": "C",
+          "id": "unit-c-molecular-genetics-notes",
+          "locator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pageCount": 59,
+          "status": "hash-verified-content-needs-current-audit"
+        }
+      ],
+      "presentUnauditedArchiveCandidates": [
+        {
+          "title": "Days 39-46: Chapter 16",
+          "locator": "class-2026-27#1498108",
+          "disposition": "included"
+        },
+        {
+          "title": "Unit C Part A Cell Division Notes",
+          "locator": "class-2026-27#Unit C Part A Cell Division Notes.pdf",
+          "disposition": "transformed-local-replacement"
+        },
+        {
+          "title": "Chapter 16 Notes",
+          "locator": "class-2026-27#https://docs.google.com/presentation/d/1wroZLRkpyKHRF8wO5byu7aMtPosZGL4EjiSc4wiEdXg/edit#slide=id.g2e5079bb4f8_0_11",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 39: Chromosomes and DNA",
+          "locator": "class-2026-27#1498159",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 40: The Cell Cycle",
+          "locator": "class-2026-27#1498160",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 41: Mitosis",
+          "locator": "class-2026-27#1498161",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 42: Meiosis Part A",
+          "locator": "class-2026-27#1498162",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 43: Meiosis Part B",
+          "locator": "class-2026-27#1498166",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 44: Reproductive Strategies",
+          "locator": "class-2026-27#1498167",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 45-46: Chapter 16 Quiz",
+          "locator": "class-2026-27#1498173",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 16 Textbook KEYs",
+          "locator": "class-2026-27#1498172",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 16 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch16.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 16.1 Review p.555 (KEY)",
+          "locator": "class-2026-27#Content\\Section-16-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 16.2 Review p.561 (KEY)",
+          "locator": "class-2026-27#Content\\Section-16-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 16.3 Review p.572 (KEY)",
+          "locator": "class-2026-27#Content\\Section-16-3.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 16.4 Review p.580 (KEY)",
+          "locator": "class-2026-27#Content\\Section-16-4.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 16 Review p.582-583 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch16.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Days 47-55: Chapter 17",
+          "locator": "class-2026-27#1498109",
+          "disposition": "included"
+        },
+        {
+          "title": "Chapter 17 Notes",
+          "locator": "class-2026-27#https://docs.google.com/presentation/d/1tYdFLxl7r1ha3kn9UkhYDfiET1j29YIMdfTO2T6ZG_A/edit#slide=id.p16",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 17 Student Notes (if printing from home)",
+          "locator": "class-2026-27#Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 47: Genes, Alleles and Traits",
+          "locator": "class-2026-27#1498174",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 48: Mendelian Genetics",
+          "locator": "class-2026-27#1498178",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 49: Single and Two Trait Crosses",
+          "locator": "class-2026-27#1498179",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 50-51: Other Modes of Inheritance",
+          "locator": "class-2026-27#1498180",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 52: Pedigrees",
+          "locator": "class-2026-27#1498181",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 53: Chromosome Mapping",
+          "locator": "class-2026-27#1498182",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 54-55: Ch. 17 Quiz",
+          "locator": "class-2026-27#1498183",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 17 Textbook KEYs",
+          "locator": "class-2026-27#1498175",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 17 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch17.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 17.1 Review p.598 (KEY)",
+          "locator": "class-2026-27#Content\\Section-17-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 17.2 Review p.609 (KEY)",
+          "locator": "class-2026-27#Content\\Section-17-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 17.3 Review p.617 (KEY)",
+          "locator": "class-2026-27#Content\\Section-17-3.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 17 Review p.620-621 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch17.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Days 56-63: Chapter 18",
+          "locator": "class-2026-27#1498110",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 56: DNA and its History",
+          "locator": "class-2026-27#1498184",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 57: DNA Replication",
+          "locator": "class-2026-27#1498185",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 58: Transcription",
+          "locator": "class-2026-27#1498186",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 59: Translation",
+          "locator": "class-2026-27#1498187",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 60: Mutations",
+          "locator": "class-2026-27#1498188",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 61: Genetic Technologies",
+          "locator": "class-2026-27#1498189",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 62-63: Chapter 18 Quiz",
+          "locator": "class-2026-27#1498190",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 18 Textbook KEYs",
+          "locator": "class-2026-27#1498193",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 18 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch18.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 18.1 Review p.635(KEY)",
+          "locator": "class-2026-27#Content\\Section-18-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 18.2 Review p.642 (KEY)",
+          "locator": "class-2026-27#Content\\Section-18-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 18.3 Review p.651 (KEY)",
+          "locator": "class-2026-27#Content\\Section-18-3.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 18.4 Review p.661 (KEY)",
+          "locator": "class-2026-27#Content\\Section-18-4.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 18 Review p.664-665 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch18.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Days 64-68: Unit C Review and Exam",
+          "locator": "class-2026-27#1498111",
+          "disposition": "included"
+        },
+        {
+          "title": "Unit C Genetics Review Seminar Notes",
+          "locator": "class-2026-27#Unit C Genetics Review Seminar Notes.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Unit C Genetics Review Seminar Slides",
+          "locator": "class-2026-27#Unit C Genetics Review Seminar Slides - Copy.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Textbook Unit 7(C) Review p.668-671 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_review_unit_7.pdf",
+          "disposition": "included-check-your-work"
+        }
+      ],
+      "needBeforeBuild": [
+        {
+          "material": "Current teacher topic/daily/review plans",
+          "status": "supplied-preserved-rows-inventoried",
+          "action": "Use the supplied teacher order and daily-plans.json; complete row dispositions. No re-upload or topic-order confirmation is needed."
+        },
+        {
+          "material": "Original editable PowerPoints",
+          "status": "supplied-preserved-slides-media-links-inventoried",
+          "action": "Use decks.json and preserved originals; complete individual visual/science/rights dispositions before learner reuse."
+        },
+        {
+          "material": "Textbook chapters and visible review questions",
+          "status": "all-chapters-normalized-original-part-mapped",
+          "action": "Use textbooks.json and preserved archive members; visually verify folios and review every assigned question before adapting guides."
+        },
+        {
+          "material": "Learner-authorized review guidance",
+          "status": "archive-candidates-present-needs-rights-and-answer-audit",
+          "action": "Separate visible textbook guidance from secure quizzes/teacher-only keys; rewrite and scientifically verify native answers."
+        },
+        {
+          "material": "Videos, captions, segments and duration",
+          "status": "needs-unit-link-and-transcript-inventory",
+          "action": "Extract every link from supplied decks and notes, record dispositions, and review captions, facts, pace and local equivalents."
+        },
+        {
+          "material": "Figures, rights and teacher choices",
+          "status": "needs-current-context-review",
+          "action": "Compare existing figures, native PPT/PDF images and original candidates. Reuse the documented ChatGPT comparison process only for gaps."
+        },
+        {
+          "material": "Investigations and data",
+          "status": "needs-teacher-approved-skills-paths",
+          "action": "Inventory real or supplied data, tools, safety and accommodations. Do not call analysis evidence proof of performing a physical procedure."
+        }
+      ]
+    },
+    {
+      "unit": "D",
+      "project": "biology30-unit-d",
+      "contractPath": "projects/resources/biology30-production/v1/units/unit-d/production-contract.json",
+      "contractSha256": "bd8c4bce9ec0ae9109208d865b0befcb18cb2c9b71ca001793cde1d68e30718e",
+      "workspaceSha256": "f1c0755e5d65f951b3401ccd8b181f2e32625485d52fe9446edc96015c8e8760",
+      "owner": "scripts/lib/biology30-course/v1/",
+      "lessonCount": 11,
+      "practiceCount": 72,
+      "requiredMinutes": 900,
+      "optionalMinutes": 180,
+      "readyForOnePassBuild": false,
+      "presentNotes": [
+        {
+          "unit": "D",
+          "id": "unit-d-population-notes",
+          "locator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit D Population Dynamics Student Notes.pdf",
+          "sha256": "08ff6e3a4d59f3359413056a29226a15062d8ff9c6b17cf6a37a427002e74def",
+          "pageCount": 68,
+          "status": "hash-verified-content-needs-current-audit"
+        }
+      ],
+      "presentUnauditedArchiveCandidates": [
+        {
+          "title": "Unit D Population Dynamics Notes",
+          "locator": "class-2026-27#https://docs.google.com/presentation/d/1v6tvbGcPRMBOvstD5IdTuqWIr8CdCkVo70Yux47bql0/edit?usp=sharing",
+          "disposition": "included"
+        },
+        {
+          "title": "Unit D Population Dynamics Student Notes",
+          "locator": "class-2026-27#Unit D Population Dynamics Student Notes.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 69-72: Chapter 19",
+          "locator": "class-2026-27#1498087",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 69: Hardy-Weinberg",
+          "locator": "class-2026-27#1498199",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 70: Mechanisms of Change",
+          "locator": "class-2026-27#1498200",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 71-72: Ch. 19 Quiz",
+          "locator": "class-2026-27#1498198",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 19 Textbook KEY",
+          "locator": "class-2026-27#1498197",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 19 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch19.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 19.1 Review p.688 (KEY)",
+          "locator": "class-2026-27#Content\\Section-19-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 19.2 Review p.697 (KEY)",
+          "locator": "class-2026-27#Content\\Section-19-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 19 Review p.700-701 (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch19.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Days 73-76: Chapter 20",
+          "locator": "class-2026-27#1498088",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 73: Population Growth",
+          "locator": "class-2026-27#1498203",
+          "disposition": "included"
+        },
+        {
+          "title": "Day 74: Life Strategies and Ecological Relationships",
+          "locator": "class-2026-27#1498204",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 75-56: Ch. 20 Quiz",
+          "locator": "class-2026-27#1498201",
+          "disposition": "included"
+        },
+        {
+          "title": "Ch. 20 Textbook KEY",
+          "locator": "class-2026-27#1498202",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 20 Questions for Comprehension (KEY)",
+          "locator": "class-2026-27#Content\\mhriib_tr_comp_ch20.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 20.1 Review p.716 (KEY)",
+          "locator": "class-2026-27#Content\\Section-20-1.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 20.2 Review p.730 (KEY)",
+          "locator": "class-2026-27#Content\\Section-20-2.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Section 20.3 Review p.737 (KEY)",
+          "locator": "class-2026-27#Content\\Section-20-3.pdf",
+          "disposition": "included-check-your-work"
+        },
+        {
+          "title": "Textbook Chapter 20 Review p.740-741",
+          "locator": "class-2026-27#Content\\mhriib_tr_ans_review_ch20.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Days 78-79: Unit D Review and Exam",
+          "locator": "class-2026-27#1498091",
+          "disposition": "included"
+        },
+        {
+          "title": "Bio 30 Unit D Review Seminar Notes",
+          "locator": "class-2026-27#Bio 30 Unit D Review Seminar Notes.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Bio 30 Unit D Review Seminar Slides",
+          "locator": "class-2026-27#Bio 30 Unit D Review Seminar Slides.pdf",
+          "disposition": "included"
+        },
+        {
+          "title": "Textbook Unit 8(D) Review p.744-747",
+          "locator": "class-2026-27#Content\\mhriib_tr_review_unit_8.pdf",
+          "disposition": "included"
+        }
+      ],
+      "needBeforeBuild": [
+        {
+          "material": "Current teacher topic/daily/review plans",
+          "status": "supplied-preserved-rows-inventoried",
+          "action": "Use the supplied teacher order and daily-plans.json; complete row dispositions. No re-upload or topic-order confirmation is needed."
+        },
+        {
+          "material": "Original editable PowerPoints",
+          "status": "supplied-preserved-slides-media-links-inventoried",
+          "action": "Use decks.json and preserved originals; complete individual visual/science/rights dispositions before learner reuse."
+        },
+        {
+          "material": "Textbook chapters and visible review questions",
+          "status": "all-chapters-normalized-original-part-mapped",
+          "action": "Use textbooks.json and preserved archive members; visually verify folios and review every assigned question before adapting guides."
+        },
+        {
+          "material": "Learner-authorized review guidance",
+          "status": "archive-candidates-present-needs-rights-and-answer-audit",
+          "action": "Separate visible textbook guidance from secure quizzes/teacher-only keys; rewrite and scientifically verify native answers."
+        },
+        {
+          "material": "Videos, captions, segments and duration",
+          "status": "needs-unit-link-and-transcript-inventory",
+          "action": "Extract every link from supplied decks and notes, record dispositions, and review captions, facts, pace and local equivalents."
+        },
+        {
+          "material": "Figures, rights and teacher choices",
+          "status": "needs-current-context-review",
+          "action": "Compare existing figures, native PPT/PDF images and original candidates. Reuse the documented ChatGPT comparison process only for gaps."
+        },
+        {
+          "material": "Investigations and data",
+          "status": "needs-teacher-approved-skills-paths",
+          "action": "Inventory real or supplied data, tools, safety and accommodations. Do not call analysis evidence proof of performing a physical procedure."
+        }
+      ]
+    }
+  ],
+  "prohibited": [
+    "secure tests",
+    "teacher-only quiz/exam keys",
+    "external account credentials",
+    "broken LMS launchers",
+    "private ChatGPT conversation links in learner files"
+  ],
+  "note": "Preservation and inventories are not scientific, rights or teaching acceptance. B/C/D learner workspaces remain unchanged; source preparation is recorded separately."
+}

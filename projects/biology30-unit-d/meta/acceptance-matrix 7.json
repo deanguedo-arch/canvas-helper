@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-d",
+  "buildSha256": "5dc8b321c87435701edbed1f126cd00a06f3110b95e5c7635d2b805220a94fd2",
+  "generatedAt": "2026-08-31T01:39:45.921Z",
+  "status": "awaiting-human-score-and-decision",
+  "automaticPromotion": false,
+  "minimumTotal": 95,
+  "categories": [
+    {
+      "id": "academic",
+      "label": "Academic alignment and accuracy",
+      "points": 25,
+      "minimum": 20,
+      "score": null
+    },
+    {
+      "id": "coherence",
+      "label": "Instructional coherence",
+      "points": 20,
+      "minimum": 16,
+      "score": null
+    },
+    {
+      "id": "visual",
+      "label": "Visual and editorial quality",
+      "points": 15,
+      "minimum": 12,
+      "score": null
+    },
+    {
+      "id": "practice",
+      "label": "Practice and investigations",
+      "points": 15,
+      "minimum": 12,
+      "score": null
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "points": 10,
+      "minimum": 8,
+      "score": null
+    },
+    {
+      "id": "runtime",
+      "label": "Local-first runtime and persistence",
+      "points": 10,
+      "minimum": 8,
+      "score": null
+    },
+    {
+      "id": "maintainability",
+      "label": "Maintainability and Studio readiness",
+      "points": 5,
+      "minimum": 4,
+      "score": null
+    }
+  ],
+  "binaryBlockers": [
+    "mandatory outcome unmapped",
+    "factual error",
+    "teacher-only test or key exposure",
+    "inaccessible required activity",
+    "required internet dependency",
+    "unresolved local asset",
+    "learner-state loss",
+    "missing investigation fallback",
+    "slide controls or placeholders",
+    "unresolved rights status",
+    "LMS restore failure"
+  ],
+  "automatedEvidencePass": true,
+  "humanDecision": null
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "stage": "pre-render-authored-textbook-review",
+  "status": "passed",
+  "reviewer": "author in a separate source-first pass; no second human reviewer claimed",
+  "reviewed": {
+    "B": 84,
+    "C": 91,
+    "D": 68
+  },
+  "sourceQuestionsAndFolios": "Original assigned chapter/unit review questions reread; existing26-page visual folio evidence retained; chromosome, hormone, pedigree and succession graphs re-viewed where keys rely on image relationships.",
+  "guideRevisions": 47,
+  "preAttemptContexts": {
+    "B": 11,
+    "C": 13,
+    "D": 8
+  },
+  "preAttemptSourceNotices": 50,
+  "sourceQualifications": 62,
+  "routePolicy": "All required-passage links precede the chapter/unit-review route. Later links are optional further reading; extension knowledge appears in optional context before attempt.",
+  "evidenceLimits": [
+    "Receipt checks verify exact bytes and inventories, not scientific truth by themselves.",
+    "Rendered focus targets, context-before-attempt visibility and attempt-gated reveal still require candidate browser verification.",
+    "Other pre-render gates and the all-unit freeze remain pending."
+  ],
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-guides.json": "01ba05ea683fbafa0437bf591c294200c29b69aefed0fa6d418687a9c7c1d481",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook-passage-review.json": "654dbcf66b6cca3ef983abe763d474f20c4d4bbf72d9f5f7e89a128ae34c72e9",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-textbook.json": "62f2847ebf58218f05d146605a07d15a1741aadd11e032303d836a396f042751",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-guides.json": "7645d2ac98c6ed403810fb31ba08e6bdea5c9ef3619488847b10ce86a938ebf1",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook-passage-review.json": "8b1e2daee60ff39962c59a0af1f56adf0a94b8b7f9f907a6956f64c71a881c17",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-textbook.json": "259304032519fb951e1f65e0d744ff2d3a95da843bc08bebfe55edd31fdf8959",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-content.json": "bc1f687654953d9137c4980ef432d8b040df32b7cf495e83265cd69c654c8b3f",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-passage-review.json": "3e9535873df66c1cba1de6b74aa3bd1b89fc63f6db1594d2200ffd11dd4f3946",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook.json": "5396b0838d549b967a361b3122099451fd1915923a84a2d26cbc2ee19179df57",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "67bdd3bb90f5717b1787a7f26ddd19ca326aa0bf0e1ec3aa8607da18f81b4d18",
+    "projects/resources/biology30-production/v1/pilot2/source-review/textbook-corrections.json": "a1a939fdfa9acecf1f7e93f7fc39609f854c5cb2013ef81305de0cbaa15aa746",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-calculations.json": "1006efa97ea01f344d10bf6752010dae5b958dfc5871735bf51fc211c34184c8",
+    "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json": "2427d280121e18dc823d92696aabd969c824a0684bc563a56407dd84957a1af1",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284"
+  },
+  "teacherDecision": null,
+  "subsequentMetadataReviews": [
+    "Required paragraph and worked-example bytes unchanged;21 progressive definition targets advanced after the second vocabulary passage/sense pass. Container hashes refreshed for termIntroductionIds only; academic keys retained.",
+    "B source-retention pass restored required blood-route/prevention teaching and mapped deeper Advanced content. The8 affected practice and15 textbook-guide passage bindings were reread; core investigation parts remain unchanged. Seminar and retained-section proof are separate.",
+    {
+      "stage": "B-three-chapter-operation-replacements",
+      "scope": "Replace three redundant chapter MC questions with missing constructed operations. Keep65 questions,28 chapter items and two guided per topic. Prior whole items retained; new semantic response IDs, no answer equivalence. All new required prose/worked examples read. Two existing practice passage receipts and five textbook guides reread after the one location clarification; related old-section retention target remains complete.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json",
+      "historyPolicy": "Earlier completed stage receipts preserve their original container hashes and measurements. This scoped subsequent review records only the later changes."
+    },
+    {
+      "stage": "C-required-comparisons-and-response-packing",
+      "scope": "Four one-for-one C comparison replacements close empty required-practice links using new semantic IDs. Complete mapped core/worked examples reread; unchanged teaching. All nine synthetic sequence substitution counts checked. Full compound-criterion and figure proof still pending. No prior writing capacity shortened. Exact response text now uses fingerprinted ordered presence/text encoding only when smaller; sparse and earlier token pairs remain readable. Wrong maps/counts/unknown bits fail with original work retained. All-unit schema changes are draft manifests; no rebuilt learner payload has existed.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+      "historyPolicy": "Prior completed receipts retain historical hashes; this scoped review binds only subsequently changed draft practice/state inputs."
+    }
+  ]
+}

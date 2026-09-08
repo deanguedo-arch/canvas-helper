@@ -1,0 +1,263 @@
+{
+  "unit": "B",
+  "status": "non-gating-review-queue",
+  "scope": "Case-insensitive whole-phrase core, worked and stop text; excludes optional Advanced, figures, media and term inventory. Alias/plural/implicit prerequisites need manual review.",
+  "sources": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-vocabulary.json",
+      "sha256": "0705c37cbdb5b944748be8114ca41e6d46e1c31ecaca43ed212912a6ceaaa897"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-content.json",
+      "sha256": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-instruction.json",
+      "sha256": "77d55abd990371693bc4acd376b63564cb913468129e8e94238ee2b38923e5af"
+    }
+  ],
+  "findings": [
+    {
+      "termId": "b-term-prostate-gland",
+      "term": "prostate gland",
+      "declaredFirstPartId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-responsive-target",
+      "term": "responsive target",
+      "declaredFirstPartId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-secondary-spermatocyte",
+      "term": "secondary spermatocyte",
+      "declaredFirstPartId": "b-topic-spermatogenesis-division-and-differentiation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-primary-sex-characteristic",
+      "term": "primary sex characteristic",
+      "declaredFirstPartId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-secondary-sex-characteristic",
+      "term": "secondary sex characteristic",
+      "declaredFirstPartId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-follicle",
+      "term": "follicle",
+      "declaredFirstPartId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+      "earliestMatchedPartId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "b-topic-spermatogenesis-hormone-sources-and-targets",
+        "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+        "b-topic-menstrual-cycle-two-coordinated-cycles",
+        "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+        "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives"
+      ],
+      "excerpt": "signal stimulates the anterior pituitary gland to release FSH and LH. FSH means follicle-stimulating hormone, and LH means luteinizing hormone. Their names reflect ovarian functions, but both also act in the testicular pathway. ",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-fallopian-tube",
+      "term": "Fallopian tube",
+      "declaredFirstPartId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-relative-concentration",
+      "term": "relative concentration",
+      "declaredFirstPartId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-cycle-variation",
+      "term": "cycle variation",
+      "declaredFirstPartId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-contraception",
+      "term": "contraception",
+      "declaredFirstPartId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-feedback-suppression",
+      "term": "feedback suppression",
+      "declaredFirstPartId": "b-topic-spermatogenesis-feedback-and-evidence",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-benefit",
+      "term": "benefit",
+      "declaredFirstPartId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-meiotic-completion",
+      "term": "meiotic completion",
+      "declaredFirstPartId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-cell-migration",
+      "term": "cell migration",
+      "declaredFirstPartId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-digestive-lining",
+      "term": "digestive lining",
+      "declaredFirstPartId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-respiratory-lining",
+      "term": "respiratory lining",
+      "declaredFirstPartId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-umbilical-artery",
+      "term": "umbilical artery",
+      "declaredFirstPartId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-prostaglandin",
+      "term": "prostaglandin",
+      "declaredFirstPartId": "b-topic-parturition-labour-and-positive-feedback",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-delivery",
+      "term": "delivery",
+      "declaredFirstPartId": "b-topic-parturition-labour-and-positive-feedback",
+      "earliestMatchedPartId": "b-topic-male-reproductive-structures-the-transport-pathway",
+      "earlierRequiredUse": true,
+      "matchingRequiredParts": [
+        "b-topic-male-reproductive-structures-the-transport-pathway",
+        "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+        "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+        "b-topic-parturition-labour-and-positive-feedback",
+        "b-topic-parturition-birth-and-the-transition"
+      ],
+      "excerpt": " supports maturation and storage, and the remaining ducts support transport and delivery. Accessory secretions join along the route. Urine and semen use part of the same urethral passage at different times. The transport diagram",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-newborn-transition",
+      "term": "newborn transition",
+      "declaredFirstPartId": "b-topic-parturition-birth-and-the-transition",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-sterilization",
+      "term": "sterilization",
+      "declaredFirstPartId": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-infertility-reversal",
+      "term": "infertility reversal",
+      "declaredFirstPartId": "b-topic-parturition-technologies-infertility-and-perspectives",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    },
+    {
+      "termId": "b-term-variables",
+      "term": "variables",
+      "declaredFirstPartId": "b-topic-spermatogenesis-feedback-and-evidence",
+      "earliestMatchedPartId": null,
+      "earlierRequiredUse": false,
+      "matchingRequiredParts": [],
+      "excerpt": "",
+      "status": "review-required; exact phrase matching does not establish semantic first use"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "status": "nine original provisional diagrams in six target groups; actual learner placement and all-surface first use pending",
+  "teacherDecision": null,
+  "medium": "Original code-native SVG scientific diagrams; source pixels comparison-only",
+  "sourceReview": {
+    "existing": "Existing d-lessons05,06,07,10,11 concept maps inspected natively; these summarize concepts but do not supply cohort scales, controlled density comparisons, resource-use curves or four study conditions.",
+    "slides": "Combined19\u201320 slides50\u201368 relevant text read. Native survivorship, symbiosis graph, hare/lynx photograph and two succession cartoons inspected. Original diagrams avoid inference of mutualism from rising curves and fixed succession climax/time claims. The hare/lynx source is a chase photograph, not a cycle plot.",
+    "textbook": "Chapter20 physical20 printed721 Figures20.11\u201312 and physical22 printed723 Figures20.14\u201315 inspected natively. Historical pelt-trade quantities are qualified; abstract mimicry swatches do not replace authentic specimen identification.",
+    "selection": "Original diagrams selected for explicit mathematical scales, controlled comparisons and qualified causal interpretation. Two multi-panel groups preserve distinct operations and independently enlargable images."
+  },
+  "numericVerification": "Independent Decimal ordering of4.0/3.0/2.4; final composition5+5=10. Equal TypeII age increments give constant survival ratio10^(-.5). Fictional prey peaks2,8 and predator4,10 verify lag2.",
+  "sourceNativeAssets": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/312f3e87da068420f35e00761a27a99e68ba6d5bd8e4431e0ed0367f03766db0.png",
+      "sha256": "312f3e87da068420f35e00761a27a99e68ba6d5bd8e4431e0ed0367f03766db0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/f69a7a4ac1a468c25f9757145b9d37563e99d9da36d2b72fc865822ccb06a6fe.png",
+      "sha256": "f69a7a4ac1a468c25f9757145b9d37563e99d9da36d2b72fc865822ccb06a6fe"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/be271b84dcca91435585d08b8ef5e15da3bd84efe0e95d5119f8748d7bc3ccb2.png",
+      "sha256": "be271b84dcca91435585d08b8ef5e15da3bd84efe0e95d5119f8748d7bc3ccb2"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/ff157f7a578fbd9c3b6c7707cfa7498647d57972e17e03b823e0dd409515856e.png",
+      "sha256": "ff157f7a578fbd9c3b6c7707cfa7498647d57972e17e03b823e0dd409515856e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/372fe2dd2b8c30c44e3315b64b178aa76f2b8f8b339eeded0a6e4e2c8aed89ed.png",
+      "sha256": "372fe2dd2b8c30c44e3315b64b178aa76f2b8f8b339eeded0a6e4e2c8aed89ed"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-20.pdf",
+      "sha256": "39cdf3ffc3bc1a520340efbde970731019c77d3120b048a3d395cc9f7c38afd2"
+    }
+  ],
+  "entries": [
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-figure",
+      "assetId": "d-life-history-traits-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-life-history-traits-v1.svg",
+      "sha256": "6efa92564d03e29b69710180af79f8335601ff40c60a6f7eb8fdcb181dc5ac16",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Three trait continua and trade-off qualification inspected. Historical r/K labels remain tendencies, not universal categories or sufficient recovery predictions.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-life-history-traits-v1-native-stable.png",
+      "screenshotSha256": "ef59bedfa388f76ed0c5b68af5343c763b6fa4c551949731b5c4b3e6bdc5fb4e",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-figure",
+      "assetId": "d-survivorship-forms-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-survivorship-forms-v1.svg",
+      "sha256": "a8696110ab549d0550bc6efd876b72c899c8484f6e2796b704d62620e94d57c6",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native 100/10/1 percent logarithmic axis and all three forms inspected. Type II is straight on log survival, representing exponential survival and constant mortality risk. Zero is excluded explicitly; curves are idealized cohort forms.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-survivorship-forms-v1-native-stable.png",
+      "screenshotSha256": "52010ee969a20995db94aa1db147f63d82f156ae59a81c4027d162af5e8e3b4e",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-figure",
+      "assetId": "d-interaction-effects-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-interaction-effects-v1.svg",
+      "sha256": "c29a3f385206ff387f16f6a6110929f68825f80ebe9c4508b6aea774cc18b743",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Both columns and all four effect pairs checked. Antagonistic +/\u2212 can cover predation, parasitism and herbivory; effects require measurement and do not identify mechanism from abundance curves alone.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-interaction-effects-v1-native-stable.png",
+      "screenshotSha256": "eaea4040ec3d41a157313581e6ab3533d7d46f66c991ac10972b84b19edf9467",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+      "assetId": "d-competition-comparison-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-competition-comparison-v1.svg",
+      "sha256": "54bfa4ce32e301078b6fd91a0e8d3b84a20cb4415104f8ea4b9258a549957e25",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Zero-baseline bars reproduce supplied 4.0/3.0/2.4 g mean A mass. Final two groups each have ten plants; first comparison changes intraspecific density. Replication and resource evidence are still required.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-competition-comparison-v1-native-stable.png",
+      "screenshotSha256": "66b44eb628456e5768644ccefb8a29c8017f8993bbcd3a6271683141cffce3ec",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+      "assetId": "d-resource-partitioning-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-resource-partitioning-v1.svg",
+      "sha256": "b60b51d42afacadd8f6069bd56baed2fafcc061eb2ad3cf05e5aa46eeb741d8c",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Two qualitative panels share a resource dimension, with species separated by line style. Together curves narrow and overlap less; matched-condition assumption and alternative site effects remain explicit. Fresh stable screenshot confirms full heading; initial capture artifact did not require an SVG change.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-resource-partitioning-v1-native-stable.png",
+      "screenshotSha256": "20610f5225089131294aa2726b4919f27cc053b3c7ecd731eaff308ff33a7fd0",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+      "assetId": "d-mimicry-comparison-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-mimicry-comparison-v1.svg",
+      "sha256": "3b0503043102faec042b2dae76c1925a1fce95d8e6129be3f928d13f3ef5f5b1",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Abstract stripe swatches encode resemblance only. Batesian relatively undefended mimic/defended model contrasts with M\u00fcllerian both defended. No false specimen, species identification, toxicity proof or intentional adaptation.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-mimicry-comparison-v1-native-stable.png",
+      "screenshotSha256": "3ad8dcb966053d82de41d99e12042672be99f9f5f2e64f4342968ae01560636b",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-population-cycles-figure",
+      "assetId": "d-population-cycle-evidence-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-population-cycle-evidence-v1.svg",
+      "sha256": "9ee506ed9a54341bb6e2e283933ca5414041aa551c8c8817f54307599c83a5ae",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Common zero-to-100 count axis, time0\u201312 and solid/dashed keys inspected. Prey peaks2/8, predator4/10, two-step lag. Counts explicitly fictional, separate from pelt records; alternative causes retained.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-population-cycle-evidence-v1-native-stable.png",
+      "screenshotSha256": "a0af001dc9b7245e3b71cec64b096880327c3373272a7d0929ea9c02f870ac18",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-figure",
+      "assetId": "d-succession-pathways-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-succession-pathways-v1.svg",
+      "sha256": "fa9c51ae26299d49f01633ac0a475b4930027464df905d167e5ebc80e0ec494f",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native rock and retained-soil profiles, roots, process arrows and two possible branches inspected. Neither timescale nor final climax is fixed; disturbance name alone does not classify starting condition.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-succession-pathways-v1-native-stable.png",
+      "screenshotSha256": "5508991088a4860d253222107b64f4e7d38464239f348299de72b838eb232a07",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-figure",
+      "assetId": "d-ecological-study-design-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-ecological-study-design-v1.svg",
+      "sha256": "1e7bd11bf65ce76e87118cf3aafb2ff924714d04422975daf67aaf73ed9dbc60",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "All four factor combinations verified: reference, habitat only, reduced predator access only, both. Recruitment measurement is proposed without fabricated results. Replication, multiple evaluation criteria and respectful engagement remain visible.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-comparison/d-ecological-study-design-v1-native-stable.png",
+      "screenshotSha256": "4df0dbf996d8d2e7490c16cb8940653d4fcc482a0e27b5b083f209f8e592a54a",
+      "teacherDecision": null
+    }
+  ],
+  "limitations": [
+    "Provisional author review only; teacher decision null",
+    "First-use, exact learner placement and exact-build accessibility review pending",
+    "Original hypothetical datasets and swatches are not field observations or specimen images"
+  ]
+}

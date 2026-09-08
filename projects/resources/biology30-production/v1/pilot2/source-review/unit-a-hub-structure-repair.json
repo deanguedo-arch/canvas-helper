@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T15:38:58.108Z",
+  "authority": "User specifically reports Practice & Review, Process Collection and Resources still differ from A; repair their actual pages and controls.",
+  "priorOwnerSha256": "fc933ee500bbb4f6cc56c801a959802a57e89297e26af7291939abcf582ece36",
+  "ownerSha256": "a92cc4b0510b79be6c0bd06d1843a64ac8ed40e5f7ceb4af0a38b5bdae07f70c",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-a-hubs.ts",
+      "sha256": "d58d671166968fc60c582eae2347b79e15924768cd66b071c96e00bc2de065dc"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+      "sha256": "5d5778901986b24cdc3df30ae5e5fbed96310676875256c7407ad14b6b4f853a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-runtime.ts",
+      "sha256": "a498eea15c30532e9a27f7d44adf0a90722930cfab11647fc92cfd1ff83d16fd"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "9a9a814d647cbd749d07891df963a18d2b6a6389f3a9c5a7c308358d73e3770d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "sha256": "2abd74eae068aef73012759b813fd352ef59d3bf1fa2735d3e0bd1d067ac4d70"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "72775bb1d179851dc23261b268220df6f8dc9d1966a3019e84a53807f3f8fe63"
+    }
+  ],
+  "changes": [
+    "A menu children: challenge inside Final Practice, investigations and notes inside Process Collection",
+    "A practice question stack, timing/count opening, seminar orientation, completion status and group textbook attempt gate",
+    "A collection chapter/type filters, grouped records, shortcuts and continued investigations/notes",
+    "A Advanced checklist synchronized to existing lesson flags",
+    "A textbook tabs and mobile selector, separate Sources and Credits presentation page, glossary/data and local walkthrough reader"
+  ],
+  "state": "No schema/key or academic input changes. Embedded routes retain their original IDs. Sources and Credits has a presentation-only route without saved fields.",
+  "verification": "7 focused tests and all-unit browser regression pass, including saved note/filter/reload, Advanced synchronization, textbook tabs, embedded challenge, all existing activities and 244 responsive checks. Final owner rebuild and Studio checks follow.",
+  "teacherAcceptance": null
+}

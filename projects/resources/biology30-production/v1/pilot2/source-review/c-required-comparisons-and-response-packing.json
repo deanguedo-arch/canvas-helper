@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "stage": 70,
+  "teacherDecision": null,
+  "scope": "Four one-for-one C comparison replacements close empty required-practice links using new semantic IDs. Complete mapped core/worked examples reread; unchanged teaching. All nine synthetic sequence substitution counts checked. Full compound-criterion and figure proof still pending. No prior writing capacity shortened. Exact response text now uses fingerprinted ordered presence/text encoding only when smaller; sparse and earlier token pairs remain readable. Wrong maps/counts/unknown bits fail with original work retained. All-unit schema changes are draft manifests; no rebuilt learner payload has existed.",
+  "newIds": [
+    "c-topic-mitosis-guided-cytokinesis-comparison",
+    "c-application-complete-division-comparison",
+    "c-application-twin-origins-and-development",
+    "c-application-aligned-sequence-relatedness"
+  ],
+  "fullModelCharacters": [
+    370,
+    529,
+    425,
+    579
+  ],
+  "responseLimits": [
+    500,
+    700,
+    550,
+    750
+  ],
+  "sequenceDifferenceCounts": [
+    [
+      1,
+      3,
+      6
+    ],
+    [
+      2,
+      1,
+      4
+    ],
+    [
+      1,
+      1,
+      2
+    ]
+  ],
+  "remainingEmptyPracticeLinks": 0,
+  "units": {
+    "B": {
+      "ordinaryMaximumCharacters": 31386,
+      "responses": 184,
+      "choices": 42,
+      "flags": 237,
+      "entries": 243
+    },
+    "C": {
+      "ordinaryMaximumCharacters": 42988,
+      "responses": 276,
+      "choices": 95,
+      "flags": 380,
+      "entries": 396
+    },
+    "D": {
+      "ordinaryMaximumCharacters": 25272,
+      "responses": 149,
+      "choices": 36,
+      "flags": 184,
+      "entries": 186
+    }
+  },
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json": "1c042c3d8d932635075de72a2f8e6707b4e6366fd01aaf6fa4a3c24c01b677fe",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-budget.json": "26e412ec4e534393037fd0b4eff4fb784c0976889f8a60118bf63590e4986160",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-state-schema.json": "edf498e98574fa60c7bf629170e4b49edbc07f62210018f2a41b64313cb0626a",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json": "9eda2d10da459c3a027d0c2ed852c31bbc5b01b5e20c52678486b97819491b85",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-activity-index.json": "89861bfc45a94499d42e492cbf8ddad5df11523eaf8d6fbd8a3fb2099c61f596",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json": "364e785eb80ca6f6fe096261db7fe8b8abc5af84e3d11f28c6b4950d29e384b0",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json": "b5b0acdbb12479bc6f4f88d19d20ff56a7f8b4eff504d46eb63755bd0c07cfc7",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-passage-review.json": "e95edb51c0fade1126ad5d7f2aed41d9d1b98d783c560fefc66052fdb8259f28",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-budget.json": "a3a67960ebd109ea7a1ea8bd39fda8a3142268d94bfc4083df230032a0129087",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json": "f26a9537bb7f5de7add1e5c1c234f2adbd0857182c17dbd98997cea2065e0cb6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-activity-index.json": "e04b26eeb6706db2d0a8266da89fb6a1673951923a5c941283783af3097a189e",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json": "fbad29f80c29e7a0853976a2a6a0a879d8f352080869e56dce663758fd4d33bf",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc"
+  },
+  "codeSha256": {
+    "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts": "ca67e039fa0cb691c4d1dcb4c5965452e9235efc97fff0e4140a11072e9e43d1",
+    "scripts/lib/biology30-course/v1/pilot2-state.ts": "30dba1fc2545b6102cfa275893b5deba34cc131ebc78aa86a9a1d1ce522679c4",
+    "scripts/tests/biology30-pilot2-learning.test.ts": "57ec03cc4e41e5e55f72eef4a5f484496ca44330b5e5998b3fb2e8d1c7b3c175",
+    "scripts/tests/biology30-pilot2-state.test.ts": "2c48afa8ceb9df6767a3256231b2130ea1737b100bb4e514d6eb93a5a9bee9d5"
+  },
+  "verificationLimits": "Pure owner engine tests and authored source evidence; no browser/LMS/rendered or independent teacher acceptance claim."
+}

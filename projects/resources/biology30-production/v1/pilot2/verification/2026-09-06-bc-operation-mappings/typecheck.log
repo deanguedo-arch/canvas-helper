@@ -1,0 +1,37 @@
+
+> canvas-helper@0.1.0 typecheck
+> tsc --noEmit
+
+scripts/build-ela-short-stories.ts(2533,36): error TS2684: The 'this' context of type 'Cheerio<Element> | Cheerio<Document>' is not assignable to method's 'this' of type 'Cheerio<Element>'.
+  Type 'Cheerio<Document>' is not assignable to type 'Cheerio<Element>'.
+    Type 'Document' is missing the following properties from type 'Element': name, attribs, tagName, attributes
+scripts/build-ela20-novel-study.ts(180,38): error TS2353: Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'.
+scripts/build-ela20-novel-study.ts(185,36): error TS2353: Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'.
+scripts/build-ela20-novel-study.ts(292,79): error TS2353: Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'.
+scripts/build-ela20-novel-study.ts(321,34): error TS2353: Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'.
+scripts/build-forensics-module1-static.ts(251,7): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+scripts/build-forensics-module1-static.ts(697,43): error TS2345: Argument of type 'D2LMapItem | null' is not assignable to parameter of type 'D2LMapItem | undefined'.
+  Type 'null' is not assignable to type 'D2LMapItem | undefined'.
+scripts/build-social20-related-issues.ts(2292,21): error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "social20-1-related-issue-1-option-2": { vocabulary: { title: string; prompt: string; answer: string[]; }[]; events: { title: string; prompt: string; answer: string[]; }[]; mainIdeas: { title: string; prompt: string; answer: string[]; }[]; }; "social20-1-related-issue-2-option-2": { ...; }; "social20-1-related-iss...'.
+  No index signature with a parameter of type 'string' was found on type '{ "social20-1-related-issue-1-option-2": { vocabulary: { title: string; prompt: string; answer: string[]; }[]; events: { title: string; prompt: string; answer: string[]; }[]; mainIdeas: { title: string; prompt: string; answer: string[]; }[]; }; "social20-1-related-issue-2-option-2": { ...; }; "social20-1-related-iss...'.
+scripts/lib/english-unit/factory-render.ts(259,9): error TS2322: Type '{ title: string; href: string; kind: "external"; }[]' is not assignable to type 'EnglishSupportingResource[]'.
+  Type '{ title: string; href: string; kind: "external"; }' is missing the following properties from type 'EnglishSupportingResource': id, lessonTitle
+scripts/lib/english-unit/factory-resources.ts(115,7): error TS2353: Object literal may only specify known properties, and 'ocrPageSegmentationMode' does not exist in type 'PdfTextExtractionOptions'.
+scripts/tests/biology30-unit-a-improvement-pilot.test.ts(698,40): error TS2339: Property 'textbookBandViewportCount' does not exist on type '{ workspaceSha256: string; reportPath: string; reportSha256: string; contactSheetCount: number; allContactSheetsOpened: boolean; sourceVisualViewportCount: number; practiceFeedbackViewportCount: number; feedbackFigureViewportCount: number; geometryFindingCount: number; userAcceptance: string; }'.
+scripts/tests/biology30-unit-a-improvement-pilot.test.ts(700,40): error TS2551: Property 'generatedVisualViewportCount' does not exist on type '{ workspaceSha256: string; reportPath: string; reportSha256: string; contactSheetCount: number; allContactSheetsOpened: boolean; sourceVisualViewportCount: number; practiceFeedbackViewportCount: number; feedbackFigureViewportCount: number; geometryFindingCount: number; userAcceptance: string; }'. Did you mean 'sourceVisualViewportCount'?
+scripts/tests/biology30-unit-a-improvement-pilot.test.ts(703,40): error TS2339: Property 'mediaSurfaceViewportCount' does not exist on type '{ workspaceSha256: string; reportPath: string; reportSha256: string; contactSheetCount: number; allContactSheetsOpened: boolean; sourceVisualViewportCount: number; practiceFeedbackViewportCount: number; feedbackFigureViewportCount: number; geometryFindingCount: number; userAcceptance: string; }'.
+scripts/tests/biology30-unit-a-improvement-pilot.test.ts(704,40): error TS2339: Property 'videoLibraryStateViewportCount' does not exist on type '{ workspaceSha256: string; reportPath: string; reportSha256: string; contactSheetCount: number; allContactSheetsOpened: boolean; sourceVisualViewportCount: number; practiceFeedbackViewportCount: number; feedbackFigureViewportCount: number; geometryFindingCount: number; userAcceptance: string; }'.
+scripts/tests/pe10-online-pilot.test.ts(26,8): error TS7016: Could not find a declaration file for module '../../projects/pe10-online-pilot/workspace/course.js'. '/Users/deanguedo/Documents/GitHub/canvas-helper/projects/pe10-online-pilot/workspace/course.js' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(54,25): error TS18046: 'fields' is of type 'unknown'.
+scripts/tests/pe10-online-pilot.test.ts(70,38): error TS7006: Parameter 'dimension' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(70,49): error TS7006: Parameter 'index' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(103,36): error TS7006: Parameter 'dimension' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(103,97): error TS7006: Parameter 'dimension' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(120,57): error TS7006: Parameter 'dimension' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(151,44): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(153,47): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+scripts/tests/pe10-online-pilot.test.ts(266,25): error TS18046: 'fields' is of type 'unknown'.
+scripts/tests/pe10-online-pilot.test.ts(270,33): error TS7006: Parameter 'dimension' implicitly has an 'any' type.

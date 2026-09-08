@@ -1,0 +1,22 @@
+[
+  {
+    "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+    "exitCode": 1,
+    "output": "\n> canvas-helper@0.1.0 course:doctor\n> tsx scripts/course-doctor.ts --project biology30-unit-a-pilot-2\n\nFAIL: biology30-unit-a-pilot-2\nDriver: direct-workspace-v1\nDriver source: declared\nMode: direct\nERROR not-active: Only active or ready-for-export projects are eligible for authoring context; received \"blocked\".\n"
+  },
+  {
+    "command": "npm run course:doctor -- --project biology30-unit-b",
+    "exitCode": 1,
+    "output": "\n> canvas-helper@0.1.0 course:doctor\n> tsx scripts/course-doctor.ts --project biology30-unit-b\n\nFAIL: biology30-unit-b\nDriver: proposal-only-v1\nDriver source: declared\nMode: proposal-only\nERROR not-active: Only active or ready-for-export projects are eligible for authoring context; received \"blocked\".\n"
+  },
+  {
+    "command": "npm run course:doctor -- --project biology30-unit-c",
+    "exitCode": 1,
+    "output": "\n> canvas-helper@0.1.0 course:doctor\n> tsx scripts/course-doctor.ts --project biology30-unit-c\n\nFAIL: biology30-unit-c\nDriver: proposal-only-v1\nDriver source: declared\nMode: proposal-only\nERROR not-active: Only active or ready-for-export projects are eligible for authoring context; received \"blocked\".\n"
+  },
+  {
+    "command": "npm run course:doctor -- --project biology30-unit-d",
+    "exitCode": 1,
+    "output": "\n> canvas-helper@0.1.0 course:doctor\n> tsx scripts/course-doctor.ts --project biology30-unit-d\n\nFAIL: biology30-unit-d\nDriver: proposal-only-v1\nDriver source: declared\nMode: proposal-only\nERROR not-active: Only active or ready-for-export projects are eligible for authoring context; received \"blocked\".\n"
+  }
+]

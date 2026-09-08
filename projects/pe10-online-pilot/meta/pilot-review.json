@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "pe10-online-pilot",
+  "status": "awaiting-teacher-review",
+  "reviewUrl": "https://nxtpe10.web.app",
+  "reviewDeploymentRecord": "projects/pe10-online-pilot/meta/review-deployment.json",
+  "candidateWorkspaceTreeSha256": "9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33",
+  "reviewedBuildSha256": null,
+  "teacherDecision": null,
+  "approvedAt": null,
+  "requiredDecisions": [
+    { "id": "exact-build", "label": "Exact learner build", "status": "pending" },
+    { "id": "assessment-model", "label": "50/50 assessment model", "status": "pending" },
+    { "id": "activity-dimensions", "label": "Five-hour breadth and 30-hour maximum rules", "status": "pending" },
+    { "id": "safety-policy", "label": "Activity approval, safety, concussion, and return-to-activity wording", "status": "pending" },
+    { "id": "privacy", "label": "Privacy-minimized evidence and verifier fields", "status": "pending" },
+    { "id": "rubrics", "label": "Five 10-point rubrics", "status": "pending" },
+    { "id": "health-resources", "label": "Current activity, food, CPR/AED, and division resources", "status": "pending" },
+    { "id": "brightspace", "label": "Real Brightspace assignment locations and learner workflow", "status": "pending" }
+  ],
+  "promotionAuthorized": false,
+  "studioEditingAuthorized": false,
+  "htmlExportAuthorized": false,
+  "scormExportAuthorized": false,
+  "codexVerification": {
+    "status": "passed",
+    "verifiedAt": "2026-09-03",
+    "workspaceTreeSha256": "9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33",
+    "scope": "all eight routes; empty, saved, later-edited, restored, and validation-error states; Studio and Full Preview; keyboard and 390 by 844 browser contracts"
+  },
+  "notes": "Automated tests and Codex visual review do not count as teacher approval."
+}

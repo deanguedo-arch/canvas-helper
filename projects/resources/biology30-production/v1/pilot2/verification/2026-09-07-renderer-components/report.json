@@ -1,0 +1,75 @@
+{
+  "stage": 71,
+  "status": "owner-renderer-components-implemented-and-synthetic-browser-verified",
+  "teacherDecision": null,
+  "scope": [
+    "Complete topic composition from authored parts, terms, figures, worked examples, stop checks, adjacent optional Advanced, illustrated walkthrough, two guided questions and Evidence Slip",
+    "Stable canonical MC values, attempted feedback, exact text saving with overflow/quota failure retention",
+    "Textbook physical-page links, pre-attempt correction/context, optional guides and exact teaching returns",
+    "Required graph keyboard construction, blank/zero distinction, separate source and entered data, scale warnings, attempted read-only comparison, lossless restore and explicit earlier-writing replacement",
+    "Native image/SVG enlargement, Escape/focus return, original size and accessible scroll regions"
+  ],
+  "tests": {
+    "focusedTotal": 59,
+    "crossBrowserFixtures": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "viewportWidths": [
+      1440,
+      1024,
+      390
+    ],
+    "textResize": "200% text resize in synthetic fixture; not full browser zoom certification",
+    "typecheckUnrelatedDiagnostics": 25,
+    "typecheckOwnedDiagnostics": 0
+  },
+  "verificationLimits": "Synthetic UI-only fixture. No Biology learner lesson HTML generated, frozen contract, whole-course assembly, project E2E, teacher acceptance or LMS certification. Final CSS/graph changes reran browser fixture; later all-unit guard change has focused profile refusal verification. Mobile screenshots were inspected for control spacing and graph readability; no full course visual review claimed.",
+  "sourceChecks": 15,
+  "textbookMembers": 8,
+  "protectedLearnerTreesUnchanged": 6,
+  "protectedUnitAOwnerUnchanged": true,
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "next": "Whole-course assembly and remaining all-unit figure/curriculum/media/time/transfer/freeze contracts, then B-C-D candidates",
+  "codeSha256": {
+    "scripts/lib/biology30-course/v1/pilot2-render-common.ts": "e1337022bf3d21579077f69d9c4d5e4149d959284968cf6521ade3188533431e",
+    "scripts/lib/biology30-course/v1/pilot2-render-controls.ts": "48c088f3230407c251655f70d01bd370ab766a55fec18214f9707b1d6e71f3e8",
+    "scripts/lib/biology30-course/v1/pilot2-render-topic.ts": "94264b7ebd166ec81f1751e09fbc9aff439a74d80b1520ac2111e693db66f1c7",
+    "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts": "e7d3998fb0ae17b9a9c34e07bc6ba5ed0fa0c83383876a1466d4a01fe1388645",
+    "scripts/lib/biology30-course/v1/pilot2-render-graph.ts": "70486f244c31f2a5b81f198e8b6f99feec84623062c2c764744a0f1b175e2def",
+    "scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts": "3333b4d3eaaa596792c9a55fb3d273f3c563a3440e2d970b9fa08757d61e5c3d",
+    "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110",
+    "scripts/lib/biology30-course/v1/pilot2-return-links.ts": "c0503c96594c2355d167e3bfb44c914f96a800bd56f3f7aceffb7f145babb51a",
+    "scripts/lib/biology30-course/v1/pilot2-graph-controls.ts": "43dbe3a6aff246d877556539726cb72488e4828fc4da15e7faf9beb3f5b418db",
+    "scripts/lib/biology30-course/v1/build.ts": "0e5a7d82abf1c651d6351137715194f816a2b2dbc2176049d3195e2337882155",
+    "scripts/tests/biology30-pilot2-renderer.test.ts": "36643f3cba1f166c06d8c3f3c89b3be7821552462c672fbc9ea115e870d33d65",
+    "scripts/tests/biology30-pilot2-renderer-browser.test.ts": "bbb06da93c8e8a1aeb9a928cb059048829df07d306809c8bd1aa0ace87a37d78",
+    "scripts/tests/fixtures/biology30-pilot2/renderer.ts": "6dc54b019ba19a42fd9ec29e0d2c915c23b6a77d90194f3b41ae113896aa60eb"
+  },
+  "logSha256": {
+    "contracts.log": "17b55c62a399d29658f1890f977b10b5afdb5c3b07cb4331c32ed61d09b13f49",
+    "profile-guard.log": "8645445f1fe23cdb189a9f739b2d9f66cc0177e1554ddfe82b0ac1f32e8b5770",
+    "typecheck.log": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544",
+    "protection.log": "adb4d2077097d8cf4c32b6e91bbd3739dc1775a4e2add05cf8b2c92da5208bf0",
+    "browser-final.log": "2d7a81e42118c73e96b66e562d3e013b3d048daccb3b1edfcbc133f941849360",
+    "initial-graph-test-failure.log": "2d8089d2d831adfdbc139513351ab09eae0b7af1b1a8e083a2bbfddf866de36d",
+    "all-tests.log": "38f2ec7df2890f754cc90e85f485fe40786b94ef90b9c6516ae8a54e4ce48a03"
+  },
+  "screenshots": {
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/firefox-390.png": "cd146d9c5fb7b9639b28ea59143b09f969b0a26f8b222915459bde4786c4bbe6",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/webkit-1024.png": "b7f908067f6455a7811c8a1d641f5a8d197af36f7cb81b1874c3ce7c6ec71500",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/webkit-390.png": "b5e32658f6bb09367cd0851455a7be5385348cb39164d2a63f7cd73ad2bab680",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/chromium-390.png": "f9215647643abb8707579129783c457ff17a8466c575ba02787edb45748206c6",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/webkit-1440.png": "a81ce8f383cd4d788face950832f46e0436a0b8a1de50d7b59d0100c616bd618",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/firefox-1440.png": "7e4604f0c1953c1a2a878704e53c1e70c651a3604c58fe972dcd23d7ae443bf9",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/chromium-graph-390.png": "56086ed284f63a6739147c0ee350712595526fe58e112a9ef998626854f6bd9c",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/chromium-1440.png": "ef51d5fa67b3a9a1b459422e096245c4a39fbf2e678c8f2507add7d6cca2adff",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/firefox-graph-390.png": "b9ffc99251427a4224562e98ae1da747773c9e1cba53a3ccdd229922dff4942e",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/firefox-1024.png": "641f89e0adcd9cb4fa758091a179bbf5035165be50fc294adcabcfc2bcfec5b5",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/webkit-graph-390.png": "077cea07ade07097a8a2afaddd63776832e4d3a9976520bdb9ca8574b174a8a6",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/chromium-1024.png": "113b1414b36a1033b6071b460899fc6265f9b4604a9f07478caf5fe1305445d6"
+  },
+  "nativeMobileInspection": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-renderer-components/screenshots/chromium-graph-390.png"
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "status": "six original author-reviewed provisional SVG figures; actual first-use and learner placement pending",
+  "teacherDecision": null,
+  "medium": "Original code-native scientific diagrams; no copied source pixels or raster generation",
+  "sourceReview": {
+    "existing": "Existing d-lesson-08 Define/Estimate/Interpret and d-lesson-09 Potential/Feedback/Capacity concept figures inspected natively. These text maps do not supply countable sampling models, arithmetic denominators or readable curve shapes.",
+    "slides": "Combined chapter19\u201320 slides32\u201348 relevant text read. Native distribution, overshoot/carrying-capacity, logistic-phase and exponential graphics inspected. Counts/rates and density-dependent/independent categories in source prose require the qualifications already present in canonical teaching. The originals retain those qualifications.",
+    "textbook": "Chapter20 physical10 printed711 and physical11 printed712 including Figure20.5 natively inspected. Original shapes distinguish ideal models from ecological variation and avoid unconditional biotic/abiotic classification. Historical exercise dates remain source context, not newly measured data.",
+    "selection": "Original SVG supports exact area grids, symbolic counts, fractions, flow directions and qualitative curves. Keyed graph-figure sources remain separate from these pre-attempt teaching visuals."
+  },
+  "numericVerification": "Independent Python Decimal checks:240/12=100/5=20;30/5=6;6\u00d7200=1200;40\u00d750/10=200;150\u221290=60;1000+60=1060;60/10=6;60/1000=.06;.06/10=.006;first model steps120 and116.",
+  "sourceNativeAssets": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/61bdcd2962be2e2d5e40a5f58a21ddbe96773f1714ff3e556efdf1ccd05c4b34.png",
+      "sha256": "61bdcd2962be2e2d5e40a5f58a21ddbe96773f1714ff3e556efdf1ccd05c4b34"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/2cc219b6398ee4ac72e165abb85a981cd3a1a1d869554e2b3d5ff0ecd2ddcee4.png",
+      "sha256": "2cc219b6398ee4ac72e165abb85a981cd3a1a1d869554e2b3d5ff0ecd2ddcee4"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/51a51e043528792f4bb56f45b246f3051b2aa292716929452178c8e5010af152.png",
+      "sha256": "51a51e043528792f4bb56f45b246f3051b2aa292716929452178c8e5010af152"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/462dbe46c93bc38c1532b27a02b97d5148079c97d75035b668e18d3c6b1cd7b1.png",
+      "sha256": "462dbe46c93bc38c1532b27a02b97d5148079c97d75035b668e18d3c6b1cd7b1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-20.pdf",
+      "sha256": "39cdf3ffc3bc1a520340efbde970731019c77d3120b048a3d395cc9f7c38afd2"
+    }
+  ],
+  "entries": [
+    {
+      "targetId": "d-topic-population-growth-size-and-density-figure",
+      "assetId": "d-density-distribution-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-density-distribution-v1.svg",
+      "sha256": "b8427264b40211cfc4290ae314f2612ac2260e608395282a204715a95f7bf7cf",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native equal-area upper cells counted:12 versus5 with20 per cell. Lower panels each contain nine dots in identical areas. The two keys are explicit and spatial patterns are schematic.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-density-distribution-v1-native.png",
+      "screenshotSha256": "107f15e6ff7e1de956c30c0526f76b003331574ed816c4b0e41f7dfa3c6f3461",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-population-growth-sampling-populations-figure",
+      "assetId": "d-population-sampling-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-population-sampling-v1.svg",
+      "sha256": "b80d4745f2dd659c10e07a8f29c41d301ffe4d807de50edff8ad8a113ad5e6cf",
+      "width": 1200,
+      "height": 960,
+      "scientificReview": "Native five quadrat inventories2/8/4/10/6 and their labels checked. Independent arithmetic gives6/m\u00b2 and1200. Mark\u2013recapture is clearly separate and40\u00d750/10=200; its four assumptions remain visible. Full960-pixel height inspected.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-population-sampling-v1-native.png",
+      "screenshotSha256": "9965deb7a6e50579c0b8550fb9de660733196ca5f156d4f437961ae93b2dffbc",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-population-growth-four-demographic-processes-figure",
+      "assetId": "d-demographic-processes-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-demographic-processes-v2.svg",
+      "sha256": "9eecefbfb6d8e2b6eff46b9c90ffd6328b368825cf2af68d78b062a721a06380",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native v2 explicitly extends both movement arrows across the boundary while retaining internal birth/death arrows. All signs, counts and final1060 verified. v1 arrows stopped outside the boundary and were revised.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-demographic-processes-v2-native.png",
+      "screenshotSha256": "4fb8e4c608112e1085a2e77451d6cc6ee58f34867d6ecb18a2ba209b7655e779",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-population-growth-rates-and-denominators-figure",
+      "assetId": "d-rate-denominators-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-rate-denominators-v2.svg",
+      "sha256": "3c31f0bde2f8431b94dd9393ea6e54ced053390a8ec5be723404c8446993db91",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native v2 displays readable Initial N/Final N labels, three fractions, result units and fixed-initial-denominator statement. Independent Decimal checks give6,.06,.006. No axis or label overflow.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-rate-denominators-v2-native.png",
+      "screenshotSha256": "30b7a4fe3302ccec53ed0dff1b9f811bb75a34097e37c073e74adb24eb311315",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-population-growth-exponential-and-logistic-models-figure",
+      "assetId": "d-growth-model-shapes-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-growth-model-shapes-v1.svg",
+      "sha256": "65eb6909eda32148e96d49ec6a10033576d984b7aae208f9f8e0766b5e42470f",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native J and S forms, nonnumeric axes, dashed K and explicit separate numerical example inspected. Decimal first steps120 and116 checked. This asset does not copy the keyed full point-by-point graph answers or present two differently scaled quantitative curves as equal scales.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-growth-model-shapes-v1-native.png",
+      "screenshotSha256": "5a525e55833943b2e65d696d6eb3605708dc80025f59b411cdaabdebe917bf98",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-population-growth-feedback-and-changing-limits-figure",
+      "assetId": "d-changing-capacity-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-changing-capacity-v2.svg",
+      "sha256": "5e3dbbc6b46e2d54913dbcfda950d90481c74d07efffa8f2a13955e3bc3c1418",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native v2 shows distinct dashed/solid line styles, correct500/300 levels and0\u2013600 axis, lag and explicit fictional/unspecified-time limits. Drought arrow no longer crosses the time label. No claim that K is permanently fixed or that weather effects are always density-independent.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/growth-comparison/d-changing-capacity-v2-native.png",
+      "screenshotSha256": "678866c9a26d5353d20267e7dfb00f798fb6cddcf9da8001904e25140c245abc",
+      "teacherDecision": null
+    }
+  ],
+  "revisions": [
+    {
+      "asset": "d-demographic-processes",
+      "finding": "Extend movement arrows across the boundary",
+      "originalSha256": "f7b8b8801f42e8046adff78023318d7c9ba7cca7c8d80afa4632eecad2bee2f0"
+    },
+    {
+      "asset": "d-rate-denominators",
+      "finding": "Use readable Initial N and Final N labels",
+      "originalSha256": "8db7a95c263c2f3cc896afb3cf409e85e40c282724cb0fba40604d42fd5d48ec"
+    },
+    {
+      "asset": "d-changing-capacity",
+      "finding": "Move time label away from drought arrow",
+      "originalSha256": "93ba0122452c824befec02ce3903aea499b2bd9d30a12da59c659d5b6d66af19"
+    }
+  ],
+  "limitations": [
+    "Provisional author review, no teacher acceptance",
+    "Exact all-surface first use, learner placement, inline/enlarged accessibility and exact-build review pending"
+  ]
+}

@@ -1,0 +1,36 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createServer} from 'node:http';
+import path from 'node:path';
+import {mkdir} from 'node:fs/promises';
+import {chromium,firefox,webkit,expect} from '@playwright/test';
+import {build} from 'esbuild';
+import {sessionFixture} from './fixtures/biology30-pilot2/renderer.js';
+import {renderBiology30Topic,TOPIC_COMPONENT_CSS} from '../lib/biology30-course/v1/pilot2-render-topic.js';
+import {renderTopicModel} from '../lib/biology30-course/v1/pilot2-render-model.js';
+import {renderTopicVocabulary} from '../lib/biology30-course/v1/pilot2-render-vocabulary.js';
+import {renderTopicInvestigation} from '../lib/biology30-course/v1/pilot2-render-investigation.js';
+import {renderTopicSeminar} from '../lib/biology30-course/v1/pilot2-render-review.js';
+import {renderTopicPractice} from '../lib/biology30-course/v1/pilot2-render-controls.js';
+import {renderTopicTextbookQuestion} from '../lib/biology30-course/v1/pilot2-render-textbook.js';
+import {renderTopicNotes} from '../lib/biology30-course/v1/pilot2-render-reference.js';
+import {renderTopicCollectionPage,TOPIC_COLLECTION_CSS} from '../lib/biology30-course/v1/pilot2-collection-view.js';
+import {buildTopicActivityIndex} from '../lib/biology30-course/v1/pilot2-activity-index.js';
+import {emptyTopicState,encodeTopicState} from '../lib/biology30-course/v1/pilot2-state.js';
+for(const browserType of [chromium,firefox,webkit])test(`synthetic full session and explicit recovery in ${browserType.name()}`,async()=>{
+ const f=sessionFixture(),owner=path.resolve('scripts/lib/biology30-course/v1'),key='biology30-unit-b:pilot2-v3';buildTopicActivityIndex(f.activities);
+ const code=`import {startTopicCourse} from ${JSON.stringify(owner+'/pilot2-startup.ts')};
+ const input=${JSON.stringify(f.activities)},schema=input.state,key=${JSON.stringify(key)},root=document.getElementById('fixture'),panel=document.getElementById('recovery');const sources=[{id:key,label:'Current device work',raw:localStorage.getItem(key)||'',role:'current'},{id:key+':previous',label:'Previous device save',raw:localStorage.getItem(key+':previous')||'',role:'previous'}];window.course=startTopicCourse(root,panel,sources,input,${JSON.stringify([f.study.model])},${JSON.stringify([f.graph])},localStorage,null);`;
+
+ const script=(await build({stdin:{contents:code,resolveDir:process.cwd(),loader:'ts'},bundle:true,write:false,format:'iife',platform:'browser'})).outputFiles[0].text;
+ const html=`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthetic session</title><style>body{font-family:system-ui;margin:16px}button,input,textarea,select{font:inherit}${TOPIC_COMPONENT_CSS}${TOPIC_COLLECTION_CSS}</style><body><div id="recovery"></div><main id="fixture"><p data-pilot2-save-status role="status"></p><p data-pilot2-required-progress></p>${renderBiology30Topic(f.input.contract.topics[0].id,f.input)}${renderTopicPractice(f.activities.practice.items[2],f.schema,3,f.graph)}${renderTopicModel(f.study.model,f.schema)}${renderTopicVocabulary(f.study.vocabulary,f.input.contract,f.schema)}${renderTopicInvestigation(f.investigation,f.input.contract,f.schema,[],[])}${renderTopicSeminar(f.seminar,f.schema)}${renderTopicTextbookQuestion(f.book,f.input.contract,f.schema)}${renderTopicNotes(f.schema)}${renderTopicCollectionPage()}</main><script src="/fixture.js"></script></body></html>`;
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><text x="10" y="50">A B</text></svg>',server=createServer((req,res)=>{const [type,body]=req.url==='/fixture.js'?['text/javascript',script]:req.url==='/assets/fixture.svg'?['image/svg+xml',svg]:['text/html',html];res.setHeader('Content-Type',type);res.end(body);});await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));const address=server.address();assert.ok(address&&typeof address==='object');const browser=await browserType.launch();
+ try{const page=await browser.newPage({viewport:{width:390,height:844}}),errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));await page.goto(`http://127.0.0.1:${address.port}`);await expect(page.locator('[data-pilot2-required-progress]')).toContainText('0 of 1');
+ const previous=emptyTopicState(f.schema);previous.responses.written='Recovered earlier answer';const raw=encodeTopicState(previous,f.schema);await page.evaluate(({key,raw})=>{localStorage.setItem(key,'{damaged original');localStorage.setItem(key+':previous',raw);},{key,raw});await page.reload();await expect(page.locator('#fixture')).toBeHidden();await expect(page.locator('[data-pilot2-recovery-continue]')).toBeDisabled();assert.equal(await page.evaluate(key=>localStorage.getItem(key),key),'{damaged original');
+ await page.locator('[data-pilot2-recovery-choice]').selectOption(key+':previous');await page.locator('[data-pilot2-recovery-confirm]').check();if(process.env.BIOLOGY30_FIXTURE_SCREENSHOTS){await mkdir(process.env.BIOLOGY30_FIXTURE_SCREENSHOTS,{recursive:true});await page.locator('#recovery').screenshot({path:path.join(process.env.BIOLOGY30_FIXTURE_SCREENSHOTS,`${browserType.name()}-recovery-390.png`)});}await page.locator('[data-pilot2-recovery-continue]').click();await expect(page.locator('[data-pilot2-response="written"]')).toHaveValue('Recovered earlier answer');await expect(page.locator('[data-pilot2-work-list]')).toContainText('{damaged original');
+ const note=page.locator('[data-pilot2-response="b-process-note"]');await note.fill('A current note');await expect(page.locator('[data-pilot2-work-list]')).toContainText('A current note');await page.locator('[data-pilot2-work-list] [data-pilot2-return-focus="b-process-note"]').click();await expect(note).toBeFocused();
+ const point=page.locator('[data-pilot2-graph-point="0:0:0"]');await point.fill('unfinished-number');await expect(page.locator('[data-pilot2-work-list]')).toContainText('unfinished-number');await point.fill('2');await expect(page.locator('[data-pilot2-work-list]')).not.toContainText('unfinished-number');
+ await page.locator('[data-pilot2-choice="selected"][value="2"]').check();await page.locator('[data-pilot2-check="selected"]').click();await page.locator('[data-pilot2-check="written"]').click();await page.locator('[data-pilot2-response="b-topic-fixture-evidence"]').fill('Bounded claim');await page.locator('[data-pilot2-collect="b-topic-fixture-evidence-collected"]').click();await page.locator('[data-pilot2-response="b-topic-fixture-media"]').fill('The symbols differ');await page.locator('[data-pilot2-collect="b-topic-fixture-media-attempted"]').click();await expect(page.locator('[data-pilot2-required-progress]')).toContainText('1 of 1');
+ await page.locator('[data-pilot2-response="model-explanation"]').fill('Optional unfinished model work');await expect(page.locator('[data-pilot2-required-progress]')).toContainText('1 of 1');await page.reload();await expect(page.locator('#recovery')).toBeHidden();await expect(note).toHaveValue('A current note');await expect(page.locator('[data-pilot2-work-list]')).toContainText('{damaged original');assert.deepEqual(errors,[]);
+ }finally{await browser.close();await new Promise<void>((r,j)=>server.close(error=>error?j(error):r()));}
+});

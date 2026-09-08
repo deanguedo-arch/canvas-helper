@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "profileId": "biology30-production-95-v1",
+  "family": "biology30-production",
+  "generatedAt": "2026-08-31T00:02:59.328Z",
+  "status": {
+    "authoringStatus": "blocked",
+    "driverId": "proposal-only-v1",
+    "studioEditingEnabled": false,
+    "exportEnabled": false
+  },
+  "quality": {
+    "minimumScore": 95,
+    "automaticPromotion": false,
+    "noBinaryBlockers": true
+  },
+  "authorities": {
+    "programOfStudies": {
+      "url": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "sha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+      "retrievedAt": "2026-08-31T00:02:59.328Z"
+    },
+    "performanceStandards": {
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology30-performance-standards.pdf",
+      "retrievedAt": "2026-08-31T00:02:59.328Z"
+    },
+    "biologyBulletin": {
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology-30-info-bulletin.pdf",
+      "schoolYear": "2025-26",
+      "retrievedAt": "2026-08-31T00:02:59.328Z"
+    },
+    "diplomaGeneral": {
+      "url": "https://www.alberta.ca/system/files/ecc-diploma-exam-general-information-bulletin-2026-27.pdf",
+      "schoolYear": "2026-27",
+      "retrievedAt": "2026-08-31T00:02:59.328Z"
+    },
+    "biologyBulletin2026_27Found": false,
+    "currentAuthorityFinding": "As of intake, Alberta's official Biology 30 link still resolves to the 2025-26 subject bulletin; the 2026-27 general diploma bulletin is current. Recheck before each production build."
+  },
+  "sourceAndRightsRegisterPath": "projects/resources/biology30-production/v1/source-and-rights-register.json",
+  "sourcePdfVisualReviewPath": "projects/resources/biology30-production/v1/source-pdf-visual-review.json",
+  "sharedSourceLibrary": {
+    "manifestPath": "projects/resources/biology30-unit-a-pilot/resource-manifest.json",
+    "resources": [
+      {
+        "id": "class-2026-27",
+        "label": "2026-27 class course",
+        "role": "primary",
+        "path": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip",
+        "sha256": "46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5",
+        "originalName": "D2LExport_156587_26-27 _ S1 _ Biology 30 _ Per 1(A) _ Sec 10_202682838.zip"
+      },
+      {
+        "id": "system-2020",
+        "label": "CBE system course (2020)",
+        "role": "reference",
+        "path": "projects/resources/biology30-unit-a-pilot/_sources/0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761.zip",
+        "sha256": "0c00ebf519d0a727c569001b3f3840fb04b1040a726fa3d2cb36a9120f005761",
+        "originalName": "D2LExport_6661_CBE System Biology 30 (Winter 2020)_202682803.zip"
+      }
+    ],
+    "archivesCopied": false,
+    "noteSources": [
+      {
+        "sourceId": "unit-b-notes",
+        "unitCode": "B",
+        "archivePath": "Unit B Reproduction and Development Notes (1).pdf",
+        "archiveLocator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit B Reproduction and Development Notes (1).pdf",
+        "sha256": "109d11f735585be7104515afb3253fe9d31d1ae87704a893799e09864149549a",
+        "pageCount": 75,
+        "byteCount": 3514071,
+        "selectedLessonIds": [
+          "b-lesson-01",
+          "b-lesson-02",
+          "b-lesson-03",
+          "b-lesson-04",
+          "b-lesson-05",
+          "b-lesson-06",
+          "b-lesson-07",
+          "b-lesson-08",
+          "b-lesson-09",
+          "b-lesson-10",
+          "b-lesson-11",
+          "b-lesson-12",
+          "b-lesson-13",
+          "b-lesson-14"
+        ],
+        "selectedPageCount": 75,
+        "pageDispositionCount": 75,
+        "visualReviewStatus": "pending-gate-1"
+      },
+      {
+        "sourceId": "unit-c-cell-division-notes",
+        "unitCode": "C",
+        "archivePath": "Unit C Part A Cell Division Notes.pdf",
+        "archiveLocator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit C Part A Cell Division Notes.pdf",
+        "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+        "pageCount": 79,
+        "byteCount": 7173723,
+        "selectedLessonIds": [
+          "c-lesson-01",
+          "c-lesson-02",
+          "c-lesson-03",
+          "c-lesson-04",
+          "c-lesson-05",
+          "c-lesson-06",
+          "c-lesson-07",
+          "c-lesson-23",
+          "c-lesson-24"
+        ],
+        "selectedPageCount": 79,
+        "pageDispositionCount": 79,
+        "visualReviewStatus": "pending-gate-1"
+      },
+      {
+        "sourceId": "unit-c-mendelian-genetics-notes",
+        "unitCode": "C",
+        "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+        "archiveLocator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit C Part B Mendelian Genetics  Student Copy.pdf",
+        "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+        "pageCount": 114,
+        "byteCount": 4128337,
+        "selectedLessonIds": [
+          "c-lesson-08",
+          "c-lesson-09",
+          "c-lesson-10",
+          "c-lesson-11",
+          "c-lesson-12",
+          "c-lesson-13",
+          "c-lesson-14",
+          "c-lesson-15",
+          "c-lesson-23",
+          "c-lesson-24"
+        ],
+        "selectedPageCount": 114,
+        "pageDispositionCount": 114,
+        "visualReviewStatus": "pending-gate-1"
+      },
+      {
+        "sourceId": "unit-c-molecular-genetics-notes",
+        "unitCode": "C",
+        "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+        "archiveLocator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit C Part C Molecular Genetics Student Copy.pdf",
+        "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+        "pageCount": 59,
+        "byteCount": 2774941,
+        "selectedLessonIds": [
+          "c-lesson-16",
+          "c-lesson-17",
+          "c-lesson-18",
+          "c-lesson-19",
+          "c-lesson-20",
+          "c-lesson-21",
+          "c-lesson-22",
+          "c-lesson-23",
+          "c-lesson-24"
+        ],
+        "selectedPageCount": 59,
+        "pageDispositionCount": 59,
+        "visualReviewStatus": "pending-gate-1"
+      },
+      {
+        "sourceId": "unit-d-population-notes",
+        "unitCode": "D",
+        "archivePath": "Unit D Population Dynamics Student Notes.pdf",
+        "archiveLocator": "projects/resources/biology30-unit-a-pilot/_sources/46a6c8794419bcbd574888c2b54cbf42c2c551894a8f6844c2233b82ea7baed5.zip#Unit D Population Dynamics Student Notes.pdf",
+        "sha256": "08ff6e3a4d59f3359413056a29226a15062d8ff9c6b17cf6a37a427002e74def",
+        "pageCount": 68,
+        "byteCount": 4379476,
+        "selectedLessonIds": [
+          "d-lesson-01",
+          "d-lesson-02",
+          "d-lesson-03",
+          "d-lesson-04",
+          "d-lesson-05",
+          "d-lesson-06",
+          "d-lesson-07",
+          "d-lesson-08",
+          "d-lesson-09",
+          "d-lesson-10",
+          "d-lesson-11"
+        ],
+        "selectedPageCount": 68,
+        "pageDispositionCount": 68,
+        "visualReviewStatus": "pending-gate-1"
+      }
+    ]
+  },
+  "units": [
+    {
+      "code": "B",
+      "project": {
+        "slug": "biology30-unit-b",
+        "title": "Biology 30 — Unit B: Reproduction and Development",
+        "courseCode": "BIO 30",
+        "version": "production-candidate-v1"
+      },
+      "contractPath": "projects/resources/biology30-production/v1/units/unit-b/production-contract.json",
+      "outcomes": 30,
+      "lessons": 14,
+      "requiredMinutes": 1200,
+      "optionalMinutes": 240,
+      "practiceItems": 86,
+      "artifacts": 8
+    },
+    {
+      "code": "C",
+      "project": {
+        "slug": "biology30-unit-c",
+        "title": "Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology",
+        "courseCode": "BIO 30",
+        "version": "production-candidate-v1"
+      },
+      "contractPath": "projects/resources/biology30-production/v1/units/unit-c/production-contract.json",
+      "outcomes": 35,
+      "lessons": 24,
+      "requiredMinutes": 2400,
+      "optionalMinutes": 480,
+      "practiceItems": 160,
+      "artifacts": 12
+    },
+    {
+      "code": "D",
+      "project": {
+        "slug": "biology30-unit-d",
+        "title": "Biology 30 — Unit D: Population and Community Dynamics",
+        "courseCode": "BIO 30",
+        "version": "production-candidate-v1"
+      },
+      "contractPath": "projects/resources/biology30-production/v1/units/unit-d/production-contract.json",
+      "outcomes": 27,
+      "lessons": 11,
+      "requiredMinutes": 900,
+      "optionalMinutes": 180,
+      "practiceItems": 72,
+      "artifacts": 6
+    }
+  ],
+  "aggregate": {
+    "outcomes": 92,
+    "lessons": 49,
+    "requiredMinutes": 4500,
+    "optionalMinutes": 900,
+    "practiceItems": 318,
+    "sourceVisibleQuestions": 202,
+    "notesPages": 395
+  }
+}

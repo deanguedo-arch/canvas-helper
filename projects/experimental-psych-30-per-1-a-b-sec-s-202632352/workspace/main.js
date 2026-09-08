@@ -426,7 +426,7 @@ function buildWorkspaceAssetUrl(pathValue) {
     return resolved;
   }
   const joiner = resolved.includes("?") ? "&" : "?";
-  return `${resolved}${joiner}v=20260330b`;
+  return `${resolved}${joiner}v=20260828a`;
 }
 
 function getElementsByLocalName(rootNode, localName) {

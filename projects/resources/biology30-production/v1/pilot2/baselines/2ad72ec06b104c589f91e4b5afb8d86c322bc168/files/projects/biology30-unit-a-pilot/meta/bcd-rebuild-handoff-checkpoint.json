@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "kind": "biology30-bcd-handoff-checkpoint-v1",
+  "recordedAt": "2026-09-06T15:11:41.239Z",
+  "cwd": "/Users/deanguedo/Documents/GitHub/canvas-helper",
+  "sourceTask": {
+    "id": "01a049cb-5d97-7212-96b0-fd9687a5624b",
+    "title": "Find new science course process"
+  },
+  "git": {
+    "branch": "codex/studio-direct-editing-v1",
+    "commit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+    "dirty": true,
+    "statusEntryCount": 23617,
+    "statusSha256": "3e1a3fa76ae861f2e7eec1142c37880d87e916cd20442a8f4869574614b68b25",
+    "statusCommand": "git status --porcelain=v1 --untracked-files=all",
+    "scopedCodeAndDocs": [
+      " M docs/ops/ACTIVE_HANDOFF.md",
+      " M docs/ops/ARCHIVED_HANDOFFS.md",
+      " M docs/workflows/science-pilot.md",
+      " M projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md",
+      " M scripts/audit-biology30-unit-a-pilot-2-visual.ts",
+      " M scripts/build-biology30-unit-a-pilot-2.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/atomic-contract.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/build-full.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/build-process-collection-index.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/contracts.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/full-content.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/process-collection-content.ts",
+      " M scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts",
+      " M scripts/tests/biology30-unit-a-pilot-2.test.ts",
+      "?? docs/ops/ENGLISH_COURSE_FACTORY_HANDOFF.md",
+      "?? docs/ops/SOCIAL30_ISSUE3_ARCHIVED_HANDOFF.md",
+      "?? projects/biology30-unit-a-pilot/meta/bcd-material-readiness.json",
+      "?? projects/biology30-unit-a-pilot/meta/biology30-improvement-transfer-contract.json",
+      "?? scripts/audit-biology30-course-production-visual.ts",
+      "?? scripts/audit-biology30-improvement-transfer.ts",
+      "?? scripts/audit-biology30-unit-a-core-vocabulary-pilot-visual.ts",
+      "?? scripts/audit-biology30-unit-a-improvement-pilot-visual.ts",
+      "?? scripts/audit-biology30-unit-a-v2-figures.ts",
+      "?? scripts/build-biology30-course.ts",
+      "?? scripts/build-biology30-unit-a-pilots.ts",
+      "?? scripts/build-biology30-unit-a-v2.ts",
+      "?? scripts/check-biology30-unit-a-academic-corrections.ts",
+      "?? scripts/intake-biology30-course.ts",
+      "?? scripts/intake-biology30-unit-a-v2.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/academic-corrections.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/academic-evidence.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/chapter-11-study.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/final-academic-audit.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/online-finalization.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/online-investigations.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/online-media.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/online-studies.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/online-video-review.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/practice-academic-review.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/practice-corrections.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/remaining-academic-review.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/render-online.ts",
+      "?? scripts/lib/biology30-unit-a-pilot-2/review-academic-source-evidence.py",
+      "?? scripts/lib/biology30-unit-a-pilot-2/review-history.ts",
+      "?? scripts/prepare-biology30-unit-a-pilot-media.ts",
+      "?? scripts/prepare-biology30-unit-a-pilot-source-visuals.ts",
+      "?? scripts/prepare-biology30-unit-a-pilot-textbook.ts",
+      "?? scripts/promote-biology30-unit-a-v2.ts",
+      "?? scripts/record-biology30-course-acceptance.ts",
+      "?? scripts/review-biology30-unit-a-pilot-2-academic.ts",
+      "?? scripts/tests/biology30-course-acceptance.test.ts",
+      "?? scripts/tests/biology30-course-production.test.ts",
+      "?? scripts/tests/biology30-improvement-transfer.test.ts",
+      "?? scripts/tests/biology30-unit-a-academic-corrections.test.ts",
+      "?? scripts/tests/biology30-unit-a-academic-review.test.ts",
+      "?? scripts/tests/biology30-unit-a-core-vocabulary-pilot.test.ts",
+      "?? scripts/tests/biology30-unit-a-v2-gate1.test.ts",
+      "?? scripts/tests/biology30-unit-a-v2-gate2.test.ts",
+      "?? scripts/tests/biology30-unit-a-v2-promotion.test.ts",
+      "?? scripts/tests/biology30-unit-a-v2.test.ts",
+      "?? scripts/verify-biology30-unit-a-v2-figure-review.ts"
+    ],
+    "unrelatedDirtyPolicy": "Leave all pre-existing changes in place; status fingerprint is metadata, not a backup. Use this local checkout, not a clean worktree or clone."
+  },
+  "workspaceHashes": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "sha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+      "sha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105"
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace/index.html",
+      "sha256": "9c74fc7bd4a706db86f439ec68f3dc174483fd2c909ef0aa8f048896c7236979"
+    },
+    {
+      "path": "projects/biology30-unit-b/workspace/index.html",
+      "sha256": "87e8db1578ae2f44edce4114ed093adbff63ec8fb0031ffead3ec3eedf7204c1"
+    },
+    {
+      "path": "projects/biology30-unit-c/workspace/index.html",
+      "sha256": "ffe8fdf35d1ee00e4788a8655baa4060838d06ac0e8433371abb88fcc4df07dd"
+    },
+    {
+      "path": "projects/biology30-unit-d/workspace/index.html",
+      "sha256": "f1c0755e5d65f951b3401ccd8b181f2e32625485d52fe9446edc96015c8e8760"
+    }
+  ],
+  "protectedBeforeAndAfterThisDocumentationCycle": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace",
+      "fileCount": 32,
+      "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace",
+      "fileCount": 23,
+      "sha256": "3b8147af3c7db00ab827eba0a62f66ecb9f8aedde15b60405c9ba695b47e1e9a",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace",
+      "fileCount": 24,
+      "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "projects/biology30-unit-b/workspace",
+      "fileCount": 15,
+      "sha256": "609c283ecb3d9b53f7862f5e1efaa35d4caff820f3929ccf59dd79a938e57576",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "projects/biology30-unit-c/workspace",
+      "fileCount": 15,
+      "sha256": "2743103184e0615f793729d118a7e066199904ff7ec8b43e06be5b8539f3f05d",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "projects/biology30-unit-d/workspace",
+      "fileCount": 15,
+      "sha256": "e87cf63413626d8f51ee53ce1cacbe60d3268ceb3721959410cb00ed0d909efb",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1",
+      "fileCount": 16,
+      "sha256": "dcc6f3bbbb90f8f6fa8102cb5062c98e11bc1b4b40965ca67cd1416279e30fdd",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "scripts/lib/biology30-unit-a-pilot-2",
+      "fileCount": 26,
+      "sha256": "d6a9830891d7823cd5d27575607030bf83d2c2dde9e7ec307801ef2a770c3767",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1",
+      "fileCount": 15,
+      "sha256": "bff744d73c60491f2cbb9a313a26ee470eb35a528ae386da8c5e819e5575248b",
+      "algorithm": "sha256(sorted relative POSIX path + NUL + file sha256 + LF), v1"
+    }
+  ],
+  "documentBaselines": [
+    {
+      "path": "docs/ops/ACTIVE_HANDOFF.md",
+      "sha256": "4e583163d47d8ebc9f562d066553752da64aac97855a2e2e7f9769b2f43e2be3",
+      "bytes": 11881
+    },
+    {
+      "path": "docs/ops/ARCHIVED_HANDOFFS.md",
+      "sha256": "93ae7b1fdc53034be634d25c7e5db6eeceb12d98da40e291d55385897589ebe0",
+      "bytes": 705040
+    },
+    {
+      "path": "docs/workflows/science-pilot.md",
+      "sha256": "97f54f676d2fe8868c4aff6ad6c65dd4e4b0b6f23ab90281224b47573b728503",
+      "bytes": 36269
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot/meta/prompt-pack.md",
+      "sha256": "96da6968af3b9738e7a95fdeb947361a21d03c205849b34ad61890cb1fe810da",
+      "bytes": 11792
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md",
+      "sha256": "dc0d8a9a4ca7c8311998aa80da4bdb339c9596052a0ba9723096c41ccdc6f63f",
+      "bytes": 322416
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot/meta/biology30-improvement-transfer-contract.json",
+      "sha256": "8377279d87145b1021a271369a559ef6b4e17c755771bcd10f1df0c61a6cfdef",
+      "bytes": 111852
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot/meta/bcd-material-readiness.json",
+      "sha256": "ddd3f8b1a43060af4c50ede7c79a290f8fb30105dfa48586c7648f29b525fc83",
+      "bytes": 31365
+    }
+  ],
+  "scope": "Documentation and operational handoff only. No learner, builder, source-archive or production-record changes authorized in this cycle.",
+  "sourceAvailabilityManifest": "projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json",
+  "canonicalPlan": "docs/plans/biology30-bcd-pilot2-rebuild.md",
+  "nextTaskPrompt": "docs/ops/biology30-bcd-next-task-prompt.md",
+  "futureExecutionDecisions": {
+    "useAProvisionally": true,
+    "teacherAcceptance": null,
+    "unitOrder": [
+      "B",
+      "C",
+      "D"
+    ],
+    "pauseForRepresentativeSlice": false,
+    "practiceSizing": "unit-specific curriculum/skills contract frozen before rendering",
+    "imageChoices": "scientifically checked provisional candidate, batch teacher comparisons afterward",
+    "model": "gpt-6-astra",
+    "reasoning": "high",
+    "speed": "standard",
+    "routineReasoning": "medium only when actually configured",
+    "maxReasoning": "explicit approval for a named escalation"
+  },
+  "plannedUnitTotals": [
+    {
+      "unit": "B",
+      "topics": 8,
+      "requiredRoutes": 12,
+      "requiredMinutes": 1200,
+      "optionalMinutes": 240
+    },
+    {
+      "unit": "C",
+      "topics": 18,
+      "requiredRoutes": 23,
+      "requiredMinutes": 2400,
+      "optionalMinutes": 480
+    },
+    {
+      "unit": "D",
+      "topics": 4,
+      "requiredRoutes": 8,
+      "requiredMinutes": 900,
+      "optionalMinutes": 180
+    }
+  ],
+  "limitations": [
+    "Dirty status hash and tree checksums are not a source backup.",
+    "New profile and resource preparation command not implemented.",
+    "No automatic acceptance, deployment, export, Studio Edit, commit, push or paid API fallback.",
+    "Runtime screenshot/temporary transcript evidence may move; linked durable contracts are the recovery index.",
+    "Historical A state fixture is ordinary text 42738 characters; not arbitrary Unicode certification."
+  ],
+  "verificationStatus": "passed-documentation-handoff-only",
+  "verification": {
+    "checkedAt": "2026-09-06T15:21:32.098Z",
+    "status": "passed",
+    "protectedTrees": 9,
+    "learnerWorkspaces": 6,
+    "ownerAndContractTrees": 3,
+    "headUnchanged": true,
+    "branchUnchanged": true,
+    "archivedHandoffExact": true,
+    "playbookOriginalHistoryIntact": true,
+    "sourceInventoryTotalsConsistent": true,
+    "originalPlanSectionsPreserved": true,
+    "resolvedLocalMarkdownLinks": 169,
+    "sourceHashes": 15,
+    "sharedArchiveCopyHashes": 2,
+    "textbookMemberHashes": 8,
+    "oldGeneratedTransferAndReadinessUnchanged": true,
+    "checks": [
+      {
+        "command": "npm run test:biology30-unit-a-improvement-pilot",
+        "exitCode": 0,
+        "passed": 12,
+        "failed": 0,
+        "note": "Non-failing PDF font warnings emitted."
+      },
+      {
+        "command": "npm run test:biology30-improvement-transfer",
+        "exitCode": 0,
+        "passed": 4,
+        "failed": 0
+      },
+      {
+        "command": "npm run validate:manifests",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run audit:biology30-improvement-transfer -- --check",
+        "exitCode": 0,
+        "ruleCount": 53
+      },
+      {
+        "command": "git diff --check -- <the nine handoff paths>",
+        "exitCode": 0
+      }
+    ],
+    "notRun": [
+      "Course builds",
+      "Browser/E2E suites",
+      "New learner visual audits",
+      "Deployment",
+      "LMS certification"
+    ],
+    "notRunReason": "No learner content, runtime behavior, assets, production contracts or builder code changed.",
+    "artifacts": [
+      {
+        "path": "docs/plans/biology30-bcd-pilot2-rebuild.md",
+        "sha256": "41026438f0aeab4923b1f7d5c9021700e0f61bcbdb12d0fa6079872ed3f2036e"
+      },
+      {
+        "path": "docs/ops/biology30-bcd-next-task-prompt.md",
+        "sha256": "ebbec6a1155405fb3b403cdfa630185b99c193336024bf3ead20cba912b17a92"
+      },
+      {
+        "path": "projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json",
+        "sha256": "7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13"
+      }
+    ]
+  }
+}

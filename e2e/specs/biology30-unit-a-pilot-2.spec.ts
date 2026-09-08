@@ -2,9 +2,72 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
 import { openProjectInStudio } from "../lib/project-open";
+import { CHAPTER_11_STUDY_TASKS, studyResponseId } from "../../scripts/lib/biology30-unit-a-pilot-2/chapter-11-study";
+import { ONLINE_STUDIES, ONLINE_MICROSCOPY, onlineStudyResponseId } from "../../scripts/lib/biology30-unit-a-pilot-2/online-studies";
 
 const PROJECT = "biology30-unit-a-pilot-2";
 const STORAGE_KEY = `${PROJECT}:state:v1`;
+
+test("online identification saves compact choices, restores them and leaves required progress unchanged", async ({page})=>{
+  await page.route(/youtube|googlevideo|ytimg/,route=>route.abort());
+  await openCandidate(page);
+  const before=await readStoredState(page);
+  await showRoute(page,"model-lab");
+  for(const study of ONLINE_STUDIES){
+    await page.locator(`[data-model-select="${study.modelId}"]`).click();
+    const panel=page.locator(`[data-online-study="${study.id}"]`);
+    await panel.locator("summary").focus();await page.keyboard.press("Enter");
+    await expect(panel.locator("[data-online-compare]")).toBeDisabled();
+    const picks=panel.locator("[data-online-pick]");
+    for(let i=0;i<await picks.count();i++)await picks.nth(i).selectOption("a");
+    await expect(panel.locator("[data-online-selection]").first()).toContainText(study.options[0][0]);
+    await panel.locator("[data-online-compare]").click();
+    await expect(panel.locator("[data-online-comparison-heading]")).toBeFocused();
+    await expect(panel.locator("[data-online-answer]").first()).toBeVisible();
+  }
+  await page.reload({waitUntil:"domcontentloaded"});await showRoute(page,"model-lab");
+  for(const study of ONLINE_STUDIES){
+    await page.locator(`[data-model-select="${study.modelId}"]`).click();
+    const panel=page.locator(`[data-online-study="${study.id}"]`);
+    await panel.locator("summary").click();
+    await expect(panel.locator("[data-online-pick]").first()).toHaveValue("a");
+    await expect(panel.locator("[data-online-selection]").first()).toContainText(study.options[0][0]);
+    await expect(panel.locator("[data-online-answer]").first()).toBeHidden();
+    expect((await readStoredState(page)).responses[onlineStudyResponseId(study.id)]).toHaveLength(study.rows.length*study.columns.length);
+  }
+  await showRoute(page,"process-collection");
+  await expect(page.locator('[data-process-work-id="model-eye"]')).toContainText("Sclera");
+  await expect(page.locator('[data-process-work-id="model-glucose"]')).toContainText("Source / release");
+  const after=await readStoredState(page);
+  expect(after.version).toBe(6);expect(after.practice).toEqual(before.practice);expect(after.completedRoutes).toEqual(before.completedRoutes);
+});
+
+test("full-width online walkthroughs and investigations work without media and retain accessible equivalents", async ({page})=>{
+  await page.route(/youtube|googlevideo|ytimg/,route=>route.abort());
+  await openCandidate(page);
+  for(const viewport of [{width:1440,height:900},{width:1024,height:768},{width:390,height:844}]){
+    await page.setViewportSize(viewport);await showRoute(page,"lesson-02");
+    const walkthrough=page.locator('#lesson-02 [data-local-equivalent]');
+    await walkthrough.evaluate(node=>{(node as HTMLDetailsElement).open=true});
+    await expect(walkthrough.locator(".walkthrough-panel")).toHaveCount(3);
+    await expect(walkthrough.locator("svg").first()).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)).toBeLessThanOrEqual(1);
+  }
+  await page.setViewportSize({width:1440,height:900});await showRoute(page,"model-lab");
+  await page.locator('[data-model-select="myelin"]').click();
+  const microscopy=page.locator("[data-online-microscopy]");await microscopy.locator(":scope > summary").click();
+  await expect(microscopy.locator("img")).toBeVisible();
+  expect(await microscopy.locator("img").evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBe(700);
+  await microscopy.locator("textarea").fill("Two large stained profiles differ in shape. A tissue section does not show complete axons or establish every cell type.");
+  await microscopy.locator("[data-enlarge-figure]").click();await page.keyboard.press("Escape");
+  await expect(microscopy.locator("[data-enlarge-figure]")).toBeFocused();
+  await showRoute(page,"process-collection");
+  for(const id of ["reflex-response","sensory-receptors","endocrine-data"]){const panel=page.locator(`[data-investigation="${id}"]`);await panel.locator("summary").first().click();await expect(panel).toContainText("Complete this investigation online");}
+  await expect(page.locator('[data-online-investigation-step="vision-procedure"]')).toContainText("eight correct");
+  await expect(page.locator('[data-online-investigation-step="hearing-procedure"]')).toContainText("will not play tones");
+  const axe=await new AxeBuilder({page}).include("#process-collection").withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();
+  expect(axe.violations).toEqual([]);
+});
 const ROUTES = [
   "overview",
   "lesson-01",
@@ -122,6 +185,136 @@ async function openCandidate(page: Page) {
   await page.evaluate(() => document.fonts.ready);
   return candidateUrl;
 }
+
+test("practice corrections preserve old answer meanings, drafts, completion and reload while allowing a revised attempt", async ({ page }) => {
+  await page.route(/youtube|googlevideo|ytimg/, route => route.abort());
+  await openCandidate(page);
+  const id = `${PROJECT}:practice:lesson-02-guided-02`;
+  const unchanged = `${PROJECT}:practice:lesson-01-guided-1`;
+  const evidence = `${PROJECT}:lesson-01:evidence-slip`;
+  await page.addInitScript(({ key, id, unchanged, evidence }) => {
+    if (sessionStorage.getItem("academic-correction-fixture") === "applied") return;
+    sessionStorage.setItem("academic-correction-fixture", "applied");
+    localStorage.setItem(key, JSON.stringify({ version: 6, route: "lesson-02", responses: { [evidence]: "My original evidence remains intact." }, practice: { [id]: { choice: "d", submitted: true, correct: false }, [unchanged]: { choice: "b", submitted: true, correct: true } }, completedRoutes: ["chapter-11-practice"] }));
+  }, { key: STORAGE_KEY, id, unchanged, evidence });
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await showRoute(page, "lesson-02");
+  const item = page.locator(`[data-practice-id="${id}"]`);
+  await expect(item.locator("[data-previous-practice-answer]")).toContainText("The synaptic cleft disappears");
+  await expect(item.locator('input[value="d"]')).toHaveCount(0);
+  await expect(item.locator("input:checked")).toHaveCount(0);
+  const before = await readStoredState(page);
+  expect(before.practice[id]).toEqual({ choice: "d", submitted: true, correct: false });
+  expect(before.practice[unchanged]).toEqual({ choice: "b", submitted: true, correct: true });
+  expect(before.responses[evidence]).toBe("My original evidence remains intact.");
+  expect(before.completedRoutes).toEqual(["chapter-11-practice"]);
+  await showRoute(page, "process-collection");
+  await expect(page.locator('[data-process-work-id="practice-lesson-02-guided-02"]')).toContainText("The synaptic cleft disappears");
+  await showRoute(page, "lesson-02");
+  await item.locator('input[value="h"]').focus();
+  await page.keyboard.press("Space");
+  await item.locator("[data-check-practice]").click();
+  await expect(item.locator("[data-previous-practice-answer]")).toBeHidden();
+  await expect(item.locator("[data-feedback-message]")).toContainText("inactivated sodium channels");
+  await page.reload({ waitUntil: "domcontentloaded" });
+  const after = await readStoredState(page);
+  expect(after.version).toBe(6);
+  expect(after.practice[id]).toEqual({ choice: "h", submitted: true, correct: false });
+  expect(after.practice[unchanged]).toEqual(before.practice[unchanged]);
+  expect(after.responses).toEqual(before.responses);
+  expect(after.completedRoutes).toEqual(before.completedRoutes);
+  await expect(item.locator('input[value="h"]')).toBeChecked();
+});
+
+test("all 86 practice choices, feedback and exact local links work, including mixed-chapter Final Practice", async ({ page }) => {
+  test.setTimeout(180_000);
+  await page.route(/youtube|googlevideo|ytimg/, route => route.abort());
+  await openCandidate(page);
+  const items = await page.locator("[data-practice-id]").evaluateAll(nodes => nodes.map(node => ({ id: node.getAttribute("data-practice-id")!, route: node.closest(".course-page")!.id, answer: node.querySelector("[data-practice-feedback]")!.getAttribute("data-answer")! })));
+  expect(items).toHaveLength(86);
+  for (const entry of items) {
+    await showRoute(page, entry.route);
+    const item = page.locator(`[data-practice-id="${entry.id}"]`);
+    if (await item.locator("xpath=ancestor::details").count()) await item.evaluate(node => { let parent = node.parentElement; while (parent) { if (parent instanceof HTMLDetailsElement) parent.open = true; parent = parent.parentElement; } });
+    await item.locator(`input[value="${entry.answer}"]`).check();
+    await item.locator("[data-check-practice]").click();
+    await expect(item.locator("[data-feedback-message]")).toContainText("Correct.");
+    const link = item.locator("[data-open-textbook]");
+    expect(Number(await link.getAttribute("data-pdf-page"))).toBeGreaterThan(0);
+  }
+  for (const [id, chapter, pageNumber] of [["final-practice-core-01", "chapter-11", "19"], ["final-practice-core-07", "chapter-12", "5"], ["final-practice-core-13", "chapter-13", "8"]]) {
+    await showRoute(page, "final-practice");
+    const item = page.locator(`[data-practice-id="${PROJECT}:practice:${id}"]`);
+    await item.locator("[data-open-textbook]").focus();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#textbook-library")).toBeVisible();
+    await expect(page.locator(`[data-library-panel="${chapter}"] iframe`)).toHaveAttribute("src", new RegExp(`${chapter}\\.pdf#page=${pageNumber}`));
+    await showRoute(page, "final-practice");
+    const local = item.locator("[data-open-first-use]");
+    const target = await local.getAttribute("data-open-first-use");
+    await local.click();
+    await expect(page.locator(`#${target}`)).toBeFocused();
+  }
+  expect((await readStoredState(page)).completedRoutes).toEqual([]);
+});
+
+test("Chapter 11 diagram drafts persist, reveal comparisons, and join existing model records without gating", async ({ page }) => {
+  test.setTimeout(180_000);
+  const scriptErrors: string[] = [];
+  page.on("pageerror", error => scriptErrors.push(error.message));
+  await page.route(/youtube|googlevideo|ytimg/, route => route.abort());
+  await openCandidate(page);
+  await page.addInitScript(key => {
+    if (sessionStorage.getItem("chapter-11-study-fixture") === "applied") return;
+    sessionStorage.setItem("chapter-11-study-fixture", "applied");
+    localStorage.setItem(key, JSON.stringify({ version: 6, route: "model-lab", responses: {
+      "biology30-unit-a-pilot-2:lesson-01:evidence-slip": "Existing learner evidence — preserve this.",
+      "biology30-unit-a-pilot-2:chapter-11-study:unknown:v1": "Reject this unknown diagram ID."
+    }, models: { activeId: "myelin", results: {}, predictions: { myelin: "Existing prediction" }, predictionChoices: {}, explanations: { myelin: "Existing explanation" }, explanationChoices: {}, collectedIds: [] } }));
+  }, STORAGE_KEY);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  for (const task of CHAPTER_11_STUDY_TASKS) {
+    await page.evaluate(id => { location.hash = `#model-lab/work/model-${id}`; }, task.modelId);
+    const panel = page.locator(`[data-study-task="${task.id}"]`);
+    await panel.locator(":scope > summary").focus();
+    await page.keyboard.press("Enter");
+    const guide = panel.locator("[data-study-guide]");
+    await expect(guide).toBeHidden();
+    await panel.locator("textarea").fill(`Draft for ${task.title}. My labels and explanation are still being revised.`);
+    await expect(guide).toBeVisible();
+    await guide.locator("summary").click();
+    await expect(guide).toContainText(task.guide[0]);
+  }
+  const saved = await readStoredState(page);
+  expect(saved.version).toBe(6);
+  expect(saved.responses[`${PROJECT}:lesson-01:evidence-slip`]).toContain("Existing learner evidence");
+  expect(saved.models.predictions.myelin).toBe("Existing prediction");
+  expect(saved.models.explanations.myelin).toBe("Existing explanation");
+  expect(saved.responses[`${PROJECT}:chapter-11-study:unknown:v1`]).toBeUndefined();
+  expect(saved.completedRoutes).toEqual([]);
+  expect(saved.practice).toEqual({});
+  for (const task of CHAPTER_11_STUDY_TASKS) expect(saved.responses[studyResponseId(task.id)]).toContain(task.title);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  for (const task of CHAPTER_11_STUDY_TASKS) expect(await page.locator(`[data-study-response="${task.id}"]`).inputValue()).toContain(task.title);
+  await showRoute(page, "process-collection");
+  for (const task of CHAPTER_11_STUDY_TASKS) await expect(page.locator(`[data-process-work-id="model-${task.modelId}"]`)).toContainText(task.title);
+  await expect(page.locator("[data-progress-count]")).toContainText("0 of 18");
+  await page.locator('[data-process-work-id="model-action-potential"] a[data-process-return]').focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#work-focus-model-action-potential")).toBeFocused();
+  const voltage = page.locator('[data-study-task="voltage-labels"]');
+  await voltage.locator(":scope > summary").click();
+  await voltage.locator("textarea").fill("");
+  await expect(voltage.locator("[data-study-guide]")).toBeHidden();
+  expect((await readStoredState(page)).responses[studyResponseId("neuron-labels")]).toContain("Draft");
+  for (const size of [{ width: 1440, height: 900 }, { width: 1024, height: 768 }, { width: 390, height: 844 }, { width: 720, height: 900 }]) {
+    await page.setViewportSize(size);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  }
+  const axe = await new AxeBuilder({ page }).include("#model-lab").analyze();
+  expect(axe.violations).toEqual([]);
+  expect(scriptErrors).toEqual([]);
+});
 
 async function readStoredState(page: Page) {
   return page.evaluate((key) => {
@@ -257,7 +450,7 @@ test("Models and Data Lab mechanism steps stay readable as the available panel w
   await page.locator('[data-model-select="pituitary"]').click();
 
   const panel = page.locator('[data-model-panel="pituitary"]');
-  const path = panel.locator(".model-path");
+  const path = panel.locator(".model-mechanism .model-path");
   await expect(panel).toBeVisible();
   await expect(path.locator("li")).toHaveCount(4);
 
@@ -298,7 +491,7 @@ test("Models and Data Lab mechanism steps stay readable as the available panel w
   for (const modelId of await page.locator("[data-model-select]").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("data-model-select") || ""))) {
     await page.locator(`[data-model-select="${modelId}"]`).click();
     const currentPanel = page.locator(`[data-model-panel="${modelId}"]`);
-    const currentPath = page.locator(`[data-model-panel="${modelId}"] .model-path`);
+    const currentPath = page.locator(`[data-model-panel="${modelId}"] .model-mechanism .model-path`);
     const geometry = await currentPath.evaluate((node) => {
       const cards = Array.from(node.querySelectorAll<HTMLElement>("li"));
       return {
@@ -336,7 +529,7 @@ test("Models and Data Lab mechanism steps stay readable as the available panel w
 
   await page.setViewportSize({ width: 390, height: 844 });
   await showRoute(page, "model-lab");
-  const mobileColumns = await page.locator('[data-model-panel="glucose"] .model-path').evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(/\s+/).filter(Boolean).length);
+  const mobileColumns = await page.locator('[data-model-panel="glucose"] .model-mechanism .model-path').evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(/\s+/).filter(Boolean).length);
   expect(mobileColumns).toBe(1);
   await page.locator('[data-model-panel="glucose"] [data-model-choice="low-insulin"]').click();
   await page.locator('[data-model-panel="glucose"] [data-model-prediction]').fill("Glucose should remain elevated when the insulin signal is low.");
@@ -345,80 +538,33 @@ test("Models and Data Lab mechanism steps stay readable as the available panel w
   await expectNoPageOverflow(page);
 });
 
-test("illustrated walkthrough steps stack before their headings or explanations become narrow", async ({ page }) => {
+test("complete illustrated walkthrough panels fit at desktop, tablet, mobile and text zoom", async ({ page }) => {
   test.setTimeout(90_000);
-  await page.setViewportSize({ width: 1265, height: 902 });
+  await page.route(/youtube|googlevideo|ytimg/, route => route.abort());
   await openCandidate(page);
-  await page.route(/youtube-nocookie\.com/, (route) => route.abort());
-
-  const sidebarToggle = page.locator("[data-sidebar-toggle]");
-  if (!(await page.locator("body").evaluate((node) => node.classList.contains("sidebar-collapsed")))) {
-    await sidebarToggle.click();
+  for (const viewport of [...VIEWPORTS, { id: "text-zoom", width: 1440, height: 900 }]) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.evaluate(zoom => { document.documentElement.style.fontSize = zoom ? "200%" : ""; }, viewport.id === "text-zoom");
+    for (let number = 1; number <= 13; number++) {
+      const routeId = "lesson-" + String(number).padStart(2, "0");
+      await showRoute(page, routeId);
+      const equivalents = page.locator("#" + routeId + " [data-local-equivalent]");
+      for (const equivalent of await equivalents.all()) {
+        await equivalent.evaluate(node => { (node as HTMLDetailsElement).open = true; });
+        await expect(equivalent.locator(".walkthrough-panel")).toHaveCount(3);
+        await expect(equivalent.locator(".walkthrough-case")).toBeVisible();
+        const geometry = await equivalent.locator(".walkthrough-panel").evaluateAll(nodes => nodes.map(node => ({
+          width: node.getBoundingClientRect().width,
+          overflow: node.scrollWidth - node.clientWidth,
+          clipped: Array.from(node.querySelectorAll("h3, p, figure")).some(child => child.getBoundingClientRect().right > node.getBoundingClientRect().right + 1)
+        })));
+        expect(geometry.every(panel => panel.width >= 220 && panel.overflow <= 1 && !panel.clipped), routeId + "/" + viewport.id).toBe(true);
+        const labels = await equivalent.locator(".concept-flow strong").evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().width));
+        expect(labels.every(width => width >= 90), routeId + " feedback labels must not inherit a 30-pixel step column").toBe(true);
+      }
+      await expectNoPageOverflow(page);
+    }
   }
-
-  const mediaEntries = [
-    ["lesson-01", "A44brRGG4Ys"], ["lesson-02", "oa6rvUJlg7o"], ["lesson-03", "YcJy28Nnrb8"],
-    ["lesson-04", "QY9NTVh-Awo"], ["lesson-05", "0-8PvNOdByc"], ["lesson-06", "qPix_X-9t7E"],
-    ["lesson-07", "o0DYP-u1rNM"], ["lesson-08", "Ie2j7GpC4JU"], ["lesson-09", "eWHH9je2zG4"],
-    ["lesson-10", "QHkGG4TimvQ"], ["lesson-11", "BYaR-JgbjCs"], ["lesson-12", "cDGmsR2ZILE"],
-    ["lesson-13", "y9Bdi4dnSlg"], ["lesson-13", "v-t1Z5-oPtU"]
-  ] as const;
-
-  const inspectWalkthrough = (selector: string) => page.locator(selector).evaluate((node) => {
-    const cards = Array.from(node.querySelectorAll<HTMLElement>("li"));
-    return {
-      columns: getComputedStyle(node).gridTemplateColumns.split(/\s+/).filter(Boolean).length,
-      cards: cards.map((card) => {
-        const bounds = card.getBoundingClientRect();
-        const copy = card.querySelector<HTMLElement>(":scope > div")?.getBoundingClientRect();
-        const heading = card.querySelector<HTMLElement>("strong")?.getBoundingClientRect();
-        const explanation = card.querySelector<HTMLElement>("p")?.getBoundingClientRect();
-        return {
-          top: bounds.top,
-          bottom: bounds.bottom,
-          width: bounds.width,
-          right: bounds.right,
-          overflowX: card.scrollWidth - card.clientWidth,
-          overflowY: card.scrollHeight - card.clientHeight,
-          copyRight: copy?.right ?? bounds.right,
-          copyBottom: copy?.bottom ?? bounds.bottom,
-          headingRight: heading?.right ?? bounds.right,
-          explanationRight: explanation?.right ?? bounds.right
-        };
-      })
-    };
-  });
-
-  for (const [routeId, videoId] of mediaEntries) {
-    await showRoute(page, routeId);
-    const section = page.locator(`#${routeId} [data-video-entry="${videoId}"]`);
-    const checkpointId = await section.getAttribute("data-media-checkpoint-id");
-    if (!checkpointId) throw new Error(`Missing media checkpoint for ${routeId}/${videoId}.`);
-    await section.locator(`[data-media-path="${checkpointId}"][value="local"]`).check();
-    const geometry = await inspectWalkthrough(`#${routeId} [data-video-entry="${videoId}"] .illustrated-equivalent ol`);
-    expect(geometry.columns, `${routeId}/${videoId} uses two readable columns`).toBe(2);
-    expect(geometry.cards.every((card) => card.width >= 240), `${routeId}/${videoId} cards remain readable`).toBe(true);
-    expect(geometry.cards.every((card) => card.overflowX <= 1 && card.overflowY <= 1), `${routeId}/${videoId} cards do not clip`).toBe(true);
-    expect(geometry.cards.every((card) => card.copyRight <= card.right + 1 && card.copyBottom <= card.bottom + 1), `${routeId}/${videoId} copy remains inside each step`).toBe(true);
-    expect(geometry.cards.every((card) => card.headingRight <= card.right + 1 && card.explanationRight <= card.right + 1), `${routeId}/${videoId} headings and explanations fit`).toBe(true);
-    expect(Math.abs(geometry.cards[0].top - geometry.cards[1].top)).toBeLessThanOrEqual(1);
-    expect(Math.abs(geometry.cards[2].top - geometry.cards[3].top)).toBeLessThanOrEqual(1);
-    expect(geometry.cards[2].top).toBeGreaterThanOrEqual(geometry.cards[0].bottom - 1);
-  }
-  await expectNoPageOverflow(page);
-
-  await showRoute(page, "lesson-01");
-  await sidebarToggle.click();
-  await expect(page.locator("body")).not.toHaveClass(/sidebar-collapsed/);
-  const expandedColumns = await page.locator('#lesson-01 .illustrated-equivalent ol').evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(/\s+/).filter(Boolean).length);
-  expect(expandedColumns).toBe(1);
-  await expectNoPageOverflow(page);
-
-  await page.setViewportSize({ width: 390, height: 844 });
-  await showRoute(page, "lesson-01");
-  const mobileColumns = await page.locator('#lesson-01 .illustrated-equivalent ol').evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(/\s+/).filter(Boolean).length);
-  expect(mobileColumns).toBe(1);
-  await expectNoPageOverflow(page);
 });
 
 test("all thirteen lessons use four anchors, complete vocabulary, and teach before retrieval", async ({ page }) => {
@@ -431,7 +577,7 @@ test("all thirteen lessons use four anchors, complete vocabulary, and teach befo
   await expect(lesson1).toContainText("Myelin acts as electrical insulation");
   await expect(lesson1).toContainText("limits current loss");
   await expect(lesson1).toContainText("action potential is regenerated at each node");
-  await expect(lesson1.locator("[data-figure-id]")).toHaveCount(4);
+  await expect(lesson1.locator("[data-figure-id]:not(.illustrated-equivalent [data-figure-id])")).toHaveCount(4);
 
   const lesson3 = await showRoute(page, "lesson-03");
   const lesson3Text = await lesson3.innerText();
@@ -496,6 +642,31 @@ test("all thirteen lessons use four anchors, complete vocabulary, and teach befo
     const text = await lesson.innerText();
     for (const pattern of patterns) expect(text, `${lessonId} includes ${pattern}`).toMatch(pattern);
   }
+});
+
+test("lesson vocabulary links focus an exact passage or an honestly labelled definition", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openCandidate(page);
+  await page.route(/youtube-nocookie\.com/, (route) => route.abort());
+  for (const lessonId of ["lesson-01", "lesson-02", "lesson-07", "lesson-13"]) {
+    const lesson = await showRoute(page, lessonId);
+    const disclosure = lesson.locator("details.lesson-term-inventory");
+    await disclosure.locator("summary").click();
+    const links = disclosure.locator("[data-open-first-use]");
+    const samples = [0, Math.floor(await links.count() / 2), await links.count() - 1];
+    for (const index of samples) {
+      const control = links.nth(index);
+      const targetId = await control.getAttribute("data-open-first-use");
+      await control.focus();
+      await page.keyboard.press("Enter");
+      const target = page.locator(`[id="${targetId}"]`);
+      await expect(target).toBeFocused();
+      await expect(target).toBeVisible();
+      expect(await target.evaluate((node) => node.tagName === "DT" || Boolean(node.closest(".learn-block")))).toBe(true);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  }
+  await expect(page.locator("[data-progress-count]")).toHaveText("0 of 18 required routes");
 });
 
 test("chapter practice, Review Seminar, and Final Practice gate only their required work", async ({ page }) => {
@@ -646,12 +817,12 @@ test("guided feedback opens the exact local textbook page and the model link ope
 
   await showRoute(page, "lesson-01");
   const practice = await submitPractice(page, '[data-practice-id="biology30-unit-a-pilot-2:practice:lesson-01-guided-1"]', "b");
-  await practice.getByRole("button", { name: "Find this idea in the textbook on p. 369" }).click();
+  await practice.getByRole("button", { name: "Find this idea in the textbook on p. 372" }).click();
   await expect(page.locator("#textbook-library")).toBeVisible();
   const chapter = page.locator('[data-library-panel="chapter-11"]');
   await expect(chapter).toBeVisible();
-  await expect(chapter.locator("[data-library-location]")).toHaveText("Open at printed p. 369 (PDF page 10).");
-  await expect(chapter.locator("iframe")).toHaveAttribute("src", /chapter-11\.pdf#page=10&zoom=page-width/);
+  await expect(chapter.locator("[data-library-location]")).toHaveText("Open at printed p. 372 (PDF page 13).");
+  await expect(chapter.locator("iframe")).toHaveAttribute("src", /chapter-11\.pdf#page=13&zoom=page-width/);
   await expect(page.locator("#textbook-reader-heading")).toBeFocused();
 
   await showRoute(page, "lesson-03");
@@ -678,7 +849,7 @@ test("all lesson models use a clear Predict, Test, Explain, and Save cycle", asy
   const panel = page.locator('[data-model-panel="thyroid-calcium"]');
   await expect(panel).toBeVisible();
   await expect(panel).toBeFocused();
-  await expect(panel.locator(".model-path li")).toHaveCount(4);
+  await expect(panel.locator(".model-mechanism .model-path li")).toHaveCount(4);
   await expect(panel.locator("[data-model-choice]")).toHaveCount(3);
   await expect(panel.locator(".model-orientation")).toContainText("Investigation question");
   await expect(panel.locator(".model-plan")).toContainText("What you change");
@@ -1110,7 +1281,7 @@ test("required media supports video and local paths, never autoplays, and record
   await showRoute(page, "lesson-13");
   const stress = page.locator('#lesson-13 [data-video-entry="v-t1Z5-oPtU"]');
   await expect(stress.locator("[data-local-equivalent]")).toHaveAttribute("open", "", { timeout: 8_000 });
-  await expect(stress.locator(".concept-summary")).toBeVisible();
+  await expect(stress.locator(".walkthrough-case")).toBeVisible();
   const localCheckpoint = await completeMediaCheckpoint(page, '#lesson-13 [data-video-entry="v-t1Z5-oPtU"]', "local");
 
   const state = await readStoredState(page);
@@ -1330,6 +1501,31 @@ test("version-5 state migrates with existing work intact and all Advanced Learni
   expect(migrated.textbookReviewAttempts).toEqual([attemptId]);
   expect(migrated.advanced.c).toBe("0000000000");
   expect(migrated.advanced.completedIds).toEqual([]);
+});
+
+test("lesson prose and term definitions retain readable columns with the sidebar open", async ({ page }) => {
+  await openCandidate(page);
+  await page.route(/youtube-nocookie\.com/, (route) => route.abort());
+  for (const width of [1024, 1117, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const routeId of ["lesson-01", "lesson-07", "lesson-13"]) {
+      await showRoute(page, routeId);
+      await page.locator(`#${routeId} .lesson-term-inventory`).evaluate((node: HTMLDetailsElement) => { node.open = true; });
+      const geometry = await page.locator(`#${routeId}`).evaluate((root) => {
+        const rect = (node: Element) => node.getBoundingClientRect();
+        const narrowCopy = [...root.querySelectorAll(".explain-grid>div,.video-copy,.lesson-term-row dd")].filter((node) => rect(node).width > 0 && rect(node).width < 300).map((node) => ({ text: node.textContent?.slice(0, 50), width: rect(node).width }));
+        const overlappingTerms = [...root.querySelectorAll(".lesson-term-row")].filter((row) => {
+          const definition = row.querySelector("dd")!;
+          const actions = row.querySelector("p")!;
+          return rect(actions).top < rect(definition).bottom - 1;
+        }).length;
+        return { narrowCopy, overlappingTerms };
+      });
+      expect(geometry.narrowCopy, `${routeId} at ${width}px`).toEqual([]);
+      expect(geometry.overlappingTerms).toBe(0);
+      await expectNoPageOverflow(page);
+    }
+  }
 });
 
 test("figure enlargement is keyboard-operable and returns focus", async ({ page }) => {

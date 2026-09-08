@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-07T15:44:22.043Z",
+  "authority": "Final native resource inspection: distinguish the unit review from its containing chapter in textbook tabs and open it at its actual physical review page.",
+  "priorOwnerSha256": "894a802855ffe5fb519133efa6e9e919a8960406751ed6a988ec10a645d121fd",
+  "ownerSha256": "7052f47ba9391233635f49e103c13ad9717717f37a2170e1818e5c643ea5949c",
+  "changedFiles": [
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-a-hubs.ts",
+      "sha256": "e5347cd30326fd332dedf407690b3fc4b22666a30c9e7a155dfdcd8e47a4e589"
+    }
+  ],
+  "changes": [
+    "Unit review tab label and initial PDF page use textbookUnit and physical review locator; academic questions and saved identities unchanged"
+  ],
+  "state": "No schema/key or academic input changes. Embedded routes retain their original IDs. Sources and Credits has a presentation-only route without saved fields.",
+  "verification": "7 focused tests and all-unit browser regression pass, including saved note/filter/reload, Advanced synchronization, textbook tabs, embedded challenge, all existing activities and 244 responsive checks. Final owner rebuild and Studio checks follow.",
+  "teacherAcceptance": null
+}

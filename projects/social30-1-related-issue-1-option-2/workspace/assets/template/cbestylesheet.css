@@ -1,0 +1,668 @@
+html{
+	padding:0px;
+	margin:0;
+}
+
+body{
+	background-color:#dadde0;
+	font-size:85%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	text-align:center;
+	margin:0;
+	padding: 0px;
+}
+
+#border{
+	width:90%;
+	padding:0;
+	margin:0 auto;
+	border-color:#a7a7a7;
+	border-style:solid;
+	border-width:2px 2px;
+}
+
+#container {
+
+	text-align:left;
+	margin:0 0;
+	padding:15px;
+	background:#fff;
+	border-color:#727ea3;
+	border-style:solid;
+	border-width:0 1px;
+
+}
+
+#content {
+
+	padding:10px;	
+}
+
+
+
+.img_right {
+	margin-left:10px;
+	padding-left:5px;
+	padding-bottom: 5px;
+	float: right;
+}
+
+.img_left {
+	margin-right:10px;
+    float: left;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+
+/*------HEADER & FOOTER ------*/
+
+#header {
+background:#6096BF; /*Change the banner background color here */
+padding:10px;
+background-image: url('transparentbackgroundimage.gif'); /*Change image for top banner here */
+background-repeat: no-repeat;
+background-position: bottom right;
+}
+
+#header h1 {
+	color: #fff;  /*Change the heading color for the banner here */
+	font-size: 2.5em;
+	font-weight: bold;
+	letter-spacing: -1px;
+	text-align: center;
+
+}
+
+#footer{
+    color:#FFFFFF;
+	text-align:center;
+	padding:10px;
+	font-size:0.8em;
+	background-color:#6096BF;
+	
+}
+
+/*------FORMATTING ------*/
+
+p {
+	line-height:1.3em;
+	color:#333;
+}
+
+a {
+	text-decoration:none;
+	color: #0044ba;
+	border-bottom:1px solid #e2e1ee;
+}
+
+a:hover{
+	color:#39581f;
+	background-color:#FFF1C9;
+	border-bottom:1px solid #e2e1ee;
+}
+
+
+h2{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:1.4em;
+	margin: 0 0 8px 0;
+	color:#4b4665;  /* Change H2 color here */
+	font-weight:bold;
+}
+
+h3{
+	color: hsla(0,0%,2%,1);    /* Change H3 color here */
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0;
+}
+
+/*------FEATURE BOXES------*/
+
+#portfolio {
+	background-color: #d2eefc;
+	background-image: url('crystalicons/folder_image.png');
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+				
+}
+
+html>body #portfolio{height:auto}
+
+#alert{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/alert.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height: 128px;
+	min-height:128px;
+}
+
+html>body #alert{height:auto}
+
+#assignmentdrop{
+	background-color: #ffffab;
+	background-image: url('crystalicons/Crystal_Clear_app_ark2.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;	
+}
+
+html>body #assignmentdrop{height:auto}
+
+#quiz{
+	background-color: #FFF1C9;
+	background-image: url('crystalicons/quizicon1.gif');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+	height:128px;
+	min-height:128px; 
+}
+
+html>body #quiz{height:auto}
+
+#discussions{
+	background-color: #d2eefc;
+	background-image: url('crystalicons/Crystal_Clear_app_kdmconfig.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height: 128px;
+	min-height: 128px;
+	text-align: left;
+}
+html>body #discussions{height:auto}
+
+#discussion{
+	background-color: #d2eefc;
+	background-image: url('crystalicons/Crystal_Clear_app_kdmconfig.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+	clear: both;
+}
+html>body #discussion{height:auto}
+
+#bonus{
+    background-color:#ebf5eb;
+	background-image: url('crystalicons/keditbookmarks.png');
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #bonus{height:auto}
+
+#help{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/khelpcenter.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #help{height:auto}
+
+#internet{
+    background-color:#ebf5eb;
+	background-image: url('crystalicons/agt_web.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #internet{height:auto}
+
+#journal{
+	background-color: #EDE2EF;
+    background-image: url('crystalicons/kate.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+}
+html>body #journal{height:auto}
+
+#email{
+    background-color:#ebf5eb;
+	background-image: url('crystalicons/xfmail.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px; 
+}
+
+html>body #email{height:auto}
+
+#multipleperspectives{
+    background-color:#e2e1ee;
+	background-image: url('crystalicons/multipleperspect.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+}
+html>body #multipleperspectives{height:auto}
+
+#note{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/knotes.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #note{height:auto}
+
+
+#media{
+    background-color:#e2f0c0;
+	background-image: url('crystalicons/multimedia.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #media{height:auto}
+
+#reflection{
+    background-color:#e2f0c0;
+	background-image: url('../crystalicons/reflectionicon.gif');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #reflection{height:auto}
+
+#textassign{
+    background-color:#ebf5eb;
+	background-image: url('crystalicons/readingassignment.gif');
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #textassign{height:auto}
+
+#readingassignment{
+    background-color:#ebf5eb;
+	background-image: url('crystalicons/readingassignment.gif');
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+
+}
+html>body #readingassignment{height:auto}
+
+#reminder{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/lreminder.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #reminder{height:auto}
+
+#news{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/knode.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px; 
+}
+html>body #news{height:auto}
+
+#rss{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/konqsidebar_news.png');
+	background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px; 
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #rss{height:auto}
+
+#checklist{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/lists.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #checklist{height:auto}
+
+#ipod{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/mp3player_unmount.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #ipod{height:auto}
+
+#print{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/printer.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;ht:128px}
+}
+
+html>body #print{height:auto}
+
+#search{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/search.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #search{height:auto}
+
+
+
+#notetaking{
+    background-color:#e2f0c0;
+	background-image: url('crystalicons/kate.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #notetaking{height:auto}
+
+#idea{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/jabber_protocol.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	min-height:128px;
+	height:128px;
+	min-height:128px; 
+}
+
+html>body #idea{height:auto}
+
+#help{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/jabber_protocol.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	min-height:128px;
+	height:128px;
+	min-height:128px; 
+}
+
+html>body #help{height:auto}
+
+#greenbox{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/highlight.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #greenbox{height:auto}
+
+#vocabulary{
+    background-color:#ebf5eb;
+	background-image: url('crystalicons/glossaryicon.gif');
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+
+}
+html>body #vocabulary{height:auto}
+
+#warning{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/Crystal_Clear_action_editdelete.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #warning{height:auto}
+
+
+
+#alert{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/alert.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height: 128px;
+	min-height:128px;
+}
+
+html>body #alert{height:auto}
+
+html>body #alert{height:auto}
+
+#assignment{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/Crystal_Clear_action_edit.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #assignment{height:auto}
+
+#pdf{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/acroread.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #pdf{height:auto}
+
+#calendar{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/cal.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px;
+}
+
+html>body #calendar{height:auto}
+
+#images{
+    background-color:#DFF1FF;
+	background-image: url('crystalicons/lphoto.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	height:128px;
+	min-height:128px; 
+}
+
+html>body #images{height:auto}
+
+
+#feature {
+	border: 0.2em solid #cccccc; 
+	background-color: #ffffff; 
+	padding: 5px;
+	margin: 20px 0px 20px 0px;
+	}
+
+
+/*------BACK TO TOP------*/
+
+#top {
+	text-align:right;
+	font-size:0.6em;
+	letter-spacing:2px;
+	padding-top: 20px;
+}

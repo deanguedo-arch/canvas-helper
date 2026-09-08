@@ -1,0 +1,99 @@
+{
+  "stage": 72,
+  "status": "owner-study-review-reference-components-implemented-and-synthetic-browser-verified",
+  "teacherDecision": null,
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "scope": [
+    "Models Predict-Test-Explain-Save with invalidation and full-precision source outputs for all27 authored cases",
+    "Optional Frayer selection, scoped confirmed clear, attempt-gated comparison and preserved other work",
+    "All My Work filtering, all-entry Copy/Print, oversized current draft preservation, invalid-graph draft collection adapter",
+    "Investigation plan before observations, distinct datasets, exact image hash binding, four-response overall comparison",
+    "Review Seminar, chapter/final/challenge practice, glossary, textbook hub, Advanced index and notes components",
+    "Textbook attempt persists while guide closes on reload as required by saved plan"
+  ],
+  "tests": {
+    "focusedTotal": 67,
+    "finalBrowserRetest": 6,
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "typecheckUnrelatedDiagnostics": 25,
+    "typecheckOwnedDiagnostics": 0
+  },
+  "visualReview": {
+    "screenshots": 24,
+    "opened": [
+      "chromium-model-390.png",
+      "chromium-frayer-390.png"
+    ],
+    "finding": "Mobile model and Frayer controls readable. First synthetic fixture lacked UTF-8 metadata; corrected fixture encoding, asserted arrow text, reran all six browser fixtures and inspected corrected model screenshot. No final learner-shell visual claim."
+  },
+  "sourceChecks": 15,
+  "textbookMemberChecks": 8,
+  "protectedLearnerTreesUnchanged": 6,
+  "protectedUnitAOwnerUnchanged": true,
+  "verificationLimits": "Synthetic component fixtures only; no real learner lesson HTML, whole-course shell, project E2E, LMS certification, final media bindings or teacher acceptance. Copy and Print outputs tested using intercepted browser APIs without external clipboard/printer action. Actual learner bootstrap, recovery choices, asset closure and course assembly remain.",
+  "codeSha256": {
+    "scripts/lib/biology30-course/v1/pilot2-collection-view.ts": "9049b9b7317be37d2eb8f4d1d26ae52171a5d4326dfea9c59cf47b4a19f5efbf",
+    "scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts": "65e46dfdda85cd5aa02912a65e52788030f1f598d231726b5e2837702d66c238",
+    "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110",
+    "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts": "8ba2bf03056b10c72543359b5c2ad134b1ab30b33affeb04c08cc4805ad7271f",
+    "scripts/lib/biology30-course/v1/pilot2-graph-controls.ts": "6806f7d0cead77630b371ad83bc57147fa9eff903c1dfdab76ee6aaaa5917a75",
+    "scripts/lib/biology30-course/v1/pilot2-model-controls.ts": "af88645e22ce2fee467c3c64b9ac77a49590b2405c804e9abcc8bc6e73801678",
+    "scripts/lib/biology30-course/v1/pilot2-model-plot.ts": "727b0e4634b89ed1663d2245ddf41170c8fa5a0e13a65f6df0d4423da2588c7b",
+    "scripts/lib/biology30-course/v1/pilot2-render-common.ts": "e1337022bf3d21579077f69d9c4d5e4149d959284968cf6521ade3188533431e",
+    "scripts/lib/biology30-course/v1/pilot2-render-controls.ts": "ad58e346fcac5f17445f121fe63f2f2b55dd7f09ffe2443eda0a81760b3da7e9",
+    "scripts/lib/biology30-course/v1/pilot2-render-graph.ts": "aa88dbab96bd3adefc9e663df1b885801135082a7aadc88df63bfdd4340c8373",
+    "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts": "c49bd05bf56ce76683d1e8f03fc46123652fd054634bd74fd6b38d819d00608d",
+    "scripts/lib/biology30-course/v1/pilot2-render-model-output.ts": "78017dee50579b6e7d16e07df184252d75b06f440a7d82296780928b80ba0fe8",
+    "scripts/lib/biology30-course/v1/pilot2-render-model.ts": "ae7ff90814414b705e36b84b17918fa9736fc39f196c059b5309fdab21e7df51",
+    "scripts/lib/biology30-course/v1/pilot2-render-reference.ts": "0a37a12d390f8d05fb5bffc57672092108eac57be53ebbdbf70abfe062bd2a13",
+    "scripts/lib/biology30-course/v1/pilot2-render-review.ts": "5182c15ecb37bc3eb61b962cc5c282741bc17a60893c6c8dd5994443a23db370",
+    "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts": "e7d3998fb0ae17b9a9c34e07bc6ba5ed0fa0c83383876a1466d4a01fe1388645",
+    "scripts/lib/biology30-course/v1/pilot2-render-topic.ts": "dc0ff27d97d887af2bc71ccfe467bdd21fa8ebe673aa50109957d17221665ff4",
+    "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts": "78edb73622998135f0bc1044e3e82fdf099407542f5058b31bc12f1b84879651",
+    "scripts/lib/biology30-course/v1/pilot2-return-links.ts": "c0503c96594c2355d167e3bfb44c914f96a800bd56f3f7aceffb7f145babb51a",
+    "scripts/tests/biology30-pilot2-model-display.test.ts": "bf99c509684bc1fdd3dd76b9672c2b5ffdf5206ab74b74b1b962e77bfd25b708",
+    "scripts/tests/biology30-pilot2-reference-renderer.test.ts": "2a723086f882f3af270a776963b9fc25c45b67fea4830373cb64e17d69e6788e",
+    "scripts/tests/biology30-pilot2-renderer-browser.test.ts": "a91f7a3926b2a660ff6afe75937051980713a909e3eb6b243902d49a0f40a553",
+    "scripts/tests/biology30-pilot2-renderer.test.ts": "36643f3cba1f166c06d8c3f3c89b3be7821552462c672fbc9ea115e870d33d65",
+    "scripts/tests/biology30-pilot2-study-browser.test.ts": "50a37a827a9e77b017e4121ca75677e5cc771ed22e901da1c7b3576080734069",
+    "scripts/tests/fixtures/biology30-pilot2/renderer.ts": "8723081860f5313ffa5eea96ad9a9350b74403f40635d36508d7a06157ec0b1b"
+  },
+  "logSha256": {
+    "all-tests.log": "90977478e7cd1652bf6e0fcd00ca14ffedb3c4c8d504e6ddf888fa10324f617a",
+    "browser-final.log": "1cd6e32c2a04ce33ec64c542f0c5bacc9a71909cebc6181f52c093660a176c63",
+    "contracts.log": "17b55c62a399d29658f1890f977b10b5afdb5c3b07cb4331c32ed61d09b13f49",
+    "protection.log": "c46f81f9e001b243ff7951d2bfb7758003bdd53f59d287e4a9e18147e0a87e43",
+    "typecheck.log": "464e882c82ed43528cb3858c30e3bf1bdc87e79b39d10fea943cea3b5d2f0544"
+  },
+  "screenshots": {
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-1024.png": "f062de37ac1e0dd61960b6e8cd1beeeeb128c8a1ac00640b0742b6fd9288eb38",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-1440.png": "2d02b16d22874fc34fca55e2a2d58f9cea32b760a59b8532ba99c5327d4f4b5d",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-390.png": "935ceb91d67d49bd1d980c480fa61c3e50d5369a85b011c6b56ac6b010e2fec6",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-frayer-390.png": "3fa9496dd7523180389aef60a911b7d440488a0d08c81470efa22bdb523f05c7",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-graph-390.png": "ec33990254f9b8282ca5b9a25e78dd5a861eed344f071529929e24f7aef222b3",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-model-1024.png": "eadc865e7bf55d7fab65c338ab19c05bb80570c6d58e90ee9235a8c8bd08f98b",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-model-1440.png": "eadc865e7bf55d7fab65c338ab19c05bb80570c6d58e90ee9235a8c8bd08f98b",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/chromium-model-390.png": "17248c236b10da1e057f09db2098dc4e94f5b7f4b37cc1a59b10763af3cedd5f",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-1024.png": "69a80218522698e84c5b979d2b6451bd02ce0b8c8e062166e590e39665078823",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-1440.png": "86450ae11b25ea5e8172cd017e99f89e76a6bd7d95f6a91974e125875f9a3170",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-390.png": "d181d00aeefebb72eb475d7388320d645edff266211fff58e7e80c0911becd95",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-frayer-390.png": "40c09ae8705e9c00bb8b92e65ca6eb9cf7c5f7b77eda3d74aa427c7df6fc9e73",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-graph-390.png": "05f01cdad862ccbf5f70e7869c255ce44f65a39174f6a08363c0395fa8a1e0a6",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-model-1024.png": "8515828b03688df30ced9f9020442355722b4b82f82f148071f863cba7b4dc1f",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-model-1440.png": "8515828b03688df30ced9f9020442355722b4b82f82f148071f863cba7b4dc1f",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/firefox-model-390.png": "d732009471ebb0047e8b3480b3fe2cc7c657cfc8467c9fecfea7ba3e4f1db7ad",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-1024.png": "569006cb57a2b12db89199efdb5cce15e2e1d6126327a69e7e6ed1c2eb89b2aa",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-1440.png": "1bae45b4b8a6dcbb2aba82cf3b5242f64ea153d6f4648d6c035ded7311d7f83d",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-390.png": "190b5b9e1af05944b272bcfa162f398c343404aa1714d57d849f5226bf668e7e",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-frayer-390.png": "d16d4537310efd651ae4baa6e872e1d3df36371ab8b1284489fcce56b7dcc0e9",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-graph-390.png": "dd0bb83097eaaf60529f21b3cceaab2c4c63c5eeb4ff737926a1e55ac60287a0",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-model-1024.png": "303e642a1468374a516970f8d111703a6160f4a5fca98c6017b0a6d1b650ecd5",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-model-1440.png": "303e642a1468374a516970f8d111703a6160f4a5fca98c6017b0a6d1b650ecd5",
+    "projects/resources/biology30-production/v1/pilot2/verification/2026-09-07-study-components/screenshots/webkit-model-390.png": "c71da89654781a17ebe7036ddbe96109f05c737ac276b8ab8afd72d0472005a0"
+  }
+}

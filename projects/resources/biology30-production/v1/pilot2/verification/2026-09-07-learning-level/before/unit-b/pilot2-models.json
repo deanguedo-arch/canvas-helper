@@ -1,0 +1,506 @@
+{
+  "unit": "B",
+  "status": "all-model-options-authored; scientific-output-and-browser-review-pending",
+  "models": [
+    {
+      "id": "b-model-signal-pathway",
+      "title": "Compare production, hormonal support and transport",
+      "teachingTopicId": "b-topic-male-reproductive-structures",
+      "variable": "case",
+      "options": [
+        "support-defect",
+        "signal-defect",
+        "duct-obstruction"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "b-model-signal-pathway-prediction",
+      "explanationId": "b-model-signal-pathway-explanation",
+      "testFlag": "b-model-signal-pathway-tested",
+      "collectionFlag": "b-model-signal-pathway-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict which step changes while the other observations remain intact.",
+      "explanationPrompt": "Explain which observation separates production/support, upstream signalling and transport.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "support-defect",
+          "label": "Changed Sertoli support",
+          "parameters": {
+            "case": "P",
+            "germCells": "absent",
+            "support": "disrupted",
+            "LH": "present",
+            "duct": "open"
+          }
+        },
+        {
+          "value": "signal-defect",
+          "label": "Reduced upstream signal",
+          "parameters": {
+            "case": "S",
+            "germCells": "reduced",
+            "support": "present",
+            "LH": "reduced",
+            "duct": "open"
+          }
+        },
+        {
+          "value": "duct-obstruction",
+          "label": "Blocked transport",
+          "parameters": {
+            "case": "T",
+            "germCells": "present",
+            "support": "present",
+            "LH": "present",
+            "duct": "blocked"
+          }
+        }
+      ],
+      "operation": "b-model-signal-pathway",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sourceInvestigationId": "b-investigation-structure-function",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "case"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            0
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "germCells"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "support"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "LH"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "duct"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            4
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "case"
+          ],
+          "datasetPath": [
+            "rows",
+            3,
+            0
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "germCells"
+          ],
+          "datasetPath": [
+            "rows",
+            3,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "support"
+          ],
+          "datasetPath": [
+            "rows",
+            3,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "LH"
+          ],
+          "datasetPath": [
+            "rows",
+            3,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "duct"
+          ],
+          "datasetPath": [
+            "rows",
+            3,
+            4
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "case"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            0
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "germCells"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "support"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "LH"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            3
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            2,
+            "parameters",
+            "duct"
+          ],
+          "datasetPath": [
+            "rows",
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-model-cycle-sequence",
+      "title": "Compare hormone events in time",
+      "teachingTopicId": "b-topic-menstrual-cycle",
+      "variable": "interval",
+      "options": [
+        "days-2-to-12",
+        "days-12-to-21",
+        "days-21-to-28"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "b-model-cycle-sequence-prediction",
+      "explanationId": "b-model-cycle-sequence-explanation",
+      "testFlag": "b-model-cycle-sequence-tested",
+      "collectionFlag": "b-model-cycle-sequence-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict the direction of change in each hormone over the selected interval.",
+      "explanationPrompt": "Use two values and their days to explain a change; distinguish timing evidence from a proven cause.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "days-2-to-12",
+          "label": "Days 2–12",
+          "parameters": {
+            "start": 2,
+            "end": 12
+          }
+        },
+        {
+          "value": "days-12-to-21",
+          "label": "Days 12–21",
+          "parameters": {
+            "start": 12,
+            "end": 21
+          }
+        },
+        {
+          "value": "days-21-to-28",
+          "label": "Days 21–28",
+          "parameters": {
+            "start": 21,
+            "end": 28
+          }
+        }
+      ],
+      "operation": "b-model-cycle-sequence",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "series": {
+        "columns": [
+          "Day",
+          "FSH index",
+          "LH index",
+          "Estrogen index",
+          "Progesterone index"
+        ],
+        "rows": [
+          [
+            2,
+            5,
+            3,
+            2,
+            1
+          ],
+          [
+            7,
+            4,
+            3,
+            5,
+            1
+          ],
+          [
+            12,
+            3,
+            6,
+            10,
+            1
+          ],
+          [
+            14,
+            4,
+            18,
+            7,
+            2
+          ],
+          [
+            21,
+            2,
+            2,
+            6,
+            10
+          ],
+          [
+            28,
+            4,
+            3,
+            2,
+            1
+          ]
+        ]
+      },
+      "sourceInvestigationId": "b-investigation-cycle-graphs",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "series",
+            "columns"
+          ],
+          "datasetPath": [
+            "columns"
+          ]
+        },
+        {
+          "modelPath": [
+            "series",
+            "rows"
+          ],
+          "datasetPath": [
+            "rows"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-model-development-timing",
+      "title": "Compare stage-specific effects in a model",
+      "teachingTopicId": "b-topic-parturition",
+      "variable": "stage",
+      "options": [
+        "early",
+        "later"
+      ],
+      "stages": [
+        "Predict",
+        "Test",
+        "Explain",
+        "Save"
+      ],
+      "predictionId": "b-model-development-timing-prediction",
+      "explanationId": "b-model-development-timing-explanation",
+      "testFlag": "b-model-development-timing-tested",
+      "collectionFlag": "b-model-development-timing-collected",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "resultPolicy": "Display the selected scenario data and calculation; save the chosen value and writing, then reconstruct the result from the same versioned model.",
+      "status": "authored-variable-data-and-calculation-output; rendered control/graph and independent review pending",
+      "predictionPrompt": "Predict whether agent X changes marker M by the same amount at both stages.",
+      "explanationPrompt": "Compare exposed and control proportions within the stage; state the limit on applying this cell-model result.",
+      "modelVersion": 1,
+      "cases": [
+        {
+          "value": "early",
+          "label": "Early stage",
+          "parameters": {
+            "control": 4,
+            "exposed": 20,
+            "samplesPerGroup": 40
+          }
+        },
+        {
+          "value": "later",
+          "label": "Later stage",
+          "parameters": {
+            "control": 5,
+            "exposed": 9,
+            "samplesPerGroup": 40
+          }
+        }
+      ],
+      "operation": "b-model-development-timing",
+      "outputOwner": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sourceInvestigationId": "b-investigation-development-evidence",
+      "dataProvenance": "Original classroom model; synthetic observations or explicitly defined probability/sequence/count model. Not a personal diagnosis or measured real population.",
+      "sourceBindings": [
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "control"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            0,
+            "parameters",
+            "exposed"
+          ],
+          "datasetPath": [
+            "rows",
+            0,
+            2
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "control"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            1
+          ]
+        },
+        {
+          "modelPath": [
+            "cases",
+            1,
+            "parameters",
+            "exposed"
+          ],
+          "datasetPath": [
+            "rows",
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}

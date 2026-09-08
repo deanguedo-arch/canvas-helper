@@ -1,0 +1,71 @@
+{
+  "unit": "C",
+  "status": "licensed-original-reviewed; local-placement-and-observation-controls-pending",
+  "teacherDecision": null,
+  "images": [
+    {
+      "id": "c-onion-mitosis-staticd",
+      "targetPartId": "c-topic-mitosis-observation-and-simulation",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/microscopy/staticd-onion-root-mitosis-original.jpg",
+      "sha256": "bc5faac2f7a365c1c303f7cc0c056ddf9c1ee3d4995d154dde7f3e2abc1869cd",
+      "sourceSha1": "c265d1b9be0c6475ac6f94438e08c809f0bb1010",
+      "bytes": 371769,
+      "width": 1122,
+      "height": 1150,
+      "creator": "staticd",
+      "title": "Onion root mitosis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Onion_root_mitosis.jpg",
+      "sourceRevisionUrl": "https://commons.wikimedia.org/w/index.php?title=File:Onion_root_mitosis.jpg&oldid=993680154",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Onion_root_mitosis.jpg",
+      "license": "CC BY-SA 3.0 Unported",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceDescription": "Author identifies stained onion-root-tip squash microscopy and claims the photographed material as own work.",
+      "retrievedAt": "2026-09-06T21:30:42.823032+00:00",
+      "changes": "None. Original JPEG bytes retained; no AI reconstruction, recolouring, sharpening or pixel removal.",
+      "attribution": "Onion root mitosis — staticd, via Wikimedia Commons, CC BY-SA 3.0. Original image, unchanged.",
+      "requiredAttributionPlacement": "Visible adjacent creator, linked source and linked license, with unchanged-image statement; keep these notices in every later authorized derivative.",
+      "scienceReview": "Full original-resolution file inspected. Actual stained cells show variable chromosome condensation, separate chromosome groups and ambiguous boundaries/planes. Use evidence descriptions and uncertainty rather than asserting that every cell has an unambiguous phase label.",
+      "limitations": [
+        "This selected field is not a representative random sample for estimating time in each phase.",
+        "No reliable calibrated scale is supplied; do not add an invented magnification or scale bar.",
+        "Projection, staining and cell overlap limit chromosome counting and fine stage distinctions.",
+        "The synthetic 72/12/6/4/6 counts are a separate teaching dataset and were not counted from this image.",
+        "A digital image task demonstrates observation/reasoning, not handling a microscope or preparing a biological specimen."
+      ],
+      "learnerPrompt": "Inspect the original field, then describe the indicated region before proposing a stage. Identify the chromosome arrangement you can actually see. State one uncertainty and compare with the taught phase model. Do not force a label when the features are insufficient.",
+      "regions": [
+        {
+          "id": "c-observation-separated-groups",
+          "boundsPixels": [
+            484,
+            193,
+            196,
+            157
+          ],
+          "observable": "Two compact stained groups are separated within the outlined cell region.",
+          "provisionalInterpretation": "Consistent with a later mitotic separation stage. Condensed separated groups support anaphase; without clear daughter-nucleus or cell-plate evidence, distinguish that from a confident telophase identification.",
+          "acceptReasoning": "Describe two separated chromosome groups and connect separation to the model. Accept a qualified late-mitotic interpretation with evidence and a stated missing feature.",
+          "teacherDecision": null
+        },
+        {
+          "id": "c-observation-condensed-chromosomes",
+          "boundsPixels": [
+            178,
+            357,
+            229,
+            219
+          ],
+          "observable": "Prominent condensed, thread-like chromosomes occupy the central cell region; one clear equatorial plate is not established by this view.",
+          "provisionalInterpretation": "Condensation is consistent with a mitotic cell. The exact prophase/prometaphase/metaphase boundary is uncertain in this view.",
+          "acceptReasoning": "Use visible condensation, avoid calling two daughter groups where none is clear, and explain what alignment or separation evidence would distinguish the stages.",
+          "teacherDecision": null
+        }
+      ],
+      "pixelPolicy": "Render the original intact. Region indicators may be separate HTML/SVG overlays and must be identified as course annotations; enlargement must retain access to the whole original field."
+    }
+  ],
+  "sourceComparison": {
+    "suppliedTextbook": "Chapter 16 physical page 14, printed 557, Figure 16.8 remains the historical five-phase source reference.",
+    "decision": "Use the openly licensed original as an additional learner observation field with explicit uncertainty. Keep textbook reference and phase teaching; do not re-label the synthetic count table as observed from either image."
+  }
+}

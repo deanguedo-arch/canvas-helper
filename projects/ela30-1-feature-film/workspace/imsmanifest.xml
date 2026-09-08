@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="ela30-1-feature-film-legacy-scorm-2004" version="1.0"
+  xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
+  xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3"
+  xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3"
+  xmlns:imsss="http://www.imsglobal.org/xsd/imsss"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+    http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd
+    http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd
+    http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd
+    http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 4th Edition</schemaversion>
+  </metadata>
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1">
+      <title>ela30-1-feature-film-legacy</title>
+      <item identifier="ITEM-1" identifierref="RES-1">
+        <title>ela30-1-feature-film-legacy</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-1" type="webcontent" adlcp:scormType="sco" href="index.html">
+      <file href="assets/brand/nxt-ce-logo-white-with-ce.png" />
+      <file href="assets/imported/film-study-images-11169199-ori.jpg" />
+      <file href="assets/imported/film-study-images-51zqb3djpdl.jpg" />
+      <file href="assets/imported/film-study-images-angle-bulldog.jpg" />
+      <file href="assets/imported/film-study-images-back-to-the-future.jpg" />
+      <file href="assets/imported/film-study-images-cabinet-des-dr-caligari-01-1.jpg" />
+      <file href="assets/imported/film-study-images-camera.jpg" />
+      <file href="assets/imported/film-study-images-cidadededeus.jpg" />
+      <file href="assets/imported/film-study-images-download-1.jpg" />
+      <file href="assets/imported/film-study-images-download.jpg" />
+      <file href="assets/imported/film-study-images-editfilm.gif" />
+      <file href="assets/imported/film-study-images-film-study.jpg" />
+      <file href="assets/imported/film-study-images-general.jpg" />
+      <file href="assets/imported/film-study-images-images-1.jpg" />
+      <file href="assets/imported/film-study-images-images.jpg" />
+      <file href="assets/imported/film-study-images-jaws-movie-poster.jpg" />
+      <file href="assets/imported/film-study-images-kiq87p17yfydl5qee12r.jpg" />
+      <file href="assets/imported/film-study-images-mis-en-scene.jpg" />
+      <file href="assets/imported/film-study-images-sound.jpg" />
+      <file href="assets/imported/film-study-images-star-wars-force-awakens-official-poster.jpg" />
+      <file href="assets/imported/film-study-images-superman-iv.jpg" />
+      <file href="assets/imported/film-study-images-the-battleship-potemkin-1925.jpg" />
+      <file href="assets/imported/film-study-images-the-breakfast-club.jpg" />
+      <file href="assets/imported/film-study-images-the-godfather-movie-poster-1020243893.jpg" />
+      <file href="index.html" />
+      <file href="scorm-bridge.js" />
+    </resource>
+  </resources>
+</manifest>

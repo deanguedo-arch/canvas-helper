@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "stage": "Actual B/C question-to-operation review, with prior D review retained",
+  "teacherDecision": null,
+  "status": "sub-operation-mappings-reviewed-full-criteria-pending",
+  "reviewed": {
+    "B": 65,
+    "C": 132,
+    "D": 52
+  },
+  "prerequisiteOnly": {
+    "B": 3,
+    "C": 15,
+    "D": 2
+  },
+  "remainingRequiredPracticeLinks": {
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "scope": "All43 B and56 C criteria and197 current prompts/answers read. Narrowed links to actual asked operations. D52 exact prior stage62 mappings retained. Empty-link findings are an audit queue; nonempty links do not prove full criteria. No question/key/response identity or limit changed.",
+  "inputs": {
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice.json": "ddd5f183eb14cc1f0f1db00caf6cc95839a6e2126a87b01b970a5e18cb4b4e7a",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-academic-contract.json": "6d4dd0e863391595c56c5707321fad1aaf1cd0958ffd3a267f09f54296b15648",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-key-review.json": "4c2a38bb9a92e6a72dbabb3d5e58d75a7d5b4bfa8b1038a6ba9fac96af942ba6",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-activity-index.json": "1c042c3d8d932635075de72a2f8e6707b4e6366fd01aaf6fa4a3c24c01b677fe",
+    "projects/resources/biology30-production/v1/units/unit-b/pilot2-practice-operation-review.json": "b77f773ea46660bc0f83b630fa74b8200d4eddd6a89864e547611615c4533d1c",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice.json": "263c0663307df7f9c01e9cd508747daaa65eb37831b598e52499ba97495c89bf",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-academic-contract.json": "9eda2d10da459c3a027d0c2ed852c31bbc5b01b5e20c52678486b97819491b85",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-key-review.json": "364e785eb80ca6f6fe096261db7fe8b8abc5af84e3d11f28c6b4950d29e384b0",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-activity-index.json": "89861bfc45a94499d42e492cbf8ddad5df11523eaf8d6fbd8a3fb2099c61f596",
+    "projects/resources/biology30-production/v1/units/unit-c/pilot2-practice-operation-review.json": "b5b0acdbb12479bc6f4f88d19d20ff56a7f8b4eff504d46eb63755bd0c07cfc7",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json": "b8c5b4b67fcb50ba9bce3f2d65c01d194ad5e9acb55c8c9a03e952fb41a5b028",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc",
+    "projects/resources/biology30-production/v1/units/unit-d/pilot2-activity-index.json": "e04b26eeb6706db2d0a8266da89fb6a1673951923a5c941283783af3097a189e",
+    "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json": "fbab95861b6f554c768a0cad66efb0f10b15494c3c66c5407d04251c345e28e3",
+    "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json": "2427d280121e18dc823d92696aabd969c824a0684bc563a56407dd84957a1af1",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json": "f4a018b514b99ba0cf257009c8f259466e7bcdfc8bb8304e5ac9ce760e2ca42c",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json": "bcfd9de4009f7ad2aa2a1fda00276d1177d207c4a84af6ba7c8e27537439b2f5",
+    "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284"
+  },
+  "codeSha256": {
+    "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts": "ce3b7be3202199edad4cc8b4f0c6be6d69e3aacece4ab47ef0cf5c6d4ea87a81",
+    "scripts/verify-biology30-topic-contracts.ts": "74a5b5e0ba238066a754d624c0c487efddd1ed424eea5552de60d3dec803f409",
+    "scripts/lib/biology30-course/v1/pilot2-planning-audit.ts": "6261718ab30e202518dd20851c9ae26b3a51444346dc4005aa92199dc9643f63",
+    "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts": "ca67e039fa0cb691c4d1dcb4c5965452e9235efc97fff0e4140a11072e9e43d1",
+    "scripts/tests/biology30-pilot2-practice-operations.test.ts": "5354ceca6207534e1e7e44ce83c088b59c846e5e080e75a65c6b55a2c44f9eaa"
+  },
+  "subsequentMetadataReviews": [
+    {
+      "stage": "B-required-inquiry-final-repair",
+      "scope": "Three finals revised with new IDs and600-character capacities;65 total items unchanged. New prompts/models and all mapped required passages reread. Existing optional investigation data, procedures and36 examples unchanged; state and collection identifiers updated.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json"
+    },
+    {
+      "stage": "B-three-chapter-operation-replacements",
+      "scope": "Replace three redundant chapter MC questions with missing constructed operations. Keep65 questions,28 chapter items and two guided per topic. Prior whole items retained; new semantic response IDs, no answer equivalence. All new required prose/worked examples read. Two existing practice passage receipts and five textbook guides reread after the one location clarification; related old-section retention target remains complete.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-chapter-repair.json",
+      "historyPolicy": "Earlier completed stage receipts preserve their original container hashes and measurements. This scoped subsequent review records only the later changes."
+    },
+    {
+      "stage": "C-required-STS-replacements",
+      "scope": "Replace three redundant chapter recognition questions one-for-one with required applied STS cases. All four C STS criteria now have explicit asked sub-operations, supplied contrasting perspectives and revision. Full required paragraphs and worked examples reread; core and worked teaching unchanged. New semantic IDs and prior whole snapshots; no answer equivalence. Fictional observations are not real research or clinical recommendations.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-sts-repair.json",
+      "historyPolicy": "Completed prior stage receipts retain their original container hashes and measurements; this scoped review records subsequent changes."
+    },
+    {
+      "stage": "C-required-inquiry-final-repair",
+      "scope": "Three new-ID finals explicitly require a testable question/prediction, controlled repeated comparison, supplied evidence and revision of a supplied claim. All exact mapped core/worked examples reread; data/teaching unchanged. Genetic-technologies applications paragraph is now an additional same-topic required teaching reference. Prior whole questions retained without equivalence.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-inquiry-repair.json",
+      "historyPolicy": "Completed stage receipts preserve historical container hashes/measurements; this scoped subsequent review records later changes."
+    },
+    {
+      "stage": "C-required-comparisons-and-response-packing",
+      "scope": "Four one-for-one C comparison replacements close empty required-practice links using new semantic IDs. Complete mapped core/worked examples reread; unchanged teaching. All nine synthetic sequence substitution counts checked. Full compound-criterion and figure proof still pending. No prior writing capacity shortened. Exact response text now uses fingerprinted ordered presence/text encoding only when smaller; sparse and earlier token pairs remain readable. Wrong maps/counts/unknown bits fail with original work retained. All-unit schema changes are draft manifests; no rebuilt learner payload has existed.",
+      "receipt": "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+      "historyPolicy": "Prior completed receipts retain historical hashes; this scoped review binds only subsequently changed draft practice/state inputs."
+    }
+  ]
+}

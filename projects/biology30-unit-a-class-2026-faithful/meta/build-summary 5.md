@@ -1,0 +1,21 @@
+# Biology 30 Unit A Comparison Build
+
+- Version: 2026-27 class course — Faithful
+- Slug: biology30-unit-a-class-2026-faithful
+- Treatment: faithful
+- Status: blocked comparison prototype
+- Generated: 2026-08-28T22:21:58.970Z
+- Lessons / outcome stages: 25
+- Persistent learner response IDs: 90
+- Copied local assets: 208
+- Notes recreated inside lessons: yes
+- Semantic notes pages: 139
+- Optional source-slide references: 139
+- Unique notes pages mapped into lessons: 139
+- Notes lesson mappings: 18
+- External optional references: 30
+- External check statuses: {"not-checked":30}
+- Unresolved workspace assets: 0
+- D2L launchers remaining: 0
+
+This build cannot be edited directly or exported. Human review in the 100-point matrix is required before one winner is frozen and promoted.

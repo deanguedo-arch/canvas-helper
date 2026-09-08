@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-05",
+  "module": "Neural Communication",
+  "title": "Synapses, Drugs, Toxins, and Disorders",
+  "inquiry": "An action potential reaches an axon terminal. How does a one-cell electrical event change the probability that another cell will respond?",
+  "learningIntention": "I am learning to explain how chemical synapses transmit information and how drugs, toxins, and disorders can change that transmission.",
+  "requiredMinutes": 80,
+  "optionalMinutes": 15,
+  "outcomeIds": ["A1.1k", "A1.1sts", "A1.2sts", "A1.3sts"],
+  "materials": "No special materials. The synapse sequence and case evidence are fully local.",
+  "safety": "Drug and toxin examples explain mechanisms only. They are not instructions for use, treatment, or exposure.",
+  "targets": [
+    "Sequence the events at a chemical synapse from action potential to signal termination.",
+    "Explain acetylcholine, norepinephrine, and cholinesterase in context.",
+    "Use receptor, release, reuptake, and breakdown evidence to distinguish agonist and antagonist effects."
+  ],
+  "warmup": {
+    "title": "Cross a physical gap",
+    "prompt": "The membranes of two cells do not merge at a typical chemical synapse. Predict one event that must convert the presynaptic electrical signal into a chemical signal and one event that converts it back into a postsynaptic electrical effect.",
+    "placeholder": "Electrical to chemical…; chemical to electrical…"
+  },
+  "sections": [
+    {
+      "label": "Trace the sequence",
+      "title": "1. A chemical synapse translates signals twice",
+      "paragraphs": [
+        "When an action potential reaches a presynaptic terminal, depolarization opens voltage-gated calcium channels. Calcium enters down its electrochemical gradient. This rise in terminal calcium triggers synaptic vesicles to fuse with the presynaptic membrane and release neurotransmitter by exocytosis.",
+        "Neurotransmitter diffuses across the synaptic cleft and binds to receptors on the postsynaptic membrane. Some receptors are ion channels; others activate intracellular pathways. The result can make the postsynaptic membrane more likely to reach threshold, less likely to reach threshold, or change another cell function. The effect depends on the receptor and cell, not on a transmitter being universally excitatory or inhibitory.",
+        "Signal termination is essential. Neurotransmitter may be broken down by enzymes, transported back into the presynaptic cell, taken up by supporting cells, or diffuse away. Without termination, the postsynaptic receptor would continue receiving a message after the relevant presynaptic activity had ended."
+      ],
+      "figureIds": ["figure-synaptic-transmission"]
+    },
+    {
+      "label": "Name the chemicals",
+      "title": "2. Acetylcholine and norepinephrine act in specific circuits",
+      "paragraphs": [
+        "Acetylcholine is released at the neuromuscular junction, where receptors on skeletal muscle help start contraction. It is also used at autonomic synapses and in the central nervous system. Acetylcholinesterase in the synaptic cleft rapidly breaks acetylcholine into products that can be recycled. Cholinesterase activity therefore limits the duration of the signal.",
+        "Norepinephrine acts as a neurotransmitter in many sympathetic postganglionic pathways and in central circuits involved in attention and arousal. Its effect varies with receptor subtype. Much released norepinephrine is removed by reuptake into the presynaptic terminal; enzymes also contribute to metabolism.",
+        "The same chemical can have different consequences in different tissues because receptors couple to different ion channels or intracellular pathways. A scientifically complete statement names the transmitter, receptor or target, and resulting response. Saying that a chemical simply turns the nervous system up or down hides the mechanism."
+      ],
+      "table": {
+        "caption": "Selected synaptic mechanisms",
+        "headers": ["Mechanism", "What changes", "Possible synaptic consequence"],
+        "rows": [
+          ["More transmitter release", "More molecules enter the cleft per event", "Postsynaptic effect may increase until receptors or other steps limit it"],
+          ["Receptor agonist", "Molecule activates a receptor", "Mimics or supports transmitter action at that receptor"],
+          ["Receptor antagonist", "Molecule occupies or blocks receptor action", "Reduces the transmitter's effect at that receptor"],
+          ["Breakdown enzyme inhibited", "Transmitter remains longer", "Signal can be prolonged or excessive"],
+          ["Reuptake inhibited", "Transmitter clears more slowly", "Concentration and duration in the cleft can increase"]
+        ]
+      }
+    },
+    {
+      "label": "Interrogate a case",
+      "title": "3. A toxin's location predicts the evidence pattern",
+      "paragraphs": [
+        "Consider an instructional case in which a compound inhibits acetylcholinesterase. Acetylcholine is released normally but is not cleared at its usual rate. At first, acetylcholine receptors may be stimulated repeatedly. Continued signalling can disrupt coordinated muscle and autonomic function. The mechanism is not that the toxin creates extra action potentials in every neuron; it prolongs acetylcholine action where those synapses and receptors occur.",
+        "A different compound might block acetylcholine receptors at the neuromuscular junction. In that case, acetylcholine can be released and broken down normally, but the muscle response is reduced because receptor activation is blocked. Measuring transmitter release alone would not distinguish these two mechanisms. Receptor response and clearance evidence would be needed.",
+        "Mechanistic evidence supports explanations, not personal diagnosis. Similar symptoms can arise from different neural, muscular, metabolic, or toxic causes. Scientific reasoning should state which observations fit the proposed site of action and which additional tests would be required."
+      ]
+    },
+    {
+      "label": "Science, technology, and society",
+      "title": "4. Interventions reveal both capability and trade-offs",
+      "paragraphs": [
+        "Medicines can alter transmitter synthesis, storage, release, receptor activation, reuptake, or breakdown. That capability can reduce symptoms or restore function, but the same pathway may operate in several tissues. Benefits and adverse effects therefore depend on dose, receptor distribution, timing, metabolism, and the person's health context.",
+        "Scientific explanations develop as researchers compare hypotheses with evidence. A receptor-binding result, an electrical recording, and a behavioural observation answer different questions. Agreement across methods strengthens a mechanism. A result that does not fit should trigger revision rather than being hidden.",
+        "Technology aims to solve practical problems, but it also creates decisions about access, safety, monitoring, and unintended effects. A strong evidence brief distinguishes what a mechanism predicts, what a study measured, and what remains uncertain. It does not treat one diagram or one correlation as final proof."
+      ]
+    }
+  ],
+  "interaction": {
+    "id": "interaction-synapse-sequence",
+    "title": "Locate the disrupted synaptic step",
+    "intro": "Choose a mechanism. The readout predicts which evidence should change and which step should remain intact.",
+    "prompt": "Which sequence links molecular action to synaptic evidence?",
+    "options": [
+      {"id": "calcium-block", "label": "Presynaptic calcium entry is blocked", "evidence": "The action potential arrives, but vesicle fusion and transmitter release decrease.", "explanation": "Calcium entry is the key link between terminal depolarization and exocytosis. Postsynaptic receptors could remain functional yet receive little transmitter."},
+      {"id": "receptor-block", "label": "Postsynaptic receptors are blocked", "evidence": "Transmitter release and clearance can appear normal, but the postsynaptic response decreases.", "explanation": "The disruption occurs after diffusion and before the target-cell electrical effect."},
+      {"id": "enzyme-block", "label": "Acetylcholinesterase is inhibited", "evidence": "Acetylcholine persists longer and receptor activation is prolonged.", "explanation": "The toxin changes termination, not initial synthesis or release. Effects occur at acetylcholine synapses."}
+    ],
+    "staticFallback": "Arrival opens calcium channels; calcium triggers vesicle fusion; transmitter binds receptors; the target responds; breakdown, reuptake, or diffusion terminates the message."
+  },
+  "exit": {
+    "title": "Distinguish release from termination",
+    "prompt": "In 2–3 sentences, contrast the predicted synaptic evidence for blocked calcium entry with inhibited acetylcholinesterase.",
+    "placeholder": "Blocked calcium entry would… Inhibited acetylcholinesterase would…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 31–42, the class Synaptic Transmission lesson, CBE Module 1 Lesson 8, OpenStax synapse material, and NINDS health-information cross-checking.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-synapses", "class-day-synapse", "system-m1-l8", "openstax-a-and-p", "ninds-health-information"]
+  }
+}

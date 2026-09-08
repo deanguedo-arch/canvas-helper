@@ -1,0 +1,16 @@
+
+> canvas-helper@0.1.0 test:e2e:project
+> tsx scripts/run-e2e-project.ts --project biology30-unit-c
+
+[2m[WebServer] [22m(node:58785) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:58793) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:58793) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › e2e/specs/core-project-contract.spec.ts:160:1 › @project core project contract: selected slug (41.0s)
+
+  1 passed (43.3s)

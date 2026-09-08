@@ -1,0 +1,677 @@
+{
+  "schemaVersion": 1,
+  "unit": "D",
+  "status": "complete-author-review",
+  "teacherDecision": null,
+  "targets": [
+    {
+      "partId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+      "figureId": "d-topic-hardy-weinberg-populations-and-allele-counts-figure",
+      "assetId": "d-allele-counts-v1",
+      "purpose": "Convert genotype counts into allele counts with the two-copy denominator",
+      "bindingReview": "Actual required core/worked passage read and numerical operations independently checked. Native1200x900 checked: group counts36/48/16 and copy counts72+48/48+32 are correct; the bar widths600:400 represent120:80 copies. Both allele symbols remain readable without relying on colour. First-use and rendered placement remain separate checks."
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+      "figureId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-figure",
+      "assetId": "d-weighted-genotype-grid-v1",
+      "purpose": "Calculate and distinguish observed allele frequencies and expected genotype frequencies",
+      "bindingReview": "Actual required core/worked passage read and numerical operations independently checked. Native1200x900 checked: weighted grid lengths390:260 and252:168 have0.6:0.4 ratios; cell areas0.36/0.24/0.24/0.16, correct genotype labels and explicit two-route heterozygote sum. First-use and rendered placement remain separate checks."
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-equilibrium-assumptions",
+      "figureId": "d-topic-hardy-weinberg-equilibrium-assumptions-figure",
+      "assetId": "d-equilibrium-assumptions-v1",
+      "purpose": "Explain each assumption and identify which information a case does not supply",
+      "bindingReview": "Actual required core/worked passage read and numerical operations independently checked. Native1200x900 checked: all five conditions present with distinct roles; no claim that random mating cancels movement or guarantees p and q remain constant. All table labels remain in bounds. First-use and rendered placement remain separate checks."
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-solving-and-checking",
+      "figureId": "d-topic-hardy-weinberg-solving-and-checking-figure",
+      "assetId": "d-phenotype-to-frequency-v1",
+      "purpose": "Solve a population problem and check both equations and predicted counts",
+      "bindingReview": "Actual required core/worked passage read and numerical operations independently checked. Native1200x900 checked: square-root step,49:42:9 proportion bar,0.91 conditional denominator and0.4615 rounding match independent Decimal arithmetic. Assumptions precede the estimate; no phenotype-to-allele shortcut. First-use and rendered placement remain separate checks."
+    },
+    {
+      "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+      "figureId": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+      "assetId": "d-observed-expected-v2",
+      "purpose": "Compare data with expectations without assuming phenotype frequencies reveal all genotypes",
+      "bindingReview": "Actual required core/worked passage read and numerical operations independently checked. Native finalv2 checked: observed/expected legend, common0-to0.5 scale, all six heights and full-precision values match calculations. Axis title moved away from the0.5 tick after v1 overlap. No causal or significance claim from the bars. First-use and rendered placement remain separate checks."
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-mutation-and-selection",
+      "figureId": "d-topic-mechanisms-of-change-mutation-and-selection-figure",
+      "assetId": "d-variant-selection-v1",
+      "purpose": "Explain allele origin separately from changes in representation",
+      "bindingReview": "All three capsule counts and S/R labels checked at native 1200 by 900 pixels. Exposure and reproductive arrows connect the intended stages. Variant origin is explicitly earlier; chosen unequal outcomes are labelled fictional."
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-chance-and-population-size",
+      "figureId": "d-topic-mechanisms-of-change-chance-and-population-size-figure",
+      "assetId": "d-drift-histories-v1",
+      "purpose": "Compare random sampling effects and distinguish founder from bottleneck events",
+      "bindingReview": "Native points and common frequency scales checked, including the tightly clustered large-population examples. Starting p is 0.50 in both displays. Histories distinguish establishment elsewhere from reduction of an existing group. No claim that drift vanishes in large finite populations."
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-movement-and-mating",
+      "figureId": "d-topic-mechanisms-of-change-movement-and-mating-figure",
+      "assetId": "d-gene-flow-pairing-v1",
+      "purpose": "Distinguish changes in allele frequencies from genotype-frequency changes alone",
+      "bindingReview": "Native arithmetic, all table cells and two distinct comparisons checked. The combined group has 110 individuals and 220 copies. Each fixed-pool row has the same totals. Nonrandom pairing is explicitly separated from unequal reproductive success."
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-resistance-and-evidence",
+      "figureId": "d-topic-mechanisms-of-change-resistance-and-evidence-figure",
+      "assetId": "d-resistance-evidence-v1",
+      "purpose": "Explain change across generations without claiming organisms mutate because they need to",
+      "bindingReview": "Native experimental branches, three replicates per condition, matching premise and measurement requirements checked. Replicate labels explicitly disambiguated from resistance. No invented observed results or medical treatment advice."
+    },
+    {
+      "partId": "d-topic-mechanisms-of-change-testing-explanations",
+      "figureId": "d-topic-mechanisms-of-change-testing-explanations-figure",
+      "assetId": "d-frequency-evidence-v1",
+      "purpose": "Compare supplied population data and revise a mechanism claim",
+      "bindingReview": "Native full 0–1 axis, three points and their labels, source-count rows and explicit unspecified sampling intervals checked. Independent Decimal calculations match all plotted values; no truncated axis or unsupported causal claim."
+    },
+    {
+      "partId": "d-topic-population-growth-size-and-density",
+      "figureId": "d-topic-population-growth-size-and-density-figure",
+      "assetId": "d-density-distribution-v1",
+      "purpose": "Calculate density with units and distinguish it from total size",
+      "bindingReview": "Native equal-area upper cells counted:12 versus5 with20 per cell. Lower panels each contain nine dots in identical areas. The two keys are explicit and spatial patterns are schematic."
+    },
+    {
+      "partId": "d-topic-population-growth-sampling-populations",
+      "figureId": "d-topic-population-growth-sampling-populations-figure",
+      "assetId": "d-population-sampling-v1",
+      "purpose": "Estimate population size from supplied counts and explain sampling assumptions",
+      "bindingReview": "Native five quadrat inventories2/8/4/10/6 and their labels checked. Independent arithmetic gives6/m² and1200. Mark–recapture is clearly separate and40×50/10=200; its four assumptions remain visible. Full960-pixel height inspected."
+    },
+    {
+      "partId": "d-topic-population-growth-four-demographic-processes",
+      "figureId": "d-topic-population-growth-four-demographic-processes-figure",
+      "assetId": "d-demographic-processes-v2",
+      "purpose": "Calculate net change from all four counts",
+      "bindingReview": "Native v2 explicitly extends both movement arrows across the boundary while retaining internal birth/death arrows. All signs, counts and final1060 verified. v1 arrows stopped outside the boundary and were revised."
+    },
+    {
+      "partId": "d-topic-population-growth-rates-and-denominators",
+      "figureId": "d-topic-population-growth-rates-and-denominators-figure",
+      "assetId": "d-rate-denominators-v2",
+      "purpose": "Calculate rates with explicit interval and denominator",
+      "bindingReview": "Native v2 displays readable Initial N/Final N labels, three fractions, result units and fixed-initial-denominator statement. Independent Decimal checks give6,.06,.006. No axis or label overflow."
+    },
+    {
+      "partId": "d-topic-population-growth-exponential-and-logistic-models",
+      "figureId": "d-topic-population-growth-exponential-and-logistic-models-figure",
+      "assetId": "d-growth-model-shapes-v1",
+      "purpose": "Construct and compare growth curves using supplied data",
+      "bindingReview": "Native J and S forms, nonnumeric axes, dashed K and explicit separate numerical example inspected. Decimal first steps120 and116 checked. This asset does not copy the keyed full point-by-point graph answers or present two differently scaled quantitative curves as equal scales."
+    },
+    {
+      "partId": "d-topic-population-growth-feedback-and-changing-limits",
+      "figureId": "d-topic-population-growth-feedback-and-changing-limits-figure",
+      "assetId": "d-changing-capacity-v2",
+      "purpose": "Interpret deviations from a model without treating carrying capacity as fixed forever",
+      "bindingReview": "Native v2 shows distinct dashed/solid line styles, correct500/300 levels and0–600 axis, lag and explicit fictional/unspecified-time limits. Drought arrow no longer crosses the time label. No claim that K is permanently fixed or that weather effects are always density-independent."
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+      "figureId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-figure",
+      "assetId": "d-life-history-traits-v1",
+      "purpose": "Compare trait continua and qualify idealized r/K categories",
+      "bindingReview": "Three trait continua and trade-off qualification inspected. Historical r/K labels remain tendencies, not universal categories or sufficient recovery predictions. Native 100/10/1 percent logarithmic axis and all three forms inspected. Type II is straight on log survival, representing exponential survival and constant mortality risk. Zero is excluded explicitly; curves are idealized cohort forms.",
+      "panelAssetIds": [
+        "d-life-history-traits-v1",
+        "d-survivorship-forms-v1"
+      ],
+      "groupCaption": "Life-history tendencies and cohort survival describe different features.",
+      "groupEquivalentExplanation": "Compare the trait continua separately from the three survivorship patterns. The survival axis is logarithmic; Type II has approximately constant mortality risk. Historical r/K tendencies do not assign every species to a fixed box."
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+      "figureId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-figure",
+      "assetId": "d-interaction-effects-v1",
+      "purpose": "Classify relationships by effects and justify classifications with evidence",
+      "bindingReview": "Both columns and all four effect pairs checked. Antagonistic +/− can cover predation, parasitism and herbivory; effects require measurement and do not identify mechanism from abundance curves alone."
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+      "figureId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+      "assetId": "d-competition-comparison-v1",
+      "purpose": "Explain how a mechanism changes survival or access to resources",
+      "bindingReview": "Zero-baseline bars reproduce supplied 4.0/3.0/2.4 g mean A mass. Final two groups each have ten plants; first comparison changes intraspecific density. Replication and resource evidence are still required. Two qualitative panels share a resource dimension, with species separated by line style. Together curves narrow and overlap less; matched-condition assumption and alternative site effects remain explicit. Fresh stable screenshot confirms full heading; initial capture artifact did not require an SVG change. Abstract stripe swatches encode resemblance only. Batesian relatively undefended mimic/defended model contrasts with Müllerian both defended. No false specimen, species identification, toxicity proof or intentional adaptation.",
+      "panelAssetIds": [
+        "d-competition-comparison-v1",
+        "d-resource-partitioning-v1",
+        "d-mimicry-comparison-v1"
+      ],
+      "groupCaption": "Compare neighbour effects, resource use and defensive resemblance.",
+      "groupEquivalentExplanation": "The first panel holds total starting density at ten in the final two groups. The second compares qualitative resource use under matched conditions. The third uses hypothetical swatches to separate similar appearance from tested defence; it does not identify actual species or demonstrate intentional change."
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+      "figureId": "d-topic-life-strategies-and-ecological-relationships-population-cycles-figure",
+      "assetId": "d-population-cycle-evidence-v1",
+      "purpose": "Interpret paired abundance curves and compare alternative causes",
+      "bindingReview": "Common zero-to-100 count axis, time0–12 and solid/dashed keys inspected. Prey peaks2/8, predator4/10, two-step lag. Counts explicitly fictional, separate from pelt records; alternative causes retained."
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+      "figureId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-figure",
+      "assetId": "d-succession-pathways-v1",
+      "purpose": "Compare starting conditions and explain non-universal community pathways",
+      "bindingReview": "Native rock and retained-soil profiles, roots, process arrows and two possible branches inspected. Neither timescale nor final climax is fixed; disturbance name alone does not classify starting condition."
+    },
+    {
+      "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+      "figureId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-figure",
+      "assetId": "d-ecological-study-design-v1",
+      "purpose": "Evaluate a supplied conservation investigation and communicate a qualified recommendation",
+      "bindingReview": "All four factor combinations verified: reference, habitat only, reduced predator access only, both. Recruitment measurement is proposed without fabricated results. Replication, multiple evaluation criteria and respectful engagement remain visible."
+    }
+  ],
+  "assets": [
+    {
+      "id": "d-allele-counts-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-allele-counts-v1.svg",
+      "destination": "assets/figures/d-allele-counts-v1.svg",
+      "sha256": "9743d9b0a50a452f34caf6a5cb062678fde8b872bf2d0ec2371ddf6b156ff8c2",
+      "width": 1200,
+      "height": 900,
+      "alt": "Three genotype groups contribute 120 A and 80 a copies to a 200-copy gene pool.",
+      "caption": "Original synthetic sample. The 100 diploid individuals contribute 200 allele copies. Direct counts give p = 0.60 and q = 0.40.",
+      "equivalentExplanation": "A synthetic sample contains 36 AA, 48 Aa and 16 aa individuals. Each diploid individual has two copies at this autosomal locus: AA contributes two A copies, Aa contributes one of each, and aa contributes two a copies. The totals are 120 A and 80 a among 200 copies. Thus p = 0.60 and q = 0.40. The bar represents allele copies; the circle pairs show the contribution of one individual. Direct counting does not require equilibrium.",
+      "provenance": "Original SVG from the current required D core/worked sample after native source comparison. No publisher pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+        "evidenceSha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50",
+        "finding": "Native1200x900 checked: group counts36/48/16 and copy counts72+48/48+32 are correct; the bar widths600:400 represent120:80 copies. Both allele symbols remain readable without relying on colour."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-weighted-genotype-grid-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-weighted-genotype-grid-v1.svg",
+      "destination": "assets/figures/d-weighted-genotype-grid-v1.svg",
+      "sha256": "c7956ba77529a4b54eadbfa60079933a53f62ca2926c2131c9db8a4b9e8e867e",
+      "width": 1200,
+      "height": 900,
+      "alt": "A weighted probability grid shows AA 0.36, two Aa regions of 0.24, and aa 0.16.",
+      "caption": "Original probability model. Two mutually exclusive routes produce Aa, giving 2pq = 0.48. Cell areas represent the stated random-combination probabilities.",
+      "equivalentExplanation": "Both gamete pools in this random-combination model contain A at frequency 0.60 and a at 0.40. Products give AA = 0.36, A from contribution 1 with a from contribution 2 = 0.24, a from contribution 1 with A from contribution 2 = 0.24, and aa = 0.16. The two mutually exclusive Aa routes total 2pq = 0.48. Grid widths and heights are weighted by 0.60 and 0.40, so cell areas match the probabilities. These are expected genotype frequencies, not a replacement for observations.",
+      "provenance": "Original SVG from the current required D core/worked sample after native source comparison. No publisher pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+        "evidenceSha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50",
+        "finding": "Native1200x900 checked: weighted grid lengths390:260 and252:168 have0.6:0.4 ratios; cell areas0.36/0.24/0.24/0.16, correct genotype labels and explicit two-route heterozygote sum."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-equilibrium-assumptions-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-equilibrium-assumptions-v1.svg",
+      "destination": "assets/figures/d-equilibrium-assumptions-v1.svg",
+      "sha256": "3657a565ab1c86c14acfa658d64a700be0b0555546f16ab6263daa862b976edd",
+      "width": 1200,
+      "height": 900,
+      "alt": "A comparison separates random mating from four conditions that constrain allele-frequency change.",
+      "caption": "Original model comparison. Random mating supports genotype expectations; maintaining allele frequencies across generations requires additional conditions.",
+      "equivalentExplanation": "Random mating at the locus supports the genotype combination expectations p², 2pq and q². Stability of allele frequencies across generations also depends on a very large population, no mutation, no contributing gene flow and no differential reproductive contributions among genotypes. Each condition constrains a different process. One matching sample does not establish that every condition holds, and a mismatch alone does not identify its cause.",
+      "provenance": "Original SVG from the current required D core/worked sample after native source comparison. No publisher pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+        "evidenceSha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50",
+        "finding": "Native1200x900 checked: all five conditions present with distinct roles; no claim that random mating cancels movement or guarantees p and q remain constant. All table labels remain in bounds."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-phenotype-to-frequency-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-phenotype-to-frequency-v1.svg",
+      "destination": "assets/figures/d-phenotype-to-frequency-v1.svg",
+      "sha256": "835317ceef13eb9d18ae6a6aa8b7b427106d5329acbc038aa7e113fa08f64dde",
+      "width": 1200,
+      "height": 900,
+      "alt": "A square-root calculation and proportion bar show expected AA 0.49, Aa 0.42 and aa 0.09.",
+      "caption": "Original synthetic example. Under the stated recessive model and equilibrium assumptions, 9% recessive phenotype gives q = 0.30. Carrier fractions depend on the denominator.",
+      "equivalentExplanation": "Assume a fictional fully expressed recessive trait and Hardy–Weinberg conditions. A recessive phenotype frequency of 0.09 represents q², so q = 0.30 and p = 0.70. Expected AA, Aa and aa fractions are 0.49, 0.42 and 0.09; these sum to 1. The whole-population carrier fraction is 0.42. Among dominant-phenotype individuals it is 0.42/(0.49+0.42), approximately 0.4615. The bar widths represent the expected genotype fractions under the assumptions.",
+      "provenance": "Original SVG from the current required D core/worked sample after native source comparison. No publisher pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+        "evidenceSha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50",
+        "finding": "Native1200x900 checked: square-root step,49:42:9 proportion bar,0.91 conditional denominator and0.4615 rounding match independent Decimal arithmetic. Assumptions precede the estimate; no phenotype-to-allele shortcut."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-observed-expected-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-observed-expected-v2.svg",
+      "destination": "assets/figures/d-observed-expected-v2.svg",
+      "sha256": "d8c1798e3e040448300fc7323d72ee66cde20897f3c07722661ea73edadd7d04",
+      "width": 1200,
+      "height": 900,
+      "alt": "Paired bars compare observed AA, Aa and aa frequencies with expectations calculated from p = 0.675.",
+      "caption": "Original synthetic comparison. Observations and expectations use the same sample allele frequencies and the same vertical scale. Small differences alone do not identify their cause.",
+      "equivalentExplanation": "The synthetic observed sample has 45 AA,45 Aa and 10 aa individuals. It contains 135 A copies among 200, giving p = 0.675 and q = 0.325. The observed genotype fractions 0.45,0.45,0.10 are compared with expectations 0.455625,0.438750,0.105625 calculated from this sample’s own p and q. The vertical axis is genotype frequency from 0 to 0.5. Bars show the model difference; exact values accompany them. A small difference alone does not establish selection, drift or gene flow.",
+      "provenance": "Original SVG from the current required D core/worked sample after native source comparison. No publisher pixels reused.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json",
+        "evidenceSha256": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50",
+        "finding": "Native finalv2 checked: observed/expected legend, common0-to0.5 scale, all six heights and full-precision values match calculations. Axis title moved away from the0.5 tick after v1 overlap. No causal or significance claim from the bars."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-variant-selection-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-variant-selection-v1.svg",
+      "destination": "assets/figures/d-variant-selection-v1.svg",
+      "sha256": "eb1a61e48d3d327b6cc4690e2591ebc5d350a3e27d76fb6141ddc76ded25defd",
+      "width": 1200,
+      "height": 900,
+      "alt": "A pre-existing resistant bacterial variant becomes more frequent in a fictional survival and reproduction example.",
+      "caption": "A teaching model separates variant origin from selection.",
+      "equivalentExplanation": "Before exposure, the diagram shows 19 susceptible cells (S) and one resistant cell (R). After survival, it shows three S and one R. A later fictional population has four S and 12 R descendants. The resistant fraction increases from 1/20 to 1/4 to 12/16 through the chosen differential survival and reproductive contributions. Letters identify cell types independently of colour. These counts are an original illustration, not treatment data or a guaranteed outcome. The variant existed before exposure; its presence does not mean bacteria intentionally produced a needed mutation.",
+      "provenance": "Original authored SVG. Canonical required teaching/worked examples and supplied source comparisons are recorded in mechanisms-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+        "evidenceSha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475",
+        "finding": "All three capsule counts and S/R labels checked at native 1200 by 900 pixels. Exposure and reproductive arrows connect the intended stages. Variant origin is explicitly earlier; chosen unequal outcomes are labelled fictional."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-drift-histories-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-drift-histories-v1.svg",
+      "destination": "assets/figures/d-drift-histories-v1.svg",
+      "sha256": "cd51d95d50a34e5e921f8ff08a2e2c5a268f3382477e39c5a7c6240966830121",
+      "width": 1200,
+      "height": 900,
+      "alt": "Illustrative allele-frequency outcomes spread more widely in small populations; founder and bottleneck histories are contrasted.",
+      "caption": "Random sampling can change allele shares in either direction.",
+      "equivalentExplanation": "All illustrative populations begin at p = 0.50. Three small populations with ten contributors are shown at p = 0.10, 0.70 and 0.40; three populations with 1000 contributors are illustrated at 0.49, 0.51 and 0.50. Both displays use the same 0–1 scale. These selected outcomes illustrate the stronger proportional effect of random sampling in small populations; three chosen points do not establish the sampling distribution. Drift can still occur in large finite populations. A founder event establishes a new population through colonists; a bottleneck sharply reduces an existing population. Both can alter sampled allele representation without guaranteeing adaptation.",
+      "provenance": "Original authored SVG. Canonical required teaching/worked examples and supplied source comparisons are recorded in mechanisms-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+        "evidenceSha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475",
+        "finding": "Native points and common frequency scales checked, including the tightly clustered large-population examples. Starting p is 0.50 in both displays. Histories distinguish establishment elsewhere from reduction of an existing group. No claim that drift vanishes in large finite populations."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-gene-flow-pairing-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-gene-flow-pairing-v1.svg",
+      "destination": "assets/figures/d-gene-flow-pairing-v1.svg",
+      "sha256": "a9072cf00653593dd322ed3ccc35ad8f152898e8635778fba931733868e508d9",
+      "width": 1200,
+      "height": 900,
+      "alt": "Allele counts are added across migration, then two genotype arrangements with identical allele totals are compared.",
+      "caption": "Adding allele copies differs from changing how fixed copies are paired.",
+      "equivalentExplanation": "The receiving population initially has 100 diploid individuals with 120 A and 80 a copies. Ten AA immigrants add 20 A copies, giving 140 A among 220 total copies and p ≈ 0.6364 before reproduction in the combined group. A separate fixed-pool comparison uses 36 AA, 48 Aa and 16 aa versus 48 AA, 24 Aa and 28 aa. Each arrangement has 100 individuals, 120 A copies and 80 a copies, so p = 0.60 and q = 0.40 in both. The genotype proportions differ. This holds allele contributions fixed; sexual selection with unequal reproductive success can instead change allele representation.",
+      "provenance": "Original authored SVG. Canonical required teaching/worked examples and supplied source comparisons are recorded in mechanisms-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+        "evidenceSha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475",
+        "finding": "Native arithmetic, all table cells and two distinct comparisons checked. The combined group has 110 individuals and 220 copies. Each fixed-pool row has the same totals. Nonrandom pairing is explicitly separated from unequal reproductive success."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-resistance-evidence-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-resistance-evidence-v1.svg",
+      "destination": "assets/figures/d-resistance-evidence-v1.svg",
+      "sha256": "c5b7285fd7638fd1fd8558cddaa12192901de9b2e5e353fd41d6044d0db95a6e",
+      "width": 1200,
+      "height": 900,
+      "alt": "A matched starting population branches into exposed and unexposed conditions, each with three independent replicates.",
+      "caption": "Replicated comparisons can test selection against alternative explanations.",
+      "equivalentExplanation": "Begin with comparable population size and resistance-variant frequency. The diagram branches into exposed and unexposed sets, each containing three independent replicate populations. R1–R3 identify replicates, not resistance alleles. Measure survival, reproductive contribution and later variant frequency for each replicate. An inherited advantage linked repeatedly to exposure supports selection more directly than a frequency change alone. Record bottlenecks, migration and sampling to evaluate alternatives. This design schematic supplies no measured results.",
+      "provenance": "Original authored SVG. Canonical required teaching/worked examples and supplied source comparisons are recorded in mechanisms-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+        "evidenceSha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475",
+        "finding": "Native experimental branches, three replicates per condition, matching premise and measurement requirements checked. Replicate labels explicitly disambiguated from resistance. No invented observed results or medical treatment advice."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-frequency-evidence-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-frequency-evidence-v1.svg",
+      "destination": "assets/figures/d-frequency-evidence-v1.svg",
+      "sha256": "45b3503f7457304614221494c4fdd6196c6af8ca3ac3267a9d2d5c9f8bfa4c1e",
+      "width": 1200,
+      "height": 900,
+      "alt": "A frequency graph rises from 0.60 to 0.675, then falls to 0.65; original genotype counts remain visible.",
+      "caption": "Read the observed pattern before deciding what caused it.",
+      "equivalentExplanation": "The three 100-individual samples contain AA/Aa/aa counts of 36/48/16, 45/45/10 and 42/46/12. Direct counting with p = (2 × AA + Aa)/(2N) gives 0.60, 0.675 and 0.65. The vertical frequency axis spans 0 to 1. The horizontal axis records sampling order; intervals were not supplied, so the line does not establish a change rate. The observed pattern rises and then declines. It does not establish selection, drift, migration or sampling as the unique cause.",
+      "provenance": "Original authored SVG. Canonical required teaching/worked examples and supplied source comparisons are recorded in mechanisms-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json",
+        "evidenceSha256": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475",
+        "finding": "Native full 0–1 axis, three points and their labels, source-count rows and explicit unspecified sampling intervals checked. Independent Decimal calculations match all plotted values; no truncated axis or unsupported causal claim."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-density-distribution-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-density-distribution-v1.svg",
+      "destination": "assets/figures/d-density-distribution-v1.svg",
+      "sha256": "b8427264b40211cfc4290ae314f2612ac2260e608395282a204715a95f7bf7cf",
+      "width": 1200,
+      "height": 900,
+      "alt": "Two equal-density populations have different total sizes; three equal-area dot panels show different distributions.",
+      "caption": "Size, density and distribution describe different population features.",
+      "equivalentExplanation": "Each upper square represents one hectare containing 20 individuals. The 12-square habitat holds 240 individuals; the five-square habitat holds 100. Both give 20 individuals per hectare. In the separate lower comparison, each equal-area panel contains nine individuals, represented by nine dots. The panels show uniform, clumped and illustrative random arrangements. Equal density need not imply equal total size or the same spatial distribution. A single pictured arrangement does not prove the process that produced it.",
+      "provenance": "Original authored SVG based on current required teaching/worked examples; supplied source comparisons in population-diagram-review.json. No publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "evidenceSha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+        "finding": "Native equal-area upper cells counted:12 versus5 with20 per cell. Lower panels each contain nine dots in identical areas. The two keys are explicit and spatial patterns are schematic."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-population-sampling-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-population-sampling-v1.svg",
+      "destination": "assets/figures/d-population-sampling-v1.svg",
+      "sha256": "b80d4745f2dd659c10e07a8f29c41d301ffe4d807de50edff8ad8a113ad5e6cf",
+      "width": 1200,
+      "height": 960,
+      "alt": "Five quadrat counts support a density estimate; a separate two-catch example demonstrates mark–recapture.",
+      "caption": "An abundance estimate depends on both counts and sampling assumptions.",
+      "equivalentExplanation": "Five separate one-square-metre quadrats contain 2, 8, 4, 10 and 6 individuals. The corresponding dots can be counted directly. Their total is 30 individuals in five square metres, giving a mean of six individuals per square metre. Extrapolation to a comparable 200-square-metre habitat gives an estimated 1200 individuals, conditional on representative placement and consistent detection. In a separate mobile-organism example, 40 individuals are marked and released; a later catch of 50 contains 10 marked individuals. The simple estimate is 40 × 50 / 10 = 200. It assumes suitable mixing, retained marks, comparable capture probability and approximate closure. These are supplied observations and models, with no required handling of organisms.",
+      "provenance": "Original authored SVG based on current required teaching/worked examples; supplied source comparisons in population-diagram-review.json. No publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "evidenceSha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+        "finding": "Native five quadrat inventories2/8/4/10/6 and their labels checked. Independent arithmetic gives6/m² and1200. Mark–recapture is clearly separate and40×50/10=200; its four assumptions remain visible. Full960-pixel height inspected."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-demographic-processes-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-demographic-processes-v2.svg",
+      "destination": "assets/figures/d-demographic-processes-v2.svg",
+      "sha256": "9eecefbfb6d8e2b6eff46b9c90ffd6328b368825cf2af68d78b062a721a06380",
+      "width": 1200,
+      "height": 900,
+      "alt": "Births and deaths occur within the population; immigration and emigration arrows cross the boundary.",
+      "caption": "Count all four demographic processes over the same interval.",
+      "equivalentExplanation": "Within the same defined ten-day interval, 120 births and 30 immigrants add individuals, while 70 deaths and 20 emigrants remove them. The net change is (120 + 30) − (70 + 20) = +60 individuals. Initial N = 1000 therefore becomes final N = 1060. Birth and death arrows are within the boundary; migration arrows cross it in the correct directions. These values are interval counts, not per-day rates. A closed-population model excludes immigration and emigration but can still change through births and deaths.",
+      "provenance": "Original authored SVG based on current required teaching/worked examples; supplied source comparisons in population-diagram-review.json. No publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "evidenceSha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+        "finding": "Native v2 explicitly extends both movement arrows across the boundary while retaining internal birth/death arrows. All signs, counts and final1060 verified. v1 arrows stopped outside the boundary and were revised."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-rate-denominators-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-rate-denominators-v2.svg",
+      "destination": "assets/figures/d-rate-denominators-v2.svg",
+      "sha256": "3c31f0bde2f8431b94dd9393ea6e54ced053390a8ec5be723404c8446993db91",
+      "width": 1200,
+      "height": 900,
+      "alt": "The same 60-individual change over ten days is divided by time, initial size, or both.",
+      "caption": "A rate needs its denominator and time interval.",
+      "equivalentExplanation": "The population increases from 1000 to 1060 over ten days. The average absolute rate is 60 individuals / 10 days = 6 individuals per day. Relative change using the initial population is 60 / 1000 = 0.06 over the ten-day interval. Dividing that interval fraction by ten gives an average 0.006 per day per initial individual. The last two retain the initial population denominator; neither is a directly fitted continuous intrinsic rate. A different denominator or interval describes a different quantity.",
+      "provenance": "Original authored SVG based on current required teaching/worked examples; supplied source comparisons in population-diagram-review.json. No publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "evidenceSha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+        "finding": "Native v2 displays readable Initial N/Final N labels, three fractions, result units and fixed-initial-denominator statement. Independent Decimal checks give6,.06,.006. No axis or label overflow."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-growth-model-shapes-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-growth-model-shapes-v1.svg",
+      "destination": "assets/figures/d-growth-model-shapes-v1.svg",
+      "sha256": "65eb6909eda32148e96d49ec6a10033576d984b7aae208f9f8e0766b5e42470f",
+      "width": 1200,
+      "height": 900,
+      "alt": "A J-shaped model and an S-shaped model approaching K are shown with a separate first-step calculation.",
+      "caption": "Growth assumptions determine the idealized curve form.",
+      "equivalentExplanation": "The two upper panels are qualitative shapes with time and population-size axes that are not numerically scaled. The exponential curve accelerates under a fixed proportional model; the logistic curve slows toward the dashed carrying-capacity line K. They are not the complete plotted answer to the graph-construction activity. A separate discrete first-step example sets N = 100, r = 0.20 per step and K = 500. Exponential change gives 100 + 0.20(100) = 120; logistic change gives 100 + 0.20(100)(1 − 100/500) = 116. The density-dependent factor reduces growth near K. Real populations can depart from either idealized model.",
+      "provenance": "Original authored SVG based on current required teaching/worked examples; supplied source comparisons in population-diagram-review.json. No publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "evidenceSha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+        "finding": "Native J and S forms, nonnumeric axes, dashed K and explicit separate numerical example inspected. Decimal first steps120 and116 checked. This asset does not copy the keyed full point-by-point graph answers or present two differently scaled quantitative curves as equal scales."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-changing-capacity-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-changing-capacity-v2.svg",
+      "destination": "assets/figures/d-changing-capacity-v2.svg",
+      "sha256": "5e3dbbc6b46e2d54913dbcfda950d90481c74d07efffa8f2a13955e3bc3c1418",
+      "width": 1200,
+      "height": 900,
+      "alt": "A fictional carrying-capacity drop from 500 to 300 precedes a delayed population decline.",
+      "caption": "Environmental support and population response can change at different times.",
+      "equivalentExplanation": "The dashed model carrying-capacity line falls from 500 to 300 after a fictional drought changes resource support. A separate solid line illustrates a possible population response that remains near 500 initially and later declines with a lag, briefly going below the new support level before approaching it. The vertical axis counts individuals from 0 to 600; the horizontal axis is schematic, with no measured intervals. This is not field evidence or a unique predicted trajectory. Drought can reduce water while crowding changes the water shared per individual; classify density dependence from the measured relationship, not merely the event name.",
+      "provenance": "Original authored SVG based on current required teaching/worked examples; supplied source comparisons in population-diagram-review.json. No publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json",
+        "evidenceSha256": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+        "finding": "Native v2 shows distinct dashed/solid line styles, correct500/300 levels and0–600 axis, lag and explicit fictional/unspecified-time limits. Drought arrow no longer crosses the time label. No claim that K is permanently fixed or that weather effects are always density-independent."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-life-history-traits-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-life-history-traits-v1.svg",
+      "destination": "assets/figures/d-life-history-traits-v1.svg",
+      "sha256": "6efa92564d03e29b69710180af79f8335601ff40c60a6f7eb8fdcb181dc5ac16",
+      "width": 1200,
+      "height": 900,
+      "alt": "Compare life-history traits and their trade-offs",
+      "caption": "Compare life-history traits and their trade-offs.",
+      "equivalentExplanation": "Three continua compare age at first breeding, offspring number per event and investment per offspring. Earlier breeding, more offspring and lower per-offspring investment are often r-associated tendencies; later breeding, fewer offspring and greater investment are often K-associated. These are historical tendencies, not universal boxes. Species can combine traits, and measured survival, recruitment and conditions are needed for recovery predictions.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Three trait continua and trade-off qualification inspected. Historical r/K labels remain tendencies, not universal categories or sufficient recovery predictions."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-survivorship-forms-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-survivorship-forms-v1.svg",
+      "destination": "assets/figures/d-survivorship-forms-v1.svg",
+      "sha256": "a8696110ab549d0550bc6efd876b72c899c8484f6e2796b704d62620e94d57c6",
+      "width": 1200,
+      "height": 900,
+      "alt": "Distinguish survivorship patterns on the correct scale",
+      "caption": "Distinguish survivorship patterns on the correct scale.",
+      "equivalentExplanation": "Three idealized cohort-survival curves share a logarithmic percentage scale marked100,10 and1 and a qualitative young-to-old age axis. Type I loses most individuals late; Type II has approximately constant mortality risk and therefore appears straight on this logarithmic survival plot; Type III has high early loss. All illustrated curves stop at1 percent because zero cannot be shown on a log scale. These are schematic patterns, not total-population growth or a measured species dataset.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Native 100/10/1 percent logarithmic axis and all three forms inspected. Type II is straight on log survival, representing exponential survival and constant mortality risk. Zero is excluded explicitly; curves are idealized cohort forms."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-interaction-effects-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-interaction-effects-v1.svg",
+      "destination": "assets/figures/d-interaction-effects-v1.svg",
+      "sha256": "c29a3f385206ff387f16f6a6110929f68825f80ebe9c4508b6aea774cc18b743",
+      "width": 1200,
+      "height": 900,
+      "alt": "Compare both participants before naming the relationship",
+      "caption": "Compare both participants before naming the relationship.",
+      "equivalentExplanation": "An effect matrix shows mutualism+/+,commensalism+/0,antagonistic interaction+/− and competition−/− relative to suitable comparison conditions. The signs alone do not identify mechanism: predation, parasitism and herbivory can share+/− effects. The measured outcome, participant identities, biological mechanism and context are required. Two rising abundance curves alone cannot prove mutualism.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Both columns and all four effect pairs checked. Antagonistic +/− can cover predation, parasitism and herbivory; effects require measurement and do not identify mechanism from abundance curves alone."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-competition-comparison-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-competition-comparison-v1.svg",
+      "destination": "assets/figures/d-competition-comparison-v1.svg",
+      "sha256": "54bfa4ce32e301078b6fd91a0e8d3b84a20cb4415104f8ea4b9258a549957e25",
+      "width": 1200,
+      "height": 900,
+      "alt": "Control total density when comparing neighbour effects",
+      "caption": "Control total density when comparing neighbour effects.",
+      "equivalentExplanation": "Three bars on a common zero-to-five-gram axis show mean mass per A plant:4.0g in five-A pots,3.0g in ten-A pots and2.4g in mixed five-A/five-B pots. The two ten-plant groups hold total starting density constant while changing neighbour composition. The first two groups compare intraspecific density. This supplied classroom dataset is not a complete causal demonstration; replication and resource evidence remain necessary.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Zero-baseline bars reproduce supplied 4.0/3.0/2.4 g mean A mass. Final two groups each have ten plants; first comparison changes intraspecific density. Replication and resource evidence are still required."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-resource-partitioning-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-resource-partitioning-v1.svg",
+      "destination": "assets/figures/d-resource-partitioning-v1.svg",
+      "sha256": "b60b51d42afacadd8f6069bd56baed2fafcc061eb2ad3cf05e5aa46eeb741d8c",
+      "width": 1200,
+      "height": 900,
+      "alt": "Compare overlap when alone and when together",
+      "caption": "Compare overlap when alone and when together.",
+      "equivalentExplanation": "Qualitative resource-use curves show broad overlapping use by speciesA andB when each is alone, and narrower less-overlapping use when together. Both panels use the same horizontal resource dimension; line styles distinguish species. The comparison assumes matched conditions and is illustrative rather than measured. A shift supports competition but does not exclude differences in resource availability or other site conditions.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Two qualitative panels share a resource dimension, with species separated by line style. Together curves narrow and overlap less; matched-condition assumption and alternative site effects remain explicit. Fresh stable screenshot confirms full heading; initial capture artifact did not require an SVG change."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-mimicry-comparison-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-mimicry-comparison-v1.svg",
+      "destination": "assets/figures/d-mimicry-comparison-v1.svg",
+      "sha256": "3b0503043102faec042b2dae76c1925a1fce95d8e6129be3f928d13f3ef5f5b1",
+      "width": 1200,
+      "height": 900,
+      "alt": "Similar warning appearance can accompany different defence",
+      "caption": "Similar warning appearance can accompany different defence.",
+      "equivalentExplanation": "Two hypothetical pattern comparisons separate appearance from actual defence. In the Batesian example a relatively undefended mimic resembles a defended model. In the Müllerian example both resembling species are defended. Identical stripe swatches encode similar appearance only; they are not specimen photos or evidence of toxicity. Heritable resemblance may affect predation without intentional evolution or guaranteed protection.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Abstract stripe swatches encode resemblance only. Batesian relatively undefended mimic/defended model contrasts with Müllerian both defended. No false specimen, species identification, toxicity proof or intentional adaptation."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-population-cycle-evidence-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-population-cycle-evidence-v1.svg",
+      "destination": "assets/figures/d-population-cycle-evidence-v1.svg",
+      "sha256": "9ee506ed9a54341bb6e2e283933ca5414041aa551c8c8817f54307599c83a5ae",
+      "width": 1200,
+      "height": 900,
+      "alt": "Read the peak lag and retain alternative explanations",
+      "caption": "Read the peak lag and retain alternative explanations.",
+      "equivalentExplanation": "A fictional paired count series uses one common zero-to100 individual axis and time steps0–12. Prey peak at steps2 and8; predator peaks occur at4 and10, a two-step lag. Solid and dashed lines distinguish the populations. These invented counts are explicitly separate from historical pelt records. The lag is consistent with predator–prey effects but does not exclude food, weather, disease, movement or sampling as contributing causes.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Common zero-to-100 count axis, time0–12 and solid/dashed keys inspected. Prey peaks2/8, predator4/10, two-step lag. Counts explicitly fictional, separate from pelt records; alternative causes retained."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-succession-pathways-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-succession-pathways-v1.svg",
+      "destination": "assets/figures/d-succession-pathways-v1.svg",
+      "sha256": "fa9c51ae26299d49f01633ac0a475b4930027464df905d167e5ebc80e0ec494f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Compare starting conditions and possible community pathways",
+      "caption": "Compare starting conditions and possible community pathways.",
+      "equivalentExplanation": "Two original ground-profile schematics distinguish newly exposed rock without developed soil from a disturbed site retaining soil, roots or survivors. Both feed into colonization, interactions, changing conditions and later disturbance, with branching possible community outcomes. Open and wooded communities are illustrative possibilities, not a fixed sequence or guaranteed permanent climax. Timescales and routes depend on conditions.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "Native rock and retained-soil profiles, roots, process arrows and two possible branches inspected. Neither timescale nor final climax is fixed; disturbance name alone does not classify starting condition."
+      },
+      "teacherDecision": null
+    },
+    {
+      "id": "d-ecological-study-design-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-ecological-study-design-v1.svg",
+      "destination": "assets/figures/d-ecological-study-design-v1.svg",
+      "sha256": "1e7bd11bf65ce76e87118cf3aafb2ff924714d04422975daf67aaf73ed9dbc60",
+      "width": 1200,
+      "height": 900,
+      "alt": "Use four conditions to separate two proposed influences",
+      "caption": "Use four conditions to separate two proposed influences.",
+      "equivalentExplanation": "A two-by-two design compares habitat restoration absent/present against usual/reduced predator access. The four conditions are reference, habitat restoration only, predator-access reduction only and both changes. Each needs repeated comparable sites and consistent recruitment measurements over sufficient time. Results can differ for combined versus single changes; no observations or agreement are invented. Biodiversity, water conditions, cost and respectfully sought Indigenous and local perspectives also inform a recommendation.",
+      "provenance": "Original authored SVG based on reviewed canonical teaching/worked examples and source comparisons in ecology-diagram-review.json; no publisher pixels.",
+      "rightsScope": "local-blocked-review",
+      "scienceReview": {
+        "status": "author-reviewed-provisional",
+        "evidencePath": "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json",
+        "evidenceSha256": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+        "finding": "All four factor combinations verified: reference, habitat only, reduced predator access only, both. Recruitment measurement is proposed without fabricated results. Replication, multiple evaluation criteria and respectful engagement remain visible."
+      },
+      "teacherDecision": null
+    }
+  ]
+}

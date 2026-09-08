@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "gateId": "gate-0",
+  "projectSlug": "biology30-unit-a",
+  "contractSha256": "f4fdf1e95aa3e80681b8aff15c2fb1af65705d28e663ea1ad2c3a2dbb8ae610d",
+  "status": "approved",
+  "decision": {
+    "approved": true,
+    "approvedAt": "2026-08-30T00:48:56Z",
+    "approvedBy": "user",
+    "approvedContractSha256": "f4fdf1e95aa3e80681b8aff15c2fb1af65705d28e663ea1ad2c3a2dbb8ae610d",
+    "authorization": "gate-1-only"
+  },
+  "qualityFloorAmendment": {
+    "amendedAt": "2026-08-31T01:58:30Z",
+    "previousContractSha256": "cb773ee76a4c1a20f384a0edcbd764ee64a3af296ed87e0526d95e1ed940f3cc",
+    "change": "Raised only the later human promotion threshold from 90 to 95; curriculum, sources, sequence, minutes, and learner content are unchanged.",
+    "authorizedBy": "user",
+    "authorizationText": "lets do it and get 95+/100",
+    "authorizationBoundary": "quality-floor-only; no promotion, commit, export, upload, or publication"
+  },
+  "generatedAt": "2026-08-30T00:10:19.494Z",
+  "approvalRequirements": [
+    "Approve the exact 25-outcome wording and teach/practice/evidence routes.",
+    "Approve the 17-lesson sequence and 1,505-minute required boundary.",
+    "Approve all 139 notes-page dispositions.",
+    "Approve the factual correction and authoritative supplementation strategy.",
+    "Authorize Gate 1 only; no promotion, export, upload, or commit is implied."
+  ]
+}

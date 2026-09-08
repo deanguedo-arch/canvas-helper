@@ -1,0 +1,223 @@
+{
+  "unit": "B",
+  "responseId": "b-topic-menstrual-cycle-guided-construct",
+  "status": "authored-data-and-codec; graph-controls-and-rendered-proof-pending",
+  "completionPolicy": "Existing guided-attempt rule; construction and explanation are supported here. No optional model/investigation becomes required. Correct answers are not required for an attempt.",
+  "saveContract": "Graph coordinates, axis choices and explanation encode together in this existing response field. Preserve prior plain writing visibly; do not silently replace it.",
+  "learnerWorkflow": [
+    "Read the supplied data and identify what is measured.",
+    "Choose the horizontal label, vertical label and vertical maximum.",
+    "Enter each plotted value using keyboard-accessible numeric controls; the graph must reflect entered values, not automatically filled source answers.",
+    "Compare only after attempting; identify missing points, wrong values and scale limits without silently correcting them.",
+    "Explain the biological comparison, then save the complete construction."
+  ],
+  "rendererRequirements": [
+    "All numeric fields have series, x-position and unit labels. Keyboard operation does not require dragging.",
+    "Show all supplied values in an adjacent accessible table.",
+    "Show any point outside the selected scale as an explicit warning and in the data table; never silently crop it.",
+    "Keep blanks distinct from zero, and keep unfinished graph drafts recoverable.",
+    "Read-only model-answer figures stay hidden until attempted.",
+    "All My Work derives readable axes, every entered point and the explanation from this same saved response; return focus to this activity.",
+    "Numerical x positions must use proportional spacing: cycle days 12–14 cannot have the same gap as days 14–21. Categorical bars use equal category spacing.",
+    "A larger scale that contains the data is not an incorrect answer. Explain its resolution trade-off and warn when the scale is too small."
+  ],
+  "graphs": [
+    {
+      "id": "b-cycle-fsh",
+      "title": "FSH across the illustrative cycle",
+      "kind": "line",
+      "x": [
+        2,
+        7,
+        12,
+        14,
+        21,
+        28
+      ],
+      "series": [
+        {
+          "id": "fsh",
+          "label": "FSH index",
+          "expected": [
+            5,
+            4,
+            3,
+            4,
+            2,
+            4
+          ]
+        }
+      ],
+      "xLabels": [
+        "Cycle day",
+        "Age in years",
+        "Hormone amount"
+      ],
+      "yLabels": [
+        "FSH relative index",
+        "FSH concentration in mg/mL",
+        "Number of ova"
+      ],
+      "maxima": [
+        10,
+        20,
+        100
+      ],
+      "expectedAxes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b-cycle-lh",
+      "title": "LH across the illustrative cycle",
+      "kind": "line",
+      "x": [
+        2,
+        7,
+        12,
+        14,
+        21,
+        28
+      ],
+      "series": [
+        {
+          "id": "lh",
+          "label": "LH index",
+          "expected": [
+            3,
+            3,
+            6,
+            18,
+            2,
+            3
+          ]
+        }
+      ],
+      "xLabels": [
+        "Cycle day",
+        "Age in years",
+        "Hormone amount"
+      ],
+      "yLabels": [
+        "LH relative index",
+        "LH concentration in mg/mL",
+        "Number of ova"
+      ],
+      "maxima": [
+        10,
+        20,
+        100
+      ],
+      "expectedAxes": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "b-cycle-estrogen",
+      "title": "Estrogen across the illustrative cycle",
+      "kind": "line",
+      "x": [
+        2,
+        7,
+        12,
+        14,
+        21,
+        28
+      ],
+      "series": [
+        {
+          "id": "estrogen",
+          "label": "Estrogen index",
+          "expected": [
+            2,
+            5,
+            10,
+            7,
+            6,
+            2
+          ]
+        }
+      ],
+      "xLabels": [
+        "Cycle day",
+        "Age in years",
+        "Hormone amount"
+      ],
+      "yLabels": [
+        "Estrogen relative index",
+        "Estrogen concentration in mg/mL",
+        "Number of ova"
+      ],
+      "maxima": [
+        10,
+        20,
+        100
+      ],
+      "expectedAxes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "b-cycle-progesterone",
+      "title": "Progesterone across the illustrative cycle",
+      "kind": "line",
+      "x": [
+        2,
+        7,
+        12,
+        14,
+        21,
+        28
+      ],
+      "series": [
+        {
+          "id": "progesterone",
+          "label": "Progesterone index",
+          "expected": [
+            1,
+            1,
+            1,
+            2,
+            10,
+            1
+          ]
+        }
+      ],
+      "xLabels": [
+        "Cycle day",
+        "Age in years",
+        "Hormone amount"
+      ],
+      "yLabels": [
+        "Progesterone relative index",
+        "Progesterone concentration in mg/mL",
+        "Number of ova"
+      ],
+      "maxima": [
+        10,
+        20,
+        100
+      ],
+      "expectedAxes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "teacherDecision": null,
+  "source": {
+    "kind": "shared-investigation-data",
+    "investigationId": "b-investigation-cycle-graphs",
+    "datasetSha256": "bdb4d6c73be0f5ec2d5ec326f48ee22ac550d22fe5cd85fbffae0203746f3e98",
+    "qualification": "Synthetic hormone indices on separate scales; no individual ovulation prediction."
+  },
+  "modelExplanation": "Estrogen is 10 on day 12 before LH is 18 on day 14. Later progesterone is 10 on day 21 and 1 on day 28, consistent with luteal support then withdrawal. Sparse samples cannot establish the exact release event, and equal index heights across hormones do not mean equal concentrations.",
+  "explanationLimit": 420
+}

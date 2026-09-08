@@ -1,0 +1,107 @@
+{
+  "stage": 85,
+  "checkedAt": "2026-09-07T12:58:35.958415+00:00",
+  "summary": "Thirteen additional teaching targets provisionally bound: nine B and four C. Eleven new original SVG files and three exact previously reviewed B assets reused for C.",
+  "figureCounts": {
+    "total": 127,
+    "bound": 60,
+    "pending": 67,
+    "byUnit": {
+      "B": 33,
+      "C": 5,
+      "D": 22
+    },
+    "uniqueSelectedAssetFiles": 66,
+    "gallerySections": 59
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 11,
+      "failed": 0,
+      "log": "/tmp/bcd-stage85-tests.log"
+    },
+    "draftContracts": "passed; gates remain6/13 each",
+    "sourceAndProtectedBaselines": "passed; all six original learner trees and protected A owner unchanged",
+    "nativeScientificReview": "Eleven new final SVGs reviewed against governed teaching/source models; three prior asset reviews reused.",
+    "gallery": "59 sections; all local image and reference links resolve. Batch comparisons prepared; no assertion that all stage85 gallery screenshots were separately viewed.",
+    "fullOwnerSuite": "Last full suite stage83:101passed; not rerun for figure data alone."
+  },
+  "files": [
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-b/pilot2-figures.json",
+      "sha256": "3e21acbc4679866b52b7d024b2119586c6b3db0d7398ab9422ecb44b6d22b02c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/units/unit-c/pilot2-figures.json",
+      "sha256": "27b524dbf8346cd2b164333a2095414d8a4b0e699cc804b57858549c35ea356b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/reproductive-function-diagram-review.json",
+      "sha256": "64da76d4f4c469e3c501fbd4b38612de9e318a9cd492404cd96521cee41b1d6a"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/development-transition-and-c-meiosis-review.json",
+      "sha256": "e07b846255d9f39c800713ab47be0f85af42bedbc2c492d47add557d93639017"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-comparisons.html",
+      "sha256": "f4679a8edc2bc7c71698eecdabe370010660b928d75aceddff89493e266de8b8"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-figure-bindings.test.ts",
+      "sha256": "b4dd9a4e7a44162972fd3924b5aa8ba855b6121b7e84c8d8ddad9b1ed6f7ab0e"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-semen-contribution-map-v1.svg",
+      "sha256": "9e1bfea0559e5e3500bdccbe496b6738a5adcfcc2328679b690ea260759efa58"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-reproductive-signal-targets-v1.svg",
+      "sha256": "668f900be1e078d52b63a853b627652ef75d5ce42d110e5a1a3ea969638c0921"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-production-transport-case-comparison-v2.svg",
+      "sha256": "67bac62c44a447989253a930d37ff4077c6c13ade337626df9c2d96ebd30900f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormonal-methods-and-perspectives-v1.svg",
+      "sha256": "950ab1f272c0937553b0f7bd5b93660e5e0c16b3e49f53e92619e75bc4841a6b"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-study-design-v1.svg",
+      "sha256": "1917a94ce730e19dd9b6d0da80f14280fa3b2d31a7864bde2545eb1dfd646644"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-clocks-v1.svg",
+      "sha256": "77b5c25f8299412fe8dcfe971718e0f070e88e6c3eea6b4358baedb74760c4e3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-neurulation-sequence-v1.svg",
+      "sha256": "47d309855a197a9523ccf544dffdb64270cee2b3e026c1cacc95aab425d1432d"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-exposure-confounding-comparison-v1.svg",
+      "sha256": "479f550f0f13f14168c54402885eacaf6a0d5bb9d7673d023505db78256286a0"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-birth-exchange-transition-v2.svg",
+      "sha256": "bca184f45827b2c3edb2a578b06eea44b2c826863e4c650d4d6f6e6070cc3f1f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-technology-step-comparison-v1.svg",
+      "sha256": "d017547f642c7af8064f74787bac652ae46ac30977f7ba2d9f20c3856c917523"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/c-meiotic-count-model-v1.svg",
+      "sha256": "0851bd01b48de75398e8c9c355052b795d3975251efd535cacf80e188513e744"
+    }
+  ],
+  "limitations": [
+    "No real B/C/D learner candidate yet.",
+    "B support-membranes target still needs its ChatGPT anatomy comparison; latest computer-control result was Mac locked.",
+    "C66 figure targets and seven all-unit academic/source gates remain.",
+    "No teacher acceptance, deployment, export, publication, commit, push or Studio Edit."
+  ],
+  "teacherDecision": null,
+  "readyForRendering": false
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-14",
+  "module": "Endocrine Control",
+  "title": "Thyroid, Parathyroid, Metabolism, and Calcium",
+  "inquiry": "How can paired hormone values reveal whether a problem lies in a coordinating gland, a target gland, or a target response?",
+  "learningIntention": "I am learning to use hormone and regulated-variable evidence to explain thyroid and calcium feedback.",
+  "requiredMinutes": 80,
+  "optionalMinutes": 10,
+  "outcomeIds": ["A2.1k", "A2.2k", "A2.3k", "A2.4k", "A2.6k", "A2.1s", "A2.3s"],
+  "materials": "No special materials. Use the local thyroxine and calcium feedback model.",
+  "safety": "The synthetic laboratory patterns are for reasoning and cannot diagnose thyroid or calcium disorders.",
+  "targets": [
+    "Trace the TSH-thyroxine axis and use paired values to locate a disruption.",
+    "Compare PTH and calcitonin effects in calcium regulation.",
+    "Describe consequences of imbalance using current respectful terminology."
+  ],
+  "warmup": {
+    "title": "Use two values, not one symptom",
+    "prompt": "If thyroxine is low, predict what TSH should do in an intact negative-feedback axis. What would a different TSH result suggest?",
+    "placeholder": "TSH should… If it did not…"
+  },
+  "sections": [
+    {
+      "label": "Regulate metabolism",
+      "title": "1. TSH and thyroxine form a multi-level axis",
+      "paragraphs": [
+        "Hypothalamic signals stimulate anterior-pituitary release of thyroid-stimulating hormone. TSH acts on the thyroid gland, supporting thyroxine synthesis and release. Thyroxine increases metabolic activity in many tissues and is important for growth and nervous-system development.",
+        "Thyroxine feeds back to reduce hypothalamic and pituitary drive. If thyroid output falls in an otherwise intact axis, TSH usually rises. If both thyroxine and TSH are low, inadequate hypothalamic or pituitary signalling becomes a candidate. Values must be interpreted with timing, health context, and appropriate clinical reference ranges.",
+        "Iodine is required for thyroid-hormone synthesis. Inadequate iodine can limit output and increase TSH drive, contributing to thyroid enlargement. Goitre describes enlargement and can occur in more than one thyroid condition; it does not by itself state whether hormone output is high or low."
+      ],
+      "figureIds": ["figure-thyroxine-loop"]
+    },
+    {
+      "label": "Describe imbalance",
+      "title": "2. Thyroid disorders change physiology in different directions",
+      "paragraphs": [
+        "Hypothyroidism means insufficient thyroid-hormone action for the body's needs. Possible effects include fatigue, cold intolerance, slowed processes, and changes in growth or development. Hyperthyroidism means excessive thyroid-hormone action and may involve heat intolerance, increased heart activity, and metabolic changes. Symptoms overlap with many conditions, so laboratory and clinical evidence are required.",
+        "Graves disease is an autoimmune cause of hyperthyroidism in which antibodies stimulate the TSH receptor. TSH can be low because high thyroid hormone suppresses pituitary drive even while receptor-stimulating antibodies keep the thyroid active. This pattern shows why a gland can be overactive despite a low pituitary signal.",
+        "Untreated congenital hypothyroidism can seriously affect growth and nervous-system development. Historical sources used a stigmatizing term that is not appropriate learner language. Current instruction uses congenital hypothyroidism and focuses on early screening and treatment as health technologies."
+      ]
+    },
+    {
+      "label": "Regulate calcium",
+      "title": "3. PTH and calcitonin act on overlapping targets",
+      "paragraphs": [
+        "Low blood calcium increases parathyroid hormone release. PTH supports calcium release from bone, calcium reabsorption by kidneys, and activation of vitamin D pathways that increase intestinal calcium absorption. These responses raise blood calcium and reduce the original stimulus for PTH release.",
+        "Calcitonin is released by thyroid C cells when blood calcium is high and can reduce bone resorption. In adult human calcium regulation, PTH and vitamin D pathways are generally more central to minute-to-minute control than calcitonin. Calling the two hormones perfectly equal opposites oversimplifies their physiological importance.",
+        "Calcium is required for synaptic release, muscle contraction, blood clotting, and many intracellular signals. Regulation must balance blood concentration with bone storage and organ function. A short-term rise in blood calcium does not necessarily mean total body calcium increased."
+      ],
+      "figureIds": ["figure-calcium-regulation-loop"]
+    },
+    {
+      "label": "Read the evidence",
+      "title": "4. Feedback mismatches help localize a pathway",
+      "paragraphs": [
+        "Synthetic Case A shows low thyroxine with high TSH. The feedback direction is intact—the pituitary is signalling strongly—but thyroid output remains low. A thyroid-level limitation or iodine-related synthesis problem is more consistent than pituitary underproduction.",
+        "Case B shows high thyroxine with low TSH. That can be the expected feedback response to excessive thyroid output. Case C shows low calcium with high PTH, which indicates that parathyroid sensing and release are responding, while target response, vitamin D, kidney function, or calcium availability may be limiting.",
+        "A conclusion should name the measured pattern, expected feedback, and candidate location. It should also state that one synthetic snapshot cannot establish cause. Repeated values, symptoms, medicines, antibodies, kidney evidence, and other tests would be needed clinically."
+      ],
+      "table": {
+        "caption": "Synthetic paired-hormone patterns",
+        "headers": ["Case", "Variable or target hormone", "Coordinating hormone", "Feedback interpretation"],
+        "rows": [
+          ["A", "Thyroxine low", "TSH high", "Pituitary response is present; inspect thyroid output"],
+          ["B", "Thyroxine high", "TSH low", "Negative feedback suppresses pituitary drive"],
+          ["C", "Blood calcium low", "PTH high", "Parathyroid response is present; inspect targets and calcium supply"],
+          ["D", "Blood calcium high", "PTH low", "Negative feedback suppresses PTH release"]
+        ]
+      }
+    }
+  ],
+  "interaction": {
+    "id": "interaction-thyroid-calcium-feedback",
+    "title": "Locate the feedback mismatch",
+    "intro": "Select a paired pattern. The model identifies the most defensible pathway candidate and the evidence limit.",
+    "prompt": "Which interpretation compares the regulated evidence with the coordinating signal?",
+    "options": [
+      {"id": "primary-low", "label": "Low thyroxine, high TSH", "evidence": "The pituitary signal is elevated while thyroid output remains low.", "explanation": "A thyroid-level production problem is a candidate. The pattern does not prove one cause."},
+      {"id": "central-low", "label": "Low thyroxine, low TSH", "evidence": "The target hormone and pituitary drive are both low.", "explanation": "Hypothalamic or pituitary signalling is a candidate, but medicine and illness context can alter the pattern."},
+      {"id": "pth-response", "label": "Low calcium, high PTH", "evidence": "PTH release is responding in the expected direction but calcium remains low.", "explanation": "Inspect kidney, bone, vitamin D, intestinal absorption, and calcium supply rather than assuming PTH underproduction."}
+    ],
+    "staticFallback": "Compare the regulated variable or target-gland hormone with the upstream signal. A high upstream signal plus low output points downstream; both low points upstream."
+  },
+  "exit": {
+    "title": "Use the axis to locate the problem",
+    "prompt": "In 2–3 sentences, explain why low thyroxine with high TSH suggests a different pathway location from low thyroxine with low TSH.",
+    "placeholder": "High TSH indicates… Low TSH with low thyroxine suggests…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 121–128, the class Thyroid and Parathyroid lesson, CBE Module 2 Lesson 4, and OpenStax cross-checking. Terminology and calcitonin treatment correct source-era oversimplifications.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-thyroid", "class-day-thyroid", "system-m2-l4", "openstax-a-and-p"]
+  }
+}

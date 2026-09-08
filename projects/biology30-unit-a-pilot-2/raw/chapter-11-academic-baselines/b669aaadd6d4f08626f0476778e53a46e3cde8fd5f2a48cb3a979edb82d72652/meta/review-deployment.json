@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a-pilot-2",
+  "status": "approved-public-review-only",
+  "authorizedAt": "2026-09-03",
+  "authorization": "Project owner explicitly requested deployment of the current Revision Gate A candidate in this Codex conversation.",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "biology30pilot",
+    "url": "https://biology30pilot.web.app"
+  },
+  "source": {
+    "canonicalEntry": "projects/biology30-unit-a-pilot-2/workspace/index.html",
+    "publicRoot": "projects/biology30-unit-a-pilot-2/workspace",
+    "indexSha256": "b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652",
+    "currentLocalIndexSha256": "b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652",
+    "deploymentFresh": true,
+    "freshnessNote": "The public teacher-review site contains the current canonical Pilot 2 workspace."
+  },
+  "deployedAt": "2026-09-05T21:15:52Z",
+  "verification": {
+    "hostedFileCount": 22,
+    "allHostedFilesMatchCanonical": true,
+    "liveRoute": "#lesson-02",
+    "liveTitle": "BIO 30 | Biology 30 — Unit A: Nervous and Endocrine Systems",
+    "consoleWarningsOrErrors": 0,
+    "noHorizontalOverflow": true
+  },
+  "scope": {
+    "purpose": "Teacher content review and notes only",
+    "learnerRelease": false,
+    "doesNotAuthorize": [
+      "Studio editing",
+      "SCORM export",
+      "Brightspace upload",
+      "promotion to production"
+    ]
+  },
+  "knownRisks": [
+    "Firebase Hosting is publicly accessible at the listed URL; share it only with intended reviewers.",
+    "Do not add learner data or assessment keys to the review workspace."
+  ]
+}

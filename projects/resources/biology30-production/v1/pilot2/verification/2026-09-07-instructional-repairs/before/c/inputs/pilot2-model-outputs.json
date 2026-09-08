@@ -1,0 +1,610 @@
+{
+  "unit": "C",
+  "models": 3,
+  "cases": 10,
+  "sharedDataBindings": 3,
+  "outputs": [
+    {
+      "modelId": "c-model-chromosome-counts",
+      "modelVersion": 1,
+      "choice": "4",
+      "title": "Starting 2n = 4",
+      "columns": [
+        "Stage (per cell)",
+        "Chromosomes",
+        "DNA molecules",
+        "Chromosome sets"
+      ],
+      "rows": [
+        [
+          "G1",
+          4,
+          4,
+          2
+        ],
+        [
+          "after-S",
+          4,
+          8,
+          2
+        ],
+        [
+          "after-meiosis-I",
+          2,
+          4,
+          1
+        ],
+        [
+          "after-meiosis-II",
+          2,
+          2,
+          1
+        ]
+      ],
+      "explanation": "S phase copies DNA without adding chromosome sets. Meiosis I separates homologues; meiosis II separates sister chromatids. The last two rows describe each resulting daughter cell after division.",
+      "limitation": "A paired diploid model with successful segregation. An undivided anaphase cell and one daughter cell have different counting boundaries.",
+      "visual": "chromosome-stages",
+      "values": {
+        "diploid": 4,
+        "stages": [
+          "G1",
+          "after-S",
+          "after-meiosis-I",
+          "after-meiosis-II"
+        ],
+        "counts": [
+          {
+            "chromosomes": 4,
+            "chromatids": 4,
+            "sets": 2
+          },
+          {
+            "chromosomes": 4,
+            "chromatids": 8,
+            "sets": 2
+          },
+          {
+            "chromosomes": 2,
+            "chromatids": 4,
+            "sets": 1
+          },
+          {
+            "chromosomes": 2,
+            "chromatids": 2,
+            "sets": 1
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "c-model-chromosome-counts",
+      "modelVersion": 1,
+      "choice": "6",
+      "title": "Starting 2n = 6",
+      "columns": [
+        "Stage (per cell)",
+        "Chromosomes",
+        "DNA molecules",
+        "Chromosome sets"
+      ],
+      "rows": [
+        [
+          "G1",
+          6,
+          6,
+          2
+        ],
+        [
+          "after-S",
+          6,
+          12,
+          2
+        ],
+        [
+          "after-meiosis-I",
+          3,
+          6,
+          1
+        ],
+        [
+          "after-meiosis-II",
+          3,
+          3,
+          1
+        ]
+      ],
+      "explanation": "S phase copies DNA without adding chromosome sets. Meiosis I separates homologues; meiosis II separates sister chromatids. The last two rows describe each resulting daughter cell after division.",
+      "limitation": "A paired diploid model with successful segregation. An undivided anaphase cell and one daughter cell have different counting boundaries.",
+      "visual": "chromosome-stages",
+      "values": {
+        "diploid": 6,
+        "stages": [
+          "G1",
+          "after-S",
+          "after-meiosis-I",
+          "after-meiosis-II"
+        ],
+        "counts": [
+          {
+            "chromosomes": 6,
+            "chromatids": 6,
+            "sets": 2
+          },
+          {
+            "chromosomes": 6,
+            "chromatids": 12,
+            "sets": 2
+          },
+          {
+            "chromosomes": 3,
+            "chromatids": 6,
+            "sets": 1
+          },
+          {
+            "chromosomes": 3,
+            "chromatids": 3,
+            "sets": 1
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "c-model-chromosome-counts",
+      "modelVersion": 1,
+      "choice": "8",
+      "title": "Starting 2n = 8",
+      "columns": [
+        "Stage (per cell)",
+        "Chromosomes",
+        "DNA molecules",
+        "Chromosome sets"
+      ],
+      "rows": [
+        [
+          "G1",
+          8,
+          8,
+          2
+        ],
+        [
+          "after-S",
+          8,
+          16,
+          2
+        ],
+        [
+          "after-meiosis-I",
+          4,
+          8,
+          1
+        ],
+        [
+          "after-meiosis-II",
+          4,
+          4,
+          1
+        ]
+      ],
+      "explanation": "S phase copies DNA without adding chromosome sets. Meiosis I separates homologues; meiosis II separates sister chromatids. The last two rows describe each resulting daughter cell after division.",
+      "limitation": "A paired diploid model with successful segregation. An undivided anaphase cell and one daughter cell have different counting boundaries.",
+      "visual": "chromosome-stages",
+      "values": {
+        "diploid": 8,
+        "stages": [
+          "G1",
+          "after-S",
+          "after-meiosis-I",
+          "after-meiosis-II"
+        ],
+        "counts": [
+          {
+            "chromosomes": 8,
+            "chromatids": 8,
+            "sets": 2
+          },
+          {
+            "chromosomes": 8,
+            "chromatids": 16,
+            "sets": 2
+          },
+          {
+            "chromosomes": 4,
+            "chromatids": 8,
+            "sets": 1
+          },
+          {
+            "chromosomes": 4,
+            "chromatids": 4,
+            "sets": 1
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "c-model-chromosome-counts",
+      "modelVersion": 1,
+      "choice": "46",
+      "title": "Starting 2n = 46",
+      "columns": [
+        "Stage (per cell)",
+        "Chromosomes",
+        "DNA molecules",
+        "Chromosome sets"
+      ],
+      "rows": [
+        [
+          "G1",
+          46,
+          46,
+          2
+        ],
+        [
+          "after-S",
+          46,
+          92,
+          2
+        ],
+        [
+          "after-meiosis-I",
+          23,
+          46,
+          1
+        ],
+        [
+          "after-meiosis-II",
+          23,
+          23,
+          1
+        ]
+      ],
+      "explanation": "S phase copies DNA without adding chromosome sets. Meiosis I separates homologues; meiosis II separates sister chromatids. The last two rows describe each resulting daughter cell after division.",
+      "limitation": "A paired diploid model with successful segregation. An undivided anaphase cell and one daughter cell have different counting boundaries.",
+      "visual": "chromosome-stages",
+      "values": {
+        "diploid": 46,
+        "stages": [
+          "G1",
+          "after-S",
+          "after-meiosis-I",
+          "after-meiosis-II"
+        ],
+        "counts": [
+          {
+            "chromosomes": 46,
+            "chromatids": 46,
+            "sets": 2
+          },
+          {
+            "chromosomes": 46,
+            "chromatids": 92,
+            "sets": 2
+          },
+          {
+            "chromosomes": 23,
+            "chromatids": 46,
+            "sets": 1
+          },
+          {
+            "chromosomes": 23,
+            "chromatids": 23,
+            "sets": 1
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "c-model-inheritance-cross",
+      "modelVersion": 1,
+      "choice": "AA-aa",
+      "title": "AA × aa",
+      "columns": [
+        "Genotype",
+        "Probability"
+      ],
+      "rows": [
+        [
+          "AA",
+          0
+        ],
+        [
+          "Aa",
+          1
+        ],
+        [
+          "aa",
+          0
+        ]
+      ],
+      "explanation": "Combine one allele from each parent's gamete. Repeated rows or columns represent repeated allele probabilities, not different allele types.",
+      "limitation": "Equal segregation and fertilization probabilities at one autosomal locus. Complete dominance applies only when converting these genotypes to the stated simple phenotype model.",
+      "visual": "punnett-square",
+      "values": {
+        "first": "AA",
+        "second": "aa",
+        "probabilities": {
+          "AA": 0,
+          "Aa": 1,
+          "aa": 0
+        },
+        "dominantPhenotype": 1,
+        "recessivePhenotype": 0
+      }
+    },
+    {
+      "modelId": "c-model-inheritance-cross",
+      "modelVersion": 1,
+      "choice": "Aa-Aa",
+      "title": "Aa × Aa",
+      "columns": [
+        "Genotype",
+        "Probability"
+      ],
+      "rows": [
+        [
+          "AA",
+          0.25
+        ],
+        [
+          "Aa",
+          0.5
+        ],
+        [
+          "aa",
+          0.25
+        ]
+      ],
+      "explanation": "Combine one allele from each parent's gamete. Repeated rows or columns represent repeated allele probabilities, not different allele types.",
+      "limitation": "Equal segregation and fertilization probabilities at one autosomal locus. Complete dominance applies only when converting these genotypes to the stated simple phenotype model.",
+      "visual": "punnett-square",
+      "values": {
+        "first": "Aa",
+        "second": "Aa",
+        "probabilities": {
+          "AA": 0.25,
+          "Aa": 0.5,
+          "aa": 0.25
+        },
+        "dominantPhenotype": 0.75,
+        "recessivePhenotype": 0.25
+      }
+    },
+    {
+      "modelId": "c-model-inheritance-cross",
+      "modelVersion": 1,
+      "choice": "Aa-aa",
+      "title": "Aa × aa",
+      "columns": [
+        "Genotype",
+        "Probability"
+      ],
+      "rows": [
+        [
+          "AA",
+          0
+        ],
+        [
+          "Aa",
+          0.5
+        ],
+        [
+          "aa",
+          0.5
+        ]
+      ],
+      "explanation": "Combine one allele from each parent's gamete. Repeated rows or columns represent repeated allele probabilities, not different allele types.",
+      "limitation": "Equal segregation and fertilization probabilities at one autosomal locus. Complete dominance applies only when converting these genotypes to the stated simple phenotype model.",
+      "visual": "punnett-square",
+      "values": {
+        "first": "Aa",
+        "second": "aa",
+        "probabilities": {
+          "AA": 0,
+          "Aa": 0.5,
+          "aa": 0.5
+        },
+        "dominantPhenotype": 0.5,
+        "recessivePhenotype": 0.5
+      }
+    },
+    {
+      "modelId": "c-model-sequence-expression",
+      "modelVersion": 1,
+      "choice": "reference",
+      "title": "Reference coding sequence",
+      "columns": [
+        "Representation",
+        "Sequence or outcome"
+      ],
+      "rows": [
+        [
+          "Coding DNA, 5′ → 3′",
+          "ATGGAATTTTAA"
+        ],
+        [
+          "RNA, 5′ → 3′",
+          "AUGGAAUUUUAA"
+        ],
+        [
+          "Codons in supplied frame",
+          "AUG GAA UUU UAA"
+        ],
+        [
+          "Peptide, N → C",
+          "Met–Glu–Phe"
+        ],
+        [
+          "Stop in supplied excerpt",
+          "yes, RNA base 10"
+        ],
+        [
+          "Trailing incomplete bases",
+          "none"
+        ]
+      ],
+      "explanation": "Read from the first base in the stated frame. A synonymous substitution can preserve this peptide; a one-base insertion shifts later codon boundaries.",
+      "limitation": "A short coding excerpt does not establish whole-gene expression or protein function. A stop is not an amino acid; an incomplete codon is not translated.",
+      "visual": "aligned-sequences",
+      "values": {
+        "coding": "ATGGAATTTTAA",
+        "rna": "AUGGAAUUUUAA",
+        "peptide": [
+          "Met",
+          "Glu",
+          "Phe"
+        ],
+        "codons": [
+          "AUG",
+          "GAA",
+          "UUU",
+          "UAA"
+        ],
+        "stopIndex": 9,
+        "startsWithAUG": true,
+        "trailingBases": "",
+        "interpretation": "Translation in the explicitly supplied frame; actual initiation and expression need biological context."
+      }
+    },
+    {
+      "modelId": "c-model-sequence-expression",
+      "modelVersion": 1,
+      "choice": "synonymous",
+      "title": "One-base substitution",
+      "columns": [
+        "Representation",
+        "Sequence or outcome"
+      ],
+      "rows": [
+        [
+          "Coding DNA, 5′ → 3′",
+          "ATGGAGTTTTAA"
+        ],
+        [
+          "RNA, 5′ → 3′",
+          "AUGGAGUUUUAA"
+        ],
+        [
+          "Codons in supplied frame",
+          "AUG GAG UUU UAA"
+        ],
+        [
+          "Peptide, N → C",
+          "Met–Glu–Phe"
+        ],
+        [
+          "Stop in supplied excerpt",
+          "yes, RNA base 10"
+        ],
+        [
+          "Trailing incomplete bases",
+          "none"
+        ]
+      ],
+      "explanation": "Read from the first base in the stated frame. A synonymous substitution can preserve this peptide; a one-base insertion shifts later codon boundaries.",
+      "limitation": "A short coding excerpt does not establish whole-gene expression or protein function. A stop is not an amino acid; an incomplete codon is not translated.",
+      "visual": "aligned-sequences",
+      "values": {
+        "coding": "ATGGAGTTTTAA",
+        "rna": "AUGGAGUUUUAA",
+        "peptide": [
+          "Met",
+          "Glu",
+          "Phe"
+        ],
+        "codons": [
+          "AUG",
+          "GAG",
+          "UUU",
+          "UAA"
+        ],
+        "stopIndex": 9,
+        "startsWithAUG": true,
+        "trailingBases": "",
+        "interpretation": "Translation in the explicitly supplied frame; actual initiation and expression need biological context."
+      }
+    },
+    {
+      "modelId": "c-model-sequence-expression",
+      "modelVersion": 1,
+      "choice": "one-base-insertion",
+      "title": "One-base insertion after ATG",
+      "columns": [
+        "Representation",
+        "Sequence or outcome"
+      ],
+      "rows": [
+        [
+          "Coding DNA, 5′ → 3′",
+          "ATGAGAATTTTAA"
+        ],
+        [
+          "RNA, 5′ → 3′",
+          "AUGAGAAUUUUAA"
+        ],
+        [
+          "Codons in supplied frame",
+          "AUG AGA AUU UUA"
+        ],
+        [
+          "Peptide, N → C",
+          "Met–Arg–Ile–Leu"
+        ],
+        [
+          "Stop in supplied excerpt",
+          "not present"
+        ],
+        [
+          "Trailing incomplete bases",
+          "A"
+        ]
+      ],
+      "explanation": "Read from the first base in the stated frame. A synonymous substitution can preserve this peptide; a one-base insertion shifts later codon boundaries.",
+      "limitation": "A short coding excerpt does not establish whole-gene expression or protein function. A stop is not an amino acid; an incomplete codon is not translated.",
+      "visual": "aligned-sequences",
+      "values": {
+        "coding": "ATGAGAATTTTAA",
+        "rna": "AUGAGAAUUUUAA",
+        "peptide": [
+          "Met",
+          "Arg",
+          "Ile",
+          "Leu"
+        ],
+        "codons": [
+          "AUG",
+          "AGA",
+          "AUU",
+          "UUA"
+        ],
+        "stopIndex": null,
+        "startsWithAUG": true,
+        "trailingBases": "A",
+        "interpretation": "Translation in the explicitly supplied frame; actual initiation and expression need biological context."
+      }
+    }
+  ],
+  "proof": "Deterministic outputs and source/state consistency; scientific source review, graph accessibility and browser interaction remain separate gates.",
+  "inputFiles": [
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-models.json",
+      "sha256": "19a4c975ebfaf91c0434dc79362a2258ca646acaa4450b5fa21d4abf5625b648"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-investigations.json",
+      "sha256": "a976820b7f830e3ba607b59ecf647a4a53e32e9f6a89db6582839c40372500ac"
+    },
+    {
+      "file": "projects/resources/biology30-production/v1/units/unit-c/pilot2-state-schema.json",
+      "sha256": "44a075aa0a26cbfd222633ab043cb6d20a27b2ae12efbd96961bc5c5ab8742a3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sha256": "cb38e400faca481ed487da81c1e9ea1477822e3dfa665d46d7cf5701f272ca8e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+      "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+    }
+  ],
+  "browserEvidence": null,
+  "teacherDecision": null
+}

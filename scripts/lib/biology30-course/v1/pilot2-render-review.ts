@@ -1,0 +1,15 @@
+import type {TopicStateSchema} from './pilot2-state.js';
+import type {GraphWork} from './pilot2-graph-work.js';
+import {renderTopicWritingActivity,renderTopicPractice,type RenderPractice} from './pilot2-render-controls.js';
+import {topicHtml as h,renderTopicDataset,type TopicDataset} from './pilot2-render-common.js';
+export type RenderTopicSeminar={unit:string;id:string;title:string;teachingTarget:string;introduction:string[];case:TopicDataset&{title:string;scope:string};activities:{id:string;prompt:string;modelResponse:string;criteria:string[];attemptBeforeGuide:boolean}[];optionalExtension:{id:string;minutes:number;required:boolean;prompt:string;modelLinks:string[];collectionPolicy:string}};
+export function renderTopicSeminar(item:RenderTopicSeminar,schema:TopicStateSchema) {
+  const flag=`${item.id}-saved`;
+  if(item.unit!==schema.unit||!schema.routes.includes(item.id)||!schema.flags[flag]||item.activities.length!==3||item.activities.some(activity=>!activity.attemptBeforeGuide||!activity.criteria.length)||item.optionalExtension.required||item.optionalExtension.modelLinks.some(route=>!schema.routes.includes(route)))throw new Error('Review Seminar renderer contract drift');
+  return `<div class="p2-topic"><h1>${h(item.title)}</h1><section id="${h(item.teachingTarget)}" tabindex="-1">${item.introduction.map(text=>`<p>${h(text)}</p>`).join('')}<h2>${h(item.case.title)}</h2><p>${h(item.case.scope)}</p>${renderTopicDataset(item.case,'Evidence to connect')}</section>${item.activities.map((activity,index)=>renderTopicWritingActivity(schema,activity.id,['Connect the mechanisms','Evaluate the evidence','Revise the explanation'][index],activity.prompt,{guide:activity.modelResponse,criteria:activity.criteria})).join('')}<button type="button" data-pilot2-collect="${h(flag)}" data-pilot2-requires="${item.activities.map(activity=>h(activity.id)).join(' ')}" disabled>Save seminar responses</button><p data-pilot2-collection-status="${h(flag)}" role="status"></p><details id="${h(item.optionalExtension.id)}"><summary>Optional seminar extension · ${item.optionalExtension.minutes} minutes</summary><p>${h(item.optionalExtension.prompt)}</p><p>Continue in your existing model explanation and seminar revision.</p>${item.optionalExtension.modelLinks.map(route=>`<a href="#${h(route)}" data-page-target="${h(route)}">Open Models and Data Lab</a>`).join('')}</details></div>`;
+}
+export function renderTopicPracticePage(title:string,routeId:string,items:RenderPractice[],schema:TopicStateSchema,graphs:GraphWork[]=[]) {
+  if(!schema.routes.includes(routeId)||!items.length||items.some(item=>item.routeId!==routeId))throw new Error('Practice route inventory drift');
+  const challenge=items.every(item=>item.role==='challenge');
+  return `<div class="p2-topic"><h1>${h(title)}</h1><p>${challenge?'Optional Diploma Challenge. These attempts do not change required completion or ordinary practice scores.':'Attempt each question before opening its feedback. You can revise and check again.'}</p>${items.map((item,index)=>renderTopicPractice(item,schema,index+1,graphs.find(graph=>graph.responseId===item.id))).join('')}</div>`;
+}

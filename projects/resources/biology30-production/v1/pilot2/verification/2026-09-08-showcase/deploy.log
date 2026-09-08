@@ -1,0 +1,96 @@
+
+> canvas-helper@0.1.0 verify
+> tsx scripts/verify-project.ts --project biology30-unit-a-pilot-2 --mode workspace
+
+Metadata policy: passed
+Mode: workspace
+Entry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-2/workspace/index.html
+
+Missing local assets (ERROR): none
+
+External dependencies (WARN): none
+
+Missing workspace embeds (ERROR): none
+
+Missing course-shell resources (ERROR): none
+
+Declared missing course-shell resources (WARN): none
+
+> canvas-helper@0.1.0 verify
+> tsx scripts/verify-project.ts --project biology30-unit-b --mode workspace
+
+Metadata policy: passed
+Mode: workspace
+Entry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-b/workspace/index.html
+
+Missing local assets (ERROR): none
+
+External dependencies (WARN): none
+
+Missing workspace embeds (ERROR): none
+
+Missing course-shell resources (ERROR): none
+
+Declared missing course-shell resources (WARN): none
+
+> canvas-helper@0.1.0 verify
+> tsx scripts/verify-project.ts --project biology30-unit-c --mode workspace
+
+Metadata policy: passed
+Mode: workspace
+Entry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-c/workspace/index.html
+
+Missing local assets (ERROR): none
+
+External dependencies (WARN): none
+
+Missing workspace embeds (ERROR): none
+
+Missing course-shell resources (ERROR): none
+
+Declared missing course-shell resources (WARN): none
+
+> canvas-helper@0.1.0 verify
+> tsx scripts/verify-project.ts --project biology30-unit-d --mode workspace
+
+Metadata policy: passed
+Mode: workspace
+Entry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-d/workspace/index.html
+
+Missing local assets (ERROR): none
+
+External dependencies (WARN): none
+
+Missing workspace embeds (ERROR): none
+
+Missing course-shell resources (ERROR): none
+
+Declared missing course-shell resources (WARN): none
+Review files: /var/folders/ff/52r3_p9554bgwzvj0nkjw8k00000gn/T/biology30-showcase-4ZFFlH/public
+
+=== Deploying to 'calm-module-one'...
+
+i  deploying hosting
+i  hosting[biology30pilot]: beginning deploy...
+i  hosting[biology30pilot]: found 173 files in public
+i  hosting: uploading new files [0/131] (0%)
+i  hosting: uploading new files [123/131] (93%)
+i  hosting: uploading new files [128/131] (97%)
+i  hosting: upload complete
+✔  hosting[biology30pilot]: file upload complete
+i  hosting[biology30pilot]: finalizing version...
+✔  hosting[biology30pilot]: version finalized
+i  hosting[biology30pilot]: releasing new version...
+✔  hosting[biology30pilot]: release complete
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/calm-module-one/overview
+Hosting URL: https://biology30pilot.web.app
+{
+  "url": "https://biology30pilot.web.app",
+  "verification": {
+    "fileCount": 172,
+    "allFilesMatch": true
+  }
+}

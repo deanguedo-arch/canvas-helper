@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "recordedAt": "2026-09-06T05:22:54Z",
+  "iteration": "complete-online-finalization",
+  "workspaceSha256": "ab82b791d0bc771a522c6bd2d88c97a2f28e5ecaa0add9d69cb32a1be580c105",
+  "workspaceTreeSha256": "f9b0f45627d8deba6bc4bb72c9608c1ff3a2d0252272c8187e4f58a82444807d",
+  "branch": "codex/studio-direct-editing-v1",
+  "checkpointCommit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+  "baselineWorkspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "buildBaselineWorkspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+  "previousVerification": "raw/online-finalization-baselines/f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865/meta/final-academic-verification.json",
+  "scope": "Complete online authoring and source-backed review candidate. Existing core, questions, answers, progress and times preserved; online media, structure/function studies and inquiry paths completed. Technical implementation verification is not teacher acceptance, observed student mastery, physical-lab performance, actual collaboration, measured learner timing or live LMS certification.",
+  "technicalStatus": "pilot-gates-passed-unrelated-repository-failures-recorded",
+  "academicStatus": "awaiting-complete-teacher-review",
+  "teacherDecision": null,
+  "transferReady": false,
+  "checks": [
+    {
+      "command": "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+      "status": "passed",
+      "note": "Transactional build and all five protected-project tree checks passed."
+    },
+    {
+      "command": "npm run test:biology30-unit-a-pilot-2",
+      "status": "passed",
+      "passed": 19
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4186 npm run test:e2e:biology30-unit-a-pilot-2 -- --output=/tmp/biology30-online-final-complete",
+      "status": "passed",
+      "passed": 31,
+      "failed": 0,
+      "elapsed": "11.1 minutes",
+      "note": "One clean complete suite on the current learner SHA; no combined-rerun claim."
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4186 npm run test:e2e:project -- --project biology30-unit-a-pilot-2 --output=/tmp/biology30-online-final-project",
+      "status": "passed",
+      "passed": 1,
+      "elapsed": "1 minute"
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4186 npm run test:e2e:smoke -- --output=/tmp/biology30-online-final-smoke",
+      "status": "passed",
+      "passed": 1
+    },
+    {
+      "command": "npm run audit:biology30-unit-a-pilot-2:visual",
+      "status": "passed",
+      "note": "81 route captures, 409 state captures, all 68 sheets opened and manually inspected; zero automated geometry findings. Scope below."
+    },
+    {
+      "command": "npm run test:biology30-unit-a-improvement-pilot",
+      "status": "passed",
+      "passed": 12
+    },
+    {
+      "command": "npm run test:science-comparison",
+      "status": "passed",
+      "passed": 6
+    },
+    {
+      "command": "npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace",
+      "status": "passed",
+      "note": "No missing local assets or unresolved required embeds."
+    },
+    {
+      "command": "npm run validate:manifests",
+      "status": "passed"
+    },
+    {
+      "command": "npm run build:studio",
+      "status": "passed"
+    },
+    {
+      "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+      "status": "expected-blocked",
+      "exitCode": 1,
+      "diagnostics": [
+        "not-active"
+      ]
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer",
+      "status": "passed",
+      "rules": 53
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer -- --check",
+      "status": "passed",
+      "rules": 53
+    },
+    {
+      "command": "npm run test:biology30-improvement-transfer",
+      "status": "passed",
+      "passed": 4,
+      "note": "Current learner and visual hashes, all 53 rules, exact academic targets and historical preservation verified after final records were written."
+    },
+    {
+      "command": "Focused preview-inspection tests for exact annotation bytes, 72001-node performance, direct ownership and stale/forged selections",
+      "status": "passed",
+      "passed": 4,
+      "note": "The large fixture completed in 283 ms; prior repeated whole-document insertion took about 30.6 seconds."
+    },
+    {
+      "command": "npx tsx --test scripts/tests/preview-inspection.test.ts",
+      "status": "failed-unrelated-fixture-expectations",
+      "passed": 4,
+      "failed": 2,
+      "note": "Existing Social/English fixtures declare legacy-snapshot-v1 workspace ownership; two older test expectations still assert factory/recipe targets. Do not reactivate legacy builders to satisfy these expectations."
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "failed-existing-out-of-scope-errors",
+      "exitCode": 2,
+      "errorCount": 25,
+      "note": "Errors in English/Cheerio, Forensics, Social index, Pilot 1 test metadata and PE10 types; none in touched Pilot 2 or preview implementation. Full repository typecheck is not green."
+    },
+    {
+      "command": "Read-only local Playwright check, Lesson 11 at 390x844 with HTTP(S) blocked",
+      "status": "passed",
+      "regions": 3,
+      "note": "Predict urine from ADH, ADH graph data and Synthetic water-balance evidence accepted keyboard ArrowRight scrolling while document overflow remained false."
+    },
+    {
+      "command": "Local Markdown file-link existence check for playbook, clearance/blueprint, prompt pack/journal and workflow",
+      "status": "passed",
+      "linksChecked": 169,
+      "missing": 0,
+      "note": "File existence only; not a claim that every external URL or Markdown fragment was browser-tested."
+    },
+    {
+      "command": "Scoped git diff --check for authored implementation, tests and canonical documentation",
+      "status": "passed"
+    }
+  ],
+  "failedAttempts": [
+    {
+      "workspaceShaPrefix": "e956",
+      "status": "superseded-not-hidden",
+      "passed": 25,
+      "failed": 6,
+      "note": "Earlier full browser run retained three UI/navigation timeouts, two obsolete four-column walkthrough expectations and one preview startup failure. Scoped selectors were updated to the new three-panel contract; focused six-case recheck passed before the clean 31-case final run."
+    },
+    {
+      "workspaceShaPrefix": "e956",
+      "status": "superseded-layout-defect-corrected",
+      "note": "Manual contact-sheet review found obsolete .illustrated-equivalent li descendant grid squeezing nested feedback labels. Removed in the authored renderer, rebuilt ab82b791, regenerated every sheet and reran complete E2E. Old visual evidence is not rebound to the new SHA."
+    }
+  ],
+  "visual": {
+    "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-06T05-09-30-087Z/report.json",
+    "reportSha256": "a89bd47f58f5d08b136515887b963e2482b426a7f4bf0cb3d01d4c17845533ae",
+    "routeCaptures": 81,
+    "stateCaptures": 409,
+    "contactSheets": 68,
+    "allContactSheetsOpened": true,
+    "geometryFindings": 0,
+    "scope": "All 68 exact-build contact sheets were opened and visually inspected, including every route, illustrated-media path, study matrix, model and empty/representative/dense Process Collection state. Desktop, tablet, mobile and 200-percent text-size captures were inspected; additional full-size study and investigation samples confirmed wrapped selected values and readable controls. Whole-page thumbnails establish structural layout, not full-size legibility of every word. Wide comparison/data tables use focusable horizontal scrolling within their own region, not page overflow. The obsolete descendant grid that squeezed nested ADH/thyroid feedback labels was removed before this build, and the corrected flows were reinspected. These inspections do not certify video playback, every audio/visual frame, actual browser zoom on every platform, observed student learning or real LMS persistence."
+  },
+  "academic": {
+    "outcomes": 25,
+    "behaviourRecords": 53,
+    "acceptableExamples": 47,
+    "excellenceExamples": 5,
+    "localCriteria": 1,
+    "priorOverlappingImplementationGapRecords": 35,
+    "currentImplementationGapRecords": 0,
+    "meaning": "Explicit authored online task/visual/example/practice/evidence destinations now resolve; absence of implementation gaps is not evidence of student mastery or teacher clearance.",
+    "practiceItemsIndividuallyReviewed": 86,
+    "practiceAlignmentScope": "supporting-concept-not-complete-behaviour-demonstration",
+    "recognitionOrExplanationItems": 56,
+    "applicationOrInferenceItems": 30,
+    "psychometricCalibration": false,
+    "originalFinalPracticeTopicSplit": [
+      6,
+      4,
+      6,
+      2
+    ],
+    "preservedFinalPracticeTopicSplit": [
+      6,
+      3,
+      7,
+      2
+    ],
+    "finalPracticeDecision": "Teacher must accept the preserved weighting or request a versioned sensory replacement; question 10 remains correctly classified as homeostasis.",
+    "fullEnglishCaptionTranscriptsRead": 14,
+    "requiredLocalIllustratedPaths": 14,
+    "orderedIllustratedPanels": 42,
+    "videoReviewScope": "Transcript-level factual, caption, relevance and pacing review with focused excerpts and local corrections, not every A/V frame or whole-source endorsement.",
+    "onlineStudies": 5,
+    "preparedTissueObservation": 1,
+    "completeOnlineInvestigations": 3,
+    "physicalLaboratoryPerformanceVerified": false,
+    "actualCollaborationVerified": false,
+    "observedLearnerTiming": false,
+    "liveLmsVerified": false
+  },
+  "invariants": {
+    "stateVersion": 6,
+    "storageKey": "biology30-unit-a-pilot-2:state:v1",
+    "worstCaseStateCharacters": 42738,
+    "previousWorstCaseStateCharacters": 42284,
+    "stateTarget": 44000,
+    "runtimeGuard": 48000,
+    "maximumPersistedResponseFields": 79,
+    "newSavedFields": 6,
+    "stateEstimateScope": "Maximum-length ordinary-text fixture; not arbitrary Unicode/escaping certification. Last-valid-state overflow recovery remains active.",
+    "requiredRoutes": 18,
+    "lessons": 13,
+    "reviewRoutes": 5,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "practiceItems": 86,
+    "advancedBlocks": 40,
+    "mediaCheckpoints": 14,
+    "vocabularyFamilies": 28,
+    "possibleProcessParentRecords": 178,
+    "existingQuestionAndResponseIdsPreserved": true,
+    "completionOrScoreChanges": false,
+    "coreProseAndQuestionSemanticsPreserved": true
+  },
+  "protected": {
+    "pilot1LearnerSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "productionUnitsADChanged": false,
+    "protectedProjectTreesChecked": 5,
+    "pilot1OperationalExceptions": [
+      "meta/unit-a-to-bcd-improvement-playbook.md",
+      "meta/biology30-improvement-transfer-contract.json",
+      "meta/bcd-material-readiness.json"
+    ],
+    "authoringStatus": "blocked",
+    "previewOnly": true,
+    "studioEditEnabled": false,
+    "exportable": false,
+    "deployedThisPass": false,
+    "committedThisPass": false,
+    "pushedThisPass": false
+  },
+  "documentation": {
+    "clearanceChecklist": "projects/biology30-unit-a-pilot-2/meta/final-clearance-review.md",
+    "assessmentReview": "projects/biology30-unit-a-pilot-2/meta/final-practice-blueprint-review.md",
+    "playbook": "projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#36-finish-the-complete-online-candidate-and-close-the-authoring-gaps--2026-09-06",
+    "journalEntry": 36,
+    "transferRules": 53
+  }
+}

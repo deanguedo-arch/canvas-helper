@@ -1,0 +1,1669 @@
+{
+  "unit": "C",
+  "status": "draft-topic-framing-and-narration; no visual or equivalence pass",
+  "topics": [
+    {
+      "topicId": "c-topic-chromosomes-and-dna",
+      "observableQuestion": "How can a cell double its DNA without doubling its chromosome sets?",
+      "learningGoal": "Distinguish packaging, genes, chromosomes, homologous sets and sister copies, and interpret a karyotype within its resolution.",
+      "priorKnowledgeSupport": "Cells store hereditary information in DNA. A copy and a set are different counting units. An image shows features only at its own scale and in its sampled material.",
+      "retrieval": {
+        "responseId": "c-topic-chromosomes-and-dna-retrieval",
+        "prompt": "For 2n = 4 after replication, give chromosomes, DNA molecules and sets.",
+        "comparisonGuide": "Four chromosomes, eight DNA molecules and two homologous sets.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-chromosomes-and-dna-evidence",
+        "prompt": "Use a chromosome drawing or karyotype to support one count or structural claim and state a limit on what the image reveals.",
+        "criteria": [
+          "Name the stage and boundary.",
+          "Count the correct biological unit.",
+          "State a resolution or sampling limit."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-chromosomes-and-dna-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-chromosomes-and-dna-dna-packaging-walkthrough-frame",
+            "partId": "c-topic-chromosomes-and-dna-dna-packaging",
+            "title": "DNA packaging",
+            "figureTarget": "c-topic-chromosomes-and-dna-dna-packaging-figure",
+            "scenario": "A drawing labels a whole chromosome “one gene” and a short DNA region “one chromosome.” Repair the hierarchy.",
+            "orderedExplanation": [
+              "Start with DNA wrapped around associated proteins as chromatin.",
+              "Identify a chromosome as one organized DNA molecule with its associated proteins at an unreplicated stage.",
+              "Place many gene regions along that DNA rather than equating one region with the whole chromosome."
+            ],
+            "conclusion": "A gene is a region of DNA; a chromosome contains a much longer DNA molecule and many such regions. Packaging changes visibility without creating new genes by itself.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-chromosomes-and-dna-sets-and-copies-walkthrough-frame",
+            "partId": "c-topic-chromosomes-and-dna-sets-and-copies",
+            "title": "Sets and copies",
+            "figureTarget": "c-topic-chromosomes-and-dna-sets-and-copies-figure",
+            "scenario": "A model cell has 2n = 4. Count sets, chromosomes and DNA molecules before replication and just after replication.",
+            "orderedExplanation": [
+              "Before replication, identify two sets containing two chromosome types each.",
+              "Count four unreplicated chromosomes and four DNA molecules.",
+              "After replication, keep four chromosomes but count eight sister-chromatid DNA molecules."
+            ],
+            "conclusion": "Before replication: two sets, four chromosomes, four DNA molecules. After replication: two sets, four chromosomes, eight DNA molecules.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-chromosomes-and-dna-reading-karyotypes-walkthrough-frame",
+            "partId": "c-topic-chromosomes-and-dna-reading-karyotypes",
+            "title": "Reading karyotypes",
+            "figureTarget": "c-topic-chromosomes-and-dna-reading-karyotypes-figure",
+            "scenario": "A fictional karyotype contains three copies of one chromosome type and two copies of each remaining autosomal type. What can the image support, and what remains unmeasured?",
+            "orderedExplanation": [
+              "Use the supplied size and banding key to identify the chromosome types.",
+              "Count the copies of each type rather than grouping by colour alone.",
+              "Report the observed extra copy without inferring a complete sequence or every future trait."
+            ],
+            "conclusion": "The image supports an extra copy of the identified chromosome type in the sampled cell. It does not reveal every DNA variant, all tissues in the organism or a complete developmental outcome.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-chromosomes-and-dna-media",
+          "prompt": "Does an X-shaped chromosome represent two homologues?",
+          "comparisonGuide": "No. It is one replicated chromosome with joined sister chromatids.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-the-cell-cycle"
+    },
+    {
+      "topicId": "c-topic-the-cell-cycle",
+      "observableQuestion": "What can a snapshot of cells reveal about a process unfolding over time?",
+      "learningGoal": "Track interphase DNA changes, explain control points and calculate conditional duration estimates from supplied population counts.",
+      "priorKnowledgeSupport": "Replication produces sister copies. A proportion is a part divided by a whole. A snapshot count and a direct time measurement are different kinds of evidence.",
+      "retrieval": {
+        "responseId": "c-topic-the-cell-cycle-retrieval",
+        "prompt": "What changes during S phase, and what remains unchanged before division?",
+        "comparisonGuide": "DNA amount doubles; chromosome count and homologous-set number remain unchanged.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-the-cell-cycle-evidence",
+        "prompt": "Use the supplied 72/100 interphase count to give a 20-hour-model estimate and one assumption that limits it.",
+        "criteria": [
+          "Calculate 14.4 hours.",
+          "Identify the synthetic count and model interval.",
+          "State a representative/steady-population assumption."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-the-cell-cycle-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-the-cell-cycle-interphase-walkthrough-frame",
+            "partId": "c-topic-the-cell-cycle-interphase",
+            "title": "Interphase",
+            "figureTarget": "c-topic-the-cell-cycle-interphase-figure",
+            "scenario": "For a model cell with 2n = 6, compare G1, the end of S phase and G2.",
+            "orderedExplanation": [
+              "In G1, record six chromosomes and six DNA molecules.",
+              "During S phase, DNA is copied without separating sister centromeres.",
+              "At the end of S phase and in G2, record six duplicated chromosomes and twelve DNA molecules."
+            ],
+            "conclusion": "The DNA amount doubles through S phase, while chromosome count and ploidy remain unchanged before division.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-the-cell-cycle-control-and-division-walkthrough-frame",
+            "partId": "c-topic-the-cell-cycle-control-and-division",
+            "title": "Control and division",
+            "figureTarget": "c-topic-the-cell-cycle-control-and-division-figure",
+            "scenario": "A fictional model allows a cell with unrepaired DNA damage to continue into replication and division. Explain one consequence without claiming that every damaged cell becomes a tumour.",
+            "orderedExplanation": [
+              "Identify the checkpoint function that would normally help delay progression.",
+              "Trace copying or segregation of damaged genetic material to daughter cells.",
+              "Distinguish an increased possibility of abnormal outcomes from an inevitable final disease."
+            ],
+            "conclusion": "Failure of control can allow damaging changes to persist or spread through a lineage. The outcome depends on the change, repair, later controls and the tissue context.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-the-cell-cycle-measuring-cell-populations-walkthrough-frame",
+            "partId": "c-topic-the-cell-cycle-measuring-cell-populations",
+            "title": "Measuring cell populations",
+            "figureTarget": "c-topic-the-cell-cycle-measuring-cell-populations-figure",
+            "scenario": "The supplied synthetic count has 72 interphase cells out of 100. Under an explicitly simplified steady-population model with a 20-hour cycle, estimate the interphase duration.",
+            "orderedExplanation": [
+              "Calculate the observed fraction: 72/100 = 0.72.",
+              "Multiply by the model cycle length: 0.72 × 20 hours.",
+              "State the sampling and steady-population assumptions; these counts were supplied, not obtained from the five authentic example images."
+            ],
+            "conclusion": "The model estimate is 14.4 hours. It is a conditional estimate from a synthetic population count, not a direct timing measurement of one cell.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-the-cell-cycle-media",
+          "prompt": "Were the synthetic 100-cell counts measured from the five displayed example images?",
+          "comparisonGuide": "No. The count table and authentic stage images are separate evidence sources.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-mitosis"
+    },
+    {
+      "topicId": "c-topic-mitosis",
+      "observableQuestion": "How do duplicated chromosomes reach two daughter nuclei?",
+      "learningGoal": "Sequence chromosome changes, explain counting during anaphase and classify authentic cell images from visible features.",
+      "priorKnowledgeSupport": "A duplicated chromosome has sister copies. A whole cell and one pole are different counting boundaries. Plant and animal cells form division boundaries differently.",
+      "retrieval": {
+        "responseId": "c-topic-mitosis-retrieval",
+        "prompt": "In mitotic anaphase from 2n = 4, count chromosomes in the whole cell and at one pole.",
+        "comparisonGuide": "Eight across the still-undivided cell; four at each pole and in each resulting daughter nucleus.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-mitosis-evidence",
+        "prompt": "Assign one authentic image to a stage using a visible feature and record any uncertainty in the view.",
+        "criteria": [
+          "Cite an actual visible structure.",
+          "Connect it with the stage.",
+          "Distinguish uncertain image evidence from the ideal diagram."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-mitosis-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-mitosis-preparing-to-separate-walkthrough-frame",
+            "partId": "c-topic-mitosis-preparing-to-separate",
+            "title": "Preparing to separate",
+            "figureTarget": "c-topic-mitosis-preparing-to-separate-figure",
+            "scenario": "A cell image shows condensed chromosomes, and a later image shows chromosomes arranged near the equatorial plane with spindle attachments. Sequence the observations.",
+            "orderedExplanation": [
+              "Use condensation as evidence consistent with prophase progression.",
+              "Use equatorial chromosome alignment and appropriate attachments as evidence of metaphase.",
+              "Keep observations about visible structures separate from details too small to resolve in the image."
+            ],
+            "conclusion": "The condensation stage precedes the aligned metaphase arrangement. Stage identification should be justified from the visible structures, not merely a memorized picture position.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mitosis-separating-copies-walkthrough-frame",
+            "partId": "c-topic-mitosis-separating-copies",
+            "title": "Separating copies",
+            "figureTarget": "c-topic-mitosis-separating-copies-figure",
+            "scenario": "A 2n = 4 model cell reaches mitotic anaphase. Count chromosomes in the still-undivided cell and at each pole.",
+            "orderedExplanation": [
+              "Before separation, the cell has four duplicated chromosomes.",
+              "When sister centromeres separate, each former chromatid is counted as a chromosome.",
+              "Count eight chromosomes across the whole cell, with four moving toward each pole."
+            ],
+            "conclusion": "The whole anaphase cell temporarily contains eight chromosomes by this counting convention; each future daughter nucleus receives four. This is not evidence that each daughter becomes tetraploid.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mitosis-finishing-cell-division-walkthrough-frame",
+            "partId": "c-topic-mitosis-finishing-cell-division",
+            "title": "Finishing cell division",
+            "figureTarget": "c-topic-mitosis-finishing-cell-division-figure",
+            "scenario": "Compare how a typical animal cell and a typical plant cell divide their cytoplasm after nuclear division.",
+            "orderedExplanation": [
+              "In the animal model, trace constriction of a cleavage furrow.",
+              "In the plant model, trace cell-plate formation and development of the separating boundary.",
+              "Keep these cytokinesis mechanisms distinct from chromosome separation during mitosis."
+            ],
+            "conclusion": "Both mechanisms partition cytoplasm into daughter cells, but they form the separating boundary differently. Mitosis and cytokinesis are related processes with distinct events.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mitosis-observation-and-simulation-walkthrough-frame",
+            "partId": "c-topic-mitosis-observation-and-simulation",
+            "title": "Observation and simulation",
+            "figureTarget": "c-topic-mitosis-observation-and-simulation-figure",
+            "scenario": "Use the authentic prepared-cell images assigned to this activity. For each proposed stage, name one visible feature before comparing with the supplied stage key.",
+            "orderedExplanation": [
+              "Inspect the actual image for diffuse or condensed nuclear material and chromosome arrangement.",
+              "Record the observed feature before selecting a stage label.",
+              "Compare the label with the guide and revise any assignment whose supporting feature is absent or unclear."
+            ],
+            "conclusion": "A defensible answer pairs each stage with image evidence. The supplied synthetic 100-cell table is a separate calculation dataset and must not be described as a count made from these five images.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-mitosis-media",
+          "prompt": "Does chromosome condensation alone establish metaphase?",
+          "comparisonGuide": "No. Metaphase requires evidence of the characteristic alignment and attachments.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-meiosis-part-a"
+    },
+    {
+      "topicId": "c-topic-meiosis-part-a",
+      "observableQuestion": "Which separation event reduces chromosome sets?",
+      "learningGoal": "Trace homolog pairing, exchange and two meiotic divisions, comparing them with mitosis using explicit counts.",
+      "priorKnowledgeSupport": "Homologues carry corresponding loci; sisters are replicated copies. Ploidy counts homologous sets. DNA replicates before the two-division meiotic sequence.",
+      "retrieval": {
+        "responseId": "c-topic-meiosis-part-a-retrieval",
+        "prompt": "Name what separates in meiosis I and meiosis II.",
+        "comparisonGuide": "Meiosis I separates homologues; meiosis II separates sister copies without another S phase.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-meiosis-part-a-evidence",
+        "prompt": "Follow a 2n = 4 model through both divisions and explain where reduction occurs.",
+        "criteria": [
+          "State per-cell counts.",
+          "Identify homolog separation as reduction.",
+          "Keep sister separation and DNA-copy changes distinct."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-meiosis-part-a-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-meiosis-part-a-pairing-and-exchange-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-a-pairing-and-exchange",
+            "title": "Pairing and exchange",
+            "figureTarget": "c-topic-meiosis-part-a-pairing-and-exchange-figure",
+            "scenario": "In a 2n = 4 model, one homologous pair carries A and a. Show crossing over between nonsister chromatids without exchanging an entire chromosome set.",
+            "orderedExplanation": [
+              "Replicate each homologue before pairing.",
+              "Pair corresponding homologues and select one chromatid from each for an exchange at matching regions.",
+              "Track the exchanged segments while preserving chromosome number and the overall homologous pair."
+            ],
+            "conclusion": "Crossing over can create new allele combinations along chromatids. It exchanges corresponding DNA regions between nonsister chromatids rather than creating extra sets.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-meiosis-part-a-first-meiotic-division-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-a-first-meiotic-division",
+            "title": "First meiotic division",
+            "figureTarget": "c-topic-meiosis-part-a-first-meiotic-division-figure",
+            "scenario": "A replicated 2n = 4 cell completes meiosis I. Count chromosomes and sets in one daughter cell and name what separated.",
+            "orderedExplanation": [
+              "Start with two homologous pairs, each chromosome duplicated.",
+              "Separate the homologues of each pair while sister chromatids remain joined.",
+              "Count two duplicated chromosomes in each product, representing one complete set."
+            ],
+            "conclusion": "Each product is haploid, n = 2, with two duplicated chromosomes and four DNA molecules. Homologues, not sister chromatids, separated in this division.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-meiosis-part-a-second-meiotic-division-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-a-second-meiotic-division",
+            "title": "Second meiotic division",
+            "figureTarget": "c-topic-meiosis-part-a-second-meiotic-division-figure",
+            "scenario": "Each product of meiosis I in a 2n = 4 model has two duplicated chromosomes. Describe meiosis II and the final per-cell counts.",
+            "orderedExplanation": [
+              "Begin without another S phase.",
+              "Separate sister chromatids in each of the two cells.",
+              "Partition the separated chromosomes into four final products, each with one set."
+            ],
+            "conclusion": "Each final product has n = 2: two unduplicated chromosomes and two DNA molecules. Meiosis II separates copies without another reduction in homologous-set number.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-meiosis-part-a-comparing-divisions-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-a-comparing-divisions",
+            "title": "Comparing divisions",
+            "figureTarget": "c-topic-meiosis-part-a-comparing-divisions-figure",
+            "scenario": "Compare mitosis and meiosis for a replicated 2n = 4 starting cell, using products and separation events.",
+            "orderedExplanation": [
+              "Mitosis separates sister copies in one division and normally produces two diploid daughters.",
+              "Meiosis I separates homologues and meiosis II separates sister copies.",
+              "Count four haploid products after the full meiotic sequence, while retaining the simplified successful-division assumptions."
+            ],
+            "conclusion": "Mitosis normally preserves set number in two products; meiosis reduces it in four products after two divisions. Replication precedes both sequences but occurs only once before the two meiotic divisions.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-meiosis-part-a-media",
+          "prompt": "Is another DNA-replication phase normally inserted between meiosis I and II?",
+          "comparisonGuide": "No. One replication precedes the two divisions.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-meiosis-part-b"
+    },
+    {
+      "topicId": "c-topic-meiosis-part-b",
+      "observableQuestion": "How can variation and chromosome errors arise from the same division sequence?",
+      "learningGoal": "Compare gamete development, sources of combinations, error timings and twin origins with bounded developmental claims.",
+      "priorKnowledgeSupport": "Meiosis I separates homologues and meiosis II separates sisters. Gamete content, cytoplasmic size and developmental timing are different features. Fertilization combines two contributions.",
+      "retrieval": {
+        "responseId": "c-topic-meiosis-part-b-retrieval",
+        "prompt": "Compare the simple meiosis-I and one-cell meiosis-II nondisjunction gamete patterns.",
+        "comparisonGuide": "Meiosis I: two n+1 and two n−1. The stated meiosis-II error: two normal, one n+1 and one n−1.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-meiosis-part-b-evidence",
+        "prompt": "Use one variation or nondisjunction model to trace an event to its products, including a boundary on the prediction.",
+        "criteria": [
+          "Identify the event and timing.",
+          "Follow the affected chromosomes or combinations.",
+          "State the simplified successful-later-step assumptions."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-meiosis-part-b-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-meiosis-part-b-gamete-development-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-b-gamete-development",
+            "title": "Gamete development",
+            "figureTarget": "c-topic-meiosis-part-b-gamete-development-figure",
+            "scenario": "Compare a typical spermatocyte lineage with a typical human oocyte lineage in chromosome reduction and cytoplasmic allocation.",
+            "orderedExplanation": [
+              "Both lineages use meiosis to reduce homologous sets.",
+              "A successful primary spermatocyte lineage produces four spermatids through relatively even divisions.",
+              "Oogenesis retains most cytoplasm in one large cell, with polar bodies, and includes characteristic meiotic pauses."
+            ],
+            "conclusion": "Both pathways reduce sets, but their products differ in size, developmental timing and allocation of cytoplasm. An ovulated secondary oocyte typically remains paused in metaphase II.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-meiosis-part-b-sources-of-variation-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-b-sources-of-variation",
+            "title": "Sources of variation",
+            "figureTarget": "c-topic-meiosis-part-b-sources-of-variation-figure",
+            "scenario": "Separate three sources of new combinations: crossing over, independent assortment and random fertilization.",
+            "orderedExplanation": [
+              "Crossing over exchanges corresponding regions between homologous nonsister chromatids.",
+              "Independent assortment changes combinations of homologues from different pairs in gametes.",
+              "Fertilization combines one gamete from each parent, adding another combination step."
+            ],
+            "conclusion": "These processes reshuffle existing genetic variants at different stages. Mutation is a separate source of new sequence variants and need not occur for every new combination.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-meiosis-part-b-nondisjunction-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-b-nondisjunction",
+            "title": "Nondisjunction",
+            "figureTarget": "c-topic-meiosis-part-b-nondisjunction-figure",
+            "scenario": "In a simple two-division model, homologues of one pair fail to separate in meiosis I. Compare the four gametes with a case in which sister separation fails in one meiosis-II cell.",
+            "orderedExplanation": [
+              "For the meiosis-I error, send both homologues to one first-division product and neither to the other.",
+              "After normal meiosis II, obtain two n+1 and two n−1 gametes for that chromosome.",
+              "For the stated meiosis-II error, obtain two normal gametes, one n+1 and one n−1."
+            ],
+            "conclusion": "The distribution differs by timing: all four gametes are affected in the simple meiosis-I case, while two remain normal in the specified meiosis-II case.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-meiosis-part-b-twins-and-early-development-walkthrough-frame",
+            "partId": "c-topic-meiosis-part-b-twins-and-early-development",
+            "title": "Twins and early development",
+            "figureTarget": "c-topic-meiosis-part-b-twins-and-early-development-figure",
+            "scenario": "Compare two embryos arising from one fertilized egg that later separates with embryos arising from two separately fertilized eggs.",
+            "orderedExplanation": [
+              "One zygote followed by separation supports a monozygotic origin.",
+              "Two oocytes fertilized separately support a dizygotic origin.",
+              "Distinguish the origin of genetic similarity from later differences in development, environment and acquired changes."
+            ],
+            "conclusion": "Monozygotic twins arise from one zygote and are usually highly genetically similar. Dizygotic twins arise from separate fertilizations and have a genetic relationship comparable to other full siblings in the stated family model.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-meiosis-part-b-media",
+          "prompt": "Does a monozygotic origin guarantee identical traits throughout life?",
+          "comparisonGuide": "No. Development, environments and later changes can differ despite high genetic similarity.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-reproductive-strategies"
+    },
+    {
+      "topicId": "c-topic-reproductive-strategies",
+      "observableQuestion": "How do organisms place meiosis and fertilization in different life cycles?",
+      "learningGoal": "Compare sexual and asexual strategies and annotate moss, pine and selected animal cycles without merging their distinct stages.",
+      "priorKnowledgeSupport": "Mitosis preserves the current set number; meiosis reduces it and fertilization restores it. Haploid cells can divide by mitosis. Reproductive success depends on context.",
+      "retrieval": {
+        "responseId": "c-topic-reproductive-strategies-retrieval",
+        "prompt": "Name the ploidy transitions caused by meiosis and fertilization in a plant cycle.",
+        "comparisonGuide": "Meiosis changes 2n to n; fertilization changes n to 2n. Mitosis preserves the current set number between them.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-reproductive-strategies-evidence",
+        "prompt": "Compare two reproductive strategies using a specific organism, one mechanism and one environmental tradeoff.",
+        "criteria": [
+          "Name the organisms or conditions.",
+          "Locate the relevant division/fusion event.",
+          "Avoid a universal ranking."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-reproductive-strategies-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-walkthrough-frame",
+            "partId": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction",
+            "title": "Sexual and asexual reproduction",
+            "figureTarget": "c-topic-reproductive-strategies-sexual-and-asexual-reproduction-figure",
+            "scenario": "A fictional plant population can produce runners or seeds after fertilization. Compare inheritance and one ecological tradeoff.",
+            "orderedExplanation": [
+              "Runners develop through mitotic growth from the parent and usually preserve its genotype apart from new changes.",
+              "Sexual reproduction combines gametes and can reshuffle parental variants.",
+              "Compare speed, resource investment and variation in the stated environment rather than ranking one strategy as universally superior."
+            ],
+            "conclusion": "Asexual propagation can rapidly preserve a successful genotype; sexual reproduction can generate new combinations. Their relative effects depend on conditions, and neither guarantees survival.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-reproductive-strategies-life-cycle-transitions-walkthrough-frame",
+            "partId": "c-topic-reproductive-strategies-life-cycle-transitions",
+            "title": "Life-cycle transitions",
+            "figureTarget": "c-topic-reproductive-strategies-life-cycle-transitions-figure",
+            "scenario": "Trace a moss life cycle from a diploid sporophyte through spores, gametophytes and fertilization. Compare the corresponding ploidy transitions in pine.",
+            "orderedExplanation": [
+              "Meiosis in the diploid sporophyte produces haploid spores.",
+              "Spores grow by mitosis into haploid gametophytes, which produce gametes by mitosis.",
+              "Fertilization restores diploidy; pine retains these broad transitions with much reduced gametophytes associated with the dominant sporophyte."
+            ],
+            "conclusion": "Meiosis changes 2n to n, fertilization changes n to 2n, and intervening mitosis preserves the current set number. Plant spores and gametes are different stages.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-reproductive-strategies-animal-strategies-walkthrough-frame",
+            "partId": "c-topic-reproductive-strategies-animal-strategies",
+            "title": "Animal strategies",
+            "figureTarget": "c-topic-reproductive-strategies-animal-strategies-figure",
+            "scenario": "Compare a Daphnia model that switches reproductive modes with a jellyfish model containing a polyp stage and a medusa stage. Avoid adding a medusa stage to a sea-anemone cycle.",
+            "orderedExplanation": [
+              "Identify which Daphnia conditions in the supplied model favour asexual or sexual reproduction.",
+              "In the jellyfish example, distinguish mitotic asexual production from gamete formation and fertilization.",
+              "Treat the sea-anemone example separately because a medusa stage is not part of its life cycle."
+            ],
+            "conclusion": "Different animals can combine reproductive strategies in different sequences. Shared vocabulary does not establish that their complete life cycles are identical.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-reproductive-strategies-evidence-and-applications-walkthrough-frame",
+            "partId": "c-topic-reproductive-strategies-evidence-and-applications",
+            "title": "Evidence and applications",
+            "figureTarget": "c-topic-reproductive-strategies-evidence-and-applications-figure",
+            "scenario": "A fictional nursery compares cloned cuttings with seedlings across a stable treatment and a changing treatment. What would make the comparison informative?",
+            "orderedExplanation": [
+              "Define an outcome such as survival or growth over the same interval.",
+              "Replicate groups and control starting size, care and sampling while recording the reproductive origin.",
+              "Compare variation and performance separately, then revise a claim that one method must always win."
+            ],
+            "conclusion": "The study can test outcomes under its stated conditions. It cannot establish a universal ranking without evidence across other genotypes and environments.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-reproductive-strategies-media",
+          "prompt": "Does a sea-anemone cycle include the jellyfish medusa stage shown in the continuation slide?",
+          "comparisonGuide": "No. The jellyfish and sea-anemone cycles must remain distinct.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-chapter-16-practice"
+    },
+    {
+      "topicId": "c-topic-genes-alleles-and-traits",
+      "observableQuestion": "Why can different genotypes produce the same scored phenotype?",
+      "learningGoal": "Use genetic notation accurately and distinguish dominance, allele frequency and environmental contributions to traits.",
+      "priorKnowledgeSupport": "A gene region can have alternative alleles. Diploid individuals carry two copies at a typical autosomal locus. A measured trait depends on a stated expression model.",
+      "retrieval": {
+        "responseId": "c-topic-genes-alleles-and-traits-retrieval",
+        "prompt": "In complete dominance, which two genotypes can share the dominant phenotype?",
+        "comparisonGuide": "AA and Aa share the scored dominant phenotype while remaining different genotypes.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-genes-alleles-and-traits-evidence",
+        "prompt": "Correct one claim equating dominant with common, beneficial or environmentally fixed, using the relevant distinction.",
+        "criteria": [
+          "Identify the mistaken relationship.",
+          "Explain what dominance actually describes.",
+          "State what evidence would address the other claim."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-genes-alleles-and-traits-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-genes-alleles-and-traits-inheritance-language-walkthrough-frame",
+            "partId": "c-topic-genes-alleles-and-traits-inheritance-language",
+            "title": "Inheritance language",
+            "figureTarget": "c-topic-genes-alleles-and-traits-inheritance-language-figure",
+            "scenario": "In a stated one-locus model, A is completely dominant to a. Translate AA, Aa and aa into genotype and phenotype descriptions.",
+            "orderedExplanation": [
+              "Define the alleles before interpreting the letters.",
+              "Identify AA and aa as homozygous and Aa as heterozygous.",
+              "Under the stated complete-dominance model, group AA and Aa by the dominant phenotype while retaining distinct genotypes."
+            ],
+            "conclusion": "There are three genotypes but two phenotype categories in this model. The notation does not say which allele is common, beneficial or older.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-genes-alleles-and-traits-trait-expression-walkthrough-frame",
+            "partId": "c-topic-genes-alleles-and-traits-trait-expression",
+            "title": "Trait expression",
+            "figureTarget": "c-topic-genes-alleles-and-traits-trait-expression-figure",
+            "scenario": "A fictional population contains mostly aa individuals even though A is completely dominant. Is the observation contradictory?",
+            "orderedExplanation": [
+              "Use dominance to predict the heterozygote's phenotype.",
+              "Use population counts to describe allele or phenotype frequency.",
+              "Keep the expression rule separate from the frequency measurement."
+            ],
+            "conclusion": "There is no contradiction. Complete dominance describes expression in a heterozygote; it does not require the dominant allele or phenotype to be common.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-genes-alleles-and-traits-genes-and-environment-walkthrough-frame",
+            "partId": "c-topic-genes-alleles-and-traits-genes-and-environment",
+            "title": "Genes and environment",
+            "figureTarget": "c-topic-genes-alleles-and-traits-genes-and-environment-figure",
+            "scenario": "Two fictional plants share a stated genotype but grow to different heights under different light conditions. Does this disprove inheritance?",
+            "orderedExplanation": [
+              "Identify the shared genotype and the changed environment.",
+              "Recognize height as an outcome that can depend on several genes and environmental conditions.",
+              "Seek a controlled comparison before attributing the entire difference to light."
+            ],
+            "conclusion": "The observation is compatible with environmental influence on an inherited developmental system. It does not show that genes are irrelevant or that one environmental difference is the only cause.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-genes-alleles-and-traits-media",
+          "prompt": "Does a dominant allele have to be the most frequent allele?",
+          "comparisonGuide": "No. Dominance describes heterozygote expression, not population frequency.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-mendelian-genetics"
+    },
+    {
+      "topicId": "c-topic-mendelian-genetics",
+      "observableQuestion": "How can a cross test a model of allele transmission?",
+      "learningGoal": "Connect segregation with meiosis, define inheritance notation and use offspring observations as probabilistic evidence.",
+      "priorKnowledgeSupport": "Gametes carry one allele per locus in the model. Phenotype rules must be stated separately from genotype combinations. A small sample need not equal an expected ratio.",
+      "retrieval": {
+        "responseId": "c-topic-mendelian-genetics-retrieval",
+        "prompt": "What gametes does Aa predict, and with what probabilities under equal transmission?",
+        "comparisonGuide": "A and a, each with probability 1/2 across the stated gamete model.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-mendelian-genetics-evidence",
+        "prompt": "Use the four-dominant-offspring test-cross case to compare AA and Aa explanations without claiming proof from a small sample.",
+        "criteria": [
+          "State both parental possibilities.",
+          "Calculate the Aa sample probability 1/16.",
+          "Distinguish support from certainty."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-mendelian-genetics-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-walkthrough-frame",
+            "partId": "c-topic-mendelian-genetics-controlled-crosses-and-evidence",
+            "title": "Controlled crosses and evidence",
+            "figureTarget": "c-topic-mendelian-genetics-controlled-crosses-and-evidence-figure",
+            "scenario": "A fictional true-breeding AA parent is crossed with aa under complete dominance. Predict the first generation, then identify the next cross that tests segregation.",
+            "orderedExplanation": [
+              "Each AA parent gamete carries A and each aa parent gamete carries a.",
+              "All first-generation offspring are Aa under this model.",
+              "Cross two Aa individuals and compare the next generation with the predicted genotype and phenotype proportions."
+            ],
+            "conclusion": "The first generation is all Aa with the dominant phenotype. Aa × Aa predicts 1 AA : 2 Aa : 1 aa and, under complete dominance, 3 dominant : 1 recessive.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mendelian-genetics-segregation-walkthrough-frame",
+            "partId": "c-topic-mendelian-genetics-segregation",
+            "title": "Segregation",
+            "figureTarget": "c-topic-mendelian-genetics-segregation-figure",
+            "scenario": "Connect an Aa parent's two allele types with meiosis and its predicted gametes.",
+            "orderedExplanation": [
+              "Place A and a at corresponding loci on homologous chromosomes.",
+              "Follow homolog separation during meiosis I and the later separation of sister copies.",
+              "Under the stated equal-transmission model, assign probability 1/2 to A and 1/2 to a in a gamete."
+            ],
+            "conclusion": "The two alleles segregate into gametes; a gamete carries one of them at this locus. The 1/2 probabilities are predictions across many gametes, not a guarantee for every small sample.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mendelian-genetics-inheritance-modes-and-notation-walkthrough-frame",
+            "partId": "c-topic-mendelian-genetics-inheritance-modes-and-notation",
+            "title": "Inheritance modes and notation",
+            "figureTarget": "c-topic-mendelian-genetics-inheritance-modes-and-notation-figure",
+            "scenario": "A supplied model gives heterozygotes a phenotype distinct from both homozygotes. A student applies a 3:1 phenotype ratio to a heterozygote cross. Repair the prediction.",
+            "orderedExplanation": [
+              "Define the three genotype-to-phenotype relationships first.",
+              "Construct the heterozygote × heterozygote genotype probabilities: 1/4, 1/2 and 1/4.",
+              "Keep the three phenotype categories because the heterozygote does not share either homozygote's phenotype."
+            ],
+            "conclusion": "The phenotype prediction is 1:2:1 in this model. The genotype probabilities do not change merely because the expression relationship differs from complete dominance.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mendelian-genetics-probability-and-test-crosses-walkthrough-frame",
+            "partId": "c-topic-mendelian-genetics-probability-and-test-crosses",
+            "title": "Probability and test crosses",
+            "figureTarget": "c-topic-mendelian-genetics-probability-and-test-crosses-figure",
+            "scenario": "An individual with a dominant phenotype is crossed with aa. Four observed offspring all have the dominant phenotype. Does this prove that the unknown parent is AA?",
+            "orderedExplanation": [
+              "Compare AA × aa, which predicts all dominant offspring, with Aa × aa, which predicts 1/2 dominant per offspring.",
+              "Under independent outcomes, calculate the chance of four dominant offspring from Aa: (1/2)^4 = 1/16.",
+              "Use the observation as evidence without treating a possible outcome as impossible."
+            ],
+            "conclusion": "The result is more consistent with AA under the simple alternatives, but it does not prove AA. An Aa parent could produce this small sample with probability 1/16.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-mendelian-genetics-media",
+          "prompt": "Do four dominant offspring from a test cross prove the unknown parent is AA?",
+          "comparisonGuide": "No. An Aa parent can produce that sample with probability 1/16 under the model.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-single-and-two-trait-crosses"
+    },
+    {
+      "topicId": "c-topic-single-and-two-trait-crosses",
+      "observableQuestion": "Which assumptions make a familiar inheritance ratio valid?",
+      "learningGoal": "Construct mono- and dihybrid crosses, apply probability rules and compare model expectations with supplied samples.",
+      "priorKnowledgeSupport": "Use the parental genotypes to list the possible gametes, as in the previous lesson. Keep genotype and phenotype separate. Here you will first solve one-locus crosses, then combine independent events, then compare expected and observed results.",
+      "retrieval": {
+        "responseId": "c-topic-single-and-two-trait-crosses-retrieval",
+        "prompt": "For AaBb × AaBb with independent loci, what is P(aaB_)?",
+        "comparisonGuide": "P(aa) × P(B_) = (1/4)(3/4) = 3/16 under the stated model.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-single-and-two-trait-crosses-evidence",
+        "prompt": "Compare one supplied small and large offspring sample with expectations, preserving the denominator and sampling limitation.",
+        "criteria": [
+          "State the expected genotype proportions.",
+          "Compare observed counts or proportions.",
+          "Explain why deviation alone does not prove model failure."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-single-and-two-trait-crosses-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-walkthrough-frame",
+            "partId": "c-topic-single-and-two-trait-crosses-monohybrid-crosses",
+            "title": "Monohybrid crosses",
+            "figureTarget": "c-topic-single-and-two-trait-crosses-monohybrid-crosses-figure",
+            "scenario": "Solve Aa × Aa under complete dominance, showing genotype and phenotype probabilities separately.",
+            "orderedExplanation": [
+              "List A and a gametes from each parent with probability 1/2.",
+              "Combine them to obtain AA, Aa, aA and aa, each with probability 1/4.",
+              "Combine Aa and aA as the same heterozygous genotype, then group phenotypes by the stated dominance rule."
+            ],
+            "conclusion": "Genotypes: 1/4 AA, 1/2 Aa, 1/4 aa. Phenotypes: 3/4 dominant and 1/4 recessive.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-single-and-two-trait-crosses-probability-rules-walkthrough-frame",
+            "partId": "c-topic-single-and-two-trait-crosses-probability-rules",
+            "title": "Probability rules",
+            "figureTarget": "c-topic-single-and-two-trait-crosses-probability-rules-figure",
+            "scenario": "For independent loci in AaBb × AaBb with complete dominance, calculate the chance of aaB_ and the chance that exactly one of two independent offspring is aa.",
+            "orderedExplanation": [
+              "Solve the first question one locus at a time. Aa × Aa gives P(aa) = 1/4. Bb × Bb gives P(BB or Bb) = 3/4. B_ means either of these dominant-phenotype genotypes.",
+              "The loci are stated to be independent. Multiply the two chances: P(aaB_) = (1/4)(3/4) = 3/16.",
+              "For the second question, focus only on the A locus. Each offspring has P(aa) = 1/4 and P(not aa) = 3/4.",
+              "List the two orders that meet exactly one: first aa then not aa, or first not aa then aa. Both aa and neither aa do not meet the condition.",
+              "The offspring are stated to be independent. Each allowed order has chance (1/4)(3/4) = 3/16.",
+              "The two orders cannot occur together. Add their chances: 3/16 + 3/16 = 6/16 = 3/8."
+            ],
+            "conclusion": "The requested probabilities are 3/16 and 3/8. Multiplication uses the stated independence; addition combines non-overlapping alternatives.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-walkthrough-frame",
+            "partId": "c-topic-single-and-two-trait-crosses-dihybrid-crosses",
+            "title": "Dihybrid crosses",
+            "figureTarget": "c-topic-single-and-two-trait-crosses-dihybrid-crosses-figure",
+            "scenario": "List gametes from AaBb under independent assortment and predict the phenotype proportions in AaBb × AaBb with complete dominance at both loci.",
+            "orderedExplanation": [
+              "Combine A or a with B or b to obtain AB, Ab, aB and ab, each with probability 1/4.",
+              "Combine the two parents' gametes in a 4 × 4 square or multiply single-locus probabilities.",
+              "Group the outcomes as A_B_, A_bb, aaB_ and aabb."
+            ],
+            "conclusion": "The predicted phenotype proportions are 9/16, 3/16, 3/16 and 1/16 under the stated assumptions.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-single-and-two-trait-crosses-testing-a-model-walkthrough-frame",
+            "partId": "c-topic-single-and-two-trait-crosses-testing-a-model",
+            "title": "Testing a model",
+            "figureTarget": "c-topic-single-and-two-trait-crosses-testing-a-model-figure",
+            "scenario": "Compare the supplied Aa × Aa genotype counts: small samples 3/5/2 and 1/7/2; large samples 24/51/25 and 28/48/24, ordered AA/Aa/aa.",
+            "orderedExplanation": [
+              "Use 1/4, 1/2 and 1/4 as the model probabilities.",
+              "Expected counts are 2.5/5/2.5 for each ten-offspring sample and 25/50/25 for each hundred-offspring sample.",
+              "Compare proportions and sample sizes without demanding an exact ratio in each sample."
+            ],
+            "conclusion": "All four samples differ from exact expectations. Such differences alone do not reject the model; interpretation needs sampling variability, replication and checks on the design.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-single-and-two-trait-crosses-media",
+          "prompt": "Can expected counts of 2.5/5/2.5 occur as literal offspring counts in one ten-offspring family?",
+          "comparisonGuide": "No. They are model expectations; observed individuals are counted in whole numbers.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-other-modes-of-inheritance"
+    },
+    {
+      "topicId": "c-topic-other-modes-of-inheritance",
+      "observableQuestion": "How does the expression model change the phenotype prediction from a cross?",
+      "learningGoal": "Compare incomplete dominance, codominance, multiple alleles, sex linkage and polygenic/environmental models using explicit notation.",
+      "priorKnowledgeSupport": "Gamete combinations determine genotypes. A phenotype key interprets those genotypes. A population can contain more allele types than one diploid individual carries at a locus.",
+      "retrieval": {
+        "responseId": "c-topic-other-modes-of-inheritance-retrieval",
+        "prompt": "Distinguish incomplete dominance from codominance in the heterozygote.",
+        "comparisonGuide": "Incomplete dominance gives a defined intermediate phenotype; codominance shows both defined products or features.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-other-modes-of-inheritance-evidence",
+        "prompt": "Choose one non-simple-dominance cross, state its model and show a genotype-to-phenotype prediction with a relevant assumption.",
+        "criteria": [
+          "Define alleles and parents.",
+          "Calculate combinations.",
+          "Apply the correct phenotype rule and denominator."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-other-modes-of-inheritance-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-other-modes-of-inheritance-incomplete-dominance-walkthrough-frame",
+            "partId": "c-topic-other-modes-of-inheritance-incomplete-dominance",
+            "title": "Incomplete dominance",
+            "figureTarget": "c-topic-other-modes-of-inheritance-incomplete-dominance-figure",
+            "scenario": "In a fictional flower model, RR is red, WW is white and RW is pink. Predict RW × RW and explain why the alleles have not permanently blended.",
+            "orderedExplanation": [
+              "List R and W gametes from each parent.",
+              "Combine them to obtain 1/4 RR, 1/2 RW and 1/4 WW.",
+              "Apply the stated phenotype key to recover red, pink and white offspring categories."
+            ],
+            "conclusion": "The prediction is 1 red : 2 pink : 1 white. Reappearance of both homozygous categories shows that the alleles remain separable rather than being irreversibly blended.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-walkthrough-frame",
+            "partId": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles",
+            "title": "Codominance and multiple alleles",
+            "figureTarget": "c-topic-other-modes-of-inheritance-codominance-and-multiple-alleles-figure",
+            "scenario": "In the simplified ABO model, cross Iᴬi with Iᴮi. List the possible offspring genotypes and blood-group phenotypes.",
+            "orderedExplanation": [
+              "The first parent supplies Iᴬ or i; the second supplies Iᴮ or i.",
+              "Combine to obtain IᴬIᴮ, Iᴬi, Iᴮi and ii, each with probability 1/4.",
+              "Apply codominance of Iᴬ and Iᴮ and their dominance over i in this classroom model."
+            ],
+            "conclusion": "The predicted groups are AB, A, B and O, each with probability 1/4. Three allele types exist in the population, while one diploid individual has at most two at this locus.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-other-modes-of-inheritance-sex-linkage-walkthrough-frame",
+            "partId": "c-topic-other-modes-of-inheritance-sex-linkage",
+            "title": "Sex linkage",
+            "figureTarget": "c-topic-other-modes-of-inheritance-sex-linkage-figure",
+            "scenario": "For a stated X-linked recessive model, cross XᴬXᵃ with XᴬY. Calculate the chance of an affected son among all offspring and among sons.",
+            "orderedExplanation": [
+              "List the maternal Xᴬ and Xᵃ gametes and paternal Xᴬ and Y gametes.",
+              "The four equally likely outcomes are XᴬXᴬ, XᴬXᵃ, XᴬY and XᵃY in the simplified model.",
+              "Count XᵃY once among all four outcomes and once among the two son outcomes."
+            ],
+            "conclusion": "The probability is 1/4 among all offspring and 1/2 conditional on being a son. The denominator changes with the question.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-other-modes-of-inheritance-many-genes-and-environment-walkthrough-frame",
+            "partId": "c-topic-other-modes-of-inheritance-many-genes-and-environment",
+            "title": "Many genes and environment",
+            "figureTarget": "c-topic-other-modes-of-inheritance-many-genes-and-environment-figure",
+            "scenario": "A fictional trait shows a broad continuous distribution rather than two sharply separated categories. What models should be considered before applying a Mendelian ratio?",
+            "orderedExplanation": [
+              "Check whether several loci can contribute to the trait.",
+              "Consider environmental variation and measurement effects.",
+              "Seek family, genotype or controlled-condition evidence that can distinguish the proposed contributions."
+            ],
+            "conclusion": "A polygenic and environmentally influenced model is plausible, but distribution shape alone does not prove the number of contributing genes.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-other-modes-of-inheritance-comparing-model-predictions-walkthrough-frame",
+            "partId": "c-topic-other-modes-of-inheritance-comparing-model-predictions",
+            "title": "Comparing model predictions",
+            "figureTarget": "c-topic-other-modes-of-inheritance-comparing-model-predictions-figure",
+            "scenario": "A heterozygote cross produces three observed phenotype categories. Compare complete dominance, incomplete dominance and codominance as possible explanations.",
+            "orderedExplanation": [
+              "Ask whether the heterozygote shares a homozygote's phenotype, has an intermediate phenotype or displays both defined products.",
+              "Use the observed phenotype definitions to select a model.",
+              "Then calculate genotype probabilities and apply that model's phenotype key."
+            ],
+            "conclusion": "The category count alone may suggest that simple complete dominance is inadequate, but the actual phenotype evidence distinguishes incomplete dominance from codominance.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-other-modes-of-inheritance-media",
+          "prompt": "Does the same 1:2:1 ratio by itself distinguish incomplete dominance from codominance?",
+          "comparisonGuide": "No. The nature of the heterozygote phenotype distinguishes the models.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-pedigrees"
+    },
+    {
+      "topicId": "c-topic-pedigrees",
+      "observableQuestion": "What can family observations establish, and what must remain conditional?",
+      "learningGoal": "Read a fictional pedigree, compare inheritance hypotheses and calculate a conditional probability with explicit limits.",
+      "priorKnowledgeSupport": "Pedigree symbols need a legend. Phenotypes are observed; genotypes can be inferred under a model. New information changes the relevant probability sample space.",
+      "retrieval": {
+        "responseId": "c-topic-pedigrees-retrieval",
+        "prompt": "For an unaffected child of Aa × Aa under a recessive model, what is P(carrier)?",
+        "comparisonGuide": "Two carrier outcomes among three unaffected outcomes give 2/3.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-pedigrees-evidence",
+        "prompt": "Use one pedigree observation to support or exclude a stated model, naming the assumption on which the inference depends.",
+        "criteria": [
+          "Cite an individual or relationship.",
+          "Trace possible alleles.",
+          "Keep uncertainty and penetrance/record assumptions explicit."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-pedigrees-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-pedigrees-symbols-and-evidence-walkthrough-frame",
+            "partId": "c-topic-pedigrees-symbols-and-evidence",
+            "title": "Symbols and evidence",
+            "figureTarget": "c-topic-pedigrees-symbols-and-evidence-figure",
+            "scenario": "Read a fictional pedigree in which the legend defines filled symbols as a measured phenotype, a horizontal line as a reproductive partnership and a vertical line as descendants. What can be recorded before assigning genotypes?",
+            "orderedExplanation": [
+              "Use the legend to identify relationships and observed phenotype categories.",
+              "Assign generation and individual identifiers so evidence can be cited precisely.",
+              "Keep unobserved genotypes blank or conditional until an inheritance model supplies constraints."
+            ],
+            "conclusion": "The pedigree records relationships and phenotype observations. Genotypes are inferred under a model and should not be silently treated as directly measured.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-pedigrees-autosomal-hypotheses-walkthrough-frame",
+            "partId": "c-topic-pedigrees-autosomal-hypotheses",
+            "title": "Autosomal hypotheses",
+            "figureTarget": "c-topic-pedigrees-autosomal-hypotheses-figure",
+            "scenario": "Two unaffected fictional parents have an affected child. Under a fully penetrant autosomal recessive model with accurate records, infer the parental and child genotypes.",
+            "orderedExplanation": [
+              "The affected child is aa under the stated model.",
+              "Each parent must contribute a.",
+              "Because both parents are unaffected in this model, each must also carry A, giving Aa × Aa."
+            ],
+            "conclusion": "The model supports two heterozygous parents and an aa child. It does not establish that every unaffected relative is AA or that this is the only possible real-world explanation.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-pedigrees-sex-linked-hypotheses-walkthrough-frame",
+            "partId": "c-topic-pedigrees-sex-linked-hypotheses",
+            "title": "Sex-linked hypotheses",
+            "figureTarget": "c-topic-pedigrees-sex-linked-hypotheses-figure",
+            "scenario": "A fictional pedigree shows an affected father and an affected son. Does this alone rule out an X-linked recessive explanation?",
+            "orderedExplanation": [
+              "In the stated X-linked model, the father supplies Y to his son rather than the father's X allele.",
+              "Check whether the mother could supply the recessive X allele.",
+              "Distinguish observed co-occurrence from direct father-to-son transmission of that allele."
+            ],
+            "conclusion": "The pair alone does not rule out X-linked recessive inheritance. An affected son could receive the allele from the mother; more family information is needed.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-pedigrees-risk-and-information-walkthrough-frame",
+            "partId": "c-topic-pedigrees-risk-and-information",
+            "title": "Risk and information",
+            "figureTarget": "c-topic-pedigrees-risk-and-information-figure",
+            "scenario": "An unaffected sibling of an aa child has two Aa parents under a fully penetrant autosomal recessive model. Find the probability that this unaffected sibling is a carrier.",
+            "orderedExplanation": [
+              "Aa × Aa gives AA, Aa, aA and aa with equal probability.",
+              "Condition on the sibling being unaffected, removing the aa outcome.",
+              "Among the three remaining equally likely outcomes, two are heterozygous."
+            ],
+            "conclusion": "The conditional carrier probability is 2/3. It differs from the unconditioned 1/2 probability of a heterozygote before the phenotype information is used.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-pedigrees-media",
+          "prompt": "Does an affected father and son alone prove direct X-linked transmission from father to son?",
+          "comparisonGuide": "No. In the stated model, the son receives paternal Y and could receive the allele from the mother.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-chromosome-mapping"
+    },
+    {
+      "topicId": "c-topic-chromosome-mapping",
+      "observableQuestion": "How much chromosome information can recombinant offspring reveal?",
+      "learningGoal": "Classify offspring using parental phase, calculate recombination and construct a bounded three-locus map.",
+      "priorKnowledgeSupport": "Gamete combinations can be parental or recombinant relative to a stated phase. Fractions need all relevant classes and the whole sample. Endpoint observations can miss internal events.",
+      "retrieval": {
+        "responseId": "c-topic-chromosome-mapping-retrieval",
+        "prompt": "For 80 recombinants among 400 offspring, give the recombinant percentage.",
+        "comparisonGuide": "80/400 × 100 = 20% recombination; a map-distance estimate requires the stated short-interval assumptions.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-chromosome-mapping-evidence",
+        "prompt": "Construct the 14/6/20 map, justify the middle locus and state one limit on extending the calculation.",
+        "criteria": [
+          "Place B between A and C.",
+          "Show 14 + 6 = 20 and allow reversal.",
+          "Mention hidden multiple exchanges or interval assumptions."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-chromosome-mapping-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-chromosome-mapping-linkage-and-recombination-walkthrough-frame",
+            "partId": "c-topic-chromosome-mapping-linkage-and-recombination",
+            "title": "Linkage and recombination",
+            "figureTarget": "c-topic-chromosome-mapping-linkage-and-recombination-figure",
+            "scenario": "A test cross uses an AB/ab heterozygote and an ab/ab partner. Classify AB, ab, Ab and aB gamete-derived offspring types.",
+            "orderedExplanation": [
+              "Read AB and ab as the parental chromosome phase in the heterozygote.",
+              "Identify AB and ab as parental combinations.",
+              "Identify Ab and aB as recombinant combinations relative to that phase."
+            ],
+            "conclusion": "Parental types are AB and ab; recombinant types are Ab and aB. The same genotype letters written without phase would not supply all this information.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-chromosome-mapping-recombination-frequency-walkthrough-frame",
+            "partId": "c-topic-chromosome-mapping-recombination-frequency",
+            "title": "Recombination frequency",
+            "figureTarget": "c-topic-chromosome-mapping-recombination-frequency-figure",
+            "scenario": "A suitable test cross has 400 offspring: 160 AB, 160 ab, 40 Ab and 40 aB, with parental phase AB/ab. Calculate recombination frequency.",
+            "orderedExplanation": [
+              "Add both recombinant classes: 40 + 40 = 80.",
+              "Divide by all offspring: 80/400 = 0.20.",
+              "Report 20% recombination and, under the short-interval mapping approximation, about 20 map units."
+            ],
+            "conclusion": "The recombinant fraction is 0.20. Both reciprocal recombinant classes belong in the numerator and every scored offspring belongs in the denominator.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-chromosome-mapping-gene-order-walkthrough-frame",
+            "partId": "c-topic-chromosome-mapping-gene-order",
+            "title": "Gene order",
+            "figureTarget": "c-topic-chromosome-mapping-gene-order-figure",
+            "scenario": "Three loci have supplied short-interval distances A–B = 14, B–C = 6 and A–C = 20 map units. Construct a compatible order.",
+            "orderedExplanation": [
+              "Check that 14 + 6 = 20.",
+              "Place B between A and C so the two shorter intervals span the longest interval.",
+              "Accept the reversed orientation C—6—B—14—A as the same relative map."
+            ],
+            "conclusion": "A—14—B—6—C is compatible, as is its reverse. The arbitrary left-to-right direction is not a distinct biological result.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-chromosome-mapping-limits-of-linkage-estimates-walkthrough-frame",
+            "partId": "c-topic-chromosome-mapping-limits-of-linkage-estimates",
+            "title": "Limits of linkage estimates",
+            "figureTarget": "c-topic-chromosome-mapping-limits-of-linkage-estimates-figure",
+            "scenario": "Two loci yield about 50% recombinant offspring in a large suitable test cross. Compare two explanations.",
+            "orderedExplanation": [
+              "One possibility is that the loci are on different chromosomes and assort independently.",
+              "Another is that they are far apart on the same chromosome, with multiple exchanges obscuring linkage in the two-locus result.",
+              "Identify additional linked markers or other evidence that could distinguish the alternatives."
+            ],
+            "conclusion": "The result does not uniquely establish that the loci are on different chromosomes. About 50% is compatible with both explanations in the standard model.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-chromosome-mapping-media",
+          "prompt": "Does about 50% recombination prove the loci are on different chromosomes?",
+          "comparisonGuide": "No. Distant linked loci can also give about 50% in a two-locus comparison.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-chapter-17-practice"
+    },
+    {
+      "topicId": "c-topic-dna-and-its-history",
+      "observableQuestion": "How did different observations constrain the DNA model?",
+      "learningGoal": "Connect historical evidence with DNA's hereditary role and construct complementary antiparallel strands accurately.",
+      "priorKnowledgeSupport": "An experiment tests a particular claim through comparisons. A nucleotide has sugar, phosphate and base. Sequence order and overall base composition are different information.",
+      "retrieval": {
+        "responseId": "c-topic-dna-and-its-history-retrieval",
+        "prompt": "Give the aligned complement of 5′-ATGC-3′ with direction labels.",
+        "comparisonGuide": "3′-TACG-5′ is aligned antiparallel; the same strand written 5′→3′ is 5′-GCAT-3′.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-dna-and-its-history-evidence",
+        "prompt": "Use one historical experiment or structural observation to state the claim it supports and a claim it did not establish alone.",
+        "criteria": [
+          "Name the evidence and comparison.",
+          "Connect it to a specific conclusion.",
+          "Retain one limitation or complementary evidence need."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-dna-and-its-history-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-dna-and-its-history-evidence-for-hereditary-material-walkthrough-frame",
+            "partId": "c-topic-dna-and-its-history-evidence-for-hereditary-material",
+            "title": "Evidence for hereditary material",
+            "figureTarget": "c-topic-dna-and-its-history-evidence-for-hereditary-material-figure",
+            "scenario": "Compare what bacterial transformation, selective enzyme treatment and phage labelling contributed to identifying hereditary material.",
+            "orderedExplanation": [
+              "Transformation showed that material from one bacterial preparation could produce a heritable change in another.",
+              "Experiments that selectively disrupted candidate molecules helped test which material was needed for transformation.",
+              "Phage labelling distinguished the behaviour of DNA-associated and protein-associated labels during infection."
+            ],
+            "conclusion": "The studies supplied different lines of evidence supporting DNA's hereditary role in the tested systems. One result should not be credited with directly proving every feature of DNA structure or every inheritance mechanism.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-dna-and-its-history-nucleotides-and-direction-walkthrough-frame",
+            "partId": "c-topic-dna-and-its-history-nucleotides-and-direction",
+            "title": "Nucleotides and direction",
+            "figureTarget": "c-topic-dna-and-its-history-nucleotides-and-direction-figure",
+            "scenario": "A diagram shows a phosphate, deoxyribose sugar and nitrogenous base. Identify the nucleotide and explain what 5′ and 3′ labels refer to.",
+            "orderedExplanation": [
+              "Group the three components as one DNA nucleotide.",
+              "Locate the sugar's numbered carbon positions used to name the strand ends.",
+              "Use those ends to orient the sugar–phosphate backbone rather than assigning direction from the page's left edge alone."
+            ],
+            "conclusion": "A nucleotide contains sugar, phosphate and base. The 5′ and 3′ labels describe chemical orientation, so a sequence must carry direction labels when the diagram's orientation is ambiguous.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-dna-and-its-history-structural-evidence-walkthrough-frame",
+            "partId": "c-topic-dna-and-its-history-structural-evidence",
+            "title": "Structural evidence",
+            "figureTarget": "c-topic-dna-and-its-history-structural-evidence-figure",
+            "scenario": "A double-stranded DNA sample has 30% adenine. Use the stated complementary-pairing model to infer the other base percentages and connect the result to structural evidence.",
+            "orderedExplanation": [
+              "Pair adenine with thymine, giving 30% thymine.",
+              "Subtract 60% from the total, leaving 40% for guanine and cytosine together.",
+              "Split that remainder equally: 20% each, while recognizing that composition alone does not specify the full three-dimensional structure."
+            ],
+            "conclusion": "T = 30%, G = 20% and C = 20% for this double-stranded sample. Base relationships constrain a model; diffraction evidence and chemical reasoning supplied additional structural constraints.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-dna-and-its-history-the-double-helix-walkthrough-frame",
+            "partId": "c-topic-dna-and-its-history-the-double-helix",
+            "title": "The double helix",
+            "figureTarget": "c-topic-dna-and-its-history-the-double-helix-figure",
+            "scenario": "Write the strand complementary to 5′-ATGC-3′ first as aligned beneath it, then separately in 5′→3′ notation.",
+            "orderedExplanation": [
+              "Pair A with T and G with C while keeping opposite strand directions.",
+              "The aligned complement is 3′-TACG-5′.",
+              "Reverse its written order to express that complementary strand from 5′ to 3′: 5′-GCAT-3′."
+            ],
+            "conclusion": "The aligned complement and the reverse-complement notation describe the same strand in different written directions. Both pairing and orientation must be correct.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-dna-and-its-history-media",
+          "prompt": "Do equal A and T percentages reveal the exact order of bases?",
+          "comparisonGuide": "No. Composition constrains totals, while many sequences can share those totals.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-dna-replication"
+    },
+    {
+      "topicId": "c-topic-dna-replication",
+      "observableQuestion": "How can both strands be copied when their directions are opposite?",
+      "learningGoal": "Trace semiconservative copying, enzyme roles and leading/lagging synthesis, then compare density-model predictions.",
+      "priorKnowledgeSupport": "DNA strands are complementary and antiparallel. New strands grow from a suitable end. Strand age, chemical direction and fork movement need separate labels.",
+      "retrieval": {
+        "responseId": "c-topic-dna-replication-retrieval",
+        "prompt": "Which direction does new DNA grow on both leading and lagging products?",
+        "comparisonGuide": "Both grow 5′→3′; the lagging product forms fragments relative to fork movement.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-dna-replication-evidence",
+        "prompt": "Use a fork diagram or density model to explain a replication prediction and a condition needed to interpret it.",
+        "criteria": [
+          "Label strands or densities clearly.",
+          "Trace the copying event.",
+          "State direction, round or model assumptions."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-dna-replication-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-dna-replication-semiconservative-replication-walkthrough-frame",
+            "partId": "c-topic-dna-replication-semiconservative-replication",
+            "title": "Semiconservative replication",
+            "figureTarget": "c-topic-dna-replication-semiconservative-replication-figure",
+            "scenario": "Begin with one DNA duplex whose two strands are labelled old. Follow two rounds of semiconservative replication using new unlabelled nucleotides.",
+            "orderedExplanation": [
+              "After the first round, form two duplexes, each with one old strand and one new strand.",
+              "Separate each duplex's strands for the second round and use each as a template.",
+              "Count four duplexes: two retain one original old strand, while two contain only strands made after the start."
+            ],
+            "conclusion": "After two rounds, two of four duplexes contain an original old strand. No duplex retains both original strands paired together in this model.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-dna-replication-enzymes-and-direction-walkthrough-frame",
+            "partId": "c-topic-dna-replication-enzymes-and-direction",
+            "title": "Enzymes and direction",
+            "figureTarget": "c-topic-dna-replication-enzymes-and-direction-figure",
+            "scenario": "A template is oriented 3′→5′ along the direction a polymerase is reading. State the direction of new DNA synthesis and the role of a primer.",
+            "orderedExplanation": [
+              "Use complementary pairing to choose the next base.",
+              "Add nucleotides to the available 3′ end of the growing new strand.",
+              "Recognize that DNA polymerase extends a suitable primer rather than starting a new strand without that initial end."
+            ],
+            "conclusion": "The new strand grows 5′→3′ while the template is read 3′→5′. Primers provide a starting end for extension in the replication model.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-dna-replication-leading-and-lagging-synthesis-walkthrough-frame",
+            "partId": "c-topic-dna-replication-leading-and-lagging-synthesis",
+            "title": "Leading and lagging synthesis",
+            "figureTarget": "c-topic-dna-replication-leading-and-lagging-synthesis-figure",
+            "scenario": "At a fork moving right, the upper template runs 3′→5′ from left to right and the lower template runs 5′→3′. Identify the continuous new-strand direction and the fragment direction.",
+            "orderedExplanation": [
+              "On the upper template, new DNA can grow 5′→3′ toward the moving fork.",
+              "On the lower template, each new fragment still grows 5′→3′ but away from the fork over the locally exposed region.",
+              "Repeated initiation allows fragments to be produced as more template is exposed."
+            ],
+            "conclusion": "The upper-template product is leading in this defined fork view; the lower-template product is lagging. Both products use 5′→3′ synthesis, with different arrangements relative to fork movement.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-dna-replication-replication-evidence-walkthrough-frame",
+            "partId": "c-topic-dna-replication-replication-evidence",
+            "title": "Replication evidence",
+            "figureTarget": "c-topic-dna-replication-replication-evidence-figure",
+            "scenario": "In a simplified density-labelling experiment, DNA begins heavy and is then copied in light medium. Compare semiconservative predictions after one and two rounds.",
+            "orderedExplanation": [
+              "After one round, predict duplexes with one heavy original strand and one light new strand, producing an intermediate-density class.",
+              "After two rounds, predict half intermediate and half light duplexes.",
+              "Compare this sequence with alternative models rather than treating one intermediate result as the entire test."
+            ],
+            "conclusion": "The two-round pattern supports the semiconservative model under the experiment's conditions. The first round alone does not distinguish every possible alternative.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-dna-replication-media",
+          "prompt": "Does semiconservative replication make each new strand half old and half new?",
+          "comparisonGuide": "No. After one round, each daughter duplex pairs a pre-existing strand with a new strand.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-transcription"
+    },
+    {
+      "topicId": "c-topic-transcription",
+      "observableQuestion": "Which strand is read, and why does direction change the answer?",
+      "learningGoal": "Identify a gene's template, transcribe an oriented sequence and distinguish RNA processing from changes to DNA.",
+      "priorKnowledgeSupport": "Complementary pairing links two strands with opposite directions. The coding strand matches RNA base order except T/U. A short supplied region need not be a complete gene.",
+      "retrieval": {
+        "responseId": "c-topic-transcription-retrieval",
+        "prompt": "Transcribe template 3′-TAC CTT-5′ with RNA direction labels.",
+        "comparisonGuide": "5′-AUG GAA-3′.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-transcription-evidence",
+        "prompt": "Correct a strand-orientation or processing claim by showing the relevant sequence and explaining the error.",
+        "criteria": [
+          "Name template or coding role.",
+          "Use correct direction and RNA bases.",
+          "Distinguish transcription/processing from translation or DNA removal."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-transcription-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-transcription-selecting-a-template-walkthrough-frame",
+            "partId": "c-topic-transcription-selecting-a-template",
+            "title": "Selecting a template",
+            "figureTarget": "c-topic-transcription-selecting-a-template-figure",
+            "scenario": "A gene's coding strand is 5′-ATG GAA TTT TAA-3′. Identify the aligned template and the corresponding RNA sequence in the stated orientation.",
+            "orderedExplanation": [
+              "Pair an antiparallel template: 3′-TAC CTT AAA ATT-5′.",
+              "Read that template 3′→5′.",
+              "Build RNA 5′→3′ using complementary bases, with U in place of T."
+            ],
+            "conclusion": "The RNA is 5′-AUG GAA UUU UAA-3′. It matches the coding strand's base order except for U replacing T.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-transcription-making-rna-walkthrough-frame",
+            "partId": "c-topic-transcription-making-rna",
+            "title": "Making RNA",
+            "figureTarget": "c-topic-transcription-making-rna-figure",
+            "scenario": "Transcribe the template 3′-TAC CTT AAA ATT-5′ into RNA and state the base-pairing choices.",
+            "orderedExplanation": [
+              "Read the template in its given 3′→5′ direction.",
+              "Pair T with A, A with U, C with G and G with C in RNA.",
+              "Write the resulting strand 5′→3′ and retain the complete sequence."
+            ],
+            "conclusion": "The transcript is 5′-AUG GAA UUU UAA-3′. Transcription creates RNA; the amino-acid sequence is a separate later interpretation.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-transcription-processing-and-expression-walkthrough-frame",
+            "partId": "c-topic-transcription-processing-and-expression",
+            "title": "Processing and expression",
+            "figureTarget": "c-topic-transcription-processing-and-expression-figure",
+            "scenario": "A simplified eukaryotic precursor RNA contains exon 1, intron 1 and exon 2. Describe the processed RNA without claiming that every exon base must encode an amino acid.",
+            "orderedExplanation": [
+              "Identify the intron region marked for removal in the stated model.",
+              "Join the retained exon regions through splicing.",
+              "Keep untranslated regions and other processing features conceptually distinct from the protein-coding portion."
+            ],
+            "conclusion": "The processed transcript retains the joined exon sequence, while the intron is removed in this example. Exons can include untranslated regions, so exon and protein-coding sequence are not identical terms.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-transcription-checking-a-sequence-claim-walkthrough-frame",
+            "partId": "c-topic-transcription-checking-a-sequence-claim",
+            "title": "Checking a sequence claim",
+            "figureTarget": "c-topic-transcription-checking-a-sequence-claim-figure",
+            "scenario": "A student transcribes 3′-TAC CTT-5′ as 5′-UAC CUU-3′. Locate the error and repair the sequence.",
+            "orderedExplanation": [
+              "Notice that the student replaced T with U while copying the template directly.",
+              "Apply complementary pairing to the template instead.",
+              "Read its stated 3′→5′ direction to obtain the new RNA 5′→3′."
+            ],
+            "conclusion": "The correct RNA is 5′-AUG GAA-3′. Direct T-to-U substitution applies to a matching coding-strand sequence, not to this template.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-transcription-media",
+          "prompt": "Can you copy a template strand unchanged and merely replace T with U?",
+          "comparisonGuide": "No. RNA must be complementary to the template in the correct direction.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-translation"
+    },
+    {
+      "topicId": "c-topic-translation",
+      "observableQuestion": "What does a codon table predict, and what does it leave unknown?",
+      "learningGoal": "Translate a supplied RNA frame, explain tRNA/ribosome roles and distinguish peptide sequence from functional evidence.",
+      "priorKnowledgeSupport": "mRNA is read in a defined 5′→3′ frame. Codons are RNA triplets. Complementary anticodons are antiparallel, and a stop signal is not an amino acid.",
+      "retrieval": {
+        "responseId": "c-topic-translation-retrieval",
+        "prompt": "Translate AUG GAA UUU UAA in the stated frame.",
+        "comparisonGuide": "Met–Glu–Phe, followed by termination at UAA.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-translation-evidence",
+        "prompt": "Use a short sequence to support a peptide prediction, then state what further evidence a protein-function claim needs.",
+        "criteria": [
+          "Show the correct frame and peptide.",
+          "Handle stop or trailing bases correctly.",
+          "Identify a function-specific evidence need."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-translation-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-translation-reading-the-genetic-code-walkthrough-frame",
+            "partId": "c-topic-translation-reading-the-genetic-code",
+            "title": "Reading the genetic code",
+            "figureTarget": "c-topic-translation-reading-the-genetic-code-figure",
+            "scenario": "Translate the supplied complete coding-region model RNA 5′-AUG GAA UUU UAA-3′ from its stated start codon.",
+            "orderedExplanation": [
+              "Read mRNA codons in the 5′→3′ direction using the RNA codon table.",
+              "Map AUG to methionine, GAA to glutamate and UUU to phenylalanine.",
+              "Treat UAA as a termination signal rather than an amino acid."
+            ],
+            "conclusion": "The peptide sequence is Met–Glu–Phe, followed by termination at UAA in this model.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-translation-adaptors-and-peptide-bonds-walkthrough-frame",
+            "partId": "c-topic-translation-adaptors-and-peptide-bonds",
+            "title": "Adaptors and peptide bonds",
+            "figureTarget": "c-topic-translation-adaptors-and-peptide-bonds-figure",
+            "scenario": "For mRNA codon 5′-GAA-3′, write an aligned anticodon and identify the role of the charged tRNA.",
+            "orderedExplanation": [
+              "Pair the anticodon antiparallel to the codon: 3′-CUU-5′.",
+              "Recognize that a correctly charged tRNA carries the corresponding amino acid, glutamate in the standard code.",
+              "Connect codon recognition with peptide-bond formation at the ribosome."
+            ],
+            "conclusion": "The aligned anticodon is 3′-CUU-5′, or 5′-UUC-3′ when written in its own 5′→3′ direction. The adaptor links RNA recognition with delivery of an amino acid.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-translation-initiation-to-termination-walkthrough-frame",
+            "partId": "c-topic-translation-initiation-to-termination",
+            "title": "Initiation to termination",
+            "figureTarget": "c-topic-translation-initiation-to-termination-figure",
+            "scenario": "Sequence initiation, elongation and termination for a model transcript with an AUG start and a later UGA in the same reading frame.",
+            "orderedExplanation": [
+              "Establish the translation machinery and reading frame at the supplied start region.",
+              "Add amino acids as successive codons are read during elongation.",
+              "Use the in-frame stop codon to recruit termination machinery and release the peptide."
+            ],
+            "conclusion": "Translation proceeds through a defined frame until a stop signal is reached. UGA does not require a normal tRNA carrying a “stop amino acid.”",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-translation-from-sequence-to-function-walkthrough-frame",
+            "partId": "c-topic-translation-from-sequence-to-function",
+            "title": "From sequence to function",
+            "figureTarget": "c-topic-translation-from-sequence-to-function-figure",
+            "scenario": "Translate 5′-AUG GAA UUU UAA-3′, then evaluate the claim that the sequence alone proves a functional enzyme.",
+            "orderedExplanation": [
+              "Use the standard code to obtain Met–Glu–Phe followed by stop.",
+              "Distinguish this short classroom peptide model from a complete functional protein.",
+              "Identify additional evidence about folding, processing, localization and activity that would address function."
+            ],
+            "conclusion": "The sequence supports the stated translation result. It does not establish enzyme activity or the complete behaviour of a protein in a cell.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-translation-media",
+          "prompt": "Does an out-of-frame UGA necessarily stop the current translation?",
+          "comparisonGuide": "No. Only codons in the established reading frame are read as that sequence progresses.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-mutations"
+    },
+    {
+      "topicId": "c-topic-mutations",
+      "observableQuestion": "Why can different sequence changes have very different consequences?",
+      "learningGoal": "Trace substitution and insertion examples through expression while separating origin, transmission and selection.",
+      "priorKnowledgeSupport": "DNA sequence, RNA sequence and peptide sequence are linked but distinct. Coding context and frame determine triplet interpretation. Somatic and germline lineages have different inheritance routes.",
+      "retrieval": {
+        "responseId": "c-topic-mutations-retrieval",
+        "prompt": "Why do GAA and GAG yield the same amino acid in the supplied standard-code model?",
+        "comparisonGuide": "Both codons specify glutamate, so that substitution is synonymous for the peptide sequence.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-mutations-evidence",
+        "prompt": "Compare one reference and variant sequence, show its defined consequence and keep one untested effect or downstream region unknown.",
+        "criteria": [
+          "Identify the change and frame.",
+          "Show the RNA/peptide consequence.",
+          "Do not invent a stop, full protein or universal harmful effect."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-mutations-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-mutations-types-of-sequence-change-walkthrough-frame",
+            "partId": "c-topic-mutations-types-of-sequence-change",
+            "title": "Types of sequence change",
+            "figureTarget": "c-topic-mutations-types-of-sequence-change-figure",
+            "scenario": "Compare coding DNA reference ATGGAATTTTAA with substitution ATGGAGTTTTAA and insertion ATGAGAATTTTAA in the stated frame beginning at the first base.",
+            "orderedExplanation": [
+              "The substitution changes one base without changing the total length.",
+              "The insertion adds one base after ATG, changing later triplet grouping.",
+              "Separate the type of sequence change from its effect on the translated product."
+            ],
+            "conclusion": "The substitution preserves the reading frame; the one-base insertion shifts downstream grouping in this coding-region model. Neither label alone determines every functional effect.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mutations-effects-on-gene-products-walkthrough-frame",
+            "partId": "c-topic-mutations-effects-on-gene-products",
+            "title": "Effects on gene products",
+            "figureTarget": "c-topic-mutations-effects-on-gene-products-figure",
+            "scenario": "Compare translation of the reference coding DNA ATGGAATTTTAA and the substitution ATGGAGTTTTAA in the supplied standard-code model.",
+            "orderedExplanation": [
+              "Convert coding DNA to matching RNA with T replaced by U.",
+              "Read reference AUG GAA UUU UAA and variant AUG GAG UUU UAA in the same frame.",
+              "Use the code table to note that GAA and GAG both specify glutamate."
+            ],
+            "conclusion": "Both produce Met–Glu–Phe followed by stop in this model. The substitution is synonymous for this peptide sequence, which does not prove that every possible regulatory or expression effect is absent.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mutations-inheritance-and-variation-walkthrough-frame",
+            "partId": "c-topic-mutations-inheritance-and-variation",
+            "title": "Inheritance and variation",
+            "figureTarget": "c-topic-mutations-inheritance-and-variation-figure",
+            "scenario": "A fictional sequence change occurs in one skin-cell lineage, while a separate change occurs in a cell lineage contributing to gametes. Compare their potential inheritance.",
+            "orderedExplanation": [
+              "Track the skin-cell change through its descendant somatic cells.",
+              "Track the gamete-lineage change into possible reproductive cells.",
+              "Distinguish the origin of a variant from later selection on carriers and from whether a particular gamete participates in fertilization."
+            ],
+            "conclusion": "A somatic change is generally confined to that lineage and is not normally inherited through gametes. A germline change can be transmitted if it enters a gamete that contributes to offspring.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-mutations-evaluating-mutation-evidence-walkthrough-frame",
+            "partId": "c-topic-mutations-evaluating-mutation-evidence",
+            "title": "Evaluating mutation evidence",
+            "figureTarget": "c-topic-mutations-evaluating-mutation-evidence-figure",
+            "scenario": "Translate the insertion sequence's coding-region excerpt ATGAGAATTTTAA in the stated frame and compare it with the reference ATGGAATTTTAA.",
+            "orderedExplanation": [
+              "The insertion RNA is AUGAGAAUUUUAA.",
+              "Group complete codons from the first base: AUG AGA AUU UUA, with one trailing A.",
+              "Translate Met–Arg–Ile–Leu and report that no stop codon is supplied in this short shifted frame."
+            ],
+            "conclusion": "The insertion changes the peptide segment and leaves an incomplete trailing codon. Do not invent a downstream stop or claim this excerpt defines the full variant protein.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-mutations-media",
+          "prompt": "Does a one-base insertion excerpt without an in-frame stop let us invent the final full peptide length?",
+          "comparisonGuide": "No. Unprovided downstream sequence remains unknown.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-topic-genetic-technologies"
+    },
+    {
+      "topicId": "c-topic-genetic-technologies",
+      "observableQuestion": "What makes a molecular result interpretable rather than merely visible?",
+      "learningGoal": "Explain cutting, joining, transformation, PCR and separation with controls, then evaluate bounded relatedness and application claims.",
+      "priorKnowledgeSupport": "Methods measure particular features at particular resolutions. Compatible sequence ends, sample identity and assay function are separate conditions. A match or missing signal needs context.",
+      "retrieval": {
+        "responseId": "c-topic-genetic-technologies-retrieval",
+        "prompt": "Name two explanations for a PCR lane with no target band.",
+        "comparisonGuide": "The target may be absent, or amplification/detection may have failed; controls are needed to distinguish them.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "c-topic-genetic-technologies-evidence",
+        "prompt": "Evaluate one fictional technology result using its mechanism, a relevant control and a limit on the conclusion.",
+        "criteria": [
+          "State what was measured.",
+          "Connect a control to an alternative explanation.",
+          "Avoid certainty about identity, guilt or sustainability from one result."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "c-topic-genetic-technologies-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "c-topic-genetic-technologies-cutting-and-joining-dna-walkthrough-frame",
+            "partId": "c-topic-genetic-technologies-cutting-and-joining-dna",
+            "title": "Cutting and joining DNA",
+            "figureTarget": "c-topic-genetic-technologies-cutting-and-joining-dna-figure",
+            "scenario": "A fictional linear 1000-base DNA fragment has one defined cut producing 400- and 600-base products. Predict the count and total length, then contrast a one-cut circular molecule.",
+            "orderedExplanation": [
+              "For the linear molecule, one internal cut creates two pieces.",
+              "Check conservation: 400 + 600 = 1000 bases.",
+              "For a circular molecule, one cut opens the circle into one linear piece rather than creating two separate pieces."
+            ],
+            "conclusion": "The linear case gives two fragments totalling 1000 bases. The one-cut circular case gives one linear molecule of the original total length.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-genetic-technologies-transforming-cells-walkthrough-frame",
+            "partId": "c-topic-genetic-technologies-transforming-cells",
+            "title": "Transforming cells",
+            "figureTarget": "c-topic-genetic-technologies-transforming-cells-figure",
+            "scenario": "A fictional recombinant-DNA workflow joins an insert to a vector, introduces the material into cells and selects surviving colonies. Does survival alone prove the intended insert is correct and expressed?",
+            "orderedExplanation": [
+              "Separate joining, cellular uptake and selection as different steps.",
+              "Identify exactly what the selection marker tests in the supplied model.",
+              "Use additional checks for insert presence, orientation, sequence and expression as needed for the claim."
+            ],
+            "conclusion": "Selection can identify cells with a relevant marker, but it does not by itself prove a correct functional insert. Appropriate positive, negative and identity checks remain necessary.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-genetic-technologies-amplifying-and-separating-walkthrough-frame",
+            "partId": "c-topic-genetic-technologies-amplifying-and-separating",
+            "title": "Amplifying and separating",
+            "figureTarget": "c-topic-genetic-technologies-amplifying-and-separating-figure",
+            "scenario": "A fictional PCR lane shows no target band. Compare “the target is absent” with “the assay failed,” then identify needed controls.",
+            "orderedExplanation": [
+              "Recognize that no visible band can result from either missing target or failure of amplification/detection.",
+              "Check a positive control for assay function and a negative control for contamination.",
+              "Consider sample-specific quality or an appropriate internal control before concluding absence."
+            ],
+            "conclusion": "The negative lane is consistent with absence or assay failure until controls narrow the alternatives. In a gel, interpret migration against the stated size standard and method resolution.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-walkthrough-frame",
+            "partId": "c-topic-genetic-technologies-genetic-evidence-and-relatedness",
+            "title": "Genetic evidence and relatedness",
+            "figureTarget": "c-topic-genetic-technologies-genetic-evidence-and-relatedness-figure",
+            "scenario": "Three fictional sequences of the same region differ from a reference at one, three and six aligned positions. What relationship claim can this comparison support?",
+            "orderedExplanation": [
+              "Confirm that the same homologous region and alignment are being compared.",
+              "Count differences using one stated rule and equal sequence coverage.",
+              "Treat fewer differences as evidence of closer similarity for this region, while retaining sampling and evolutionary-model limits."
+            ],
+            "conclusion": "The one-difference sequence is most similar to the reference in the compared region. This alone does not establish a complete family relationship or the history of the whole genome.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "c-topic-genetic-technologies-applications-and-uncertainty-walkthrough-frame",
+            "partId": "c-topic-genetic-technologies-applications-and-uncertainty",
+            "title": "Applications and uncertainty",
+            "figureTarget": "c-topic-genetic-technologies-applications-and-uncertainty-figure",
+            "scenario": "A fictional report claims that a matching DNA pattern proves identity and guilt and that a crop technology is automatically sustainable. Identify the evidence missing from both claims.",
+            "orderedExplanation": [
+              "For the DNA claim, examine sample provenance, contamination, match interpretation and the distinction between biological association and conduct.",
+              "For the crop claim, define outcomes such as yield, resource use and ecological effects over a stated interval.",
+              "Compare alternatives and ethical, cultural, social and economic perspectives rather than treating a mechanism as a complete verdict."
+            ],
+            "conclusion": "A DNA match is evidence requiring context; it is not itself proof of guilt. Sustainability is a multi-outcome claim requiring measured comparisons and stated values, not a property established by a technology label alone.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "c-topic-genetic-technologies-media",
+          "prompt": "Does colony survival after selection alone prove a correct expressed insert?",
+          "comparisonGuide": "No. The marker may not establish insert sequence, orientation or expression.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "c-chapter-18-practice"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "generatedAt": "2026-09-06T01:33:45.862Z",
+  "method": "Flesch-Kincaid estimate plus sentence and paragraph limits; scientific terms are also reviewed in context",
+  "targetRange": [
+    9.5,
+    11.5
+  ],
+  "hardMaximum": 12,
+  "averageSentenceMaximumWords": 20,
+  "paragraphMaximumWords": 100,
+  "revisionGateBCoreLessons": [
+    {
+      "routeId": "lesson-01",
+      "wordCount": 764,
+      "sentenceCount": 63,
+      "averageSentenceWords": 12.1,
+      "fleschKincaidGrade": 9.2,
+      "longestCoreParagraphWords": 74
+    },
+    {
+      "routeId": "lesson-02",
+      "wordCount": 776,
+      "sentenceCount": 58,
+      "averageSentenceWords": 13.4,
+      "fleschKincaidGrade": 9.8,
+      "longestCoreParagraphWords": 61
+    },
+    {
+      "routeId": "lesson-03",
+      "wordCount": 702,
+      "sentenceCount": 63,
+      "averageSentenceWords": 11.1,
+      "fleschKincaidGrade": 10,
+      "longestCoreParagraphWords": 60
+    },
+    {
+      "routeId": "lesson-04",
+      "wordCount": 785,
+      "sentenceCount": 64,
+      "averageSentenceWords": 12.3,
+      "fleschKincaidGrade": 9.4,
+      "longestCoreParagraphWords": 64
+    },
+    {
+      "routeId": "lesson-05",
+      "wordCount": 724,
+      "sentenceCount": 58,
+      "averageSentenceWords": 12.5,
+      "fleschKincaidGrade": 10.6,
+      "longestCoreParagraphWords": 59
+    },
+    {
+      "routeId": "lesson-06",
+      "wordCount": 745,
+      "sentenceCount": 66,
+      "averageSentenceWords": 11.3,
+      "fleschKincaidGrade": 10.1,
+      "longestCoreParagraphWords": 57
+    },
+    {
+      "routeId": "lesson-07",
+      "wordCount": 734,
+      "sentenceCount": 64,
+      "averageSentenceWords": 11.5,
+      "fleschKincaidGrade": 7.5,
+      "longestCoreParagraphWords": 60
+    },
+    {
+      "routeId": "lesson-08",
+      "wordCount": 751,
+      "sentenceCount": 66,
+      "averageSentenceWords": 11.4,
+      "fleschKincaidGrade": 8.6,
+      "longestCoreParagraphWords": 55
+    },
+    {
+      "routeId": "lesson-09",
+      "wordCount": 707,
+      "sentenceCount": 65,
+      "averageSentenceWords": 10.9,
+      "fleschKincaidGrade": 9.3,
+      "longestCoreParagraphWords": 61
+    },
+    {
+      "routeId": "lesson-10",
+      "wordCount": 737,
+      "sentenceCount": 60,
+      "averageSentenceWords": 12.3,
+      "fleschKincaidGrade": 9.4,
+      "longestCoreParagraphWords": 55
+    },
+    {
+      "routeId": "lesson-11",
+      "wordCount": 740,
+      "sentenceCount": 59,
+      "averageSentenceWords": 12.5,
+      "fleschKincaidGrade": 9.1,
+      "longestCoreParagraphWords": 59
+    },
+    {
+      "routeId": "lesson-12",
+      "wordCount": 735,
+      "sentenceCount": 62,
+      "averageSentenceWords": 11.9,
+      "fleschKincaidGrade": 9.4,
+      "longestCoreParagraphWords": 52
+    },
+    {
+      "routeId": "lesson-13",
+      "wordCount": 809,
+      "sentenceCount": 68,
+      "averageSentenceWords": 11.9,
+      "fleschKincaidGrade": 10.1,
+      "longestCoreParagraphWords": 56
+    }
+  ],
+  "depthRequirement": {
+    "routes": [
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13"
+    ],
+    "minimumCoreWords": 700,
+    "maximumCoreWords": {
+      "default": 1050,
+      "lesson-13": 1200
+    }
+  },
+  "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "interpretation": "Readability is a diagnostic, not proof that explanations or prerequisites are sufficient."
+}

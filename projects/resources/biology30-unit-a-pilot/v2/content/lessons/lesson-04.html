@@ -1,0 +1,197 @@
+<div class="bio-route bio-lesson" data-biology-lesson="lesson-04">
+  <header class="bio-lesson-header">
+    <p class="bio-course-code">Lesson 4 · Neural communication</p>
+    <h1>Action Potentials: Ions into Information</h1>
+    <p class="bio-inquiry">How can a brief change in membrane voltage carry information without becoming weaker along the axon?</p>
+    <dl class="bio-lesson-meta">
+      <div><dt>Required time</dt><dd>90 minutes</dd></div>
+      <div><dt>Materials</dt><dd>No special materials</dd></div>
+      <div><dt>Evidence</dt><dd>Graph interpretation</dd></div>
+    </dl>
+  </header>
+
+  <section class="bio-learning-targets" aria-labelledby="lesson-04-targets">
+    <div>
+      <p class="bio-section-label">Learning intention</p>
+      <h2 id="lesson-04-targets">I am learning to explain how ion movement across a neuron's membrane produces an action potential.</h2>
+    </div>
+    <div>
+      <p class="bio-section-label">Success criteria</p>
+      <ul aria-label="Lesson success criteria">
+        <li>I can explain how ion movement produces resting potential, depolarization, repolarization, and the refractory period.</li>
+        <li>I can use a membrane-potential graph to connect voltage changes to channel activity.</li>
+        <li>I can distinguish action-potential amplitude from the ways stimulus intensity is encoded.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bio-section bio-retrieval" aria-labelledby="lesson-04-retrieval">
+    <div>
+      <p class="bio-section-label">Retrieve</p>
+      <h2 id="lesson-04-retrieval">Start with the membrane</h2>
+      <p>A neuron membrane separates two solutions containing charged particles. Before reading further, predict what must happen to membrane voltage if positively charged sodium ions move rapidly from outside to inside.</p>
+    </div>
+    <label class="bio-response-label" for="lesson-04-warmup">Record your prediction <span>autosaves</span></label>
+    <textarea id="lesson-04-warmup" rows="3" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:04:warmup" data-bio-autosave placeholder="I predict the inside will become… because…"></textarea>
+    <p class="bio-save-status" data-bio-status-for="biology30-unit-a:lesson:04:warmup" aria-live="polite">Not saved yet</p>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-resting">
+    <p class="bio-section-label">Build the mechanism</p>
+    <h2 id="lesson-04-resting">1. Resting potential is a maintained imbalance</h2>
+    <p>A neuron at rest is not inactive. Its membrane maintains a voltage difference, commonly near <strong>−70 millivolts</strong>, meaning the inside is negative relative to the outside. The exact value varies among neurons. Voltage exists because ions are distributed unequally and the membrane is selectively permeable.</p>
+    <p>Sodium ions (Na⁺) are more concentrated outside the axon, while potassium ions (K⁺) are more concentrated inside. At rest, the membrane has many potassium leak channels, so K⁺ tends to diffuse out. Large negatively charged molecules remain inside. These movements and trapped charges help make the interior negative.</p>
+    <div class="bio-figure" data-figure-slot="resting-membrane">
+      {{figure:resting-membrane}}
+      <div class="bio-figure-copy">
+        <h3>Read the model</h3>
+        <p>The sodium-potassium pump uses ATP to move three Na⁺ out and two K⁺ in. This maintains the concentration gradients over time. It does <em>not</em> single-handedly create the rapid voltage change of each action potential; ion channels produce those fast phases.</p>
+      </div>
+    </div>
+    <div class="bio-table-wrap" role="region" aria-label="Resting membrane model as text" tabindex="0">
+      <table>
+        <caption>Static equivalent: ion conditions at rest</caption>
+        <thead><tr><th scope="col">Feature</th><th scope="col">Outside the axon</th><th scope="col">Inside the axon</th><th scope="col">Why it matters</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Sodium, Na⁺</th><td>Higher concentration</td><td>Lower concentration</td><td>When sodium channels open, the electrochemical gradient drives Na⁺ inward.</td></tr>
+          <tr><th scope="row">Potassium, K⁺</th><td>Lower concentration</td><td>Higher concentration</td><td>K⁺ leak and later voltage-gated K⁺ movement contribute to negative voltage and repolarization.</td></tr>
+          <tr><th scope="row">Net voltage</th><td>Positive relative to inside</td><td>About −70 mV relative to outside</td><td>The separation stores electrical potential energy.</td></tr>
+          <tr><th scope="row">Na⁺/K⁺ pump</th><td colspan="2">3 Na⁺ out for every 2 K⁺ in, using ATP</td><td>Maintains the gradients required for repeated signalling.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-threshold">
+    <h2 id="lesson-04-threshold">2. Threshold starts a regenerative event</h2>
+    <p>A stimulus first produces a local change in voltage. If that change does not reach threshold, the membrane returns toward rest without producing a full action potential. If threshold is reached, often modelled near −55 mV, enough voltage-gated sodium channels open to begin a rapid positive-feedback cycle.</p>
+    <p>Na⁺ enters through open channels, making the inside less negative. That depolarization opens more voltage-gated sodium channels, which allows more Na⁺ to enter. The rising phase therefore regenerates itself until sodium channels inactivate near the peak. A larger threshold-crossing stimulus does not create a proportionally taller action potential: the event is <strong>all-or-none</strong>.</p>
+    <aside class="bio-concept-note">
+      <h3>Why the signal does not fade</h3>
+      <p>Current from one depolarized region brings the next region to threshold. New voltage-gated channels open there, producing a new full-sized action potential. The signal is repeatedly regenerated along the axon rather than passively leaking to the end.</p>
+    </aside>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-recovery">
+    <h2 id="lesson-04-recovery">3. Repolarization resets voltage, then channels recover</h2>
+    <p>Near the peak, voltage-gated sodium channels become inactivated and delayed voltage-gated potassium channels are open. K⁺ moves out of the axon, taking positive charge with it. The membrane potential moves back toward a negative value: this is <strong>repolarization</strong>.</p>
+    <p>Potassium channels close slowly, so the voltage often becomes more negative than resting potential for a short time. This is <strong>hyperpolarization</strong>. As channel states return to their resting condition, the membrane returns toward its usual resting voltage.</p>
+    <p>During the <strong>absolute refractory period</strong>, inactivated sodium channels cannot reopen, so another action potential cannot begin in that region. During the following <strong>relative refractory period</strong>, some channels have recovered but the membrane is hyperpolarized, so a stronger-than-usual stimulus may be needed. Refractory behaviour limits firing rate and helps propagation continue forward.</p>
+  </section>
+
+  <section class="bio-section bio-model" aria-labelledby="lesson-04-model-title" data-bio-interaction="interaction-action-potential-explorer">
+    <div class="bio-model-header">
+      <div><p class="bio-section-label">Model Lab</p><h2 id="lesson-04-model-title">Explore the voltage phases</h2></div>
+      <p>Choose each stage. Track voltage, channel state, and net ion movement together.</p>
+    </div>
+    <div class="bio-model-layout">
+      <div>
+        <div class="bio-stage-controls" role="group" aria-label="Action potential stage">
+          <button type="button" data-ap-stage-button="rest" aria-pressed="true">Rest</button>
+          <button type="button" data-ap-stage-button="threshold" aria-pressed="false">Threshold</button>
+          <button type="button" data-ap-stage-button="depolarization" aria-pressed="false">Rising phase</button>
+          <button type="button" data-ap-stage-button="repolarization" aria-pressed="false">Falling phase</button>
+          <button type="button" data-ap-stage-button="hyperpolarization" aria-pressed="false">Undershoot</button>
+          <button type="button" data-ap-stage-button="recovery" aria-pressed="false">Recovery</button>
+        </div>
+        <div class="bio-figure bio-figure--graph">{{figure:action-potential-graph}}</div>
+      </div>
+      <aside class="bio-model-readout" aria-live="polite" aria-atomic="true">
+        <p class="bio-model-stage" data-ap-stage-name>Rest</p>
+        <dl>
+          <div><dt>Approximate voltage</dt><dd data-ap-voltage>−70 mV</dd></div>
+          <div><dt>Dominant channel state</dt><dd data-ap-channels>Voltage-gated Na⁺ and K⁺ channels are closed; leak channels remain active.</dd></div>
+          <div><dt>Net explanation</dt><dd data-ap-explanation>Selective permeability and maintained ion gradients keep the inside negative relative to the outside.</dd></div>
+        </dl>
+        <p class="bio-model-progress" data-ap-progress>1 of 6 stages inspected</p>
+      </aside>
+    </div>
+    <details class="bio-static-fallback">
+      <summary>Use the complete static model</summary>
+      <ol>
+        <li><strong>Rest:</strong> near −70 mV; voltage-gated channels are closed and resting gradients are maintained.</li>
+        <li><strong>Threshold:</strong> sufficient depolarization opens enough voltage-gated Na⁺ channels to trigger the event.</li>
+        <li><strong>Rising phase:</strong> Na⁺ entry rapidly depolarizes the membrane toward a positive peak.</li>
+        <li><strong>Falling phase:</strong> Na⁺ channels inactivate, K⁺ channels are open, and K⁺ leaves.</li>
+        <li><strong>Undershoot:</strong> delayed K⁺-channel closing briefly makes the membrane more negative than rest.</li>
+        <li><strong>Recovery:</strong> channel states reset and the membrane returns toward resting potential.</li>
+      </ol>
+    </details>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-04-intensity">
+    <h2 id="lesson-04-intensity">4. Intensity changes the pattern, not the height</h2>
+    <p>Once threshold is crossed, individual action potentials have a similar amplitude. A stronger stimulus is commonly represented by a higher <strong>frequency</strong> of action potentials. In many sensory pathways, stronger stimulation can also recruit additional neurons. The nervous system reads the timing and population pattern, not a series of spikes that simply become taller.</p>
+    <p>This distinction matters when interpreting graphs. One action-potential trace explains the voltage mechanism of one event. A train of traces over a longer time interval can carry information about stimulus intensity through the spacing between events.</p>
+  </section>
+
+  <section class="bio-section bio-practice" aria-labelledby="lesson-04-practice">
+    <p class="bio-section-label">Guided practice</p>
+    <h2 id="lesson-04-practice">Check the mechanism</h2>
+    <p>Submit each answer for explanatory feedback. Your choices and feedback state are saved.</p>
+    <div class="bio-practice-list" data-practice-set="lesson-04">
+      <article class="bio-practice-item" data-practice-id="lesson-04-check-1">
+        <h3>1. Beginning the rising phase</h3>
+        <fieldset><legend>Which event most directly begins the rapid rising phase after threshold is reached?</legend>
+          <label><input type="radio" name="lesson-04-check-1" value="a"> Voltage-gated sodium channels open and sodium ions enter.</label>
+          <label><input type="radio" name="lesson-04-check-1" value="b"> The sodium-potassium pump immediately moves all sodium ions out.</label>
+          <label><input type="radio" name="lesson-04-check-1" value="c"> Voltage-gated potassium channels close and potassium ions enter.</label>
+          <label><input type="radio" name="lesson-04-check-1" value="d"> The membrane becomes impermeable to every ion.</label>
+        </fieldset>
+        <button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div>
+      </article>
+      <article class="bio-practice-item" data-practice-id="lesson-04-check-2">
+        <h3>2. Reading threshold</h3>
+        <fieldset><legend>A stimulus depolarizes a neuron from −70 mV to −58 mV, below a −55 mV threshold. What should the graph show next?</legend>
+          <label><input type="radio" name="lesson-04-check-2" value="a"> A full action potential with a smaller peak.</label>
+          <label><input type="radio" name="lesson-04-check-2" value="b"> A return toward resting potential without a full action potential.</label>
+          <label><input type="radio" name="lesson-04-check-2" value="c"> Immediate hyperpolarization to −90 mV.</label>
+          <label><input type="radio" name="lesson-04-check-2" value="d"> A permanent change to the threshold.</label>
+        </fieldset>
+        <button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div>
+      </article>
+      <article class="bio-practice-item" data-practice-id="lesson-04-check-3">
+        <h3>3. Encoding intensity</h3>
+        <fieldset><legend>A sensory neuron receives a stronger stimulus after it is already firing. Which change best represents greater stimulus intensity?</legend>
+          <label><input type="radio" name="lesson-04-check-3" value="a"> Each action potential becomes twice as tall.</label>
+          <label><input type="radio" name="lesson-04-check-3" value="b"> Action potentials occur more frequently, and additional neurons may be recruited.</label>
+          <label><input type="radio" name="lesson-04-check-3" value="c"> The resting potential becomes permanently positive.</label>
+          <label><input type="radio" name="lesson-04-check-3" value="d"> The refractory period disappears.</label>
+        </fieldset>
+        <button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="bio-section bio-artifact" aria-labelledby="lesson-04-artifact" data-artifact-id="action-potential-evidence" data-evidence-notebook-panel data-evidence-preserve-draft data-evidence-capture="action-potential-evidence" data-evidence-contribution-id="biology30-unit-a:artifact:action-potential-evidence">
+    <div class="bio-artifact-heading"><div><p class="bio-section-label">Portfolio artifact 2</p><h2 id="lesson-04-artifact">Action-potential evidence interpretation</h2></div><span>Draft checkpoint</span></div>
+    <p>Use the graph and ion-channel model to explain why an action potential is all-or-none but stimulus intensity can still vary.</p>
+    <div class="bio-artifact-fields">
+      <label>Claim <span>What is the central scientific claim?</span><textarea rows="3" maxlength="550" data-bio-response-id="biology30-unit-a:artifact:action-potential-evidence:claim" data-response-id="biology30-unit-a:artifact:action-potential-evidence:claim" data-evidence-draft="detail" data-evidence-draft-label="Claim"></textarea></label>
+      <label>Graph evidence <span>Use at least two voltage regions or trends.</span><textarea rows="4" maxlength="700" data-bio-response-id="biology30-unit-a:artifact:action-potential-evidence:evidence" data-response-id="biology30-unit-a:artifact:action-potential-evidence:evidence" data-evidence-draft="detail" data-evidence-draft-label="Graph evidence"></textarea></label>
+      <label>Ion-channel reasoning <span>Connect the evidence to sodium and potassium channel states.</span><textarea rows="4" maxlength="750" data-bio-response-id="biology30-unit-a:artifact:action-potential-evidence:reasoning" data-response-id="biology30-unit-a:artifact:action-potential-evidence:reasoning" data-evidence-draft="connection" data-evidence-draft-label="Ion-channel reasoning"></textarea></label>
+    </div>
+    <details class="bio-rubric"><summary>Review the four-level rubric</summary>
+      <div class="bio-table-wrap" role="region" aria-label="Artifact rubric" tabindex="0"><table><caption>Scientific evidence rubric</caption><thead><tr><th scope="col">Dimension</th><th scope="col">Beginning</th><th scope="col">Developing</th><th scope="col">Proficient</th><th scope="col">Excellent</th></tr></thead><tbody>
+        <tr><th scope="row">Scientific accuracy</th><td>Major mechanism errors</td><td>Partly accurate sequence</td><td>Accurate channel and voltage sequence</td><td>Accurate with precise phase distinctions</td></tr>
+        <tr><th scope="row">Evidence</th><td>Little graph evidence</td><td>One relevant feature</td><td>Two relevant features used</td><td>Features compared and interpreted</td></tr>
+        <tr><th scope="row">Reasoning</th><td>Claim and evidence disconnected</td><td>Partial link</td><td>Clear causal link</td><td>Explains all-or-none and intensity together</td></tr>
+        <tr><th scope="row">Communication</th><td>Meaning unclear</td><td>Some scientific terms</td><td>Clear and organized</td><td>Concise, precise, and fully integrated</td></tr>
+      </tbody></table></div>
+    </details>
+    <div class="bio-artifact-actions"><button type="button" class="bio-primary-button" data-save-artifact="action-potential-evidence" data-save-evidence-note>Save artifact draft</button><button type="button" data-print-artifact="action-potential-evidence">Print / Save as PDF</button><button type="button" data-copy-artifact="action-potential-evidence">Copy summary</button><span data-artifact-status="action-potential-evidence" data-save-status aria-live="polite">Draft not saved</span></div>
+  </section>
+
+  <section class="bio-section bio-exit" aria-labelledby="lesson-04-exit">
+    <p class="bio-section-label">Exit check</p>
+    <h2 id="lesson-04-exit">Explain the non-fading signal</h2>
+    <label for="lesson-04-exit-response">In 2–3 sentences, explain why an action potential does not become weaker as it travels along an axon.</label>
+    <textarea id="lesson-04-exit-response" rows="4" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:04:exit" placeholder="The signal is regenerated because…"></textarea>
+    <div class="bio-exit-actions"><button type="button" class="bio-primary-button" data-complete-bio-lesson="lesson-04">Save exit and complete lesson</button><span data-lesson-status="lesson-04" aria-live="polite">Exit response required</span></div>
+  </section>
+
+  <details class="bio-sources">
+    <summary>Lesson sources and scientific basis</summary>
+    <p>Curriculum alignment: Alberta Biology 20–30 Program of Studies, outcome A1.1k and skill A1.3s. Source content was rebuilt from the supplied Unit A notes, pages 21–30; the 2026–27 class Day 2 module; and CBE System Biology 30 Module 1, Lesson 7. Mechanism details were cross-checked against OpenStax <cite>Anatomy and Physiology 2e</cite>, section 12.4. Figures are original course redraws.</p>
+  </details>
+</div>

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "reviewDate": "2026-09-05",
+  "workspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+  "workspaceTreeSha256": "e9f39a3171ec6365fdd90863a268b0383e065d95efd64b1915d410a57f02c59a",
+  "branch": "codex/studio-direct-editing-v1",
+  "commit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+  "scope": "Review scripts, reports, tests and operating records only; no learner build or runtime changes.",
+  "academicStatus": "review-findings-recorded-not-academically-cleared",
+  "teacherDecision": null,
+  "transferReady": false,
+  "checks": [
+    { "command": "npx tsx --test scripts/tests/biology30-unit-a-academic-review.test.ts", "status": "passed", "passed": 7, "failed": 0 },
+    { "command": "npx tsx scripts/review-biology30-unit-a-pilot-2-academic.ts --check", "status": "passed", "scope": "Exact learner, reviewed-input and source-PDF hashes; authored item, media and gap judgments. Not academic approval." },
+    { "command": "npm run test:biology30-unit-a-pilot-2", "status": "passed", "passed": 14, "failed": 0 },
+    { "command": "npm run test:biology30-improvement-transfer", "status": "passed", "passed": 4, "failed": 0 },
+    { "command": "npm run audit:biology30-improvement-transfer", "status": "passed", "ruleCount": 52, "readyUnits": 0 },
+    { "command": "npm run audit:biology30-improvement-transfer -- --check", "status": "passed" },
+    { "command": "npm run test:science-comparison", "status": "passed", "passed": 6, "failed": 0 },
+    { "command": "npm run validate:manifests", "status": "passed" },
+    { "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2", "status": "intentional-not-active-only", "exitCode": 1 },
+    { "command": "npm run test:biology30-unit-a-improvement-pilot", "status": "passed-on-rerun", "passed": 12, "failed": 0 },
+    { "command": "Read-only local Markdown link scan", "status": "passed", "resolvedFileLinks": 132, "brokenFileLinks": 0, "scope": "Current playbook, Pilot 2 journal, prompt pack and generated review; external URLs and every anchor are not certified by a filesystem scan." },
+    { "command": "Scoped git diff --check", "status": "passed" },
+    { "command": "hashTree Pilot 2 workspace and SHA-256 learner HTML", "status": "passed", "unchangedFiles": 22, "unchangedBytes": 29628699 }
+  ],
+  "retainedFailures": [
+    { "check": "Report generation", "finding": "Initial chapter assertion caught twelve Final Practice links assigned to Chapter 13 with negative physical pages.", "resolution": "The review records the defects; the learner links were not changed or approved." },
+    { "check": "Report generation", "finding": "Missing authored page judgment for tropic:449.", "resolution": "Added a specific partial-support judgment; report generation and freshness checks passed." },
+    { "check": "Caption acquisition", "finding": "All fourteen direct timed-text requests returned HTTP 200 with zero bytes.", "resolution": "Recorded as no transcript text, not success or video unavailability. One publisher transcript reviewed separately; thirteen pending." },
+    { "check": "Pilot 1 regression first run", "finding": "11 passed, one failed because the playbook linked this verification record before it had been written.", "resolution": "Created this record. Full rerun passed 12/12 without changing the learner course or weakening the test." }
+  ],
+  "unchangedCourse": {
+    "learnerChanged": false,
+    "stateSchema": 6,
+    "ordinaryTextWorstCaseCharacters": 42284,
+    "headroomBelow44000": 1716,
+    "requiredRoutes": 18,
+    "practiceItems": 86,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "advancedBlocks": 40,
+    "mediaCheckpoints": 14,
+    "vocabularyFamilies": 28,
+    "collectionParentRecords": 178
+  },
+  "priorVisualEvidence": {
+    "record": "projects/biology30-unit-a-pilot-2/meta/final-academic-verification.json",
+    "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T21-41-12-016Z/report.json",
+    "reportSha256": "35239dce56c040c29a9a344df7c44bfa1e77050773d0cd32ddde87e293b4ab7c",
+    "repeatedThisPass": false,
+    "reason": "No learner HTML, CSS, behaviour or figure changed. Previous 38-sheet inspection and browser runs remain evidence for the same learner SHA, not newly performed checks."
+  },
+  "protected": {
+    "verification": "Pilot 2 static protected-tree test compared Pilot 1 and production A-D against the recorded baseline; passed.",
+    "pilot1LearnerSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "pilot1OperationalExceptions": ["meta/unit-a-to-bcd-improvement-playbook.md", "meta/biology30-improvement-transfer-contract.json", "meta/bcd-material-readiness.json"],
+    "productionUnitsADChanged": false,
+    "learnerChanged": false,
+    "deploymentChangedByThisTask": false,
+    "dirtyTree": "Existing user changes preserved; no broad staging, cleanup, reset, commit or push."
+  },
+  "limits": [
+    "Thirteen transcript reviews and actual caption accuracy/segment pace remain unfinished.",
+    "No actual student time-on-task or comprehension observation was performed.",
+    "Teacher practical-delivery choice remains pending.",
+    "No live Brightspace certification, deployment, export, commit or push.",
+    "The state estimate uses ordinary repeated text; it is not a universal escaped/Unicode worst-case proof.",
+    "Passing review-data tests preserve recorded findings; they do not mean the known learner defects were repaired."
+  ]
+}

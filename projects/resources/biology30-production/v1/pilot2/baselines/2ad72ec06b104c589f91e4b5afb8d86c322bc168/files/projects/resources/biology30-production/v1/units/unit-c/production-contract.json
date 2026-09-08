@@ -1,0 +1,5202 @@
+{
+  "schemaVersion": 1,
+  "profileId": "biology30-production-95-v1",
+  "family": "biology30-production",
+  "unitCode": "C",
+  "project": {
+    "slug": "biology30-unit-c",
+    "title": "Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology",
+    "courseCode": "BIO 30",
+    "version": "production-candidate-v1"
+  },
+  "status": {
+    "authoringStatus": "blocked",
+    "driverId": "proposal-only-v1",
+    "reviewGate": "gate-0-ready",
+    "studioEditingEnabled": false,
+    "exportEnabled": false
+  },
+  "curriculum": {
+    "courseTimePercent": 40,
+    "programOfStudiesUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+    "programOfStudiesSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+    "programPages": [
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73
+    ],
+    "biologyBulletinSchoolYear": "2025-26",
+    "biologyBulletin2026_27Found": false,
+    "authorityCheckedAt": "2026-08-31T00:02:59.328Z"
+  },
+  "delivery": {
+    "mode": "independent-first-asynchronous",
+    "requiredMinutes": 2400,
+    "optionalMinutes": 480,
+    "requiredInternet": false,
+    "requiredTeacherPresence": false,
+    "requiredPeerAvailability": false
+  },
+  "quality": {
+    "minimumHumanScore": 95,
+    "minimumCategoryPercent": 80,
+    "automaticPromotion": false,
+    "binaryBlockers": [
+      "mandatory outcome unmapped",
+      "factual error",
+      "teacher-only test or key exposure",
+      "inaccessible required activity",
+      "required internet dependency",
+      "unresolved local asset",
+      "learner-state loss",
+      "missing investigation fallback",
+      "slide controls or placeholders",
+      "unresolved rights status",
+      "LMS restore failure"
+    ]
+  },
+  "assessment": {
+    "boundary": "formative-practice-and-submission-ready-artifacts",
+    "secureSummativeLocation": "brightspace",
+    "practiceBlueprint": {
+      "lessonChecks": 96,
+      "moduleChecks": 24,
+      "finalPractice": 40,
+      "total": 160
+    },
+    "sourceVisibleQuestionInventory": 79
+  },
+  "learnerRoutes": [
+    "overview",
+    "c-lesson-01",
+    "c-lesson-02",
+    "c-lesson-03",
+    "c-lesson-04",
+    "c-lesson-05",
+    "c-lesson-06",
+    "c-lesson-07",
+    "c-lesson-08",
+    "c-lesson-09",
+    "c-lesson-10",
+    "c-lesson-11",
+    "c-lesson-12",
+    "c-lesson-13",
+    "c-lesson-14",
+    "c-lesson-15",
+    "c-lesson-16",
+    "c-lesson-17",
+    "c-lesson-18",
+    "c-lesson-19",
+    "c-lesson-20",
+    "c-lesson-21",
+    "c-lesson-22",
+    "c-lesson-23",
+    "c-lesson-24",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "glossary-and-data",
+    "sources-and-credits"
+  ],
+  "modules": [
+    {
+      "id": "c-module-1",
+      "unitCode": "C",
+      "title": "Cell Division",
+      "lessonIds": [
+        "c-lesson-01",
+        "c-lesson-02",
+        "c-lesson-03",
+        "c-lesson-04",
+        "c-lesson-05",
+        "c-lesson-06",
+        "c-lesson-07"
+      ]
+    },
+    {
+      "id": "c-module-2",
+      "unitCode": "C",
+      "title": "Classical Genetics",
+      "lessonIds": [
+        "c-lesson-08",
+        "c-lesson-09",
+        "c-lesson-10",
+        "c-lesson-11",
+        "c-lesson-12",
+        "c-lesson-13",
+        "c-lesson-14",
+        "c-lesson-15"
+      ]
+    },
+    {
+      "id": "c-module-3",
+      "unitCode": "C",
+      "title": "Molecular Genetics",
+      "lessonIds": [
+        "c-lesson-16",
+        "c-lesson-17",
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-20",
+        "c-lesson-21",
+        "c-lesson-22"
+      ]
+    },
+    {
+      "id": "c-module-4",
+      "unitCode": "C",
+      "title": "Investigation and Integration",
+      "lessonIds": [
+        "c-lesson-23",
+        "c-lesson-24"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "C1.1k",
+      "officialText": "Define and explain the significance of chromosome number in somatic and sex cells; i.e., haploidy, diploidy and polyploidy.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-01",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-01#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.2k",
+      "officialText": "Explain, in general terms, the events of the cell cycle; i.e., interphase, mitosis and cytokinesis.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-01",
+        "c-lesson-02",
+        "c-lesson-03",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-01#practice",
+        "c-lesson-02#practice",
+        "c-lesson-03#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.3k",
+      "officialText": "Describe the process of meiosis (spermatogenesis and oogenesis) and the necessity for the reduction of chromosome number.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-04",
+        "c-lesson-05",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-04#practice",
+        "c-lesson-05#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.4k",
+      "officialText": "Compare the processes of mitosis and meiosis.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-04",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-04#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.5k",
+      "officialText": "Describe the processes of crossing over and nondisjunction and evaluate their significance to organism inheritance and development.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-06",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-06#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.6k",
+      "officialText": "Compare the formation of fraternal and identical offspring in a single birthing event.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-06",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-06#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.7k",
+      "officialText": "Describe the diversity of reproductive strategies by comparing the alternation of generations in a range of organisms; e.g., Daphnia, sea anemone, moss, pine.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-07",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-07#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-reproductive-strategy-comparison",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C1.1sts",
+      "officialText": "Explain that science and technology are developed to meet societal needs and expand human capability (SEC1).",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-03"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis"
+      ]
+    },
+    {
+      "id": "C1.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 67,
+      "teachRoutes": [
+        "c-lesson-03",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C1.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 67,
+      "teachRoutes": [
+        "c-lesson-02",
+        "c-lesson-03",
+        "c-lesson-07",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-02#practice",
+        "c-lesson-03#practice",
+        "c-lesson-07#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-reproductive-strategy-comparison",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C1.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 67,
+      "teachRoutes": [
+        "c-lesson-03",
+        "c-lesson-06",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice",
+        "c-lesson-06#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C1.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 68,
+      "teachRoutes": [
+        "c-lesson-03",
+        "c-lesson-07",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice",
+        "c-lesson-07#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-reproductive-strategy-comparison",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C2.1k",
+      "officialText": "Describe the evidence for dominance, segregation and the independent assortment of genes on different chromosomes, as investigated by Mendel.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-08",
+        "c-lesson-09",
+        "c-lesson-12",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-08#practice",
+        "c-lesson-09#practice",
+        "c-lesson-12#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C2.2k",
+      "officialText": "Compare ratios and probabilities of genotypes and phenotypes for dominant and recessive, multiple, incompletely dominant, and codominant alleles.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-09",
+        "c-lesson-10",
+        "c-lesson-11",
+        "c-lesson-12",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-09#practice",
+        "c-lesson-10#practice",
+        "c-lesson-11#practice",
+        "c-lesson-12#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C2.3k",
+      "officialText": "Explain the influence of gene linkage and crossing over on variability.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-14",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-14#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-chromosome-map",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C2.4k",
+      "officialText": "Explain the relationship between variability and the number of genes controlling a trait; e.g., one pair of genes, as for Rh factor, versus two or more pairs of genes, as for skin colour and height.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-11",
+        "c-lesson-15",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-11#practice",
+        "c-lesson-15#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C2.5k",
+      "officialText": "Compare the pattern of inheritance produced by genes on the sex chromosomes to that produced by genes on autosomes, as investigated by Morgan and others.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-13",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-13#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-pedigree-evidence",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C2.1sts",
+      "officialText": "Explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-15"
+      ],
+      "practiceRoutes": [
+        "c-lesson-15#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-genetic-decision-brief"
+      ]
+    },
+    {
+      "id": "C2.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-10",
+        "c-lesson-15",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-10#practice",
+        "c-lesson-15#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C2.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-10",
+        "c-lesson-15",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-10#practice",
+        "c-lesson-15#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C2.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-10",
+        "c-lesson-13",
+        "c-lesson-14",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-10#practice",
+        "c-lesson-13#practice",
+        "c-lesson-14#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-pedigree-evidence",
+        "investigation-notebook#c-chromosome-map",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C2.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-15",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-15#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C3.1k",
+      "officialText": "Summarize the historical events that led to the discovery of the structure of the DNA molecule, including the work of Franklin and Watson and Crick.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-16",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-16#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-dna-model",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.2k",
+      "officialText": "Describe, in general, how genetic information is contained in the sequence of bases in DNA molecules in chromosomes and how the DNA molecules replicate themselves.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-16",
+        "c-lesson-17",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-16#practice",
+        "c-lesson-17#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-dna-model",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.3k",
+      "officialText": "Describe, in general, how genetic information is transcribed into sequences of bases in RNA molecules and is finally translated into sequences of amino acids in proteins.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-18#practice",
+        "c-lesson-19#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.4k",
+      "officialText": "Explain, in general, how restriction enzymes cut DNA molecules into smaller fragments and how ligases reassemble them.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-21",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-21#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.5k",
+      "officialText": "Explain, in general, how cells may be transformed by inserting new DNA sequences into their genomes.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-21",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-21#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.6k",
+      "officialText": "Explain how a random change (mutation) in the sequence of bases results in abnormalities or provides a source of genetic variability.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-20",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-20#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.7k",
+      "officialText": "Explain how base sequences in nucleic acids contained in the nucleus, mitochondrion and chloroplast give evidence for the relationships among organisms of different species.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-22",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-22#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-integrated-case"
+      ]
+    },
+    {
+      "id": "C3.1sts",
+      "officialText": "Explain that science and technology have both intended and unintended consequences for humans and the environment (SEC3) [ICT F3–4.1].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-21"
+      ],
+      "practiceRoutes": [
+        "c-lesson-21#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief"
+      ]
+    },
+    {
+      "id": "C3.2sts",
+      "officialText": "Explain that scientific research and technological development help achieve a sustainable society, economy and environment (SEC4a) [ICT F2–4.2, F2–4.8].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-22"
+      ],
+      "practiceRoutes": [
+        "c-lesson-22#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief"
+      ]
+    },
+    {
+      "id": "C3.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-20",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-20#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C3.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-17",
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-21",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-17#practice",
+        "c-lesson-18#practice",
+        "c-lesson-19#practice",
+        "c-lesson-21#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-dna-model",
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C3.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-20",
+        "c-lesson-22",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-20#practice",
+        "c-lesson-22#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    },
+    {
+      "id": "C3.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-22",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-22#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ]
+    }
+  ],
+  "sourceRefs": [
+    {
+      "id": "c-lesson-01:class:1498159",
+      "sourceId": "class-2026-27",
+      "itemId": "1498159",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 39: Chromosomes and DNA",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-01:class:1498160",
+      "sourceId": "class-2026-27",
+      "itemId": "1498160",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 40: The Cell Cycle",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-01:system:2456",
+      "sourceId": "system-2020",
+      "itemId": "2456",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-01:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-02:class:1498161",
+      "sourceId": "class-2026-27",
+      "itemId": "1498161",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 41: Mitosis",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-02:system:2467",
+      "sourceId": "system-2020",
+      "itemId": "2467",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-02:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-03:class:1498160",
+      "sourceId": "class-2026-27",
+      "itemId": "1498160",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 40: The Cell Cycle",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-03:system:2462",
+      "sourceId": "system-2020",
+      "itemId": "2462",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 2",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-03:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-03:notes:2",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-04:class:1498162",
+      "sourceId": "class-2026-27",
+      "itemId": "1498162",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 42: Meiosis Part A",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-04:class:1498166",
+      "sourceId": "class-2026-27",
+      "itemId": "1498166",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 43: Meiosis Part B",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-04:system:2472",
+      "sourceId": "system-2020",
+      "itemId": "2472",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 4",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-04:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-05:class:1498162",
+      "sourceId": "class-2026-27",
+      "itemId": "1498162",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 42: Meiosis Part A",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-05:class:1498166",
+      "sourceId": "class-2026-27",
+      "itemId": "1498166",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 43: Meiosis Part B",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-05:system:2478",
+      "sourceId": "system-2020",
+      "itemId": "2478",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 5",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-05:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-06:class:1498166",
+      "sourceId": "class-2026-27",
+      "itemId": "1498166",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 43: Meiosis Part B",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-06:system:2478",
+      "sourceId": "system-2020",
+      "itemId": "2478",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 5",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-06:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-07:class:1498167",
+      "sourceId": "class-2026-27",
+      "itemId": "1498167",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 39-46: Chapter 16 > Day 44: Reproductive Strategies",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-07:system:2484",
+      "sourceId": "system-2020",
+      "itemId": "2484",
+      "sourcePath": "Unit C > Module 5 > Unit C - M5: Lesson 6",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-07:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-08:class:1498174",
+      "sourceId": "class-2026-27",
+      "itemId": "1498174",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 47: Genes, Alleles and Traits",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-08:class:1498178",
+      "sourceId": "class-2026-27",
+      "itemId": "1498178",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 48: Mendelian Genetics",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-08:system:2496",
+      "sourceId": "system-2020",
+      "itemId": "2496",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-08:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-09:class:1498179",
+      "sourceId": "class-2026-27",
+      "itemId": "1498179",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 49: Single and Two Trait Crosses",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-09:system:2502",
+      "sourceId": "system-2020",
+      "itemId": "2502",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 2",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-09:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-10:class:1498179",
+      "sourceId": "class-2026-27",
+      "itemId": "1498179",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 49: Single and Two Trait Crosses",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-10:system:2520",
+      "sourceId": "system-2020",
+      "itemId": "2520",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 5",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-10:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-10:notes:2",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        70,
+        71
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-11:class:1498180",
+      "sourceId": "class-2026-27",
+      "itemId": "1498180",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Days 50-51: Other Modes of Inheritance",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-11:system:2508",
+      "sourceId": "system-2020",
+      "itemId": "2508",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-11:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-12:class:1498179",
+      "sourceId": "class-2026-27",
+      "itemId": "1498179",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 49: Single and Two Trait Crosses",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-12:system:2514",
+      "sourceId": "system-2020",
+      "itemId": "2514",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 4",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-12:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-13:class:1498180",
+      "sourceId": "class-2026-27",
+      "itemId": "1498180",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Days 50-51: Other Modes of Inheritance",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-13:class:1498181",
+      "sourceId": "class-2026-27",
+      "itemId": "1498181",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 52: Pedigrees",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-13:system:2526",
+      "sourceId": "system-2020",
+      "itemId": "2526",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 6",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-13:system:2546",
+      "sourceId": "system-2020",
+      "itemId": "2546",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 10",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-13:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-13:notes:2",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-14:class:1498182",
+      "sourceId": "class-2026-27",
+      "itemId": "1498182",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 53: Chromosome Mapping",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-14:system:2541",
+      "sourceId": "system-2020",
+      "itemId": "2541",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 9",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-14:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-15:class:1498180",
+      "sourceId": "class-2026-27",
+      "itemId": "1498180",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Days 50-51: Other Modes of Inheritance",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-15:class:1498181",
+      "sourceId": "class-2026-27",
+      "itemId": "1498181",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 47-55: Chapter 17 > Day 52: Pedigrees",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-15:system:2531",
+      "sourceId": "system-2020",
+      "itemId": "2531",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 7",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-15:system:2536",
+      "sourceId": "system-2020",
+      "itemId": "2536",
+      "sourcePath": "Unit C > Module 6 > Unit C - M6: Lesson 8",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-15:notes:1",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-15:notes:2",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        92,
+        93
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-16:class:1498184",
+      "sourceId": "class-2026-27",
+      "itemId": "1498184",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 56: DNA and its History",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-16:system:2557",
+      "sourceId": "system-2020",
+      "itemId": "2557",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 1",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-16:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-17:class:1498185",
+      "sourceId": "class-2026-27",
+      "itemId": "1498185",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 57: DNA Replication",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-17:system:2561",
+      "sourceId": "system-2020",
+      "itemId": "2561",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 2",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-17:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-18:class:1498186",
+      "sourceId": "class-2026-27",
+      "itemId": "1498186",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 58: Transcription",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-18:system:2565",
+      "sourceId": "system-2020",
+      "itemId": "2565",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-18:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-19:class:1498187",
+      "sourceId": "class-2026-27",
+      "itemId": "1498187",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 59: Translation",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-19:system:2565",
+      "sourceId": "system-2020",
+      "itemId": "2565",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 3",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-19:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-20:class:1498188",
+      "sourceId": "class-2026-27",
+      "itemId": "1498188",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 60: Mutations",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-20:system:2570",
+      "sourceId": "system-2020",
+      "itemId": "2570",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 4",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-20:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-21:class:1498189",
+      "sourceId": "class-2026-27",
+      "itemId": "1498189",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 61: Genetic Technologies",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-21:system:2575",
+      "sourceId": "system-2020",
+      "itemId": "2575",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 5",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-21:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-22:class:1498189",
+      "sourceId": "class-2026-27",
+      "itemId": "1498189",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 56-63: Chapter 18 > Day 61: Genetic Technologies",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-22:system:2580",
+      "sourceId": "system-2020",
+      "itemId": "2580",
+      "sourcePath": "Unit C > Module 7 > Unit C - M7: Lesson 6",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-22:notes:1",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        56,
+        57,
+        58,
+        59
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-23:class:1498194",
+      "sourceId": "class-2026-27",
+      "itemId": "1498194",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 64-68: Unit C Review and Exam > Unit C Genetics Review Seminar Notes",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-23:system:2450",
+      "sourceId": "system-2020",
+      "itemId": "2450",
+      "sourcePath": "Unit C > Unit C Organizer",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-23:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-23:notes:2",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-23:notes:3",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-24:class:1498194",
+      "sourceId": "class-2026-27",
+      "itemId": "1498194",
+      "sourcePath": "Unit C - Cell Division, Genetics and Molecular Biology > Days 64-68: Unit C Review and Exam > Unit C Genetics Review Seminar Notes",
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-24:system:2450",
+      "sourceId": "system-2020",
+      "itemId": "2450",
+      "sourcePath": "Unit C > Unit C Organizer",
+      "role": "reference",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "paraphrase"
+    },
+    {
+      "id": "c-lesson-24:notes:1",
+      "sourceId": "unit-c-cell-division-notes",
+      "sourcePath": "Unit C Part A Cell Division Notes.pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-24:notes:2",
+      "sourceId": "unit-c-mendelian-genetics-notes",
+      "sourcePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    },
+    {
+      "id": "c-lesson-24:notes:3",
+      "sourceId": "unit-c-molecular-genetics-notes",
+      "sourcePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "role": "core",
+      "rightsStatus": "authorized-local-course-source",
+      "usage": "adaptation"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "c-lesson-01",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 1,
+      "title": "Chromosomes, Ploidy, and the Cell Cycle",
+      "inquiry": "How does chromosome organization preserve information through cell division?",
+      "requiredMinutes": 90,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.1k",
+        "C1.2k"
+      ],
+      "classItemIds": [
+        "1498159",
+        "1498160"
+      ],
+      "systemItemIds": [
+        "2456"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-cell-cycle-analysis"
+      ],
+      "interactionKind": "chromosome-ploidy-model",
+      "sourceRefIds": [
+        "c-lesson-01:class:1498159",
+        "c-lesson-01:class:1498160",
+        "c-lesson-01:system:2456",
+        "c-lesson-01:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-02",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 2,
+      "title": "Mitosis and Cytokinesis",
+      "inquiry": "How does one nucleus become two genetically equivalent nuclei?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.2k",
+        "C1.2s"
+      ],
+      "classItemIds": [
+        "1498161"
+      ],
+      "systemItemIds": [
+        "2467"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-cell-cycle-analysis"
+      ],
+      "interactionKind": "mitosis-stage-model",
+      "sourceRefIds": [
+        "c-lesson-02:class:1498161",
+        "c-lesson-02:system:2467",
+        "c-lesson-02:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-03",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 3,
+      "title": "Cell-Cycle Investigation and Cancer",
+      "inquiry": "What can cell counts reveal about cycle timing and loss of regulation?",
+      "requiredMinutes": 105,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.2k",
+        "C1.1sts",
+        "C1.1s",
+        "C1.2s",
+        "C1.3s",
+        "C1.4s"
+      ],
+      "classItemIds": [
+        "1498160"
+      ],
+      "systemItemIds": [
+        "2462"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            33,
+            34,
+            35,
+            36,
+            37
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-cell-cycle-analysis"
+      ],
+      "interactionKind": "cell-cycle-data-lab",
+      "sourceRefIds": [
+        "c-lesson-03:class:1498160",
+        "c-lesson-03:system:2462",
+        "c-lesson-03:notes:1",
+        "c-lesson-03:notes:2"
+      ]
+    },
+    {
+      "id": "c-lesson-04",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 4,
+      "title": "Meiosis I and II",
+      "inquiry": "Why does sexual reproduction require two divisions after one DNA replication?",
+      "requiredMinutes": 110,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.3k",
+        "C1.4k"
+      ],
+      "classItemIds": [
+        "1498162",
+        "1498166"
+      ],
+      "systemItemIds": [
+        "2472"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-meiosis-karyotype"
+      ],
+      "interactionKind": "meiosis-chromosome-model",
+      "sourceRefIds": [
+        "c-lesson-04:class:1498162",
+        "c-lesson-04:class:1498166",
+        "c-lesson-04:system:2472",
+        "c-lesson-04:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-05",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 5,
+      "title": "Spermatogenesis, Oogenesis, and Chromosome Number",
+      "inquiry": "How do gamete-production pathways achieve the same chromosome goal differently?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.3k"
+      ],
+      "classItemIds": [
+        "1498162",
+        "1498166"
+      ],
+      "systemItemIds": [
+        "2478"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            52,
+            53,
+            54,
+            55,
+            56
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-meiosis-karyotype"
+      ],
+      "interactionKind": "gametogenesis-comparison",
+      "sourceRefIds": [
+        "c-lesson-05:class:1498162",
+        "c-lesson-05:class:1498166",
+        "c-lesson-05:system:2478",
+        "c-lesson-05:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-06",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 6,
+      "title": "Crossing Over, Nondisjunction, and Karyotypes",
+      "inquiry": "How can chromosome behaviour generate variation or alter development?",
+      "requiredMinutes": 105,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.5k",
+        "C1.6k",
+        "C1.3s"
+      ],
+      "classItemIds": [
+        "1498166"
+      ],
+      "systemItemIds": [
+        "2478"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-meiosis-karyotype"
+      ],
+      "interactionKind": "karyotype-evidence-lab",
+      "sourceRefIds": [
+        "c-lesson-06:class:1498166",
+        "c-lesson-06:system:2478",
+        "c-lesson-06:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-07",
+      "unitCode": "C",
+      "moduleId": "c-module-1",
+      "order": 7,
+      "title": "Reproductive Strategies and Cell-Division Integration",
+      "inquiry": "How do life cycles balance genetic continuity, variation, speed, and survival?",
+      "requiredMinutes": 100,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.7k",
+        "C1.2s",
+        "C1.4s"
+      ],
+      "classItemIds": [
+        "1498167"
+      ],
+      "systemItemIds": [
+        "2484"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-reproductive-strategy-comparison"
+      ],
+      "interactionKind": "life-cycle-comparison",
+      "sourceRefIds": [
+        "c-lesson-07:class:1498167",
+        "c-lesson-07:system:2484",
+        "c-lesson-07:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-08",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 8,
+      "title": "Mendel, Alleles, and Segregation",
+      "inquiry": "How did inheritance ratios reveal rules that could not be seen directly?",
+      "requiredMinutes": 90,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.1k"
+      ],
+      "classItemIds": [
+        "1498174",
+        "1498178"
+      ],
+      "systemItemIds": [
+        "2496"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-inheritance-investigation"
+      ],
+      "interactionKind": "segregation-model",
+      "sourceRefIds": [
+        "c-lesson-08:class:1498174",
+        "c-lesson-08:class:1498178",
+        "c-lesson-08:system:2496",
+        "c-lesson-08:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-09",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 9,
+      "title": "Monohybrid Crosses",
+      "inquiry": "How can genotype probability predict phenotype without guaranteeing an outcome?",
+      "requiredMinutes": 100,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.1k",
+        "C2.2k"
+      ],
+      "classItemIds": [
+        "1498179"
+      ],
+      "systemItemIds": [
+        "2502"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-inheritance-investigation"
+      ],
+      "interactionKind": "monohybrid-cross-lab",
+      "sourceRefIds": [
+        "c-lesson-09:class:1498179",
+        "c-lesson-09:system:2502",
+        "c-lesson-09:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-10",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 10,
+      "title": "Probability, Test Crosses, and Sampling Variation",
+      "inquiry": "Why do observed ratios approach predictions without matching them exactly?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.2k",
+        "C2.1s",
+        "C2.2s",
+        "C2.3s"
+      ],
+      "classItemIds": [
+        "1498179"
+      ],
+      "systemItemIds": [
+        "2520"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            70,
+            71
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-inheritance-investigation"
+      ],
+      "interactionKind": "probability-sampling-simulator",
+      "sourceRefIds": [
+        "c-lesson-10:class:1498179",
+        "c-lesson-10:system:2520",
+        "c-lesson-10:notes:1",
+        "c-lesson-10:notes:2"
+      ]
+    },
+    {
+      "id": "c-lesson-11",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 11,
+      "title": "Incomplete Dominance, Codominance, and Multiple Alleles",
+      "inquiry": "What changes when alleles do not follow a simple dominant-recessive pattern?",
+      "requiredMinutes": 100,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.2k",
+        "C2.4k"
+      ],
+      "classItemIds": [
+        "1498180"
+      ],
+      "systemItemIds": [
+        "2508"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-inheritance-investigation"
+      ],
+      "interactionKind": "inheritance-pattern-sort",
+      "sourceRefIds": [
+        "c-lesson-11:class:1498180",
+        "c-lesson-11:system:2508",
+        "c-lesson-11:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-12",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 12,
+      "title": "Dihybrid Crosses and Independent Assortment",
+      "inquiry": "How do two gene pairs combine to create a larger probability space?",
+      "requiredMinutes": 115,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.1k",
+        "C2.2k"
+      ],
+      "classItemIds": [
+        "1498179"
+      ],
+      "systemItemIds": [
+        "2514"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-inheritance-investigation"
+      ],
+      "interactionKind": "dihybrid-cross-lab",
+      "sourceRefIds": [
+        "c-lesson-12:class:1498179",
+        "c-lesson-12:system:2514",
+        "c-lesson-12:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-13",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 13,
+      "title": "Sex Linkage and Pedigree Evidence",
+      "inquiry": "How can family patterns distinguish autosomal and sex-linked inheritance?",
+      "requiredMinutes": 110,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.5k",
+        "C2.3s"
+      ],
+      "classItemIds": [
+        "1498180",
+        "1498181"
+      ],
+      "systemItemIds": [
+        "2526",
+        "2546"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66
+          ]
+        },
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-pedigree-evidence"
+      ],
+      "interactionKind": "pedigree-evidence-lab",
+      "sourceRefIds": [
+        "c-lesson-13:class:1498180",
+        "c-lesson-13:class:1498181",
+        "c-lesson-13:system:2526",
+        "c-lesson-13:system:2546",
+        "c-lesson-13:notes:1",
+        "c-lesson-13:notes:2"
+      ]
+    },
+    {
+      "id": "c-lesson-14",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 14,
+      "title": "Gene Linkage, Crossing Over, and Chromosome Maps",
+      "inquiry": "How can recombination frequency become a map of relative gene position?",
+      "requiredMinutes": 115,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.3k",
+        "C2.3s"
+      ],
+      "classItemIds": [
+        "1498182"
+      ],
+      "systemItemIds": [
+        "2541"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-chromosome-map"
+      ],
+      "interactionKind": "recombination-map-lab",
+      "sourceRefIds": [
+        "c-lesson-14:class:1498182",
+        "c-lesson-14:system:2541",
+        "c-lesson-14:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-15",
+      "unitCode": "C",
+      "moduleId": "c-module-2",
+      "order": 15,
+      "title": "Polygenic Traits, Environment, and Genetic Decisions",
+      "inquiry": "How should models and evidence be used when traits have many genetic and environmental influences?",
+      "requiredMinutes": 95,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C2.4k",
+        "C2.1sts",
+        "C2.1s",
+        "C2.2s",
+        "C2.4s"
+      ],
+      "classItemIds": [
+        "1498180",
+        "1498181"
+      ],
+      "systemItemIds": [
+        "2531",
+        "2536"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ]
+        },
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            92,
+            93
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-genetic-decision-brief"
+      ],
+      "interactionKind": "trait-evidence-model",
+      "sourceRefIds": [
+        "c-lesson-15:class:1498180",
+        "c-lesson-15:class:1498181",
+        "c-lesson-15:system:2531",
+        "c-lesson-15:system:2536",
+        "c-lesson-15:notes:1",
+        "c-lesson-15:notes:2"
+      ]
+    },
+    {
+      "id": "c-lesson-16",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 16,
+      "title": "DNA Evidence, History, and Structure",
+      "inquiry": "How did converging evidence support the double-helix model?",
+      "requiredMinutes": 85,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.1k",
+        "C3.2k"
+      ],
+      "classItemIds": [
+        "1498184"
+      ],
+      "systemItemIds": [
+        "2557"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-dna-model"
+      ],
+      "interactionKind": "dna-evidence-builder",
+      "sourceRefIds": [
+        "c-lesson-16:class:1498184",
+        "c-lesson-16:system:2557",
+        "c-lesson-16:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-17",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 17,
+      "title": "DNA Replication",
+      "inquiry": "How does molecular structure make accurate copying possible?",
+      "requiredMinutes": 100,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.2k",
+        "C3.2s"
+      ],
+      "classItemIds": [
+        "1498185"
+      ],
+      "systemItemIds": [
+        "2561"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-dna-model"
+      ],
+      "interactionKind": "replication-sequence-model",
+      "sourceRefIds": [
+        "c-lesson-17:class:1498185",
+        "c-lesson-17:system:2561",
+        "c-lesson-17:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-18",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 18,
+      "title": "Transcription",
+      "inquiry": "How is a DNA sequence converted into a portable RNA message?",
+      "requiredMinutes": 100,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.3k",
+        "C3.2s"
+      ],
+      "classItemIds": [
+        "1498186"
+      ],
+      "systemItemIds": [
+        "2565"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-protein-synthesis-evidence"
+      ],
+      "interactionKind": "transcription-model",
+      "sourceRefIds": [
+        "c-lesson-18:class:1498186",
+        "c-lesson-18:system:2565",
+        "c-lesson-18:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-19",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 19,
+      "title": "Translation and Gene Expression",
+      "inquiry": "How does a nucleotide message become an amino-acid sequence?",
+      "requiredMinutes": 110,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.3k",
+        "C3.2s"
+      ],
+      "classItemIds": [
+        "1498187"
+      ],
+      "systemItemIds": [
+        "2565"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-protein-synthesis-evidence"
+      ],
+      "interactionKind": "translation-codon-lab",
+      "sourceRefIds": [
+        "c-lesson-19:class:1498187",
+        "c-lesson-19:system:2565",
+        "c-lesson-19:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-20",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 20,
+      "title": "Mutations, Variation, and Cancer Evidence",
+      "inquiry": "When does a DNA change have no effect, alter a trait, or contribute to disease?",
+      "requiredMinutes": 105,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.6k",
+        "C3.1s",
+        "C3.3s"
+      ],
+      "classItemIds": [
+        "1498188"
+      ],
+      "systemItemIds": [
+        "2570"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-protein-synthesis-evidence"
+      ],
+      "interactionKind": "mutation-consequence-lab",
+      "sourceRefIds": [
+        "c-lesson-20:class:1498188",
+        "c-lesson-20:system:2570",
+        "c-lesson-20:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-21",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 21,
+      "title": "Restriction Enzymes, Ligase, and Transformation",
+      "inquiry": "How can molecular tools cut, join, and introduce DNA sequences?",
+      "requiredMinutes": 105,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.4k",
+        "C3.5k",
+        "C3.1sts",
+        "C3.2s"
+      ],
+      "classItemIds": [
+        "1498189"
+      ],
+      "systemItemIds": [
+        "2575"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            51,
+            52,
+            53,
+            54,
+            55
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-biotechnology-brief"
+      ],
+      "interactionKind": "recombinant-dna-model",
+      "sourceRefIds": [
+        "c-lesson-21:class:1498189",
+        "c-lesson-21:system:2575",
+        "c-lesson-21:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-22",
+      "unitCode": "C",
+      "moduleId": "c-module-3",
+      "order": 22,
+      "title": "DNA Evidence, Relationships, and Biotechnology",
+      "inquiry": "How can DNA patterns support identity, ancestry, diagnosis, and social decisions?",
+      "requiredMinutes": 105,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C3.7k",
+        "C3.2sts",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "classItemIds": [
+        "1498189"
+      ],
+      "systemItemIds": [
+        "2580"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            56,
+            57,
+            58,
+            59
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-biotechnology-brief"
+      ],
+      "interactionKind": "dna-evidence-board",
+      "sourceRefIds": [
+        "c-lesson-22:class:1498189",
+        "c-lesson-22:system:2580",
+        "c-lesson-22:notes:1"
+      ]
+    },
+    {
+      "id": "c-lesson-23",
+      "unitCode": "C",
+      "moduleId": "c-module-4",
+      "order": 23,
+      "title": "Genetics Investigation Portfolio",
+      "inquiry": "Can a complete investigation connect model choice, data, uncertainty, and communication?",
+      "requiredMinutes": 90,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.1s",
+        "C1.2s",
+        "C1.3s",
+        "C1.4s",
+        "C2.1s",
+        "C2.2s",
+        "C2.3s",
+        "C2.4s",
+        "C3.1s",
+        "C3.2s",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "classItemIds": [
+        "1498194"
+      ],
+      "systemItemIds": [
+        "2450"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ]
+        },
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114
+          ]
+        },
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-investigation-portfolio"
+      ],
+      "interactionKind": "genetics-investigation-board",
+      "sourceRefIds": [
+        "c-lesson-23:class:1498194",
+        "c-lesson-23:system:2450",
+        "c-lesson-23:notes:1",
+        "c-lesson-23:notes:2",
+        "c-lesson-23:notes:3"
+      ]
+    },
+    {
+      "id": "c-lesson-24",
+      "unitCode": "C",
+      "moduleId": "c-module-4",
+      "order": 24,
+      "title": "Integrated Genetics and Molecular Biology Case",
+      "inquiry": "Can chromosome, inheritance, and molecular evidence explain one unfamiliar case?",
+      "requiredMinutes": 80,
+      "optionalMinutes": 20,
+      "outcomeIds": [
+        "C1.1k",
+        "C1.2k",
+        "C1.3k",
+        "C1.4k",
+        "C1.5k",
+        "C1.6k",
+        "C1.7k",
+        "C2.1k",
+        "C2.2k",
+        "C2.3k",
+        "C2.4k",
+        "C2.5k",
+        "C3.1k",
+        "C3.2k",
+        "C3.3k",
+        "C3.4k",
+        "C3.5k",
+        "C3.6k",
+        "C3.7k"
+      ],
+      "classItemIds": [
+        "1498194"
+      ],
+      "systemItemIds": [
+        "2450"
+      ],
+      "notes": [
+        {
+          "sourceId": "unit-c-cell-division-notes",
+          "archivePath": "Unit C Part A Cell Division Notes.pdf",
+          "sha256": "ca13d544f10ede910f97fedc4dccaf8c41298143968ca8f17e8ebcb754c6c6f5",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ]
+        },
+        {
+          "sourceId": "unit-c-mendelian-genetics-notes",
+          "archivePath": "Unit C Part B Mendelian Genetics  Student Copy.pdf",
+          "sha256": "ac559697872a6619fe0d7a6ebe9f665e26b7ebf54e8381925ec36e3e7e6a53aa",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114
+          ]
+        },
+        {
+          "sourceId": "unit-c-molecular-genetics-notes",
+          "archivePath": "Unit C Part C Molecular Genetics Student Copy.pdf",
+          "sha256": "a8a2fa43c1bb797c3d2286e5181c7fb18120ead7933ef139f8e766d836cedad7",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59
+          ]
+        }
+      ],
+      "artifactIds": [
+        "c-integrated-case"
+      ],
+      "interactionKind": "integrated-genetics-case",
+      "sourceRefIds": [
+        "c-lesson-24:class:1498194",
+        "c-lesson-24:system:2450",
+        "c-lesson-24:notes:1",
+        "c-lesson-24:notes:2",
+        "c-lesson-24:notes:3"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "c-cell-cycle-analysis",
+      "unitCode": "C",
+      "title": "Cell Cycle Analysis",
+      "lessonIds": [
+        "c-lesson-01",
+        "c-lesson-02",
+        "c-lesson-03"
+      ],
+      "outcomeIds": [
+        "C1.1k",
+        "C1.2k",
+        "C1.2s",
+        "C1.1sts",
+        "C1.1s",
+        "C1.3s",
+        "C1.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-cell-cycle-analysis:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-cell-cycle-analysis:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-cell-cycle-analysis:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-cell-cycle-analysis:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-meiosis-karyotype",
+      "unitCode": "C",
+      "title": "Meiosis Karyotype",
+      "lessonIds": [
+        "c-lesson-04",
+        "c-lesson-05",
+        "c-lesson-06"
+      ],
+      "outcomeIds": [
+        "C1.3k",
+        "C1.4k",
+        "C1.5k",
+        "C1.6k",
+        "C1.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-meiosis-karyotype:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-meiosis-karyotype:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-meiosis-karyotype:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-meiosis-karyotype:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-reproductive-strategy-comparison",
+      "unitCode": "C",
+      "title": "Reproductive Strategy Comparison",
+      "lessonIds": [
+        "c-lesson-07"
+      ],
+      "outcomeIds": [
+        "C1.7k",
+        "C1.2s",
+        "C1.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-reproductive-strategy-comparison:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-reproductive-strategy-comparison:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-reproductive-strategy-comparison:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-reproductive-strategy-comparison:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-inheritance-investigation",
+      "unitCode": "C",
+      "title": "Inheritance Investigation",
+      "lessonIds": [
+        "c-lesson-08",
+        "c-lesson-09",
+        "c-lesson-10",
+        "c-lesson-11",
+        "c-lesson-12"
+      ],
+      "outcomeIds": [
+        "C2.1k",
+        "C2.2k",
+        "C2.1s",
+        "C2.2s",
+        "C2.3s",
+        "C2.4k"
+      ],
+      "fields": [
+        {
+          "id": "c-inheritance-investigation:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-inheritance-investigation:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-inheritance-investigation:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-inheritance-investigation:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-pedigree-evidence",
+      "unitCode": "C",
+      "title": "Pedigree Evidence",
+      "lessonIds": [
+        "c-lesson-13"
+      ],
+      "outcomeIds": [
+        "C2.5k",
+        "C2.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-pedigree-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-pedigree-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-pedigree-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-pedigree-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-chromosome-map",
+      "unitCode": "C",
+      "title": "Chromosome Map",
+      "lessonIds": [
+        "c-lesson-14"
+      ],
+      "outcomeIds": [
+        "C2.3k",
+        "C2.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-chromosome-map:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-chromosome-map:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-chromosome-map:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-chromosome-map:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-genetic-decision-brief",
+      "unitCode": "C",
+      "title": "Genetic Decision Brief",
+      "lessonIds": [
+        "c-lesson-15"
+      ],
+      "outcomeIds": [
+        "C2.4k",
+        "C2.1sts",
+        "C2.1s",
+        "C2.2s",
+        "C2.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-genetic-decision-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-genetic-decision-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-genetic-decision-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-genetic-decision-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-dna-model",
+      "unitCode": "C",
+      "title": "Dna Model",
+      "lessonIds": [
+        "c-lesson-16",
+        "c-lesson-17"
+      ],
+      "outcomeIds": [
+        "C3.1k",
+        "C3.2k",
+        "C3.2s"
+      ],
+      "fields": [
+        {
+          "id": "c-dna-model:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-dna-model:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-dna-model:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-dna-model:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-protein-synthesis-evidence",
+      "unitCode": "C",
+      "title": "Protein Synthesis Evidence",
+      "lessonIds": [
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-20"
+      ],
+      "outcomeIds": [
+        "C3.3k",
+        "C3.2s",
+        "C3.6k",
+        "C3.1s",
+        "C3.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-protein-synthesis-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-protein-synthesis-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-protein-synthesis-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-protein-synthesis-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-biotechnology-brief",
+      "unitCode": "C",
+      "title": "Biotechnology Brief",
+      "lessonIds": [
+        "c-lesson-21",
+        "c-lesson-22"
+      ],
+      "outcomeIds": [
+        "C3.4k",
+        "C3.5k",
+        "C3.1sts",
+        "C3.2s",
+        "C3.7k",
+        "C3.2sts",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-biotechnology-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-biotechnology-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-biotechnology-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-biotechnology-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-investigation-portfolio",
+      "unitCode": "C",
+      "title": "Investigation Portfolio",
+      "lessonIds": [
+        "c-lesson-23"
+      ],
+      "outcomeIds": [
+        "C1.1s",
+        "C1.2s",
+        "C1.3s",
+        "C1.4s",
+        "C2.1s",
+        "C2.2s",
+        "C2.3s",
+        "C2.4s",
+        "C3.1s",
+        "C3.2s",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-investigation-portfolio:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-investigation-portfolio:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-investigation-portfolio:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-investigation-portfolio:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-integrated-case",
+      "unitCode": "C",
+      "title": "Integrated Case",
+      "lessonIds": [
+        "c-lesson-24"
+      ],
+      "outcomeIds": [
+        "C1.1k",
+        "C1.2k",
+        "C1.3k",
+        "C1.4k",
+        "C1.5k",
+        "C1.6k",
+        "C1.7k",
+        "C2.1k",
+        "C2.2k",
+        "C2.3k",
+        "C2.4k",
+        "C2.5k",
+        "C3.1k",
+        "C3.2k",
+        "C3.3k",
+        "C3.4k",
+        "C3.5k",
+        "C3.6k",
+        "C3.7k"
+      ],
+      "fields": [
+        {
+          "id": "c-integrated-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-integrated-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-integrated-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-integrated-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "interactions": [
+    {
+      "id": "c-lesson-01:interaction",
+      "kind": "chromosome-ploidy-model",
+      "lessonId": "c-lesson-01",
+      "responseIds": [
+        "biology30-unit-c:activity:chromosome-ploidy-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-02:interaction",
+      "kind": "mitosis-stage-model",
+      "lessonId": "c-lesson-02",
+      "responseIds": [
+        "biology30-unit-c:activity:mitosis-stage-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-03:interaction",
+      "kind": "cell-cycle-data-lab",
+      "lessonId": "c-lesson-03",
+      "responseIds": [
+        "biology30-unit-c:activity:cell-cycle-data-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-04:interaction",
+      "kind": "meiosis-chromosome-model",
+      "lessonId": "c-lesson-04",
+      "responseIds": [
+        "biology30-unit-c:activity:meiosis-chromosome-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-05:interaction",
+      "kind": "gametogenesis-comparison",
+      "lessonId": "c-lesson-05",
+      "responseIds": [
+        "biology30-unit-c:activity:gametogenesis-comparison:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-06:interaction",
+      "kind": "karyotype-evidence-lab",
+      "lessonId": "c-lesson-06",
+      "responseIds": [
+        "biology30-unit-c:activity:karyotype-evidence-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-07:interaction",
+      "kind": "life-cycle-comparison",
+      "lessonId": "c-lesson-07",
+      "responseIds": [
+        "biology30-unit-c:activity:life-cycle-comparison:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-08:interaction",
+      "kind": "segregation-model",
+      "lessonId": "c-lesson-08",
+      "responseIds": [
+        "biology30-unit-c:activity:segregation-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-09:interaction",
+      "kind": "monohybrid-cross-lab",
+      "lessonId": "c-lesson-09",
+      "responseIds": [
+        "biology30-unit-c:activity:monohybrid-cross-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-10:interaction",
+      "kind": "probability-sampling-simulator",
+      "lessonId": "c-lesson-10",
+      "responseIds": [
+        "biology30-unit-c:activity:probability-sampling-simulator:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-11:interaction",
+      "kind": "inheritance-pattern-sort",
+      "lessonId": "c-lesson-11",
+      "responseIds": [
+        "biology30-unit-c:activity:inheritance-pattern-sort:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-12:interaction",
+      "kind": "dihybrid-cross-lab",
+      "lessonId": "c-lesson-12",
+      "responseIds": [
+        "biology30-unit-c:activity:dihybrid-cross-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-13:interaction",
+      "kind": "pedigree-evidence-lab",
+      "lessonId": "c-lesson-13",
+      "responseIds": [
+        "biology30-unit-c:activity:pedigree-evidence-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-14:interaction",
+      "kind": "recombination-map-lab",
+      "lessonId": "c-lesson-14",
+      "responseIds": [
+        "biology30-unit-c:activity:recombination-map-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-15:interaction",
+      "kind": "trait-evidence-model",
+      "lessonId": "c-lesson-15",
+      "responseIds": [
+        "biology30-unit-c:activity:trait-evidence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-16:interaction",
+      "kind": "dna-evidence-builder",
+      "lessonId": "c-lesson-16",
+      "responseIds": [
+        "biology30-unit-c:activity:dna-evidence-builder:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-17:interaction",
+      "kind": "replication-sequence-model",
+      "lessonId": "c-lesson-17",
+      "responseIds": [
+        "biology30-unit-c:activity:replication-sequence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-18:interaction",
+      "kind": "transcription-model",
+      "lessonId": "c-lesson-18",
+      "responseIds": [
+        "biology30-unit-c:activity:transcription-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-19:interaction",
+      "kind": "translation-codon-lab",
+      "lessonId": "c-lesson-19",
+      "responseIds": [
+        "biology30-unit-c:activity:translation-codon-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-20:interaction",
+      "kind": "mutation-consequence-lab",
+      "lessonId": "c-lesson-20",
+      "responseIds": [
+        "biology30-unit-c:activity:mutation-consequence-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-21:interaction",
+      "kind": "recombinant-dna-model",
+      "lessonId": "c-lesson-21",
+      "responseIds": [
+        "biology30-unit-c:activity:recombinant-dna-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-22:interaction",
+      "kind": "dna-evidence-board",
+      "lessonId": "c-lesson-22",
+      "responseIds": [
+        "biology30-unit-c:activity:dna-evidence-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-23:interaction",
+      "kind": "genetics-investigation-board",
+      "lessonId": "c-lesson-23",
+      "responseIds": [
+        "biology30-unit-c:activity:genetics-investigation-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    },
+    {
+      "id": "c-lesson-24:interaction",
+      "kind": "integrated-genetics-case",
+      "lessonId": "c-lesson-24",
+      "responseIds": [
+        "biology30-unit-c:activity:integrated-genetics-case:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false
+    }
+  ],
+  "sourcePolicy": {
+    "requiredLocalFirst": true,
+    "slideImagesAsLessons": false,
+    "externalLinksRequiredForCompletion": false,
+    "visibleChapterQuizzesBecomeNonGradedPractice": true,
+    "secureTestsKeysAndPrintableQuizzesExcluded": true,
+    "sourceTextCopiedVerbatim": false
+  },
+  "reviewRubric": {
+    "total": 100,
+    "minimumPassingTotal": 95,
+    "categories": [
+      {
+        "id": "academic",
+        "points": 25,
+        "minimum": 20
+      },
+      {
+        "id": "coherence",
+        "points": 20,
+        "minimum": 16
+      },
+      {
+        "id": "visual",
+        "points": 15,
+        "minimum": 12
+      },
+      {
+        "id": "practice",
+        "points": 15,
+        "minimum": 12
+      },
+      {
+        "id": "accessibility",
+        "points": 10,
+        "minimum": 8
+      },
+      {
+        "id": "runtime",
+        "points": 10,
+        "minimum": 8
+      },
+      {
+        "id": "maintainability",
+        "points": 5,
+        "minimum": 4
+      }
+    ],
+    "promotionRequiresExplicitUserAcceptance": true
+  },
+  "generatedAt": "2026-08-31T00:02:59.328Z"
+}

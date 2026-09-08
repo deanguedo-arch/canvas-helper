@@ -1,0 +1,62 @@
+{
+  "stage": 77,
+  "checkedAt": "2026-09-07T05:22:55.845140+00:00",
+  "summary": "Read-only actual B/C/D input assembly and in-memory production browser bundling. No actual learner HTML generated.",
+  "counts": {
+    "activities": [
+      243,
+      396,
+      186
+    ],
+    "graphActivities": [
+      4,
+      1,
+      2
+    ],
+    "investigationImages": [
+      2,
+      5,
+      0
+    ],
+    "assetCopyPlans": [
+      13,
+      9,
+      8
+    ]
+  },
+  "verification": {
+    "focusedTests": {
+      "passed": 91,
+      "failed": 0
+    },
+    "typecheck": {
+      "unrelatedDiagnostics": 25,
+      "ownedDiagnostics": 0
+    },
+    "sourceAndProtectedBaselines": "passed",
+    "draftContracts": "passed"
+  },
+  "files": [
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "b5052cb82118f4f867a0843c65541399fe7958894b8dd60cf9b427da4f58e09c"
+    },
+    {
+      "path": "scripts/lib/biology30-course/v1/pilot2-browser-bundle.ts",
+      "sha256": "ff7be5282d65f82f5f4b520cffa5b4d5839dfb9091792cd816a549a75d3b8f76"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-inputs.test.ts",
+      "sha256": "33a810f460293f4a60977f3172b4120ffc680487c9e6713579d8710ba95f01ef"
+    },
+    {
+      "path": "scripts/tests/biology30-pilot2-course-browser.test.ts",
+      "sha256": "3571e22600e7cc65a58d63af1037457c26caeb155e0eb92f83a7caa7430ba3cb"
+    }
+  ],
+  "limitations": [
+    "All-unit freeze still6/13 gates each;16/127 figures bound",
+    "Input and browser asset assembly do not yet complete owner transaction/metadata integration or transitive whole-owner closure",
+    "No actual candidate, teacher acceptance, deployment, export or Studio Edit"
+  ]
+}

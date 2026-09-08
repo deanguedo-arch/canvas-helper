@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "status": "five original author-reviewed provisional SVG figures; actual first-use and learner placement pending",
+  "teacherDecision": null,
+  "medium": "Original code-native SVG for calculations, weighted probability grid and data graph under saved plan section4",
+  "sourceReview": {
+    "existing": "Native existing d-lesson-01,02,03 concept figures inspected: Count/Calculate/Compare, Assume/Predict/Test and Identify/Solve/Verify text pathways. They do not show the two-copy denominator, weighted gamete products or observed-versus-expected numbers.",
+    "slides": "Native source media from slides7,8,10,11 inspected. Rabbit G/Gg/gg copy illustration distinguishes three genotypes, equation images show p+q and squared terms, and expanded formula labels use dominant/recessive terminology. The five-condition media is a video thumbnail, not evidence of its captions or content; it is not selected as video. Slides13/14 have text-only worked steps. Original visuals use the canonical A/a samples and require explicit inheritance/equilibrium assumptions for phenotype inference.",
+    "textbook": "Chapter19 physical11 printed682 Figure19.4 visually inspected at rendered native page size. Its equal-cell mouse grid gives0.70/0.30 products; original weighted0.60/0.40 grid makes the probability areas faithful while preserving the two heterozygote routes. Surrounding source examples remain authoring reference.",
+    "selection": "No publisher pixels in new learner SVGs. All values come from the current required D core/worked examples, not a withheld assessment key."
+  },
+  "scienceChecklist": [
+    "Separate individuals, allele copies and their denominators",
+    "Calculate observed allele frequencies without assuming equilibrium",
+    "Show both mutually exclusive heterozygote routes and weighted grid areas",
+    "State recessive inheritance and equilibrium assumptions before square-root inference",
+    "Use each observed sample’s own p and q for model expectations",
+    "Show exact figures alongside proportion bars; no unsupported significance or causal claims"
+  ],
+  "numericVerification": "Independent Python Decimal checks:120/200=.6,80/200=.4; expectations.36/.48/.16.135/200=.675 gives.455625/.438750/.105625.Conditional.42/.91 rounds.4615.",
+  "sourceNativeAssets": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/449eaf00792d32e15bd2ddb3311ffcdb7728fe60ee2b4e16f0260632cae9cb15.png",
+      "sha256": "449eaf00792d32e15bd2ddb3311ffcdb7728fe60ee2b4e16f0260632cae9cb15"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/f3455d8caa43b4201a682a197087b9013180f88c3827b4c7386fa97033129fc3.png",
+      "sha256": "f3455d8caa43b4201a682a197087b9013180f88c3827b4c7386fa97033129fc3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/ab1603bb7d48ef2c2708258a492030c93b2f74b220c956ed7d2e14b34bd74ea3.png",
+      "sha256": "ab1603bb7d48ef2c2708258a492030c93b2f74b220c956ed7d2e14b34bd74ea3"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/d3d5689740495da43b7703b28b785e6f6b11e12d62964bffcbefc82bf8ae9944.png",
+      "sha256": "d3d5689740495da43b7703b28b785e6f6b11e12d62964bffcbefc82bf8ae9944"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/f97fa934203623ed8919458596ee2058802c6bc356da2ea3d7e9f5af1e267b42.jpg",
+      "sha256": "f97fa934203623ed8919458596ee2058802c6bc356da2ea3d7e9f5af1e267b42"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-19.pdf",
+      "sha256": "39937a2bd45b4a0869ab6502cd56134e94d25204bb6c1b2a7a1d8a27c22b4a4c"
+    }
+  ],
+  "sourceScreenshots": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/chapter19-physical11.png",
+      "sha256": "ac8c8621b38c6ac2d998ef0479d07a3281a60a5d91d922b8afa85c6b4f1ecd86"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/existing-assumptions.png",
+      "sha256": "8f37d674afec69255c4299c7becbd2b3a32cd899d610c26aac1a8d00570c7f60"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/existing-calculation.png",
+      "sha256": "03cab6d339b0c4cf086a92044ef7e847000b93282c3b606c5be69309ee655ac7"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/existing-counting.png",
+      "sha256": "696b4d02cfa4ee13fe26526b6fc94f6d940ecf868cb7516c834ce5f2bba8cdcc"
+    }
+  ],
+  "entries": [
+    {
+      "id": "d-topic-hardy-weinberg-populations-and-allele-counts-figure",
+      "assetId": "d-allele-counts-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-allele-counts-v1.svg",
+      "sha256": "9743d9b0a50a452f34caf6a5cb062678fde8b872bf2d0ec2371ddf6b156ff8c2",
+      "width": 1200,
+      "height": 900,
+      "caption": "A synthetic sample contains 36 AA, 48 Aa and 16 aa individuals. Each diploid individual has two copies at this autosomal locus: AA contributes two A copies, Aa contributes one of each, and aa contributes two a copies. The totals are 120 A and 80 a among 200 copies. Thus p = 0.60 and q = 0.40. The bar represents allele copies; the circle pairs show the contribution of one individual. Direct counting does not require equilibrium.",
+      "scientificReview": "Native1200x900 checked: group counts36/48/16 and copy counts72+48/48+32 are correct; the bar widths600:400 represent120:80 copies. Both allele symbols remain readable without relying on colour.",
+      "comparisonKind": "counting",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/d-allele-counts-v1.png",
+      "screenshotSha256": "17150610d6bead848765e04f596134b1fa228cbf189109bea779e943ad1582fa",
+      "limitations": [
+        "Synthetic teaching examples, not observed field evidence or medical inference.",
+        "Exact all-surface first use and responsive inline/enlargement checks remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-figure",
+      "assetId": "d-weighted-genotype-grid-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-weighted-genotype-grid-v1.svg",
+      "sha256": "c7956ba77529a4b54eadbfa60079933a53f62ca2926c2131c9db8a4b9e8e867e",
+      "width": 1200,
+      "height": 900,
+      "caption": "Both gamete pools in this random-combination model contain A at frequency 0.60 and a at 0.40. Products give AA = 0.36, A from contribution1 with a from contribution2 = 0.24, a from contribution1 with A from contribution2 = 0.24, and aa = 0.16. The two mutually exclusive Aa routes total 2pq = 0.48. Grid widths and heights are weighted by 0.60 and 0.40, so cell areas match the probabilities. These are expected genotype frequencies, not a replacement for observations.",
+      "scientificReview": "Native1200x900 checked: weighted grid lengths390:260 and252:168 have0.6:0.4 ratios; cell areas0.36/0.24/0.24/0.16, correct genotype labels and explicit two-route heterozygote sum.",
+      "comparisonKind": "grid",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/d-weighted-genotype-grid-v1.png",
+      "screenshotSha256": "91dd15a40f9f7cd0db11731d2325e2e77ccfeabdd3bf1824185563f24b1e89be",
+      "limitations": [
+        "Synthetic teaching examples, not observed field evidence or medical inference.",
+        "Exact all-surface first use and responsive inline/enlargement checks remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "d-topic-hardy-weinberg-equilibrium-assumptions-figure",
+      "assetId": "d-equilibrium-assumptions-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-equilibrium-assumptions-v1.svg",
+      "sha256": "3657a565ab1c86c14acfa658d64a700be0b0555546f16ab6263daa862b976edd",
+      "width": 1200,
+      "height": 900,
+      "caption": "Random mating at the locus supports the genotype combination expectations p², 2pq and q². Stability of allele frequencies across generations also depends on a very large population, no mutation, no contributing gene flow and no differential reproductive contributions among genotypes. Each condition constrains a different process. One matching sample does not establish that every condition holds, and a mismatch alone does not identify its cause.",
+      "scientificReview": "Native1200x900 checked: all five conditions present with distinct roles; no claim that random mating cancels movement or guarantees p and q remain constant. All table labels remain in bounds.",
+      "comparisonKind": "assumptions",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/d-equilibrium-assumptions-v1.png",
+      "screenshotSha256": "5ca73c6e46fda8057eb3f22f3514ebdf42b972c94709009d8d8d827d28fb0435",
+      "limitations": [
+        "Synthetic teaching examples, not observed field evidence or medical inference.",
+        "Exact all-surface first use and responsive inline/enlargement checks remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "d-topic-hardy-weinberg-solving-and-checking-figure",
+      "assetId": "d-phenotype-to-frequency-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-phenotype-to-frequency-v1.svg",
+      "sha256": "835317ceef13eb9d18ae6a6aa8b7b427106d5329acbc038aa7e113fa08f64dde",
+      "width": 1200,
+      "height": 900,
+      "caption": "Assume a fictional fully expressed recessive trait and Hardy–Weinberg conditions. A recessive phenotype frequency of 0.09 represents q², so q = 0.30 and p = 0.70. Expected AA, Aa and aa fractions are 0.49, 0.42 and 0.09; these sum to1. The whole-population carrier fraction is0.42. Among dominant-phenotype individuals it is0.42/(0.49+0.42), approximately0.4615. The bar widths represent the expected genotype fractions under the assumptions.",
+      "scientificReview": "Native1200x900 checked: square-root step,49:42:9 proportion bar,0.91 conditional denominator and0.4615 rounding match independent Decimal arithmetic. Assumptions precede the estimate; no phenotype-to-allele shortcut.",
+      "comparisonKind": "calculation",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/d-phenotype-to-frequency-v1.png",
+      "screenshotSha256": "b61d883fca8535ffc528d10f12eff4468f508ac6ec86499eb1ce1684b8e4fd79",
+      "limitations": [
+        "Synthetic teaching examples, not observed field evidence or medical inference.",
+        "Exact all-surface first use and responsive inline/enlargement checks remain pending."
+      ],
+      "teacherDecision": null
+    },
+    {
+      "id": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+      "assetId": "d-observed-expected-v2",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-observed-expected-v2.svg",
+      "sha256": "d8c1798e3e040448300fc7323d72ee66cde20897f3c07722661ea73edadd7d04",
+      "width": 1200,
+      "height": 900,
+      "caption": "The synthetic observed sample has45 AA,45 Aa and10 aa individuals. It contains135 A copies among200, giving p =0.675 and q =0.325. The observed genotype fractions0.45,0.45,0.10 are compared with expectations0.455625,0.438750,0.105625 calculated from this sample’s own p and q. The vertical axis is genotype frequency from0 to0.5. Bars show the model difference; exact values accompany them. A small difference alone does not establish selection, drift or gene flow.",
+      "scientificReview": "Native finalv2 checked: observed/expected legend, common0-to0.5 scale, all six heights and full-precision values match calculations. Axis title moved away from the0.5 tick after v1 overlap. No causal or significance claim from the bars.",
+      "comparisonKind": "comparison",
+      "screenshot": "projects/resources/biology30-production/v1/pilot2/source-review/hwe-comparison/d-observed-expected-v2.png",
+      "screenshotSha256": "38cef7a51bc4c1242ed3312a3da97d43e94f5ec87e4b32b12ba2f32f46c49766",
+      "limitations": [
+        "Synthetic teaching examples, not observed field evidence or medical inference.",
+        "Exact all-surface first use and responsive inline/enlargement checks remain pending."
+      ],
+      "teacherDecision": null
+    }
+  ],
+  "revisions": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-observed-expected-v1.svg",
+      "sha256": "2caa3156cc2758ebdb2d64a14169878722d8e782faf39758cfff296e657c93fb",
+      "finding": "Axis label overlapped the0.5 tick; v2 separates it."
+    }
+  ]
+}

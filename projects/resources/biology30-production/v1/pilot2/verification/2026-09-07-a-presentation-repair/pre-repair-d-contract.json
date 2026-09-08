@@ -1,0 +1,1051 @@
+{
+  "schemaVersion": 1,
+  "profileId": "pilot2-topic-sequence-v1",
+  "unit": "D",
+  "status": "frozen",
+  "teacherAcceptance": null,
+  "requiredMinutes": 900,
+  "optionalMinutes": 180,
+  "topics": [
+    {
+      "id": "d-topic-hardy-weinberg",
+      "title": "Hardy–Weinberg",
+      "chapter": 19,
+      "planRowId": "plan-19-row-02",
+      "teacherTextbookAssignment": "680–682 #1–5; 683 Practice Problems 1–5; 684–685 #6,7; 688 #1–8  (you may finish these the next day as it is a shorter lesson)",
+      "slideNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "parts": [
+        {
+          "id": "d-topic-hardy-weinberg-populations-and-allele-counts",
+          "title": "Populations and allele counts",
+          "outcomeIds": [
+            "D1.1k",
+            "D1.3k"
+          ],
+          "concepts": [
+            "population",
+            "gene pool",
+            "allele",
+            "genotype"
+          ],
+          "operation": "Convert genotype counts into allele counts with the two-copy denominator"
+        },
+        {
+          "id": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "title": "Allele and genotype frequencies",
+          "outcomeIds": [
+            "D1.3k"
+          ],
+          "concepts": [
+            "p",
+            "q",
+            "p squared",
+            "2pq",
+            "q squared"
+          ],
+          "operation": "Calculate and distinguish observed allele frequencies and expected genotype frequencies"
+        },
+        {
+          "id": "d-topic-hardy-weinberg-equilibrium-assumptions",
+          "title": "Equilibrium assumptions",
+          "outcomeIds": [
+            "D1.1k"
+          ],
+          "concepts": [
+            "large population",
+            "random mating",
+            "no migration",
+            "no mutation",
+            "no selection"
+          ],
+          "operation": "Explain each assumption and identify which information a case does not supply"
+        },
+        {
+          "id": "d-topic-hardy-weinberg-solving-and-checking",
+          "title": "Solving and checking",
+          "outcomeIds": [
+            "D1.3k",
+            "D1.3s"
+          ],
+          "concepts": [
+            "recessive phenotype",
+            "square root",
+            "heterozygote",
+            "frequency sum"
+          ],
+          "operation": "Solve a population problem and check both equations and predicted counts"
+        },
+        {
+          "id": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "title": "A model and its limits",
+          "outcomeIds": [
+            "D1.2sts",
+            "D1.1s",
+            "D1.1k",
+            "D1.2s",
+            "D1.3s",
+            "D1.4s"
+          ],
+          "concepts": [
+            "observed",
+            "expected",
+            "sample",
+            "equilibrium"
+          ],
+          "operation": "Compare data with expectations without assuming phenotype frequencies reveal all genotypes"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+      "newTermIds": [
+        "d-term-population",
+        "d-term-gene-pool",
+        "d-term-allele",
+        "d-term-genotype",
+        "d-term-p",
+        "d-term-q",
+        "d-term-p-squared",
+        "d-term-2pq",
+        "d-term-q-squared",
+        "d-term-large-population",
+        "d-term-random-mating",
+        "d-term-no-migration",
+        "d-term-no-mutation",
+        "d-term-no-selection",
+        "d-term-recessive-phenotype",
+        "d-term-square-root",
+        "d-term-heterozygote",
+        "d-term-frequency-sum",
+        "d-term-observed",
+        "d-term-expected",
+        "d-term-sample",
+        "d-term-equilibrium",
+        "d-term-mutation",
+        "d-term-variation",
+        "d-term-natural-selection",
+        "d-term-gene-flow",
+        "d-term-migration",
+        "d-term-population-size",
+        "d-term-area",
+        "d-term-immigration",
+        "d-term-mechanism",
+        "d-term-uncertainty"
+      ],
+      "reusedTermIds": [],
+      "anchorTermIds": [
+        "d-term-gene-pool",
+        "d-term-p",
+        "d-term-q",
+        "d-term-2pq"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change",
+      "title": "Mechanisms of Change",
+      "chapter": 19,
+      "planRowId": "plan-19-row-03",
+      "teacherTextbookAssignment": "688 #1–8  (finish as needed) ; 689–696 #8,10–12,14–18,20; 697 #1–5",
+      "slideNumbers": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "parts": [
+        {
+          "id": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "title": "Mutation and selection",
+          "outcomeIds": [
+            "D1.2k",
+            "D1.4k"
+          ],
+          "concepts": [
+            "mutation",
+            "variation",
+            "natural selection",
+            "relative fitness"
+          ],
+          "operation": "Explain allele origin separately from changes in representation"
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-chance-and-population-size",
+          "title": "Chance and population size",
+          "outcomeIds": [
+            "D1.2k"
+          ],
+          "concepts": [
+            "genetic drift",
+            "bottleneck",
+            "founder effect"
+          ],
+          "operation": "Compare random sampling effects and distinguish founder from bottleneck events"
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-movement-and-mating",
+          "title": "Movement and mating",
+          "outcomeIds": [
+            "D1.2k"
+          ],
+          "concepts": [
+            "gene flow",
+            "migration",
+            "nonrandom mating"
+          ],
+          "operation": "Distinguish changes in allele frequencies from genotype-frequency changes alone"
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-resistance-and-evidence",
+          "title": "Resistance and evidence",
+          "outcomeIds": [
+            "D1.4k",
+            "D1.1sts"
+          ],
+          "concepts": [
+            "antibiotic resistance",
+            "herbicide resistance",
+            "selection pressure"
+          ],
+          "operation": "Explain change across generations without claiming organisms mutate because they need to"
+        },
+        {
+          "id": "d-topic-mechanisms-of-change-testing-explanations",
+          "title": "Testing explanations",
+          "outcomeIds": [
+            "D1.1s",
+            "D1.2s",
+            "D1.3s",
+            "D1.4s"
+          ],
+          "concepts": [
+            "replicate",
+            "control",
+            "time series",
+            "alternative explanation"
+          ],
+          "operation": "Compare supplied population data and revise a mechanism claim",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-gene-pool",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+      "newTermIds": [
+        "d-term-relative-fitness",
+        "d-term-genetic-drift",
+        "d-term-bottleneck",
+        "d-term-founder-effect",
+        "d-term-nonrandom-mating",
+        "d-term-antibiotic-resistance",
+        "d-term-herbicide-resistance",
+        "d-term-selection-pressure",
+        "d-term-replicate",
+        "d-term-control",
+        "d-term-time-series",
+        "d-term-alternative-explanation",
+        "d-term-time-interval",
+        "d-term-sexual-selection"
+      ],
+      "reusedTermIds": [
+        "d-term-mutation",
+        "d-term-variation",
+        "d-term-natural-selection",
+        "d-term-gene-flow",
+        "d-term-migration",
+        "d-term-uncertainty"
+      ],
+      "anchorTermIds": [
+        "d-term-mutation",
+        "d-term-natural-selection",
+        "d-term-genetic-drift",
+        "d-term-gene-flow"
+      ]
+    },
+    {
+      "id": "d-topic-population-growth",
+      "title": "Population Growth",
+      "chapter": 20,
+      "planRowId": "plan-20-row-02",
+      "teacherTextbookAssignment": "705–709 #1–7; 711 Practice Problems 1–6; 716 #2–4",
+      "slideNumbers": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "parts": [
+        {
+          "id": "d-topic-population-growth-size-and-density",
+          "title": "Size and density",
+          "outcomeIds": [
+            "D3.2k",
+            "D3.2s"
+          ],
+          "concepts": [
+            "population size",
+            "area",
+            "density",
+            "distribution"
+          ],
+          "operation": "Calculate density with units and distinguish it from total size"
+        },
+        {
+          "id": "d-topic-population-growth-sampling-populations",
+          "title": "Sampling populations",
+          "outcomeIds": [
+            "D3.1s",
+            "D3.2s",
+            "D3.3s",
+            "D3.4s"
+          ],
+          "concepts": [
+            "quadrat",
+            "transect",
+            "mark-recapture",
+            "representative sample"
+          ],
+          "operation": "Estimate population size from supplied counts and explain sampling assumptions",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-population-growth",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        },
+        {
+          "id": "d-topic-population-growth-four-demographic-processes",
+          "title": "Four demographic processes",
+          "outcomeIds": [
+            "D3.1k",
+            "D3.3k"
+          ],
+          "concepts": [
+            "natality",
+            "mortality",
+            "immigration",
+            "emigration",
+            "open population",
+            "closed population"
+          ],
+          "operation": "Calculate net change from all four counts"
+        },
+        {
+          "id": "d-topic-population-growth-rates-and-denominators",
+          "title": "Rates and denominators",
+          "outcomeIds": [
+            "D3.1k",
+            "D3.2k"
+          ],
+          "concepts": [
+            "growth rate",
+            "per capita growth rate",
+            "time interval"
+          ],
+          "operation": "Calculate rates with explicit interval and denominator"
+        },
+        {
+          "id": "d-topic-population-growth-exponential-and-logistic-models",
+          "title": "Exponential and logistic models",
+          "outcomeIds": [
+            "D3.2k",
+            "D3.3k"
+          ],
+          "concepts": [
+            "biotic potential",
+            "environmental resistance",
+            "carrying capacity",
+            "J curve",
+            "S curve"
+          ],
+          "operation": "Construct and compare growth curves using supplied data"
+        },
+        {
+          "id": "d-topic-population-growth-feedback-and-changing-limits",
+          "title": "Feedback and changing limits",
+          "outcomeIds": [
+            "D3.2k",
+            "D3.1sts"
+          ],
+          "concepts": [
+            "density dependence",
+            "density independence",
+            "overshoot",
+            "time lag"
+          ],
+          "operation": "Interpret deviations from a model without treating carrying capacity as fixed forever"
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+      "newTermIds": [
+        "d-term-density",
+        "d-term-distribution",
+        "d-term-quadrat",
+        "d-term-transect",
+        "d-term-mark-recapture",
+        "d-term-representative-sample",
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-emigration",
+        "d-term-open-population",
+        "d-term-closed-population",
+        "d-term-growth-rate",
+        "d-term-per-capita-growth-rate",
+        "d-term-biotic-potential",
+        "d-term-environmental-resistance",
+        "d-term-carrying-capacity",
+        "d-term-j-curve",
+        "d-term-s-curve",
+        "d-term-density-dependence",
+        "d-term-density-independence",
+        "d-term-overshoot",
+        "d-term-time-lag"
+      ],
+      "reusedTermIds": [
+        "d-term-population-size",
+        "d-term-area",
+        "d-term-immigration",
+        "d-term-time-interval"
+      ],
+      "anchorTermIds": [
+        "d-term-density",
+        "d-term-growth-rate",
+        "d-term-per-capita-growth-rate",
+        "d-term-carrying-capacity"
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships",
+      "title": "Life Strategies and Ecological Relationships",
+      "chapter": 20,
+      "planRowId": "plan-20-row-03",
+      "teacherTextbookAssignment": "711–713 #8–15; 716 #5–9; 719 #16–18; 725 #23–26; 728 #27,28; 730 #1,3–5",
+      "slideNumbers": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "parts": [
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+          "title": "Life-history strategies",
+          "outcomeIds": [
+            "D3.4k"
+          ],
+          "concepts": [
+            "r-selected",
+            "K-selected",
+            "fecundity",
+            "parental investment"
+          ],
+          "operation": "Compare trait continua and qualify idealized r/K categories"
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "title": "Interactions and their effects",
+          "outcomeIds": [
+            "D2.1k"
+          ],
+          "concepts": [
+            "predation",
+            "producer-consumer",
+            "mutualism",
+            "commensalism",
+            "parasitism"
+          ],
+          "operation": "Classify relationships by effects and justify classifications with evidence"
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "title": "Competition and defence",
+          "outcomeIds": [
+            "D2.1k",
+            "D2.2k",
+            "D2.1s",
+            "D2.2s",
+            "D2.3s",
+            "D2.4s"
+          ],
+          "concepts": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ],
+          "operation": "Explain how a mechanism changes survival or access to resources"
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+          "title": "Population cycles",
+          "outcomeIds": [
+            "D2.1k",
+            "D2.3s"
+          ],
+          "concepts": [
+            "predator-prey lag",
+            "correlation",
+            "mechanism"
+          ],
+          "operation": "Interpret paired abundance curves and compare alternative causes"
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+          "title": "Succession and disturbance",
+          "outcomeIds": [
+            "D2.3k"
+          ],
+          "concepts": [
+            "primary succession",
+            "secondary succession",
+            "soil",
+            "community",
+            "climax community"
+          ],
+          "operation": "Compare starting conditions and explain non-universal community pathways"
+        },
+        {
+          "id": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "title": "Ecological decisions and communication",
+          "outcomeIds": [
+            "D2.1sts",
+            "D2.1s",
+            "D2.2s",
+            "D2.3s",
+            "D2.4s",
+            "D3.4s"
+          ],
+          "concepts": [
+            "indicator",
+            "monitoring",
+            "uncertainty",
+            "perspective",
+            "revision"
+          ],
+          "operation": "Evaluate a supplied conservation investigation and communicate a qualified recommendation",
+          "requiredSkillContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-competition",
+          "requiredSkillOperations": [
+            "formulate question and plan a controlled comparison",
+            "record supplied observations and data with units",
+            "calculate or compare evidence and test an explanation",
+            "communicate a reasoned claim, consider a supplied alternative and revise"
+          ],
+          "scopeLimit": "Independent digital work demonstrates these operations; teamwork and physical laboratory performance require separate teacher observation."
+        }
+      ],
+      "vocabularyContract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+      "newTermIds": [
+        "d-term-r-selected",
+        "d-term-k-selected",
+        "d-term-fecundity",
+        "d-term-parental-investment",
+        "d-term-predation",
+        "d-term-producer-consumer",
+        "d-term-mutualism",
+        "d-term-commensalism",
+        "d-term-parasitism",
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration",
+        "d-term-toxin",
+        "d-term-behaviour",
+        "d-term-predator-prey-lag",
+        "d-term-correlation",
+        "d-term-primary-succession",
+        "d-term-secondary-succession",
+        "d-term-soil",
+        "d-term-community",
+        "d-term-climax-community",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective",
+        "d-term-revision",
+        "d-term-survivorship",
+        "d-term-cohort",
+        "d-term-type-i-survivorship",
+        "d-term-type-ii-survivorship",
+        "d-term-type-iii-survivorship"
+      ],
+      "reusedTermIds": [
+        "d-term-mechanism",
+        "d-term-uncertainty"
+      ],
+      "anchorTermIds": [
+        "d-term-mutualism",
+        "d-term-interspecific-competition",
+        "d-term-primary-succession",
+        "d-term-secondary-succession"
+      ]
+    }
+  ],
+  "requiredRoutes": [
+    "d-topic-hardy-weinberg",
+    "d-topic-mechanisms-of-change",
+    "d-chapter-19-practice",
+    "d-topic-population-growth",
+    "d-topic-life-strategies-and-ecological-relationships",
+    "d-chapter-20-practice",
+    "d-review-seminar",
+    "d-final-practice"
+  ],
+  "guidedQuestionsPerTopic": 2,
+  "sourceManifestSha256": "7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13",
+  "baselineWorkspaceSha256": "e87cf63413626d8f51ee53ce1cacbe60d3268ceb3721959410cb00ed0d909efb",
+  "reviewGates": {
+    "sourceDispositions": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-media-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-slide-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-plan-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-media-dispositions.json": "f01ac028c05f61cb1224ccbdd1d76c0154b6ceae5699ca8d1cda425af6b074e7",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-slide-dispositions.json": "9d8b2967791863e0afa1f9489a7285e0effac1a602c4afd981b9c20b869c1098",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-plan-dispositions.json": "edbd45896b9c3f0b0700f3db3e3c13f8e22c010cb13d61243f044324ff7c8b24",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json": "b963997fd58ccc0bde0d82f53a36057c9174bd9ceb6178a0818e7cd33845911b"
+      },
+      "scope": "Authored provisional local blocked use; actual learner rendering follows freeze. No external clip selected or caption-review claim."
+    },
+    "curriculumAtomicMap": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json": "621fb469b52b54c3af4d2ecf95f9e228711c375c5f8784c42f550480fc3f87ba",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      },
+      "scope": "Authored required operations and exact receipts; rendered proof after all-unit freeze."
+    },
+    "performanceColumns": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json"
+      ],
+      "sourceSha256": "72773dbdd42b1c9a778ebf33a70d471e89b621c3c4026e7ca4622ae6542ef794",
+      "registerSha256": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b",
+      "scope": "Actual column placement reviewed only; all atomic curriculum bindings and scientific corrections still require separate review.",
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b"
+      }
+    },
+    "oldSectionDispositions": {
+      "status": "passed",
+      "scope": "Authored source-to-teaching retention of all44 D sections, with restored depth and original North Marsh seminar. Rendered placement and atomic academic proof pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-disposition.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json",
+        "projects/resources/biology30-production/v1/pilot2/old-authored-content.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/d-retention-authorities.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-disposition.json": "147526008134c2de42e5b767aa77e4eb148c0423c6433fec81e862aef41754ba",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-review.json": "38a756fc22d45db41bd90899f429b60825fb1be2d275d5fc53b8ae45c4377a3f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+        "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+        "projects/resources/biology30-production/v1/pilot2/source-review/d-retention-authorities.json": "ef69d63967b8d6021a8fce68dba79b48d3d023f9edca4daa97fd5d7f5cd9f9e1",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "practiceAndKeys": {
+      "status": "passed",
+      "scope": "Authored question, key and prerequisite passage reviews only; narrowed practice tags do not close complete atomic academic coverage.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-passage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-semantic-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json": "aa2977ccbbf0e802406044f185cdfc9aa9c9a1c8bbe73064972397937899fc12",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-passage-review.json": "ba77b3f15568119f2c9232ba79c848288d08730e96a930ae074ce7d04518af81",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json": "621fb469b52b54c3af4d2ecf95f9e228711c375c5f8784c42f550480fc3f87ba",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-semantic-review.json": "d6d98c7f9f6fb3fdbec1522b6896340aed635d260859ed3aa0a78cc9d7e83c75",
+        "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "textbookFoliosAndGuides": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-passage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json": "c66ea3c0357234191d39c0f28ec8456b14869bf0b24168b115253ea8aa1f40af",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-passage-review.json": "3e9535873df66c1cba1de6b74aa3bd1b89fc63f6db1594d2200ffd11dd4f3946",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook.json": "5396b0838d549b967a361b3122099451fd1915923a84a2d26cbc2ee19179df57",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32"
+      }
+    },
+    "vocabularyAndFirstUse": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json": "b01043493159c657a18d6b9d31099f57a61fabd4399f7ae21ff0ec45da99dcad",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json": "5dcbe7e3de2a07ee787378ee5ffa0022ebafdc86ac59f244ccedee99138ab11d",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012"
+      },
+      "scope": "Provisional authored local candidate; existing scientific reviews and implemented contracts reused. Exact rendered first-use, visual and learner-interaction proof follows build. Teacher acceptance remains null."
+    },
+    "figuresAndRights": {
+      "status": "passed",
+      "scope": "Complete provisional authored figure selection and local blocked use; no teacher choice, public rights or actual learner placement inferred. First-use and atomic curriculum checks remain separate.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+      }
+    },
+    "captionsAndLocalPaths": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json": "b963997fd58ccc0bde0d82f53a36057c9174bd9ceb6178a0818e7cd33845911b",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      },
+      "scope": "Authored provisional local blocked use; actual learner rendering follows freeze. No external clip selected or caption-review claim."
+    },
+    "advancedAndTiming": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json": "60c73ca51dc7fcf7420b0e91224223d3d71d42de64a6d1eb4a417fa65815c703",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json": "1d7a1d780b12de70ca1a65983e84dda3efece55ee81d5aad4234a5c7efd154e8",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      },
+      "scope": "Authored workload realism and optional non-gating Advanced; estimates, not measured learner times or teacher acceptance."
+    },
+    "investigations": {
+      "status": "passed",
+      "scope": "Authored source/data/method/response contracts only; rendered controls and teacher acceptance remain pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigation-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json": "2136bc8dbdcefb22907a9fa5aaa7881421bf45e92caee9abedacc19c24acdf6f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigation-review.json": "3b5019a22bb0efacddeab78b48b815470a232172fda911a930f08f780cc286da",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "stateAndMigration": {
+      "status": "passed",
+      "scope": "Authored identity/migration/serialization and collection contracts, supported by exact engine fixtures. Browser lifecycle and live LMS certification remain separate and pending.",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-legacy-schema.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-migration.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-activity-index.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json": "c7ac3d263815bf6eb7b211e52b3db8862fdd5faf5989d849668a6527e2d9c238",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json": "fbad29f80c29e7a0853976a2a6a0a879d8f352080869e56dce663758fd4d33bf",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-legacy-schema.json": "54ced15db173c9628a2300b8d9f5d37691035cc1b7861dfda18e75b2d9033efa",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-migration.json": "8f70dabb68aea4237d7e8ec19539619cb79426ba3dc1db7ab9f8ed34ddfaaf7f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-activity-index.json": "e04b26eeb6706db2d0a8266da89fb6a1673951923a5c941283783af3097a189e",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json": "87a053903d2c08c856b49142379129f1500697cc944ee0d7fa98b2db3497e64d",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663",
+        "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+        "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+        "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc"
+      }
+    },
+    "transferRules": {
+      "status": "passed",
+      "evidence": [
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-transfer-map.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json"
+      ],
+      "evidenceSha256": {
+        "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+        "projects/resources/biology30-production/v1/units/unit-d/pilot2-transfer-map.json": "470a0021cf4adeea08dbc4134c07b9b0a61d3a9dfa570568b35cc9fa0deed147",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32",
+        "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+      },
+      "scope": "Provisional authored local candidate; existing scientific reviews and implemented contracts reused. Exact rendered first-use, visual and learner-interaction proof follows build. Teacher acceptance remains null."
+    }
+  },
+  "interpretation": "Authored scope and observable operations only. Component-level prerequisite/teaching/visual/practice/evidence bindings, actual item inventory and reviews must be complete before this can be frozen.",
+  "baselineEntrySha256": "f1c0755e5d65f951b3401ccd8b181f2e32625485d52fe9446edc96015c8e8760",
+  "baselineHashFormat": "SHA256 of sorted relative path + NUL + file SHA256 + LF; includes all workspace assets, matching the immutable intake baseline",
+  "freezeEvidence": {
+    "designSha256": "3921367ed863db51f6e35371642d10bd2be8f7895c14adbdf7ef59a9bd1d9f94",
+    "inputs": {
+      "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json": "826d08e78d41968141d4ab65f9447d549b3a0e29f6e708aea0bfad14ae4c0b3b",
+      "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json": "269f2b834477f4abf6afa1b96ebc362e472eee565cab1e4248d78c4ac01f88d4",
+      "projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168/baseline.json": "82a14d44afcd95f754683aefd58311e820231b459eb7a879eecbb6802fdd0db0",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-19.pdf": "39937a2bd45b4a0869ab6502cd56134e94d25204bb6c1b2a7a1d8a27c22b4a4c",
+      "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-20.pdf": "39cdf3ffc3bc1a520340efbde970731019c77d3120b048a3d395cc9f7c38afd2",
+      "projects/resources/biology30-production/v1/pilot2/old-authored-content.json": "0a799df928a67297622f104894ef223e7800bdb6233413892716b2bbe506fca8",
+      "projects/resources/biology30-production/v1/pilot2/owner-closure.json": "7b0a072b44868bdbcd434ac149c408738c5b18ea4283ad71ad53fb8beef0ceff",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-surface-first-use-placement-review.json": "00edb43ba9788f5e070eb6a85bc7e0d5e310eb94c81599ecb8e215b9427461aa",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-figure-closure.json": "48ecf620a64ab4a558420dc358a25b6fc7050c53dcbd0865779cd28bc30c184e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/all-unit-source-and-local-paths.json": "e140f07e03e8351c5176b84893f6909ae2ca8ed8ea8c4198a7f5918baa7ecabe",
+      "projects/resources/biology30-production/v1/pilot2/source-review/atomic-required-teaching-closure.json": "ced60c402d8c9d4020ca3a2269c84512a5e9356b374bfb3bb771dd9df65f0a20",
+      "projects/resources/biology30-production/v1/pilot2/source-review/authored-workload-and-advanced-review.json": "60c73ca51dc7fcf7420b0e91224223d3d71d42de64a6d1eb4a417fa65815c703",
+      "projects/resources/biology30-production/v1/pilot2/source-review/c-required-comparisons-and-response-packing.json": "cc50015707044b2ded0dddfe5b48e742d9783ee1a3008b2508368ba4491ef284",
+      "projects/resources/biology30-production/v1/pilot2/source-review/d-retention-authorities.json": "ef69d63967b8d6021a8fce68dba79b48d3d023f9edca4daa97fd5d7f5cd9f9e1",
+      "projects/resources/biology30-production/v1/pilot2/source-review/ecology-diagram-review.json": "54b2a3744e1ad19d4954d4f2c1460d05353c4f77f9bafde760b401c0d2a98c05",
+      "projects/resources/biology30-production/v1/pilot2/source-review/final-provisional-contract-closure.json": "77b211b10250077a914dfe27fa51abdd0c1e0bd0976308fef5049e15326e4880",
+      "projects/resources/biology30-production/v1/pilot2/source-review/hwe-diagram-review.json": "abaddffe3ec141dd2368f5f81e517bb7192d5e80fa074213151f041219c4ec50",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-allele-counts-v1.svg": "9743d9b0a50a452f34caf6a5cb062678fde8b872bf2d0ec2371ddf6b156ff8c2",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-changing-capacity-v2.svg": "5e3dbbc6b46e2d54913dbcfda950d90481c74d07efffa8f2a13955e3bc3c1418",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-competition-comparison-v1.svg": "54bfa4ce32e301078b6fd91a0e8d3b84a20cb4415104f8ea4b9258a549957e25",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-demographic-processes-v2.svg": "9eecefbfb6d8e2b6eff46b9c90ffd6328b368825cf2af68d78b062a721a06380",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-density-distribution-v1.svg": "b8427264b40211cfc4290ae314f2612ac2260e608395282a204715a95f7bf7cf",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-drift-histories-v1.svg": "cd51d95d50a34e5e921f8ff08a2e2c5a268f3382477e39c5a7c6240966830121",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-ecological-study-design-v1.svg": "1e7bd11bf65ce76e87118cf3aafb2ff924714d04422975daf67aaf73ed9dbc60",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-equilibrium-assumptions-v1.svg": "3657a565ab1c86c14acfa658d64a700be0b0555546f16ab6263daa862b976edd",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-frequency-evidence-v1.svg": "45b3503f7457304614221494c4fdd6196c6af8ca3ac3267a9d2d5c9f8bfa4c1e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-gene-flow-pairing-v1.svg": "a9072cf00653593dd322ed3ccc35ad8f152898e8635778fba931733868e508d9",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-growth-model-shapes-v1.svg": "65eb6909eda32148e96d49ec6a10033576d984b7aae208f9f8e0766b5e42470f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-interaction-effects-v1.svg": "c29a3f385206ff387f16f6a6110929f68825f80ebe9c4508b6aea774cc18b743",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-life-history-traits-v1.svg": "6efa92564d03e29b69710180af79f8335601ff40c60a6f7eb8fdcb181dc5ac16",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-mimicry-comparison-v1.svg": "3b0503043102faec042b2dae76c1925a1fce95d8e6129be3f928d13f3ef5f5b1",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-observed-expected-v2.svg": "d8c1798e3e040448300fc7323d72ee66cde20897f3c07722661ea73edadd7d04",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-phenotype-to-frequency-v1.svg": "835317ceef13eb9d18ae6a6aa8b7b427106d5329acbc038aa7e113fa08f64dde",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-population-cycle-evidence-v1.svg": "9ee506ed9a54341bb6e2e283933ca5414041aa551c8c8817f54307599c83a5ae",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-population-sampling-v1.svg": "b80d4745f2dd659c10e07a8f29c41d301ffe4d807de50edff8ad8a113ad5e6cf",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-rate-denominators-v2.svg": "3c31f0bde2f8431b94dd9393ea6e54ced053390a8ec5be723404c8446993db91",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-resistance-evidence-v1.svg": "c5b7285fd7638fd1fd8558cddaa12192901de9b2e5e353fd41d6044d0db95a6e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-resource-partitioning-v1.svg": "b60b51d42afacadd8f6069bd56baed2fafcc061eb2ad3cf05e5aa46eeb741d8c",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-succession-pathways-v1.svg": "fa9c51ae26299d49f01633ac0a475b4930027464df905d167e5ebc80e0ec494f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-survivorship-forms-v1.svg": "a8696110ab549d0550bc6efd876b72c899c8484f6e2796b704d62620e94d57c6",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-variant-selection-v1.svg": "eb1a61e48d3d327b6cc4690e2591ebc5d350a3e27d76fb6141ddc76ded25defd",
+      "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-weighted-genotype-grid-v1.svg": "c7956ba77529a4b54eadbfa60079933a53f62ca2926c2131c9db8a4b9e8e867e",
+      "projects/resources/biology30-production/v1/pilot2/source-review/investigation-stage-review.json": "2136bc8dbdcefb22907a9fa5aaa7881421bf45e92caee9abedacc19c24acdf6f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-diagram-review.json": "1947805a6f094d9fb74d8a1274241979e5f62e5c90845eb0773b9c287fa9b475",
+      "projects/resources/biology30-production/v1/pilot2/source-review/population-diagram-review.json": "3d52dcc1900df364107a026681ee4b2e435671a3ed7393b8756ba7956f1ba40d",
+      "projects/resources/biology30-production/v1/pilot2/source-review/practice-key-stage-review.json": "aa2977ccbbf0e802406044f185cdfc9aa9c9a1c8bbe73064972397937899fc12",
+      "projects/resources/biology30-production/v1/pilot2/source-review/practice-operation-stage-review.json": "3c2d55022703bb843709bef54ff752b021788f4ac068713b1cecf1452fe7fed7",
+      "projects/resources/biology30-production/v1/pilot2/source-review/required-data-outcome-declarations.json": "6c0da77389b86fa899c0feb06648c9856b14821a4382e94c1f3e925d5eb9b5cc",
+      "projects/resources/biology30-production/v1/pilot2/source-review/state-stage-review.json": "c7ac3d263815bf6eb7b211e52b3db8862fdd5faf5989d849668a6527e2d9c238",
+      "projects/resources/biology30-production/v1/pilot2/source-review/textbook-stage-review.json": "c66ea3c0357234191d39c0f28ec8456b14869bf0b24168b115253ea8aa1f40af",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-academic-contract.json": "621fb469b52b54c3af4d2ecf95f9e228711c375c5f8784c42f550480fc3f87ba",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-activity-index.json": "e04b26eeb6706db2d0a8266da89fb6a1673951923a5c941283783af3097a189e",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-alias-scan.json": "736055a564b68dbbd4dd904b1f25962b2c74e365da6e787dc75f71ee5b9a7dca",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-content.json": "c6bbab43c84634f97fa0686ac25073c159cb4abb36667f5dbed1d94d1586d012",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-definition-wording-review.json": "b01043493159c657a18d6b9d31099f57a61fabd4399f7ae21ff0ec45da99dcad",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-demographic-graph-work.json": "53973bf7358dcc57dd3b0bdf3292fcd893a8f1899e9f17113b5c22f4998cc0cb",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-figures.json": "3f5d7b5248897491e28fe5591e6e162089cfbab8b74e6ab94af9db5bd04e9be2",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-decisions.json": "5dcbe7e3de2a07ee787378ee5ffa0022ebafdc86ac59f244ccedee99138ab11d",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-first-use-review.json": "e7e3a356842bd5b304f969d86204add9b3559ea88e4f37045e81d0e23d7ef28c",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-graph-work.json": "273a5a8f332e37b4ea89f8baea37b3aed9756ec09358195d0ce33622e088703c",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-instruction.json": "d5cfaf6ba10d6213c530a4bdd2e129140b41cd722e6454bb54932bca091274ef",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigation-review.json": "3b5019a22bb0efacddeab78b48b815470a232172fda911a930f08f780cc286da",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json": "9a2a477b120aac089ee61cec6911f7036bdfe98616597c541ded2547b8ee8714",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-legacy-schema.json": "54ced15db173c9628a2300b8d9f5d37691035cc1b7861dfda18e75b2d9033efa",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-link-dispositions.json": "b963997fd58ccc0bde0d82f53a36057c9174bd9ceb6178a0818e7cd33845911b",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-media-dispositions.json": "f01ac028c05f61cb1224ccbdd1d76c0154b6ceae5699ca8d1cda425af6b074e7",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-migration.json": "8f70dabb68aea4237d7e8ec19539619cb79426ba3dc1db7ab9f8ed34ddfaaf7f",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-model-outputs.json": "4cd07c23348e50618604eb360a0c4701625cd8954ccb62d637f4cc8575f15cfb",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-models.json": "87a053903d2c08c856b49142379129f1500697cc944ee0d7fa98b2db3497e64d",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-disposition.json": "147526008134c2de42e5b767aa77e4eb148c0423c6433fec81e862aef41754ba",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-old-section-review.json": "38a756fc22d45db41bd90899f429b60825fb1be2d275d5fc53b8ae45c4377a3f",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-outcome-targets.json": "6561092d779f5541b2c5188d36a3520c50fcda5ecd7bde5cb4f3cde4a03e2c88",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-plan-dispositions.json": "edbd45896b9c3f0b0700f3db3e3c13f8e22c010cb13d61243f044324ff7c8b24",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-key-review.json": "c814c3f3e979aa132322461b893648b8be0450a0438e2d2f086c9791a0a857dc",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice-passage-review.json": "ba77b3f15568119f2c9232ba79c848288d08730e96a930ae074ce7d04518af81",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-practice.json": "17004b6549b8e194cc87427924957c8fbbbe962d757738368afd78aeba13edd6",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-reading-report.json": "62f85ed584068d9f1524072d674271869519f23e437c74bc46a2ec075927e1b8",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-review-seminar.json": "45610d497376cdd85657c1e5a4fe643c80e09c909404224f8e14bb37f7b51e09",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-slide-dispositions.json": "9d8b2967791863e0afa1f9489a7285e0effac1a602c4afd981b9c20b869c1098",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-budget.json": "fbad29f80c29e7a0853976a2a6a0a879d8f352080869e56dce663758fd4d33bf",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-state-schema.json": "52b2d60674df0c43368d6a12884f664b332c99549de2cabc50255b3226f6b7fc",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-calculations.json": "1006efa97ea01f344d10bf6752010dae5b958dfc5871735bf51fc211c34184c8",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-guides.json": "385d8fcd4daf17eb96ca83d7a15a7f9b2d850173cea0b660dd7c56fc03f1c663",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook-passage-review.json": "3e9535873df66c1cba1de6b74aa3bd1b89fc63f6db1594d2200ffd11dd4f3946",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-textbook.json": "5396b0838d549b967a361b3122099451fd1915923a84a2d26cbc2ee19179df57",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-time.json": "1d7a1d780b12de70ca1a65983e84dda3efece55ee81d5aad4234a5c7efd154e8",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-topic-teaching.json": "b4611ccb9b2a24b54cf380c61fde7832f18923616901520bc3c4e7017da6bfc1",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-transfer-map.json": "470a0021cf4adeea08dbc4134c07b9b0a61d3a9dfa570568b35cc9fa0deed147",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-alias-review.json": "cbca142bbfa2428239a53339e9d22b8978ca9d3315e594efd2b0cc2f4a046c08",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-corrections.json": "3a07616018ff0ebbacabbe48d046ebc8ea9fadffba417cf605cf3c660d422646",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary-semantic-review.json": "d6d98c7f9f6fb3fdbec1522b6896340aed635d260859ed3aa0a78cc9d7e83c75",
+      "projects/resources/biology30-production/v1/units/unit-d/pilot2-vocabulary.json": "bd06d57827e941d52a25b0efb252adb420c9e164c987cc0b1bb95ea66680567f",
+      "projects/resources/biology30-production/v1/pilot2/source-review/actual-build-continuation-repair.json": "de4cc0e137138b6d057b0e9c8af0109942200c53f1e571b921fbae71a76a5a32",
+      "projects/resources/biology30-production/v1/pilot2/source-review/actual-mobile-header-repair.json": "c069f4d3b2d10ded5c443c9a19983c0935943da3a8a5225916b39d9dfd82ffac"
+    }
+  }
+}

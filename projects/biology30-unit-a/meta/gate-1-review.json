@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "gateId": "gate-1",
+  "projectSlug": "biology30-unit-a",
+  "contractSha256": "f4fdf1e95aa3e80681b8aff15c2fb1af65705d28e663ea1ad2c3a2dbb8ae610d",
+  "buildSha256": "ef0b900b880cb705fd9b4e8000738b52fcf324ac2ba373d5d60aaf8760d3bf2a",
+  "status": "approved",
+  "decision": {
+    "approved": true,
+    "approvedAt": "2026-08-30T02:48:45Z",
+    "approvedBy": "user",
+    "approvedBuildSha256": "ef0b900b880cb705fd9b4e8000738b52fcf324ac2ba373d5d60aaf8760d3bf2a",
+    "authorization": "gate-2-only"
+  },
+  "qualityFloorAmendment": {
+    "amendedAt": "2026-08-31T01:58:30Z",
+    "previousContractSha256": "cb773ee76a4c1a20f384a0edcbd764ee64a3af296ed87e0526d95e1ed940f3cc",
+    "change": "Raised only the later human promotion threshold from 90 to 95; the approved Gate 1 build and learner experience are unchanged.",
+    "authorizedBy": "user",
+    "authorizationText": "lets do it and get 95+/100"
+  },
+  "generatedAt": "2026-08-30T02:36:35.122Z",
+  "approvalScope": "gate-2-full-course-production-only",
+  "approvalRequirements": [
+    "Approve the scientific editorial visual direction shown in the Overview, Lesson 4, and Lesson 15.",
+    "Approve the independent-learning loop, explanatory depth, diagrams, practice feedback, and evidence-artifact structure.",
+    "Approve the local-first model, notebook, responsive, print, accessibility, and persistence foundations.",
+    "Name this exact build SHA-256; substantive rebuilds require a new review.",
+    "Authorize Gate 2 only; promotion, commit, SCORM export, Brightspace upload, and publication remain unauthorized."
+  ]
+}

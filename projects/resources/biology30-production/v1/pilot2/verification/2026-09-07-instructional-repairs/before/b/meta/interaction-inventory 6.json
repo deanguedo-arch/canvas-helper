@@ -1,0 +1,563 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T01:39:45.921Z",
+  "interactionCount": 14,
+  "artifactCount": 8,
+  "semanticFigureCount": 14,
+  "interactions": [
+    {
+      "id": "b-lesson-01:interaction",
+      "kind": "reproductive-system-overview",
+      "lessonId": "b-lesson-01",
+      "responseIds": [
+        "biology30-unit-b:activity:reproductive-system-overview:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-02:interaction",
+      "kind": "male-reproductive-pathway",
+      "lessonId": "b-lesson-02",
+      "responseIds": [
+        "biology30-unit-b:activity:male-reproductive-pathway:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-03:interaction",
+      "kind": "female-reproductive-pathway",
+      "lessonId": "b-lesson-03",
+      "responseIds": [
+        "biology30-unit-b:activity:female-reproductive-pathway:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-04:interaction",
+      "kind": "development-evidence-model",
+      "lessonId": "b-lesson-04",
+      "responseIds": [
+        "biology30-unit-b:activity:development-evidence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-05:interaction",
+      "kind": "reproductive-feedback-model",
+      "lessonId": "b-lesson-05",
+      "responseIds": [
+        "biology30-unit-b:activity:reproductive-feedback-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-06:interaction",
+      "kind": "cycle-hormone-graph",
+      "lessonId": "b-lesson-06",
+      "responseIds": [
+        "biology30-unit-b:activity:cycle-hormone-graph:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-07:interaction",
+      "kind": "fertility-evidence-board",
+      "lessonId": "b-lesson-07",
+      "responseIds": [
+        "biology30-unit-b:activity:fertility-evidence-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-08:interaction",
+      "kind": "fertilization-sequence",
+      "lessonId": "b-lesson-08",
+      "responseIds": [
+        "biology30-unit-b:activity:fertilization-sequence:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-09:interaction",
+      "kind": "placenta-exchange-model",
+      "lessonId": "b-lesson-09",
+      "responseIds": [
+        "biology30-unit-b:activity:placenta-exchange-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-10:interaction",
+      "kind": "germ-layer-fate-map",
+      "lessonId": "b-lesson-10",
+      "responseIds": [
+        "biology30-unit-b:activity:germ-layer-fate-map:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-11:interaction",
+      "kind": "development-risk-evidence",
+      "lessonId": "b-lesson-11",
+      "responseIds": [
+        "biology30-unit-b:activity:development-risk-evidence:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-12:interaction",
+      "kind": "birth-feedback-model",
+      "lessonId": "b-lesson-12",
+      "responseIds": [
+        "biology30-unit-b:activity:birth-feedback-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-13:interaction",
+      "kind": "technology-evidence-matrix",
+      "lessonId": "b-lesson-13",
+      "responseIds": [
+        "biology30-unit-b:activity:technology-evidence-matrix:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "b-lesson-14:interaction",
+      "kind": "integrated-reproduction-case",
+      "lessonId": "b-lesson-14",
+      "responseIds": [
+        "biology30-unit-b:activity:integrated-reproduction-case:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "b-regulation-map",
+      "unitCode": "B",
+      "title": "Regulation Map",
+      "lessonIds": [
+        "b-lesson-01",
+        "b-lesson-04",
+        "b-lesson-05",
+        "b-lesson-12"
+      ],
+      "outcomeIds": [
+        "B1.1sts",
+        "B1.1s",
+        "B1.4k",
+        "B1.3s",
+        "B2.1k",
+        "B2.3k",
+        "B2.1sts",
+        "B3.1k"
+      ],
+      "fields": [
+        {
+          "id": "b-regulation-map:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-regulation-map:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-regulation-map:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-regulation-map:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-anatomy-evidence",
+      "unitCode": "B",
+      "title": "Anatomy Evidence",
+      "lessonIds": [
+        "b-lesson-02",
+        "b-lesson-03"
+      ],
+      "outcomeIds": [
+        "B1.2k",
+        "B1.3k",
+        "B1.2s",
+        "B1.1k"
+      ],
+      "fields": [
+        {
+          "id": "b-anatomy-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-anatomy-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-anatomy-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-anatomy-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-cycle-data-lab",
+      "unitCode": "B",
+      "title": "Cycle Data Lab",
+      "lessonIds": [
+        "b-lesson-06"
+      ],
+      "outcomeIds": [
+        "B2.2k",
+        "B2.1s",
+        "B2.2s",
+        "B2.3s",
+        "B2.4s"
+      ],
+      "fields": [
+        {
+          "id": "b-cycle-data-lab:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-cycle-data-lab:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-cycle-data-lab:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-cycle-data-lab:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-fertility-evidence-brief",
+      "unitCode": "B",
+      "title": "Fertility Evidence Brief",
+      "lessonIds": [
+        "b-lesson-07"
+      ],
+      "outcomeIds": [
+        "B1.5k",
+        "B1.1sts",
+        "B1.1s",
+        "B1.3s",
+        "B1.4s",
+        "B2.2sts"
+      ],
+      "fields": [
+        {
+          "id": "b-fertility-evidence-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-fertility-evidence-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-fertility-evidence-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-fertility-evidence-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-development-timeline",
+      "unitCode": "B",
+      "title": "Development Timeline",
+      "lessonIds": [
+        "b-lesson-08",
+        "b-lesson-09",
+        "b-lesson-10"
+      ],
+      "outcomeIds": [
+        "B3.1k",
+        "B3.3k",
+        "B3.2k",
+        "B3.3s"
+      ],
+      "fields": [
+        {
+          "id": "b-development-timeline:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-timeline:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-timeline:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-timeline:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-development-risk-analysis",
+      "unitCode": "B",
+      "title": "Development Risk Analysis",
+      "lessonIds": [
+        "b-lesson-11"
+      ],
+      "outcomeIds": [
+        "B3.2k",
+        "B3.4k",
+        "B3.1s",
+        "B3.2s",
+        "B3.3s"
+      ],
+      "fields": [
+        {
+          "id": "b-development-risk-analysis:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-risk-analysis:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-risk-analysis:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-development-risk-analysis:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-technology-decision-brief",
+      "unitCode": "B",
+      "title": "Technology Decision Brief",
+      "lessonIds": [
+        "b-lesson-13"
+      ],
+      "outcomeIds": [
+        "B3.5k",
+        "B3.1sts",
+        "B3.2sts",
+        "B3.2s",
+        "B3.3s",
+        "B3.4s",
+        "B2.2sts"
+      ],
+      "fields": [
+        {
+          "id": "b-technology-decision-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-technology-decision-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-technology-decision-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-technology-decision-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "b-integrated-case",
+      "unitCode": "B",
+      "title": "Integrated Case",
+      "lessonIds": [
+        "b-lesson-14"
+      ],
+      "outcomeIds": [
+        "B1.1k",
+        "B1.2k",
+        "B1.3k",
+        "B1.4k",
+        "B1.5k",
+        "B2.1k",
+        "B2.2k",
+        "B2.3k",
+        "B3.1k",
+        "B3.2k",
+        "B3.3k",
+        "B3.4k",
+        "B3.5k",
+        "B1.3s",
+        "B2.3s",
+        "B3.3s"
+      ],
+      "fields": [
+        {
+          "id": "b-integrated-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 500
+        },
+        {
+          "id": "b-integrated-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 500
+        },
+        {
+          "id": "b-integrated-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 500
+        },
+        {
+          "id": "b-integrated-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 500
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "five original author-reviewed provisional SVG figures; exact first-use and learner placement pending",
+  "teacherDecision": null,
+  "medium": "Original code-native scientific diagrams under saved plan; no generated raster or copied source pixels.",
+  "sourceReview": {
+    "existing": "Existing d-lesson-04 native figure inspected: Mechanism/Pattern/Claim text map. It cannot show the original sample counts, frequency trajectory, fixed-pool comparison or replicated design.",
+    "slides": "Combined chapter19\u201320 deck slides21\u201329 text reviewed. Native drift beetle diagram, elephant-seal photograph, founder-dot diagram, historical family photograph and bacterial selection diagram inspected. Images retained only as authoring references; no redistribution selection. Family photograph does not establish allele frequencies or genetic contribution.",
+    "textbook": "Chapter19 physical22\u201324 printed693\u2013695 relevant source passages read; physical23 printed694 and Figure19.13 visually inspected. Original diagrams avoid the source overstatement that large populations do not experience drift, distinguish fixed-pool pairing from sexual selection, and avoid treating a single frequency shift as proof of cause.",
+    "selection": "Precise original SVG is suitable for arithmetic, common-scale plots, countable symbolic cells and experimental design. No ChatGPT raster required for these code-native diagrams; earlier ChatGPT raster process remains in force for raster gaps."
+  },
+  "numericVerification": "Independent Decimal: (72+48)/200=.60; (90+45)/200=.675; (84+46)/200=.65; (96+24)/200=.60. Migration140/220 rounds.6364. Capsule inventories20\u21924\u219216 with resistant counts1\u21921\u219212 verified natively.",
+  "sourceNativeAssets": [
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/1790f967d625db760224a601ea97e15f9fa1deff40021254d44911a93045cdb5.png",
+      "sha256": "1790f967d625db760224a601ea97e15f9fa1deff40021254d44911a93045cdb5"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/5118d6ffbea6ac465f093a0e353aacefeac47de5db5644b5acf0c1d15fa78bd1.png",
+      "sha256": "5118d6ffbea6ac465f093a0e353aacefeac47de5db5644b5acf0c1d15fa78bd1"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/d5f4a396395fd59925716f6a0f73870aadc8ceda1dc74a1ebda267e929625b80.png",
+      "sha256": "d5f4a396395fd59925716f6a0f73870aadc8ceda1dc74a1ebda267e929625b80"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/7e1da0c03c597c96e45c94aa9d9b0fde96787447c6944416338e23c4a6035a2f.png",
+      "sha256": "7e1da0c03c597c96e45c94aa9d9b0fde96787447c6944416338e23c4a6035a2f"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/media/34ae97a397c5c3036a653b876478fc6afc0152b3830f2b7e8e75dbe917a53dbc.png",
+      "sha256": "34ae97a397c5c3036a653b876478fc6afc0152b3830f2b7e8e75dbe917a53dbc"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/textbook/chapter-19.pdf",
+      "sha256": "39937a2bd45b4a0869ab6502cd56134e94d25204bb6c1b2a7a1d8a27c22b4a4c"
+    },
+    {
+      "path": "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/decks.json",
+      "sha256": "4010eb0cd68c5b1a8d640696b4c8873e71db696a73344202dc5450e0cbccee45"
+    }
+  ],
+  "entries": [
+    {
+      "targetId": "d-topic-mechanisms-of-change-mutation-and-selection-figure",
+      "assetId": "d-variant-selection-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-variant-selection-v1.svg",
+      "sha256": "eb1a61e48d3d327b6cc4690e2591ebc5d350a3e27d76fb6141ddc76ded25defd",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "All three capsule counts and S/R labels checked at native 1200 by 900 pixels. Exposure and reproductive arrows connect the intended stages. Variant origin is explicitly earlier; chosen unequal outcomes are labelled fictional.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-variant-selection-v1-native.png",
+      "screenshotSha256": "e53614bcc7cdaf6b9cd7410fc0f0f3e19bfcc2982aff90712a0da8cb3c863e33",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-mechanisms-of-change-chance-and-population-size-figure",
+      "assetId": "d-drift-histories-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-drift-histories-v1.svg",
+      "sha256": "cd51d95d50a34e5e921f8ff08a2e2c5a268f3382477e39c5a7c6240966830121",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native points and common frequency scales checked, including the tightly clustered large-population examples. Starting p is 0.50 in both displays. Histories distinguish establishment elsewhere from reduction of an existing group. No claim that drift vanishes in large finite populations.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-drift-histories-v1-native.png",
+      "screenshotSha256": "bb95c1328c66eefed87caf9562a02ce8c2c3b4f11f7ee31358c297ff8746aa93",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-mechanisms-of-change-movement-and-mating-figure",
+      "assetId": "d-gene-flow-pairing-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-gene-flow-pairing-v1.svg",
+      "sha256": "a9072cf00653593dd322ed3ccc35ad8f152898e8635778fba931733868e508d9",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native arithmetic, all table cells and two distinct comparisons checked. The combined group has 110 individuals and 220 copies. Each fixed-pool row has the same totals. Nonrandom pairing is explicitly separated from unequal reproductive success.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-gene-flow-pairing-v1-native.png",
+      "screenshotSha256": "a66bb40da70511bfe6389b89cf0439f67b7bae3d476a82d6626f03b36f833c10",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-mechanisms-of-change-resistance-and-evidence-figure",
+      "assetId": "d-resistance-evidence-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-resistance-evidence-v1.svg",
+      "sha256": "c5b7285fd7638fd1fd8558cddaa12192901de9b2e5e353fd41d6044d0db95a6e",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native experimental branches, three replicates per condition, matching premise and measurement requirements checked. Replicate labels explicitly disambiguated from resistance. No invented observed results or medical treatment advice.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-resistance-evidence-v1-native.png",
+      "screenshotSha256": "4058aa1062d50845905c3b35e4d4c3aa33bad26f1816664548b3750de12eaf61",
+      "teacherDecision": null
+    },
+    {
+      "targetId": "d-topic-mechanisms-of-change-testing-explanations-figure",
+      "assetId": "d-frequency-evidence-v1",
+      "path": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/d-frequency-evidence-v1.svg",
+      "sha256": "45b3503f7457304614221494c4fdd6196c6af8ca3ac3267a9d2d5c9f8bfa4c1e",
+      "width": 1200,
+      "height": 900,
+      "scientificReview": "Native full 0\u20131 axis, three points and their labels, source-count rows and explicit unspecified sampling intervals checked. Independent Decimal calculations match all plotted values; no truncated axis or unsupported causal claim.",
+      "nativeScreenshot": "projects/resources/biology30-production/v1/pilot2/source-review/mechanisms-comparison/d-frequency-evidence-v1-native.png",
+      "screenshotSha256": "9eec247d70abc740f8f4c49aaa8249e58104d19ce2cef73cdc08f47425065fd2",
+      "teacherDecision": null
+    }
+  ],
+  "limitations": [
+    "Author review is provisional, not teacher acceptance.",
+    "All-surface first use, actual learner placement, inline/enlarged accessibility and exact-build review remain pending.",
+    "These visuals illustrate required teaching examples; they do not expose a withheld assessment answer."
+  ]
+}

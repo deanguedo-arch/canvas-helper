@@ -1,0 +1,778 @@
+{
+  "unit": "B",
+  "status": "draft-topic-framing-and-narration; no visual or equivalence pass",
+  "topics": [
+    {
+      "topicId": "b-topic-male-reproductive-structures",
+      "observableQuestion": "How can sperm delivery fail while testosterone is still present?",
+      "learningGoal": "Trace reproductive structures and distinguish cell production, support, secretion and transport in a fictional case.",
+      "priorKnowledgeSupport": "Cells form tissues, and tissues form organs. A signal travels from a source to a responsive target; a transport duct and a blood vessel can carry different materials along different routes.",
+      "retrieval": {
+        "responseId": "b-topic-male-reproductive-structures-retrieval",
+        "prompt": "Name one sperm-production structure and one transport structure, with a different job for each.",
+        "comparisonGuide": "Seminiferous tubules support sperm development; the vas deferens transports sperm toward the ejaculatory duct.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-male-reproductive-structures-evidence",
+        "prompt": "Use the blocked-duct case to state a claim, an observation supporting it and one function the observation does not establish.",
+        "criteria": [
+          "Name the affected route.",
+          "Cite the upstream/downstream observation.",
+          "Keep hormone release or the other side's function separate."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-male-reproductive-structures-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-male-reproductive-structures-compartments-of-the-testes-walkthrough-frame",
+            "partId": "b-topic-male-reproductive-structures-compartments-of-the-testes",
+            "title": "Compartments of the testes",
+            "figureTarget": "b-topic-male-reproductive-structures-compartments-of-the-testes-figure",
+            "scenario": "A fictional tissue sample has intact interstitial cells but disrupted Sertoli-cell support. Testosterone is detected in blood. Does this prove normal sperm development?",
+            "orderedExplanation": [
+              "Locate the two compartments: interstitial cells lie between tubules; Sertoli cells support germ cells inside tubules.",
+              "Connect the blood result to the hormone-producing compartment.",
+              "Seek evidence of germ-cell stages inside tubules before judging sperm development."
+            ],
+            "conclusion": "No. The result supports hormone release, while the supplied tissue evidence suggests a separate support problem. A count of developing germ-cell stages would help test that explanation.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-male-reproductive-structures-the-transport-pathway-walkthrough-frame",
+            "partId": "b-topic-male-reproductive-structures-the-transport-pathway",
+            "title": "The transport pathway",
+            "figureTarget": "b-topic-male-reproductive-structures-the-transport-pathway-figure",
+            "scenario": "Sperm are found in a fictional sample taken from the epididymis but are absent downstream of an obstructed vas deferens. Predict one effect and one function that may persist.",
+            "orderedExplanation": [
+              "Trace epididymis → vas deferens → ejaculatory duct → urethra.",
+              "Put the obstruction between the upstream and downstream samples.",
+              "Follow testosterone through blood vessels separately from this duct."
+            ],
+            "conclusion": "Delivery through the affected duct is reduced, although production upstream and hormone release may persist. A unilateral obstruction does not by itself establish the function of the other side.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-male-reproductive-structures-semen-and-accessory-glands-walkthrough-frame",
+            "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+            "title": "Semen and accessory glands",
+            "figureTarget": "b-topic-male-reproductive-structures-semen-and-accessory-glands-figure",
+            "scenario": "A fictional ejaculate contains fluid with fructose but no observed sperm. A student writes, “The seminal vesicles failed to produce sperm.” Repair the explanation.",
+            "orderedExplanation": [
+              "Separate the fluid contribution from the reproductive cells.",
+              "Assign fructose-containing fluid to an accessory-gland contribution and sperm development to testicular tubules.",
+              "Keep production and delivery failures as alternatives until another observation distinguishes them."
+            ],
+            "conclusion": "The seminal vesicles contribute fluid; they do not produce sperm. The sample is consistent with gland secretion plus reduced sperm production or delivery, but it does not identify a single cause.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-male-reproductive-structures-reproductive-development-and-health-walkthrough-frame",
+            "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+            "title": "Reproductive development and health",
+            "figureTarget": "b-topic-male-reproductive-structures-reproductive-development-and-health-figure",
+            "scenario": "In a fictional developmental model, a hormone is present but one target tissue cannot respond to it. A chromosome image is also available. What additional evidence matters most for the proposed signalling mechanism?",
+            "orderedExplanation": [
+              "Identify the proposed hormone and target tissue.",
+              "Check whether the target has a working response pathway during the relevant developmental interval.",
+              "Separate observed chromosomes and hormone levels from inferred anatomical effects."
+            ],
+            "conclusion": "Evidence about target response and timing is needed. Hormone presence and chromosomes alone do not establish the final structure. Different signals also act on different developmental tissues.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-male-reproductive-structures-media",
+          "prompt": "Why does testosterone detection not prove normal sperm delivery?",
+          "comparisonGuide": "Hormone release enters blood; sperm delivery depends on a separate duct pathway.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-topic-spermatogenesis"
+    },
+    {
+      "topicId": "b-topic-spermatogenesis",
+      "observableQuestion": "What changes when a germ cell makes gametes: sets, copies, shape or signals?",
+      "learningGoal": "Track sperm development through chromosome reduction, differentiation and hormone feedback with explicit cell boundaries.",
+      "priorKnowledgeSupport": "A chromosome carries DNA. A set contains one of each chromosome type; replication makes sister copies without adding homologous sets. Hormones act through suitable target responses.",
+      "retrieval": {
+        "responseId": "b-topic-spermatogenesis-retrieval",
+        "prompt": "After meiosis I in the human model, give sets, chromosomes and DNA molecules per cell.",
+        "comparisonGuide": "One set, 23 duplicated chromosomes and 46 DNA molecules per cell.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-spermatogenesis-evidence",
+        "prompt": "Explain how a fall in testosterone could be followed by a rise in LH in the intact feedback model, including one condition.",
+        "criteria": [
+          "Identify negative feedback.",
+          "Give the predicted upstream direction.",
+          "State that target and pituitary responses must remain functional."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-spermatogenesis-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-spermatogenesis-gametes-and-chromosome-sets-walkthrough-frame",
+            "partId": "b-topic-spermatogenesis-gametes-and-chromosome-sets",
+            "title": "Gametes and chromosome sets",
+            "figureTarget": "b-topic-spermatogenesis-gametes-and-chromosome-sets-figure",
+            "scenario": "A primary spermatocyte has completed DNA replication. Count human chromosome sets, chromosomes and DNA molecules before meiosis I and in one product after meiosis I.",
+            "orderedExplanation": [
+              "Begin with two homologous sets and 46 chromosomes.",
+              "Replication creates two chromatids per chromosome: 92 DNA molecules, still two sets.",
+              "Meiosis I separates homologues: each product has one set, 23 chromosomes and 46 DNA molecules."
+            ],
+            "conclusion": "Before meiosis I: 2 sets, 46 chromosomes, 92 DNA molecules. After meiosis I, per cell: 1 set, 23 chromosomes, 46 DNA molecules.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-spermatogenesis-division-and-differentiation-walkthrough-frame",
+            "partId": "b-topic-spermatogenesis-division-and-differentiation",
+            "title": "Division and differentiation",
+            "figureTarget": "b-topic-spermatogenesis-division-and-differentiation-figure",
+            "scenario": "One typical primary spermatocyte completes both meiotic divisions. Predict the immediate products and explain why they still need further change.",
+            "orderedExplanation": [
+              "Meiosis I produces two secondary spermatocytes with duplicated chromosomes.",
+              "Meiosis II separates sister chromatids, producing four haploid spermatids.",
+              "Differentiation reshapes each spermatid, including its acrosome, compact nucleus and flagellum."
+            ],
+            "conclusion": "The immediate products are four haploid spermatids. Meiosis establishes their chromosome content; differentiation and later maturation support the form and functions associated with sperm.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-spermatogenesis-hormone-sources-and-targets-walkthrough-frame",
+            "partId": "b-topic-spermatogenesis-hormone-sources-and-targets",
+            "title": "Hormone sources and targets",
+            "figureTarget": "b-topic-spermatogenesis-hormone-sources-and-targets-figure",
+            "scenario": "In a simplified pathway, GnRH stimulates the anterior pituitary, which releases LH. Identify the next target and response, then contrast the FSH branch.",
+            "orderedExplanation": [
+              "Trace GnRH from hypothalamus to anterior pituitary.",
+              "Trace LH to interstitial cells and testosterone release.",
+              "Trace FSH to Sertoli-cell support within seminiferous tubules; connect this branch with local testosterone action."
+            ],
+            "conclusion": "LH acts on interstitial cells to support testosterone production. FSH acts through Sertoli cells to support germ-cell development. The branches interact but do not have identical targets.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-spermatogenesis-feedback-and-evidence-walkthrough-frame",
+            "partId": "b-topic-spermatogenesis-feedback-and-evidence",
+            "title": "Feedback and evidence",
+            "figureTarget": "b-topic-spermatogenesis-feedback-and-evidence-figure",
+            "scenario": "In a simplified intact feedback model, testosterone action falls while hypothalamic and pituitary responses remain functional. Predict the direction of LH change and state a condition on that prediction.",
+            "orderedExplanation": [
+              "Identify testosterone's negative-feedback influence on upstream signalling.",
+              "Reduce that inhibitory influence in the model.",
+              "Predict increased upstream drive and LH, provided the relevant tissues can respond."
+            ],
+            "conclusion": "LH is expected to rise in this bounded model. The prediction may fail if the pituitary cannot respond or if another signal changes the pathway.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-spermatogenesis-media",
+          "prompt": "Does replication change a primary spermatocyte from two sets to four?",
+          "comparisonGuide": "No. It doubles DNA copies while the cell still has two homologous sets.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-topic-female-reproductive-structures"
+    },
+    {
+      "topicId": "b-topic-female-reproductive-structures",
+      "observableQuestion": "Why are fertilization, transport and implantation different steps?",
+      "learningGoal": "Trace oocyte development and movement while distinguishing the oocyte, follicle, corpus luteum and uterine lining.",
+      "priorKnowledgeSupport": "A reproductive cell is distinct from its supporting tissue. Meiosis reduces chromosome sets, while cytoplasmic division can be unequal. A structure's location helps explain its function.",
+      "retrieval": {
+        "responseId": "b-topic-female-reproductive-structures-retrieval",
+        "prompt": "Distinguish a follicle, an oocyte and a corpus luteum.",
+        "comparisonGuide": "A follicle surrounds an oocyte; remaining follicular tissue forms the corpus luteum after ovulation.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-female-reproductive-structures-evidence",
+        "prompt": "Use one fictional structural change to predict a transport effect, cite evidence and retain one alternative explanation.",
+        "criteria": [
+          "Name the changed structure.",
+          "Connect its function to the prediction.",
+          "State what remains unmeasured."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-female-reproductive-structures-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-walkthrough-frame",
+            "partId": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues",
+            "title": "Ovaries and supporting tissues",
+            "figureTarget": "b-topic-female-reproductive-structures-ovaries-and-supporting-tissues-figure",
+            "scenario": "An ovarian diagram shows a large follicle containing an oocyte and, elsewhere, a corpus luteum. A student labels both structures “eggs.” Correct the diagram.",
+            "orderedExplanation": [
+              "Locate the oocyte inside its surrounding follicular cells.",
+              "Label the follicle as a supporting structure containing the oocyte.",
+              "Label the corpus luteum as tissue formed from the follicle after ovulation, with a hormone-secreting role."
+            ],
+            "conclusion": "The oocyte is the reproductive cell. A follicle includes that cell and supporting tissues; a corpus luteum is the later secretory structure, not a second egg.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-walkthrough-frame",
+            "partId": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces",
+            "title": "Transport and implantation surfaces",
+            "figureTarget": "b-topic-female-reproductive-structures-transport-and-implantation-surfaces-figure",
+            "scenario": "A fictional zygote is in a uterine tube. Trace its usual route toward the implantation surface and explain why the cervix is not that surface.",
+            "orderedExplanation": [
+              "Follow the uterine tube toward the uterine cavity.",
+              "Identify the endometrium as the uterine lining associated with implantation.",
+              "Place the cervix at the lower uterine opening into the vagina, not along the normal tube-to-endometrium implantation sequence."
+            ],
+            "conclusion": "Early development and transport proceed toward the uterus, where the blastocyst can implant in the endometrium. Fertilization and implantation are different events at different usual locations.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-walkthrough-frame",
+            "partId": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses",
+            "title": "Oogenesis and meiotic pauses",
+            "figureTarget": "b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses-figure",
+            "scenario": "Compare a typical human primary oocyte before completion of meiosis I with the secondary oocyte released at ovulation. State the pause and chromosome-copy condition.",
+            "orderedExplanation": [
+              "The primary oocyte has replicated chromosomes and is paused in prophase I.",
+              "Completion of meiosis I separates homologues through an unequal cytoplasmic division.",
+              "The secondary oocyte is haploid with duplicated chromosomes and is typically paused in metaphase II at ovulation."
+            ],
+            "conclusion": "The primary oocyte has 46 duplicated chromosomes; the secondary oocyte has 23 duplicated chromosomes. Completion of meiosis II normally follows fertilization-related activation, rather than preceding ovulation.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-female-reproductive-structures-structure-and-reproductive-function-walkthrough-frame",
+            "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+            "title": "Structure and reproductive function",
+            "figureTarget": "b-topic-female-reproductive-structures-structure-and-reproductive-function-figure",
+            "scenario": "In the supplied structure dataset, T has germ cells, support cells and LH present but a blocked duct. P has absent germ cells, disrupted support and an open duct. Compare two explanations for reduced sperm delivery.",
+            "orderedExplanation": [
+              "Record each supplied observation without replacing absent with unmeasured.",
+              "For T, connect the blockage with delivery despite evidence of upstream structures.",
+              "For P, connect disrupted development/support with reduced production despite an open route."
+            ],
+            "conclusion": "The dataset supports different proposed mechanisms in T and P. It does not prove normal maturation in T or identify the original cause of the support disruption in P.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-female-reproductive-structures-media",
+          "prompt": "Is the released oocyte the structure that becomes the corpus luteum?",
+          "comparisonGuide": "No. The remaining follicular tissue becomes the corpus luteum.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-topic-menstrual-cycle"
+    },
+    {
+      "topicId": "b-topic-menstrual-cycle",
+      "observableQuestion": "How do changing hormone signals coordinate two different cycles?",
+      "learningGoal": "Align ovarian and uterine events and explain changing feedback using a labelled, qualified graph.",
+      "priorKnowledgeSupport": "Hormone sources and targets form pathways. Negative feedback opposes a change; positive feedback can reinforce it within defined conditions. Graph axes identify time and the measured quantity.",
+      "retrieval": {
+        "responseId": "b-topic-menstrual-cycle-retrieval",
+        "prompt": "Distinguish ovulation from menstruation and name one associated hormone change.",
+        "comparisonGuide": "Ovulation releases an oocyte after an LH surge; menstruation sheds endometrium as luteal hormone support declines.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-menstrual-cycle-evidence",
+        "prompt": "Use one sampled hormone pattern to connect an ovarian event with an endometrial response, keeping a timing or scale limit explicit.",
+        "criteria": [
+          "Cite a sampled change.",
+          "Explain the source–target response.",
+          "Avoid a universal calendar or cross-hormone concentration claim."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-menstrual-cycle-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-menstrual-cycle-two-coordinated-cycles-walkthrough-frame",
+            "partId": "b-topic-menstrual-cycle-two-coordinated-cycles",
+            "title": "Two coordinated cycles",
+            "figureTarget": "b-topic-menstrual-cycle-two-coordinated-cycles-figure",
+            "scenario": "Place follicle development, ovulation, corpus-luteum function, endometrial rebuilding and secretory maintenance on two aligned tracks in a typical simplified cycle.",
+            "orderedExplanation": [
+              "Use an ovarian track for follicular phase → ovulation → luteal phase.",
+              "Use a uterine track for shedding → rebuilding → secretory maintenance.",
+              "Align the tracks by changing hormone signals, rather than calling a uterine event an ovarian structure."
+            ],
+            "conclusion": "Follicular estrogen supports rebuilding; luteal progesterone supports a secretory endometrium. These coordinated tracks have different events and should remain separately labelled.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-walkthrough-frame",
+            "partId": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback",
+            "title": "Follicle growth and changing feedback",
+            "figureTarget": "b-topic-menstrual-cycle-follicle-growth-and-changing-feedback-figure",
+            "scenario": "In the supplied series, estrogen's relative index rises to 10 on day 12 and LH peaks at 18 on day 14. Explain a plausible connection and one limitation of these data.",
+            "orderedExplanation": [
+              "Read each value on its own hormone's relative scale.",
+              "Link sustained high estrogen before ovulation with a change to positive feedback and an LH surge.",
+              "Keep the two-day sampling gap and other unmeasured conditions visible in the explanation."
+            ],
+            "conclusion": "The pattern is consistent with an estrogen-associated feedback transition preceding an LH surge. The sampled indices do not by themselves prove a universal threshold or the exact hour of ovulation.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-walkthrough-frame",
+            "partId": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium",
+            "title": "Corpus luteum and the endometrium",
+            "figureTarget": "b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium-figure",
+            "scenario": "In a cycle without an ongoing pregnancy signal, corpus-luteum function declines. Predict the effect on progesterone support and the endometrium.",
+            "orderedExplanation": [
+              "Identify the corpus luteum as an important post-ovulation progesterone source.",
+              "Follow reduced luteal function to declining hormone support.",
+              "Connect withdrawal of support with endometrial breakdown and shedding in the model."
+            ],
+            "conclusion": "Progesterone support declines, and the maintained endometrium breaks down. The oocyte itself is not the source of the shed uterine tissue.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-menstrual-cycle-graphs-and-cycle-variation-walkthrough-frame",
+            "partId": "b-topic-menstrual-cycle-graphs-and-cycle-variation",
+            "title": "Graphs and cycle variation",
+            "figureTarget": "b-topic-menstrual-cycle-graphs-and-cycle-variation-figure",
+            "scenario": "Plot the supplied progesterone indices at days 2, 7, 12, 14, 21 and 28: 1, 1, 1, 2, 10 and 1. Identify the highest sampled value and a limit on timing.",
+            "orderedExplanation": [
+              "Put day on the horizontal axis and progesterone relative index on the vertical axis.",
+              "Plot all six points with a legend if other hormones are added.",
+              "Identify day 21 as the highest sampled value, while leaving the intervals between samples uncertain."
+            ],
+            "conclusion": "The highest sampled progesterone index is 10 on day 21. This does not establish that the true peak occurred exactly on day 21 or that its concentration exceeds another hormone measured on a different relative scale.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-walkthrough-frame",
+            "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+            "title": "Hormonal technologies and perspectives",
+            "figureTarget": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives-figure",
+            "scenario": "A fictional classroom source describes a technology that supplies hormone signals which reduce the upstream drive for follicle maturation and ovulation. Explain the mechanism and name evidence needed to evaluate a public-information claim.",
+            "orderedExplanation": [
+              "Trace added signals to hypothalamic/pituitary feedback in the stated model.",
+              "Connect reduced upstream drive with altered ovarian events, without assuming all technologies use the same mechanism.",
+              "Separate biological effectiveness evidence from questions of access, privacy, environmental impact, cultural acceptability and cost."
+            ],
+            "conclusion": "The mechanism is consistent with suppression of ovulatory signalling in the supplied model. Evaluating the claim also needs a defined outcome, comparison group, time interval and transparent account of uncertainty and user perspectives.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-menstrual-cycle-media",
+          "prompt": "Can separate relative hormone indices be added as a total blood concentration?",
+          "comparisonGuide": "No. Their separate reference scales do not provide compatible concentration units.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-chapter-14-practice"
+    },
+    {
+      "topicId": "b-topic-fertilization-to-implantation",
+      "observableQuestion": "Why does successful fertilization not guarantee implantation?",
+      "learningGoal": "Sequence gamete interaction, restoration of diploidy, cleavage, blastocyst formation and implantation, including a bounded IVF comparison.",
+      "priorKnowledgeSupport": "Gametes contain one chromosome set. The uterine tube and endometrium are different locations. Cell number, total size and developmental organization describe different changes.",
+      "retrieval": {
+        "responseId": "b-topic-fertilization-to-implantation-retrieval",
+        "prompt": "Put fertilization, cleavage, blastocyst formation and implantation in order.",
+        "comparisonGuide": "Fertilization → cleavage → blastocyst formation → implantation in a suitable endometrium.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-fertilization-to-implantation-evidence",
+        "prompt": "Locate one IVF step in the developmental sequence and explain an outcome it supports without guaranteeing the next step.",
+        "criteria": [
+          "Name the step and location.",
+          "Distinguish its measured outcome from a later outcome.",
+          "State a remaining requirement."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-fertilization-to-implantation-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-fertilization-to-implantation-gametes-meet-walkthrough-frame",
+            "partId": "b-topic-fertilization-to-implantation-gametes-meet",
+            "title": "Gametes meet",
+            "figureTarget": "b-topic-fertilization-to-implantation-gametes-meet-figure",
+            "scenario": "An oocyte and sperm are present in a fictional uterine-tube model, but the sperm cannot complete the interactions needed to pass the oocyte's coverings and fuse with its membrane. Has fertilization been demonstrated?",
+            "orderedExplanation": [
+              "Distinguish shared location from successful cellular interaction.",
+              "Identify passage through surrounding coverings and membrane fusion as necessary events in the model.",
+              "Seek evidence of activation and combining parental genetic contributions before calling the sequence complete."
+            ],
+            "conclusion": "No. The presence of both gametes in the same region is insufficient. The failed interaction interrupts the sequence before the full fertilization process is established.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-fertilization-to-implantation-combining-chromosome-sets-walkthrough-frame",
+            "partId": "b-topic-fertilization-to-implantation-combining-chromosome-sets",
+            "title": "Combining chromosome sets",
+            "figureTarget": "b-topic-fertilization-to-implantation-combining-chromosome-sets-figure",
+            "scenario": "A normal human sperm contributes 23 chromosomes and the female gamete contributes 23. A hypothetical error allows a second complete sperm contribution. Compare the set totals without predicting an individual outcome.",
+            "orderedExplanation": [
+              "One paternal set plus one maternal set restores two sets: 46 chromosomes.",
+              "A second paternal set would add another 23 in this simplified counting model.",
+              "Distinguish the resulting three-set count from a normal diploid fertilization."
+            ],
+            "conclusion": "The normal combination is 2n = 46. The hypothetical additional complete contribution gives three sets, 69 chromosomes, showing why mechanisms restricting extra sperm entry matter.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-walkthrough-frame",
+            "partId": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation",
+            "title": "Cleavage and blastocyst formation",
+            "figureTarget": "b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation-figure",
+            "scenario": "A simplified embryo changes from one cell to two, four and eight while its overall outer size remains similar. What changed, and what did not follow from the observation?",
+            "orderedExplanation": [
+              "Count cells at each stage.",
+              "Recognize cleavage as repeated divisions distributing the original material into smaller cells.",
+              "Separate increased cell number from an increase in the embryo's total external size."
+            ],
+            "conclusion": "Cell number increased through cleavage. The observation does not show proportional overall growth. Later blastocyst formation includes organization of an outer layer, inner cell mass and fluid-filled cavity.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-walkthrough-frame",
+            "partId": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology",
+            "title": "Implantation and reproductive technology",
+            "figureTarget": "b-topic-fertilization-to-implantation-implantation-and-reproductive-technology-figure",
+            "scenario": "A fictional IVF sequence includes oocyte retrieval, fertilization in a laboratory, early development and embryo transfer. A report states that transfer guarantees implantation. Correct it.",
+            "orderedExplanation": [
+              "Place laboratory fertilization before early embryo development.",
+              "Place embryo transfer before possible attachment and interaction with a suitable endometrium.",
+              "Keep successful transfer, implantation and continuing development as different outcomes."
+            ],
+            "conclusion": "Transfer places an embryo in the uterus; it does not guarantee implantation or continuing pregnancy. Each outcome needs its own definition and evidence.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-fertilization-to-implantation-media",
+          "prompt": "Does embryo transfer itself establish that implantation occurred?",
+          "comparisonGuide": "No. Transfer precedes possible implantation; each needs separate evidence.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-topic-hcg-and-gastrulation"
+    },
+    {
+      "topicId": "b-topic-hcg-and-gastrulation",
+      "observableQuestion": "How does early development maintain support while establishing new tissues?",
+      "learningGoal": "Trace early hCG support and distinguish gastrulation, germ-layer relationships and developmental dating.",
+      "priorKnowledgeSupport": "Hormone action depends on a source and a responsive target. Cleavage increases cell number. Tissues with a shared adult function can have different embryonic origins.",
+      "retrieval": {
+        "responseId": "b-topic-hcg-and-gastrulation-retrieval",
+        "prompt": "Give the early hCG support chain in order.",
+        "comparisonGuide": "Trophoblast-related hCG → maintained corpus luteum → progesterone support → maintained endometrium.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-hcg-and-gastrulation-evidence",
+        "prompt": "Correct one overgeneralized germ-layer claim using a named tissue example and one qualification.",
+        "criteria": [
+          "Name the tissue.",
+          "State its germ-layer relationship.",
+          "Distinguish a specific tissue from a mixed organ or functional category."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-hcg-and-gastrulation-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-walkthrough-frame",
+            "partId": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy",
+            "title": "A signal maintains the early pregnancy",
+            "figureTarget": "b-topic-hcg-and-gastrulation-a-signal-maintains-the-early-pregnancy-figure",
+            "scenario": "In an early-pregnancy model, trophoblast-related tissue releases hCG. Trace the connection to endometrial support without placing hCG production in the ovary.",
+            "orderedExplanation": [
+              "Identify the developing trophoblast-related source of hCG.",
+              "Trace its action to maintenance of corpus-luteum function.",
+              "Connect luteal progesterone support with maintenance of the endometrium during this early interval."
+            ],
+            "conclusion": "The chain is trophoblast-related hCG → maintained corpus luteum → progesterone support → maintained endometrium. Later placental hormone production changes the relative roles of these sources.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-walkthrough-frame",
+            "partId": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers",
+            "title": "Gastrulation establishes layers",
+            "figureTarget": "b-topic-hcg-and-gastrulation-gastrulation-establishes-layers-figure",
+            "scenario": "A diagram shows cells reorganizing into ectoderm, mesoderm and endoderm. Another shows one cell becoming two without that three-layer arrangement. Name the processes and their key difference.",
+            "orderedExplanation": [
+              "Use rising cell number to identify the cleavage example.",
+              "Use coordinated cell movement and three-layer organization to identify gastrulation.",
+              "Connect the new spatial arrangement with later tissue-development pathways."
+            ],
+            "conclusion": "Cleavage increases cell number through division. Gastrulation establishes the three primary germ layers through organized developmental changes; it is not merely another name for any cell division.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-walkthrough-frame",
+            "partId": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships",
+            "title": "Layer-to-tissue relationships",
+            "figureTarget": "b-topic-hcg-and-gastrulation-layer-to-tissue-relationships-figure",
+            "scenario": "Classify nervous tissue, skeletal muscle and the epithelial lining of much of the digestive tract by their usual primary germ-layer relationships. Then explain why “all endocrine glands are endoderm” fails.",
+            "orderedExplanation": [
+              "Match nervous tissue with ectoderm, skeletal muscle with mesoderm and much digestive epithelium with endoderm.",
+              "Recognize that an organ can contain tissues with different origins.",
+              "Compare endocrine examples: pituitary tissues relate to ectoderm, adrenal cortex to mesoderm, and pancreatic endocrine tissue to endoderm."
+            ],
+            "conclusion": "The three named tissues match ectoderm, mesoderm and endoderm respectively. Endocrine function does not imply one universal developmental origin.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-hcg-and-gastrulation-developmental-evidence-walkthrough-frame",
+            "partId": "b-topic-hcg-and-gastrulation-developmental-evidence",
+            "title": "Developmental evidence",
+            "figureTarget": "b-topic-hcg-and-gastrulation-developmental-evidence-figure",
+            "scenario": "Two fictional timelines label an event “week 6,” but one counts from fertilization and the other from the last menstrual period. Can the entries be aligned directly?",
+            "orderedExplanation": [
+              "Read the time origin in each legend.",
+              "Recognize that gestational dating commonly starts about two weeks before fertilization in a simplified typical cycle.",
+              "Convert only with that explicit approximation and retain biological timing variation."
+            ],
+            "conclusion": "The entries cannot be aligned as identical ages without conversion. In the simplified convention, six weeks after fertilization is about eight gestational weeks; this is an approximate relationship, not an exact date for every pregnancy.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-hcg-and-gastrulation-media",
+          "prompt": "Does endocrine function mean every gland develops from endoderm?",
+          "comparisonGuide": "No. Endocrine tissues have several origins; function does not define one germ layer.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-topic-extraembryonic-structures-and-organogenesis"
+    },
+    {
+      "topicId": "b-topic-extraembryonic-structures-and-organogenesis",
+      "observableQuestion": "How can separate maternal and fetal circulations exchange materials?",
+      "learningGoal": "Trace support structures and placental exchange, then interpret developmental timing and exposure evidence without individual prediction.",
+      "priorKnowledgeSupport": "A membrane can separate compartments while allowing some substances to move. Artery and vein names describe flow direction. Comparisons need counts, denominators and a stated time origin.",
+      "retrieval": {
+        "responseId": "b-topic-extraembryonic-structures-and-organogenesis-retrieval",
+        "prompt": "Name the umbilical vessel carrying blood toward the fetus and explain why the circulations remain distinct.",
+        "comparisonGuide": "The umbilical vein carries blood toward the fetus; exchange occurs across tissues between separate blood compartments.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-extraembryonic-structures-and-organogenesis-evidence",
+        "prompt": "Use the early/later exposure data to state a comparison, its denominator and one causal or individual-prediction limit.",
+        "criteria": [
+          "Calculate an exposed–control difference.",
+          "Name the interval and sample size.",
+          "Retain a design or prediction limit."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-extraembryonic-structures-and-organogenesis-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-walkthrough-frame",
+            "partId": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes",
+            "title": "Support membranes",
+            "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-support-membranes-figure",
+            "scenario": "Match four structures to distinct roles in a human developmental model: amnion, chorion, yolk sac and allantois. Avoid importing the large food-yolk model of a bird egg unchanged.",
+            "orderedExplanation": [
+              "Connect the amnion with the fluid-filled protective environment.",
+              "Connect chorionic tissue with the fetal contribution to placental structures and exchange relationships.",
+              "Describe early yolk-sac and allantoic contributions in human development without calling them a large stored-yolk meal or a waste-storage sac for the whole pregnancy."
+            ],
+            "conclusion": "The amnion surrounds the fluid environment; the chorion contributes to placental relationships. The human yolk sac has early developmental roles including blood formation, while allantoic development relates to structures associated with the connecting region and urinary development.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-walkthrough-frame",
+            "partId": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation",
+            "title": "Maternal and fetal circulation",
+            "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation-figure",
+            "scenario": "Trace oxygen from maternal blood to fetal blood at the placenta, then to the fetus. Include the direction of the umbilical vein and arteries.",
+            "orderedExplanation": [
+              "Keep maternal blood and fetal capillaries as separate compartments divided by exchange tissues.",
+              "Show oxygen moving across that interface into fetal blood.",
+              "Trace the umbilical vein toward the fetus and the umbilical arteries back toward the placenta."
+            ],
+            "conclusion": "Oxygen crosses an exchange interface rather than normally requiring bulk mixing of the two circulations. The umbilical vein carries blood toward the fetus; the arteries carry it away from the fetus toward the placenta.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-walkthrough-frame",
+            "partId": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development",
+            "title": "Organ formation across development",
+            "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development-figure",
+            "scenario": "Place cleavage, gastrulation and early organ-system formation in order, then explain why the end of early organogenesis does not mean that every organ is fully mature.",
+            "orderedExplanation": [
+              "Begin with cleavage and early cell organization.",
+              "Follow with gastrulation and establishment of germ-layer relationships.",
+              "Place early organ formation after these foundations while retaining later growth and functional maturation."
+            ],
+            "conclusion": "The order is cleavage → gastrulation → early organ-system formation. Development continues through later growth and maturation; some systems also undergo major changes around birth and afterward.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-walkthrough-frame",
+            "partId": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence",
+            "title": "Environmental influence and evidence",
+            "figureTarget": "b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence-figure",
+            "scenario": "In the supplied non-human cell model, an early interval has marker M in 4 out of 40 control samples and 20 out of 40 exposed samples. A later interval has 5/40 and 9/40. Compare the exposed-minus-control proportions.",
+            "orderedExplanation": [
+              "Calculate early proportions: 0.10 and 0.50, giving a difference of 0.40.",
+              "Calculate later proportions: 0.125 and 0.225, giving a difference of 0.10.",
+              "Compare the differences while checking whether the groups and exposure conditions are otherwise comparable."
+            ],
+            "conclusion": "The difference is 40 percentage points early and 10 percentage points later. The supplied data suggest a stronger association in the early interval, but they do not predict an individual's outcome or prove all other causes were controlled.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-extraembryonic-structures-and-organogenesis-media",
+          "prompt": "Does separate blood circulation mean that no substance can cross the placenta?",
+          "comparisonGuide": "No. Exchange occurs across the interface without normal bulk blood mixing.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-topic-parturition"
+    },
+    {
+      "topicId": "b-topic-parturition",
+      "observableQuestion": "How do feedback, birth and feeding establish a new support system?",
+      "learningGoal": "Explain labour feedback and newborn transitions, distinguish milk synthesis from ejection and evaluate a bounded technology claim.",
+      "priorKnowledgeSupport": "A feedback loop has an initiating stimulus and a response. Production and transport are distinct functions. A technology acts on particular steps and must be evaluated against a defined outcome.",
+      "retrieval": {
+        "responseId": "b-topic-parturition-retrieval",
+        "prompt": "Match prolactin and oxytocin to the two lactation functions.",
+        "comparisonGuide": "Prolactin supports milk synthesis; oxytocin supports ejection through contraction of surrounding cells.",
+        "requiredForCompletion": false
+      },
+      "evidenceSlip": {
+        "responseId": "b-topic-parturition-evidence",
+        "prompt": "Revise one claim about birth, lactation or reproductive technology using a mechanism, evidence and a stated limit.",
+        "criteria": [
+          "Name the process.",
+          "Explain the relevant pathway.",
+          "Distinguish evidence from a guaranteed personal outcome."
+        ],
+        "requiredSaveForCompletion": true
+      },
+      "localWalkthrough": {
+        "id": "b-topic-parturition-walkthrough",
+        "status": "complete-ordered-narration; illustrations and equivalence review pending",
+        "frames": [
+          {
+            "id": "b-topic-parturition-labour-and-positive-feedback-walkthrough-frame",
+            "partId": "b-topic-parturition-labour-and-positive-feedback",
+            "title": "Labour and positive feedback",
+            "figureTarget": "b-topic-parturition-labour-and-positive-feedback-figure",
+            "scenario": "Complete a simplified labour loop starting with cervical stretch. Identify why the loop does not continue indefinitely after delivery.",
+            "orderedExplanation": [
+              "Cervical stretch provides sensory input associated with oxytocin release from the posterior pituitary.",
+              "Oxytocin supports uterine contractions, which can increase stretch during labour.",
+              "Delivery removes the major stretch stimulus sustaining this particular loop."
+            ],
+            "conclusion": "The response reinforces the initiating change during the process. Removing the stimulus interrupts the loop; positive feedback does not mean unlimited activity without conditions.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-parturition-birth-and-the-transition-walkthrough-frame",
+            "partId": "b-topic-parturition-birth-and-the-transition",
+            "title": "Birth and the transition",
+            "figureTarget": "b-topic-parturition-birth-and-the-transition-figure",
+            "scenario": "Sequence cervical dilation, delivery of the baby and delivery of the placenta in a simplified account. Relate the newborn's support transition to breathing and circulation.",
+            "orderedExplanation": [
+              "Place dilation before passage through the birth canal in the typical sequence.",
+              "Place placental delivery after birth of the baby.",
+              "Connect the start of effective lung gas exchange with circulatory changes rather than treating placental support as unchanged after separation."
+            ],
+            "conclusion": "The simplified sequence is dilation → birth → placental delivery. Breathing and circulatory transition establish a different gas-exchange arrangement from fetal placental support.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-parturition-milk-synthesis-and-release-walkthrough-frame",
+            "partId": "b-topic-parturition-milk-synthesis-and-release",
+            "title": "Milk synthesis and release",
+            "figureTarget": "b-topic-parturition-milk-synthesis-and-release-figure",
+            "scenario": "In a simplified lactation case, milk is present in secretory tissue but little reaches the outlet during a test of the release response. Which pathway should the model examine first?",
+            "orderedExplanation": [
+              "Separate synthesis by milk-producing cells from movement of existing milk.",
+              "Connect prolactin mainly with milk synthesis and oxytocin with contraction of surrounding myoepithelial cells.",
+              "Examine the release pathway while retaining transport and other conditions as alternatives."
+            ],
+            "conclusion": "The immediate observation directs attention to milk ejection and movement, including the oxytocin-linked response. It does not by itself prove that milk synthesis is absent.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-parturition-technologies-infertility-and-perspectives-walkthrough-frame",
+            "partId": "b-topic-parturition-technologies-infertility-and-perspectives",
+            "title": "Technologies, infertility and perspectives",
+            "figureTarget": "b-topic-parturition-technologies-infertility-and-perspectives-figure",
+            "scenario": "A fictional report compares a treatment aimed at ovulatory signalling with a procedure that bypasses a transport step. Both are advertised as “fixing infertility.” Explain why the comparison needs more detail.",
+            "orderedExplanation": [
+              "Locate the proposed interruption in each case: signalling or transport.",
+              "Match each technology to the step it is designed to influence.",
+              "Define the measured outcome and compare uncertainty, access, cultural and ethical concerns, environmental resource use and cost."
+            ],
+            "conclusion": "The technologies address different mechanisms and may be relevant to different circumstances. A broad shared label does not establish equal effectiveness, suitability or consequences.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          },
+          {
+            "id": "b-topic-parturition-investigating-and-communicating-a-claim-walkthrough-frame",
+            "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+            "title": "Investigating and communicating a claim",
+            "figureTarget": "b-topic-parturition-investigating-and-communicating-a-claim-figure",
+            "scenario": "A peer reads the developmental dataset and says, “Every early exposure causes an effect, while later exposure is harmless.” Use the supplied counts to revise both claims.",
+            "orderedExplanation": [
+              "In the early exposed group, 20 of 40 have the recorded outcome, so the observation is not universal.",
+              "In the later exposed group, 9 of 40 have the outcome compared with 5 of 40 controls, so harmlessness is not established.",
+              "Compare the groups and acknowledge design limits before proposing a follow-up."
+            ],
+            "conclusion": "The supplied data show a larger exposed-control difference early, not an effect in every early case or zero association later. A follow-up should control relevant conditions, define the outcome and improve replication without exposing people to harm.",
+            "status": "narration-bound; reviewed illustration and rendered sequencing pending"
+          }
+        ],
+        "checkpoint": {
+          "responseId": "b-topic-parturition-media",
+          "prompt": "What interrupts the cervical-stretch feedback loop after delivery?",
+          "comparisonGuide": "Delivery removes the major stretch stimulus sustaining that particular loop.",
+          "sameForLocalAndVettedExternal": true,
+          "requiredAttemptForCompletion": true
+        },
+        "completionEvidence": "checkpoint attempt; never elapsed viewing time"
+      },
+      "nextRequiredRouteId": "b-chapter-15-practice"
+    }
+  ]
+}

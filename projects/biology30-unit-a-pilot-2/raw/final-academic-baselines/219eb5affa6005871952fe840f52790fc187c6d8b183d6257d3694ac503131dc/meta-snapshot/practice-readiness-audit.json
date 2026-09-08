@@ -1,0 +1,3409 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "gate": "advanced-bridge-gate-b",
+  "generatedAt": "2026-09-04T21:06:41.401Z",
+  "workspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+  "policy": "A practice item is ready only when its exact outcomes and behaviours are mapped, every prerequisite concept is taught before the item, every distractor has corrective feedback, and an exact textbook locator is available.",
+  "counts": {
+    "total": 86,
+    "required": 80,
+    "optional": 6,
+    "passed": 86
+  },
+  "records": [
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-01-guided-1",
+      "routeId": "lesson-01",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3k",
+        "A1.2s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02",
+        "A1.3k-01",
+        "A1.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "neuron-structure",
+        "myelin-conduction",
+        "reflex-arc"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "neuron-structure",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "myelin-conduction",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "reflex-arc",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 369,
+        "physical": 10
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-01-guided-2",
+      "routeId": "lesson-01",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3k",
+        "A1.2s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02",
+        "A1.3k-01",
+        "A1.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "neuron-structure",
+        "myelin-conduction",
+        "reflex-arc"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "neuron-structure",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "myelin-conduction",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "reflex-arc",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "c",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "b",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 371,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-02-guided-01",
+      "routeId": "lesson-02",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "resting-membrane-potential",
+        "action-potential",
+        "membrane-potential-phases",
+        "refractory-period"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "resting-membrane-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "action-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "membrane-potential-phases",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "refractory-period",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 375,
+        "physical": 16
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-02-guided-02",
+      "routeId": "lesson-02",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "resting-membrane-potential",
+        "action-potential",
+        "membrane-potential-phases",
+        "refractory-period"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "resting-membrane-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "action-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "membrane-potential-phases",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "refractory-period",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 377,
+        "physical": 18
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-03-guided-1",
+      "routeId": "lesson-03",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.1sts",
+        "A1.2sts",
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "synaptic-transmission"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "synaptic-transmission",
+          "firstTeachRoute": "lesson-03",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 380,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-03-guided-2",
+      "routeId": "lesson-03",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.1sts",
+        "A1.2sts",
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "synaptic-transmission"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "synaptic-transmission",
+          "firstTeachRoute": "lesson-03",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 382,
+        "physical": 23
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-04-guided-01",
+      "routeId": "lesson-04",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems",
+        "somatic-autonomic-systems",
+        "sympathetic-parasympathetic"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "somatic-autonomic-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "sympathetic-parasympathetic",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 396,
+        "physical": 37
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-04-guided-02",
+      "routeId": "lesson-04",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems",
+        "somatic-autonomic-systems",
+        "sympathetic-parasympathetic"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "somatic-autonomic-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "sympathetic-parasympathetic",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "c",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "b",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 398,
+        "physical": 39
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-05-guided-01",
+      "routeId": "lesson-05",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k",
+        "A1.1sts",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems",
+        "scientific-explanation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "scientific-explanation",
+          "firstTeachRoute": "lesson-05",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 392,
+        "physical": 33
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-05-guided-02",
+      "routeId": "lesson-05",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k",
+        "A1.1sts",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems",
+        "scientific-explanation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "scientific-explanation",
+          "firstTeachRoute": "lesson-05",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 390,
+        "physical": 31
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-06-guided-01",
+      "routeId": "lesson-06",
+      "required": true,
+      "outcomeIds": [
+        "A1.6k",
+        "A1.1s",
+        "A1.2s",
+        "A1.3s",
+        "A1.4s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01",
+        "A1.6k-02",
+        "A1.4s-01"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction",
+        "sensory-receptor-classes",
+        "sensory-adaptation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "sensory-receptor-classes",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "sensory-adaptation",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 407,
+        "physical": 4
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-06-guided-02",
+      "routeId": "lesson-06",
+      "required": true,
+      "outcomeIds": [
+        "A1.6k",
+        "A1.1s",
+        "A1.2s",
+        "A1.3s",
+        "A1.4s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01",
+        "A1.6k-02",
+        "A1.4s-01"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction",
+        "sensory-receptor-classes",
+        "sensory-adaptation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "sensory-receptor-classes",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "sensory-adaptation",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 409,
+        "physical": 6
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-07-guided-01",
+      "routeId": "lesson-07",
+      "required": true,
+      "outcomeIds": [
+        "A1.4k",
+        "A1.2s",
+        "A1.3s",
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction",
+        "vision-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "vision-pathway",
+          "firstTeachRoute": "lesson-07",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 412,
+        "physical": 9
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-07-guided-02",
+      "routeId": "lesson-07",
+      "required": true,
+      "outcomeIds": [
+        "A1.4k",
+        "A1.2s",
+        "A1.3s",
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction",
+        "vision-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "vision-pathway",
+          "firstTeachRoute": "lesson-07",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "c",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "b",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 415,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-08-guided-01",
+      "routeId": "lesson-08",
+      "required": true,
+      "outcomeIds": [
+        "A1.5k",
+        "A1.2s",
+        "A1.3s",
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-01",
+        "A1.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction",
+        "hearing-equilibrium-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "hearing-equilibrium-pathway",
+          "firstTeachRoute": "lesson-08",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 421,
+        "physical": 18
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-08-guided-02",
+      "routeId": "lesson-08",
+      "required": true,
+      "outcomeIds": [
+        "A1.5k",
+        "A1.2s",
+        "A1.3s",
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-01",
+        "A1.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction",
+        "hearing-equilibrium-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "hearing-equilibrium-pathway",
+          "firstTeachRoute": "lesson-08",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 424,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-09-guided-01",
+      "routeId": "lesson-09",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.4k",
+        "A2.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.4k-01",
+        "A2.5k-01",
+        "A2.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "homeostasis",
+        "regulated-variable-set-point",
+        "control-system-roles",
+        "negative-feedback",
+        "endocrine-signalling"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "homeostasis",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "regulated-variable-set-point",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "control-system-roles",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "negative-feedback",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "endocrine-signalling",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 438,
+        "physical": 5
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-09-guided-02",
+      "routeId": "lesson-09",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.4k",
+        "A2.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.4k-01",
+        "A2.5k-01",
+        "A2.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "homeostasis",
+        "regulated-variable-set-point",
+        "control-system-roles",
+        "negative-feedback",
+        "endocrine-signalling"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "homeostasis",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "regulated-variable-set-point",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "control-system-roles",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "negative-feedback",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "endocrine-signalling",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 441,
+        "physical": 8
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-10-guided-01",
+      "routeId": "lesson-10",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis",
+        "endocrine-signalling"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "endocrine-signalling",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 445,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-10-guided-02",
+      "routeId": "lesson-10",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis",
+        "endocrine-signalling"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "endocrine-signalling",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 444,
+        "physical": 11
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-11-guided-01",
+      "routeId": "lesson-11",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.4k",
+        "A2.6k",
+        "A2.2s",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.4k-01",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis",
+        "water-salt-regulation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "water-salt-regulation",
+          "firstTeachRoute": "lesson-11",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 446,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-11-guided-02",
+      "routeId": "lesson-11",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.4k",
+        "A2.6k",
+        "A2.2s",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.4k-01",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis",
+        "water-salt-regulation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "water-salt-regulation",
+          "firstTeachRoute": "lesson-11",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 446,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-12-guided-01",
+      "routeId": "lesson-12",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.4k",
+        "A2.6k",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.4k-01",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "thyroid-calcium-feedback",
+        "antagonistic-hormones",
+        "negative-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "thyroid-calcium-feedback",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "negative-feedback",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 449,
+        "physical": 16
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-12-guided-02",
+      "routeId": "lesson-12",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.4k",
+        "A2.6k",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.4k-01",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "thyroid-calcium-feedback",
+        "antagonistic-hormones",
+        "negative-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "thyroid-calcium-feedback",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "negative-feedback",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 450,
+        "physical": 17
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-13-guided-1",
+      "routeId": "lesson-13",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.5k",
+        "A2.6k",
+        "A2.1s",
+        "A2.2s",
+        "A2.3s",
+        "A2.4s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.5k-01",
+        "A2.5k-02",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "antagonistic-hormones",
+        "blood-glucose-regulation",
+        "water-salt-regulation",
+        "stress-response"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "blood-glucose-regulation",
+          "firstTeachRoute": "lesson-13",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "water-salt-regulation",
+          "firstTeachRoute": "lesson-11",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "stress-response",
+          "firstTeachRoute": "lesson-13",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 456,
+        "physical": 23
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-13-guided-2",
+      "routeId": "lesson-13",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.5k",
+        "A2.6k",
+        "A2.1s",
+        "A2.2s",
+        "A2.3s",
+        "A2.4s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02",
+        "A2.2k-01",
+        "A2.2k-02",
+        "A2.3k-01",
+        "A2.3k-02",
+        "A2.5k-01",
+        "A2.5k-02",
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "antagonistic-hormones",
+        "blood-glucose-regulation",
+        "water-salt-regulation",
+        "stress-response"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "blood-glucose-regulation",
+          "firstTeachRoute": "lesson-13",
+          "readiness": "taught-before-practice-in-route"
+        },
+        {
+          "conceptId": "water-salt-regulation",
+          "firstTeachRoute": "lesson-11",
+          "readiness": "taught-on-earlier-route"
+        },
+        {
+          "conceptId": "stress-response",
+          "firstTeachRoute": "lesson-13",
+          "readiness": "taught-before-practice-in-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 453,
+        "physical": 20
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-01",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "neuron-structure"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "neuron-structure",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 369,
+        "physical": 10
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-02",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "myelin-conduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "myelin-conduction",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 371,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.3k-01",
+        "A1.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "reflex-arc"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "reflex-arc",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 372,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-04",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "resting-membrane-potential"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "resting-membrane-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 370,
+        "physical": 11
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-05",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "action-potential"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "action-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 374,
+        "physical": 15
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-06",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "membrane-potential-phases"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "membrane-potential-phases",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 375,
+        "physical": 16
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-07",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "refractory-period"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "refractory-period",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 377,
+        "physical": 18
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-08",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "synaptic-transmission"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "synaptic-transmission",
+          "firstTeachRoute": "lesson-03",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 377,
+        "physical": 18
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-09",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 380,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-10",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "somatic-autonomic-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "somatic-autonomic-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 382,
+        "physical": 23
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-11",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.3k-01",
+        "A1.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sympathetic-parasympathetic"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sympathetic-parasympathetic",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 385,
+        "physical": 26
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-12",
+      "routeId": "chapter-11-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "b",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "a",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-11",
+        "printed": 398,
+        "physical": 39
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-01",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 407,
+        "physical": 4
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-02",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-01",
+        "A1.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-receptor-classes"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-receptor-classes",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 407,
+        "physical": 4
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-03",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01",
+        "A1.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-adaptation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-adaptation",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 408,
+        "physical": 5
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-04",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 409,
+        "physical": 6
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-05",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "vision-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "vision-pathway",
+          "firstTeachRoute": "lesson-07",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 412,
+        "physical": 9
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-06",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 413,
+        "physical": 10
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-07",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.4s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4s-01"
+      ],
+      "prerequisiteConceptIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hearing-equilibrium-pathway",
+          "firstTeachRoute": "lesson-08",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 415,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-08",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 416,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-09",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-receptor-classes"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-receptor-classes",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 420,
+        "physical": 17
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-10",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-01",
+        "A1.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-adaptation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-adaptation",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 421,
+        "physical": 18
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-11",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01",
+        "A1.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 424,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-12",
+      "routeId": "chapter-12-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "vision-pathway"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "vision-pathway",
+          "firstTeachRoute": "lesson-07",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-12",
+        "printed": 425,
+        "physical": 22
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-01",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "homeostasis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "homeostasis",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 437,
+        "physical": 4
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-02",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01",
+        "A2.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "regulated-variable-set-point"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "regulated-variable-set-point",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 438,
+        "physical": 5
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-03",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.3k-01",
+        "A2.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "control-system-roles"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "control-system-roles",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 441,
+        "physical": 8
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-04",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.4k-01"
+      ],
+      "prerequisiteConceptIds": [
+        "negative-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "negative-feedback",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 443,
+        "physical": 10
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-05",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.5k-01",
+        "A2.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "endocrine-signalling"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "endocrine-signalling",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 445,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-06",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 445,
+        "physical": 12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-07",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.1sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "endocrine-signalling"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "endocrine-signalling",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 446,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-08",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.2sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 449,
+        "physical": 16
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-09",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.1s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "water-salt-regulation"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "water-salt-regulation",
+          "firstTeachRoute": "lesson-11",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 450,
+        "physical": 17
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-10",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.2s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "thyroid-calcium-feedback",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 456,
+        "physical": 23
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-11",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "antagonistic-hormones"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 453,
+        "physical": 20
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-12",
+      "routeId": "chapter-13-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.4s"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "negative-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "negative-feedback",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 454,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-01",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "neuron-structure"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "neuron-structure",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 371,
+        "physical": -62
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-02",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "synaptic-transmission"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "synaptic-transmission",
+          "firstTeachRoute": "lesson-03",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 377,
+        "physical": -56
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-03",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.3k-01",
+        "A1.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 380,
+        "physical": -53
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-04",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 396,
+        "physical": -37
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-05",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-01",
+        "A1.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "homeostasis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "homeostasis",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 392,
+        "physical": -41
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-06",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01",
+        "A1.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 372,
+        "physical": -61
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-07",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-01",
+        "A2.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "antagonistic-hormones"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 408,
+        "physical": -25
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-08",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01",
+        "A2.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "resting-membrane-potential"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "resting-membrane-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 413,
+        "physical": -20
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-09",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.3k-01",
+        "A2.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 421,
+        "physical": -12
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-10",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.4k-01"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 438,
+        "physical": 5
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-11",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.5k-01",
+        "A2.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 441,
+        "physical": 8
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-12",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A2.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.6k-01",
+        "A2.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "hypothalamus-pituitary-axis",
+          "firstTeachRoute": "lesson-10",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 449,
+        "physical": 16
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-13",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "thyroid-calcium-feedback",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 446,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-14",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "neuron-structure"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "neuron-structure",
+          "firstTeachRoute": "lesson-01",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 450,
+        "physical": 17
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-15",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.3k-01",
+        "A1.3k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "synaptic-transmission"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "synaptic-transmission",
+          "firstTeachRoute": "lesson-03",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 456,
+        "physical": 23
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-16",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 453,
+        "physical": 20
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-17",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-01",
+        "A1.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 446,
+        "physical": 13
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-18",
+      "routeId": "final-practice",
+      "required": true,
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01",
+        "A1.6k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "homeostasis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "homeostasis",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 454,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-01",
+      "routeId": "final-practice#advanced",
+      "required": false,
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-01",
+        "A1.1k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "resting-membrane-potential"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "resting-membrane-potential",
+          "firstTeachRoute": "lesson-02",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 371,
+        "physical": -62
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-02",
+      "routeId": "final-practice#advanced",
+      "required": false,
+      "outcomeIds": [
+        "A1.2k",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "central-peripheral-systems"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "central-peripheral-systems",
+          "firstTeachRoute": "lesson-04",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 382,
+        "physical": -51
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-03",
+      "routeId": "final-practice#advanced",
+      "required": false,
+      "outcomeIds": [
+        "A1.4k",
+        "A1.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-01",
+        "A1.4k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "sensory-transduction"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "sensory-transduction",
+          "firstTeachRoute": "lesson-06",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 416,
+        "physical": -17
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-04",
+      "routeId": "final-practice#advanced",
+      "required": false,
+      "outcomeIds": [
+        "A2.2k",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01",
+        "A2.2k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "thyroid-calcium-feedback",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 449,
+        "physical": 16
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-05",
+      "routeId": "final-practice#advanced",
+      "required": false,
+      "outcomeIds": [
+        "A2.5k",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.5k-01",
+        "A2.5k-02"
+      ],
+      "prerequisiteConceptIds": [
+        "antagonistic-hormones"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "antagonistic-hormones",
+          "firstTeachRoute": "lesson-12",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 454,
+        "physical": 21
+      },
+      "readiness": "passed"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-06",
+      "routeId": "final-practice#advanced",
+      "required": false,
+      "outcomeIds": [
+        "A1.2sts",
+        "A2.2sts"
+      ],
+      "performanceBehaviourIds": [],
+      "prerequisiteConceptIds": [
+        "homeostasis"
+      ],
+      "prerequisiteEvidence": [
+        {
+          "conceptId": "homeostasis",
+          "firstTeachRoute": "lesson-09",
+          "readiness": "taught-on-earlier-route"
+        }
+      ],
+      "answerKey": "a",
+      "rationaleStatus": "present",
+      "misconceptionFeedbackChoices": [
+        "b",
+        "c",
+        "d"
+      ],
+      "textbook": {
+        "doc": "chapter-13",
+        "printed": 456,
+        "physical": 23
+      },
+      "readiness": "passed"
+    }
+  ]
+}

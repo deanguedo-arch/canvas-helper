@@ -63,6 +63,100 @@ Verification floor:
 - `npm run verify:new-course-readiness -- --base <comparison-sha>` after the course change is committed; CI supplies the comparison SHA automatically and records rendered coverage plus apply/reload/Undo evidence
 - `npm run test:e2e:project -- --project <slug>` when learner interactions exist
 
+## Biology 30 Unit A Improvement Pilot
+
+Read first:
+- `projects/biology30-unit-a-pilot/meta/prompt-pack.md`
+- `projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md`
+- `projects/biology30-unit-a-pilot/meta/textbook-integration.json`
+- `projects/biology30-unit-a-pilot/meta/media-integration.json`
+- `projects/biology30-unit-a-pilot/meta/source-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/generated-visual-integration.json`
+- `projects/biology30-unit-a-pilot/meta/image-generation-prompts.md`
+- `projects/biology30-unit-a-pilot/meta/visual-comparison/teacher-decisions.json`
+- `projects/biology30-unit-a-pilot/meta/improvement-ledger.json`
+- `docs/workflows/science-pilot.md`
+
+Rules:
+- Edit only `projects/biology30-unit-a-pilot/workspace/**` and its operational `meta/**`.
+- Keep `raw/**`, production Units A-D, exports, and the shared source archives unchanged.
+- Use `prepare:biology30-unit-a-pilot:textbook` only for normalized textbook/review assets; it must not own or rewrite `workspace/index.html`.
+- Use `prepare:biology30-unit-a-pilot:media` only for content-addressed PowerPoint intake, extracted authoring references, and media reports; it must not own or rewrite `workspace/index.html`.
+- Use `prepare:biology30-unit-a-pilot:visuals` only for the nine contract-selected local source images and its resource report; it must not own or rewrite `workspace/index.html`.
+- Keep the pilot blocked, Studio Edit disabled, and non-exportable.
+- Record implemented rules as awaiting explicit user review. Never transfer them to Units B-D automatically.
+
+Verification floor:
+- `npm run test:biology30-unit-a-improvement-pilot`
+- `npm run test:biology30-unit-a-media-pilot`
+- `npm run verify -- --project biology30-unit-a-pilot --mode workspace`
+- `npm run test:e2e:project -- --project biology30-unit-a-pilot`
+- `npm run test:e2e:biology30-unit-a-improvement-pilot`
+- `npm run course:doctor -- --project biology30-unit-a-pilot` (expected refusal: `not-active` only)
+
+## Biology 30 Unit A Production V2
+
+This course is an approved-contract conversion/rebuild, not a generic Science factory or a `course:create` project.
+
+Read first:
+- `docs/workflows/science-pilot.md`
+- `projects/resources/biology30-unit-a-pilot/v2/gate-0-review.json`
+- `projects/resources/biology30-unit-a-pilot/v2/production-contract.json`
+- `projects/biology30-unit-a/meta/gate-1-review.json`
+- `projects/biology30-unit-a/meta/gate-3-acceptance-matrix.json`
+- `scripts/lib/biology30-unit-a/v2/gate2-build.ts`
+
+Rules:
+- Keep all five historical comparison projects untouched.
+- Never rerun intake over the existing V2 target.
+- Use `build:biology30-unit-a-v2`; never use the five-version builder as the V2 rebuild path.
+- A Gate approval is valid only for the exact contract or build hash named in its review record.
+- Keep the candidate blocked, Studio Edit disabled, and export disabled until the separately authorized promotion gate.
+- Gate 3 automated evidence does not count as human acceptance. Do not populate an acceptance record or promote from a score alone.
+
+Verification floor for a full Gate 2/3 candidate:
+- `npm run test:biology30-unit-a-v2`
+- `npm run test:e2e:biology30-unit-a-v2`
+- `npm run test:e2e:project -- --project biology30-unit-a`
+- `npm run test:e2e:smoke`
+- `npm run test:science-comparison`
+- `npm run validate:manifests`
+- `npm run verify:typecheck-baseline`
+- `npm run build:studio`
+
+## Biology 30 Units B-D Production
+
+These are Biology-specific conversion/rebuild projects, not generic `course:create` courses and not Unit A comparison-pilot outputs.
+
+Read first:
+- `docs/workflows/science-pilot.md`
+- `projects/resources/biology30-production/v1/family-contract.json`
+- `projects/resources/biology30-production/v1/units/unit-<b|c|d>/production-contract.json`
+- `projects/biology30-unit-<b|c|d>/meta/production-review.json`
+- `projects/biology30-unit-<b|c|d>/meta/acceptance-matrix.json`
+- `scripts/lib/biology30-course/v1/build.ts`
+- `scripts/lib/biology30-course/v1/acceptance.ts`
+
+Rules:
+- Never rerun intake over the existing three-project family.
+- Build only one exact blocked target with `build:biology30-course`; do not invoke the Unit A or five-version builders.
+- Treat `projects/resources/biology30-production/v1/` plus the explicit authored records under `scripts/lib/biology30-course/v1/` as canonical. The workspaces are generated review candidates.
+- After a substantive rebuild, run `audit:biology30-course-production:visual`, open every listed contact sheet, and bind the review record to the exact build hash.
+- Keep all three candidates blocked, Studio Edit disabled, and export disabled until each receives an explicit human score of at least 95/100 with no blocker.
+- Passing tests or an AI-assisted visual review must never populate human scores or authorize promotion.
+- After the teacher supplies the exact hash, all seven scores, a 95+ total, and an explicit acceptance statement, use `record:biology30-course-acceptance` with a separate submission JSON. The command writes the canonical record transactionally and deliberately leaves every promotion/export authorization false.
+
+Verification floor:
+- `npm run test:biology30-course-production`
+- `npm run audit:biology30-course-production:visual`
+- `npm run test:e2e:biology30-course-production`
+- `npm run test:e2e:project -- --project biology30-unit-<b|c|d>`
+- `npm run test:science-comparison`
+- `npm run validate:manifests`
+- `npm run verify:typecheck-baseline`
+- `npm run build:studio`
+- `npm run test:e2e:smoke`
+
 ## Existing Course Catalog Onboarding
 
 Read first:

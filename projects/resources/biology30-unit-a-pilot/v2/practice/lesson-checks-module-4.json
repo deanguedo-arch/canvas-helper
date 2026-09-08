@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "setId": "lesson-checks-module-4",
+  "items": [
+    {
+      "id": "lesson-08-check-1",
+      "setId": "lesson-08",
+      "outcomeIds": ["A1.6k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-sensory-receptors", "system-m1-l4"],
+      "prompt": "Which receptor class primarily responds to tissue-damaging or potentially damaging stimuli?",
+      "choices": {"a": "Photoreceptors", "b": "Nociceptors", "c": "Chemoreceptors", "d": "Mechanoreceptors"},
+      "answerKey": "b",
+      "rationale": "Nociceptors respond to potentially damaging mechanical, thermal, or chemical conditions and contribute to pain signalling.",
+      "targetedFeedback": {"a": "Photoreceptors respond to light.", "c": "Chemoreceptors respond to chemical conditions such as dissolved molecules or gas concentrations.", "d": "Mechanoreceptors respond to deformation such as pressure, stretch, vibration, or sound-related movement."}
+    },
+    {
+      "id": "lesson-08-check-2",
+      "setId": "lesson-08",
+      "outcomeIds": ["A1.1s", "A1.2s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["system-m1-l4", "alberta-program"],
+      "prompt": "A learner compares two-point discrimination on a fingertip and forearm. Which variable should be kept consistent?",
+      "choices": {"a": "The body region", "b": "The separation distances and application procedure", "c": "The measured response", "d": "The predicted result"},
+      "answerKey": "b",
+      "rationale": "Using the same distances, pressure, timing, and response procedure makes body region the meaningful comparison.",
+      "targetedFeedback": {"a": "Body region is the independent variable being compared.", "c": "The measured discrimination response is the dependent variable, not a condition to hold fixed.", "d": "A prediction is recorded before the test but is not an experimental condition."}
+    },
+    {
+      "id": "lesson-08-check-3",
+      "setId": "lesson-08",
+      "outcomeIds": ["A1.1s", "A1.3s", "A1.4s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "system-m1-l4"],
+      "prompt": "A participant reports two points at 8 mm on the fingertip but only one point at 8 mm on the forearm. Which explanation is most defensible?",
+      "choices": {"a": "The fingertip likely has denser receptive fields or finer neural representation for this task.", "b": "The forearm has no sensory receptors.", "c": "The result proves every person has the same threshold.", "d": "The fingertip response was endocrine rather than neural."},
+      "answerKey": "a",
+      "rationale": "Finer spatial discrimination is consistent with smaller or denser receptive fields and greater neural representation, while one trial does not establish a universal threshold.",
+      "targetedFeedback": {"b": "The forearm has sensory receptors; its spatial resolution is simply lower in this observation.", "c": "Individual variation and procedure limit generalization from one participant.", "d": "Tactile transduction and rapid reporting are neural sensory processes."}
+    },
+    {
+      "id": "lesson-09-check-1",
+      "setId": "lesson-09",
+      "outcomeIds": ["A1.4k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-vision", "system-m1-l5"],
+      "prompt": "Which sequence correctly traces light before neural signals leave the eye?",
+      "choices": {"a": "Cornea → pupil → lens → retina → optic nerve", "b": "Optic nerve → lens → iris → retina", "c": "Retina → cornea → pupil → lens", "d": "Lens → optic nerve → cornea → rods"},
+      "answerKey": "a",
+      "rationale": "Light is refracted by the cornea, passes through the pupil and lens, and reaches the retina, where transduction begins before signals leave through the optic nerve.",
+      "targetedFeedback": {"b": "The optic nerve carries neural output after retinal processing, not incoming light.", "c": "Light reaches the retina after passing the cornea, pupil, and lens.", "d": "The optic nerve is not a transparent optical structure in the incoming light path."}
+    },
+    {
+      "id": "lesson-09-check-2",
+      "setId": "lesson-09",
+      "outcomeIds": ["A1.4k", "A1.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["notes-vision", "nei-how-eyes-work"],
+      "prompt": "A person can see dim objects off to the side but has difficulty distinguishing their colour. Which retinal pattern best explains this?",
+      "choices": {"a": "Peripheral rods are sensitive in dim light but do not support colour vision.", "b": "Cones in the optic nerve detect sound.", "c": "The lens contains all photoreceptors.", "d": "The blind spot has the highest cone density."},
+      "answerKey": "a",
+      "rationale": "Rods are numerous in peripheral retina and are highly light-sensitive, whereas cone pathways support colour and detailed vision, especially near the fovea.",
+      "targetedFeedback": {"b": "Cones are retinal photoreceptors; the optic nerve carries output and does not detect sound.", "c": "The lens focuses light but does not contain photoreceptors.", "d": "The blind spot lacks photoreceptors because the optic nerve exits there."}
+    },
+    {
+      "id": "lesson-09-check-3",
+      "setId": "lesson-09",
+      "outcomeIds": ["A1.2s", "A1.3s", "A1.3sts"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "nei-how-eyes-work"],
+      "prompt": "A corrective lens improves distance focus but not retinal-cell damage. Which claim best evaluates the technology?",
+      "choices": {"a": "It can alter refraction, but it cannot replace photoreceptor transduction.", "b": "It cures every cause of vision loss.", "c": "It sends action potentials directly into the lens.", "d": "It works because the blind spot becomes a fovea."},
+      "answerKey": "a",
+      "rationale": "A corrective lens changes the path of light to improve focus; functioning retinal cells and neural pathways are still required for transduction and perception.",
+      "targetedFeedback": {"b": "Vision problems have different mechanisms, and refraction correction does not repair retinal damage.", "c": "The lens is optical tissue; action potentials occur in neural cells.", "d": "The optic-disc blind spot does not transform into the cone-rich fovea."}
+    },
+    {
+      "id": "lesson-10-check-1",
+      "setId": "lesson-10",
+      "outcomeIds": ["A1.5k"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["notes-hearing", "system-m1-l6"],
+      "prompt": "Which structure converts vibration in cochlear fluid into receptor signals?",
+      "choices": {"a": "Hair cells in the organ of Corti", "b": "The auditory ossicles alone", "c": "The semicircular canals only", "d": "The Eustachian tube"},
+      "answerKey": "a",
+      "rationale": "Movement of the basilar membrane bends hair-cell stereocilia in the organ of Corti, producing receptor changes that influence auditory nerve activity.",
+      "targetedFeedback": {"b": "The ossicles transmit and amplify mechanical vibration but do not perform the cochlear receptor transduction.", "c": "Semicircular canals detect rotational acceleration for equilibrium.", "d": "The Eustachian tube helps equalize middle-ear pressure."}
+    },
+    {
+      "id": "lesson-10-check-2",
+      "setId": "lesson-10",
+      "outcomeIds": ["A1.5k", "A1.3s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["system-m1-l6", "nidcd-how-hearing-works"],
+      "prompt": "A synthetic audiogram shows higher thresholds at high frequencies than at low frequencies. What does the graph support?",
+      "choices": {"a": "More sound level was required to detect the high-frequency tones in this dataset.", "b": "The person definitely has one named disorder.", "c": "High frequencies were heard better than low frequencies.", "d": "The semicircular canals caused the threshold pattern."},
+      "answerKey": "a",
+      "rationale": "A higher hearing threshold means a greater sound level was required for detection; an audiogram pattern alone does not establish one cause.",
+      "targetedFeedback": {"b": "A threshold pattern needs clinical context and other evidence before a cause can be identified.", "c": "Higher thresholds indicate poorer sensitivity, not better hearing.", "d": "Semicircular canals support equilibrium; cochlear and auditory pathways determine tone thresholds."}
+    },
+    {
+      "id": "lesson-10-check-3",
+      "setId": "lesson-10",
+      "outcomeIds": ["A1.2s", "A1.3s", "A1.3sts"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "nidcd-how-hearing-works"],
+      "prompt": "Why is playing increasing browser tones until a learner reports hearing them unsuitable as a required course test?",
+      "choices": {"a": "Device output is uncalibrated and increasing sound can create risk, so supplied clinical-style data are safer and more valid.", "b": "Sound cannot be represented as data.", "c": "Hearing never varies with frequency.", "d": "Only hormones can affect sensory responses."},
+      "answerKey": "a",
+      "rationale": "Uncalibrated speakers and listening environments cannot produce valid thresholds, and escalating volume creates avoidable safety risk; supplied data meet the reasoning goal.",
+      "targetedFeedback": {"b": "Audiograms and other measurements represent sound-response evidence quantitatively.", "c": "Hearing sensitivity commonly differs across frequencies.", "d": "Hearing begins with mechanical and neural sensory processes, though health factors can influence them."}
+    },
+    {
+      "id": "lesson-11-check-1",
+      "setId": "lesson-11",
+      "outcomeIds": ["A1.1sts"],
+      "cognitiveLevel": "remember-understand",
+      "sourceRefIds": ["alberta-program", "system-m1-summary"],
+      "prompt": "Photoperiod is best defined as which environmental information?",
+      "choices": {"a": "The duration of light and darkness in a daily cycle", "b": "The loudness of a sound", "c": "The concentration of glucose in urine", "d": "The speed of one action potential"},
+      "answerKey": "a",
+      "rationale": "Photoperiod is the relative duration of light and darkness and can provide seasonal timing information to biological systems.",
+      "targetedFeedback": {"b": "Sound loudness is an auditory stimulus, not photoperiod.", "c": "Urine glucose concerns metabolic evidence.", "d": "Action-potential speed does not define the light-dark cycle."}
+    },
+    {
+      "id": "lesson-11-check-2",
+      "setId": "lesson-11",
+      "outcomeIds": ["A1.3s", "A1.4s"],
+      "cognitiveLevel": "apply",
+      "sourceRefIds": ["alberta-performance", "system-m1-summary"],
+      "prompt": "A dataset shows activity begins earlier as sunset occurs earlier, but temperature also falls. What is the main limitation?",
+      "choices": {"a": "Photoperiod and temperature changed together, so their effects are confounded.", "b": "Time cannot be measured.", "c": "The pattern proves temperature has no effect.", "d": "A correlation always establishes one mechanism."},
+      "answerKey": "a",
+      "rationale": "When two plausible explanatory variables change together, the dataset cannot isolate which one produced the activity shift.",
+      "targetedFeedback": {"b": "Time and activity can be measured; the problem is interpretation of co-varying factors.", "c": "The dataset cannot rule temperature out because temperature also changed.", "d": "Correlation can guide hypotheses but does not by itself identify a causal mechanism."}
+    },
+    {
+      "id": "lesson-11-check-3",
+      "setId": "lesson-11",
+      "outcomeIds": ["A1.2sts", "A1.3sts", "A1.4s"],
+      "cognitiveLevel": "higher-mental-activity",
+      "sourceRefIds": ["alberta-performance", "health-canada"],
+      "prompt": "Which evidence brief most responsibly evaluates a sensory-assistive technology?",
+      "choices": {"a": "It names the mechanism, measured benefit, limitations, risks, access issues, and evidence source.", "b": "It calls the device revolutionary and lists no comparison group.", "c": "It assumes every user values the same outcome.", "d": "It treats one testimonial as proof of universal effectiveness."},
+      "answerKey": "a",
+      "rationale": "A responsible STS evaluation connects mechanism to measured outcomes and considers uncertainty, safety, access, and affected users.",
+      "targetedFeedback": {"b": "Promotional language without comparative evidence does not establish effectiveness.", "c": "Users can value outcomes differently, so perspectives and context matter.", "d": "A testimonial is useful experience evidence but cannot establish universal effect on its own."}
+    }
+  ]
+}

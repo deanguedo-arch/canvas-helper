@@ -1,0 +1,169 @@
+<div class="bio-route bio-lesson" data-biology-lesson="lesson-15">
+  <header class="bio-lesson-header">
+    <p class="bio-course-code">Lesson 15 · Endocrine control</p>
+    <h1>Pancreas, Blood Glucose, Diabetes, and Urinalysis</h1>
+    <p class="bio-inquiry">What patterns in blood and urine data reveal that glucose regulation is not returning to its expected range?</p>
+    <dl class="bio-lesson-meta">
+      <div><dt>Required time</dt><dd>105 minutes</dd></div>
+      <div><dt>Dataset</dt><dd>Synthetic; four profiles</dd></div>
+      <div><dt>Evidence</dt><dd>Feedback and urinalysis analysis</dd></div>
+    </dl>
+  </header>
+
+  <aside class="bio-callout bio-callout--safety" aria-labelledby="lesson-15-health-note">
+    <h2 id="lesson-15-health-note">Educational model—not a health test</h2>
+    <p>Every value in this lesson is synthetic instructional data. Urine patterns and classroom glucose models cannot diagnose diabetes or guide treatment. Personal symptoms, glucose readings, ketones, or medication questions require a qualified health-care professional. Diabetic ketoacidosis and severe low blood glucose are medical emergencies.</p>
+  </aside>
+
+  <section class="bio-learning-targets" aria-labelledby="lesson-15-targets">
+    <div>
+      <p class="bio-section-label">Learning intention</p>
+      <h2 id="lesson-15-targets">I am learning to explain blood-glucose regulation and interpret diabetes and urinalysis evidence without making diagnostic claims.</h2>
+    </div>
+    <div>
+      <p class="bio-section-label">Success criteria</p>
+      <ul aria-label="Lesson success criteria">
+        <li>I can trace insulin and glucagon from pancreatic islet cells to their target responses.</li>
+        <li>I can explain blood-glucose regulation as negative feedback rather than a simple stimulus-response chain.</li>
+        <li>I can distinguish type 1 diabetes, type 2 diabetes, and evidence that does not establish either diagnosis.</li>
+        <li>I can interpret synthetic blood and urine data while stating limitations and needed evidence.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bio-section bio-retrieval" aria-labelledby="lesson-15-retrieval">
+    <div><p class="bio-section-label">Retrieve</p><h2 id="lesson-15-retrieval">Find the feedback, not just the hormone</h2><p>After a carbohydrate-containing meal, blood glucose rises. Predict the sensor, signal, main targets, and response that would oppose this change.</p></div>
+    <label class="bio-response-label" for="lesson-15-warmup">Sketch the pathway in words <span>autosaves</span></label>
+    <textarea id="lesson-15-warmup" rows="3" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:15:warmup" data-bio-autosave placeholder="Rise in glucose → sensor… → signal… → target response…"></textarea>
+    <p class="bio-save-status" data-bio-status-for="biology30-unit-a:lesson:15:warmup" aria-live="polite">Not saved yet</p>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-islets">
+    <p class="bio-section-label">Build the mechanism</p>
+    <h2 id="lesson-15-islets">1. Pancreatic islets connect a variable to a hormone signal</h2>
+    <p>The pancreas has both exocrine and endocrine roles. Its exocrine tissue releases digestive substances through ducts. Small clusters called <strong>pancreatic islets</strong> release hormones directly into blood. Within the islets, beta cells secrete insulin and alpha cells secrete glucagon.</p>
+    <p>These cells respond to blood-glucose conditions. When glucose rises, beta-cell insulin release increases. When glucose falls, insulin release decreases and alpha-cell glucagon release increases. Hormones travel through the bloodstream, but only cells with the appropriate receptors and response machinery react in a particular way.</p>
+    <aside class="bio-concept-note"><h3>A needed correction: insulin does not simply “open every cell”</h3><p>Insulin strongly supports glucose uptake in skeletal muscle and adipose tissue and changes glucose storage and production in the liver. Several tissues—including the brain and red blood cells—use glucose transport that is not dependent on insulin in the same way. The regulation is tissue-specific.</p></aside>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-feedback">
+    <h2 id="lesson-15-feedback">2. Insulin and glucagon oppose the disturbance</h2>
+    <div class="bio-figure" data-figure-slot="blood-glucose-loop">
+      {{figure:blood-glucose-loop}}
+      <div class="bio-figure-copy"><h3>Read the two branches</h3><p>Each branch reduces its initiating disturbance. A rise increases insulin signalling and responses that lower the rise. A fall increases glucagon signalling and liver glucose output, opposing the fall. As the variable returns toward its regulated range, the original hormonal drive decreases.</p></div>
+    </div>
+    <div class="bio-table-wrap" role="region" aria-label="Blood glucose loop as text" tabindex="0">
+      <table><caption>Static equivalent: two blood-glucose feedback branches</caption><thead><tr><th scope="col">Change detected</th><th scope="col">Pancreatic response</th><th scope="col">Important target responses</th><th scope="col">Effect on the disturbance</th></tr></thead><tbody>
+        <tr><th scope="row">Blood glucose rises</th><td>Beta cells increase insulin release.</td><td>Skeletal muscle and adipose tissue increase insulin-responsive uptake; liver and muscle increase storage; liver glucose output decreases.</td><td>The rise is reduced.</td></tr>
+        <tr><th scope="row">Blood glucose falls</th><td>Insulin decreases and alpha cells increase glucagon release.</td><td>The liver increases glycogen breakdown and glucose production, then releases glucose to blood.</td><td>The fall is reduced.</td></tr>
+      </tbody></table>
+    </div>
+    <p><strong>Negative feedback</strong> describes the relationship between the response and the original change. It does not mean that insulin or glucagon is “negative.” Both hormones are necessary signals, and their effects depend on concentration, timing, target receptors, recent food intake, activity, and other hormones.</p>
+  </section>
+
+  <section class="bio-section bio-model" aria-labelledby="lesson-15-model-title" data-bio-interaction="interaction-blood-glucose-simulator">
+    <div class="bio-model-header"><div><p class="bio-section-label">Model Lab</p><h2 id="lesson-15-model-title">Run the local feedback model</h2></div><p>This simplified model shows mechanisms and trends. It does not predict an individual person's glucose.</p></div>
+    <div class="bio-simulator-controls">
+      <label for="glucose-scenario">Scenario<select id="glucose-scenario" data-glucose-scenario>
+        <option value="regulated-meal">Meal with a regulated response</option>
+        <option value="low-insulin-signal">Meal with a low insulin signal</option>
+        <option value="reduced-response">Meal with reduced target response</option>
+        <option value="extended-activity">Extended activity between meals</option>
+      </select></label>
+      <button type="button" class="bio-primary-button" data-run-glucose-model>Run scenario</button>
+    </div>
+    <div class="bio-model-layout bio-model-layout--glucose">
+      <figure class="bio-synthetic-chart">
+        <svg viewBox="0 0 760 360" role="img" aria-labelledby="glucose-chart-title glucose-chart-desc" data-glucose-chart>
+          <title id="glucose-chart-title">Synthetic blood-glucose trend</title><desc id="glucose-chart-desc" data-glucose-chart-desc>A line graph will show the selected synthetic scenario. The same values are available in the adjacent table.</desc>
+          <rect width="760" height="360" fill="#fff"/><g data-glucose-chart-grid></g><path data-glucose-chart-path fill="none" stroke="#146c60" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path><g data-glucose-chart-points></g>
+        </svg>
+        <figcaption>Model output is synthetic instructional data in mmol/L.</figcaption>
+      </figure>
+      <aside class="bio-model-readout" aria-live="polite" aria-atomic="true">
+        <p class="bio-model-stage" data-glucose-scenario-label>Meal with a regulated response</p>
+        <dl><div><dt>Insulin signal</dt><dd data-glucose-insulin>rises, then falls</dd></div><div><dt>Glucagon signal</dt><dd data-glucose-glucagon>suppressed, then returns</dd></div><div><dt>Mechanism</dt><dd data-glucose-mechanism>Run the scenario to inspect its mechanism.</dd></div></dl>
+        <label for="glucose-interpretation">Your interpretation</label><textarea id="glucose-interpretation" rows="4" maxlength="500" data-bio-response-id="biology30-unit-a:activity:blood-glucose:interpretation" placeholder="The curve suggests… because the hormone and target responses…"></textarea>
+      </aside>
+    </div>
+    <div class="bio-table-wrap" role="region" aria-label="Selected glucose model values" tabindex="0"><table><caption data-glucose-table-caption>Selected scenario values</caption><thead><tr data-glucose-time-row><th scope="col">Time</th></tr></thead><tbody><tr data-glucose-value-row><th scope="row">Glucose (mmol/L)</th></tr></tbody></table></div>
+    <details class="bio-static-fallback"><summary>Use the complete supplied-data alternative</summary><p>The four scenario curves and hormone descriptions are available in the table above after selection. Choose any two rows, compare peak or lowest value, direction after the disturbance, and time taken to return toward the starting range. Use those observations to infer whether the limitation is hormone release, target response, or neither.</p></details>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-diabetes">
+    <h2 id="lesson-15-diabetes">3. Diabetes mellitus can disrupt different parts of the pathway</h2>
+    <p><strong>Type 1 diabetes</strong> is an autoimmune disease in which the immune system destroys insulin-producing beta cells. The body produces little or no insulin, and insulin must be taken every day to sustain life. Type 1 can develop at any age; “juvenile diabetes” is outdated as a defining label.</p>
+    <p><strong>Type 2 diabetes</strong> develops when target tissues do not respond well to insulin and the pancreas may eventually be unable to produce enough insulin for the body's needs. This is called insulin resistance. Type 2 can also occur in children and young adults. Genetics, age, activity, body composition, access to health-supporting environments, and other factors can influence risk; it is not scientifically accurate or respectful to reduce the disease to one behaviour.</p>
+    <p>Treatment is individualized. Type 1 management centres on insulin, glucose monitoring, food and activity planning, and health-care support. Type 2 management may include nutrition and activity changes, several classes of medicine, glucose monitoring, and sometimes insulin. Technologies such as continuous glucose monitors, insulin pumps, and automated insulin-delivery systems can help people detect trends and adjust treatment with their care team.</p>
+    <div class="bio-comparison-grid" role="list">
+      <article role="listitem"><h3>Type 1</h3><ul><li>Autoimmune beta-cell destruction</li><li>Little or no insulin production</li><li>Daily insulin required</li><li>Can appear at any age</li></ul></article>
+      <article role="listitem"><h3>Type 2</h3><ul><li>Insulin resistance plus relative insulin insufficiency</li><li>Insulin may be high early and insufficient later</li><li>Management varies by person</li><li>Can appear at any age</li></ul></article>
+      <article role="listitem"><h3>Shared evidence limits</h3><ul><li>Symptoms overlap with other conditions</li><li>A classroom model cannot diagnose</li><li>Professional blood tests establish diabetes</li><li>Additional evidence is needed to identify type</li></ul></article>
+    </div>
+  </section>
+
+  <section class="bio-section" aria-labelledby="lesson-15-urinalysis">
+    <h2 id="lesson-15-urinalysis">4. Urinalysis reveals clues—and important limits</h2>
+    <p>The kidneys filter blood and normally reabsorb nearly all filtered glucose. When blood glucose and the filtered glucose load become high enough, transporters may be unable to reabsorb all of it, so glucose appears in urine. Glucose in urine therefore signals a pattern worth investigating, but it does not identify the cause by itself.</p>
+    <p>When cells cannot access enough usable glucose, fat breakdown can increase and produce <strong>ketones</strong>. Ketones in urine can occur in several contexts. In a person with diabetes, high ketones together with relevant symptoms can signal diabetic ketoacidosis, which requires urgent medical care. In this course, ketone values are only synthetic evidence for reasoning about fuel use.</p>
+    <div class="bio-table-wrap" role="region" aria-label="Synthetic urinalysis profiles" tabindex="0">
+      <table><caption>Synthetic instructional profiles—do not diagnose</caption><thead><tr><th scope="col">Sample</th><th scope="col">Blood-glucose trend (mmol/L)</th><th scope="col">Urine glucose</th><th scope="col">Urine ketones</th><th scope="col">Hydration marker</th></tr></thead><tbody>
+        <tr><th scope="row">A</th><td>4.9 → 7.2 → 5.5 after a meal</td><td>Negative</td><td>Negative</td><td>Expected instructional range</td></tr>
+        <tr><th scope="row">B</th><td>7.8 → 13.6 → 12.9 after a meal</td><td>3+</td><td>2+</td><td>Concentrated</td></tr>
+        <tr><th scope="row">C</th><td>5.1 → 3.4 → 3.9 after activity</td><td>Negative</td><td>Negative</td><td>Expected instructional range</td></tr>
+        <tr><th scope="row">D</th><td>8.1 → 12.2 → 10.4 after a meal</td><td>2+</td><td>Negative</td><td>Dilute</td></tr>
+      </tbody></table>
+    </div>
+    <div class="bio-evidence-prompts"><h3>A responsible evidence claim includes</h3><ol><li>the pattern actually present in the data;</li><li>a feedback mechanism that could produce that pattern;</li><li>at least one alternative explanation or limitation;</li><li>the next evidence needed—usually appropriate professional blood testing, not a classroom urine result.</li></ol></div>
+  </section>
+
+  <section class="bio-section bio-practice" aria-labelledby="lesson-15-practice">
+    <p class="bio-section-label">Guided practice</p><h2 id="lesson-15-practice">Check the regulation</h2><p>Submit each answer for explanatory feedback. Your choices and feedback state are saved.</p>
+    <div class="bio-practice-list" data-practice-set="lesson-15">
+      <article class="bio-practice-item" data-practice-id="lesson-15-check-1"><h3>1. Falling blood glucose</h3><fieldset><legend>Which pairing correctly identifies the pancreatic endocrine response to falling blood glucose?</legend>
+        <label><input type="radio" name="lesson-15-check-1" value="a"> Beta cells release insulin, increasing liver glucose release.</label>
+        <label><input type="radio" name="lesson-15-check-1" value="b"> Alpha cells release glucagon, increasing liver glucose release.</label>
+        <label><input type="radio" name="lesson-15-check-1" value="c"> Alpha cells release insulin, increasing muscle glycogen breakdown.</label>
+        <label><input type="radio" name="lesson-15-check-1" value="d"> Beta cells release glucagon, preventing all cells from using glucose.</label>
+      </fieldset><button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div></article>
+      <article class="bio-practice-item" data-practice-id="lesson-15-check-2"><h3>2. Reading a hormone-glucose mismatch</h3><fieldset><legend>In a synthetic model, insulin rises after a meal but blood glucose remains elevated longer than expected. Which mechanism is most consistent with that evidence?</legend>
+        <label><input type="radio" name="lesson-15-check-2" value="a"> Target tissues are responding weakly to insulin.</label>
+        <label><input type="radio" name="lesson-15-check-2" value="b"> Alpha cells are unable to release any glucagon during fasting.</label>
+        <label><input type="radio" name="lesson-15-check-2" value="c"> The kidneys are producing insulin instead of the pancreas.</label>
+        <label><input type="radio" name="lesson-15-check-2" value="d"> All glucose has already been stored as glycogen.</label>
+      </fieldset><button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div></article>
+      <article class="bio-practice-item" data-practice-id="lesson-15-check-3"><h3>3. Setting an evidence boundary</h3><fieldset><legend>A classroom urinalysis dataset shows glucose and ketones in one synthetic sample. What is the strongest scientifically responsible conclusion?</legend>
+        <label><input type="radio" name="lesson-15-check-3" value="a"> The sample proves that the person has type 1 diabetes.</label>
+        <label><input type="radio" name="lesson-15-check-3" value="b"> The pattern suggests disrupted fuel regulation and warrants additional clinical blood evidence; it is not diagnostic by itself.</label>
+        <label><input type="radio" name="lesson-15-check-3" value="c"> The pattern proves that the kidneys caused the glucose imbalance.</label>
+        <label><input type="radio" name="lesson-15-check-3" value="d"> The person should immediately change medication based on the classroom result.</label>
+      </fieldset><button type="button" class="bio-check-action" data-check-practice>Check answer</button><div class="bio-feedback" data-practice-feedback aria-live="polite" hidden></div></article>
+    </div>
+  </section>
+
+  <section class="bio-section bio-artifact" aria-labelledby="lesson-15-artifact" data-artifact-id="glucose-urinalysis">
+    <div class="bio-artifact-heading"><div><p class="bio-section-label">Portfolio artifact 6</p><h2 id="lesson-15-artifact">Blood-glucose and urinalysis analysis</h2></div><span>Draft checkpoint</span></div>
+    <p>Select Sample B or D. Make a mechanism-based claim without diagnosing a condition.</p>
+    <div class="bio-artifact-fields">
+      <label>Data pattern <span>Identify at least two relevant observations.</span><textarea rows="3" maxlength="500" data-bio-response-id="biology30-unit-a:artifact:glucose-urinalysis:pattern"></textarea></label>
+      <label>Feedback mechanism <span>Connect the pattern to insulin, glucagon, liver, muscle, or adipose responses.</span><textarea rows="4" maxlength="750" data-bio-response-id="biology30-unit-a:artifact:glucose-urinalysis:mechanism"></textarea></label>
+      <label>Limits and next evidence <span>State what cannot be concluded and what evidence would be needed next.</span><textarea rows="4" maxlength="750" data-bio-response-id="biology30-unit-a:artifact:glucose-urinalysis:limits"></textarea></label>
+    </div>
+    <details class="bio-rubric"><summary>Review the four-level rubric</summary><div class="bio-table-wrap" role="region" aria-label="Artifact rubric" tabindex="0"><table><caption>Scientific evidence rubric</caption><thead><tr><th scope="col">Dimension</th><th scope="col">Beginning</th><th scope="col">Developing</th><th scope="col">Proficient</th><th scope="col">Excellent</th></tr></thead><tbody>
+      <tr><th scope="row">Scientific accuracy</th><td>Major pathway errors</td><td>Partly accurate pathway</td><td>Accurate hormone-target pathway</td><td>Accurate and tissue-specific</td></tr>
+      <tr><th scope="row">Evidence</th><td>Claim without data</td><td>One observation</td><td>Two relevant observations</td><td>Trends compared across measures</td></tr>
+      <tr><th scope="row">Reasoning</th><td>No mechanism</td><td>Partial mechanism</td><td>Clear feedback explanation</td><td>Mechanism evaluates alternatives</td></tr>
+      <tr><th scope="row">Limitations</th><td>Diagnostic overclaim</td><td>Vague caution</td><td>Clear limit and next evidence</td><td>Limit, alternative, and evidence plan</td></tr>
+    </tbody></table></div></details>
+    <div class="bio-artifact-actions"><button type="button" class="bio-primary-button" data-save-artifact="glucose-urinalysis">Save artifact draft</button><button type="button" data-print-artifact="glucose-urinalysis">Print / Save as PDF</button><button type="button" data-copy-artifact="glucose-urinalysis">Copy summary</button><span data-artifact-status="glucose-urinalysis" aria-live="polite">Draft not saved</span></div>
+  </section>
+
+  <section class="bio-section bio-exit" aria-labelledby="lesson-15-exit">
+    <p class="bio-section-label">Exit check</p><h2 id="lesson-15-exit">Separate pattern from diagnosis</h2>
+    <label for="lesson-15-exit-response">In 2–3 sentences, explain why glucose in a synthetic urine sample is useful evidence but not a diabetes diagnosis.</label>
+    <textarea id="lesson-15-exit-response" rows="4" maxlength="300" data-bio-response-id="biology30-unit-a:lesson:15:exit" placeholder="The result is useful because… It is limited because…"></textarea>
+    <div class="bio-exit-actions"><button type="button" class="bio-primary-button" data-complete-bio-lesson="lesson-15">Save exit and complete lesson</button><span data-lesson-status="lesson-15" aria-live="polite">Exit response required</span></div>
+  </section>
+
+  <details class="bio-sources"><summary>Lesson sources and scientific basis</summary><p>Curriculum alignment: Alberta Biology 20–30 Program of Studies, outcomes A2.1k–A2.3k, A2.6k, A2.1sts, A2.2s, and A2.3s. Source content was rebuilt from the supplied Unit A notes, pages 129–133; the 2026–27 class Day 17 module; and CBE System Biology 30 Module 2, Lesson 5. Current disease, testing, and technology statements were cross-checked against NIDDK. Endocrine mechanisms were cross-checked against OpenStax <cite>Anatomy and Physiology 2e</cite>, section 17.9. All profiles are labelled synthetic instructional data.</p></details>
+</div>

@@ -1,0 +1,164 @@
+{
+  "unit": "D",
+  "status": "all source plan rows dispositioned; required topic order and assessment routes authored; rendered verification pending",
+  "sourceFiles": {
+    "projects/resources/biology30-production/v1/pilot2/intake/7783e714077e56dcb6c423d61903d577a7decc4756cb38ace124679b279fbf13/daily-plans.json": "7ffcd9e58a4a5fcd09d831e344d3cfb431817b923ed1d57d7e7c17973dbceaa5"
+  },
+  "rows": [
+    {
+      "rowId": "plan-19-row-01",
+      "chapter": 19,
+      "sourceSha256": "11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65",
+      "sourceCells": [
+        "Day",
+        "Topic",
+        "Learning Activities"
+      ],
+      "disposition": "source-table-header",
+      "routeId": null,
+      "reason": "Preserve source context; not an instructional day or learner activity.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": null
+    },
+    {
+      "rowId": "plan-19-row-02",
+      "chapter": 19,
+      "sourceSha256": "11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65",
+      "sourceCells": [
+        "69",
+        "Hardy-Weinberg",
+        "• Go through slides 1–20 of the   Unit D Chapter 19 Notes   (take notes + watch all included videos)   • Textbook: 680–682 #1–5; 683 Practice Problems 1–5; 684–685 #6,7; 688 #1–8  (you may finish these the next day as it is a shorter lesson)   • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "d-topic-hardy-weinberg",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "routeId": "d-topic-hardy-weinberg",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-19-row-03",
+      "chapter": 19,
+      "sourceSha256": "11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65",
+      "sourceCells": [
+        "70",
+        "Mechanisms of Change",
+        "• Go through slides 21–30 of the   Unit D Chapter 19 Notes   (take notes + watch all included videos)   • Textbook: 688 #1–8  (finish as needed) ; 689–696 #8,10–12,14–18,20; 697 #1–5  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "d-topic-mechanisms-of-change",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "routeId": "d-topic-mechanisms-of-change",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-19-row-04",
+      "chapter": 19,
+      "sourceSha256": "11ad1b698c5f6c5a1dc57e05f7bdc6a1ff2e30246dc814c045cd8b5feef64f65",
+      "sourceCells": [
+        "71–72",
+        "Chapter 19 Quiz",
+        "• Complete the Chapter 19 textbook review on pages 700–701 #1–15  • Review notes and practice   Quizlet  / flashcards as needed  • Complete Chapter 19 Quiz • Review your completed quiz and come in to see your teacher if you have any questions"
+      ],
+      "disposition": "classroom-assessment-window-to-native-practice",
+      "routeId": "d-chapter-19-practice",
+      "reason": "Preserve chapter review intent and allocation as original native practice. No classroom quiz or secure answer key is copied; textbook review remains optional before course practice.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "routeId": "d-chapter-19-practice",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-20-row-01",
+      "chapter": 20,
+      "sourceSha256": "239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa",
+      "sourceCells": [
+        "Day",
+        "Topic",
+        "Learning Activities"
+      ],
+      "disposition": "source-table-header",
+      "routeId": null,
+      "reason": "Preserve source context; not an instructional day or learner activity.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": null
+    },
+    {
+      "rowId": "plan-20-row-02",
+      "chapter": 20,
+      "sourceSha256": "239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa",
+      "sourceCells": [
+        "73",
+        "Population Growth",
+        "• Go through slides 31–43 of the   Unit D Chapter 20 Notes   (take notes + watch all included videos)   • Textbook: 705–709 #1–7; 711 Practice Problems 1–6; 716 #2–4  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "d-topic-population-growth",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "routeId": "d-topic-population-growth",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-20-row-03",
+      "chapter": 20,
+      "sourceSha256": "239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa",
+      "sourceCells": [
+        "74",
+        "Life Strategies and Ecological Relationships",
+        "• Go through slides 44–68 of the   Unit D Chapter 20 Notes   (take notes + watch all included videos)   • Textbook: 711–713 #8–15; 716 #5–9; 719 #16–18; 725 #23–26; 728 #27,28; 730 #1,3–5  • Create   Quizlet  / flashcards and practice key terms"
+      ],
+      "disposition": "required-teacher-topic-preserved",
+      "routeId": "d-topic-life-strategies-and-ecological-relationships",
+      "reason": "Keep teacher topic and sequence. Teach all core meaning locally with reviewed media paths; replace Quizlet/account-dependent directions with local terms and retrieval. Textbook tasks remain optional with native attempt-gated guides.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [
+        "Preserve the teacher topic order even though textbook subtopics span a different arrangement."
+      ],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "routeId": "d-topic-life-strategies-and-ecological-relationships",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    },
+    {
+      "rowId": "plan-20-row-04",
+      "chapter": 20,
+      "sourceSha256": "239bc8f67e0fd6c28bc5aee3264427a3fa2ee5066b02b0f3534d260dff3374fa",
+      "sourceCells": [
+        "75–76",
+        "Chapter 20 Quiz",
+        "• Complete the Chapter 20 textbook review on pages 740–741 #1–12,14,15,17,18,20,22  • Review notes and practice   Quizlet  / flashcards as needed  • Complete Chapter 20 Quiz  • Review your completed quiz and come in to see your teacher if you have any questions"
+      ],
+      "disposition": "classroom-assessment-window-to-native-practice",
+      "routeId": "d-chapter-20-practice",
+      "reason": "Preserve chapter review intent and allocation as original native practice. No classroom quiz or secure answer key is copied; textbook review remains optional before course practice.",
+      "calendarDayPolicy": "Source day numbers are historical sequence context, not learner deadlines or required elapsed-time timers.",
+      "sourceExceptions": [],
+      "implementationEvidence": {
+        "contract": "projects/resources/biology30-production/v1/units/unit-d/pilot2-contract.json",
+        "routeId": "d-chapter-20-practice",
+        "status": "authored route exists; rendered route verification follows build"
+      }
+    }
+  ],
+  "teacherDecision": null
+}

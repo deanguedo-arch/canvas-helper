@@ -1,0 +1,83 @@
+✖ synthetic renderer controls, persistence and enlargement in chromium (6489.763833ms)
+✖ synthetic renderer controls, persistence and enlargement in firefox (7666.728416ms)
+✖ synthetic renderer controls, persistence and enlargement in webkit (6177.9155ms)
+✔ synthetic topic renderer preserves teaching, unique targets, labels and hidden attempt feedback (6.338333ms)
+✔ textbook renderer keeps correction/context before attempt and uses physical PDF pages (0.733917ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 2
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21624.938333
+
+✖ failing tests:
+
+test at scripts/tests/biology30-pilot2-renderer-browser.test.ts:1:797
+✖ synthetic renderer controls, persistence and enlargement in chromium (6489.763833ms)
+  Error: expect(locator).toContainText(expected) failed
+  
+  Locator: locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')
+  Expected substring: "outside"
+  Received string:    "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"
+  Timeout: 5000ms
+  
+  Call log:
+    - Expect "to.have.text" with timeout 5000ms
+    - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')
+      9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>
+        - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"
+  
+      at Proxy.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/node_modules/playwright/lib/matchers/expect.js:213:24)
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-renderer-browser.test.ts:62:73)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    matcherResult: { name: 'toContainText', expected: 'outside', message: `expect(locator).toContainText(expected) failed\n\nLocator: locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')\nExpected substring: "outside"\nReceived string:    "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"\nTimeout: 5000ms\n\nCall log:\n  - Expect "to.have.text" with timeout 5000ms\n  - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')\n    9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>\n      - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"\n`, pass: false, actual: 'Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56', log: [ '  - Expect "to.have.text" with timeout 5000ms', `  - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')`, '    9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>', '      - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"' ], timeout: 5000 }
+  }
+
+test at scripts/tests/biology30-pilot2-renderer-browser.test.ts:1:797
+✖ synthetic renderer controls, persistence and enlargement in firefox (7666.728416ms)
+  Error: expect(locator).toContainText(expected) failed
+  
+  Locator: locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')
+  Expected substring: "outside"
+  Received string:    "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"
+  Timeout: 5000ms
+  
+  Call log:
+    - Expect "to.have.text" with timeout 5000ms
+    - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')
+      9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>
+        - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"
+  
+      at Proxy.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/node_modules/playwright/lib/matchers/expect.js:213:24)
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-renderer-browser.test.ts:62:73)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    matcherResult: { name: 'toContainText', expected: 'outside', message: `expect(locator).toContainText(expected) failed\n\nLocator: locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')\nExpected substring: "outside"\nReceived string:    "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"\nTimeout: 5000ms\n\nCall log:\n  - Expect "to.have.text" with timeout 5000ms\n  - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')\n    9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>\n      - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"\n`, pass: false, actual: 'Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56', log: [ '  - Expect "to.have.text" with timeout 5000ms', `  - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')`, '    9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>', '      - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"' ], timeout: 5000 }
+  }
+
+test at scripts/tests/biology30-pilot2-renderer-browser.test.ts:1:797
+✖ synthetic renderer controls, persistence and enlargement in webkit (6177.9155ms)
+  Error: expect(locator).toContainText(expected) failed
+  
+  Locator: locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')
+  Expected substring: "outside"
+  Received string:    "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"
+  Timeout: 5000ms
+  
+  Call log:
+    - Expect "to.have.text" with timeout 5000ms
+    - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')
+      9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>
+        - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"
+  
+      at Proxy.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/node_modules/playwright/lib/matchers/expect.js:213:24)
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-pilot2-renderer-browser.test.ts:62:73)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:472:9)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    matcherResult: { name: 'toContainText', expected: 'outside', message: `expect(locator).toContainText(expected) failed\n\nLocator: locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')\nExpected substring: "outside"\nReceived string:    "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"\nTimeout: 5000ms\n\nCall log:\n  - Expect "to.have.text" with timeout 5000ms\n  - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')\n    9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>\n      - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"\n`, pass: false, actual: 'Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56', log: [ '  - Expect "to.have.text" with timeout 5000ms', `  - waiting for locator('[data-pilot2-graph-work="graph-question"]').locator('[data-pilot2-graph-drawing="0"]')`, '    9 × locator resolved to <div aria-live="off" data-pilot2-graph-drawing="0">…</div>', '      - unexpected value "Synthetic graphTime; Count. Vertical scale: zero to 5. Sample count, 1: 0. Sample count, 2: blank. Sample count, 5: 6.012345125TimeCountSample countSample count; 1: 0↑ 6Synthetic graph — your entered valuesMarkers show supplied positions; connecting lines guide comparison and do not establish unmeasured intermediate observations.Enlarge graphSample count, 5: 6 exceeds the selected maximum 5.Your plotted valuesSeriesPositionEntered valueSample count10Sample count2Not plottedSample count56"' ], timeout: 5000 }
+  }

@@ -1,0 +1,102 @@
+{
+  "projectSlug": "biology30-unit-c",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Chromosomes and DNA"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "c-topic-chromosomes-and-dna",
+      "c-topic-the-cell-cycle",
+      "c-topic-mitosis",
+      "c-topic-meiosis-part-a",
+      "c-topic-meiosis-part-b",
+      "c-topic-reproductive-strategies",
+      "c-chapter-16-practice",
+      "c-topic-genes-alleles-and-traits",
+      "c-topic-mendelian-genetics",
+      "c-topic-single-and-two-trait-crosses",
+      "c-topic-other-modes-of-inheritance",
+      "c-topic-pedigrees",
+      "c-topic-chromosome-mapping",
+      "c-chapter-17-practice",
+      "c-topic-dna-and-its-history",
+      "c-topic-dna-replication",
+      "c-topic-transcription",
+      "c-topic-translation",
+      "c-topic-mutations",
+      "c-topic-genetic-technologies",
+      "c-chapter-18-practice",
+      "c-review-seminar",
+      "c-final-practice",
+      "c-core-vocabulary",
+      "c-glossary",
+      "c-models",
+      "c-investigations",
+      "c-all-my-work",
+      "c-advanced",
+      "c-video-library",
+      "c-textbook",
+      "c-notes",
+      "c-diploma-challenge"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "resourceChecks": [],
+    "evidenceScenario": {
+      "kind": "pilot2",
+      "route": "c-topic-chromosomes-and-dna",
+      "responseId": "c-topic-chromosomes-and-dna-evidence",
+      "collectionFlag": "c-topic-chromosomes-and-dna-evidence-collected",
+      "collectionRoute": "c-all-my-work"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "c-topic-chromosomes-and-dna",
+        "c-topic-the-cell-cycle",
+        "c-topic-mitosis",
+        "c-topic-meiosis-part-a",
+        "c-topic-meiosis-part-b",
+        "c-topic-reproductive-strategies",
+        "c-chapter-16-practice",
+        "c-topic-genes-alleles-and-traits",
+        "c-topic-mendelian-genetics",
+        "c-topic-single-and-two-trait-crosses",
+        "c-topic-other-modes-of-inheritance",
+        "c-topic-pedigrees",
+        "c-topic-chromosome-mapping",
+        "c-chapter-17-practice",
+        "c-topic-dna-and-its-history",
+        "c-topic-dna-replication",
+        "c-topic-transcription",
+        "c-topic-translation",
+        "c-topic-mutations",
+        "c-topic-genetic-technologies",
+        "c-chapter-18-practice",
+        "c-review-seminar",
+        "c-final-practice",
+        "c-all-my-work"
+      ]
+    }
+  }
+}

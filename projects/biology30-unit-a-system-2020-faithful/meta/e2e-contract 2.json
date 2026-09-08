@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-a-system-2020-faithful",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Local practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "source-2241-unit-a-introduction",
+      "source-2301-unit-a-m1-lesson-8",
+      "source-2365-module-2-summary",
+      "review-matrix",
+      "source-provenance"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "evidenceScenario": {
+      "kind": "collection",
+      "route": "source-2241-unit-a-introduction",
+      "collectionId": "biology30-unit-a-system-2020-faithful:biology-reflection",
+      "responseId": "biology30-unit-a-system-2020-faithful:biology-reflection:response"
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "source-2241-unit-a-introduction",
+        "source-2365-module-2-summary",
+        "review-matrix"
+      ]
+    }
+  }
+}

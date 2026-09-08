@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "unit": "B",
+  "status": "author-reviewed-provisional",
+  "checkedAt": "2026-09-07T12:38:11.252215+00:00",
+  "teacherDecision": null,
+  "scope": "Five original SVG teaching diagrams; learner placement remains pending.",
+  "sourceReview": {
+    "chapter14Slides": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "chapter15Slides": [
+      31,
+      33,
+      34,
+      40,
+      41
+    ],
+    "existingNativeFigures": [
+      "b-lesson-02",
+      "b-lesson-03",
+      "b-lesson-04",
+      "b-lesson-11",
+      "b-lesson-13"
+    ],
+    "canonicalTeachingSha256": "42045b11b47770e8586ec50c5807ee3b625cf351b8596bfe5ff4521444c363c4",
+    "modelOutputSha256": "e06548c82c42067869ceacd9f5e0c1d45c4c9132e07caaed36de14251e66c49f",
+    "modelCases": "b-model-signal-pathway support-defect and duct-obstruction exact P/T rows",
+    "correctedSourceClaims": [
+      "SRY does not directly encode all anatomy or testosterone secretion.",
+      "Hormonal methods are not all assigned the same mechanism or STI protection.",
+      "No individual diagnosis or physical laboratory certification follows from these supplied observations."
+    ]
+  },
+  "revisions": [
+    "Case-comparison v1 rejected because its paraphrased values and added downstream row did not match the saved P/T model. v2 uses the exact four saved observation rows and keeps downstream consequences as inference."
+  ],
+  "assets": [
+    {
+      "partId": "b-topic-male-reproductive-structures-semen-and-accessory-glands",
+      "id": "b-semen-contribution-map-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-semen-contribution-map-v1.svg",
+      "destination": "assets/figures/b-semen-contribution-map-v1.svg",
+      "sha256": "9e1bfea0559e5e3500bdccbe496b6738a5adcfcc2328679b690ea260759efa58",
+      "width": 1200,
+      "height": 900,
+      "alt": "Trace separate contributions to semen",
+      "caption": "Trace separate contributions to semen.",
+      "equivalentExplanation": "Four rows distinguish sperm development in testicular tubules and subsequent duct transport, seminal-vesicle fluid including fructose, prostatic fluid including enzymes, and bulbourethral mucus that lubricates the urethra. Converging arrows indicate contributions to the reproductive passage and mixed sample; they do not depict anatomical distances or exact secretion fractions. Accessory glands do not produce sperm. A sample containing fluid without observed sperm supports some secretion and delivery but cannot distinguish reduced sperm production from impaired sperm transport.",
+      "finding": "Gland contributions are separate from sperm development. Converging functional arrows are not an anatomical duct map or secretion-percentage chart. Fluid alone does not prove sperm production or transport.",
+      "reference": "reproductive-function-comparison/existing-b-lesson-02.png"
+    },
+    {
+      "partId": "b-topic-male-reproductive-structures-reproductive-development-and-health",
+      "id": "b-reproductive-signal-targets-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-reproductive-signal-targets-v1.svg",
+      "destination": "assets/figures/b-reproductive-signal-targets-v1.svg",
+      "sha256": "668f900be1e078d52b63a853b627652ef75d5ce42d110e5a1a3ea969638c0921",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate developmental genes, hormones and targets",
+      "caption": "Separate developmental genes, hormones and targets.",
+      "equivalentExplanation": "A typical XY pathway places SRY activity upstream of a testis-development gene network, not as a direct instruction to build every structure. Testicular tissues supply testosterone and AMH. Testosterone supports specific internal ducts; conversion in responsive targets to DHT contributes to typical external development. AMH promotes regression of a different embryonic duct system. Each action depends on target response and timing. Ovarian development uses active gene networks too. Chromosomes alone do not establish every anatomical feature, fertility outcome, health need or identity. The map gives a bounded typical pathway rather than an exhaustive account of variation.",
+      "finding": "SRY is upstream of a developmental network. Testosterone, DHT target conversion and AMH have different effects; timing and receptor response matter. Active ovarian networks and limits of chromosome-only inference remain visible.",
+      "reference": "reproductive-function-comparison/existing-b-lesson-04.png"
+    },
+    {
+      "partId": "b-topic-female-reproductive-structures-structure-and-reproductive-function",
+      "id": "b-production-transport-case-comparison-v2",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-production-transport-case-comparison-v2.svg",
+      "destination": "assets/figures/b-production-transport-case-comparison-v2.svg",
+      "sha256": "67bac62c44a447989253a930d37ff4077c6c13ade337626df9c2d96ebd30900f",
+      "width": 1200,
+      "height": 900,
+      "alt": "Compare tissue evidence before naming the cause",
+      "caption": "Compare tissue evidence before naming the cause.",
+      "equivalentExplanation": "The exact saved fictional model compares P and T. Developing germ cells are absent in P and present in T; Sertoli support is disrupted in P and present in T; LH is present in both; the duct is open in P and blocked in T. These observations distinguish support/production from transport hypotheses. Reduced delivery is a possible consequence to investigate, not an additional measured row. The values match b-model-signal-pathway outputs, including case identifiers. A present LH signal does not prove all downstream functions. The case is a reasoning model, not an individual diagnosis or a physical laboratory certification.",
+      "finding": "The existing cross-system investigation uses exact model cases P/T: absent/present germ cells, disrupted/present Sertoli support, present/present LH and open/blocked duct. No downstream delivery measurement was invented. This is not labelled as ovarian tissue or a personal diagnosis.",
+      "reference": "reproductive-function-comparison/existing-b-lesson-03.png"
+    },
+    {
+      "partId": "b-topic-menstrual-cycle-hormonal-technologies-and-perspectives",
+      "id": "b-hormonal-methods-and-perspectives-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-hormonal-methods-and-perspectives-v1.svg",
+      "destination": "assets/figures/b-hormonal-methods-and-perspectives-v1.svg",
+      "sha256": "950ab1f272c0937553b0f7bd5b93660e5e0c16b3e49f53e92619e75bc4841a6b",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separate a mechanism claim from a service decision",
+      "caption": "Separate a mechanism claim from a service decision.",
+      "equivalentExplanation": "Two qualified mechanism pathways show that a hormonal formulation may alter pituitary signals supporting ovulation or change cervical mucus affecting transport. Formulations differ; the diagram does not assign every method every effect or offer treatment advice. A separate information-service comparison asks about social/cultural access and understanding, environmental resources, ethical privacy and informed choice, and economic costs. Pregnancy and STI prevention are different outcomes; suppressing ovulation does not block pathogen transfer. A biological effect alone does not settle a service decision.",
+      "finding": "Possible pituitary and mucus pathways are formulation-dependent. Biological endpoints are distinguished from five-perspective service decisions and from STI prevention. No named treatment regimen or effectiveness rate.",
+      "reference": "reproductive-function-comparison/existing-b-lesson-13.png"
+    },
+    {
+      "partId": "b-topic-parturition-investigating-and-communicating-a-claim",
+      "id": "b-developmental-study-design-v1",
+      "sourcePath": "projects/resources/biology30-production/v1/pilot2/source-review/image-candidates/b-developmental-study-design-v1.svg",
+      "destination": "assets/figures/b-developmental-study-design-v1.svg",
+      "sha256": "1917a94ce730e19dd9b6d0da80f14280fa3b2d31a7864bde2545eb1dfd646644",
+      "width": 1200,
+      "height": 900,
+      "alt": "Make the comparison explicit before reading the counts",
+      "caption": "Make the comparison explicit before reading the counts.",
+      "equivalentExplanation": "A two-by-two non-human model design crosses early/later developmental stage with unexposed/agent-X conditions. Each cell measures fictional marker M. Exposure dose and duration, measurement method and culture conditions should remain comparable within the intended comparisons. Learners compare exposed and unexposed proportions within each stage and then compare those contrasts while retaining sample sizes and uncertainty. No outcome bars or answer graph are supplied. Marker M is an indirect fictional indicator, not a diagnosed human condition or a precise human risk value; this digital reasoning model does not certify laboratory performance.",
+      "finding": "Two-by-two early/later and unexposed/exposed comparison retains dose/duration/method/culture controls and fictional marker M. No answer bars or human-risk interpretation. The required learner counts remain in the original supplied task.",
+      "reference": "early-development-comparison/existing-b-lesson-11.png"
+    }
+  ],
+  "comparisonProcess": "Five native SVGs inspected against canonical teaching, exact shared model data and existing native course figures. Original scientific SVG is the precision format. Mac remains locked for ChatGPT raster work.",
+  "rights": "Original authored geometry and text; no new publisher pixels or source-image learner clearance.",
+  "limitations": [
+    "Provisional author review only; no teacher acceptance.",
+    "All-unit figure/rights/first-use and rendered placement reviews remain pending."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-12",
+  "module": "Endocrine Control",
+  "title": "Endocrine Architecture and Feedback",
+  "inquiry": "A hormone circulates through the whole body. Why do only particular cells respond, and how does the signal stop?",
+  "learningIntention": "I am learning to explain how endocrine glands, hormones, receptors, targets, and feedback form a control system.",
+  "requiredMinutes": 80,
+  "optionalMinutes": 10,
+  "outcomeIds": ["A2.1k", "A2.2k", "A2.4k", "A2.5k"],
+  "materials": "No special materials. Use the local endocrine body map and feedback scenarios.",
+  "safety": "Gland and disorder examples are instructional and not a guide to self-diagnosis or hormone use.",
+  "targets": [
+    "Locate the hypothalamus-pituitary complex, thyroid, parathyroids, adrenals, and pancreatic islets.",
+    "Separate hormone release, blood transport, receptor binding, target response, and feedback.",
+    "Use paired hormone-variable evidence to troubleshoot a feedback pathway."
+  ],
+  "warmup": {
+    "title": "Widespread route, selective response",
+    "prompt": "If a hormone reaches many organs in the blood, what two features determine whether a particular cell responds and what response it produces?",
+    "placeholder": "A cell must have… and…"
+  },
+  "sections": [
+    {
+      "label": "Map the glands",
+      "title": "1. Endocrine organs are distributed but coordinated",
+      "paragraphs": [
+        "The hypothalamus is nervous tissue that monitors and integrates information and controls pituitary function. The pituitary has anterior and posterior regions with different relationships to the hypothalamus. Together they coordinate several endocrine axes.",
+        "The thyroid lies in the neck and releases thyroxine; small parathyroid glands on its posterior surface release PTH. Adrenal glands sit above the kidneys and contain a cortex and medulla. Pancreatic islets are endocrine cell clusters within an organ that also has digestive exocrine functions.",
+        "A gland's location does not explain its effect. The relevant pathway includes the stimulus for release, hormone, blood transport, target receptors, cell response, and return effect. Many organs also produce hormones beyond the principal glands named in this unit."
+      ],
+      "figureIds": ["figure-endocrine-body-map"]
+    },
+    {
+      "label": "Follow the signal",
+      "title": "2. Receptors convert concentration into cell response",
+      "paragraphs": [
+        "Water-soluble hormones generally bind receptors on the cell membrane and activate intracellular signalling pathways. Lipid-soluble hormones can cross cell membranes and bind intracellular receptors that influence gene expression. These categories are useful, but response timing and complexity depend on the specific pathway.",
+        "Target cells can alter receptor number or signalling sensitivity. A hormone may cause rapid changes in membrane transport and slower changes in protein production. The same hormone can have different effects in different tissues because receptor types and downstream machinery differ.",
+        "Hormones are removed or inactivated through metabolism and excretion. Declining release and hormone clearance help end the signal. A feedback model that shows release but no transport, receptor, response, or removal is incomplete."
+      ]
+    },
+    {
+      "label": "Organize feedback",
+      "title": "3. Endocrine pathways use direct and multi-level feedback",
+      "paragraphs": [
+        "Pancreatic islet cells respond directly to blood-glucose conditions. Parathyroid cells respond to blood-calcium conditions. In these pathways, the regulated variable directly influences endocrine release and the resulting target responses feed back by changing the variable.",
+        "Other pathways use an axis. The hypothalamus releases a controlling signal to the anterior pituitary, the pituitary releases a tropic hormone, and a target gland releases another hormone. The target-gland hormone can reduce hypothalamic and pituitary signals. This multi-level negative feedback stabilizes the pathway while allowing central regulation.",
+        "Feedback should be tested by direction. High thyroxine normally reduces TSH drive; low thyroxine normally permits more drive. High cortisol normally reduces CRH and ACTH signalling. The terms high and low must be interpreted relative to context, time, and the regulated pathway."
+      ],
+      "figureIds": ["figure-generic-feedback-loop"]
+    },
+    {
+      "label": "Interpret paired values",
+      "title": "4. Hormone concentration and target evidence belong together",
+      "paragraphs": [
+        "Suppose a target-gland hormone is low while its pituitary tropic hormone is high. The pituitary appears to be signalling strongly, but the target gland output remains low. That pattern is consistent with a target-gland limitation. If both are low, hypothalamic or pituitary signalling becomes a candidate, although timing and other causes still matter.",
+        "If a hormone is high while its regulated variable remains far from range, poor target response is one possibility. The same pattern could also reflect an overwhelming disturbance, measurement timing, altered clearance, or another pathway. One pair of values narrows hypotheses but does not establish a diagnosis.",
+        "A robust explanation states the expected negative-feedback direction and then compares it with the observed values. Contradictory evidence is useful: it shows which simple model must be revised."
+      ],
+      "table": {
+        "caption": "Generic axis patterns for reasoning",
+        "headers": ["Pituitary signal", "Target-gland hormone", "Candidate location", "Important limit"],
+        "rows": [
+          ["High", "Low", "Target gland or hormone synthesis", "Sampling time and target sensitivity still matter"],
+          ["Low", "Low", "Hypothalamus or pituitary", "External hormone and illness can alter feedback"],
+          ["Low", "High", "Excess target-gland output", "Clearance and medication evidence are needed"],
+          ["High", "High", "Feedback resistance or non-steady state", "One measurement may capture a transition"]
+        ]
+      }
+    }
+  ],
+  "interaction": {
+    "id": "interaction-endocrine-body-map",
+    "title": "Link a gland to variable, hormone, and target",
+    "intro": "Choose a gland. The map reveals its key Unit A signal and the regulated evidence to pair with it.",
+    "prompt": "Which pairing contains a gland, its hormone, and a relevant variable or target?",
+    "options": [
+      {"id": "thyroid", "label": "Thyroid", "evidence": "Thyroxine changes metabolic activity; TSH-thyroxine feedback provides paired evidence.", "explanation": "Interpret thyroxine with TSH and physiological context rather than using one symptom."},
+      {"id": "parathyroid", "label": "Parathyroid glands", "evidence": "PTH responds to low blood calcium and supports responses that raise it.", "explanation": "Blood calcium is the regulated variable; PTH is a signal."},
+      {"id": "pancreas", "label": "Pancreatic islets", "evidence": "Insulin and glucagon coordinate target responses as blood glucose changes.", "explanation": "Alpha and beta cells participate in direct variable-to-hormone feedback."},
+      {"id": "adrenal", "label": "Adrenal gland", "evidence": "The cortex and medulla release different hormones under different controls.", "explanation": "Do not treat the adrenal as one uniform gland: cortex and medulla differ in signals, hormones, and timing."}
+    ],
+    "staticFallback": "Hypothalamus-pituitary complex coordinates axes; thyroid relates to metabolism; parathyroids to calcium; pancreatic islets to glucose; adrenal cortex and medulla to stress, salts, and rapid mobilization."
+  },
+  "exit": {
+    "title": "Interpret an apparent mismatch",
+    "prompt": "In 2–3 sentences, explain why a high hormone concentration with a weak target response could suggest receptor or downstream resistance rather than hormone underproduction.",
+    "placeholder": "The hormone is present, but… Additional evidence should include…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 97–109, the class Homeostasis lesson, CBE Module 2 Lesson 1, and OpenStax endocrine-signalling cross-checking.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-homeostasis", "notes-hormone-signalling", "class-day-homeostasis", "system-m2-l1", "openstax-a-and-p"]
+  }
+}

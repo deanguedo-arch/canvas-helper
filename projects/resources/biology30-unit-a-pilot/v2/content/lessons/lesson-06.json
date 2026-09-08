@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "lesson-06",
+  "module": "Nervous Control",
+  "title": "Nervous-System Organization and the Brain",
+  "inquiry": "How can a symptom help locate a damaged pathway without reducing a person to a single brain region?",
+  "learningIntention": "I am learning to use nervous-system organization and evidence about brain function to explain likely effects without overclaiming.",
+  "requiredMinutes": 90,
+  "optionalMinutes": 20,
+  "outcomeIds": ["A1.2k", "A1.1sts", "A1.2s", "A1.3s"],
+  "materials": "No special materials. Use the original brain model and supplied symptom cases.",
+  "safety": "The cases are synthetic learning examples and do not diagnose neurological conditions.",
+  "targets": [
+    "Build the CNS/PNS and somatic/autonomic hierarchy.",
+    "Connect major brain regions and spinal pathways to evidence-based functions.",
+    "Reject left-brain/right-brain personality claims while explaining genuine specialization and integration."
+  ],
+  "warmup": {
+    "title": "Location from evidence",
+    "prompt": "A learner can understand speech but has difficulty producing fluent words after a brain injury. What additional evidence would you want before locating the affected network?",
+    "placeholder": "I would want evidence about… because…"
+  },
+  "sections": [
+    {
+      "label": "Organize the system",
+      "title": "1. Central and peripheral name anatomical divisions",
+      "paragraphs": [
+        "The central nervous system consists of the brain and spinal cord. It integrates information, constructs responses, and supports perception, memory, emotion, and conscious action. The peripheral nervous system includes nerves and ganglia outside the brain and spinal cord. It carries sensory information toward the CNS and motor commands toward effectors.",
+        "The sensory division includes information from the body surface, special senses, muscles, joints, and internal organs. The motor division includes somatic pathways to skeletal muscle and autonomic pathways that regulate smooth muscle, cardiac muscle, and glands. These functional divisions overlap with anatomy but are not the same classification.",
+        "The autonomic system includes sympathetic and parasympathetic divisions. Sympathetic activity often supports mobilization during demand; parasympathetic activity often supports maintenance and restoration. Both can be active in a coordinated pattern, and their effects depend on the organ and receptors. They are not simple on and off switches for stress and rest."
+      ],
+      "figureIds": ["figure-nervous-system-hierarchy"]
+    },
+    {
+      "label": "Use the spinal cord",
+      "title": "2. The spinal cord is a pathway and an integration centre",
+      "paragraphs": [
+        "Ascending tracts carry sensory information toward the brain, and descending tracts carry motor commands toward spinal circuits. Spinal grey matter contains many neuron cell bodies and synapses; surrounding white matter contains myelinated axon pathways. Spinal nerves connect these central circuits to peripheral receptors and effectors.",
+        "Spinal segments serve different regions, but a symptom rarely maps to one simple line on a diagram. A lesion can affect several tracts, and pathways may cross from one side to the other at different levels. Clinicians combine sensory, motor, reflex, imaging, and history evidence to localize damage.",
+        "The spinal cord can organize reflexes without waiting for conscious processing, yet information can still travel to the brain. This arrangement supports a rapid protective response and later awareness. Lesson 7 will use this organization to design a reflex investigation."
+      ]
+    },
+    {
+      "label": "Map the brain",
+      "title": "3. Brain regions contribute to networks",
+      "paragraphs": [
+        "The cerebral cortex supports perception, voluntary movement, language, planning, and many forms of reasoning. The frontal lobe includes motor and executive networks; the parietal lobe integrates body sensation and spatial information; the temporal lobe contributes to hearing, memory, and language; the occipital lobe is central to visual processing.",
+        "The cerebellum compares intended and actual movement, supports timing and coordination, and contributes to motor learning. The medulla and pons participate in vital autonomic and relay functions. The hypothalamus links neural information to autonomic and endocrine control. The thalamus relays and organizes much incoming sensory information for cortical processing.",
+        "Functions emerge from networks. Damage to one region can disrupt connected areas, and other networks may partly compensate through plasticity. A brain-region model is useful for prediction, but a single label does not fully explain consciousness, personality, language, or behaviour."
+      ],
+      "figureIds": ["figure-brain-regions"]
+    },
+    {
+      "label": "Correct a neuromyth",
+      "title": "4. Hemispheres specialize, but people are not left- or right-brained types",
+      "paragraphs": [
+        "Some functions show hemispheric specialization. For many people, aspects of language rely more strongly on left-hemisphere networks, while some spatial and attentional processes rely more strongly on right-hemisphere networks. The corpus callosum and other pathways allow continual exchange between hemispheres.",
+        "This evidence does not support sorting people into logical left-brained and creative right-brained personalities. Complex tasks recruit distributed networks in both hemispheres. Individual variation, experience, task demands, and development matter. A colourful hemisphere chart is not a personality test.",
+        "Scientific knowledge changes when claims are tested against better evidence. Brain imaging measures signals related to activity; it does not photograph thoughts. Lesion evidence can support localization but may involve network disruption. A responsible explanation triangulates methods and states the limits of each."
+      ],
+      "table": {
+        "caption": "From symptom to cautious localization",
+        "headers": ["Synthetic evidence", "Likely network to inspect", "Why the conclusion remains limited"],
+        "rows": [
+          ["Uncoordinated movement with intact muscle strength", "Cerebellar and connected motor pathways", "Balance, sensation, medicine, and peripheral pathways also matter"],
+          ["Loss of vision in matching parts of both visual fields", "Optic pathways or visual cortex", "Eye and retinal evidence must be separated from central evidence"],
+          ["Difficulty producing fluent speech with relatively preserved comprehension", "Language-production network", "Speech muscles, hearing, and distributed language pathways require testing"],
+          ["Disrupted temperature and endocrine regulation", "Hypothalamic and connected endocrine pathways", "Glands and peripheral receptors may also be involved"]
+        ]
+      }
+    }
+  ],
+  "interaction": {
+    "id": "interaction-brain-symptom-locator",
+    "title": "Use symptoms to choose a network",
+    "intro": "Select a synthetic evidence pattern. The readout gives a cautious localization and the next evidence needed.",
+    "prompt": "Which claim locates a likely network without overclaiming?",
+    "options": [
+      {"id": "coordination", "label": "Timing and coordination difficulty", "evidence": "Strength is near expected, but rapid alternating movements are irregular.", "explanation": "Cerebellar or connected motor pathways are reasonable candidates. Sensory, medication, and vestibular evidence would narrow the claim."},
+      {"id": "language", "label": "Nonfluent speech with preserved understanding", "evidence": "The learner follows spoken instructions but produces short, effortful phrases.", "explanation": "A language-production network is a candidate, not a complete diagnosis. Motor speech and broader language testing are needed."},
+      {"id": "regulation", "label": "Temperature and endocrine disruption", "evidence": "Several regulated variables change together after a central injury.", "explanation": "Hypothalamic connections are relevant because they coordinate autonomic and endocrine output, but gland and peripheral evidence must also be checked."}
+    ],
+    "staticFallback": "Use the symptom pattern to identify a candidate network, then name alternative sites and the next evidence needed. Complex functions are distributed."
+  },
+  "exit": {
+    "title": "Replace the hemisphere myth",
+    "prompt": "In 2–3 sentences, explain why genuine hemispheric specialization does not support left-brained and right-brained personality types.",
+    "placeholder": "Some functions are specialized, but… Complex tasks…"
+  },
+  "sources": {
+    "summary": "Built from supplied notes pages 43–66, the class CNS/PNS and Brain lessons, CBE Module 1 Lessons 1–2, OpenStax anatomy, and NINDS cross-checking. The learner content explicitly replaces the source's left/right personality framing.",
+    "sourceRefIds": ["alberta-program", "alberta-performance", "notes-nervous-organization", "class-day-pns-cns", "class-day-brain", "system-m1-l1", "system-m1-l2", "openstax-a-and-p", "ninds-health-information"]
+  }
+}

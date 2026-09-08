@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="ela30-2-short-stories-visual-literacy-scorm-2004" version="1.0"
+  xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
+  xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3"
+  xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3"
+  xmlns:imsss="http://www.imsglobal.org/xsd/imsss"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+    http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd
+    http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd
+    http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd
+    http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 4th Edition</schemaversion>
+  </metadata>
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1">
+      <title>ela30-2-short-stories-visual-literacy</title>
+      <item identifier="ITEM-1" identifierref="RES-1">
+        <title>ela30-2-short-stories-visual-literacy</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-1" type="webcontent" adlcp:scormType="sco" href="index.html">
+      <file href="assets/generated/brand/nxt-ce-logo-white-with-ce.png" />
+      <file href="assets/generated/lessons/lesson-12-literary-terms-owl-header.jpg" />
+      <file href="assets/generated/lessons/lesson-13-writing-a-personal-response-to-text-s-students-writing.jpg" />
+      <file href="assets/generated/lessons/lesson-2-introduction-to-elements-of-fiction-owl-header.jpg" />
+      <file href="assets/generated/lessons/lesson-3-irony-ironic-no-bicycles-sign-600w-1159782328.jpg" />
+      <file href="assets/generated/lessons/lesson-6-setting-tuscany.jpg" />
+      <file href="assets/generated/lessons/short-stories-introduction-photo-old-type-writer-focus-260nw-1198882.png" />
+      <file href="assets/generated/resources/reading-god-is-not-a-fish-inspector-god-is-not-a-fish-inspector.pdf" />
+      <file href="assets/generated/resources/reading-mother-and-son-mother-and-son.pdf" />
+      <file href="assets/generated/resources/reading-old-man-old-man.pdf" />
+      <file href="assets/generated/resources/reading-warren-pryor-warren-pryor.pdf" />
+      <file href="assets/generated/supporting/lesson-4-lesson-3-irony-rhw-irony.html" />
+      <file href="index.html" />
+      <file href="scorm-bridge.js" />
+    </resource>
+  </resources>
+</manifest>

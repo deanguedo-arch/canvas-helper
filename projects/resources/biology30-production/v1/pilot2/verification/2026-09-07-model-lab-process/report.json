@@ -1,0 +1,57 @@
+{
+  "stage": 103,
+  "checkedAt": "2026-09-07T16:47:50.903966+00:00",
+  "status": "local-model-lab-process-repair-verified",
+  "cause": "Earlier hub adapter retained a generic dropdown/form and superficial Step labels instead of the final A investigation structure.",
+  "changes": [
+    "Chapter-grouped investigation navigation with separate lesson subtitles",
+    "Question, learning goal, comparison plan and base-support text drawn from existing model investigations/teaching records",
+    "Distinct Predict/Test/Explain/Save panels and A typography/spacing",
+    "Case buttons replace visible dropdown; selected case is visually distinct",
+    "Prediction unlocks after selecting a case; explanation unlocks after testing; changing prediction/case invalidates tested/collected state while preserving writing",
+    "Existing model datasets, scientific calculations, result plots/tables, state IDs and required-course counts retained"
+  ],
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "17a8b6eb5a6065dfee8494c6a6ce1ee9e0dacadea0c949330b0f98c487f68a7f",
+      "contractSha256": "1443351f6facb0599d10451df00138d1aa0febe935fb8d8121d40b3ea086ca76",
+      "generatedAt": "2026-09-07T16:45:22.224Z",
+      "previousWorkspaceSha256": "8d3c9592c9e2c51ce0d44269eeb63f2fb79473df1afa653a070abd51ba01127f"
+    },
+    "C": {
+      "buildSha256": "fa37e871e151fd786ce5f8632d880943b818090955ed046d8b0f105cd7a08b29",
+      "contractSha256": "5c0f81a63704596b9c81e1388b8157241e11a5e7a92b9e49b58b3364ca457638",
+      "generatedAt": "2026-09-07T16:45:29.431Z",
+      "previousWorkspaceSha256": "b2f06b2965107f7a47f226532c21eaf732605d9b92447d1c857798f2ccbd58df"
+    },
+    "D": {
+      "buildSha256": "128685d6fe8a5f9cb37025869a8db72e8a0530bd61811f1aa432d3e310fd0131",
+      "contractSha256": "5826cc62007d0ac148b9ea58c38d497dee4b310853af272a1c688f27a5a6212f",
+      "generatedAt": "2026-09-07T16:45:35.296Z",
+      "previousWorkspaceSha256": "3db21992ccea7cf072b261dca86401ec135a7ee1f516a5aa5e446ccfecf54504"
+    }
+  },
+  "validation": {
+    "actualModels": "All9 model workflows pass: orientation,4steps, selection contrast, gating, test/evidence, save/reload and changed-case invalidation; all-unit390px overflow checks",
+    "crossBrowser": "3/3 synthetic component lifecycle passes in Chromium/Firefox/WebKit; fixture updated to expose Frayer components without the route presentation layer",
+    "ownerAndScience": "9/9 pass including all model calculations, frozen owner inputs and protected A trees",
+    "workspace": "B/C/D pass on final builds",
+    "projectE2E": "B/C/D each1/1 pass on final builds",
+    "typecheck": "25 unrelated baseline errors, zero pilot2 diagnostics",
+    "native": "Actual B model lab inspected against A source; final case styling checked by regression"
+  },
+  "ownerFiles": [
+    "pilot2-render-model.ts",
+    "pilot2-model-controls.ts",
+    "pilot2-render-course.ts",
+    "pilot2-a-hubs.ts",
+    "pilot2-presentation-shell.ts"
+  ],
+  "limitations": [
+    "Existing9 BCD models retained; this does not add a model for every teaching lesson",
+    "Subject-specific calculations and response types remain BCD; not every A-specific simulation feature is reproduced",
+    "No teacher acceptance or release certification"
+  ],
+  "teacherAcceptance": null,
+  "releaseActions": []
+}

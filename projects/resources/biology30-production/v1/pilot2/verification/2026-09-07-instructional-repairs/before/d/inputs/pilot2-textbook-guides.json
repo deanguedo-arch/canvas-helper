@@ -1,0 +1,1805 @@
+{
+  "unit": "D",
+  "status": "all68-second-author-source/key-and-required-passage-reviewed; rendered-verification-pending",
+  "groups": [
+    {
+      "id": "d-textbook-chapter-19",
+      "chapter": 19,
+      "textbookUnit": null,
+      "items": [
+        {
+          "id": "d-textbook-chapter-19-q1",
+          "questionNumber": 1,
+          "title": "Distinguish an individual event from population change",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "A mutation creates a sequence variant and can contribute to microevolution if it changes heritable allele representation in a population. One resistant fly alone does not show the population\u2019s allele frequencies before and after, or even establish inheritance. Thus the described individual event is insufficient evidence for a population-level conclusion. Transmission and changing allele counts across generations would establish the relevant change; selection may then increase or decrease the variant.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+          "bindingReview": "Individual mutation and demonstrated population-frequency change separated; heritable mutation can contribute rather than being excluded as a mechanism.",
+          "preAttemptSourceNotice": "A heritable mutation can contribute to allele-frequency change. Separate the described individual event from evidence about a population across generations.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts",
+            "d-topic-mechanisms-of-change-testing-explanations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts-teaching",
+            "d-topic-mechanisms-of-change-testing-explanations-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Mutation can create a heritable allele. Microevolution describes a change in allele frequency in a population across generations. One fly\u2019s resistance event alone does not document that population change; transmission and changing representation would provide the relevant evidence."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q2",
+          "questionNumber": 2,
+          "title": "Calculate heterozygote frequency",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "p=0.70, so q=0.30. Under Hardy\u2013Weinberg assumptions, 2pq=2(0.70)(0.30)=0.42, or 42%. Check p\u00b2+2pq+q\u00b2=0.49+0.42+0.09=1. The result is a genotype frequency, not the frequency of the dominant allele.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+          "bindingReview": "0.70/0.30 allele frequencies give 42% heterozygotes and 49/42/9 genotype percentages.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q3",
+          "questionNumber": 3,
+          "title": "Start from a recessive phenotype",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Under the stated simple recessive/equilibrium model, q\u00b2=16/100=0.16, so q=0.40 and p=0.60. The requested dominant-allele frequency is 0.60. Do not subtract 0.16 directly from one and call the result p.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Recessive phenotype 0.16 is squared allele frequency only under stated model, giving dominant allele 0.60.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q4",
+          "questionNumber": 4,
+          "title": "Use a qualified historical model",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Treat 11% as supplied model data, not a current Canadian statistic or a universal single-locus explanation of lactose intolerance. q=\u221a0.11\u22480.3317 and p\u22480.6683. Heterozygotes: 2pq\u224844.33%; homozygous dominant: p\u00b2\u224844.67%. State the simplified inheritance/equilibrium assumptions.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Independent square-root calculation gives carriers44.3325% and dominant homozygotes44.6675%; historical model not modern prevalence.",
+          "preAttemptSourceNotice": "The lactose model and percentage are historical classroom inputs, not current Canadian health statistics or a validated one-gene diagnosis.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q5",
+          "questionNumber": 5,
+          "title": "Derive alleles from observed genotypes",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Observed YY=0.44,Yy=0.38,yy=0.18 gives p(Y)=0.44+0.38/2=0.63 and q(y)=0.37. In 400 individuals, counts are 176 YY,152 Yy,72 yy. These allele frequencies come directly from counts and do not require assuming the observed genotypes already follow equilibrium proportions.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-populations-and-allele-counts-teaching",
+          "bindingReview": "Observed genotype copy counts yield p0.63/q0.37 and counts176/152/72 without HW assumption.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-chapter-19-q6",
+          "questionNumber": 6,
+          "title": "Calculate a two-allele model",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "The gamete frequency directly gives p(C)=0.60 and q=0.40. Expected diploid genotype frequencies are 0.36,0.48,0.16 under the specified model. The book uses inconsistent C/l lettering for alternative alleles; define one consistent pair of symbols and distinguish haploid gametes from diploid offspring.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+          "bindingReview": "Gamete frequency already p; q0.4 and diploid genotype fractions .36/.48/.16, letter inconsistency corrected.",
+          "preAttemptSourceNotice": "The source mixes allele letters. Define one consistent allele pair before calculating.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q7",
+          "questionNumber": 7,
+          "title": "Explain drift and sample size",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Chance deviations represent a larger fraction of the gene pool when fewer individuals reproduce. Alleles may be lost or fixed more readily in small populations. Drift occurs in large populations too; the key contrast is its relative effect, not an absolute absence of random sampling.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-chance-and-population-size",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+          "bindingReview": "Relative random-sampling effect is stronger, not exclusive to small populations.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-chapter-19-q8",
+          "questionNumber": 8,
+          "title": "Avoid a unique cause from one frequency",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "A high frequency of an inherited variant could reflect founder effects/drift, migration, selection or other history. Frequency alone does not choose gene flow versus drift. A small isolated founding group would support a drift hypothesis; documented movement of carriers would support gene flow. Ask for evidence without stereotyping a population.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-testing-explanations",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-testing-explanations-teaching",
+          "bindingReview": "Frequency alone cannot choose between flow/drift; founding size, isolation and reproductive movement distinguish hypotheses.",
+          "prerequisitePartIds": [
+            "d-topic-mechanisms-of-change-chance-and-population-size",
+            "d-topic-mechanisms-of-change-movement-and-mating"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+            "d-topic-mechanisms-of-change-movement-and-mating-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q9",
+          "questionNumber": 9,
+          "title": "Calculate carriers and limit geographic inference",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "For q\u00b2=0.001, q\u22480.03162 and 2pq\u22480.06125. For q\u00b2=0.003, q\u22480.05477 and 2pq\u22480.10354. These are conditional model carrier frequencies. They cannot establish a population\u2019s geographic origin. Heterozygote advantage in a malaria environment can help maintain an allele, but ancestry, selection and health cannot be inferred from these two counts alone.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Birth-stage homozygote frequencies .001/.003 give heterozygotes .0612456/.1035445; geographic inference unsupported; selection advantage contextual.",
+          "preAttemptSourceNotice": "Use the stated birth-stage genotype model; the source\u2019s simple dominance wording does not describe every level of sickle-cell phenotype. Counts alone cannot establish geographic origin.",
+          "preAttemptContext": "For this calculation only, treat the supplied affected-birth fraction as the two-variant homozygous genotype fraction at one autosomal locus and assume Hardy\u2013Weinberg proportions at birth. Heterozygotes can have a context-dependent survival advantage where malaria is present. These assumptions do not establish geographic origin or an individual\u2019s health.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions",
+            "d-topic-mechanisms-of-change-mutation-and-selection",
+            "d-topic-mechanisms-of-change-testing-explanations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching",
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+            "d-topic-mechanisms-of-change-testing-explanations-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q10",
+          "questionNumber": 10,
+          "title": "Read the pika counts",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "1998: N=15; allele 170 frequency=(2\u00d79+6)/(2\u00d715)=0.80 and 172=0.20. 2005: N=52; 170=(2\u00d742+9)/104=93/104\u22480.89423 and 172=11/104\u22480.10577. Frequencies differ, but small samples and missing 2001 data limit inference. The 172 allele persisted in heterozygotes before a homozygote was observed. Small declining populations may lose diversity through drift.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-populations-and-allele-counts-teaching",
+          "bindingReview": "Allele copies30\u2192104 denominators, p170 .8\u219293/104; 172 persisted in heterozygotes and missing year is not zero. Limited samples cannot establish mechanism.",
+          "preAttemptSourceNotice": "A year without a recorded count is missing data, not a zero population.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits",
+            "d-topic-mechanisms-of-change-chance-and-population-size",
+            "d-topic-mechanisms-of-change-testing-explanations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+            "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+            "d-topic-mechanisms-of-change-testing-explanations-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q11",
+          "questionNumber": 11,
+          "title": "Separate an estimate from assumptions",
+          "printedPage": 700,
+          "physicalPage": 29,
+          "continuationPhysicalPage": 30,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Two grey squirrels out of ten give an observed recessive-phenotype frequency of 0.20. Only if a suitable equilibrium model is assumed may q\u22480.4472,p\u22480.5528 and 2pq\u22480.4944 be inferred. A reported q=0.80 differs, but could concern another place, time or sampling frame. Use larger randomized repeated samples and check model assumptions; ten schoolyard observations do not determine the whole local gene pool.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Two grey of10 conditional q.4472 and heterozygotes49.44%; a different source population and small convenience sample need no biological contradiction. Route-order rereview: required links precede this chapter practice. Later explanations are optional further reading; necessary extension context is visible before attempt.",
+          "preAttemptSourceNotice": "A phenotype-based allele estimate requires stated equilibrium assumptions; a frequency quoted for another population cannot be assumed here.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits",
+            "d-topic-mechanisms-of-change-testing-explanations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+            "d-topic-mechanisms-of-change-testing-explanations-teaching"
+          ],
+          "furtherReadingPartIds": [
+            "d-topic-population-growth-sampling-populations"
+          ],
+          "furtherReadingPolicy": "Later optional follow-up; never represented as a previously completed prerequisite.",
+          "preAttemptContext": "A representative sample should cover the defined population rather than only one convenient spot. Randomized placement and repeated samples can reduce location bias and help assess variation. A larger sample is still biased if all observations come from an unrepresentative location.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching."
+        },
+        {
+          "id": "d-textbook-chapter-19-q12",
+          "questionNumber": 12,
+          "title": "Count MN alleles",
+          "printedPage": 701,
+          "physicalPage": 30,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "M copies=2\u00d7356+519=1231 of 2200; p(M)\u22480.55955 and q(N)\u22480.44045. Under equilibrium, expected MM\u22480.31309,MN\u22480.49291,NN\u22480.19400. A small founding group rich in N can begin with a different allele frequency by sampling; it does not mean that N becomes biologically superior.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-populations-and-allele-counts-teaching",
+          "bindingReview": "Direct M1231/2200 then expected .313091/.492909/.194000; enriched N founding sample is a founder effect.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+            "d-topic-hardy-weinberg-equilibrium-assumptions",
+            "d-topic-mechanisms-of-change-chance-and-population-size",
+            "d-topic-mechanisms-of-change-movement-and-mating"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching",
+            "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+            "d-topic-mechanisms-of-change-movement-and-mating-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q13",
+          "questionNumber": 13,
+          "title": "Calculate a recessive model with a limitation",
+          "printedPage": 701,
+          "physicalPage": 30,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "At the stated birth-stage model, q\u00b2=6/2400=0.0025, q=0.05=5%, p=0.95 and 2pq=0.095=9.5%. A small isolated population may have founder/drift and nonrandom-mating effects. Early mortality is selection, so equilibrium assumptions must be confined to the specified generation/stage rather than asserted indefinitely.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "6/2400=.0025, q5%, carriers9.5%; isolation/mating explanations and lethal selection stage limitation explicit.",
+          "preAttemptSourceNotice": "Lethal selection limits an equilibrium claim across generations even when a within-generation model calculation is requested.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions",
+            "d-topic-mechanisms-of-change-chance-and-population-size",
+            "d-topic-mechanisms-of-change-movement-and-mating",
+            "d-topic-mechanisms-of-change-mutation-and-selection"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching",
+            "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+            "d-topic-mechanisms-of-change-movement-and-mating-teaching",
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q14",
+          "questionNumber": 14,
+          "title": "Find a threshold in the model",
+          "printedPage": 701,
+          "physicalPage": 30,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "At the stated maximum q\u00b2=0.04, q=\u221a0.04=0.20, or 20%. The calculation assumes Hardy\u2013Weinberg proportions at the relevant embryo stage and that all specified losses are due to this recessive genotype. Selection against affected embryos means the surviving population need not retain those proportions.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Maximum embryo homozygote loss4% gives allele ceiling20% under specific stage assumptions, not survivor equilibrium.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions",
+            "d-topic-mechanisms-of-change-mutation-and-selection"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching",
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-19-q15",
+          "questionNumber": 15,
+          "title": "Compare selection with drift",
+          "printedPage": 701,
+          "physicalPage": 30,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-19.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Both can change allele frequencies. Selection involves differences in reproductive success associated with heritable traits in an environment; drift is chance sampling. Selection can produce adaptation, while drift can increase or decrease a variant regardless of usefulness. Neither mechanism requires organisms to anticipate a need.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+          "bindingReview": "Differential inherited reproductive success versus chance; both alter frequencies, adaptation not guaranteed by drift.",
+          "prerequisitePartIds": [
+            "d-topic-mechanisms-of-change-chance-and-population-size"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-mechanisms-of-change-chance-and-population-size-teaching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-chapter-20",
+      "chapter": 20,
+      "textbookUnit": null,
+      "items": [
+        {
+          "id": "d-textbook-chapter-20-q1",
+          "questionNumber": 1,
+          "title": "Name limiting mechanisms",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Food limitation can reduce survival/reproduction, predators or parasites can increase losses, and weather can alter survival or available habitat. Connect each factor to a demographic process. A list of factors without explaining how they affect growth is incomplete.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-feedback-and-changing-limits",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-feedback-and-changing-limits-teaching",
+          "bindingReview": "Three factors each connected to demographic losses or additions, not a bare list.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q2",
+          "questionNumber": 2,
+          "title": "Explain interspecific competition",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "For example, wheat and wild-oat plants in the same field can draw on limited light, soil water and nutrients. If removing the competitor increases wheat growth or seed production under otherwise matched conditions, that supports competition limiting crop performance. Measure the resource and compare equal starting crop densities; sharing a field alone does not prove a limiting-resource effect.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "bindingReview": "Named crop/weed example now has limiting resources and a testable controlled comparison.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": [],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Two plant species drawing on limited soil water can each reduce the amount available to the other. That may reduce growth, seed production or survival and therefore affect population change. State the shared resource and evidence that it is limiting rather than assuming any co-occurrence means competition."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q3",
+          "questionNumber": 3,
+          "title": "Balance four processes",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Natality and immigration add individuals; mortality and emigration remove them. Over a stated interval, \u0394N=(births+immigrants)\u2212(deaths+emigrants). Final size is initial N+\u0394N. A closed population has no immigration/emigration term.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-four-demographic-processes",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-four-demographic-processes-teaching",
+          "bindingReview": "All four processes and interval equation including final-size distinction.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-chapter-20-q4",
+          "questionNumber": 4,
+          "title": "Scale a sampled density",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "The six counts total 30, so the mean is 5 organisms/drop. At 20 drops/mL, density is 100 organisms/mL. Multiply by 40 mL to estimate 4000 organisms. This assumes representative well-mixed samples, consistent drop volume and no systematic counting bias.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-sampling-populations",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-sampling-populations-teaching",
+          "bindingReview": "30/6=5 per drop, times20drops/mL times40mL=4000; sample representativeness and drop volume stated.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-size-and-density"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-size-and-density-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q5",
+          "questionNumber": 5,
+          "title": "Explain positive growth potential",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "With no migration, a positive intrinsic growth tendency requires births to exceed deaths under the specified conditions. Distinguish biotic potential under favourable conditions from actual realized growth when environmental resistance acts.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-exponential-and-logistic-models",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-exponential-and-logistic-models-teaching",
+          "bindingReview": "Closed population positive tendency requires births exceeding deaths under stated conditions; potential versus realized growth.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q6",
+          "questionNumber": 6,
+          "title": "Classify the stated interaction conditionally",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "If a microbe benefits while harming its host, the described relationship is parasitism. If both benefit in a specified comparison, that description is mutualistic. The textbook\u2019s health claims are historical and context dependent; the classification exercise must not imply that H. pylori infection is a recommended protection or that every association proves benefit.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+          "bindingReview": "Benefit/harm classification conditional on measured effects; historical medical claims not adopted as advice.",
+          "preAttemptContext": "Classify the two effects as hypothetical interaction descriptions. The passage\u2019s medical claims are not evidence of a recommended infection or protection. To identify mutualism, both host and microbe must have a demonstrated net benefit in the specified comparison.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "preAttemptSourceNotice": "Treat the two host effects as hypothetical descriptions for classification, not verified current medical guidance.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-chapter-20-q7",
+          "questionNumber": 7,
+          "title": "Calculate interval per-capita change",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "\u0394N=106+42\u221253\u221215=80. Divide by initial N=1000 to obtain 0.08, or 8% over the year. Final N=1080; the absolute growth rate is 80 individuals/year. Keep the per-capita and absolute quantities separate.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-rates-and-denominators",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-rates-and-denominators-teaching",
+          "bindingReview": "106+42\u221253\u221215=80; divide1000 for .08 interval fraction, final1080 and80/year absolute.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q8",
+          "questionNumber": 8,
+          "title": "Connect colonization to life-history traits",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Early colonizers often mature quickly, produce many dispersing offspring and exploit temporary open resources. These tendencies can aid establishment after disturbance. r/K categories are simplified tendencies; not every pioneer species shares every trait or follows an identical succession path.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-teaching",
+          "bindingReview": "Early reproduction/dispersal and low-investment offspring can aid establishment; categories flexible.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q9",
+          "questionNumber": 9,
+          "title": "Describe spatial patterns",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Clumped distributions form aggregations, uniform distributions have more even spacing, and random distributions lack a consistent pattern at the measured scale. Resource patchiness and interactions such as territoriality or group behaviour can influence patterns. Sampling scale matters.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-size-and-density",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-size-and-density-teaching",
+          "bindingReview": "Three spatial patterns and two mechanism families (resources and interactions), observation scale explicit.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q10",
+          "questionNumber": 10,
+          "title": "Explain competition and growth",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "When species share a limiting resource, access to that resource may reduce survival or reproduction and slow growth. Outcomes depend on conditions and resource use; coexistence, exclusion or changing niches are possibilities. Neither species must always go extinct.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "bindingReview": "Limiting shared resource can reduce survival/reproduction; no guaranteed extinction.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q11",
+          "questionNumber": 11,
+          "title": "Connect consumers to density feedback",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Higher prey/host density can increase encounter rates for predators or parasites, increasing losses or reducing reproduction. Such density-related effects can limit growth. Time lags and other limiting factors mean that populations need not settle at a perfectly constant number.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-feedback-and-changing-limits",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-feedback-and-changing-limits-teaching",
+          "bindingReview": "Encounter-dependent losses and delayed feedback can limit density without exact steady state.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q12",
+          "questionNumber": 12,
+          "title": "Compare two consumer-resource relationships",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Herbivores gain matter/energy from plants while affecting plant tissues and reproduction; predators gain resources by consuming prey. Both can produce feedback between consumer abundance and resource availability. Herbivory does not always kill an entire plant, unlike predation on an individual animal.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+          "bindingReview": "Consumer gains and resource losses form feedback; whole-plant death not required for herbivory.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q14",
+          "questionNumber": 14,
+          "title": "Connect potential, resistance and capacity",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Biotic potential describes possible increase under favourable conditions. Environmental resistance reduces realized increase through limits and losses. Carrying capacity is a model estimate of sustainable population size under specified conditions; it can change. Explain the mechanism rather than treating K as a permanent ceiling painted onto a habitat.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-exponential-and-logistic-models",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-exponential-and-logistic-models-teaching",
+          "bindingReview": "Potential, realized resistance and conditional changingK linked.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-feedback-and-changing-limits"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-feedback-and-changing-limits-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q15",
+          "questionNumber": 15,
+          "title": "Distinguish constant addition from exponential growth",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "The stated rate is 10 plants/year, an absolute constant addition. After five years, N=100+5\u00d710=150 plants. Do not interpret 10 plants/year as 10% growth or apply compound interest unless the question instead supplies a per-capita rate.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-rates-and-denominators",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-rates-and-denominators-teaching",
+          "bindingReview": "Unit is plants/year; fixed5\u00d710 addition to100 gives150, no exponent.",
+          "preAttemptSourceNotice": "The prompt specifies a fixed addition per year. Keep that distinct from a percentage growth rate.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q17",
+          "questionNumber": 17,
+          "title": "Compare limiting contexts",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Bacteria may be limited by nutrients, waste accumulation or temperature; plants by light, water, nutrients and competitors; mammals by food, space, disease and predation. Link each factor to a mechanism and explain why both biotic and abiotic factors can act on every group.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-feedback-and-changing-limits",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-feedback-and-changing-limits-teaching",
+          "bindingReview": "Three groups have named biotic/abiotic limits, both can act on each.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q18",
+          "questionNumber": 18,
+          "title": "Trace effects and evolutionary conditions",
+          "printedPage": 740,
+          "physicalPage": 39,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "The native ants and plants benefit through food and protected seed dispersal: mutualism in the supplied case. Introduced ants gain food while reducing that dispersal service, an antagonistic/exploitative interaction. The ant species compete for large-seed resources; the stated small-seed niche is not directly shared. Smaller seeds could be favoured only if seed size is heritable and leads to greater reproductive success; the data do not guarantee that outcome.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+          "bindingReview": "All interaction subparts preserved; small seeds not directly contested and selection on seed size needs heritability/fitness.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+            "d-topic-mechanisms-of-change-mutation-and-selection"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q20",
+          "questionNumber": 20,
+          "title": "Qualify a succession comparison",
+          "printedPage": 741,
+          "physicalPage": 40,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "For a stipulated forest sequence with sparse early colonists and a dense later canopy, a conditional early \u2192 late table can read: ground-level light high \u2192 low; plant biomass low \u2192 high; species diversity low \u2192 higher; interspecific competition low \u2192 higher; intraspecific competition low \u2192 higher. This assumes later density and resource demand increase overlap among and within species. The competition and diversity rows are not universal predictions: resource partitioning, exclusion or disturbance can change them. State these assumptions beside the table instead of treating early/late labels as laws.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching",
+          "bindingReview": "All five requested early/late rows now explicit under forest and competition assumptions; no universal trend asserted.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "For a simplified forest sequence, ground-level light often falls as canopy biomass rises; biomass generally increases early, and diversity may increase then vary. Competition depends on density, resource demand and species composition, so early/late labels alone cannot fix every competition row. State the ecosystem and assumptions instead of treating \u201clow/high\u201d as universal laws."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-chapter-20-q22",
+          "questionNumber": 22,
+          "title": "Calculate and qualify the caterpillar evidence",
+          "printedPage": 741,
+          "physicalPage": 40,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Mean densities are (5+12+8+4+11)/5=8.0 caterpillars/leaf in fragmented forest and (8+6+10+9+3)/5=7.2 in continuous forest. With 2000 representative leaves, estimated counts are 16,000 and 14,400; this extrapolates the sampled mean across the tree, not necessarily identical counts on every leaf. The fly larvae harm their caterpillar hosts: parasitism, or parasitoid action if development kills the host. Pooled infected fractions are 11/42\u224826.19% and 15/34\u224844.12%. Equal weighting of each sample percentage gives 26.25% and 42.71%. Higher infection and lower density in the continuous forest fit a fly-related loss hypothesis, but food, other predators, site conditions or sampling could also explain the difference. If soil survives the infestation, subsequent recovery is secondary succession.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-sampling-populations",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-sampling-populations-teaching",
+          "bindingReview": "All eight operations answered; pooled and equal-sample infection denominators independently recalculated, potential confounders and secondary-succession criterion included.",
+          "preAttemptSourceNotice": "State whether you pool individuals or average sample percentages; unequal denominators give different results.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-size-and-density",
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-size-and-density-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-population-cycles-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Mean densities are 8.0 caterpillars/leaf in fragmented forest and 7.2 in continuous forest; at 2000 representative leaves, estimates are 16,000 and 14,400. Pooled infected fractions are 11/42\u224826.19% and 15/34\u224844.12%; an unweighted mean of sample percentages gives 26.25% and 42.71%, a different weighting. The fly larvae illustrate parasitism/parasitoid effects. Association does not establish the cause of density differences. Disturbance retaining soil would generally lead to secondary succession."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-textbook-unit-8",
+      "chapter": 20,
+      "textbookUnit": 8,
+      "items": [
+        {
+          "id": "d-textbook-unit-8-q1",
+          "questionNumber": 1,
+          "title": "Combine genotype categories",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Grey is the dominant phenotype under the supplied model, so BB+Bb=81%+18%=99%. White bb is 1%. This asks for phenotype frequency, not the dominant-allele frequency, which would be 0.81+0.18/2=0.90.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+          "bindingReview": "Dominant phenotype81+18=99%, not p90%.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q2",
+          "questionNumber": 2,
+          "title": "Replace a misleading human-trait example",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Use a fictional single-locus recessive trait; attached earlobes are not a reliable simple Mendelian classroom test. With q\u00b2=0.16 under the stated equilibrium model, q=0.40 and p=0.60. No observations of classmates or private family traits are needed.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Fictional trait replaces earlobes; q\u00b2.16 gives p.6.",
+          "preAttemptSourceNotice": "Replace the human earlobe example with a fictional one-locus trait; the real trait is not a reliable universal Mendelian model.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q3",
+          "questionNumber": 3,
+          "title": "Define equilibrium at a locus",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "If allele frequencies remain constant across generations at the specified locus, that locus is not showing microevolution in that interval. One equilibrium-like genotype snapshot does not prove stability through time or at every other locus. State the population, locus and interval.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-equilibrium-assumptions",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-equilibrium-assumptions-teaching",
+          "bindingReview": "Stability refers to population/locus/time; one snapshot cannot certify all loci over generations.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits",
+            "d-topic-mechanisms-of-change-mutation-and-selection"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q4",
+          "questionNumber": 4,
+          "title": "Explain within-species competition",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Intraspecific competition occurs among members of one species using limited resources. Different larval/adult diets or habitats can reduce resource overlap in some insects. Metamorphosis does not remove every form of competition; explain the actual resource distinction.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "bindingReview": "Same-species limited resources defined and stage-resource distinction introduced before attempt.",
+          "preAttemptContext": "Metamorphosis is a developmental change between body forms. In some insects, immature and adult stages use different foods or habitats. Compare the resources actually used by those stages, rather than assuming their species name implies identical resource needs.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-unit-8-q5",
+          "questionNumber": 5,
+          "title": "Distinguish allele from genotype",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "q is the frequency of one allele among allele copies. q\u00b2 is the expected homozygous genotype frequency under Hardy\u2013Weinberg assumptions. Their denominators and meanings differ; q\u00b2 is not simply another way to write q.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+          "bindingReview": "Allele-copy fractionq versus conditional genotype fractionq\u00b2; separate denominators.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q6",
+          "questionNumber": 6,
+          "title": "Explain stronger sampling effects",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "In a small breeding population, chance survival and reproduction can change a large fraction of allele copies. That increases the chance of loss or fixation. The mechanism is random sampling, not a preference for useful alleles.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-chance-and-population-size",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+          "bindingReview": "Small breeding pool means large relative chance losses/fixation, not useful-allele preference.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-unit-8-q7",
+          "questionNumber": 7,
+          "title": "Connect mutation to microevolution",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Mites are arachnids. A new heritable mutation can contribute to changing allele representation, while a statement about one mutation alone does not establish the population\u2019s trajectory. If resistant mites leave more offspring during insecticide exposure, natural selection can increase the resistance allele\u2019s share across generations. Compare allele counts and reproductive success; do not claim the mutation appeared because the population needed protection.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+          "bindingReview": "Corrects mites as arachnids; heritable mutation can contribute, trajectory and selection still require evidence.",
+          "preAttemptSourceNotice": "Mites are arachnids, not insects. A heritable mutation can contribute to microevolution, but a population trajectory requires frequency evidence.",
+          "prerequisitePartIds": [
+            "d-topic-mechanisms-of-change-resistance-and-evidence",
+            "d-topic-mechanisms-of-change-testing-explanations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-mechanisms-of-change-resistance-and-evidence-teaching",
+            "d-topic-mechanisms-of-change-testing-explanations-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "A mutation introduces a variant; demonstrating microevolution requires a change in its population frequency across generations. If resistant mites survive and reproduce more under exposure, selection can increase that allele\u2019s representation. Do not describe the mutation as arising because the species needed it."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q8",
+          "questionNumber": 8,
+          "title": "Separate origin and selection",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Mutation can create new alleles without anticipating whether they will help. Natural selection changes representation when heritable differences affect reproductive success in the environment. Recombination reshuffles existing alleles and is distinct from creating a new sequence variant.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+          "bindingReview": "New sequence variant versus differential transmission; optional recombination distinction provided before attempt.",
+          "preAttemptContext": "Recombination reorganizes existing genetic variants into new combinations. A mutation changes a genetic sequence and can create an allele that was not previously present. These are different sources of genetic variation.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-unit-8-q9",
+          "questionNumber": 9,
+          "title": "Evaluate a reproductive trade-off",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "A conspicuous tail could persist if mating advantages increase reproductive success enough to offset survival costs. This is sexual selection within the broader fitness framework. A plausible explanation needs evidence about mating and survival, not a claim that the trait has no costs.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-movement-and-mating",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-movement-and-mating-teaching",
+          "bindingReview": "Mate success can offset survival cost; direct sexual-selection passage now linked.",
+          "prerequisitePartIds": [
+            "d-topic-mechanisms-of-change-mutation-and-selection"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q10",
+          "questionNumber": 10,
+          "title": "Explain crop-weed competition",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Crop and weed species may compete for light, water, nutrients or space. Reducing weeds can leave more resources for crop growth and seed production. The yield pattern alone does not evaluate every ecological effect or justify a particular herbicide use.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "bindingReview": "Crop/weed competition for named resources, without prescribing a herbicide.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-unit-8-q11",
+          "questionNumber": 11,
+          "title": "Scale habitat density",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Total sampled area=47\u00d729=1363 km\u00b2. At one lizard per 3.8 km\u00b2, the estimate is 1363/3.8\u2248358.7, or about 359 lizards in that area. This assumes the stated density represents the whole area; it does not establish uniform spacing of every individual.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-size-and-density",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-size-and-density-teaching",
+          "bindingReview": "47\u00d729=1363km\u00b2 divided3.8km\u00b2 per lizard\u2248359; representative density not perfect uniform positions.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-sampling-populations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-sampling-populations-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q12",
+          "questionNumber": 12,
+          "title": "Classify at a stated scale",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "An evenly planted orchard is uniform; runners commonly produce clumps; territorial birds may be more evenly spaced. Mosquitoes can cluster near resources rather than being universally random; humans are commonly clumped around settlements. Justify patterns from mechanism and scale instead of assigning an immutable pattern to a species.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-size-and-density",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-size-and-density-teaching",
+          "bindingReview": "Five patterns conditional on mechanisms/scale, not mosquito/human universal distribution claims.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q13",
+          "questionNumber": 13,
+          "title": "Use effects on participants",
+          "printedPage": 744,
+          "physicalPage": 43,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "In the supplied descriptions: a mutualism if both cleaning partners actually benefit; b commensalism if the support plant is unaffected; c parasitism; d camouflage/masquerade that reduces predation; e parasitism; f parasitism of the mammal, with transport on another insect. Treat the classic crocodile-bird story as a hypothetical illustration unless independently observed; do not use it as established field evidence.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+          "bindingReview": "All six scenarios classified from stated effects; disguise reduces predation and transport vector distinct from host. Crocodile story not established evidence.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q14",
+          "questionNumber": 14,
+          "title": "Distinguish mimicry models",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "If both similarly patterned species are genuinely defended, the example fits M\u00fcllerian mimicry. If an undefended species resembles a defended one, it fits Batesian mimicry. Classification depends on evidence about defences and predator responses; appearance alone is insufficient.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "bindingReview": "Defended resemblance M\u00fcllerian; undefended resemblance Batesian, actual defence evidence needed.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-unit-8-q15",
+          "questionNumber": 15,
+          "title": "Predict spacing from inhibition",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "If neighbouring sponges inhibit one another\u2019s growth over a similar distance, more uniform spacing may result. Patchy resources or unequal effects could modify the pattern. Explain the local inhibition mechanism rather than claiming exact geometric spacing.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "bindingReview": "Neighbour inhibition supports more uniform spacing, not perfect geometry.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-size-and-density"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-size-and-density-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q16",
+          "questionNumber": 16,
+          "title": "Connect habitat area and life history",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Large animals often need larger ranges, have lower densities and reproduce more slowly, making small habitat remnants less able to support viable populations or rapid recovery. These are tendencies with exceptions. Habitat loss also affects smaller organisms through their specific ecological requirements.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-teaching",
+          "bindingReview": "Habitat range/density/recovery mechanisms explain tendencies without universal body-size rule.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-size-and-density"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-size-and-density-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q17",
+          "questionNumber": 17,
+          "title": "Describe a succession case",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "A fire that leaves developed soil can be followed by secondary succession. Two biotic changes might be early colonizing plants being joined or replaced by later shade-tolerant plants, and changing herbivore or decomposer populations as resources change. Two abiotic changes might be reduced ground-level light as a canopy develops and changed available soil nutrients as organisms use and recycle materials. These are plausible site-specific changes; severity, species arrival and soil history can alter their direction and timing.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching",
+          "bindingReview": "Now gives two specific biotic and two abiotic changes with soil-based secondary succession and conditional timing.",
+          "preAttemptContext": "In this optional succession example, decomposers obtain resources from dead organic material and contribute to nutrient cycling. Their populations can change when the available material changes.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "After fire leaves soil, secondary succession may involve changing pioneer plants, later shade-tolerant plants, soil nutrients and light at ground level. Name two biotic and two abiotic changes and connect them over time. Disturbance intensity and local history can produce different trajectories."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q18",
+          "questionNumber": 18,
+          "title": "Interpret a stable age structure",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "An approximately stable distribution is more column-like than a broad-based pyramid, with tapering at older ages. Stability depends on births, deaths and migration as well as age structure. The graph describes a demographic pattern, not a guarantee of constant future size.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-four-demographic-processes",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-four-demographic-processes-teaching",
+          "bindingReview": "Column-like approximate age structure, no guaranteed future stability.",
+          "prerequisitePartIds": [],
+          "prerequisiteTargetIds": []
+        },
+        {
+          "id": "d-textbook-unit-8-q19",
+          "questionNumber": 19,
+          "title": "Calculate a heterozygote percentage",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "p=0.70,q=0.30, so 2pq=0.42=42% under the stated model. Check the remaining expected categories: p\u00b2=49% and q\u00b2=9%; together they sum to 100%.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+          "bindingReview": "p.7 gives42% heterozygotes; all expected categories sum100%.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q20",
+          "questionNumber": 20,
+          "title": "Solve a recessive-frequency model",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Under the supplied one-locus/equilibrium assumptions, q\u00b2=1/10,000=0.0001, q=0.01,p=0.99 and 2pq=0.0198. Thus the allele frequencies are 1% and 99%, and expected heterozygotes are 1.98%. Treat the disease prevalence as historical model data, not a current population estimate.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "q.01/p.99 and carriers1.98% conditional on supplied birth model.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q21",
+          "questionNumber": 21,
+          "title": "State a fictional model clearly",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Freckles are not a universal single-gene complete-dominance trait. For a fictional model with q\u00b2=0.50, q\u22480.7071 and p\u22480.2929. The dominant-allele frequency is about 29.29%, conditional on the model; the absence of a dominant phenotype in half the sample does not make p=0.50.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Fictional q\u00b2.5 yields dominantallele.292893; realfreckles not simple model.",
+          "preAttemptSourceNotice": "Treat freckles as a stipulated fictional example, not a universal single-gene human trait.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q22",
+          "questionNumber": 22,
+          "title": "Qualify a coat-colour inference",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "In a fictional simple black-dominant/white-recessive equilibrium model, q\u00b2=16/100=0.16, q=0.40,p=0.60 and 2pq=0.48=48%. Real cat coat colour has multiple genetic mechanisms, and the supplied phenotype counts alone do not establish equilibrium. State both simplifications.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Fictional coat model q.4/p.6 and48% heterozygotes; assumptionsexplicit.",
+          "preAttemptSourceNotice": "Real cat coat colour involves more than this simple one-locus model. State the exercise assumptions.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q23",
+          "questionNumber": 23,
+          "title": "Use historical model data without ancestry inference",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "With q\u00b2=1/2500=0.0004, q=0.02 and p=0.98. Expected carriers are 2pq=0.0392=3.92%. These calculations use the textbook\u2019s supplied historical incidence and simplified assumptions; they are not a current estimate for a community or a way to infer an individual\u2019s genotype.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Historical1/2500 givesq.02 and3.92% carriers; no currentcommunity inference.",
+          "preAttemptSourceNotice": "Use the historical model figures as supplied; do not infer an individual\u2019s genotype or current risk from ancestry.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q24",
+          "questionNumber": 24,
+          "title": "Correct the trait and denominator",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Replace tongue rolling with a fictional trait; it is not a valid simple-gene classroom test. q\u00b2=12/36=1/3, q\u22480.57735,p\u22480.42265. Expected heterozygotes in all 36 are 36\u00d72pq\u224817.57, about 18. Among the 24 dominant-phenotype individuals, the conditional heterozygote fraction is 2pq/(1\u2212q\u00b2)\u22480.73205; do not multiply 24 by the unconditional 2pq.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "12/36 yieldsq.57735, wholecarrier.488034 and count17.569; conditional .732051\u00d724 equals same count.",
+          "preAttemptSourceNotice": "Tongue rolling is not a reliable universal one-gene human model. Also distinguish a whole-population fraction from a fraction conditional on phenotype.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-equilibrium-assumptions-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q25",
+          "questionNumber": 25,
+          "title": "Compare conditional allele estimates",
+          "printedPage": 745,
+          "physicalPage": 44,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Year 1: q\u00b2=24/176\u22480.13636, q\u22480.36927, p\u22480.63073, p\u00b2\u22480.39781 and 2pq\u22480.46582. Year 5: q\u00b2=7/56=0.125, q\u22480.35355, p\u22480.64645, p\u00b2\u22480.41789 and 2pq\u22480.45711. These are equilibrium-based genotype estimates, not observed genotype counts. The sampled difference does not establish true evolution or its cause. Three possible selection contexts are darker versus lighter visual backgrounds, changing snow cover that changes camouflage, and predators detecting contrasting coats at different rates. Each requires a heritable trait\u2013reproductive-success link and supporting evidence. Reversing the assumed dominance changes which phenotype can represent q\u00b2; it cannot retrospectively change the recorded colour counts.",
+          "teachingTopicId": "d-topic-hardy-weinberg",
+          "teachingPartId": "d-topic-hardy-weinberg-solving-and-checking",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "bindingReview": "Both years independently recalculated; three environment\u2013selection hypotheses and reversal-of-inference distinction now answer missing subparts.",
+          "preAttemptSourceNotice": "Both estimates are conditional on the same model; a small sampled difference alone is not proof of a specific mechanism.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits",
+            "d-topic-mechanisms-of-change-mutation-and-selection",
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Year 1: q\u00b2=24/176\u22480.13636; q\u22480.36927,p\u22480.63073,p\u00b2\u22480.39781,2pq\u22480.46582. Year 5: q\u00b2=7/56=0.125; q\u22480.35355,p\u22480.64645,p\u00b2\u22480.41789,2pq\u22480.45711. These are equilibrium-based estimates, not directly observed genotypes. The small difference and changing sample sizes do not prove evolution or selection. Reversing the dominance assumption changes the inference from colours, not the observed colour counts."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q26",
+          "questionNumber": 26,
+          "title": "Keep time intervals consistent",
+          "printedPage": 746,
+          "physicalPage": 45,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "The historical decade per-capita increases are 741/3699\u22480.2003, 840/4440\u22480.1892 and 788/5280\u22480.1492 for 1970\u201380, 1980\u201390 and 1990\u20132000. The fractions decline. A smaller positive fraction applied to a larger starting population can still produce a large absolute addition. The 2005 value 0.012 appears annual and cannot be compared directly with decade fractions without a stated interval conversion. Three possible limits are food shortage, reduced access to clean water, and disease, which can affect survival or reproduction. Resources, health services and social conditions change these effects; the old table is not a present-day forecast.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-rates-and-denominators",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-rates-and-denominators-teaching",
+          "bindingReview": "Three decade fractions recomputed; annual/decade ambiguity and three limiting mechanisms now answered.",
+          "preAttemptSourceNotice": "Compare equal time intervals; the source includes decade fractions and an annual rate.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes",
+            "d-topic-population-growth-feedback-and-changing-limits"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching",
+            "d-topic-population-growth-feedback-and-changing-limits-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Using the historical table, interval per-capita increases are 741/3699\u22480.2003 for 1970\u201380,840/4440\u22480.1892 for 1980\u201390,788/5280\u22480.1492 for 1990\u20132000. They decline across these decades. A positive smaller proportion of a larger population can still mean a large absolute increase. The 2005 value 0.012 is likely annual and cannot be directly compared with decade fractions without a stated interval/conversion."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q27",
+          "questionNumber": 27,
+          "title": "Calculate a decline",
+          "printedPage": 746,
+          "physicalPage": 45,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Assuming no unreported immigration, \u0394N=52\u2212116=\u221264 over five years. Absolute average growth rate is \u221264/5=\u221212.8 shrikes/year, and final population is 232\u221264=168. The 144 locations are not the population denominator. The conservation label is historical source context, not a current status claim.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-rates-and-denominators",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-rates-and-denominators-teaching",
+          "bindingReview": "Net\u221264 acrossfiveyears gives\u221212.8/year final168; locationcount notdenominator.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-four-demographic-processes"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-four-demographic-processes-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q28",
+          "questionNumber": 28,
+          "title": "Use area units",
+          "printedPage": 746,
+          "physicalPage": 45,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "One hectare is 100\u00d7100=10,000 m\u00b2. At 9 plants/m\u00b2, the stated seed-production density corresponds to 90,000 plants. Greater density could reduce light, water, nutrient or space availability per plant. This is the given production optimum, not proof of an unchanging ecological carrying capacity.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-size-and-density",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-size-and-density-teaching",
+          "bindingReview": "10000m\u00b2\u00d79=90000; four resource limits and production optimum not carryingcapacity.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+            "d-topic-population-growth-feedback-and-changing-limits"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+            "d-topic-population-growth-feedback-and-changing-limits-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q29",
+          "questionNumber": 29,
+          "title": "Apply a discrete annual model",
+          "printedPage": 746,
+          "physicalPage": 45,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "For a discrete annual per-capita increment of 0.30, N\u2081=812\u00d71.30=1055.6\u22481056 and N\u2082=812\u00d71.30\u00b2=1372.28\u22481372. Keep unrounded values until the final estimate. Four possible limits are food competition, competition for burrow space, contact-related disease and severe weather. The first three can strengthen per individual as density increases; the weather effect may be largely independent of density in the stated comparison. Test the mechanism rather than classifying solely by the factor\u2019s name. A continuous-rate interpretation would be a different model.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-exponential-and-logistic-models",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-exponential-and-logistic-models-teaching",
+          "bindingReview": "Discreteannual1055.6 then1372.28; four limits classified with stated densitymechanism.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-rates-and-denominators",
+            "d-topic-population-growth-feedback-and-changing-limits"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-rates-and-denominators-teaching",
+            "d-topic-population-growth-feedback-and-changing-limits-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "If 0.30 is the annual per-capita increment, N\u2081=812\u00d71.30=1055.6\u22481056 and N\u2082=812\u00d71.30\u00b2=1372.28\u22481372. Keep unrounded values until the final estimate. Food/space competition and disease can be density dependent; severe weather can act largely independently of density. A continuous-rate interpretation would be a different model."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q30",
+          "questionNumber": 30,
+          "title": "Read density and interval change",
+          "printedPage": 746,
+          "physicalPage": 45,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Plot year 1\u20137 horizontally and density in snails/m\u00b2 vertically: 17.5, 70.2, 108.9, 115.7, 129, 143.8, 87.7. The interval per-capita change from year 1 to 3 is (108.9\u221217.5)/17.5\u22485.2229, or 522.29% over two years. Year 6 abundance is 143.8\u00d75=719 snails. Three possible causes of the final decline are food shortage reducing survival/reproduction, damaging weather increasing deaths, and emigration removing snails from the area. A changed sampling method could also lower the recorded density without the same true decline. The series alone does not select among these causes.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-rates-and-denominators",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-rates-and-denominators-teaching",
+          "bindingReview": "Allseven plot values, two-year522.29%, year6719; three mechanism hypotheses plus samplingalternative.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-size-and-density",
+            "d-topic-population-growth-four-demographic-processes",
+            "d-topic-population-growth-feedback-and-changing-limits",
+            "d-topic-population-growth-sampling-populations"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-size-and-density-teaching",
+            "d-topic-population-growth-four-demographic-processes-teaching",
+            "d-topic-population-growth-feedback-and-changing-limits-teaching",
+            "d-topic-population-growth-sampling-populations-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Plot the seven stated densities against year with snails/m\u00b2 on the vertical axis. From year 1 to 3, interval per-capita change=(108.9\u221217.5)/17.5\u22485.2229, or 522.29% over two years; the same area cancels. Year 6 size=143.8\u00d75=719 snails. The later fall could reflect mortality, emigration or sampling change; the series alone does not choose a cause."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q31",
+          "questionNumber": 31,
+          "title": "Explain the allele time series",
+          "printedPage": 746,
+          "physicalPage": 45,
+          "continuationPhysicalPage": 46,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "L increases while l decreases from initial 0.50 frequencies. A selection hypothesis links flight ability to differences in survival/reproduction in the container, but it needs supporting observations. Recessive l can persist in Ll heterozygotes, so continued selection against ll does not guarantee loss within a year. Dominance alone does not make an allele increase.",
+          "teachingTopicId": "d-topic-mechanisms-of-change",
+          "teachingPartId": "d-topic-mechanisms-of-change-testing-explanations",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-mechanisms-of-change-testing-explanations-teaching",
+          "bindingReview": "Viewed sourcecurve: Lrises/lfalls from.5; departure supports investigation ofselection, recessiveallelecanpersistinheterozygotes.",
+          "prerequisitePartIds": [
+            "d-topic-mechanisms-of-change-mutation-and-selection",
+            "d-topic-mechanisms-of-change-chance-and-population-size",
+            "d-topic-mechanisms-of-change-movement-and-mating"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+            "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+            "d-topic-mechanisms-of-change-movement-and-mating-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q32",
+          "questionNumber": 32,
+          "title": "Interpret a schematic without treating it as a law",
+          "printedPage": 747,
+          "physicalPage": 46,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "In the supplied schematic, A (net productivity) rises then plateaus, B (biomass) continues rising within the displayed interval, and C (species diversity) rises then declines to a lower level. One possible account is that establishment initially increases production and diversity; resource limits later stabilize net production, while long-lived tissues continue to accumulate biomass. Later competition or shade can reduce some species while others persist. This is a possible explanation of these curves, not an established universal sequence. Productivity is a rate and biomass a stock, so their curves need not have the same shape. Missing numeric scales prevent quantification, and biomass cannot increase without limit.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching",
+          "bindingReview": "Viewed Aplateau,Bincreasing,Cdeclininglate; stock/rate distinction introduced; now gives possible mechanisms for allthree, no universalpath.",
+          "preAttemptSourceNotice": "The graph is schematic, without numerical axes. It does not establish unlimited biomass growth.",
+          "preAttemptContext": "Biomass is the amount of living material present, a stock. Net primary productivity is the rate at which producers store new biomass or chemical energy after their own respiratory use; not all of it is consumed by the next feeding level. Species diversity concerns the variety and relative representation of species. Distinguish a rate, a stock and a community property when reading the three schematic curves.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "In the supplied graph, A rises then plateaus, B continues rising over the displayed interval, and C rises then declines to a lower level. Describe those shapes before proposing mechanisms involving establishment, biomass accumulation and changing competition. Axes have no numerical values, and biomass cannot grow without limit; this is a schematic scenario, not a universal succession law."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q33",
+          "questionNumber": 33,
+          "title": "Explain vulnerability and recovery",
+          "printedPage": 747,
+          "physicalPage": 46,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "Later maturity and fewer offspring can slow recovery after losses; larger habitat needs or specialized requirements can make fragmented habitats less suitable. r/K tendencies alone do not determine conservation status. Link each proposed risk to the species\u2019 actual life history and threats.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-teaching",
+          "bindingReview": "Slow recruitment and habitatrequirements explain two risks, r/K labelaloneinsufficient.",
+          "prerequisitePartIds": [
+            "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-teaching"
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q34",
+          "questionNumber": 34,
+          "title": "Evaluate biodiversity across levels",
+          "printedPage": 747,
+          "physicalPage": 46,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-explicit-model-and-limits",
+          "guide": "For a fictional Canadian wetland, genetic diversity can preserve alternative heritable responses to changing conditions; species diversity can support different food-web and ecological functions; ecosystem diversity preserves different habitats and processes across the region. Cultural relationships, livelihoods and water-related functions can also give reasons for protection. A proposal could conserve connected habitats, involve affected communities and monitor recruitment, species composition and water quality. Compare costs and benefits without reducing all value to money or guaranteeing that more species always improves every function. Revise the proposal when the monitored evidence or community priorities warrant it.",
+          "teachingTopicId": "d-topic-life-strategies-and-ecological-relationships",
+          "teachingPartId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-teaching",
+          "bindingReview": "Allthree diversitylevels introduced; regionalproposalincludes ecological/socialvalue, specificpreservation andmonitoring, uncertainty.",
+          "preAttemptContext": "Genetic diversity is variation in heritable material within and among populations. Species diversity concerns the variety and relative representation of species. Ecosystem diversity concerns the variety of habitats, communities and their physical settings. These describe different levels of biological variation.",
+          "preAttemptContextPolicy": "Visible optional reinforcement background before the attempt; does not count as required core or replace required-course teaching.",
+          "prerequisitePartIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts",
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-hardy-weinberg-populations-and-allele-counts-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "Genetic variation can support adaptive potential, species diversity can support ecological functions, and ecosystem diversity preserves different habitats/processes. A reasoned response can include ecological, cultural and economic values while recognizing uncertainty and community perspectives. Value is not limited to a price, and a conservation proposal needs monitoring and local evidence."
+            }
+          ]
+        },
+        {
+          "id": "d-textbook-unit-8-q35",
+          "questionNumber": 35,
+          "title": "Read historical age-structure shapes cautiously",
+          "printedPage": 747,
+          "physicalPage": 46,
+          "continuationPhysicalPage": null,
+          "chapterPdf": "assets/textbook/chapter-20.pdf",
+          "sourceQuestionDisposition": "adapt-with-visible-correction",
+          "guide": "Using shapes only, the broad-based Nigerian 2005 diagram suggests greater potential demographic momentum than the narrower-base examples, if survival, birth rates and migration remain comparable. Lower birth rates reduce additions in all three cases, but a large cohort approaching reproductive ages can sustain growth for some time; no precise size of the effect can be calculated here. A younger population can require more schooling and later jobs, while an older population can require more age-related support; employment, services and productivity influence the economic result. If HIV increases deaths or changes reproductive contributions, growth could be lower than a projection ignoring those effects. Prevention and care alter those pathways, so neither a disease label nor a country label fixes the outcome. The source percentage scales are internally implausible and the graphs are historical, not current statistics.",
+          "teachingTopicId": "d-topic-population-growth",
+          "teachingPartId": "d-topic-population-growth-four-demographic-processes",
+          "attemptRequiredToReveal": true,
+          "countsForRequiredCompletion": false,
+          "reviewStatus": "second-author-source/key-and-required-passage-review-complete; rendered-order-and-access-pending",
+          "teachingTargetId": "d-topic-population-growth-four-demographic-processes-teaching",
+          "bindingReview": "Viewed historicalshapes and impossiblepercents; allfoursubparts answered qualitatively withdemographicmomentum, economicneeds, diseasepaths andnon-determinism.",
+          "preAttemptSourceNotice": "The source is historical and its printed percentage scales are internally implausible. Compare shapes only; do not calculate forecasts or treat the diagrams as current statistics.",
+          "prerequisitePartIds": [
+            "d-topic-population-growth-rates-and-denominators",
+            "d-topic-population-growth-feedback-and-changing-limits",
+            "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication"
+          ],
+          "prerequisiteTargetIds": [
+            "d-topic-population-growth-rates-and-denominators-teaching",
+            "d-topic-population-growth-feedback-and-changing-limits-teaching",
+            "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-teaching"
+          ],
+          "revisionHistory": [
+            {
+              "reason": "Second source-question review completed omitted operations or qualified interpretation.",
+              "previousGuide": "The broad-based Nigerian diagram suggests more potential demographic momentum than the narrower-base examples if other conditions remain comparable. Birth-rate changes, survival, migration and access to health care alter projections. The printed percentage scales are internally implausible for these five-year bins, so use shapes only and do not derive numeric forecasts or present the 2005 diagrams as current statistics. Discuss economic needs and disease effects without deterministic country stereotypes."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourcePolicy": "Supplied textbook review only; calculations retain denominators, intervals, model assumptions and historical-data limitations. No secure teacher key copied.",
+  "teacherAcceptance": null
+}

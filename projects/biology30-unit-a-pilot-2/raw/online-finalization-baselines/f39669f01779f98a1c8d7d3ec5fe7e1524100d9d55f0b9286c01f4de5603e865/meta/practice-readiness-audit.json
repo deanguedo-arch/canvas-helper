@@ -1,0 +1,4039 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "gate": "final-academic-review",
+  "generatedAt": "2026-09-06T01:33:45.862Z",
+  "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+  "policy": "Structure only: current prompts, choices, keys, feedback and textbook controls resolve. Scientific correctness, prerequisite sufficiency and assessment breadth still require individual review. The prior route-only passed status is superseded, not carried forward.",
+  "counts": {
+    "total": 86,
+    "required": 80,
+    "optional": 6,
+    "structurallyValid": 86,
+    "semanticallyReviewed": 0
+  },
+  "records": [
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-01-guided-1",
+      "routeId": "lesson-01",
+      "prompt": "Which neuron structure normally carries an electrical signal away from the cell body?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Dendrite"
+        },
+        {
+          "id": "c",
+          "text": "Myelin sheath"
+        },
+        {
+          "id": "b",
+          "text": "Axon"
+        },
+        {
+          "id": "d",
+          "text": "Cell nucleus"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "The axon carries an electrical signal away from the cell body toward axon terminals.",
+      "misconceptionFeedback": {
+        "a": "Dendrites mainly receive input toward the cell body, rather than carrying the outgoing signal.",
+        "c": "Myelin insulates the axon. The axon's membrane carries the electrical signal.",
+        "d": "The nucleus directs cell activity; it is not the pathway to the terminals."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 372,
+        "physicalPage": 13
+      },
+      "focusTargetId": "work-focus-practice-lesson-01-guided-1",
+      "renderedItemSha256": "dc722b2e26de56ad3692b893410672ed2f868cdab7025c731d357eb5e10ece76",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-01-guided-2",
+      "routeId": "lesson-01",
+      "prompt": "Why does a myelinated axon usually conduct an impulse faster than an unmyelinated axon of similar size?",
+      "choices": [
+        {
+          "id": "c",
+          "text": "Myelin limits current loss, so action potentials are regenerated mainly at the nodes."
+        },
+        {
+          "id": "e",
+          "text": "Myelin makes the signal travel along the outside of the axon."
+        },
+        {
+          "id": "b",
+          "text": "Myelin makes the impulse stronger at every point."
+        },
+        {
+          "id": "h",
+          "text": "Myelin removes the need to regenerate the signal at nodes."
+        }
+      ],
+      "answerKey": "c",
+      "rationale": "Myelin electrically insulates the axon between nodes of Ranvier. Local current spreads farther, and the action potential is regenerated at successive nodes.",
+      "misconceptionFeedback": {
+        "a": "Neurotransmitters are released from terminals, not produced by myelin along the axon.",
+        "b": "Myelin changes conduction speed, not the size of each regenerated action potential.",
+        "d": "Myelin changes conduction along an axon. It does not remove the spinal cord from a pathway.",
+        "e": "The signal remains a change across the axon membrane; myelin limits current loss between nodes.",
+        "h": "Nodes are essential regeneration sites. Myelin does not remove their role."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 378,
+        "physicalPage": 19
+      },
+      "focusTargetId": "work-focus-practice-lesson-01-guided-2",
+      "renderedItemSha256": "a3e25059ae284a40c0c34166dbb580cad1bbdde565b3147c948f17eb2a5bde8d",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-02-guided-01",
+      "routeId": "lesson-02",
+      "prompt": "On the membrane-voltage graph, the line rises steeply from threshold toward its peak. Which event best explains that phase?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Potassium moves into the axon through leak channels"
+        },
+        {
+          "id": "c",
+          "text": "The sodium-potassium pump reverses"
+        },
+        {
+          "id": "h",
+          "text": "Potassium moves out through voltage-gated channels"
+        },
+        {
+          "id": "a",
+          "text": "Sodium moves into the axon through voltage-gated channels"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Voltage-gated sodium channels open at threshold. Rapid sodium entry drives the steep depolarizing rise.",
+      "misconceptionFeedback": {
+        "b": "Potassium usually leaks outward at rest. The steep rising phase depends on sodium entry.",
+        "c": "The pump maintains gradients over time; it does not reverse to create the rapid upstroke.",
+        "d": "This choice identifies “Proteins leave the nucleus.” That conflicts with the required structure, direction, or control step. Voltage-gated sodium channels open at threshold. Rapid sodium entry drives the steep depolarizing rise. Compare the choice with that mechanism, then try again.",
+        "h": "Potassium leaving drives the falling phase, not the steep rise."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 376,
+        "physicalPage": 17
+      },
+      "focusTargetId": "work-focus-practice-lesson-02-guided-01",
+      "renderedItemSha256": "570fd0b2c400f9f7753fbdcd360711f1551a43719aa2ee174566675e9f3b372a",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-02-guided-02",
+      "routeId": "lesson-02",
+      "prompt": "How can a stronger stimulus be represented if action potentials are all-or-none?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Each action potential becomes taller"
+        },
+        {
+          "id": "b",
+          "text": "Firing frequency and neuron recruitment can increase"
+        },
+        {
+          "id": "c",
+          "text": "The resting voltage becomes permanently positive"
+        },
+        {
+          "id": "h",
+          "text": "The absolute refractory period becomes a second rising phase"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Stronger stimuli can increase firing frequency and recruit more neurons while each action potential remains all-or-none.",
+      "misconceptionFeedback": {
+        "a": "All-or-none spikes do not become taller as stimulus strength rises.",
+        "c": "The membrane returns toward rest between spikes; stronger input does not make resting voltage permanently positive.",
+        "d": "This choice identifies “The synaptic cleft disappears.” That conflicts with the required structure, direction, or control step. Stronger stimuli can increase firing frequency and recruit more neurons while each action potential remains all-or-none. Compare the choice with that mechanism, then try again.",
+        "h": "During the absolute refractory period, inactivated sodium channels prevent another spike in that membrane region."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 377,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-lesson-02-guided-02",
+      "renderedItemSha256": "d40e0a92a472b27477bb244c211cacfcaaddb9c93a9a6171acb01ae22e8018e7",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-06",
+        "A1.1k-10"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-03-guided-1",
+      "routeId": "lesson-03",
+      "prompt": "Which statement best defines a neurotransmitter?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "An electrical wave that crosses the synaptic cleft"
+        },
+        {
+          "id": "b",
+          "text": "A chemical released by a signalling cell that binds to receptors on a target cell"
+        },
+        {
+          "id": "g",
+          "text": "An enzyme that breaks down a messenger in the synaptic cleft"
+        },
+        {
+          "id": "d",
+          "text": "A layer that insulates an axon"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "A neurotransmitter is a chemical messenger released from a neuron. It crosses a small gap and binds to compatible receptors on a target cell.",
+      "misconceptionFeedback": {
+        "a": "At a chemical synapse, the action potential reaches the terminal but a chemical messenger crosses the cleft.",
+        "c": "Some enzymes end a signal, but a neurotransmitter is the messenger itself.",
+        "d": "An insulating layer is myelin, not the chemical messenger between cells.",
+        "g": "An enzyme such as cholinesterase helps end the signal; it is not the messenger being released."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 380,
+        "physicalPage": 21
+      },
+      "focusTargetId": "work-focus-practice-lesson-03-guided-1",
+      "renderedItemSha256": "15ef4825077bc04306f7318251483e0616255effb0509cb57ae8186b1fa08d3c",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-11"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-03-guided-2",
+      "routeId": "lesson-03",
+      "prompt": "At an acetylcholine synapse, what is the most direct result if cholinesterase activity is greatly reduced?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Acetylcholine is broken down sooner, shortening receptor stimulation."
+        },
+        {
+          "id": "g",
+          "text": "Less acetylcholine enters the cleft because calcium channels are blocked."
+        },
+        {
+          "id": "h",
+          "text": "Acetylcholine receptors are blocked, so the messenger cannot bind."
+        },
+        {
+          "id": "a",
+          "text": "Acetylcholine remains in the cleft longer, so receptor stimulation may continue."
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Cholinesterase normally breaks down acetylcholine. If breakdown slows, acetylcholine can keep binding to receptors and extend the postsynaptic effect.",
+      "misconceptionFeedback": {
+        "b": "Cholinesterase acts in the synapse; it does not remove myelin.",
+        "c": "The immediate effect is prolonged acetylcholine action, not instant loss of receptors.",
+        "d": "These are different neurotransmitters. One does not simply change into the other.",
+        "f": "Reducing the enzyme slows breakdown; it cannot make breakdown happen sooner.",
+        "g": "Blocking calcium would reduce release, but the stated change is reduced breakdown after release.",
+        "h": "Reducing cholinesterase does not itself block the receptors. It leaves more messenger available."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 382,
+        "physicalPage": 23
+      },
+      "focusTargetId": "work-focus-practice-lesson-03-guided-2",
+      "renderedItemSha256": "939448ae3852a4ac2097996cf44f7eb6b78ee4b4be21ed9f5f0615e4a280681c",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-12"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-04-guided-01",
+      "routeId": "lesson-04",
+      "prompt": "Which route carries a command from the spinal cord to skeletal muscle?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "A somatic motor pathway"
+        },
+        {
+          "id": "a",
+          "text": "A sensory afferent pathway"
+        },
+        {
+          "id": "g",
+          "text": "An autonomic motor pathway"
+        },
+        {
+          "id": "h",
+          "text": "An interneuron pathway within the spinal cord"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Somatic motor neurons carry commands from the CNS to skeletal-muscle effectors.",
+      "misconceptionFeedback": {
+        "a": "Afferent pathways carry sensory information toward the CNS, not commands out to muscle.",
+        "c": "This choice identifies “An endocrine pathway.” That conflicts with the required structure, direction, or control step. Somatic motor neurons carry commands from the CNS to skeletal-muscle effectors. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “A parasympathetic sensory gland.” That conflicts with the required structure, direction, or control step. Somatic motor neurons carry commands from the CNS to skeletal-muscle effectors. Compare the choice with that mechanism, then try again.",
+        "g": "Autonomic motor pathways regulate targets such as glands, heart muscle and smooth muscle; skeletal-muscle commands are somatic.",
+        "h": "Interneurons connect cells within the CNS. A motor neuron must carry the command out to skeletal muscle."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 396,
+        "physicalPage": 37
+      },
+      "focusTargetId": "work-focus-practice-lesson-04-guided-01",
+      "renderedItemSha256": "f0c8ec347bf3cfaa9567d63859d5578d2eeb33bc3b4d016b0dd159325830956a",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01",
+        "A1.2k-04"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-04-guided-02",
+      "routeId": "lesson-04",
+      "prompt": "Which statement about autonomic divisions is most accurate?",
+      "choices": [
+        {
+          "id": "e",
+          "text": "Sympathetic input increases both heart rate and digestive activity"
+        },
+        {
+          "id": "f",
+          "text": "Parasympathetic input reduces both heart rate and digestive activity"
+        },
+        {
+          "id": "c",
+          "text": "Their effects depend on the organ and receptors"
+        },
+        {
+          "id": "h",
+          "text": "Both divisions carry sensory information into the CNS"
+        }
+      ],
+      "answerKey": "c",
+      "rationale": "Autonomic effects are organ-specific and often coordinated in opposing directions.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “Sympathetic input excites every organ.” That conflicts with the required structure, direction, or control step. Autonomic effects are organ-specific and often coordinated in opposing directions. Compare the choice with that mechanism, then try again.",
+        "b": "This choice identifies “Parasympathetic input inhibits every organ.” That conflicts with the required structure, direction, or control step. Autonomic effects are organ-specific and often coordinated in opposing directions. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Both divisions control only skeletal muscle.” That conflicts with the required structure, direction, or control step. Autonomic effects are organ-specific and often coordinated in opposing directions. Compare the choice with that mechanism, then try again.",
+        "e": "Sympathetic activity commonly increases heart rate while reducing digestive activity; excitation is not its universal effect.",
+        "f": "Parasympathetic activity commonly slows heart rate but supports digestion. Inhibition is not its universal effect.",
+        "h": "These are divisions of autonomic motor output, not names for incoming sensory pathways."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 398,
+        "physicalPage": 39
+      },
+      "focusTargetId": "work-focus-practice-lesson-04-guided-02",
+      "renderedItemSha256": "a169612dc4aad0de94b08d470a2727567a2a94eb80ff28930b4d62d225e74229",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-05-guided-01",
+      "routeId": "lesson-05",
+      "prompt": "Which brain region is most directly linked with coordination of movement and balance?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Occipital cortex"
+        },
+        {
+          "id": "g",
+          "text": "Hypothalamus"
+        },
+        {
+          "id": "h",
+          "text": "Medulla oblongata"
+        },
+        {
+          "id": "a",
+          "text": "Cerebellum"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The cerebellum helps coordinate timing, posture, and balance.",
+      "misconceptionFeedback": {
+        "b": "Occipital cortex is chiefly associated with visual processing, not the main coordination role in this question.",
+        "c": "This choice identifies “Thyroid.” That conflicts with the required structure, direction, or control step. The cerebellum helps coordinate timing, posture, and balance. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Dorsal root.” That conflicts with the required structure, direction, or control step. The cerebellum helps coordinate timing, posture, and balance. Compare the choice with that mechanism, then try again.",
+        "g": "The hypothalamus coordinates internal regulation and endocrine control; the cerebellum is the closer match for movement timing and balance.",
+        "h": "The medulla contributes to vital automatic functions. Coordination of movement and balance points more directly to the cerebellum."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 391,
+        "physicalPage": 32
+      },
+      "focusTargetId": "work-focus-practice-lesson-05-guided-01",
+      "renderedItemSha256": "30bc410ea9b4b0e032c8da3b039413ed1ec11cb62adae06505cd2b5ef54318bb",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-09"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-05-guided-02",
+      "routeId": "lesson-05",
+      "prompt": "Why should a symptom-location answer include a limitation?",
+      "choices": [
+        {
+          "id": "e",
+          "text": "A named brain region acts independently of its connections"
+        },
+        {
+          "id": "b",
+          "text": "One symptom can involve several connected pathways"
+        },
+        {
+          "id": "g",
+          "text": "The most noticeable symptom identifies the original damaged structure"
+        },
+        {
+          "id": "h",
+          "text": "Normal performance on one task rules out every related brain pathway"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Complex functions use connected networks, so one symptom rarely proves one location or diagnosis.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “Brain regions have no known functions.” That conflicts with the required structure, direction, or control step. Complex functions use connected networks, so one symptom rarely proves one location or diagnosis. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Symptoms always come from muscles.” That conflicts with the required structure, direction, or control step. Complex functions use connected networks, so one symptom rarely proves one location or diagnosis. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Only hormones affect behaviour.” That conflicts with the required structure, direction, or control step. Complex functions use connected networks, so one symptom rarely proves one location or diagnosis. Compare the choice with that mechanism, then try again.",
+        "e": "Brain functions depend on connections, so a region cannot be interpreted as an isolated unit.",
+        "g": "A symptom may arise from a connected pathway rather than the first damaged structure.",
+        "h": "One normal task cannot rule out difficulties in other connected functions or pathways."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 387,
+        "physicalPage": 28
+      },
+      "focusTargetId": "work-focus-practice-lesson-05-guided-02",
+      "renderedItemSha256": "9c80376134c13e4feb7395218424896ab43d48f580388f16f2711088e6a5a727",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-09"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-01",
+      "routeId": "chapter-11-practice",
+      "prompt": "Which neuron part receives much of the input from nearby neurons?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Axon"
+        },
+        {
+          "id": "c",
+          "text": "Myelin"
+        },
+        {
+          "id": "a",
+          "text": "Dendrite"
+        },
+        {
+          "id": "d",
+          "text": "Node of Ranvier"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Dendrites provide branched receiving surfaces for many synaptic inputs.",
+      "misconceptionFeedback": {
+        "b": "The axon normally carries output away from the cell body, not most incoming synaptic input.",
+        "c": "Myelin insulates sections of axon; it is not the main receiving surface.",
+        "d": "Nodes allow signal regeneration along an axon. Dendritic branches provide much of the receiving surface."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 372,
+        "physicalPage": 13
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-01",
+      "renderedItemSha256": "39b93954598f3eaa270c19a2b7e1c243791e71db69741f6b3a17b9b7b0fbb750",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-02",
+      "routeId": "chapter-11-practice",
+      "prompt": "What is the main function of a myelin sheath?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Insulate the axon and increase conduction speed"
+        },
+        {
+          "id": "e",
+          "text": "Receive input on the cell body's branches"
+        },
+        {
+          "id": "g",
+          "text": "Release neurotransmitter into the synaptic cleft"
+        },
+        {
+          "id": "h",
+          "text": "Regenerate the impulse at every covered membrane segment"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Myelin reduces current loss and supports rapid saltatory conduction between nodes.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “Produce hormones.” Myelin reduces current loss and supports rapid saltatory conduction between nodes. Compare the selected structure or pathway with that explanation, then try again.",
+        "c": "This choice identifies “Digest neurotransmitter.” Myelin reduces current loss and supports rapid saltatory conduction between nodes. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "This choice identifies “Detect light.” Myelin reduces current loss and supports rapid saltatory conduction between nodes. Compare the selected structure or pathway with that explanation, then try again.",
+        "e": "Dendrites receive much of the input. Myelin surrounds parts of an axon.",
+        "g": "Axon terminals release neurotransmitter; myelin provides insulation along the axon.",
+        "h": "Myelin limits current loss under the covered segments; regeneration is concentrated at the nodes."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 378,
+        "physicalPage": 19
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-02",
+      "renderedItemSha256": "050e217df45e06668e393c512f8c3c24d9bb4085192686e72548e16f1a10c44f",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+      "routeId": "chapter-11-practice",
+      "prompt": "Which pathway correctly orders a simple withdrawal reflex?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Receptor → sensory neuron → CNS connection → motor neuron → effector"
+        },
+        {
+          "id": "a",
+          "text": "Motor neuron → receptor → sensory neuron"
+        },
+        {
+          "id": "g",
+          "text": "Receptor → motor neuron → CNS connection → sensory neuron → effector"
+        },
+        {
+          "id": "h",
+          "text": "Receptor → sensory neuron → effector → motor neuron → CNS connection"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "A receptor detects the stimulus, sensory input enters the CNS, and motor output reaches an effector.",
+      "misconceptionFeedback": {
+        "a": "Detection must come before outgoing motor activity; the receptor cannot follow the motor command.",
+        "c": "This choice identifies “Brain → receptor → gland.” A receptor detects the stimulus, sensory input enters the CNS, and motor output reaches an effector. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "This choice identifies “Effector → receptor → sensory neuron.” A receptor detects the stimulus, sensory input enters the CNS, and motor output reaches an effector. Compare the selected structure or pathway with that explanation, then try again.",
+        "g": "Sensory input enters the CNS and motor output leaves it. This sequence swaps their jobs.",
+        "h": "The effector responds to motor output after CNS processing, not before the motor neuron."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 370,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-03",
+      "renderedItemSha256": "1d1f186254d0a21dd2e53f8f293cf3c96daa876fd54929b2e6ed2c866ffe84df",
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-03",
+        "A1.3k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-04",
+      "routeId": "chapter-11-practice",
+      "prompt": "Which neuron carries information from a receptor toward the CNS?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Motor neuron"
+        },
+        {
+          "id": "c",
+          "text": "Schwann cell"
+        },
+        {
+          "id": "a",
+          "text": "Sensory neuron"
+        },
+        {
+          "id": "h",
+          "text": "Interneuron"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Sensory neurons carry afferent information toward the CNS.",
+      "misconceptionFeedback": {
+        "b": "Motor neurons carry output away from the CNS to effectors.",
+        "c": "Schwann cells support and myelinate peripheral axons; they are glia rather than sensory neurons.",
+        "d": "This choice identifies “Endocrine cell.” Sensory neurons carry afferent information toward the CNS. Compare the selected structure or pathway with that explanation, then try again.",
+        "h": "Interneurons connect neurons within the CNS; sensory neurons carry receptor information into it."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 369,
+        "physicalPage": 10
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-04",
+      "renderedItemSha256": "7937b61d641f1b419c998974daf1836650895ce30d1c478f522cae5c913f7005",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-05",
+      "routeId": "chapter-11-practice",
+      "prompt": "At rest, which ion pattern is typical of a neuron?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "More Na+ inside and more K+ outside"
+        },
+        {
+          "id": "b",
+          "text": "More Na+ outside and more K+ inside"
+        },
+        {
+          "id": "c",
+          "text": "Equal Na+ and K+ everywhere"
+        },
+        {
+          "id": "h",
+          "text": "More Na+ and more K+ inside than outside"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Resting neurons maintain a higher sodium concentration outside and a higher potassium concentration inside.",
+      "misconceptionFeedback": {
+        "a": "This reverses the usual concentration gradients: sodium is higher outside and potassium inside.",
+        "c": "Equal concentrations would remove the usual ion gradients that support membrane signalling.",
+        "d": "This choice identifies “No charged particles near the membrane.” Resting neurons maintain a higher sodium concentration outside and a higher potassium concentration inside. Compare the selected structure or pathway with that explanation, then try again.",
+        "h": "Potassium is higher inside, but sodium is higher outside. The two gradients differ."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 374,
+        "physicalPage": 15
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-05",
+      "renderedItemSha256": "9e34305d6936cd9fb2d859c6097dfbcd345068b1b691297227103bfeaf818032",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-06",
+      "routeId": "chapter-11-practice",
+      "prompt": "What must happen before an action potential begins?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "The membrane returns to rest after a previous impulse"
+        },
+        {
+          "id": "g",
+          "text": "Potassium channels open to start repolarization"
+        },
+        {
+          "id": "h",
+          "text": "The pump removes all sodium from inside the neuron"
+        },
+        {
+          "id": "a",
+          "text": "The membrane reaches threshold"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "A sufficient graded change brings the trigger region to threshold and opens voltage-gated sodium channels.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “All neurotransmitters disappear.” A sufficient graded change brings the trigger region to threshold and opens voltage-gated sodium channels. Compare the selected structure or pathway with that explanation, then try again.",
+        "c": "This choice identifies “The axon loses myelin.” A sufficient graded change brings the trigger region to threshold and opens voltage-gated sodium channels. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "This choice identifies “The nucleus divides.” A sufficient graded change brings the trigger region to threshold and opens voltage-gated sodium channels. Compare the selected structure or pathway with that explanation, then try again.",
+        "f": "Returning to rest allows another response, but a new depolarization still has to reach threshold.",
+        "g": "Repolarization is the falling phase after a spike starts, not the trigger for its rising phase.",
+        "h": "The pump maintains unequal concentrations, not a sodium-free interior. Threshold is the immediate trigger."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 376,
+        "physicalPage": 17
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-06",
+      "renderedItemSha256": "caf0fc68dff907740a9d6f025a46fc29c166768063da1ca142321c25b3d012ee",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-10"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-07",
+      "routeId": "chapter-11-practice",
+      "prompt": "How is a stronger sensory stimulus commonly represented after threshold?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A larger action potential in one axon"
+        },
+        {
+          "id": "b",
+          "text": "A higher firing frequency and recruitment of more neurons"
+        },
+        {
+          "id": "c",
+          "text": "A slower sodium-potassium pump only"
+        },
+        {
+          "id": "h",
+          "text": "A longer absolute refractory period in the same axon"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Action potentials remain all-or-none; intensity is represented by firing patterns and recruitment.",
+      "misconceptionFeedback": {
+        "a": "Once threshold is reached, a stronger input does not make that axon's action potential larger.",
+        "c": "Pump rate maintains ion gradients; it is not the main code for stimulus intensity.",
+        "d": "This choice identifies “A wider synaptic cleft.” Action potentials remain all-or-none; intensity is represented by firing patterns and recruitment. Compare the selected structure or pathway with that explanation, then try again.",
+        "h": "A longer refractory period limits firing rate rather than representing stronger input by more spikes."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 377,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-07",
+      "renderedItemSha256": "7ced73f434fe90a58a386d5b66fec7cf6031d97137965868e5ba34ccb34a1c74",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-10"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-08",
+      "routeId": "chapter-11-practice",
+      "prompt": "Why does the refractory period help signals move forward?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Recently active sodium channels cannot immediately reopen"
+        },
+        {
+          "id": "f",
+          "text": "Potassium channels carry the impulse backward toward the cell body"
+        },
+        {
+          "id": "g",
+          "text": "Myelin blocks any current from reaching the next node"
+        },
+        {
+          "id": "h",
+          "text": "The pump raises the size of each new action potential"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Channel recovery prevents immediate re-excitation of the membrane region behind the impulse.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Potassium disappears from the body.” Channel recovery prevents immediate re-excitation of the membrane region behind the impulse. Compare the selected structure or pathway with that explanation, then try again.",
+        "c": "This choice identifies “Myelin becomes a neurotransmitter.” Channel recovery prevents immediate re-excitation of the membrane region behind the impulse. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "This choice identifies “The dendrite becomes an endocrine gland.” Channel recovery prevents immediate re-excitation of the membrane region behind the impulse. Compare the selected structure or pathway with that explanation, then try again.",
+        "f": "Potassium efflux helps repolarize the membrane; it is not a backward-travelling carrier.",
+        "g": "Current must reach the next node for propagation. Myelin limits loss, not forward spread.",
+        "h": "The pump maintains gradients. It does not increase each spike's size or explain the refractory block behind it."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 377,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-08",
+      "renderedItemSha256": "8c71b3edabc0e5d5836527394daf2c223d0cbfd9f644e72a4001755fa88edc42",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-06"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-09",
+      "routeId": "chapter-11-practice",
+      "prompt": "What occurs first when an action potential reaches a typical chemical synapse?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Vesicles release transmitter before calcium enters the terminal"
+        },
+        {
+          "id": "g",
+          "text": "Transmitter binds postsynaptic receptors before it is released"
+        },
+        {
+          "id": "h",
+          "text": "Cholinesterase breaks down acetylcholine before the terminal responds"
+        },
+        {
+          "id": "a",
+          "text": "Calcium channels open in the presynaptic terminal"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Presynaptic calcium entry triggers vesicle fusion and neurotransmitter release.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Cholinesterase makes acetylcholine.” Presynaptic calcium entry triggers vesicle fusion and neurotransmitter release. Compare the selected structure or pathway with that explanation, then try again.",
+        "c": "This choice identifies “The postsynaptic nucleus divides.” Presynaptic calcium entry triggers vesicle fusion and neurotransmitter release. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "This choice identifies “Myelin crosses the cleft.” Presynaptic calcium entry triggers vesicle fusion and neurotransmitter release. Compare the selected structure or pathway with that explanation, then try again.",
+        "f": "Calcium entry triggers vesicle fusion; this sequence puts release too early.",
+        "g": "Binding follows release and movement across the cleft.",
+        "h": "Breakdown ends acetylcholine action after release; it is not the first terminal event."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 379,
+        "physicalPage": 20
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-09",
+      "renderedItemSha256": "50e6da9cf362e65336b1cb92c5db664213026fc5f9111e51dfc0558d02e0b082",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-11"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-10",
+      "routeId": "chapter-11-practice",
+      "prompt": "What does cholinesterase do at an acetylcholine synapse?",
+      "choices": [
+        {
+          "id": "e",
+          "text": "Release acetylcholine from presynaptic vesicles"
+        },
+        {
+          "id": "g",
+          "text": "Bind acetylcholine as the postsynaptic receptor"
+        },
+        {
+          "id": "b",
+          "text": "Breaks down acetylcholine and helps end the signal"
+        },
+        {
+          "id": "h",
+          "text": "Carry acetylcholine back into the presynaptic cell unchanged"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Cholinesterase limits acetylcholine action by breaking it down in the synaptic region.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “Builds the myelin sheath.” Cholinesterase limits acetylcholine action by breaking it down in the synaptic region. Compare the selected structure or pathway with that explanation, then try again.",
+        "c": "This choice identifies “Carries the impulse down the axon.” Cholinesterase limits acetylcholine action by breaking it down in the synaptic region. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "This choice identifies “Releases insulin.” Cholinesterase limits acetylcholine action by breaking it down in the synaptic region. Compare the selected structure or pathway with that explanation, then try again.",
+        "e": "Vesicle fusion releases the messenger; cholinesterase breaks it down afterward.",
+        "g": "Receptors detect the messenger. Cholinesterase is the enzyme that breaks it down.",
+        "h": "Reuptake can remove some transmitters, but cholinesterase acts by chemical breakdown of acetylcholine."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 382,
+        "physicalPage": 23
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-10",
+      "renderedItemSha256": "c38e5f10c57e64fd680ac7e28ffbe2d9199692cf28afa699c2af2e153a42b324",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-12"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-11",
+      "routeId": "chapter-11-practice",
+      "prompt": "Which structures make up the central nervous system?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Cranial nerves and spinal nerves"
+        },
+        {
+          "id": "c",
+          "text": "Receptors and effectors"
+        },
+        {
+          "id": "a",
+          "text": "Brain and spinal cord"
+        },
+        {
+          "id": "h",
+          "text": "Somatic nerves and autonomic nerves"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The CNS consists of the brain and spinal cord.",
+      "misconceptionFeedback": {
+        "b": "Cranial and spinal nerves are classified as peripheral pathways, not the CNS itself.",
+        "c": "Receptors and effectors detect and respond to changes; they do not define the CNS.",
+        "d": "This choice identifies “Adrenal glands and pancreas.” The CNS consists of the brain and spinal cord. Compare the selected structure or pathway with that explanation, then try again.",
+        "h": "Somatic and autonomic pathways describe motor divisions, not the two organs making up the CNS."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 385,
+        "physicalPage": 26
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-11",
+      "renderedItemSha256": "24e1b8c6f4eecba0cd9dd5b18298cd282387ce3fd7a183fd6ec8320c6150389a",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-11-practice-12",
+      "routeId": "chapter-11-practice",
+      "prompt": "Which statement about sympathetic and parasympathetic pathways is most accurate?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "One excites every organ and the other inhibits every organ"
+        },
+        {
+          "id": "g",
+          "text": "They are the sensory and motor divisions of the PNS"
+        },
+        {
+          "id": "d",
+          "text": "They carry only sensory information"
+        },
+        {
+          "id": "b",
+          "text": "They coordinate organ-specific responses and often have opposing effects"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Autonomic effects depend on the organ, receptors, and situation; the two divisions often coordinate opposing effects.",
+      "misconceptionFeedback": {
+        "a": "Excitation and inhibition depend on the organ and its receptors; neither division has one universal effect.",
+        "c": "This choice identifies “They are both parts of the endocrine system.” Autonomic effects depend on the organ, receptors, and situation; the two divisions often coordinate opposing effects. Compare the selected structure or pathway with that explanation, then try again.",
+        "d": "These divisions regulate autonomic motor output. They are not restricted to sensory information.",
+        "g": "Both belong to autonomic motor output; they are not the sensory-versus-motor split."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 398,
+        "physicalPage": 39
+      },
+      "focusTargetId": "work-focus-practice-chapter-11-practice-12",
+      "renderedItemSha256": "c04f766d488c652c625300585ade901265a4e1448ae85da86b9bade452f6af0f",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-06-guided-01",
+      "routeId": "lesson-06",
+      "prompt": "What is sensory transduction?",
+      "choices": [
+        {
+          "id": "e",
+          "text": "Reduced response to a sustained stimulus"
+        },
+        {
+          "id": "b",
+          "text": "Conversion of stimulus energy into an electrical receptor change"
+        },
+        {
+          "id": "g",
+          "text": "The brain's interpretation of incoming sensory signals"
+        },
+        {
+          "id": "h",
+          "text": "A motor command travelling from the CNS to an effector"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Transduction converts stimulus energy into an electrical change that can begin neural signalling.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “Storage of a hormone in blood.” That conflicts with the required structure, direction, or control step. Transduction converts stimulus energy into an electrical change that can begin neural signalling. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Movement of a motor neuron into the CNS.” That conflicts with the required structure, direction, or control step. Transduction converts stimulus energy into an electrical change that can begin neural signalling. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “A loss of every sensory response.” That conflicts with the required structure, direction, or control step. Transduction converts stimulus energy into an electrical change that can begin neural signalling. Compare the choice with that mechanism, then try again.",
+        "e": "That describes adaptation. Transduction is the conversion that begins the signal.",
+        "g": "That describes perception, after receptor conversion and neural transmission.",
+        "h": "Motor output is a response pathway, not stimulus conversion at a sensory receptor."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 408,
+        "physicalPage": 5
+      },
+      "focusTargetId": "work-focus-practice-lesson-06-guided-01",
+      "renderedItemSha256": "00441d05974124f27dc4e431afb85438b00bf9b9447c5a04c26f83da9a81eec6",
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-06-guided-02",
+      "routeId": "lesson-06",
+      "prompt": "What does sensory adaptation show?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Response can decrease during a steady stimulus"
+        },
+        {
+          "id": "a",
+          "text": "The stimulus must have disappeared"
+        },
+        {
+          "id": "g",
+          "text": "The receptor changes from one stimulus class to another"
+        },
+        {
+          "id": "h",
+          "text": "The effector produces a larger response to each steady input"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Some receptor pathways respond strongly to change and less during a sustained stimulus.",
+      "misconceptionFeedback": {
+        "a": "The stimulus can remain present while the pathway's response decreases.",
+        "c": "This choice identifies “All receptors detect the same energy.” That conflicts with the required structure, direction, or control step. Some receptor pathways respond strongly to change and less during a sustained stimulus. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “A diagnosis has been made.” That conflicts with the required structure, direction, or control step. Some receptor pathways respond strongly to change and less during a sustained stimulus. Compare the choice with that mechanism, then try again.",
+        "g": "Adaptation changes response to a sustained stimulus; it does not turn a mechanoreceptor into a photoreceptor.",
+        "h": "This describes increasing output, not the declining sensory response associated with adaptation."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 407,
+        "physicalPage": 4
+      },
+      "focusTargetId": "work-focus-practice-lesson-06-guided-02",
+      "renderedItemSha256": "f76ad0ed14638d9c588862c7adb99973912c23e4c1d646c5574cb561db134256",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-07-guided-01",
+      "routeId": "lesson-07",
+      "prompt": "Which sequence correctly traces light through the front of the eye?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Retina → lens → cornea"
+        },
+        {
+          "id": "c",
+          "text": "Optic nerve → pupil → retina"
+        },
+        {
+          "id": "h",
+          "text": "Cornea → lens → pupil → retina"
+        },
+        {
+          "id": "b",
+          "text": "Cornea → pupil → lens → retina"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Light passes through the cornea and pupil, is focused by the lens, and reaches the retina.",
+      "misconceptionFeedback": {
+        "a": "Light reaches the cornea before the lens and retina. This sequence runs backward.",
+        "c": "The optic nerve carries neural signals from the retina, not incoming light through the pupil.",
+        "d": "This choice identifies “Iris → optic nerve → cornea.” That conflicts with the required structure, direction, or control step. Light passes through the cornea and pupil, is focused by the lens, and reaches the retina. Compare the choice with that mechanism, then try again.",
+        "h": "The pupil is the opening before the lens, not after it."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 412,
+        "physicalPage": 9
+      },
+      "focusTargetId": "work-focus-practice-lesson-07-guided-01",
+      "renderedItemSha256": "e2f557da3dead0a899a57454cfa62e32c4eb6b4a24a79a461533721ca445863a",
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-07-guided-02",
+      "routeId": "lesson-07",
+      "prompt": "Which photoreceptor comparison is correct?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Rods support colour and highest detail in the fovea"
+        },
+        {
+          "id": "b",
+          "text": "Cones work only in complete darkness"
+        },
+        {
+          "id": "c",
+          "text": "Rods are more sensitive in dim light; cones support colour and detail"
+        },
+        {
+          "id": "h",
+          "text": "They are most concentrated at the centre of the fovea"
+        }
+      ],
+      "answerKey": "c",
+      "rationale": "Rods are sensitive in dim light, while cones support colour and high detail.",
+      "misconceptionFeedback": {
+        "a": "Rods do not provide the sharpest colour vision; cones are responsible for that ability.",
+        "b": "Cones need more light than rods. They do not function only in complete darkness.",
+        "d": "This choice identifies “Rods form the optic nerve without other cells.” That conflicts with the required structure, direction, or control step. Rods are sensitive in dim light, while cones support colour and high detail. Compare the choice with that mechanism, then try again.",
+        "h": "The foveal centre is dominated by cones. Rods support dim-light vision outside that centre."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 414,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-lesson-07-guided-02",
+      "renderedItemSha256": "8f26f579c3ee3b4dc8503deb15d94b2e161e8b430681e9c68bfa0bf8e6223e22",
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-08-guided-01",
+      "routeId": "lesson-08",
+      "prompt": "Where does hearing transduction occur?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "In hair cells of the organ of Corti"
+        },
+        {
+          "id": "b",
+          "text": "In the Eustachian tube"
+        },
+        {
+          "id": "g",
+          "text": "Ossicles in the middle ear"
+        },
+        {
+          "id": "h",
+          "text": "The tympanic membrane"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Cochlear hair cells convert mechanical movement into changes in neural signalling.",
+      "misconceptionFeedback": {
+        "b": "The Eustachian tube equalizes middle-ear pressure; it does not perform hearing transduction.",
+        "c": "This choice identifies “In the tympanic membrane alone.” That conflicts with the required structure, direction, or control step. Cochlear hair cells convert mechanical movement into changes in neural signalling. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “In the iris.” That conflicts with the required structure, direction, or control step. Cochlear hair cells convert mechanical movement into changes in neural signalling. Compare the choice with that mechanism, then try again.",
+        "g": "Ossicles transfer vibration mechanically. Hair cells perform the electrical conversion.",
+        "h": "The tympanic membrane vibrates in response to sound. The receptor conversion occurs farther along, at hair cells."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 421,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-lesson-08-guided-01",
+      "renderedItemSha256": "2bc131d27d1ac5a300453760330405757c550aa643d5fc512d4e88c8e24bf0b4",
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-08-guided-02",
+      "routeId": "lesson-08",
+      "prompt": "Which structure detects rotational head movement?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Cochlea only"
+        },
+        {
+          "id": "b",
+          "text": "Semicircular canals"
+        },
+        {
+          "id": "g",
+          "text": "Changes in air pressure across the tympanic membrane"
+        },
+        {
+          "id": "h",
+          "text": "Sound frequency within the cochlea"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Semicircular canals are oriented in different planes and detect rotational movement.",
+      "misconceptionFeedback": {
+        "a": "The cochlea detects sound-driven movement, not rotational head movement.",
+        "c": "This choice identifies “Ossicles.” That conflicts with the required structure, direction, or control step. Semicircular canals are oriented in different planes and detect rotational movement. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Cornea.” That conflicts with the required structure, direction, or control step. Semicircular canals are oriented in different planes and detect rotational movement. Compare the choice with that mechanism, then try again.",
+        "g": "The Eustachian tube helps equalize middle-ear pressure; semicircular canals detect rotation.",
+        "h": "Cochlear regions respond to sound frequency. Semicircular canals belong to equilibrium sensing."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 424,
+        "physicalPage": 21
+      },
+      "focusTargetId": "work-focus-practice-lesson-08-guided-02",
+      "renderedItemSha256": "35e87d38ee75d4e9eb16594ebc0a25b721f1e5d9bada6c0c898c308ffaa4c147",
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-01",
+      "routeId": "chapter-12-practice",
+      "prompt": "Which receptor class responds to light?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Photoreceptor"
+        },
+        {
+          "id": "b",
+          "text": "Chemoreceptor"
+        },
+        {
+          "id": "c",
+          "text": "Thermoreceptor"
+        },
+        {
+          "id": "d",
+          "text": "Nociceptor"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Photoreceptors transduce light energy.",
+      "misconceptionFeedback": {
+        "b": "Chemoreceptors respond to chemicals, such as those involved in taste and smell.",
+        "c": "Thermoreceptors respond to temperature changes, not light energy.",
+        "d": "Nociceptors respond to potentially damaging stimuli rather than serving as the light receptors."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 408,
+        "physicalPage": 5
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-01",
+      "renderedItemSha256": "294b37d5bfa5565222bd35bd0d5bf716b335c70c2aba991d9cfe48fe020de657",
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-02",
+      "routeId": "chapter-12-practice",
+      "prompt": "Which receptor class includes many touch and hearing receptors?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Photoreceptor"
+        },
+        {
+          "id": "a",
+          "text": "Mechanoreceptor"
+        },
+        {
+          "id": "g",
+          "text": "Chemoreceptor"
+        },
+        {
+          "id": "h",
+          "text": "Thermoreceptor"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Mechanoreceptors respond to force, stretch, vibration, or movement.",
+      "misconceptionFeedback": {
+        "b": "Photoreceptors respond to light; touch and hearing involve physical deformation.",
+        "c": "This choice identifies “Osmoreceptor only.” That conflicts with the required structure, direction, or control step. Mechanoreceptors respond to force, stretch, vibration, or movement. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Endocrine receptor.” That conflicts with the required structure, direction, or control step. Mechanoreceptors respond to force, stretch, vibration, or movement. Compare the choice with that mechanism, then try again.",
+        "g": "Chemoreceptors respond to chemicals. Touch and hearing depend on force or movement.",
+        "h": "Thermoreceptors detect temperature, rather than the movement involved in touch and hearing."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 408,
+        "physicalPage": 5
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-02",
+      "renderedItemSha256": "8ca04f95ae81eff71372b7dc78de9261f1f39782811786af791576dd1a8aede4",
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-03",
+      "routeId": "chapter-12-practice",
+      "prompt": "What is transduction?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Reduced response during a steady stimulus"
+        },
+        {
+          "id": "c",
+          "text": "A motor command only"
+        },
+        {
+          "id": "a",
+          "text": "A stimulus-energy conversion at a receptor"
+        },
+        {
+          "id": "d",
+          "text": "The disappearance of a stimulus"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Transduction changes stimulus energy into an electrical receptor response.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “A hormone stored in a gland.” That conflicts with the required structure, direction, or control step. Transduction changes stimulus energy into an electrical receptor response. Compare the choice with that mechanism, then try again.",
+        "c": "A motor command is outgoing information, not the receptor's conversion of stimulus energy.",
+        "d": "A stimulus need not disappear for transduction to occur. It must act on a suitable receptor.",
+        "f": "That is adaptation; conversion at a receptor is transduction."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 408,
+        "physicalPage": 5
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-03",
+      "renderedItemSha256": "8a7aee13739e58f17fa22d0f2cc43d85041a7afdd280c3a4f5c1f0f63c7c1b27",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-04",
+      "routeId": "chapter-12-practice",
+      "prompt": "Why might clothing become less noticeable after several minutes?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "The pressure receptors switch to detecting light"
+        },
+        {
+          "id": "g",
+          "text": "The same steady pressure produces progressively more nerve impulses"
+        },
+        {
+          "id": "h",
+          "text": "The sensory pathway loses its ability to respond to new pressure"
+        },
+        {
+          "id": "a",
+          "text": "Sensory adaptation"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Some touch pathways reduce their response during a steady stimulus.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “The clothing loses mass.” That conflicts with the required structure, direction, or control step. Some touch pathways reduce their response during a steady stimulus. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “The CNS becomes endocrine tissue.” That conflicts with the required structure, direction, or control step. Some touch pathways reduce their response during a steady stimulus. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “All receptors stop permanently.” That conflicts with the required structure, direction, or control step. Some touch pathways reduce their response during a steady stimulus. Compare the choice with that mechanism, then try again.",
+        "f": "Receptors do not change class because clothing stays in place.",
+        "g": "More impulses would normally increase signalling, not explain reduced awareness of unchanged contact.",
+        "h": "An adapted pathway can still respond to a change. Adaptation is not permanent loss of function."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 407,
+        "physicalPage": 4
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-04",
+      "renderedItemSha256": "f3d7b0dce687f833238c903ba4a47c756ed78b7d6ede372fa7dc0feb56be8d6b",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-05",
+      "routeId": "chapter-12-practice",
+      "prompt": "Which sequence traces light correctly?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Retina → cornea → lens"
+        },
+        {
+          "id": "c",
+          "text": "Lens → optic nerve → pupil"
+        },
+        {
+          "id": "a",
+          "text": "Cornea → pupil → lens → retina"
+        },
+        {
+          "id": "h",
+          "text": "Cornea → lens → pupil → retina"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Light crosses the cornea and pupil, is focused by the lens, and reaches the retina.",
+      "misconceptionFeedback": {
+        "b": "The retina receives light after it passes through the cornea and lens, not before.",
+        "c": "The optic nerve carries neural signals out of the retina, rather than transmitting light between lens and pupil.",
+        "d": "This choice identifies “Iris → retina → cornea.” That conflicts with the required structure, direction, or control step. Light crosses the cornea and pupil, is focused by the lens, and reaches the retina. Compare the choice with that mechanism, then try again.",
+        "h": "The pupil is anterior to the lens, so light crosses it first."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 412,
+        "physicalPage": 9
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-05",
+      "renderedItemSha256": "2e787ee30ad2f1db23728e2766613f3ae525495c9a2e3f7ad71e78af245c3cc6",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-06",
+      "routeId": "chapter-12-practice",
+      "prompt": "What is the iris's main role in the light path?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Change lens curvature to focus near objects"
+        },
+        {
+          "id": "a",
+          "text": "Change pupil diameter"
+        },
+        {
+          "id": "g",
+          "text": "Convert light into receptor signals"
+        },
+        {
+          "id": "h",
+          "text": "Carry retinal signals toward the brain"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The iris changes pupil diameter and therefore light entry.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Make action potentials in the optic nerve.” That conflicts with the required structure, direction, or control step. The iris changes pupil diameter and therefore light entry. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Detect head rotation.” That conflicts with the required structure, direction, or control step. The iris changes pupil diameter and therefore light entry. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Equalize middle-ear pressure.” That conflicts with the required structure, direction, or control step. The iris changes pupil diameter and therefore light entry. Compare the choice with that mechanism, then try again.",
+        "f": "Lens curvature changes through accommodation; the iris controls pupil diameter.",
+        "g": "Rods and cones in the retina perform phototransduction. The iris regulates entry.",
+        "h": "The optic nerve carries those signals. The iris is the coloured structure around the pupil."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 411,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-06",
+      "renderedItemSha256": "16a599fde708cdbfdcf2ee3ee653b61e384c1264aa99be925d8eeba6daca6084",
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-07",
+      "routeId": "chapter-12-practice",
+      "prompt": "Which statement best describes rods?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "They provide the sharpest colour vision in the fovea"
+        },
+        {
+          "id": "g",
+          "text": "They adjust the pupil diameter in bright light"
+        },
+        {
+          "id": "h",
+          "text": "They are absent throughout the peripheral retina"
+        },
+        {
+          "id": "a",
+          "text": "They are sensitive in dim light"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Rods are highly sensitive in dim light but provide lower detail and no colour discrimination.",
+      "misconceptionFeedback": {
+        "b": "Sharp colour vision in the fovea depends on cones, not rods.",
+        "c": "This choice identifies “They form the lens.” That conflicts with the required structure, direction, or control step. Rods are highly sensitive in dim light but provide lower detail and no colour discrimination. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “They detect sound.” That conflicts with the required structure, direction, or control step. Rods are highly sensitive in dim light but provide lower detail and no colour discrimination. Compare the choice with that mechanism, then try again.",
+        "g": "Iris muscles adjust pupil diameter. Rods are retinal receptor cells.",
+        "h": "Rods are abundant outside the foveal centre and contribute to peripheral dim-light sensitivity."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 414,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-07",
+      "renderedItemSha256": "8a876e26199702d702ca60b1490db16bb76cb0c9c7900fb24c261a0f8df40314",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-08",
+      "routeId": "chapter-12-practice",
+      "prompt": "What creates the blind spot?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "The optic disc has no photoreceptors"
+        },
+        {
+          "id": "f",
+          "text": "The fovea has only cones and cannot receive light"
+        },
+        {
+          "id": "g",
+          "text": "The iris shades the part of the retina nearest the pupil"
+        },
+        {
+          "id": "h",
+          "text": "The lens cannot change shape for nearby objects"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Ganglion-cell axons leave at the optic disc, where rods and cones are absent.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “The pupil closes permanently.” That conflicts with the required structure, direction, or control step. Ganglion-cell axons leave at the optic disc, where rods and cones are absent. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “The lens blocks all light.” That conflicts with the required structure, direction, or control step. Ganglion-cell axons leave at the optic disc, where rods and cones are absent. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The cornea has no nerves.” That conflicts with the required structure, direction, or control step. Ganglion-cell axons leave at the optic disc, where rods and cones are absent. Compare the choice with that mechanism, then try again.",
+        "f": "The cone-rich fovea supports sharp vision. A lack of rods there does not create the blind spot.",
+        "g": "The blind spot is at the optic disc, where nerve fibres leave and photoreceptors are absent.",
+        "h": "A focusing problem affects image sharpness; it does not explain the photoreceptor-free optic disc."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 416,
+        "physicalPage": 13
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-08",
+      "renderedItemSha256": "e23d2f71aff677a90bd5ff7bb6457749be33a1e88ca43f405a05bf555b84ed4c",
+      "outcomeIds": [
+        "A1.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.4k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-09",
+      "routeId": "chapter-12-practice",
+      "prompt": "Which sequence traces sound into the inner ear?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Canal → ossicles → tympanic membrane → oval window"
+        },
+        {
+          "id": "g",
+          "text": "Canal → tympanic membrane → oval window → ossicles"
+        },
+        {
+          "id": "h",
+          "text": "Canal → Eustachian tube → semicircular canals → cochlea"
+        },
+        {
+          "id": "a",
+          "text": "Canal → tympanic membrane → ossicles → oval window"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Sound vibrates the tympanic membrane, and ossicles transfer the movement to the oval window.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Cochlea → iris → ossicles.” That conflicts with the required structure, direction, or control step. Sound vibrates the tympanic membrane, and ossicles transfer the movement to the oval window. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Pupil → tympanic membrane → retina.” That conflicts with the required structure, direction, or control step. Sound vibrates the tympanic membrane, and ossicles transfer the movement to the oval window. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Semicircular canal → cornea → nerve.” That conflicts with the required structure, direction, or control step. Sound vibrates the tympanic membrane, and ossicles transfer the movement to the oval window. Compare the choice with that mechanism, then try again.",
+        "f": "The tympanic membrane vibrates before the ossicles transfer that motion.",
+        "g": "The ossicles deliver motion to the oval window, so they come before it.",
+        "h": "The Eustachian tube equalizes pressure and the canals sense rotation; neither replaces the middle-ear sound pathway."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 420,
+        "physicalPage": 17
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-09",
+      "renderedItemSha256": "5a24d2f7db4f8d982b59b9bb775b4dd1be5cd3928785edc931b07eda589124fb",
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-10",
+      "routeId": "chapter-12-practice",
+      "prompt": "What do cochlear hair cells do?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Transduce mechanical movement"
+        },
+        {
+          "id": "f",
+          "text": "Transfer eardrum vibration to the oval window"
+        },
+        {
+          "id": "g",
+          "text": "Equalize pressure on the two sides of the eardrum"
+        },
+        {
+          "id": "h",
+          "text": "Collect sound waves at the outer ear"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Hair-cell bending changes electrical activity and transmitter release.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Release thyroxine.” That conflicts with the required structure, direction, or control step. Hair-cell bending changes electrical activity and transmitter release. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Focus light.” That conflicts with the required structure, direction, or control step. Hair-cell bending changes electrical activity and transmitter release. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Move sodium through kidney ducts.” That conflicts with the required structure, direction, or control step. Hair-cell bending changes electrical activity and transmitter release. Compare the choice with that mechanism, then try again.",
+        "f": "The ossicles carry out that mechanical transfer before cochlear receptors respond.",
+        "g": "That is the Eustachian tube's function, not cochlear hair-cell transduction.",
+        "h": "The pinna collects sound. Hair cells convert movement into electrical changes in the inner ear."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 421,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-10",
+      "renderedItemSha256": "f845aa27de4e51e2a70a45156cab077d1ba09260d62fdc3b4bd4a36601e47107",
+      "outcomeIds": [
+        "A1.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.5k-03"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-11",
+      "routeId": "chapter-12-practice",
+      "prompt": "What do semicircular canals mainly detect?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Straight-line acceleration and head position relative to gravity"
+        },
+        {
+          "id": "a",
+          "text": "Rotational head movement"
+        },
+        {
+          "id": "g",
+          "text": "Sound pitch at different cochlear regions"
+        },
+        {
+          "id": "d",
+          "text": "Air pressure in the middle ear"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Fluid movement in the canals signals rotation.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Blood glucose.” That conflicts with the required structure, direction, or control step. Fluid movement in the canals signals rotation. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Colour.” That conflicts with the required structure, direction, or control step. Fluid movement in the canals signals rotation. Compare the choice with that mechanism, then try again.",
+        "d": "Middle-ear air pressure is equalized through the Eustachian tube, not detected as rotation by the canals.",
+        "f": "The vestibule's otolith organs are particularly important for these signals; semicircular canals mainly sense rotation.",
+        "g": "Pitch is associated with cochlear stimulation, not the semicircular canals."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 424,
+        "physicalPage": 21
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-11",
+      "renderedItemSha256": "194dfbe9d66f1491099b9885d4c7ee71336e2804e0295e57bb3f5a4e99168259",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-12-practice-12",
+      "routeId": "chapter-12-practice",
+      "prompt": "Why does balance usually use more than the vestibular apparatus?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "The cochlea compares light entering the two eyes"
+        },
+        {
+          "id": "g",
+          "text": "Vestibular signals replace information about muscle and joint position"
+        },
+        {
+          "id": "a",
+          "text": "The CNS also combines vision and proprioception"
+        },
+        {
+          "id": "h",
+          "text": "The eyes directly control the fluid movement in semicircular canals"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The brain combines vestibular, visual, and proprioceptive information.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Only hormones control posture.” That conflicts with the required structure, direction, or control step. The brain combines vestibular, visual, and proprioceptive information. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “The cochlea detects every body movement.” That conflicts with the required structure, direction, or control step. The brain combines vestibular, visual, and proprioceptive information. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Balance does not use neural signals.” That conflicts with the required structure, direction, or control step. The brain combines vestibular, visual, and proprioceptive information. Compare the choice with that mechanism, then try again.",
+        "f": "The cochlea processes sound. Visual information follows retinal pathways.",
+        "g": "Proprioceptive information supplements vestibular signals rather than being replaced by them.",
+        "h": "Head movement drives canal-fluid motion. The CNS combines the resulting signals with vision."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 425,
+        "physicalPage": 22
+      },
+      "focusTargetId": "work-focus-practice-chapter-12-practice-12",
+      "renderedItemSha256": "512951399e0c4adb23e026ac1f6cea8c960ec298d93a9e101233178d46e7d2b6",
+      "outcomeIds": [
+        "A1.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.6k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-09-guided-01",
+      "routeId": "lesson-09",
+      "prompt": "What makes a response negative feedback?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "It feels unpleasant"
+        },
+        {
+          "id": "b",
+          "text": "It reduces the original disturbance"
+        },
+        {
+          "id": "g",
+          "text": "The response changes the identity of the regulated variable"
+        },
+        {
+          "id": "h",
+          "text": "The response continues at the same strength after the disturbance has fallen"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Negative feedback is defined by a response that opposes the original change in a regulated variable.",
+      "misconceptionFeedback": {
+        "a": "Negative describes the direction of the feedback effect, not whether a response feels unpleasant.",
+        "c": "This choice identifies “It always uses a neuron.” That conflicts with the required structure, direction, or control step. Negative feedback is defined by a response that opposes the original change in a regulated variable. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “It stops every change.” That conflicts with the required structure, direction, or control step. Negative feedback is defined by a response that opposes the original change in a regulated variable. Compare the choice with that mechanism, then try again.",
+        "g": "A temperature response still regulates temperature. Feedback does not turn the variable into a different one.",
+        "h": "In negative feedback, reduced disturbance normally reduces the drive for the corrective response."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-lesson-09-guided-01",
+      "renderedItemSha256": "3ddb15e9092cfc64f848ded2eeeb020032e806bbb7488a887f8a8bf145055fe1",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-09-guided-02",
+      "routeId": "lesson-09",
+      "prompt": "Why do only some cells respond to a circulating hormone?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Blood exposure alone makes every cell equally responsive"
+        },
+        {
+          "id": "g",
+          "text": "Only cells nearest the gland receive its hormone"
+        },
+        {
+          "id": "h",
+          "text": "A cell responds by converting the hormone into its receptor"
+        },
+        {
+          "id": "a",
+          "text": "Only target cells have compatible receptors"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "A hormone can circulate widely, but receptor-bearing target cells produce the relevant response.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Hormones cannot travel in blood.” That conflicts with the required structure, direction, or control step. A hormone can circulate widely, but receptor-bearing target cells produce the relevant response. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Every hormone stays inside its gland.” That conflicts with the required structure, direction, or control step. A hormone can circulate widely, but receptor-bearing target cells produce the relevant response. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Only neurons use receptors.” That conflicts with the required structure, direction, or control step. A hormone can circulate widely, but receptor-bearing target cells produce the relevant response. Compare the choice with that mechanism, then try again.",
+        "f": "Blood exposure alone is not enough. Cells also need the appropriate receptors and response machinery.",
+        "g": "Hormones can circulate widely; proximity alone does not define the target cells.",
+        "h": "A compatible receptor must already be available for signalling. The hormone does not become that receptor."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 442,
+        "physicalPage": 9
+      },
+      "focusTargetId": "work-focus-practice-lesson-09-guided-02",
+      "renderedItemSha256": "82ff5119628e9d779cea3f9824c9f4fcfa3d3183f1bc34bd519cbcb9298152f8",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-10-guided-01",
+      "routeId": "lesson-10",
+      "prompt": "Which hormone is tropic?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "hGH, because it acts directly on growing body tissues"
+        },
+        {
+          "id": "g",
+          "text": "ADH, because its main target is kidney collecting ducts"
+        },
+        {
+          "id": "a",
+          "text": "TSH, because it targets the thyroid gland"
+        },
+        {
+          "id": "h",
+          "text": "TSH, because it travels along a nerve to skeletal muscle"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "TSH is tropic because its main target is another endocrine gland.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “hGH, because it is stored in bone.” That conflicts with the required structure, direction, or control step. TSH is tropic because its main target is another endocrine gland. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “ADH, because it is made by the kidney.” That conflicts with the required structure, direction, or control step. TSH is tropic because its main target is another endocrine gland. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Insulin, because it travels in a neuron.” That conflicts with the required structure, direction, or control step. TSH is tropic because its main target is another endocrine gland. Compare the choice with that mechanism, then try again.",
+        "f": "Direct action on body tissues does not define a tropic hormone. The target must be another endocrine gland.",
+        "g": "Kidney water-regulating cells are not a downstream endocrine gland. This target does not make ADH tropic.",
+        "h": "TSH is the right hormone, but this explanation is wrong: it travels in blood to the thyroid gland."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 445,
+        "physicalPage": 12
+      },
+      "focusTargetId": "work-focus-practice-lesson-10-guided-01",
+      "renderedItemSha256": "b3c62ff8cfa3668069fa9b844948f757f2149f441987af574655d6fef00b101f",
+      "outcomeIds": [
+        "A2.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-10-guided-02",
+      "routeId": "lesson-10",
+      "prompt": "Which statement about the posterior pituitary is correct?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "It stores and releases hormones made in the hypothalamus"
+        },
+        {
+          "id": "e",
+          "text": "It makes ADH in its own gland cells"
+        },
+        {
+          "id": "g",
+          "text": "It produces TSH and ACTH in response to releasing hormones"
+        },
+        {
+          "id": "h",
+          "text": "It releases its hormones into the digestive tract"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Hypothalamic neurons make ADH, and the posterior pituitary stores and releases it.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “It makes insulin.” That conflicts with the required structure, direction, or control step. Hypothalamic neurons make ADH, and the posterior pituitary stores and releases it. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “It controls every endocrine gland.” That conflicts with the required structure, direction, or control step. Hypothalamic neurons make ADH, and the posterior pituitary stores and releases it. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “It is part of the thyroid.” That conflicts with the required structure, direction, or control step. Hypothalamic neurons make ADH, and the posterior pituitary stores and releases it. Compare the choice with that mechanism, then try again.",
+        "e": "ADH is made in the hypothalamus, not synthesized by posterior-pituitary cells.",
+        "g": "TSH and ACTH are anterior-pituitary products, not posterior-pituitary products.",
+        "h": "Posterior-pituitary hormones enter the blood, not a digestive duct."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 444,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-lesson-10-guided-02",
+      "renderedItemSha256": "9dd27a3202102429a8c515e570dfe50a0d789d214e7bbd8f41669c3ebaaea18c",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-11-guided-01",
+      "routeId": "lesson-11",
+      "prompt": "What urine pattern is expected when ADH activity is high during dehydration?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Small volume and concentrated"
+        },
+        {
+          "id": "a",
+          "text": "Large volume and dilute"
+        },
+        {
+          "id": "g",
+          "text": "Small volume and dilute"
+        },
+        {
+          "id": "h",
+          "text": "Large volume and concentrated"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "ADH increases kidney water reabsorption, producing a smaller volume of more concentrated urine.",
+      "misconceptionFeedback": {
+        "a": "A large volume of dilute urine represents water loss, not the normal conservation response to high ADH.",
+        "c": "This choice identifies “No water reabsorption.” That conflicts with the required structure, direction, or control step. ADH increases kidney water reabsorption, producing a smaller volume of more concentrated urine. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “High glucose in every sample.” That conflicts with the required structure, direction, or control step. ADH increases kidney water reabsorption, producing a smaller volume of more concentrated urine. Compare the choice with that mechanism, then try again.",
+        "g": "Water conservation reduces urine volume and makes it more concentrated, not more dilute.",
+        "h": "High ADH normally reduces the volume of water lost in urine; this choice gets only concentration right."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-lesson-11-guided-01",
+      "renderedItemSha256": "b8cbc73637801cce18a7db90213e36ade54156ad5b5bfb6492bf15365b8a5f44",
+      "outcomeIds": [
+        "A2.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.4k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-11-guided-02",
+      "routeId": "lesson-11",
+      "prompt": "Where is ADH made?",
+      "choices": [
+        {
+          "id": "e",
+          "text": "Posterior-pituitary gland cells"
+        },
+        {
+          "id": "g",
+          "text": "Anterior-pituitary gland cells"
+        },
+        {
+          "id": "b",
+          "text": "Hypothalamic neurons"
+        },
+        {
+          "id": "h",
+          "text": "Kidney collecting-duct cells"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "ADH is made in the hypothalamus and released from the posterior pituitary.",
+      "misconceptionFeedback": {
+        "a": "This choice identifies “Pancreatic alpha cells.” That conflicts with the required structure, direction, or control step. ADH is made in the hypothalamus and released from the posterior pituitary. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Thyroid follicles.” That conflicts with the required structure, direction, or control step. ADH is made in the hypothalamus and released from the posterior pituitary. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Adrenal medulla.” That conflicts with the required structure, direction, or control step. ADH is made in the hypothalamus and released from the posterior pituitary. Compare the choice with that mechanism, then try again.",
+        "e": "The posterior pituitary releases ADH, but hypothalamic neurons make it.",
+        "g": "ADH follows a hypothalamic-neuron route rather than synthesis in anterior-pituitary cells.",
+        "h": "Collecting ducts respond to ADH; they do not make it."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 444,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-lesson-11-guided-02",
+      "renderedItemSha256": "3fc8d928e49345d729fb82e9cf7cf5f6aef94fe395ba008189ed2d0ebb95f4a5",
+      "outcomeIds": [
+        "A2.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-12-guided-01",
+      "routeId": "lesson-12",
+      "prompt": "A synthetic sample has low thyroxine and high TSH. Which idea is best supported?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "The thyroid is producing too much thyroxine"
+        },
+        {
+          "id": "g",
+          "text": "High thyroxine is suppressing TSH through feedback"
+        },
+        {
+          "id": "h",
+          "text": "Low TSH is failing to stimulate a normal thyroid"
+        },
+        {
+          "id": "a",
+          "text": "The pituitary is providing strong stimulation while thyroid output remains low"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Low feedback can allow TSH to rise while reduced thyroid output keeps thyroxine low.",
+      "misconceptionFeedback": {
+        "b": "The sample reports low thyroxine, so excessive thyroid output is not supported.",
+        "c": "This choice identifies “PTH has stopped all kidney activity.” That conflicts with the required structure, direction, or control step. Low feedback can allow TSH to rise while reduced thyroid output keeps thyroxine low. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Insulin is the tropic signal.” That conflicts with the required structure, direction, or control step. Low feedback can allow TSH to rise while reduced thyroid output keeps thyroxine low. Compare the choice with that mechanism, then try again.",
+        "g": "The measured pattern is the reverse: low thyroxine and high TSH.",
+        "h": "TSH is high in the sample. The problem cannot be explained by the stated signal being low."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 448,
+        "physicalPage": 15
+      },
+      "focusTargetId": "work-focus-practice-lesson-12-guided-01",
+      "renderedItemSha256": "9be37b97827d2807baa4827af7a1f3b95f0a859ef6c15de3da1459c630769fb6",
+      "outcomeIds": [
+        "A2.2k",
+        "A2.6k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-02",
+        "A2.6k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-12-guided-02",
+      "routeId": "lesson-12",
+      "prompt": "Which response follows a fall in blood calcium?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "PTH falls and calcium storage always rises"
+        },
+        {
+          "id": "b",
+          "text": "PTH rises and effectors increase calcium in blood"
+        },
+        {
+          "id": "g",
+          "text": "Calcitonin rises and more calcium moves from blood into bone"
+        },
+        {
+          "id": "h",
+          "text": "The kidneys excrete more calcium while PTH rises"
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "PTH rises and coordinates bone, kidney, and intestinal effects that raise blood calcium.",
+      "misconceptionFeedback": {
+        "a": "Falling calcium normally stimulates PTH; reduced PTH and greater storage would worsen the fall.",
+        "c": "This choice identifies “TSH directly releases calcium from blood.” That conflicts with the required structure, direction, or control step. PTH rises and coordinates bone, kidney, and intestinal effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Calcitonin becomes the only pituitary hormone.” That conflicts with the required structure, direction, or control step. PTH rises and coordinates bone, kidney, and intestinal effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "g": "Moving calcium out of blood would reinforce the fall rather than oppose it.",
+        "h": "PTH promotes calcium retention by the kidneys, rather than increasing its loss in urine."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 450,
+        "physicalPage": 17
+      },
+      "focusTargetId": "work-focus-practice-lesson-12-guided-02",
+      "renderedItemSha256": "60201e420eae60a8ee0df6dcda59866d8ac4af61499ccc4361cafc81244ed672",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-13-guided-1",
+      "routeId": "lesson-13",
+      "prompt": "Which sequence best describes the response to rising blood glucose after a meal?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Alpha cells release glucagon, and the liver releases more glucose."
+        },
+        {
+          "id": "g",
+          "text": "Beta cells release insulin, and the liver increases glucose release."
+        },
+        {
+          "id": "h",
+          "text": "Alpha cells release insulin, and muscle stores more glycogen."
+        },
+        {
+          "id": "b",
+          "text": "Beta cells release insulin, and responsive tissues increase glucose uptake or storage."
+        }
+      ],
+      "answerKey": "b",
+      "rationale": "Rising glucose supports insulin release from pancreatic beta cells. Insulin changes activity in receptor-bearing targets, including increased uptake in some tissues and increased glycogen formation.",
+      "misconceptionFeedback": {
+        "a": "That is the glucagon response to falling glucose, not the principal response after a meal.",
+        "c": "Aldosterone comes from the adrenal cortex and regulates sodium balance. Tissues do not all respond to insulin in the same way.",
+        "d": "Insulin is produced by pancreatic beta cells, not the pituitary.",
+        "g": "Insulin normally reduces liver glucose output and supports storage; this reverses its liver effect.",
+        "h": "Insulin supports storage, but pancreatic beta cells—not alpha cells—release it."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 456,
+        "physicalPage": 23
+      },
+      "focusTargetId": "work-focus-practice-lesson-13-guided-1",
+      "renderedItemSha256": "57d77228e51f7b258d6d78d40fe9cfa9c1dbf67a5c7190359dab3879aca071dd",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:lesson-13-guided-2",
+      "routeId": "lesson-13",
+      "prompt": "Which comparison correctly separates two adrenal responses?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "The cortex releases epinephrine rapidly; the medulla releases cortisol later."
+        },
+        {
+          "id": "a",
+          "text": "The medulla releases epinephrine rapidly; the cortex releases cortisol and aldosterone through slower endocrine pathways."
+        },
+        {
+          "id": "g",
+          "text": "The medulla releases cortisol; the cortex releases aldosterone and epinephrine."
+        },
+        {
+          "id": "h",
+          "text": "ACTH is released by the medulla and stimulates cortisol from the cortex."
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The adrenal medulla supports rapid sympathetic responses through epinephrine and norepinephrine. The cortex releases steroid hormones such as cortisol and aldosterone through slower pathways.",
+      "misconceptionFeedback": {
+        "b": "Epinephrine is associated with the adrenal medulla; insulin comes from pancreatic beta cells.",
+        "c": "The two regions release different hormones with different targets and timing.",
+        "d": "Calcium and light detection are controlled through other structures and pathways.",
+        "f": "This swaps the adrenal regions: epinephrine comes from medulla and cortisol from cortex.",
+        "g": "Aldosterone belongs to cortex, but cortisol and epinephrine have been assigned to the wrong regions.",
+        "h": "ACTH is released by the anterior pituitary, not by the adrenal medulla."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 453,
+        "physicalPage": 20
+      },
+      "focusTargetId": "work-focus-practice-lesson-13-guided-2",
+      "renderedItemSha256": "2c698126ae8c49b7ff10c7c1ee75f23e59f70822bdbb345afe25f82ac066c690",
+      "outcomeIds": [
+        "A2.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.5k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-01",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which description best fits homeostasis?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Dynamic regulation within workable ranges"
+        },
+        {
+          "id": "b",
+          "text": "A body condition that never changes"
+        },
+        {
+          "id": "g",
+          "text": "A response that increases a disturbance without a stopping condition"
+        },
+        {
+          "id": "h",
+          "text": "A single correction that removes the need for later regulation"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Homeostasis is active regulation, not a perfectly fixed internal state.",
+      "misconceptionFeedback": {
+        "b": "Regulated variables fluctuate. Homeostasis does not mean a completely unchanging internal state.",
+        "c": "This choice identifies “Only a nervous-system response.” That conflicts with the required structure, direction, or control step. Homeostasis is active regulation, not a perfectly fixed internal state. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Only an endocrine disorder.” That conflicts with the required structure, direction, or control step. Homeostasis is active regulation, not a perfectly fixed internal state. Compare the choice with that mechanism, then try again.",
+        "g": "Unbounded amplification does not maintain a workable range.",
+        "h": "Conditions continue to change, so regulation must remain active."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 437,
+        "physicalPage": 4
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-01",
+      "renderedItemSha256": "662d3c89e691c35b436bbe2450a96dd4cf858d8047e03754438812cbcaacad92",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-02",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which sequence is a negative-feedback loop?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Temperature rises → heat gain rises → temperature rises"
+        },
+        {
+          "id": "g",
+          "text": "Temperature falls → heat loss rises → temperature falls farther"
+        },
+        {
+          "id": "a",
+          "text": "Temperature rises → heat loss rises → temperature falls"
+        },
+        {
+          "id": "h",
+          "text": "Temperature rises → heat loss falls → temperature rises farther"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The heat-loss response opposes the original temperature rise.",
+      "misconceptionFeedback": {
+        "b": "Increasing heat gain after temperature rises amplifies the disturbance rather than opposing it.",
+        "c": "This choice identifies “Hormone is released → no target responds.” That conflicts with the required structure, direction, or control step. The heat-loss response opposes the original temperature rise. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “A receptor detects nothing.” That conflicts with the required structure, direction, or control step. The heat-loss response opposes the original temperature rise. Compare the choice with that mechanism, then try again.",
+        "g": "More heat loss reinforces the fall. A corrective response should oppose it.",
+        "h": "Reducing heat loss reinforces a temperature rise, rather than providing negative feedback."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-02",
+      "renderedItemSha256": "a5467adacd44332fab4541bd75b6d02c6052a1efc6a2ca984fea4998b762651b",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-03",
+      "routeId": "chapter-13-practice",
+      "prompt": "What determines whether a cell responds to a hormone?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Distance from every gland only"
+        },
+        {
+          "id": "g",
+          "text": "A blood supply, even when the matching receptor is absent"
+        },
+        {
+          "id": "a",
+          "text": "A compatible receptor"
+        },
+        {
+          "id": "h",
+          "text": "The ability to release the same hormone itself"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Only receptor-bearing target cells make the relevant response.",
+      "misconceptionFeedback": {
+        "b": "Distance alone cannot determine response: a nearby cell without the receptor may not respond.",
+        "c": "This choice identifies “The cell's colour.” That conflicts with the required structure, direction, or control step. Only receptor-bearing target cells make the relevant response. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Whether it is a neuron.” That conflicts with the required structure, direction, or control step. Only receptor-bearing target cells make the relevant response. Compare the choice with that mechanism, then try again.",
+        "g": "Delivery is necessary, but blood exposure cannot substitute for a compatible receptor.",
+        "h": "A target need not produce the hormone it receives. Its receptor and response machinery determine sensitivity."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 442,
+        "physicalPage": 9
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-03",
+      "renderedItemSha256": "32383539f9a945a932b2692f49655c0c6ed6e1cf4e7faa33c76a88cc3a8f1bef",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-04",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which structure links neural information with pituitary control?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hypothalamus"
+        },
+        {
+          "id": "f",
+          "text": "Anterior pituitary"
+        },
+        {
+          "id": "g",
+          "text": "Thyroid gland"
+        },
+        {
+          "id": "h",
+          "text": "Adrenal cortex"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The hypothalamus controls pituitary pathways and integrates internal information.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Cochlea.” That conflicts with the required structure, direction, or control step. The hypothalamus controls pituitary pathways and integrates internal information. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Cornea.” That conflicts with the required structure, direction, or control step. The hypothalamus controls pituitary pathways and integrates internal information. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Spinal nerve.” That conflicts with the required structure, direction, or control step. The hypothalamus controls pituitary pathways and integrates internal information. Compare the choice with that mechanism, then try again.",
+        "f": "The anterior pituitary responds to hypothalamic control; the hypothalamus provides the neural-endocrine link.",
+        "g": "The thyroid is a downstream endocrine target, not the main neural control link to the pituitary.",
+        "h": "The cortex responds to endocrine signals; it does not organize hypothalamic control of the pituitary."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 444,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-04",
+      "renderedItemSha256": "b062d63eec4600cf3622e1030214a94bd86d0cf99316e67fa56d1dd00f18c6a5",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-05",
+      "routeId": "chapter-13-practice",
+      "prompt": "What makes TSH a tropic hormone?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "It is released by the thyroid"
+        },
+        {
+          "id": "a",
+          "text": "It targets another endocrine gland"
+        },
+        {
+          "id": "g",
+          "text": "It enters cells without binding to a receptor"
+        },
+        {
+          "id": "h",
+          "text": "It is a signal travelling along a hypothalamic axon"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "TSH targets the thyroid and stimulates thyroxine release.",
+      "misconceptionFeedback": {
+        "b": "TSH is released by the anterior pituitary. Its name identifies its thyroid target, not its source.",
+        "c": "This choice identifies “It acts only on bone.” That conflicts with the required structure, direction, or control step. TSH targets the thyroid and stimulates thyroxine release. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “It carries action potentials.” That conflicts with the required structure, direction, or control step. TSH targets the thyroid and stimulates thyroxine release. Compare the choice with that mechanism, then try again.",
+        "g": "TSH signalling requires compatible receptors; bypassing receptors is not what tropic means.",
+        "h": "TSH is a blood-borne anterior-pituitary hormone, not an action potential in an axon."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 445,
+        "physicalPage": 12
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-05",
+      "renderedItemSha256": "9977555a78ec56e1caa9013a45cddcdc8207e4bb8e14007ddbb7dbdc44e97a8a",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-06",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which is an expected hGH effect?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Increase water reabsorption through collecting-duct ADH receptors"
+        },
+        {
+          "id": "g",
+          "text": "Stimulate thyroid cells as TSH does"
+        },
+        {
+          "id": "h",
+          "text": "Raise blood calcium through the PTH pathway"
+        },
+        {
+          "id": "a",
+          "text": "Support growth and protein synthesis"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "hGH has direct and growth-factor-mediated effects on growth and metabolism.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Directly detect light.” That conflicts with the required structure, direction, or control step. hGH has direct and growth-factor-mediated effects on growth and metabolism. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Break down acetylcholine.” That conflicts with the required structure, direction, or control step. hGH has direct and growth-factor-mediated effects on growth and metabolism. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Equalize ear pressure.” That conflicts with the required structure, direction, or control step. hGH has direct and growth-factor-mediated effects on growth and metabolism. Compare the choice with that mechanism, then try again.",
+        "f": "That describes ADH action, not the growth and metabolic roles of hGH.",
+        "g": "TSH is the thyroid-stimulating hormone. hGH has distinct growth and metabolic targets.",
+        "h": "PTH coordinates that calcium response. hGH is not a substitute for PTH."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 445,
+        "physicalPage": 12
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-06",
+      "renderedItemSha256": "f288c5605d0600b9bc05d7950e39153a76ea80d005e8b86b38912fe72e00d2a6",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-07",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which ADH pattern fits dehydration?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Higher ADH and more water reabsorption"
+        },
+        {
+          "id": "f",
+          "text": "Lower ADH and more water loss in urine"
+        },
+        {
+          "id": "g",
+          "text": "Higher ADH and less water reabsorption"
+        },
+        {
+          "id": "h",
+          "text": "Lower ADH and a smaller volume of concentrated urine"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Dehydration raises blood concentration, supporting ADH release and water conservation.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Lower ADH and no thirst.” That conflicts with the required structure, direction, or control step. Dehydration raises blood concentration, supporting ADH release and water conservation. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Higher insulin and more sound transduction.” That conflicts with the required structure, direction, or control step. Dehydration raises blood concentration, supporting ADH release and water conservation. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Lower PTH and pupil dilation.” That conflicts with the required structure, direction, or control step. Dehydration raises blood concentration, supporting ADH release and water conservation. Compare the choice with that mechanism, then try again.",
+        "f": "That would worsen dehydration rather than conserve water.",
+        "g": "This pairs the correct signal direction with the wrong kidney effect.",
+        "h": "Reduced ADH generally leads to more dilute urine, not the conservation pattern described here."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-07",
+      "renderedItemSha256": "fc7a078abfb99f2890780ff0eaa9147ad3cbae34f60461d9e3bc02eb94f4fc17",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-08",
+      "routeId": "chapter-13-practice",
+      "prompt": "High TSH with low thyroxine most strongly supports which idea?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Excessive thyroxine feedback"
+        },
+        {
+          "id": "g",
+          "text": "Reduced pituitary stimulation of a normally responding thyroid"
+        },
+        {
+          "id": "h",
+          "text": "A normal thyroid response producing high thyroxine"
+        },
+        {
+          "id": "a",
+          "text": "Strong pituitary stimulation with low thyroid output"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Paired values suggest the thyroid is not producing enough hormone despite TSH stimulation.",
+      "misconceptionFeedback": {
+        "b": "Excessive thyroxine feedback would tend to lower TSH, but the sample has low thyroxine and high TSH.",
+        "c": "This choice identifies “High insulin release.” That conflicts with the required structure, direction, or control step. Paired values suggest the thyroid is not producing enough hormone despite TSH stimulation. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Low blood calcium only.” That conflicts with the required structure, direction, or control step. Paired values suggest the thyroid is not producing enough hormone despite TSH stimulation. Compare the choice with that mechanism, then try again.",
+        "g": "The high TSH value shows strong stimulation, not reduced stimulation.",
+        "h": "The measured thyroxine is low, so this predicted output does not match the data."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 448,
+        "physicalPage": 15
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-08",
+      "renderedItemSha256": "4e89008af54950b9e3692bc7dda74229e2c1ba386b83832ac77e63a7c1df1803",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-09",
+      "routeId": "chapter-13-practice",
+      "prompt": "What is the main direction of PTH action?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Lower blood calcium by increasing storage in bone"
+        },
+        {
+          "id": "g",
+          "text": "Increase calcium loss in urine"
+        },
+        {
+          "id": "a",
+          "text": "Raise blood calcium"
+        },
+        {
+          "id": "h",
+          "text": "Reduce calcium absorption from the intestine"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "PTH coordinates bone, kidney, and intestinal effects that raise blood calcium.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Lower blood glucose.” That conflicts with the required structure, direction, or control step. PTH coordinates bone, kidney, and intestinal effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Raise sound frequency.” That conflicts with the required structure, direction, or control step. PTH coordinates bone, kidney, and intestinal effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Lower every hormone.” That conflicts with the required structure, direction, or control step. PTH coordinates bone, kidney, and intestinal effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "f": "That reverses PTH's overall effect. PTH acts to raise blood calcium.",
+        "g": "PTH promotes renal calcium retention, limiting loss rather than increasing it.",
+        "h": "Through vitamin-D activation, PTH supports intestinal calcium absorption, not a reduction."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 450,
+        "physicalPage": 17
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-09",
+      "renderedItemSha256": "84d14e34170c94670a8df94d41cd58b0092bee929bffd45ea4912df954873d1c",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-10",
+      "routeId": "chapter-13-practice",
+      "prompt": "What follows rising blood glucose after a meal?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Alpha cells release more glucagon only"
+        },
+        {
+          "id": "a",
+          "text": "Beta cells release insulin"
+        },
+        {
+          "id": "g",
+          "text": "Beta cells release insulin and the liver increases glucose output"
+        },
+        {
+          "id": "h",
+          "text": "Alpha cells release insulin"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Pancreatic beta cells respond to rising glucose by releasing insulin.",
+      "misconceptionFeedback": {
+        "b": "Glucagon supports the response to falling glucose; it is not the main meal-related signal.",
+        "c": "This choice identifies “Posterior pituitary releases insulin.” That conflicts with the required structure, direction, or control step. Pancreatic beta cells respond to rising glucose by releasing insulin. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Adrenal medulla releases PTH.” That conflicts with the required structure, direction, or control step. Pancreatic beta cells respond to rising glucose by releasing insulin. Compare the choice with that mechanism, then try again.",
+        "g": "Insulin normally reduces liver glucose output and supports storage.",
+        "h": "Alpha cells release glucagon. Beta cells are the insulin source."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 456,
+        "physicalPage": 23
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-10",
+      "renderedItemSha256": "1a33048eeb73b52a341cd8aedc0b8a36398da06952c3d894ef8b8290d9208302",
+      "outcomeIds": [
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-11",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which adrenal region releases epinephrine?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Cortex"
+        },
+        {
+          "id": "a",
+          "text": "Medulla"
+        },
+        {
+          "id": "g",
+          "text": "Both cortex and medulla in the same amount"
+        },
+        {
+          "id": "h",
+          "text": "The outer cortex, after ACTH is converted to epinephrine"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The adrenal medulla supports rapid sympathetic responses through epinephrine and norepinephrine.",
+      "misconceptionFeedback": {
+        "b": "The cortex releases steroid hormones such as cortisol and aldosterone, not epinephrine.",
+        "c": "This choice identifies “Parathyroid.” That conflicts with the required structure, direction, or control step. The adrenal medulla supports rapid sympathetic responses through epinephrine and norepinephrine. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Anterior pituitary.” That conflicts with the required structure, direction, or control step. The adrenal medulla supports rapid sympathetic responses through epinephrine and norepinephrine. Compare the choice with that mechanism, then try again.",
+        "g": "The two regions have different products; epinephrine is associated with medulla.",
+        "h": "ACTH stimulates cortex signalling but is not converted into epinephrine. Medulla releases epinephrine."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 453,
+        "physicalPage": 20
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-11",
+      "renderedItemSha256": "84d26ff0e3233d447443d22b28f2aa5e8bac114e9f738eb58c707fa294ddfec4",
+      "outcomeIds": [
+        "A2.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:chapter-13-practice-12",
+      "routeId": "chapter-13-practice",
+      "prompt": "Which hormone increases kidney sodium reabsorption?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "ADH"
+        },
+        {
+          "id": "c",
+          "text": "Calcitonin"
+        },
+        {
+          "id": "a",
+          "text": "Aldosterone"
+        },
+        {
+          "id": "h",
+          "text": "Cortisol"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Aldosterone from the adrenal cortex increases sodium reabsorption; water tends to follow.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Acetylcholine.” That conflicts with the required structure, direction, or control step. Aldosterone from the adrenal cortex increases sodium reabsorption; water tends to follow. Compare the choice with that mechanism, then try again.",
+        "c": "Calcitonin is associated with calcium regulation, not the main renal sodium-retention pathway.",
+        "d": "This choice identifies “hGH only.” That conflicts with the required structure, direction, or control step. Aldosterone from the adrenal cortex increases sodium reabsorption; water tends to follow. Compare the choice with that mechanism, then try again.",
+        "f": "ADH mainly regulates collecting-duct water permeability; aldosterone directly promotes sodium reabsorption.",
+        "h": "Cortisol primarily supports longer-term metabolic stress responses. Aldosterone is the main sodium-retention answer here."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 454,
+        "physicalPage": 21
+      },
+      "focusTargetId": "work-focus-practice-chapter-13-practice-12",
+      "renderedItemSha256": "8ba8b5add9637b489411568838482176f478fb6be7465c70cf0ca64877974620",
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.1k-02",
+        "A2.2k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-01",
+      "routeId": "final-practice",
+      "prompt": "A toxin slows signal conduction without changing action-potential size. Which structure is the most direct focus?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Myelin sheath"
+        },
+        {
+          "id": "f",
+          "text": "Dendritic receiving branches"
+        },
+        {
+          "id": "g",
+          "text": "Synaptic receptor proteins"
+        },
+        {
+          "id": "h",
+          "text": "The neuron's nucleus"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Myelin limits current loss and increases conduction speed without making each action potential larger.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Pancreatic islet.” That conflicts with the required structure, direction, or control step. Myelin limits current loss and increases conduction speed without making each action potential larger. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Lens.” That conflicts with the required structure, direction, or control step. Myelin limits current loss and increases conduction speed without making each action potential larger. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Thyroid.” That conflicts with the required structure, direction, or control step. Myelin limits current loss and increases conduction speed without making each action potential larger. Compare the choice with that mechanism, then try again.",
+        "f": "Dendrites receive input; the stated change concerns conduction along an axon.",
+        "g": "These affect the receiving cell's response at a synapse, not directly the speed of conduction along an axon.",
+        "h": "The nucleus supports cell functions, but myelin is the more direct structure for speed without altered spike size."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 378,
+        "physicalPage": 19
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-01",
+      "renderedItemSha256": "a41432793fe3982599f1fb1e1f5c2b42a5b27f6e3b71370f8facfeffd3e3f3dd",
+      "outcomeIds": [
+        "A1.1k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.1k-13"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-02",
+      "routeId": "final-practice",
+      "prompt": "A neuron reaches threshold more often during a stronger stimulus. What changes?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "The all-or-none size"
+        },
+        {
+          "id": "g",
+          "text": "The direction of sodium and potassium concentration gradients"
+        },
+        {
+          "id": "h",
+          "text": "The absolute refractory period becomes the resting potential"
+        },
+        {
+          "id": "a",
+          "text": "Firing frequency"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Stronger stimuli can increase firing frequency while individual action potentials remain all-or-none.",
+      "misconceptionFeedback": {
+        "b": "All-or-none spike size does not increase when threshold is reached more often.",
+        "c": "This choice identifies “The axon identity.” That conflicts with the required structure, direction, or control step. Stronger stimuli can increase firing frequency while individual action potentials remain all-or-none. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The CNS becomes a gland.” That conflicts with the required structure, direction, or control step. Stronger stimuli can increase firing frequency while individual action potentials remain all-or-none. Compare the choice with that mechanism, then try again.",
+        "g": "The gradients support signalling but do not reverse whenever stimulus intensity increases.",
+        "h": "A refractory interval and resting voltage describe different properties. Neither is the increase in spike number per second."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 377,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-02",
+      "renderedItemSha256": "48758549044e56ab962f36b268a367c7defcd79a06bb737b1c994846544e88eb",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-03",
+      "routeId": "final-practice",
+      "prompt": "A substance blocks presynaptic calcium channels. What is the immediate synaptic effect?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "More transmitter release from increased vesicle fusion"
+        },
+        {
+          "id": "g",
+          "text": "Faster acetylcholine breakdown by cholinesterase"
+        },
+        {
+          "id": "a",
+          "text": "Less neurotransmitter release"
+        },
+        {
+          "id": "h",
+          "text": "More postsynaptic receptors bind transmitter despite reduced release"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Presynaptic calcium entry triggers vesicle fusion, so blocking it reduces transmitter release.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “More myelin production.” That conflicts with the required structure, direction, or control step. Presynaptic calcium entry triggers vesicle fusion, so blocking it reduces transmitter release. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “More ADH release.” That conflicts with the required structure, direction, or control step. Presynaptic calcium entry triggers vesicle fusion, so blocking it reduces transmitter release. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The retina focuses light.” That conflicts with the required structure, direction, or control step. Presynaptic calcium entry triggers vesicle fusion, so blocking it reduces transmitter release. Compare the choice with that mechanism, then try again.",
+        "f": "Reduced calcium entry makes vesicle fusion less likely, not more likely.",
+        "g": "Blocking presynaptic calcium changes release. It does not directly speed up the enzyme in the cleft.",
+        "h": "With less messenger released, receptor activation usually falls; increased binding is not the direct effect."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 379,
+        "physicalPage": 20
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-03",
+      "renderedItemSha256": "df674565336f219e304d39dd027155cf67d59108688e257a5913ea6c43eb4762",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-04",
+      "routeId": "final-practice",
+      "prompt": "Which pathway carries a command to skeletal muscle?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Sensory afferent"
+        },
+        {
+          "id": "g",
+          "text": "Autonomic motor to smooth muscle"
+        },
+        {
+          "id": "h",
+          "text": "An interneuron connection inside the spinal cord"
+        },
+        {
+          "id": "a",
+          "text": "Somatic motor"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Somatic motor output travels from the CNS to skeletal muscle.",
+      "misconceptionFeedback": {
+        "b": "Sensory afferent fibres carry information toward the CNS, not commands out to muscle.",
+        "c": "This choice identifies “Endocrine only.” That conflicts with the required structure, direction, or control step. Somatic motor output travels from the CNS to skeletal muscle. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Parasympathetic receptor.” That conflicts with the required structure, direction, or control step. Somatic motor output travels from the CNS to skeletal muscle. Compare the choice with that mechanism, then try again.",
+        "g": "That is an outgoing pathway, but its target is not skeletal muscle.",
+        "h": "The interneuron stays within the CNS; a somatic motor neuron carries output to skeletal muscle."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 396,
+        "physicalPage": 37
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-04",
+      "renderedItemSha256": "b41ce02c0a91b1d39fb6b9f64dabc97df5ae633c478c458ac91d6c6deb8e603b",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-04"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-05",
+      "routeId": "final-practice",
+      "prompt": "A synthetic case shows poor coordination but normal muscle strength. Which inference is most careful?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Cerebellar pathways may be involved"
+        },
+        {
+          "id": "b",
+          "text": "The cerebellum is certainly destroyed"
+        },
+        {
+          "id": "g",
+          "text": "Normal strength rules out a nervous-system contribution"
+        },
+        {
+          "id": "h",
+          "text": "The motor cortex must be producing too little muscle force"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Coordination evidence can support cerebellar involvement, but it cannot prove a diagnosis.",
+      "misconceptionFeedback": {
+        "b": "The observations do not prove destruction. A cautious inference identifies a possible pathway.",
+        "c": "This choice identifies “The thyroid controls all movement.” That conflicts with the required structure, direction, or control step. Coordination evidence can support cerebellar involvement, but it cannot prove a diagnosis. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The case proves a diagnosis.” That conflicts with the required structure, direction, or control step. Coordination evidence can support cerebellar involvement, but it cannot prove a diagnosis. Compare the choice with that mechanism, then try again.",
+        "g": "Coordination can be affected while muscle strength remains normal.",
+        "h": "The case reports normal strength. The main evidence concerns coordination rather than force."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 391,
+        "physicalPage": 32
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-05",
+      "renderedItemSha256": "e477cdca0dece9d405e2cd91bc0d03ce89238ae0b260dd32ecd0a0d0234ecc91",
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.2k-09"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-06",
+      "routeId": "final-practice",
+      "prompt": "Which event occurs first in a withdrawal reflex?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "A sensory neuron carries input into the spinal cord"
+        },
+        {
+          "id": "a",
+          "text": "A receptor detects the stimulus"
+        },
+        {
+          "id": "g",
+          "text": "A motor neuron carries output to the muscle"
+        },
+        {
+          "id": "h",
+          "text": "The muscle contracts to withdraw the limb"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "A receptor first detects the change, then sensory information enters the CNS.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “A motor neuron activates before any input.” That conflicts with the required structure, direction, or control step. A receptor first detects the change, then sensory information enters the CNS. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “The pituitary releases insulin.” That conflicts with the required structure, direction, or control step. A receptor first detects the change, then sensory information enters the CNS. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The cortex diagnoses damage.” That conflicts with the required structure, direction, or control step. A receptor first detects the change, then sensory information enters the CNS. Compare the choice with that mechanism, then try again.",
+        "f": "That follows receptor detection. The question asks for the first event.",
+        "g": "Motor output follows sensory input and a CNS connection.",
+        "h": "Effector contraction is the response, not the first detection event."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 370,
+        "physicalPage": 11
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-06",
+      "renderedItemSha256": "002b469792becda5be069f134627152e8262f57f1c275e63a6452b369ec4966a",
+      "outcomeIds": [
+        "A1.3k"
+      ],
+      "performanceBehaviourIds": [
+        "A1.3k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-07",
+      "routeId": "final-practice",
+      "prompt": "Pressure bends a receptor and opens ion channels. What process is shown?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Sensory transduction"
+        },
+        {
+          "id": "f",
+          "text": "Sensory adaptation"
+        },
+        {
+          "id": "g",
+          "text": "Motor output to an effector"
+        },
+        {
+          "id": "d",
+          "text": "Accommodation"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Mechanical energy is being converted into an electrical receptor change.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Negative feedback only.” That conflicts with the required structure, direction, or control step. Mechanical energy is being converted into an electrical receptor change. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Hormone transport.” That conflicts with the required structure, direction, or control step. Mechanical energy is being converted into an electrical receptor change. Compare the choice with that mechanism, then try again.",
+        "d": "Accommodation changes lens shape for focusing. It is not pressure-to-electrical conversion at this receptor.",
+        "f": "Adaptation concerns changing response over time. Here the key event is conversion of pressure into an electrical change.",
+        "g": "The event occurs at a sensory receptor, before any motor response."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 408,
+        "physicalPage": 5
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-07",
+      "renderedItemSha256": "29aa7ad2d3525ccb87734ea6c1764a2a9b3e632a6120859273b164038e40aaab",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-08",
+      "routeId": "final-practice",
+      "prompt": "Which structure fine-tunes the focus of light on the retina?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Iris"
+        },
+        {
+          "id": "a",
+          "text": "Lens"
+        },
+        {
+          "id": "g",
+          "text": "Retina"
+        },
+        {
+          "id": "h",
+          "text": "Optic nerve"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The lens changes shape during accommodation to fine-tune focus.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Ossicles.” That conflicts with the required structure, direction, or control step. The lens changes shape during accommodation to fine-tune focus. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Semicircular canal.” That conflicts with the required structure, direction, or control step. The lens changes shape during accommodation to fine-tune focus. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Adrenal cortex.” That conflicts with the required structure, direction, or control step. The lens changes shape during accommodation to fine-tune focus. Compare the choice with that mechanism, then try again.",
+        "f": "The iris changes pupil diameter and light entry, not the fine focus through lens curvature.",
+        "g": "The retina receives the focused light and transduces it; it does not adjust lens shape.",
+        "h": "The optic nerve transmits neural signals to the brain rather than focusing incoming light."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 412,
+        "physicalPage": 9
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-08",
+      "renderedItemSha256": "127c876c9a464a58a7cb1a95812b6a7fd8ba893220a8978543af044aee711aa4",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-09",
+      "routeId": "final-practice",
+      "prompt": "Which cells transduce sound-driven movement?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Ossicles in the middle ear"
+        },
+        {
+          "id": "g",
+          "text": "Cells of the tympanic membrane"
+        },
+        {
+          "id": "h",
+          "text": "Cells of the Eustachian tube"
+        },
+        {
+          "id": "a",
+          "text": "Hair cells in the organ of Corti"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Cochlear hair cells convert basilar-membrane movement into neural signalling.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Rods in the retina.” That conflicts with the required structure, direction, or control step. Cochlear hair cells convert basilar-membrane movement into neural signalling. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Pancreatic beta cells.” That conflicts with the required structure, direction, or control step. Cochlear hair cells convert basilar-membrane movement into neural signalling. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Schwann cells.” That conflicts with the required structure, direction, or control step. Cochlear hair cells convert basilar-membrane movement into neural signalling. Compare the choice with that mechanism, then try again.",
+        "f": "Ossicles transfer mechanical vibration. Hair cells convert it into receptor signalling.",
+        "g": "The eardrum vibrates but does not replace cochlear receptor transduction.",
+        "h": "The tube helps equalize pressure; cochlear hair cells perform sound transduction."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 421,
+        "physicalPage": 18
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-09",
+      "renderedItemSha256": "14dc79dfb3e092a850cf7ff14379acf12b2be2183a487052e7ad5dce686247f6",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-10",
+      "routeId": "final-practice",
+      "prompt": "What shows that sweating after a temperature rise is negative feedback?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Sweating raises temperature"
+        },
+        {
+          "id": "c",
+          "text": "The response has no effector"
+        },
+        {
+          "id": "a",
+          "text": "Heat loss opposes the rise"
+        },
+        {
+          "id": "d",
+          "text": "The variable is the sweat"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Sweating increases heat loss, which opposes the original rise in body temperature.",
+      "misconceptionFeedback": {
+        "b": "Sweating can increase evaporative heat loss; it does not define a temperature-raising response.",
+        "c": "Sweat glands are effectors, so the loop does have an effector.",
+        "d": "Body temperature is the regulated variable. Sweating is part of the response that changes heat loss."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-10",
+      "renderedItemSha256": "e3ef7d649f50ddf6fb4dd25d374344e712b4cbb187944adb849236e7feb26bb4",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-11",
+      "routeId": "final-practice",
+      "prompt": "A hormone circulates past many cells. Which cells respond?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Every cell equally"
+        },
+        {
+          "id": "c",
+          "text": "Only cells next to the gland"
+        },
+        {
+          "id": "h",
+          "text": "Only cells that also secrete that hormone"
+        },
+        {
+          "id": "a",
+          "text": "Cells with compatible receptors"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Target response depends on compatible receptors.",
+      "misconceptionFeedback": {
+        "b": "Hormone delivery does not make all cells equally responsive; compatible receptors matter.",
+        "c": "Targets can be far from the gland because hormones circulate in blood.",
+        "d": "This choice identifies “Only sensory neurons.” That conflicts with the required structure, direction, or control step. Target response depends on compatible receptors. Compare the choice with that mechanism, then try again.",
+        "h": "Cells can respond to a hormone without producing it themselves."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 442,
+        "physicalPage": 9
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-11",
+      "renderedItemSha256": "50a88e070a8b60a959b616c9ab246d4f43ce20818b7946cd31d349fcb07acf80",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-12",
+      "routeId": "final-practice",
+      "prompt": "Which sequence correctly traces TSH control?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Anterior pituitary → TSH → thyroid → thyroxine"
+        },
+        {
+          "id": "f",
+          "text": "Thyroid → TSH → anterior pituitary → thyroxine"
+        },
+        {
+          "id": "g",
+          "text": "Posterior pituitary → TSH → thyroid → thyroxine"
+        },
+        {
+          "id": "h",
+          "text": "Anterior pituitary → thyroxine → thyroid → TSH"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "TSH from the anterior pituitary stimulates thyroid release of thyroxine.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Thyroid → TSH → cochlea.” That conflicts with the required structure, direction, or control step. TSH from the anterior pituitary stimulates thyroid release of thyroxine. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Posterior pituitary → insulin → thyroid.” That conflicts with the required structure, direction, or control step. TSH from the anterior pituitary stimulates thyroid release of thyroxine. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Pancreas → ADH → bone.” That conflicts with the required structure, direction, or control step. TSH from the anterior pituitary stimulates thyroid release of thyroxine. Compare the choice with that mechanism, then try again.",
+        "f": "This swaps the source and target glands. TSH comes from anterior pituitary.",
+        "g": "TSH is an anterior-pituitary hormone, not a posterior-pituitary release.",
+        "h": "The hormones are reversed: pituitary releases TSH, while thyroid releases thyroxine."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 445,
+        "physicalPage": 12
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-12",
+      "renderedItemSha256": "28ec8787131538c0420cd46bb47bb832181aac15e51b889541e95a4afae3cec0",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-13",
+      "routeId": "final-practice",
+      "prompt": "During dehydration, which pattern is expected?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Lower ADH and concentrated urine"
+        },
+        {
+          "id": "g",
+          "text": "Higher ADH and a large volume of dilute urine"
+        },
+        {
+          "id": "a",
+          "text": "Higher ADH and concentrated urine"
+        },
+        {
+          "id": "h",
+          "text": "Lower ADH and increased collecting-duct water permeability"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "ADH increases kidney water reabsorption, reducing urine volume and increasing its concentration.",
+      "misconceptionFeedback": {
+        "b": "Lower ADH normally permits less water reabsorption, not the expected concentration of urine during dehydration.",
+        "c": "This choice identifies “Higher insulin and dilute urine.” That conflicts with the required structure, direction, or control step. ADH increases kidney water reabsorption, reducing urine volume and increasing its concentration. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Lower PTH and high sound sensitivity.” That conflicts with the required structure, direction, or control step. ADH increases kidney water reabsorption, reducing urine volume and increasing its concentration. Compare the choice with that mechanism, then try again.",
+        "g": "With a normal kidney response, higher ADH conserves water and reduces urine volume.",
+        "h": "ADH increases water permeability. Lower ADH does not explain that response."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-13",
+      "renderedItemSha256": "7450ec686da30dc7598fd0d5e35580d80251fcf1117b14f2e340e2fc62488cfa",
+      "outcomeIds": [
+        "A2.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.4k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-14",
+      "routeId": "final-practice",
+      "prompt": "Blood calcium falls. Which response opposes the change?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Calcitonin rises"
+        },
+        {
+          "id": "a",
+          "text": "PTH rises"
+        },
+        {
+          "id": "g",
+          "text": "PTH falls"
+        },
+        {
+          "id": "h",
+          "text": "Kidney calcium loss increases"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "PTH coordinates effects that raise blood calcium.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Insulin rises.” That conflicts with the required structure, direction, or control step. PTH coordinates effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Cholinesterase rises.” That conflicts with the required structure, direction, or control step. PTH coordinates effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Rods release TSH.” That conflicts with the required structure, direction, or control step. PTH coordinates effects that raise blood calcium. Compare the choice with that mechanism, then try again.",
+        "f": "Calcitonin tends to favour lower blood calcium, so it would not be the main response opposing this fall.",
+        "g": "Less PTH would reduce the drive to restore blood calcium.",
+        "h": "Losing more calcium would reinforce the fall rather than oppose it."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 450,
+        "physicalPage": 17
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-14",
+      "renderedItemSha256": "2a012be13172bb93139e22c5e8fdd3a25bd79776c3188cfd451a41e3d3c3226d",
+      "outcomeIds": [
+        "A2.4k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.4k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-15",
+      "routeId": "final-practice",
+      "prompt": "Blood glucose rises after a meal. Which response follows?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "Alpha cells release glucagon as the main response"
+        },
+        {
+          "id": "a",
+          "text": "Beta cells release insulin"
+        },
+        {
+          "id": "g",
+          "text": "Beta cells release insulin and the liver releases more glucose"
+        },
+        {
+          "id": "h",
+          "text": "Alpha cells release insulin"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Insulin from beta cells supports uptake and storage in receptor-bearing targets.",
+      "misconceptionFeedback": {
+        "b": "Glucagon is the main pancreatic response to falling glucose, not the meal-related rise.",
+        "c": "This choice identifies “Adrenal medulla releases calcitonin.” That conflicts with the required structure, direction, or control step. Insulin from beta cells supports uptake and storage in receptor-bearing targets. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Pituitary releases insulin.” That conflicts with the required structure, direction, or control step. Insulin from beta cells supports uptake and storage in receptor-bearing targets. Compare the choice with that mechanism, then try again.",
+        "g": "Insulin normally restrains liver glucose output and supports storage.",
+        "h": "Insulin comes from beta cells; alpha cells release glucagon."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 456,
+        "physicalPage": 23
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-15",
+      "renderedItemSha256": "a772ea66dada014b073bc7e84495cd9e16e142cb6a8f5a6ca54bbeeb6f0a82c5",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-16",
+      "routeId": "final-practice",
+      "prompt": "Which statement correctly compares adrenal regions?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Cortex releases epinephrine; medulla releases cortisol and aldosterone"
+        },
+        {
+          "id": "g",
+          "text": "Both regions release cortisol, but only medulla releases ACTH"
+        },
+        {
+          "id": "a",
+          "text": "Medulla supports rapid epinephrine responses; cortex releases cortisol and aldosterone"
+        },
+        {
+          "id": "h",
+          "text": "Medulla releases aldosterone; cortex releases epinephrine during stress"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The medulla and cortex have different hormones, targets, and timing.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Cortex releases insulin; medulla releases thyroxine.” That conflicts with the required structure, direction, or control step. The medulla and cortex have different hormones, targets, and timing. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Both release one identical hormone.” That conflicts with the required structure, direction, or control step. The medulla and cortex have different hormones, targets, and timing. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Neither responds during stress.” That conflicts with the required structure, direction, or control step. The medulla and cortex have different hormones, targets, and timing. Compare the choice with that mechanism, then try again.",
+        "f": "This reverses the adrenal regions and their hormone products.",
+        "g": "ACTH comes from anterior pituitary, and cortisol is a cortex product.",
+        "h": "Aldosterone comes from cortex and epinephrine from medulla, not the reverse."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 453,
+        "physicalPage": 20
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-16",
+      "renderedItemSha256": "95f0e739bd75481505792d1d93eae31709212c83d1495840ab3efb6ef7cbff98",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-17",
+      "routeId": "final-practice",
+      "prompt": "Synthetic data show high blood concentration, high ADH, but a large volume of dilute urine. What is the best inference?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "ADH has certainly stopped being released"
+        },
+        {
+          "id": "g",
+          "text": "The kidneys are conserving water normally in response to ADH"
+        },
+        {
+          "id": "h",
+          "text": "The high ADH value is sufficient to prove normal collecting-duct function"
+        },
+        {
+          "id": "a",
+          "text": "The kidney response to ADH may be reduced"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "High ADH with poor water conservation suggests a target-response problem, but more evidence is needed.",
+      "misconceptionFeedback": {
+        "b": "The reported ADH is high, which contradicts a complete failure of release.",
+        "c": "This choice identifies “Insulin caused sound transduction.” That conflicts with the required structure, direction, or control step. High ADH with poor water conservation suggests a target-response problem, but more evidence is needed. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The data prove a diagnosis.” That conflicts with the required structure, direction, or control step. High ADH with poor water conservation suggests a target-response problem, but more evidence is needed. Compare the choice with that mechanism, then try again.",
+        "g": "Large amounts of dilute urine do not match the expected conservation response to high ADH.",
+        "h": "A hormone concentration does not prove a target response. Urine data suggest that link needs investigation."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 441,
+        "physicalPage": 8
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-17",
+      "renderedItemSha256": "dfbc268dfcf9f8d512ba3f43d9b361fadf96aab4205104e8196bf3d2a4253aaa",
+      "outcomeIds": [
+        "A2.6k",
+        "A2.3s"
+      ],
+      "performanceBehaviourIds": [
+        "A2.6k-02"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-core-18",
+      "routeId": "final-practice",
+      "prompt": "During a stress case, heart rate rises quickly and cortisol stays elevated later. Which explanation fits?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Rapid neural-medulla and slower pituitary-cortex pathways overlap"
+        },
+        {
+          "id": "f",
+          "text": "Cortisol from the medulla causes the rapid heart-rate response"
+        },
+        {
+          "id": "g",
+          "text": "ACTH is released directly by sympathetic nerve endings"
+        },
+        {
+          "id": "h",
+          "text": "The later cortisol rise proves the earlier neural response has stopped"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Fast sympathetic and adrenal-medulla effects can overlap with a slower ACTH-cortisol pathway.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “One action potential becomes permanently larger.” That conflicts with the required structure, direction, or control step. Fast sympathetic and adrenal-medulla effects can overlap with a slower ACTH-cortisol pathway. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Only the pancreas detects stress.” That conflicts with the required structure, direction, or control step. Fast sympathetic and adrenal-medulla effects can overlap with a slower ACTH-cortisol pathway. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Every target cell responds without receptors.” That conflicts with the required structure, direction, or control step. Fast sympathetic and adrenal-medulla effects can overlap with a slower ACTH-cortisol pathway. Compare the choice with that mechanism, then try again.",
+        "f": "Cortisol is a cortex product. Rapid sympathetic and medulla effects occur before the sustained cortisol response.",
+        "g": "ACTH is released by the anterior pituitary, not by sympathetic endings.",
+        "h": "The pathways can overlap. A later hormone response does not prove that neural activity has ceased."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 453,
+        "physicalPage": 20
+      },
+      "focusTargetId": "work-focus-practice-final-practice-core-18",
+      "renderedItemSha256": "ba244329d0a185c6255ddc4671f1e9e6494b02160050d40196c588539f584357",
+      "outcomeIds": [
+        "A2.5k"
+      ],
+      "performanceBehaviourIds": [
+        "A2.5k-01"
+      ],
+      "optional": false,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-01",
+      "routeId": "final-practice",
+      "prompt": "Two axons have the same diameter. Axon A is myelinated and Axon B is not. Which prediction and reason are strongest?",
+      "choices": [
+        {
+          "id": "b",
+          "text": "B conducts faster because it loses more current"
+        },
+        {
+          "id": "a",
+          "text": "A conducts faster because current spreads farther between nodes"
+        },
+        {
+          "id": "c",
+          "text": "A produces larger action potentials"
+        },
+        {
+          "id": "h",
+          "text": "B conducts faster because every adjacent region must regenerate the signal"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Myelin reduces current loss and allows regeneration mainly at nodes, increasing conduction speed.",
+      "misconceptionFeedback": {
+        "b": "Greater current loss makes regeneration necessary over shorter distances; it does not make conduction faster.",
+        "c": "Myelin increases speed without increasing the size of each action potential.",
+        "d": "This choice identifies “B needs no membrane channels.” That conflicts with the required structure, direction, or control step. Myelin reduces current loss and allows regeneration mainly at nodes, increasing conduction speed. Compare the choice with that mechanism, then try again.",
+        "h": "Regenerating along each adjacent region generally takes longer than node-to-node conduction in a similar-sized myelinated axon."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 378,
+        "physicalPage": 19
+      },
+      "focusTargetId": "work-focus-practice-final-practice-challenge-01",
+      "renderedItemSha256": "902e6428079a67ede3cc9a32e486d1c969c8acc74e6c6e226018094da1e412e9",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": true,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-02",
+      "routeId": "final-practice",
+      "prompt": "A postsynaptic cell receives one excitatory and one inhibitory input at the same time. What determines whether it fires?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "The excitatory input alone, regardless of the inhibitory input"
+        },
+        {
+          "id": "g",
+          "text": "The inhibitory input alone, regardless of the excitatory input"
+        },
+        {
+          "id": "h",
+          "text": "The total number of inputs, regardless of their size or direction"
+        },
+        {
+          "id": "a",
+          "text": "The combined membrane effect at the trigger region"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The neuron integrates inputs across time and location; the net change determines whether threshold is reached.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “The colour of the neurotransmitter.” That conflicts with the required structure, direction, or control step. The neuron integrates inputs across time and location; the net change determines whether threshold is reached. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Whether the axon has a nucleus.” That conflicts with the required structure, direction, or control step. The neuron integrates inputs across time and location; the net change determines whether threshold is reached. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The posterior pituitary.” That conflicts with the required structure, direction, or control step. The neuron integrates inputs across time and location; the net change determines whether threshold is reached. Compare the choice with that mechanism, then try again.",
+        "f": "Inhibitory input also changes the net membrane effect; it cannot simply be ignored.",
+        "g": "Excitatory input also contributes. Firing depends on the combined effect at the trigger region.",
+        "h": "Inputs differ in strength and effect. Counting them without combining their changes is insufficient."
+      },
+      "textbook": {
+        "documentId": "chapter-11",
+        "printedPage": 380,
+        "physicalPage": 21
+      },
+      "focusTargetId": "work-focus-practice-final-practice-challenge-02",
+      "renderedItemSha256": "90bed07d84251f9600e288200e1b355d2c5cc1a4e4c1c9a6b3db73cd87829410",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": true,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-03",
+      "routeId": "final-practice",
+      "prompt": "A visual-field pattern changes after damage behind the optic chiasm. Why can both eyes contribute to the pattern?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Each hemisphere receives processed information from both eyes"
+        },
+        {
+          "id": "f",
+          "text": "All fibres from each eye cross to the opposite hemisphere"
+        },
+        {
+          "id": "g",
+          "text": "Each hemisphere receives signals from only the eye on the same side"
+        },
+        {
+          "id": "h",
+          "text": "The optic chiasm combines both lenses into a single optical pathway"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Partial crossing at the optic chiasm organizes visual fields from both eyes into each hemisphere.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “The lens sends hormones to both eyes.” That conflicts with the required structure, direction, or control step. Partial crossing at the optic chiasm organizes visual fields from both eyes into each hemisphere. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Rods cross through the ear.” That conflicts with the required structure, direction, or control step. Partial crossing at the optic chiasm organizes visual fields from both eyes into each hemisphere. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “The pupil creates action potentials.” That conflicts with the required structure, direction, or control step. Partial crossing at the optic chiasm organizes visual fields from both eyes into each hemisphere. Compare the choice with that mechanism, then try again.",
+        "f": "Crossing is partial, not complete. Each hemisphere receives visual-field information from both eyes.",
+        "g": "That overlooks the crossed fibres from the other eye.",
+        "h": "The chiasm carries neural fibres after retinal transduction; lenses do not form its pathway."
+      },
+      "textbook": {
+        "documentId": "chapter-12",
+        "printedPage": 416,
+        "physicalPage": 13
+      },
+      "focusTargetId": "work-focus-practice-final-practice-challenge-03",
+      "renderedItemSha256": "72742e6d1369b7758d9f6201ffec8eac21fd1c8373d07a83697f4e9a55d0326a",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": true,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-04",
+      "routeId": "final-practice",
+      "prompt": "A synthetic sample has low TSH and low thyroxine. Which pathway level deserves investigation first?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Thyroid failure despite strong TSH stimulation"
+        },
+        {
+          "id": "g",
+          "text": "Excess thyroid output suppressing a normal pituitary"
+        },
+        {
+          "id": "a",
+          "text": "Hypothalamic-pituitary stimulation"
+        },
+        {
+          "id": "h",
+          "text": "PTH control of kidney calcium retention"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Low TSH with low thyroxine can support reduced central stimulation rather than failure of a strongly stimulated thyroid.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Pancreatic insulin release only.” That conflicts with the required structure, direction, or control step. Low TSH with low thyroxine can support reduced central stimulation rather than failure of a strongly stimulated thyroid. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Cochlear hair cells.” That conflicts with the required structure, direction, or control step. Low TSH with low thyroxine can support reduced central stimulation rather than failure of a strongly stimulated thyroid. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Spinal motor roots.” That conflicts with the required structure, direction, or control step. Low TSH with low thyroxine can support reduced central stimulation rather than failure of a strongly stimulated thyroid. Compare the choice with that mechanism, then try again.",
+        "f": "The TSH value is low, not strong. Reduced upstream stimulation deserves investigation first.",
+        "g": "Thyroxine is low, so excessive thyroid output does not fit the paired measurements.",
+        "h": "That is a different feedback system and does not directly explain the low TSH/thyroxine pair."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 448,
+        "physicalPage": 15
+      },
+      "focusTargetId": "work-focus-practice-final-practice-challenge-04",
+      "renderedItemSha256": "b4003250d10be6ff86d9e26f937f74ea62d636074bcaa1d3fc8051d068c1c88f",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": true,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-05",
+      "routeId": "final-practice",
+      "prompt": "Why might aldosterone remain high even if ACTH is not high?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "ACTH is the only signal controlling all adrenal-cortex hormones"
+        },
+        {
+          "id": "g",
+          "text": "The adrenal medulla converts cortisol into aldosterone"
+        },
+        {
+          "id": "a",
+          "text": "Kidney-linked pressure and ion signals strongly regulate aldosterone"
+        },
+        {
+          "id": "h",
+          "text": "High aldosterone must always mean high cortisol"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "Aldosterone is regulated mainly through kidney-linked pressure and ion pathways, not only ACTH.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Aldosterone is a neurotransmitter.” That conflicts with the required structure, direction, or control step. Aldosterone is regulated mainly through kidney-linked pressure and ion pathways, not only ACTH. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “The retina releases aldosterone.” That conflicts with the required structure, direction, or control step. Aldosterone is regulated mainly through kidney-linked pressure and ion pathways, not only ACTH. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “ACTH never affects the adrenal cortex.” That conflicts with the required structure, direction, or control step. Aldosterone is regulated mainly through kidney-linked pressure and ion pathways, not only ACTH. Compare the choice with that mechanism, then try again.",
+        "f": "Aldosterone has important kidney-linked and ion controls; cortex hormones are not regulated identically.",
+        "g": "Aldosterone is produced by the cortex, not made by medullary conversion of cortisol.",
+        "h": "Different regulatory inputs mean the two hormone concentrations need not rise together."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 454,
+        "physicalPage": 21
+      },
+      "focusTargetId": "work-focus-practice-final-practice-challenge-05",
+      "renderedItemSha256": "1f386f7eef8b4c1d8a5155a94ab3a8108a64e83db0b1ec91e4b9fdb5db4771c7",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": true,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    },
+    {
+      "id": "biology30-unit-a-pilot-2:practice:final-practice-challenge-06",
+      "routeId": "final-practice",
+      "prompt": "A case shows rising glucose, rising insulin, and continued rising glucose. What additional evidence is most useful?",
+      "choices": [
+        {
+          "id": "f",
+          "text": "Whether insulin concentration has risen, without measuring its effect"
+        },
+        {
+          "id": "a",
+          "text": "Target-tissue response and liver glucose output"
+        },
+        {
+          "id": "g",
+          "text": "Whether glucagon is present, without measuring glucose production"
+        },
+        {
+          "id": "h",
+          "text": "Whether glucose has risen, without considering food intake or tissue uptake"
+        }
+      ],
+      "answerKey": "a",
+      "rationale": "The hormone value alone cannot show whether receptor-bearing targets respond or whether liver output is changing.",
+      "misconceptionFeedback": {
+        "b": "This choice identifies “Pupil diameter only.” That conflicts with the required structure, direction, or control step. The hormone value alone cannot show whether receptor-bearing targets respond or whether liver output is changing. Compare the choice with that mechanism, then try again.",
+        "c": "This choice identifies “Sound frequency only.” That conflicts with the required structure, direction, or control step. The hormone value alone cannot show whether receptor-bearing targets respond or whether liver output is changing. Compare the choice with that mechanism, then try again.",
+        "d": "This choice identifies “Myelin colour.” That conflicts with the required structure, direction, or control step. The hormone value alone cannot show whether receptor-bearing targets respond or whether liver output is changing. Compare the choice with that mechanism, then try again.",
+        "f": "The case already reports rising insulin. Repeating that fact does not establish tissue responsiveness.",
+        "g": "Glucagon presence alone does not show actual liver output or how insulin targets respond.",
+        "h": "Rising glucose is already known. Explaining it requires evidence about input, output and uptake."
+      },
+      "textbook": {
+        "documentId": "chapter-13",
+        "printedPage": 458,
+        "physicalPage": 25
+      },
+      "focusTargetId": "work-focus-practice-final-practice-challenge-06",
+      "renderedItemSha256": "8ce5a65eee11ef6e2d79a0bb3fc7eb86833a7b698b1aae0fe769fd00d0ac7db4",
+      "outcomeIds": [],
+      "performanceBehaviourIds": [],
+      "optional": true,
+      "structuralReview": "passed",
+      "semanticReview": "pending-item-by-item-review"
+    }
+  ],
+  "academicClearance": false
+}

@@ -1,0 +1,44 @@
+{
+  "stage": 101,
+  "checkedAt": "2026-09-07T16:29:16.488236+00:00",
+  "status": "local-inline-source-video-repair-verified",
+  "cause": "Stage99 restored library players but placed only library links inside lessons. A includes inline players in the teaching sequence.",
+  "change": "Render every original mapped PowerPoint video directly in its lesson after teaching and before the existing illustrated walkthrough/checkpoint. Header links jump to inline videos; each inline video links to its single library entry.",
+  "owner": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "1ed22657ab22df6a2bb0d4e0bae4600d32e2d51129a54822218cdc5652d9b891",
+      "contractSha256": "b0fc5506baaeb82f0c44a1965cb24c22c4118d78337303fdbf15be6eb8ba71f6",
+      "generatedAt": "2026-09-07T16:26:38.190Z",
+      "previousWorkspaceSha256": "78f715a93a96cdf76e1c04f169cdeee9625905c7b3a82b4ca7fbd481236117da"
+    },
+    "C": {
+      "buildSha256": "42f7d4dcd83d68f4deaae90ed41913a715dd37ed264dcffbd3cba7cd01e0b1ef",
+      "contractSha256": "aae1ad15524d41fc92aa7119d66321228402a9a8df5e93a865edbe274e301a6e",
+      "generatedAt": "2026-09-07T16:26:44.586Z",
+      "previousWorkspaceSha256": "5d14c5bf7e28bdbc8f18384afc98f922b26bf279c9a92551c6257bdeda675ea2"
+    },
+    "D": {
+      "buildSha256": "5718251d9e516d3ae4234cd5035ba934da9b08d46e93fa03d8fac7491a8100ca",
+      "contractSha256": "57e3855acc2c175402d933ddebcd226f5024a0cef77ab95d5fdadbf075be6f19",
+      "generatedAt": "2026-09-07T16:26:50.064Z",
+      "previousWorkspaceSha256": "c0d2b33dc800c4af025da3993f7d0cab36c5d883e2b8922b3cd7d9a1c31d156f"
+    }
+  },
+  "validation": {
+    "sourceAndOwner": "5/5 tests pass: exact80-source library inventory, each mapped lesson contains its inline source video and unique player ID, placement immediately before existing walkthrough, protected A/cold owner checks",
+    "actualPlayer": "B/C/D inline player, header jump, library handoff and hidden-player removal pass",
+    "workspace": "B/C/D pass",
+    "projectE2E": "B/C/D each1/1 pass",
+    "native": "Original B provider poster/Play control observed inside lesson before walkthrough"
+  },
+  "preserved": {
+    "state": "Existing responses, walkthroughs and checkpoint IDs unchanged; no duplicate work or required video flags",
+    "library": "80 unique original links retained;3 unavailable previews still explicitly marked",
+    "sourceReview": "Original optional-resource lane remains; no new caption/science/playback certification",
+    "protectedA": "unchanged",
+    "sidebarWidth": "stage100 width behavior retained"
+  },
+  "teacherAcceptance": null,
+  "releaseActions": []
+}

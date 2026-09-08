@@ -1,0 +1,38 @@
+✔ production closure follows the connected owner, browser and cold source verifier without writing (51.45225ms)
+✔ input closure refuses uncovered academic inputs, assets and changed external branding (0.234916ms)
+✔ protected A baseline is exact and frozen contracts pass cold production preflight (10290.467375ms)
+✔ generated project checks target actual Pilot 2 routes and collection controls (1075.439417ms)
+✔ PowerPoint source video inventory is complete without claiming reviewed clip acceptance (12156.399541ms)
+✖ woven source video is beside teaching and library/fallback links work on desktop and mobile (296646.3785ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 297109.841417
+
+✖ failing tests:
+
+test at scripts/tests/biology30-woven-videos-browser.test.ts:1:337
+✖ woven source video is beside teaching and library/fallback links work on desktop and mobile (296646.3785ms)
+  locator.scrollIntoViewIfNeeded: Timeout 29995.822000000004ms exceeded.
+  Call log:
+  [2m  - attempting scroll into view action[22m
+  [2m    2 × waiting for element to be stable[22m
+  [2m      - element is not stable[22m
+  [2m    - retrying scroll into view action[22m
+  [2m    - waiting 20ms[22m
+  [2m    2 × waiting for element to be stable[22m
+  [2m      - element is not stable[22m
+  [2m    - retrying scroll into view action[22m
+  [2m      - waiting 100ms[22m
+  [2m    - waiting for element to be stable[22m
+  [2m    - element is not stable[22m
+  [2m  - retrying scroll into view action[22m
+  [2m    - waiting 500ms[22m
+  
+      at TestContext.<anonymous> (/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/biology30-woven-videos-browser.test.ts:18:313) {
+    name: 'TimeoutError'
+  }

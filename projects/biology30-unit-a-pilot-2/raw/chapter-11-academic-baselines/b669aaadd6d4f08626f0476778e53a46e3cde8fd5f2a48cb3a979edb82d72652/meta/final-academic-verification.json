@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "recordedAt": "2026-09-05T21:06:59Z",
+  "workspaceSha256": "b669aaadd6d4f08626f0476778e53a46e3cde8fd5f2a48cb3a979edb82d72652",
+  "workspaceTreeSha256": "06f4fe274d8f702e9ed5c32a1b5a9ab608b8e684909075e912b1dabb6b5202f2",
+  "checkpointCommit": "2ad72ec06b104c589f91e4b5afb8d86c322bc168",
+  "baselineWorkspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+  "scope": "Initial academic-evidence, prerequisite, link and readable-column repairs plus the final-A/B-D operating record. Not completion of the academic work queue.",
+  "technicalStatus": "passed-after-fresh-server-rerun",
+  "academicStatus": "academic-gaps-open",
+  "teacherDecision": null,
+  "transferReady": false,
+  "checks": [
+    {
+      "command": "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+      "status": "passed",
+      "note": "Transactional baseline preservation and protected-project comparison."
+    },
+    {
+      "command": "npm run test:biology30-unit-a-pilot-2",
+      "status": "passed",
+      "passed": 13
+    },
+    {
+      "command": "npm run audit:biology30-improvement-transfer -- --check",
+      "status": "passed",
+      "note": "52 explicit mappings, canonical file references, two archives and five notes checksummed; three target-unit inventories remain not-ready."
+    },
+    {
+      "command": "npm run test:biology30-improvement-transfer",
+      "status": "passed",
+      "passed": 4
+    },
+    {
+      "command": "npm run test:biology30-unit-a-improvement-pilot",
+      "status": "passed",
+      "passed": 12
+    },
+    {
+      "command": "npm run test:science-comparison",
+      "status": "passed",
+      "passed": 6
+    },
+    {
+      "command": "npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace",
+      "status": "passed"
+    },
+    {
+      "command": "npm run validate:manifests",
+      "status": "passed"
+    },
+    {
+      "command": "npm run build:studio",
+      "status": "passed"
+    },
+    {
+      "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+      "status": "expected-blocked",
+      "exitCode": 1,
+      "diagnostics": [
+        "not-active"
+      ]
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --grep 'save reporting|lesson prose' --output=/tmp/biology30-final-e2e.BeQ8Ga/focused",
+      "status": "passed",
+      "passed": 2
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:biology30-unit-a-pilot-2 -- --output=/tmp/biology30-final-e2e.BeQ8Ga/full",
+      "status": "passed",
+      "passed": 26,
+      "elapsed": "10.2 minutes"
+    },
+    {
+      "command": "E2E_STUDIO_PORT=4182 npm run test:e2e:project -- --project biology30-unit-a-pilot-2 --output=/tmp/biology30-final-e2e.BeQ8Ga/project",
+      "status": "passed",
+      "passed": 1
+    },
+    {
+      "command": "Scoped git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "Relative Markdown file-link check for the canonical playbook and Pilot 2 prompt pack",
+      "status": "passed",
+      "linksChecked": 92,
+      "missing": 0,
+      "note": "File existence checked; this is not a scientific-source or every-fragment semantic review."
+    }
+  ],
+  "failedAttempt": {
+    "command": "npm run test:e2e:biology30-unit-a-pilot-2",
+    "passed": 14,
+    "failed": 12,
+    "status": "retained-not-hidden",
+    "evidence": "test-results/biology30-unit-a-pilot-2-s-e50f3-aded-and-failed-persistence-chromium/trace.zip",
+    "observation": "The first failed test exhausted its 60-second total budget during the third of four save scenarios; the trace also showed a preview-toolbar interception. Later tests timed out during Studio/preview setup. The anomalous multi-hour elapsed run was not treated as a scientific failure or explained by an unverified cause. A fresh-server focused rerun passed without increasing timeouts, forcing clicks, or changing the learner build.",
+    "resolution": "Focused rerun passed 2/2; complete fresh-server specialized run passed 26/26 and project contract passed 1/1 at the identical b669aaad learner hash. The failed attempt is retained, not counted as a pass."
+  },
+  "visual": {
+    "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-05T15-31-21-658Z/report.json",
+    "reportSha256": "570ff603b3140b96762ef72f51f09f001219b61a0c7b4641bde5b23c50baed85",
+    "routeCaptures": 81,
+    "stateCaptures": 140,
+    "contactSheets": 34,
+    "allContactSheetsOpened": true,
+    "geometryFindings": 0,
+    "additionalViewportCloseUps": 6,
+    "scope": "Layout/contact-sheet inspection, supplemented with actual-viewport term and core-prose checks at desktop, tablet and mobile. Not an independent review of every scientific label, enlarged figure, video transcript or answer.",
+    "remainingScientificChecks": [
+      "action-potential refractory shading",
+      "misconception-specific feedback",
+      "academic gap and item/media review"
+    ]
+  },
+  "invariants": {
+    "stateVersion": 6,
+    "worstCaseStateCharacters": 39061,
+    "requiredRoutes": 18,
+    "requiredMinutes": 1505,
+    "optionalMinutes": 295,
+    "practiceItems": 86,
+    "advancedBlocks": 40,
+    "mediaCheckpoints": 14,
+    "possibleProcessRecords": 178,
+    "questionOrResponseIdChanges": false,
+    "completionOrScoreChanges": false
+  },
+  "protected": {
+    "pilot1LearnerSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "productionUnitsADChanged": false,
+    "pilot1OperationalExceptions": [
+      "meta/unit-a-to-bcd-improvement-playbook.md",
+      "meta/biology30-improvement-transfer-contract.json",
+      "meta/bcd-material-readiness.json"
+    ],
+    "additionalCommit": false,
+    "push": false,
+    "deployment": false,
+    "export": false,
+    "studioEditEnabled": false
+  },
+  "academicReview": "meta/final-academic-review.json",
+  "nextWork": "Seven final-A work packages at projects/biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#final-unit-a-work-queue-and-actual-completion-criteria",
+  "limits": [
+    "SCORM save outcomes were tested with mocked LMS APIs; no live Brightspace learner-session or impersonation certification was performed.",
+    "No completed item-by-item scientific/key/distractor review, transcript review, observed-student usability study or complete-course teacher acceptance is claimed.",
+    "Source archives and unrelated working-tree dependencies are not backed up by the scoped Git checkpoint."
+  ]
+}

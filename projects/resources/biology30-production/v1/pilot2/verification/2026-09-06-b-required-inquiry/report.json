@@ -1,0 +1,31 @@
+{
+  "stage": 66,
+  "status": "B-required-inquiry-final-operations-repaired",
+  "teacherDecision": null,
+  "focusedTests": 53,
+  "draftContracts": "passed",
+  "ordinaryMaximumStateCharacters": {
+    "B": 30851,
+    "C": 40269,
+    "D": 26164
+  },
+  "latestTypecheckReceipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-bc-operation-mappings/typecheck.log",
+  "latestProtectionReceipt": "projects/resources/biology30-production/v1/pilot2/verification/2026-09-06-preserved-glossary/protection.log",
+  "verificationLimits": "Typecheck and protected-tree receipts retained from prior stages; this stage changed B resource contracts and one state test, not learner trees or runtime behavior.",
+  "initialFailure": "Maximum-state test compared flag array order even though flags are a semantic set. Revised assertion normalizes only flag order; all remaining state fields still compare exactly. Existing marker tests cover earlier arrays and exact map mismatch.",
+  "learnerCandidatesBuilt": 0,
+  "authoredGatesPassedPerUnit": 6,
+  "sourceReceipt": "projects/resources/biology30-production/v1/pilot2/source-review/b-required-inquiry-repair.json",
+  "newSemanticIds": true,
+  "previousDraftsPreserved": true,
+  "requiredPracticeCountsUnchanged": true,
+  "remainingBEmptyPracticeLinks": 3,
+  "logSha256": {
+    "contracts.log": "7ab2826ff8339b3298b5db02ab68b51a4275921fad7f2737b730bf10df4c97b2",
+    "state.log": "b824671d3a69ed376c669aee112b1d1d0bb599dc62ad4c78b93c1bba5d080979",
+    "activities.log": "3a9e75242826b7f8f4e8d28006925247a597f0441ed8e240c1c279dad600369c",
+    "tests-initial-ordering-failure.log": "1ec6a9aa27ac0d8676fd08a56ec976d92fc6bb8edd62d055c34ba91eb7ce06aa",
+    "tests.log": "aabbc29fd02256f9f2d786eaac34a00bdbddc7af451d61ab32ff8e80bb89436e"
+  },
+  "changedTestSha256": "1a632d76986247d01e1e28c6c2234771d295c5a556df51dfb70260859f48ae4f"
+}

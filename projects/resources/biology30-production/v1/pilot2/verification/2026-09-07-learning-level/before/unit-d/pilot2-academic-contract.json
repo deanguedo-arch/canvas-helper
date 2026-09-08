@@ -1,0 +1,1259 @@
+{
+  "unit": "D",
+  "status": "draft: all37 components have narrowed practice sub-operation links; complete atomic criterion proof still pending",
+  "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+  "outcomeCount": 27,
+  "componentCount": 37,
+  "components": [
+    {
+      "id": "d1-1k-equilibrium",
+      "outcomeId": "D1.1k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain allele-frequency stability under large-population/random-mating/no-selection/no-mutation/no-migration assumptions and use deviations as questions rather than proof of one cause.",
+      "targets": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-equilibrium-assumptions",
+          "teachingTarget": "d-topic-hardy-weinberg-equilibrium-assumptions-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-equilibrium-assumptions-figure",
+          "workedTarget": "d-topic-hardy-weinberg-equilibrium-assumptions-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-equilibrium-assumptions-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "large population",
+            "random mating",
+            "no migration",
+            "no mutation",
+            "no selection"
+          ]
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "teachingTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+          "workedTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "observed",
+            "expected",
+            "sample",
+            "equilibrium"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-02-assumption",
+        "d-practice-chapter-d-lesson-11-equilibrium-risk",
+        "d-topic-hardy-weinberg-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-2k-selection-mutation",
+      "outcomeId": "D1.2k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish mutation creating alleles from selection changing representation through differential reproductive success.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "teachingTarget": "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+          "visualTarget": "d-topic-mechanisms-of-change-mutation-and-selection-figure",
+          "workedTarget": "d-topic-mechanisms-of-change-mutation-and-selection-worked",
+          "retrievalTarget": "d-topic-mechanisms-of-change-mutation-and-selection-check",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "termsToDefineBeforeExplanation": [
+            "mutation",
+            "variation",
+            "natural selection",
+            "relative fitness"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-guided-d-lesson-04-new-allele",
+        "d-practice-final-d-lesson-04-claim-quality",
+        "d-topic-mechanisms-of-change-guided-construct",
+        "d-chapter-construct-03",
+        "d-application-resistance-evidence-and-consequences"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-2k-drift-events",
+      "outcomeId": "D1.2k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain random drift, founder and bottleneck effects with population size and sampling; distinguish chance from greater fitness.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-chance-and-population-size",
+          "teachingTarget": "d-topic-mechanisms-of-change-chance-and-population-size-teaching",
+          "visualTarget": "d-topic-mechanisms-of-change-chance-and-population-size-figure",
+          "workedTarget": "d-topic-mechanisms-of-change-chance-and-population-size-worked",
+          "retrievalTarget": "d-topic-mechanisms-of-change-chance-and-population-size-check",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "termsToDefineBeforeExplanation": [
+            "genetic drift",
+            "bottleneck",
+            "founder effect"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-04-drift-pattern",
+        "d-topic-mechanisms-of-change-guided-construct",
+        "d-chapter-construct-02"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-2k-flow-mating",
+      "outcomeId": "D1.2k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain migration/gene flow and nonrandom mating; nonrandom mating can change genotype frequencies without initially changing allele frequencies.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-movement-and-mating",
+          "teachingTarget": "d-topic-mechanisms-of-change-movement-and-mating-teaching",
+          "visualTarget": "d-topic-mechanisms-of-change-movement-and-mating-figure",
+          "workedTarget": "d-topic-mechanisms-of-change-movement-and-mating-worked",
+          "retrievalTarget": "d-topic-mechanisms-of-change-movement-and-mating-check",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "termsToDefineBeforeExplanation": [
+            "gene flow",
+            "migration",
+            "nonrandom mating"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-02-heterozygote-deficit",
+        "d-practice-final-d-lesson-02-cause-limit",
+        "d-chapter-construct-02",
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-3k-allele-counts",
+      "outcomeId": "D1.3k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Derive p=(2AA+Aa)/(2N), q=(2aa+Aa)/(2N) from observed diploid counts and check p+q=1.",
+      "targets": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-populations-and-allele-counts",
+          "teachingTarget": "d-topic-hardy-weinberg-populations-and-allele-counts-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-populations-and-allele-counts-figure",
+          "workedTarget": "d-topic-hardy-weinberg-populations-and-allele-counts-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-populations-and-allele-counts-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "population",
+            "gene pool",
+            "allele",
+            "genotype"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-guided-d-lesson-01-allele-denominator",
+        "d-practice-final-d-lesson-01-equilibrium-claim",
+        "d-practice-final-d-lesson-03-interpretation",
+        "d-topic-hardy-weinberg-guided-construct",
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-3k-expected-genotypes",
+      "outcomeId": "D1.3k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Use p²,2pq,q² for expected genotype frequencies under the specified model; calculate counts and check their sum.",
+      "targets": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-allele-and-genotype-frequencies",
+          "teachingTarget": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-figure",
+          "workedTarget": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-allele-and-genotype-frequencies-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "p",
+            "q",
+            "p squared",
+            "2pq",
+            "q squared"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-final-d-lesson-01-equilibrium-claim",
+        "d-practice-chapter-d-lesson-03-terms",
+        "d-topic-hardy-weinberg-guided-construct",
+        "d-chapter-construct-01"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-3k-recessive-inference",
+      "outcomeId": "D1.3k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "When assumptions permit, infer q from a recessive phenotype frequency using a square root, then calculate carriers and other expected categories; do not take the phenotype frequency as q.",
+      "targets": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-solving-and-checking",
+          "teachingTarget": "d-topic-hardy-weinberg-solving-and-checking-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-solving-and-checking-figure",
+          "workedTarget": "d-topic-hardy-weinberg-solving-and-checking-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-solving-and-checking-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "recessive phenotype",
+            "square root",
+            "heterozygote",
+            "frequency sum"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-03-square-root",
+        "d-chapter-construct-01"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-4k-molecular-population-change",
+      "outcomeId": "D1.4k",
+      "requiredSourcePage": 75,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how a sequence change can create heritable variation and differential survival/reproduction can change its frequency over generations; apply to a resistance case without goal-directed mutation.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-mutation-and-selection",
+          "teachingTarget": "d-topic-mechanisms-of-change-mutation-and-selection-teaching",
+          "visualTarget": "d-topic-mechanisms-of-change-mutation-and-selection-figure",
+          "workedTarget": "d-topic-mechanisms-of-change-mutation-and-selection-worked",
+          "retrievalTarget": "d-topic-mechanisms-of-change-mutation-and-selection-check",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "termsToDefineBeforeExplanation": [
+            "mutation",
+            "variation",
+            "natural selection",
+            "relative fitness"
+          ]
+        },
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-resistance-and-evidence",
+          "teachingTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-teaching",
+          "visualTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-figure",
+          "workedTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-worked",
+          "retrievalTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-check",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "termsToDefineBeforeExplanation": [
+            "antibiotic resistance",
+            "herbicide resistance",
+            "selection pressure"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-chapter-construct-03",
+        "d-application-resistance-evidence-and-consequences"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-1sts-evidence-and-perspectives",
+      "outcomeId": "D1.1sts",
+      "requiredSourcePage": 75,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain that science and technology have both intended and unintended consequences for humans and the environment (SEC3) [ICT F3–4.1] Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-resistance-and-evidence",
+          "teachingTarget": "d-topic-mechanisms-of-change-resistance-and-evidence-teaching",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "d-application-resistance-evidence-and-consequences"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-2sts-evidence-and-perspectives",
+      "outcomeId": "D1.2sts",
+      "requiredSourcePage": 75,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain how concepts, models and theories are often used in interpreting and explaining observations and in predicting future observations (NS6a) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "teachingTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "d-application-resistance-evidence-and-consequences"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-1s-online-operation",
+      "outcomeId": "D1.1s",
+      "requiredSourcePage": 76,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Can a change in allele frequency identify its cause without additional evidence? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-testing-explanations",
+          "requiredSkillTask": "d-topic-mechanisms-of-change-testing-explanations-skill-task",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "optionalExtension": "d-investigation-gene-pool",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "teachingTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+          "workedTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "observed",
+            "expected",
+            "sample",
+            "equilibrium"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-gene-pool",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-chapter-construct-03",
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-2s-online-operation",
+      "outcomeId": "D1.2s",
+      "requiredSourcePage": 76,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-testing-explanations",
+          "requiredSkillTask": "d-topic-mechanisms-of-change-testing-explanations-skill-task",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "optionalExtension": "d-investigation-gene-pool",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "teachingTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+          "workedTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "observed",
+            "expected",
+            "sample",
+            "equilibrium"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-gene-pool",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-3s-online-operation",
+      "outcomeId": "D1.3s",
+      "requiredSourcePage": 76,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-testing-explanations",
+          "requiredSkillTask": "d-topic-mechanisms-of-change-testing-explanations-skill-task",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "optionalExtension": "d-investigation-gene-pool",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "teachingTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+          "workedTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "observed",
+            "expected",
+            "sample",
+            "equilibrium"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-gene-pool",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-topic-mechanisms-of-change-guided-construct",
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d1-4s-online-operation",
+      "outcomeId": "D1.4s",
+      "requiredSourcePage": 76,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "d-topic-mechanisms-of-change",
+          "partId": "d-topic-mechanisms-of-change-testing-explanations",
+          "requiredSkillTask": "d-topic-mechanisms-of-change-testing-explanations-skill-task",
+          "evidenceTarget": "d-topic-mechanisms-of-change-evidence",
+          "optionalExtension": "d-investigation-gene-pool",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-hardy-weinberg",
+          "partId": "d-topic-hardy-weinberg-a-model-and-its-limits",
+          "teachingTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-teaching",
+          "visualTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-figure",
+          "workedTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-worked",
+          "retrievalTarget": "d-topic-hardy-weinberg-a-model-and-its-limits-check",
+          "evidenceTarget": "d-topic-hardy-weinberg-evidence",
+          "termsToDefineBeforeExplanation": [
+            "observed",
+            "expected",
+            "sample",
+            "equilibrium"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-gene-pool",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-investigation-gene-pool-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-1k-consumer-relations",
+      "outcomeId": "D2.1k",
+      "requiredSourcePage": 77,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain predator-prey and producer-consumer interactions and connect gains/losses to population change.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "predation",
+            "producer-consumer",
+            "mutualism",
+            "commensalism",
+            "parasitism"
+          ]
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-population-cycles",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-population-cycles-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-population-cycles-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-population-cycles-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-population-cycles-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "predator-prey lag",
+            "correlation",
+            "mechanism"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-06-predator-lag"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-1k-symbioses",
+      "outcomeId": "D2.1k",
+      "requiredSourcePage": 77,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare mutualism, commensalism and parasitism by effects on both participants, with context and evidence.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "predation",
+            "producer-consumer",
+            "mutualism",
+            "commensalism",
+            "parasitism"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-final-d-lesson-05-context-shift"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-1k-competition",
+      "outcomeId": "D2.1k",
+      "requiredSourcePage": 77,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish interspecific and intraspecific competition and explain how shared limited resources can affect growth, survival or reproduction.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-05-competition-evidence",
+        "d-practice-chapter-d-lesson-06-resource-partition",
+        "d-topic-life-strategies-and-ecological-relationships-guided-construct",
+        "d-investigation-competition-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-2k-defence",
+      "outcomeId": "D2.2k",
+      "requiredSourcePage": 77,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain how a structural, chemical or behavioural defence can change predation/competition outcomes; do not imply complete protection or intentional evolution.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-final-d-lesson-06-defence-tradeoff"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-3k-succession",
+      "outcomeId": "D2.3k",
+      "requiredSourcePage": 77,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare primary succession without developed soil with secondary succession retaining soil/legacy; explain changing composition, disturbance and relative stability of a climax community without an inevitable permanent endpoint.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "primary succession",
+            "secondary succession",
+            "soil",
+            "community",
+            "climax community"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-07-primary-secondary",
+        "d-practice-chapter-d-lesson-07-chronosequence",
+        "d-practice-final-d-lesson-07-mechanism-claim",
+        "d-topic-life-strategies-and-ecological-relationships-guided-construct",
+        "d-chapter-construct-06"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-1sts-evidence-and-perspectives",
+      "outcomeId": "D2.1sts",
+      "requiredSourcePage": 77,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain why Canadian society supports scientific research and technological development to facilitate a sustainable society, economy and environment (SEC4a) [ICT F2–4.2, F2–4.8] Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-teaching",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "d-application-wetland-research-and-models"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-1s-online-operation",
+      "outcomeId": "D2.1s",
+      "requiredSourcePage": 78,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "How does the identity of nearby plants affect growth when total starting density is controlled? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "requiredSkillTask": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-skill-task",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "optionalExtension": "d-investigation-competition",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-competition",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-11-factorial-evidence",
+        "d-chapter-construct-06",
+        "d-investigation-competition-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-2s-online-operation",
+      "outcomeId": "D2.2s",
+      "requiredSourcePage": 78,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "requiredSkillTask": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-skill-task",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "optionalExtension": "d-investigation-competition",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-competition",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-investigation-competition-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-3s-online-operation",
+      "outcomeId": "D2.3s",
+      "requiredSourcePage": 78,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "requiredSkillTask": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-skill-task",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "optionalExtension": "d-investigation-competition",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-competition",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-final-d-lesson-10-adaptive-plan",
+        "d-topic-life-strategies-and-ecological-relationships-guided-construct",
+        "d-investigation-competition-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d2-4s-online-operation",
+      "outcomeId": "D2.4s",
+      "requiredSourcePage": 78,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication",
+          "requiredSkillTask": "d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication-skill-task",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "optionalExtension": "d-investigation-competition",
+          "termsToDefineBeforeExplanation": []
+        },
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-competition-and-defence-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "intraspecific competition",
+            "interspecific competition",
+            "mimicry",
+            "protective coloration",
+            "toxin",
+            "behaviour"
+          ]
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-competition",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-investigation-competition-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-1k-demographic-balance",
+      "outcomeId": "D3.1k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Calculate ΔN=(natality+immigration)−(mortality+emigration) over a stated interval and explain each contribution and the final population N+ΔN.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-four-demographic-processes",
+          "teachingTarget": "d-topic-population-growth-four-demographic-processes-teaching",
+          "visualTarget": "d-topic-population-growth-four-demographic-processes-figure",
+          "workedTarget": "d-topic-population-growth-four-demographic-processes-worked",
+          "retrievalTarget": "d-topic-population-growth-four-demographic-processes-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "natality",
+            "mortality",
+            "immigration",
+            "emigration",
+            "open population",
+            "closed population"
+          ]
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-rates-and-denominators",
+          "teachingTarget": "d-topic-population-growth-rates-and-denominators-teaching",
+          "visualTarget": "d-topic-population-growth-rates-and-denominators-figure",
+          "workedTarget": "d-topic-population-growth-rates-and-denominators-worked",
+          "retrievalTarget": "d-topic-population-growth-rates-and-denominators-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "growth rate",
+            "per capita growth rate",
+            "time interval"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-08-accounting",
+        "d-practice-final-d-lesson-11-management-sequence",
+        "d-topic-population-growth-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-2k-growth-controls",
+      "outcomeId": "D3.2k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Explain the relationship among population size, biotic potential, environmental resistance and carrying capacity.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-exponential-and-logistic-models",
+          "teachingTarget": "d-topic-population-growth-exponential-and-logistic-models-teaching",
+          "visualTarget": "d-topic-population-growth-exponential-and-logistic-models-figure",
+          "workedTarget": "d-topic-population-growth-exponential-and-logistic-models-worked",
+          "retrievalTarget": "d-topic-population-growth-exponential-and-logistic-models-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "biotic potential",
+            "environmental resistance",
+            "carrying capacity",
+            "J curve",
+            "S curve"
+          ]
+        },
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-feedback-and-changing-limits",
+          "teachingTarget": "d-topic-population-growth-feedback-and-changing-limits-teaching",
+          "visualTarget": "d-topic-population-growth-feedback-and-changing-limits-figure",
+          "workedTarget": "d-topic-population-growth-feedback-and-changing-limits-worked",
+          "retrievalTarget": "d-topic-population-growth-feedback-and-changing-limits-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "density dependence",
+            "density independence",
+            "overshoot",
+            "time lag"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-09-carrying-capacity",
+        "d-practice-final-d-lesson-09-model-choice",
+        "d-application-wetland-research-and-models"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-2k-absolute-rate",
+      "outcomeId": "D3.2k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Calculate gr=ΔN/Δt and state individuals per time unit.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-rates-and-denominators",
+          "teachingTarget": "d-topic-population-growth-rates-and-denominators-teaching",
+          "visualTarget": "d-topic-population-growth-rates-and-denominators-figure",
+          "workedTarget": "d-topic-population-growth-rates-and-denominators-worked",
+          "retrievalTarget": "d-topic-population-growth-rates-and-denominators-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "growth rate",
+            "per capita growth rate",
+            "time interval"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-topic-population-growth-guided-construct"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-2k-percapita-interval",
+      "outcomeId": "D3.2k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Calculate the curriculum interval per-capita quantity cgr=ΔN/N(initial); state the interval and distinguish it from a time-normalized rate.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-rates-and-denominators",
+          "teachingTarget": "d-topic-population-growth-rates-and-denominators-teaching",
+          "visualTarget": "d-topic-population-growth-rates-and-denominators-figure",
+          "workedTarget": "d-topic-population-growth-rates-and-denominators-worked",
+          "retrievalTarget": "d-topic-population-growth-rates-and-denominators-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "growth rate",
+            "per capita growth rate",
+            "time interval"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-final-d-lesson-11-management-sequence",
+        "d-topic-population-growth-guided-construct",
+        "d-chapter-construct-05"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-2k-density",
+      "outcomeId": "D3.2k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Calculate Dp=N/A or N/V using correct area/volume units and distinguish density from total size and spatial distribution.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-size-and-density",
+          "teachingTarget": "d-topic-population-growth-size-and-density-teaching",
+          "visualTarget": "d-topic-population-growth-size-and-density-figure",
+          "workedTarget": "d-topic-population-growth-size-and-density-worked",
+          "retrievalTarget": "d-topic-population-growth-size-and-density-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "population size",
+            "area",
+            "density",
+            "distribution"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-guided-d-lesson-08-density",
+        "d-topic-population-growth-guided-construct",
+        "d-investigation-population-growth-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-3k-growth-curves",
+      "outcomeId": "D3.3k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Construct/interpret exponential J and logistic S curves with labelled axes, compare changes per interval and explain model limits.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-exponential-and-logistic-models",
+          "teachingTarget": "d-topic-population-growth-exponential-and-logistic-models-teaching",
+          "visualTarget": "d-topic-population-growth-exponential-and-logistic-models-figure",
+          "workedTarget": "d-topic-population-growth-exponential-and-logistic-models-worked",
+          "retrievalTarget": "d-topic-population-growth-exponential-and-logistic-models-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "biotic potential",
+            "environmental resistance",
+            "carrying capacity",
+            "J curve",
+            "S curve"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-09-exponential",
+        "d-practice-final-d-lesson-09-model-choice",
+        "d-topic-population-growth-guided-construct",
+        "d-chapter-construct-05",
+        "d-application-wetland-research-and-models"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-3k-population-boundary",
+      "outcomeId": "D3.3k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Distinguish open versus closed populations and the role of immigration/emigration in the balance equation.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-four-demographic-processes",
+          "teachingTarget": "d-topic-population-growth-four-demographic-processes-teaching",
+          "visualTarget": "d-topic-population-growth-four-demographic-processes-figure",
+          "workedTarget": "d-topic-population-growth-four-demographic-processes-worked",
+          "retrievalTarget": "d-topic-population-growth-four-demographic-processes-check",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": [
+            "natality",
+            "mortality",
+            "immigration",
+            "emigration",
+            "open population",
+            "closed population"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-chapter-construct-04"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-4k-life-history",
+      "outcomeId": "D3.4k",
+      "requiredSourcePage": 79,
+      "authority": "required Program outcome; locally authored operational criterion",
+      "criterion": "Compare reproductive timing, offspring number/size, parental investment and survival in r/K-selected tendencies; explain trade-offs and avoid treating the categories as universal fixed boxes.",
+      "targets": [
+        {
+          "topicId": "d-topic-life-strategies-and-ecological-relationships",
+          "partId": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies",
+          "teachingTarget": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-teaching",
+          "visualTarget": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-figure",
+          "workedTarget": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-worked",
+          "retrievalTarget": "d-topic-life-strategies-and-ecological-relationships-life-history-strategies-check",
+          "evidenceTarget": "d-topic-life-strategies-and-ecological-relationships-evidence",
+          "termsToDefineBeforeExplanation": [
+            "r-selected",
+            "K-selected",
+            "fecundity",
+            "parental investment"
+          ]
+        }
+      ],
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-chapter-d-lesson-10-continuum",
+        "d-practice-chapter-d-lesson-10-late-maturity"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-1sts-evidence-and-perspectives",
+      "outcomeId": "D3.1sts",
+      "requiredSourcePage": 79,
+      "authority": "required Program STS outcome; source illustrative examples are options, not additional required outcomes",
+      "criterion": "explain how concepts, models and theories are often used in interpreting and explaining observations and in predicting future observations (NS6a) Use a specified unit case to distinguish empirical evidence, model uncertainty and value-based considerations. Address each dimension named in this outcome and revise a position after a contrasting supplied perspective.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-feedback-and-changing-limits",
+          "teachingTarget": "d-topic-population-growth-feedback-and-changing-limits-teaching",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "bindingStatus": "case-specific teaching and response criteria still to author",
+      "requiredPracticeIds": [
+        "d-application-wetland-research-and-models"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-1s-online-operation",
+      "outcomeId": "D3.1s",
+      "requiredSourcePage": 80,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "How sensitive is a population estimate to the sampled area and its spatial pattern? State a testable question, prediction, comparison and controlled conditions.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-sampling-populations",
+          "requiredSkillTask": "d-topic-population-growth-sampling-populations-skill-task",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "optionalExtension": "d-investigation-population-growth",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-population-growth",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-practice-final-d-lesson-08-sampling-bias",
+        "d-investigation-population-growth-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-2s-online-operation",
+      "outcomeId": "D3.2s",
+      "requiredSourcePage": 80,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Record the supplied observations/data using the contracted procedure and units; distinguish observations from inferences.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-sampling-populations",
+          "requiredSkillTask": "d-topic-population-growth-sampling-populations-skill-task",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "optionalExtension": "d-investigation-population-growth",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-population-growth",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-topic-population-growth-guided-construct",
+        "d-investigation-population-growth-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-3s-online-operation",
+      "outcomeId": "D3.3s",
+      "requiredSourcePage": 80,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Use the contracted dataset to calculate/compare and test an explanation; give an alternative and a limitation.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-sampling-populations",
+          "requiredSkillTask": "d-topic-population-growth-sampling-populations-skill-task",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "optionalExtension": "d-investigation-population-growth",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-population-growth",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-topic-population-growth-guided-construct",
+        "d-chapter-construct-04",
+        "d-investigation-population-growth-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    },
+    {
+      "id": "d3-4s-online-operation",
+      "outcomeId": "D3.4s",
+      "requiredSourcePage": 80,
+      "authority": "required Program skill, with locally authored independent digital implementation",
+      "criterion": "Present the evidence in appropriate scientific notation/graphs/prose; respond to a supplied alternative and revise. This independent task does not certify live collaboration.",
+      "targets": [
+        {
+          "topicId": "d-topic-population-growth",
+          "partId": "d-topic-population-growth-sampling-populations",
+          "requiredSkillTask": "d-topic-population-growth-sampling-populations-skill-task",
+          "evidenceTarget": "d-topic-population-growth-evidence",
+          "optionalExtension": "d-investigation-population-growth",
+          "termsToDefineBeforeExplanation": []
+        }
+      ],
+      "procedureSource": "projects/resources/biology30-production/v1/units/unit-d/pilot2-investigations.json#d-investigation-population-growth",
+      "certificationLimit": "Independent planning, comparison and revision are observable here. Live teamwork and physical laboratory performance are not certified.",
+      "bindingStatus": "exact component targets contracted; authored/rendered evidence pending",
+      "requiredPracticeIds": [
+        "d-investigation-population-growth-final-transfer-revision-v2"
+      ],
+      "practiceBindingPolicy": "Exact asked sub-operations only. Full criterion teaching/operation and visual evidence still require the separate atomic review; recognition alone is insufficient for construction or explanation."
+    }
+  ],
+  "sourceExamplesPolicy": "The 116 illustrative Program examples remain source options. Mandatory i.e. lists in knowledge outcomes are part of the required outcome. Performance-column examples are separately registered and do not independently create required content.",
+  "scientificCorrections": [
+    "D3.2k fractions visually checked against official page 79: gr=ΔN/Δt; cgr=ΔN/N(initial); Dp=N/A or N/V.",
+    "C2.4s optional tongue-rolling/earlobe example is replaced with fictional supplied crosses; it is not taught as a reliable single-gene human trait.",
+    "No independent digital task certifies physical laboratory or live collaboration performance."
+  ],
+  "teacherAcceptance": null,
+  "prerequisitePolicy": "Terms on each target are definitions to introduce before explanation, not a claim that they were already taught. Prior knowledge must be separately authored at topic level."
+}

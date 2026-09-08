@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "revision": "teacher-feedback-1",
+  "iteration": "advanced-learning-bridge-gate-b",
+  "status": "awaiting-teacher-review",
+  "generatedAt": "2026-09-04T21:06:41.401Z",
+  "acceptedGate1WorkspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+  "changesRequestedGate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+  "acceptedRevisionGateAWorkspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+  "workspaceSha256": "11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c",
+  "workspaceTreeSha256": "5ea60d70eb152639be5644965c98c566349a64ff924310016f23cf531094feef",
+  "protectedProjectHashes": [
+    {
+      "slug": "biology30-unit-a-pilot",
+      "sha256": "1cfba81c192e606292c03d9356d6deab73d25862dc7d0cfb288c1139740d98b5",
+      "fileCount": 98,
+      "byteCount": 43266235,
+      "excludedPaths": [
+        "meta/unit-a-to-bcd-improvement-playbook.md"
+      ]
+    },
+    {
+      "slug": "biology30-unit-a",
+      "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+      "fileCount": 386,
+      "byteCount": 15929864
+    },
+    {
+      "slug": "biology30-unit-b",
+      "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+      "fileCount": 219,
+      "byteCount": 7111493
+    },
+    {
+      "slug": "biology30-unit-c",
+      "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+      "fileCount": 245,
+      "byteCount": 10901188
+    },
+    {
+      "slug": "biology30-unit-d",
+      "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+      "fileCount": 241,
+      "byteCount": 6028335
+    }
+  ],
+  "previousCandidate": {
+    "workspaceSha256": "3d81ce61d56abdad611ee287a4c5db4e31ab5d9e2197610818b08a79f223b5f6",
+    "status": "teacher-accepted",
+    "immutableBaseline": "raw/advanced-bridge-gate-a-accepted/3d81ce61d56abdad611ee287a4c5db4e31ab5d9e2197610818b08a79f223b5f6/baseline.json"
+  },
+  "textbookReviewBaseline": {
+    "workspaceSha256": "24e18ca81a7bf33a0182825be95472fa2a3f6ac55b779f90f14855e25ee9c66c",
+    "status": "changes-requested",
+    "immutableBaseline": "raw/revision-gate-b-review-baselines/24e18ca81a7bf33a0182825be95472fa2a3f6ac55b779f90f14855e25ee9c66c/baseline.json"
+  },
+  "advancedBridgeBaseline": {
+    "workspaceSha256": "912a213fd62e503b99d9c42f28b1094f8a4f4e31d9772513013adbc02ef4707e",
+    "status": "changes-requested",
+    "immutableBaseline": "raw/revision-gate-b-review-baselines/912a213fd62e503b99d9c42f28b1094f8a4f4e31d9772513013adbc02ef4707e/baseline.json"
+  },
+  "expandedRoutes": [
+    "lesson-01",
+    "lesson-03",
+    "lesson-04",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-12"
+  ],
+  "completeLessonRoutes": [
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13"
+  ],
+  "advancedBridgeGate": "gate-b",
+  "advancedLearning": {
+    "manifestBlocks": 40,
+    "acceptedGateABlocks": 8,
+    "newlyRenderedGateBBlocks": 32,
+    "renderedBlocks": 40,
+    "plannedBlocks": 0,
+    "lessonOptionalMinutes": 245,
+    "totalOptionalMinutes": 295,
+    "sourceSectionDispositions": 470
+  },
+  "reviewCriteria": [
+    "all forty Advanced Learning blocks appear directly after their mapped Learn sections",
+    "advanced depth uses accessible language and defines additional terminology",
+    "every block contains a purposeful semantic evidence form and exact Models and Data Lab link",
+    "the Process Collection checklist enables all forty manifest entries",
+    "lesson and checklist completion controls synchronize and persist",
+    "deep links expand and focus the exact block",
+    "version-5 state migrates with all advanced flags unchecked and no learner-work loss",
+    "advanced completion never changes required progress, score, practice, evidence, or required time",
+    "all 470 Pilot 1 section records have one recorded disposition",
+    "the 245-minute lesson-block budget plus existing 20-minute seminar extension and 30-minute Diploma Challenge preserves 295 optional minutes",
+    "the 18-route completion and 1505-minute contract is unchanged"
+  ],
+  "codexReview": null,
+  "teacherDecision": null
+}

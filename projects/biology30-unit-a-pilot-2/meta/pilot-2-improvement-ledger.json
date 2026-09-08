@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "biology30-unit-a-pilot-2",
-  "workspaceSha256": "219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc",
+  "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
   "rules": [
     {
       "id": "topic-sequence-from-teacher-plans",
@@ -145,6 +145,56 @@
       "evidence": "meta/advanced-learning-bridge.json"
     },
     {
+      "id": "explicit-academic-evidence-without-route-fallbacks",
+      "status": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "meta/final-academic-review.json",
+      "chapter11Iteration": {
+        "workspaceSha256": "aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544",
+        "evidence": "meta/chapter-11-academic-repair.json",
+        "review": "meta/final-academic-verification.json",
+        "status": "awaiting-explicit-user-review",
+        "teacherDecision": null,
+        "scope": "Six saved identification/reasoning tasks and corrected action-potential graph. Task presence is not demonstrated mastery or approval of practical skills."
+      },
+      "remainingAcademicReview": {
+        "workspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+        "evidence": "meta/remaining-academic-review.json",
+        "report": "meta/remaining-academic-review.md",
+        "status": "review-findings-recorded-not-academically-cleared",
+        "teacherDecision": null,
+        "learnerChanged": false,
+        "scope": "All 86 practice items, 36 overlapping gaps, 53 source-level records and 14 local media paths reviewed. One publisher transcript reviewed; 13 still pending. Twelve invalid Final Practice chapter/page links, 22 unrelated printed-page selections, 68 generic feedback records and text-only media alternatives require repairs. Five standards rows are excellence examples, not acceptable examples; one row is a local skills criterion."
+      },
+      "correctionIteration": {
+        "id": "practice-links-and-standards-1",
+        "workspaceSha256": "f39669f01779f98a1c8d7d3ec5fe7e1524100d9d55f0b9286c01f4de5603e865",
+        "baselineWorkspaceSha256": "21363490e611251c01101cee0bc5925583d1b856b8285a87ee74838ddd1341e5",
+        "evidence": "meta/academic-corrections.json",
+        "review": "meta/academic-corrections-verification.json",
+        "status": "awaiting-explicit-user-review",
+        "teacherDecision": null
+      }
+    },
+    {
+      "id": "exact-first-use-vocabulary-links",
+      "status": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "meta/final-academic-review.json"
+    },
+    {
+      "id": "append-only-improvement-history",
+      "status": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "meta/final-academic-review.json"
+    },
+    {
+      "id": "complete-online-investigation-and-media-paths",
+      "status": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "meta/online-finalization.json"
+    },
+    {
       "id": "unified-process-collection-index-and-truthful-save-status",
       "status": "awaiting-explicit-user-review",
       "acceptedScope": null,
@@ -152,6 +202,6 @@
       "review": "meta/process-collection-index-review.json"
     }
   ],
-  "reviewGate": "process-collection-index",
-  "updatedAt": "2026-09-05T13:46:27.949Z"
+  "reviewGate": "final-academic-review",
+  "updatedAt": "2026-09-08T16:12:53.462Z"
 }

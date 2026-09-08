@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "dataset-blood-glucose-gate-1",
+  "label": "Synthetic instructional data: blood glucose and urinalysis",
+  "synthetic": true,
+  "diagnosticUse": false,
+  "unit": "mmol/L",
+  "notice": "Values are designed for mechanism-based classroom interpretation. They do not represent a real person, are not diagnostic, and cannot establish a diagnosis.",
+  "simulatorScenarios": [
+    {
+      "id": "regulated-meal",
+      "label": "Meal with a regulated response",
+      "timesMinutes": [0, 30, 60, 120, 180],
+      "glucose": [5.0, 7.4, 7.8, 6.1, 5.2],
+      "insulinSignal": "rises, then falls",
+      "glucagonSignal": "suppressed, then returns",
+      "mechanism": "Beta-cell insulin signalling supports skeletal-muscle and adipose uptake and promotes liver and muscle storage, reducing the original rise."
+    },
+    {
+      "id": "low-insulin-signal",
+      "label": "Meal with a low insulin signal",
+      "timesMinutes": [0, 30, 60, 120, 180],
+      "glucose": [5.3, 8.8, 11.7, 12.1, 10.9],
+      "insulinSignal": "low",
+      "glucagonSignal": "not sufficiently suppressed",
+      "mechanism": "With too little insulin signalling, glucose uptake and storage do not increase enough to oppose the post-meal rise."
+    },
+    {
+      "id": "reduced-response",
+      "label": "Meal with reduced target response",
+      "timesMinutes": [0, 30, 60, 120, 180],
+      "glucose": [5.4, 8.5, 10.4, 9.3, 7.8],
+      "insulinSignal": "high",
+      "glucagonSignal": "suppressed",
+      "mechanism": "Insulin is present, but modelled muscle, adipose, and liver responses are weaker, so the disturbance resolves slowly."
+    },
+    {
+      "id": "extended-activity",
+      "label": "Extended activity between meals",
+      "timesMinutes": [0, 30, 60, 120, 180],
+      "glucose": [5.2, 4.7, 4.2, 4.5, 4.9],
+      "insulinSignal": "low",
+      "glucagonSignal": "rises",
+      "mechanism": "Falling glucose reduces insulin and increases glucagon. The liver increases glucose output while working muscle also changes fuel use."
+    }
+  ],
+  "urinalysisProfiles": [
+    {
+      "id": "sample-a",
+      "bloodGlucose": [4.9, 7.2, 5.5],
+      "timeLabels": ["before meal", "1 hour", "2 hours"],
+      "urineGlucose": "negative",
+      "urineKetones": "negative",
+      "hydrationMarker": "within expected instructional range"
+    },
+    {
+      "id": "sample-b",
+      "bloodGlucose": [7.8, 13.6, 12.9],
+      "timeLabels": ["before meal", "1 hour", "2 hours"],
+      "urineGlucose": "3+",
+      "urineKetones": "2+",
+      "hydrationMarker": "concentrated"
+    },
+    {
+      "id": "sample-c",
+      "bloodGlucose": [5.1, 3.4, 3.9],
+      "timeLabels": ["before activity", "after activity", "30 minutes later"],
+      "urineGlucose": "negative",
+      "urineKetones": "negative",
+      "hydrationMarker": "within expected instructional range"
+    },
+    {
+      "id": "sample-d",
+      "bloodGlucose": [8.1, 12.2, 10.4],
+      "timeLabels": ["before meal", "1 hour", "2 hours"],
+      "urineGlucose": "2+",
+      "urineKetones": "negative",
+      "hydrationMarker": "dilute"
+    }
+  ]
+}

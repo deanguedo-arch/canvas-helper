@@ -1,0 +1,27 @@
+{
+  "command": "npm run test:biology30-course-production",
+  "passed": 14,
+  "failed": 3,
+  "failure": "The Biology exact-build evidence is stale for the current workspace tree",
+  "test": "scripts/tests/biology30-course-acceptance.test.ts",
+  "evidenceMethod": "Applied unchanged hashBiologyWorkspaceTree to the immutable PRE-EDIT baseline; it includes path NUL size NUL SHA LF, unlike the restart checkpoint tree algorithm.",
+  "units": [
+    {
+      "unit": "B",
+      "baselineActualHash": "33e249bc373aa1cd15b4cb5bc47ef8dea793c3da31ebf40ff6a3b0f1dfb83c93",
+      "baselineMetadataRecordedHash": "c810dd85af4ba82dc7f08ddf28ace20a7abe2cc5b731234f245b266e2111d23c"
+    },
+    {
+      "unit": "C",
+      "baselineActualHash": "157602f60b037a965aa3a505f61424bbc90f907335651dfdd39ad3599ade6d55",
+      "baselineMetadataRecordedHash": "0814f93c4d74bb6411045d649625ba2bd6c664cf6e98d8147a215c7014f9354a"
+    },
+    {
+      "unit": "D",
+      "baselineActualHash": "5905d37f582dfd397b6d1a8e856d093f2e987da753b682bedf82ae434c36ba53",
+      "baselineMetadataRecordedHash": "dcb35045a3a82d8be75b81f24c2649a38f3cbd21efbbcb53c9efafc530847392"
+    }
+  ],
+  "action": "Keep historical evidence unchanged; fresh candidate evidence must be derived from a real new build. This inherited failure does not block source-contract work.",
+  "teacherAcceptance": null
+}

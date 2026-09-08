@@ -1,0 +1,73 @@
+{
+  "id": "social30-1-related-issue-1-option-2",
+  "slug": "social30-1-related-issue-1-option-2",
+  "sourcePath": "projects/resources/social30-1-related-issues/resource-manifest.json",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "projects/social30-1-related-issue-1-option-2/workspace/index.html",
+  "rawEntrypoint": "projects/social30-1-related-issue-1-option-2/raw/README.md",
+  "createdAt": "2026-06-23T15:31:53.176Z",
+  "updatedAt": "2026-08-02T00:00:00.000Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "scripts/build-social30-related-issues.ts",
+  "canonicalSources": [
+    "scripts/build-social30-related-issues.ts",
+    "scripts/lib/next-step-course-shell.ts",
+    "projects/resources/social30-1-related-issues/resource-manifest.json"
+  ],
+  "generatedOutputs": [
+    "projects/social30-1-related-issue-1-option-2/workspace/index.html",
+    "projects/social30-1-related-issue-1-option-2/meta/social-build.json",
+    "projects/social30-1-related-issue-1-option-2/meta/conversion-notes.md"
+  ],
+  "regenerateCommand": "npx tsx scripts/build-social30-related-issues.ts --resource social30-1-brightspace-winter-2020 --only social30-1-related-issue-1-option-2",
+  "authoring": {
+    "driverId": "social-related-issues-v1",
+    "familyId": "social30-related-issues",
+    "sourceResourceIds": [
+      "social30-1-brightspace-winter-2020"
+    ],
+    "qualityProfile": "social-related-issues"
+  },
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "projects/processed/social30-1-related-issue-1/source/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "importedAt": "2026-06-23T15:31:53.176Z",
+    "notes": "Related Issue 1 (Option Two) alternate palette shell option generated from Social Studies 30-1 Brightspace units U1 + U2."
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "SCORM 2004 package for Brightspace upload."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Standalone workspace preview."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "projects/processed/social30-1-related-issue-1/source/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "projects/social30-1-related-issue-1-option-2/raw/README.md"
+  ],
+  "sourceOfTruthNotes": "The workspace is generated output, not a hand-edit target. Rebuild this alternate palette shell through scripts/build-social30-related-issues.ts using source resource social30-1-brightspace-winter-2020 from the Social resource manifest; the staged builder never rewrites raw source or meta/project.json.",
+  "conversionSummary": {
+    "relatedIssue": "Related Issue 1 (Option Two)",
+    "issueQuestion": "To what extent should ideology be the foundation of identity?",
+    "units": [
+      "U1",
+      "U2"
+    ],
+    "lessonsRecovered": 23,
+    "styleVariant": "next-step-palette-shell"
+  }
+}

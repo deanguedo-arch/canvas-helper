@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "stage": 98,
+  "checkedAt": "2026-09-07T15:46:35.389402+00:00",
+  "status": "local-section-repair-verified",
+  "trigger": "User correctly identified that Practice & Review, Process Collection and Resources still differed after the first presentation repair.",
+  "changes": [
+    "Menu child lists now match A, adjusted only for chapter numbers",
+    "Challenge rendered inside Final Practice; original challenge route and response IDs retained",
+    "Practice number/prompt/feedback stack, timings, counts, textbook group attempt guide, seminar orientation and completion status",
+    "Process Collection header/shortcuts, chapter and activity filters, grouped records, embedded investigations and notes",
+    "Advanced checklist synchronized with existing lesson flags across reload",
+    "Model workflow panels and saved investigation count",
+    "Textbook chapter tabs, mobile selector and download links",
+    "Separate presentation-only Sources and Credits page without a new saved-state key",
+    "Glossary and Data reference layout; video-library reader offers existing illustrated pathways",
+    "Empty archived versions stay stored but do not appear as empty work records"
+  ],
+  "actualBuilds": {
+    "B": {
+      "buildSha256": "df99ca9de0c5db9ddb31b447db3094e3a71c68958ed0a8491f63c2c53ac98ec3",
+      "contractSha256": "b10189fb15cb210c8bb4bdbc78d5a1e6e6bbfa0e6746ac8f1ad1231eefa822d4",
+      "generatedAt": "2026-09-07T15:44:49.240Z",
+      "previousWorkspaceSha256": "e6513991d7fa011c5cb6398f961273ed78f3778f65882bc74ef67a78a9c7e2d2"
+    },
+    "C": {
+      "buildSha256": "ee292eb52d9fb7a1013b977271efda8299dcb1a8f7285794875d7a7804ed5aca",
+      "contractSha256": "75a8c89cb2b1f4f72a0d63a7c295ea898b840afbd70ff3c2b412d40af9954519",
+      "generatedAt": "2026-09-07T15:45:15.262Z",
+      "previousWorkspaceSha256": "b44b24cfd64803300002ccb4fc19dd96d32c288d595816c38845e7af0f6cfe65"
+    },
+    "D": {
+      "buildSha256": "00c643bd8392e05e68607bf85ea279d302d55509e4e5d5887c270f3120720c9c",
+      "contractSha256": "87af7b474b69614529abca1b97f42f372fc947a4b4c10cc742bd5b6abc64fe78",
+      "generatedAt": "2026-09-07T15:45:54.271Z",
+      "previousWorkspaceSha256": "3f993ef6b8b0ae9710f0b54dd752acad95e9e61c47f6ed7cefacf5471f70f93c"
+    }
+  },
+  "validation": {
+    "focusedTests": "7/7 passed, including actual A menu child lists, embedded route ownership and every response identity",
+    "ownerProtection": "4/4 passed: cold/frozen owner inputs and all protected A trees",
+    "actualWorkspace": "B/C/D passed",
+    "actualProjectE2E": "B/C/D each 1/1 passed on exact final build",
+    "browser": "All-unit actual-input regression passed, including collection note/filter/reload, synchronized Advanced checklist, chapter tabs, separate Sources, embedded challenge, vocabulary/Frayer/model/textbook behavior",
+    "responsive": "292 route/width checks at 1440/1024/720/390 CSS pixels, including Advanced, glossary, video library and Sources",
+    "native": "Compared A Process Collection with corrected B; inspected actual final rebuilt learner pages",
+    "typecheck": "25 unrelated baseline diagnostics, zero touched owner/test diagnostics"
+  },
+  "preserved": {
+    "coreParagraphs": 127,
+    "indexedActivities": 825,
+    "requiredRoutes": 43,
+    "stateSchema": "unchanged",
+    "protectedA": "All three A learner trees and A2 owner unchanged",
+    "imagesRegenerated": 0
+  },
+  "limitations": [
+    "Unit A remains provisional and teacher acceptance remains null",
+    "No measured student pacing, LMS certification, fresh offline launch or native 200 percent zoom claim",
+    "Existing B/C/D question types and scientific content retained; not every A activity is identical in subject-specific behavior"
+  ],
+  "teacherAcceptance": null,
+  "releaseActions": []
+}

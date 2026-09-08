@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "biology30-unit-a",
+  "buildSha256": "4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0",
+  "reviewedAt": "2026-08-31T01:59:33Z",
+  "status": "visual-red-team-complete-awaiting-human-decision",
+  "uniqueOriginalFigureCount": 27,
+  "browserRenderedFigureOccurrenceCount": 28,
+  "allFigureContactSheetsOpened": true,
+  "exactBuildFigureAudit": {
+    "geometryReport": "projects/biology30-unit-a/meta/gate-3-figure-audit.json",
+    "visualInspectionRecord": "projects/biology30-unit-a/meta/gate-3-figure-visual-inspection.json",
+    "geometryFindingCount": 0,
+    "geometryPass": true,
+    "visualInspectionPass": true,
+    "verifiedBy": "npm run verify:biology30-unit-a-v2:figure-review -- --project biology30-unit-a"
+  },
+  "contactSheetsOpened": [
+    ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-01.png",
+    ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-02.png",
+    ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-03.png",
+    ".runtime/biology30-unit-a-v2-figure-audit/4908245ee9e1-2026-08-31T01-36-03-857Z/contact-sheet-04.png"
+  ],
+  "figureFindingsResolved": [
+    "resting-membrane labels, ions, pump text, voltage bracket, and arrows were rebuilt into dedicated non-overlapping zones",
+    "blood-glucose figure title stacks were separated",
+    "complex mobile figures now retain readable labels in a contained horizontal evidence lane",
+    "right-edge label clipping in brain-region and neuron-role figures",
+    "eye fovea label collision with the optic-nerve bar",
+    "retinal pathway title clipping and signal-label collisions",
+    "synaptic termination text overflow",
+    "return-effect and reflex-arrow label collisions",
+    "nervous/endocrine comparison text overflow",
+    "nervous-system hierarchy title and right-edge crowding",
+    "endocrine body-map caption collision",
+    "neuron-anatomy label collision"
+  ],
+  "representativeRouteScreenshots": [
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-overview-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-lesson-04-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-lesson-09-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-lesson-15-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-model-lab-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-investigation-notebook-chromium-darwin.png",
+    "e2e/specs/biology30-unit-a-v2.spec.ts-snapshots/biology30-gate2-practice-hub-chromium-darwin.png"
+  ],
+  "viewportsCovered": [
+    "1440x900 desktop",
+    "1024x768 tablet",
+    "390x844 mobile",
+    "200 percent text zoom"
+  ],
+  "automatedAccessibilityRoutes": [
+    "overview",
+    "lesson-04",
+    "lesson-09",
+    "lesson-15",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub"
+  ],
+  "processCorrection": "Route-top screenshots are no longer accepted as evidence that all scientific figures were reviewed. Every build must pass the geometry audit, expose exact-hash contact sheets, have every sheet opened, and pass the separate visual-inspection verifier.",
+  "binaryVisualBlockerFound": false,
+  "humanVisualAcceptance": null
+}
