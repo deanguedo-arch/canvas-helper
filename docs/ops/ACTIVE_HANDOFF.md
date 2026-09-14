@@ -41,7 +41,7 @@ Preserve every existing activity, response, vocabulary and storage ID. Keep the 
 
 ## Next prompt should assume
 
-Chapter 11 content, the requested Pilot 2 presentation transfer, automatic video display and in-course textbook reader are complete. Pilot 2 A and B/C/D remain unchanged. A review-only SCORM snapshot and ChatGPT context ZIP now exist; the consolidated checkpoint is committed and pushed on `main` at `32dc578f`. No deployment, Chapters 12–13 course change, older-course change or LMS certification occurred.
+Chapter 11 content, the requested Pilot 2 presentation transfer, automatic video display and in-course textbook reader are complete. Pilot 2 A and B/C/D remain unchanged. A review-only SCORM snapshot and ChatGPT context ZIP now exist; the current checkpoint is committed and pushed on `main` at `d7547b4b` (with the LFS consolidation checkpoint `32dc578f` as its parent). No deployment, Chapters 12–13 course change, older-course change or LMS certification occurred.
 
 ## What still needs validation
 
