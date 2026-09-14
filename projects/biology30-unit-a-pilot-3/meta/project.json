@@ -3,7 +3,9 @@
   "slug": "biology30-unit-a-pilot-3",
   "title": "Biology 30 — Unit A: Pilot 3",
   "inputKind": "html",
-  "previewModes": ["workspace"],
+  "previewModes": [
+    "workspace"
+  ],
   "rawEntrypoint": "raw/pilot-2-reference.html",
   "sourcePath": "projects/biology30-unit-a-pilot-3/raw/pilot-2-reference.html",
   "projectType": "conversion",
@@ -22,12 +24,13 @@
     "projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-runtime.js"
   ],
   "workspaceEntrypoint": "workspace/index.html",
-  "authoringStatus": "blocked",
+  "authoringStatus": "active",
   "authoring": {
     "driverId": "direct-workspace-v1",
-    "editabilityContract": {
-      "schemaVersion": 1,
-      "profileId": "studio-routine-content-v1"
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
     },
     "learnerSurfaces": {
       "schemaVersion": 1,
@@ -42,6 +45,11 @@
           "htmlPath": "index.html",
           "route": "#lesson-01",
           "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-01",
+          "stateKey": "native-details-open"
         },
         {
           "htmlPath": "index.html",
@@ -792,13 +800,142 @@
           "htmlPath": "index.html",
           "route": "?word=a-word-adrenal-medulla#core-vocabulary",
           "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-02",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-03",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-04",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-05",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-06",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-07",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-08",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-09",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-10",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-11",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-12",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-14",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-02",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-03",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-04",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-05",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-06",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-07",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-08",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-09",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-11",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-12",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-14",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-10",
+          "stateKey": "native-details-open"
         }
       ]
     },
-    "studioEditing": {
-      "enabled": true,
-      "renameCourse": true,
-      "imageAssets": true
+    "editabilityContract": {
+      "schemaVersion": 1,
+      "profileId": "studio-routine-content-v1"
     }
   },
   "exportTargets": [
@@ -814,8 +951,30 @@
   "referenceOnly": [
     "projects/biology30-unit-a-pilot-3/raw/pilot-2-reference.html",
     "scripts/create-biology30-unit-a-pilot-3.ts",
-    "scripts/lib/biology30-pilot3/pilot3.css"
+    "scripts/import-biology30-pilot3-integrated.ts",
+    "projects/resources/biology30-pilot3-review/9e9e7823d345f21ad251e7e02624d65e005eab7c2f057bca20f23418cfdc94d2/Biology30_Chapter11_Integrated.html",
+    "scripts/lib/biology30-pilot3/pilot3.css",
+    "scripts/lib/biology30-pilot3/import-chapter.ts"
   ],
-  "sourceOfTruthNotes": "Canonical workspace HTML/CSS; one-time conversion, never regenerate learner content. Runtime-only regeneration command is declared. BLOCKED: requested Direct capabilities are declared but Studio access remains blocked by authoringStatus until complete rendered coverage and lifecycle proof pass. Readiness failures are recorded in meta/readiness-boundary.json. No deployment, LMS reporting, or export.",
-  "regenerateCommand": "npx esbuild scripts/lib/biology30-pilot3/runtime.ts --bundle --platform=browser --format=iife --target=es2022 --outfile=projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-runtime.js"
+  "sourceOfTruthNotes": "Canonical workspace HTML/CSS; one-time conversion and bounded integrated-content intake, never regenerate learner content. Runtime-only regeneration command is declared. Studio activation requires the matching rendered coverage and reversible lifecycle proof recorded in meta/readiness-boundary.json. Source review is meta/integrated-content-review.json. No deployment, LMS reporting, or export.",
+  "regenerateCommand": "npx esbuild scripts/lib/biology30-pilot3/runtime.ts --bundle --platform=browser --format=iife --target=es2022 --outfile=projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-runtime.js",
+  "injectedComponents": [
+    {
+      "id": "neural-pathway-labeling-v1",
+      "source": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30-neural-pathway-activity.zip",
+      "target": "projects/biology30-unit-a-pilot-3/workspace/index.html#activity-labeling",
+      "status": "archived"
+    },
+    {
+      "id": "neural-pathway-labeling-a-j-v2",
+      "source": "projects/biology30-unit-a-pilot-3/meta/injected-components/neural-pathway-labeling-a-j.png",
+      "target": "projects/biology30-unit-a-pilot-3/workspace/index.html#activity-labeling",
+      "status": "active"
+    }
+  ],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-09-14T18:29:52.345Z",
+  "workspaceApprovedAt": "2026-09-14T18:29:52.341Z",
+  "updatedAt": "2026-09-14T18:29:52.341Z"
 }

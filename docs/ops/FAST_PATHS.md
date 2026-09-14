@@ -2,6 +2,15 @@
 
 Use these retrieval shortcuts before broader discovery. The point is to keep agent work surgical.
 
+## Default Cadence: Build, Then Validate
+
+- Every new chat and artifact starts in Build mode unless the user explicitly requests testing, packaging, deployment, or rollout.
+- In Build mode, read and inspect only the affected area, rebuild only what its preview needs, and record the relevant verification-floor commands as deferred.
+- Do not run listed verification floors, broad E2E, exhaustive responsive checks, Studio lifecycle proof, SCORM tests, or previously passing suites after each ordinary edit.
+- Run one narrow immediate check only for saved-state compatibility, destructive behavior, security/trust boundaries, or a broken affected preview; explain the exception first.
+- At the Rollout checkpoint, freeze the candidate and run the relevant accumulated floor once, cheapest checks first and expensive Studio/readiness proof last. Rerun only affected checks after fixes.
+- Existing push/PR CI remains unchanged.
+
 ## Export Target Work
 
 Read first:
@@ -16,7 +25,7 @@ Touch docs only if behavior changes:
 - `README.md`
 - `ARCHITECTURE.md`
 
-Verification floor:
+Rollout verification floor:
 - targeted export test
 - `npm run typecheck`
 
@@ -55,7 +64,7 @@ Rules:
 - Keep the versioned `studio-routine-content-v1` manifest contract. A new active course, a newly activated course, or a later change to a governed course is rejected unless the automatic exact-head readiness gate passes.
 - Generic imports and unresolved legacy sources remain `blocked`; previewability alone must never make them active or Studio-editable.
 
-Verification floor:
+Rollout verification floor:
 - `npm run test:codex-course`
 - `npm run test:new-course-readiness`
 - `npm run course:doctor -- --project <slug>`
@@ -444,11 +453,9 @@ For conversion work, use the ordered playbook in `docs/workflows/conversion.md`:
 - Deploy readiness pass
 - Verification floor
 
-## Workflow Shift (High-Confidence E2E)
+## Rollout Batch (High-Confidence E2E)
 
-Before: manual learner/archive passes + spot checks + `verify/typecheck/build`.
-
-Now: define a project contract (`projects/<slug>/meta/e2e-contract.json`) with `assertionProfiles`, `modulePassTargets`, and `visibilityChecks`, then run:
+When a candidate reaches the Rollout checkpoint, define its project contract (`projects/<slug>/meta/e2e-contract.json`) with `assertionProfiles`, `modulePassTargets`, and `visibilityChecks`, then run the relevant accumulated commands once:
 - `npm run test:e2e:project -- --project <slug>`
 - `npm run test:e2e:smoke`
 - `npm run test:e2e:harness` (when validation/contract strictness changes)

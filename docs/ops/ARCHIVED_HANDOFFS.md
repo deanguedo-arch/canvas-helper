@@ -1,5 +1,22 @@
 # Archived Handoffs
 
+## Archived 2026-09-12 — prior Pilot 3 scope clarification
+
+# Active handoff — Biology 30 Pilot 3 review
+
+Status: scope clarification pending (2026-09-12). User says the supplied integrated file was intended for all Unit A lessons, not the one-lesson slice. The file actually contains 14 Chapter 11 topics; Chapter 12 sensory systems and Chapter 13 endocrine systems were not found. Ask whether to use all 14 supplied topics or expand to full Unit A using additional sources. Do not finish the one-lesson sign-off as the full requested course.
+
+Latest work: first three supplied topics were integrated into Pilot 3 Lesson 1, retaining existing activity/save IDs. Three reviewed images and four videos were added. See meta/integrated-content-review.json. Focused learner checks passed candidate df49f30ad04e39f5a80e05d27ab0b0a59f20c997a4e0cb10035ef3e4f6a1b325; receipt is meta/verification.json. Studio Edit remains blocked. The previous pre-import isolated readiness candidate passed, but that is not proof for this changed candidate. New gate was stopped on scope correction; snapshot staging had failed because its copied resource directory lacked the biology30-pilot3-review level. Fix that before any future snapshot commit/gate. No user-repo commit or old-course rebuild occurred.
+
+Read projects/biology30-unit-a-pilot-3/meta/review-handoff.md for files changed, verification, known boundaries, source ownership, fragile areas and exact next commands.
+
+Canvas Helper is open at http://127.0.0.1:5174/ with Biology 30 Unit A Pilot 3 selected, alongside Pilot 2 reference.
+
+Exact next command if the user requests resumed validation: `npx tsx scripts/test-biology30-pilot3.ts`.
+Exact next file: `projects/biology30-unit-a-pilot-3/meta/review-handoff.md`.
+
+Do not rebuild Pilot 2/B/C/D, deploy, export, or enable Edit without passing its readiness proof.
+
 ## Archived before Pilot 3 review handoff — 2026-09-10
 
 # Handoff — verified Biology word-vocabulary delivery
@@ -14220,3 +14237,45 @@ Keep all six projects blocked, Studio Edit disabled and exports disabled. Do not
 ## Exact next file to open
 
 `docs/ops/cts-pe-showcase-deployment.json`
+
+---
+
+# Archived handoff — Biology 30 Pilot 3 Chapter 11 pre-readiness state
+
+- Project: biology30-unit-a-pilot-3
+- Task: all 14 supplied Chapter 11 topics, not Chapters 12–13.
+- Status at archive: learner work complete; Studio verification had been stopped and Edit was still recorded as disabled.
+
+## Summary
+
+Canonical content was `projects/biology30-unit-a-pilot-3/workspace/index.html`; runtime source was `scripts/lib/biology30-pilot3/runtime.ts`. The focused learner hash recorded at that point was `606bed7944ac1cc52a68bc5c8eafea0cd4e82019c09cc57e6481dd28a3f5bb41`. The isolated readiness run had been stopped at commit `34e03b5633ff215df6eced75b3c1557baf68d836`.
+
+## Boundaries carried forward
+
+Pilot 2 A and B/C/D were unchanged. No deployment, export, ZIP, Chapters 12–13 or separate advanced site. Stable response IDs, storage keys and source mappings were to be preserved; the one-time intake scripts were not builders.
+
+## Exact next command at archive
+
+`npx tsx scripts/test-biology30-pilot3.ts`
+
+## Exact next file at archive
+
+`projects/biology30-unit-a-pilot-3/meta/readiness-boundary.json`
+
+---
+
+# Archived handoff — Biology 30 Pilot 3 before automatic video display
+
+- Project: `biology30-unit-a-pilot-3`
+- Status at archive: all Chapter 11 lesson-entry patterns and Studio readiness passed, but learners still had to select “Load video.”
+- Preserved boundary: Chapter 11 only; no Pilot 2, B/C/D, deployment, export, ZIP or LMS changes.
+- Superseded by: automatic player mounting for the 22 lesson placements and matching video-library entries, with external links and the two restricted-source explanations retained.
+
+---
+
+# Archived handoff — Biology 30 Pilot 3 before the in-course textbook reader
+
+- Project: `biology30-unit-a-pilot-3`
+- Status at archive: Chapter 11 presentation and automatic video display passed readiness, but textbook-page links still routed learners to the full Textbook Library page.
+- Preserved boundary: Chapter 11 only; no Pilot 2, B/C/D, deployment, export, ZIP or LMS changes.
+- Superseded by: verified page mapping and a closable modal page reader that preserves the learner's current route.

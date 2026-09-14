@@ -532,16 +532,23 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     return state.current[section.dataset.activity];
   }
   function answer(q) {
-    const field = $("[data-answer]:checked", q) ?? $("input[type=text][data-answer]", q);
+    const field = $("[data-answer]:checked", q) ?? $("input[type=text][data-answer],select[data-answer]", q);
     return field?.value ?? "";
   }
   function snapshot(run, section) {
-    for (const field of all("[data-writing],input[type=text][data-answer]", section)) run.drafts[field.dataset.writing ?? field.id] = field.value;
+    for (const field of all("[data-writing],input[type=text][data-answer],select[data-answer]", section)) run.drafts[field.dataset.writing ?? field.id] = field.value;
     for (const field of all("input[type=radio]:checked", section)) run.drafts[field.name] = field.value;
   }
   function attempted(run, id) {
     return run.attempts.filter((a) => a.question === id);
   }
+  function promptText(q, writing) {
+    const copy = (writing ? q.querySelector(".paired-writing") ?? q : q).cloneNode(true);
+    copy.querySelectorAll("input,select,textarea,button,label,output,[data-writing-status],[data-feedback],.muted").forEach((n) => n.remove());
+    return copy.textContent?.replace(/\s+/g, " ").trim() ?? q.dataset.question;
+  }
+  var mode = (section) => section.dataset.activityMode ?? (section.dataset.activity === "lesson-check" ? "paired" : section.dataset.activity === "topic-review" ? "writing" : "drill");
+  var limit = (field) => Number(field.dataset.answerLimit) || 900;
   function firstScore(run) {
     const ids = run.questionIds ?? [...new Set(run.attempts.filter((a) => a.correct !== null).map((a) => a.question))];
     const first = ids.map((id) => attempted(run, id)[0]).filter((a) => a && a.correct !== null);
@@ -550,18 +557,19 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   function complete(run, section) {
     return all("[data-question]", section).every((q) => {
       const id = q.dataset.question, writing = $("[data-writing]", q);
-      const written = () => writing && attempted(run, writing.dataset.writing).some((a) => a.answer === writing.value) && writing.value.trim() && writing.value.length <= 900;
-      if (run.activity === "topic-review") return Boolean(written());
-      if (run.activity === "lesson-check") return attempted(run, id).some((a) => a.correct) && Boolean(written());
+      const written = () => writing && attempted(run, writing.dataset.writing).some((a) => a.answer === writing.value) && writing.value.trim() && writing.value.length <= limit(writing);
+      if (mode(section) === "writing") return Boolean(written());
+      if (mode(section) === "paired") return attempted(run, id).some((a) => a.correct) && Boolean(written());
       return attempted(run, id).length > 0;
     });
   }
   function progress() {
-    const done = state.history.some((r) => r.activity === "lesson-check");
-    $("[data-progress-count]").textContent = `${done ? 1 : 0} of 1 lesson checks`;
-    $("[data-progress-fraction]").textContent = `${done ? 1 : 0} / 1`;
-    $("[data-progress-percent]").textContent = done ? "100%" : "0%";
-    $("[data-progress-fill]").style.width = done ? "100%" : "0%";
+    const sections = all("[data-required-check]"), ids = sections.length ? sections.map((s) => s.dataset.activity) : ["lesson-check"];
+    const done = ids.filter((id) => state.history.some((r) => r.activity === id)).length, percent = Math.round(done / ids.length * 100);
+    $("[data-progress-count]").textContent = `${done} of ${ids.length} chapter checks`;
+    $("[data-progress-fraction]").textContent = `${done} / ${ids.length}`;
+    $("[data-progress-percent]").textContent = percent + "%";
+    $("[data-progress-fill]").style.width = percent + "%";
   }
   function render() {
     for (const section of all("[data-activity]")) {
@@ -571,7 +579,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       $("[data-submit-run]", section).disabled = !run || Boolean(run.endedAt);
       $("[data-redo]", section).hidden = !run?.endedAt;
       if (!run) continue;
-      for (const field of all("[data-writing],input[type=text][data-answer]", section)) {
+      for (const field of all("[data-writing],input[type=text][data-answer],select[data-answer]", section)) {
         const value = run.drafts[field.dataset.writing ?? field.id] ?? "";
         if (document.activeElement !== field) field.value = value;
       }
@@ -579,18 +587,24 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       for (const q of all("[data-question]", section)) {
         const tries = attempted(run, q.dataset.question), last = tries.at(-1);
         const feedback = $("[data-feedback]", q);
-        if (feedback) feedback.textContent = last ? `${last.correct === null ? "Self-report recorded" : last.correct ? "Correct" : "Not correct yet"}. ${tries.length} attempt(s). ${run.activity === "lesson-check" ? "First answer counts toward this run\u2019s mark." : ""}` : "";
+        if (feedback) feedback.textContent = last ? `${last.correct === null ? "Self-report recorded" : last.correct ? "Correct" : "Not correct yet"}. ${tries.length} attempt(s). ${mode(section) === "paired" ? "First answer counts toward this run\u2019s mark." : ""}` : "";
         const gate = $("[data-unlock]", q);
         if (gate) gate.disabled = Boolean(run.endedAt) || !tries.some((a) => a.correct);
         const writing = $("[data-writing]", q);
         if (writing) {
           const status = $("[data-writing-status]", q);
           const recorded = attempted(run, writing.dataset.writing).at(-1);
-          status.textContent = recorded?.answer === writing.value ? "Written response saved; not automatically graded." : writing.value.length > 900 ? "Over 900 characters: draft retained, shorten before submitting." : "";
+          status.textContent = recorded?.answer === writing.value ? "Written response saved; not automatically graded." : writing.value.length > limit(writing) ? `Over ${limit(writing)} characters: draft retained, shorten before submitting.` : "";
         }
       }
+      const labelingSummary = section.querySelector("[data-labeling-summary]");
+      if (labelingSummary) {
+        const questions = all("[data-question]", section), latest = questions.map((q) => attempted(run, q.dataset.question).at(-1)).filter(Boolean);
+        const correct = latest.filter((a) => a?.correct).length, missing = questions.length - latest.length;
+        labelingSummary.textContent = latest.length ? `Latest checks: ${correct} of ${latest.length} correct.${missing ? ` ${missing} label${missing === 1 ? " has" : "s have"} not been checked yet.` : " Check any label again after changing it."}` : `Check one letter at a time, or check all ${questions.length} together.`;
+      }
       const score = firstScore(run);
-      $("[data-run-status]", section).textContent = run.endedAt ? `Completed. ${run.activity === "lesson-check" ? `First-try mark: ${score.correct}/${score.total}. ` : ""}Elapsed: ${duration(run.endedAt - run.startedAt)}. Redo starts a new run and keeps this history.` : "In progress. Submit and finish stops the timer.";
+      $("[data-run-status]", section).textContent = run.endedAt ? `Completed. ${mode(section) === "paired" ? `First-try mark: ${score.correct}/${score.total}. ` : ""}Elapsed: ${duration(run.endedAt - run.startedAt)}. Redo starts a new run and keeps this history.` : "In progress. Submit and finish stops the timer.";
     }
     progress();
     history();
@@ -598,32 +612,40 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   }
   function tick() {
     for (const section of all("[data-activity]")) {
-      const run = current(section);
-      $("[data-timer]", section).textContent = run ? duration((run.endedAt ?? Date.now()) - run.startedAt) : "Not started";
+      const run = current(section), next = run ? duration((run.endedAt ?? Date.now()) - run.startedAt) : "Not started", output = $("[data-timer]", section);
+      if (output.textContent !== next) output.textContent = next;
     }
   }
   function history() {
-    const scores = state.history.filter((r) => r.activity === "lesson-check").map((r) => firstScore(r));
-    $("[data-collection-status]").textContent = `${state.history.length} completed run(s). ${scores.length ? "Best completed lesson-check mark: " + Math.max(...scores.map((s) => s.correct)) + "/2." : ""}`;
+    const summaries = all("[data-activity]").filter((s) => mode(s) === "paired").flatMap((s) => {
+      const runs = state.history.filter((r) => r.activity === s.dataset.activity).map(firstScore);
+      if (!runs.length) return [];
+      const best = runs.reduce((a, b) => b.correct / Math.max(b.total, 1) > a.correct / Math.max(a.total, 1) ? b : a);
+      return [`${s.querySelector("h2")?.textContent ?? s.dataset.activity}: best ${best.correct}/${best.total}`];
+    });
+    $("[data-collection-status]").textContent = `${state.history.length} completed run(s). ${summaries.join(" \xB7 ")}`;
     $("[data-history]").innerHTML = state.history.map((r) => `<article class="history-run"><h3>${esc2(r.activity)} \xB7 ${new Date(r.startedAt).toLocaleString()}</h3><p>Elapsed ${duration(r.endedAt - r.startedAt)} \xB7 ${r.attempts.length} submitted attempts</p><details><summary>Review every submitted answer</summary>${r.attempts.map((a, i) => `<section><h4>Attempt ${i + 1}: ${esc2(a.question)}</h4><p>${esc2(a.prompt)}</p><pre>${esc2(a.answer)}</pre><p>${a.correct === null ? "Self-report or writing; not automatically graded" : a.correct ? "Correct" : "Incorrect"} \xB7 ${duration(a.elapsedMs)} since start \xB7 ${new Date(a.at).toLocaleString()}</p></section>`).join("")}</details></article>`).join("") || "<p>No completed runs yet. In-progress work is preserved separately.</p>";
     $("[data-frayer-history]").innerHTML = frayers.map((f) => `<article><h3>${esc2(wordData.words.find((w) => w.id === f.id)?.term)}</h3><p>${f.collected ? "Collected" : "Draft"}</p>${f.answers.map((a) => `<p>${esc2(a)}</p>`).join("")}</article>`).join("") || "<p>No words selected yet.</p>";
   }
   document.addEventListener("input", (event) => {
     const field = event.target, section = field.closest("[data-activity]");
     if (!section || !current(section) || current(section).endedAt) return;
-    if (!field.matches("[data-writing],input[data-answer]")) return;
+    if (!field.matches("[data-writing],input[data-answer],select[data-answer]")) return;
     const id = section.dataset.activity, value = field.value, key = field.dataset.writing ?? (field.type === "radio" ? field.name : field.id);
     enqueue(async () => {
       await change((next) => {
         next.current[id].drafts[key] = value;
       });
-      if (field.matches("[data-writing]")) $("[data-writing-status]", field.closest(".question")).textContent = value.length > 900 ? "Over 900 characters: draft saved locally, but not submitted. Shorten it to submit." : `Draft saved locally \xB7 ${value.length}/900 characters.`;
+      if (field.matches("[data-writing]")) {
+        const max = limit(field);
+        $("[data-writing-status]", field.closest(".question")).textContent = value.length > max ? `Over ${max} characters: draft saved locally, but not submitted. Shorten it to submit.` : `Draft saved locally \xB7 ${value.length}/${max} characters.`;
+      }
     });
   });
   document.addEventListener("click", (event) => {
     const button = event.target.closest("button"), section = button?.closest("[data-activity]");
     if (!button || !section) return;
-    if (!button.matches("[data-start],[data-redo],[data-check],[data-self],[data-submit-writing],[data-submit-run]")) return;
+    if (!button.matches("[data-start],[data-redo],[data-check],[data-check-labels],[data-self],[data-submit-writing],[data-submit-run]")) return;
     if (busy) return;
     busy = true;
     button.disabled = true;
@@ -641,9 +663,22 @@ dialog.bio-vocabulary::backdrop{background:#0005}
           if (!run || run.endedAt) throw Error("Start a new run first.");
           snapshot(run, section);
           if (button.matches("[data-submit-run]")) {
-            if (!complete(run, section)) throw Error("Attempt every item first. For the lesson check, correct both questions and save both written responses.");
+            if (!complete(run, section)) throw Error("Attempt every item first. For a paired check, correct each multiple-choice question and save its written response.");
             run.endedAt = Date.now();
             next.history.push(structuredClone(run));
+            return;
+          }
+          if (button.hasAttribute("data-check-labels")) {
+            const keys = run.keys ?? catalog;
+            let checked = 0;
+            for (const item of all("[data-question]", section)) {
+              const qid2 = item.dataset.question, response2 = answer(item);
+              if (!response2.trim()) continue;
+              const original = keys.questions.find((a) => a.id === qid2) ?? catalog.questions.find((a) => a.id === qid2), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid2) ?? [...catalog.blanks, ...catalog.labels].find((a) => a.id === qid2), correct2 = original ? response2 === original.correct : Boolean(drill) && drill.answers.some((a) => normalize(a) === normalize(response2));
+              run.attempts.push({ question: qid2, answer: response2, correct: correct2, at: Date.now(), elapsedMs: Date.now() - run.startedAt, prompt: promptText(item, false) });
+              checked++;
+            }
+            if (!checked) throw Error("Choose at least one label first.");
             return;
           }
           const q = button.closest("[data-question]"), qid = q.dataset.question;
@@ -652,17 +687,17 @@ dialog.bio-vocabulary::backdrop{background:#0005}
             const field = $("[data-writing]", q);
             question = field.dataset.writing;
             response = field.value;
-            if (!response.trim() || response.length > 900) throw Error("Write a response of 1\u2013900 characters. Your draft has not been removed.");
-            if (id === "lesson-check" && !attempted(run, qid).some((a) => a.correct)) throw Error("Answer the multiple-choice question correctly first.");
+            if (!response.trim() || response.length > limit(field)) throw Error(`Write a response of 1\u2013${limit(field)} characters. Your draft has not been removed.`);
+            if (mode(section) === "paired" && !attempted(run, qid).some((a) => a.correct)) throw Error("Answer the multiple-choice question correctly first.");
           } else if (button.hasAttribute("data-self")) response = button.dataset.self;
           else {
             response = answer(q);
             if (!response.trim()) throw Error("Choose or enter an answer first.");
-            const keys = run.keys ?? catalog, original = keys.questions.find((a) => a.id === qid), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid);
-            correct = original ? response === original.correct : drill.answers.some((a) => normalize(a) === normalize(response));
+            const keys = run.keys ?? catalog, original = keys.questions.find((a) => a.id === qid) ?? catalog.questions.find((a) => a.id === qid), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid) ?? [...catalog.blanks, ...catalog.labels].find((a) => a.id === qid);
+            correct = original ? response === original.correct : Boolean(drill) && drill.answers.some((a) => normalize(a) === normalize(response));
             if (original) response = q.querySelector("[data-answer]:checked")?.closest("label")?.textContent?.trim() ?? response;
           }
-          run.attempts.push({ question, answer: response, correct, at: Date.now(), elapsedMs: Date.now() - run.startedAt, prompt: button.matches("[data-submit-writing]") ? $("[data-writing]", q).previousElementSibling?.textContent ?? "" : q.querySelector("h3,p,label")?.textContent ?? qid });
+          run.attempts.push({ question, answer: response, correct, at: Date.now(), elapsedMs: Date.now() - run.startedAt, prompt: promptText(q, button.matches("[data-submit-writing]")) });
         });
         succeeded = true;
         render();
@@ -726,10 +761,29 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     if (event.target.closest("[data-bio-term]")) syncPopup();
   });
   $("[data-bio-family]").addEventListener("change", syncPopup);
+  function showVideos(root) {
+    for (const section of all("[data-video]", root)) {
+      const control = section.querySelector("[data-load-video]");
+      if (control) control.hidden = true;
+      const slot = $("[data-video-slot]", section);
+      if (slot.querySelector("iframe")) continue;
+      const frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + section.dataset.video;
+      frame.title = section.querySelector("h2,h3")?.textContent?.trim() ?? "Lesson video";
+      frame.allow = "encrypted-media; picture-in-picture; fullscreen";
+      frame.allowFullscreen = true;
+      frame.loading = "lazy";
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      slot.replaceChildren(frame);
+    }
+  }
   function route() {
     let id = location.hash.slice(1) || "overview";
     if (!all(".course-page").some((p) => p.id === id)) id = "overview";
-    for (const page of all(".course-page")) page.hidden = page.id !== id;
+    for (const page2 of all(".course-page")) page2.hidden = page2.id !== id;
+    const page = $("#" + CSS.escape(id));
+    if (document.readyState === "complete") showVideos(page);
+    else window.addEventListener("load", () => setTimeout(() => showVideos(page), 0), { once: true });
     for (const link of all(".nav-link")) {
       const active = link.hash === "#" + id;
       link.classList.toggle("active", active);
@@ -742,30 +796,38 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   }
   window.addEventListener("hashchange", route);
   route();
+  var textbookDialog = $("[data-textbook-dialog]");
+  var textbookReturnFocus = null;
+  for (const link of all("[data-book-page]")) link.setAttribute("aria-haspopup", "dialog");
+  function openTextbookPage(link) {
+    const pdfPage = Number(link.dataset.bookPage);
+    if (!Number.isInteger(pdfPage) || pdfPage < 1) return;
+    const printedPage = pdfPage + 359, externalSrc = "assets/textbook/chapter-11.pdf#page=" + pdfPage, readerSrc = `assets/textbook/chapter-11.pdf?readerPage=${pdfPage}#page=${pdfPage}`;
+    textbookReturnFocus = link;
+    $("[data-textbook-dialog-title]").textContent = "Textbook page " + printedPage;
+    $("[data-textbook-dialog-meta]").textContent = `Chapter 11 \xB7 PDF page ${pdfPage} of 44`;
+    $("[data-textbook-dialog-frame]").src = readerSrc;
+    $("[data-textbook-dialog-external]").href = externalSrc;
+    textbookDialog.showModal();
+    document.documentElement.style.overflow = "hidden";
+    $("[data-textbook-close]").focus({ preventScroll: true });
+  }
+  textbookDialog.addEventListener("close", () => {
+    document.documentElement.style.overflow = "";
+    textbookReturnFocus?.focus({ preventScroll: true });
+    textbookReturnFocus = null;
+  });
   var linkedWord = new URLSearchParams(location.search).get("word");
   if (linkedWord && wordData.words.some((w) => w.id === linkedWord)) $(`[data-biology-select-word="${CSS.escape(linkedWord)}"]`)?.click();
   document.addEventListener("click", (event) => {
-    const target = event.target.closest("[data-book-page],[data-load-video],[data-sidebar-toggle],[data-menu-button],[data-download],[data-print],[data-save-exit]");
+    const target = event.target.closest("[data-book-page],[data-textbook-close],[data-load-video],[data-sidebar-toggle],[data-menu-button],[data-download],[data-print],[data-save-exit]");
     if (!target) return;
     if (target.hasAttribute("data-book-page")) {
-      const src = "assets/textbook/chapter-11.pdf#page=" + target.dataset.bookPage;
-      $("[data-textbook]").src = src;
-      $("[data-book-external]").href = src;
+      event.preventDefault();
+      openTextbookPage(target);
     }
-    if (target.hasAttribute("data-load-video")) {
-      const section = target.closest("[data-video]"), slot = $("[data-video-slot]", section);
-      if (location.protocol === "file:") slot.textContent = "YouTube embedding requires the web preview. Use Watch on YouTube, or the lesson explanation.";
-      else {
-        const frame = document.createElement("iframe");
-        frame.src = "https://www.youtube-nocookie.com/embed/" + section.dataset.video;
-        frame.title = $("h3", section).textContent;
-        frame.allow = "encrypted-media; picture-in-picture; fullscreen";
-        frame.allowFullscreen = true;
-        frame.referrerPolicy = "strict-origin-when-cross-origin";
-        slot.replaceChildren(frame);
-        target.hidden = true;
-      }
-    }
+    if (target.hasAttribute("data-textbook-close")) textbookDialog.close();
+    if (target.hasAttribute("data-load-video")) showVideos(target.closest("[data-video]"));
     if (target.hasAttribute("data-sidebar-toggle")) {
       document.body.classList.toggle("sidebar-collapsed");
       target.setAttribute("aria-expanded", String(!document.body.classList.contains("sidebar-collapsed")));

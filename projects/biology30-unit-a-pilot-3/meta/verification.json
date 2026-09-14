@@ -1,20 +1,22 @@
 {
   "passed": true,
-  "candidateSha256": "14dab627414ed150d5cc20770eeac53bd262f60b8064505995f1aa0165a6ad70",
+  "candidateSha256": "5c3eb0acbd4a2e721168f16311da42e6eb7f27a947cc02174573ae171aac3b2e",
+  "runtimeSha256": "a82619606e366438cc5cc0b93ca551b25e698cd56b9a9ac08af1134aeb5c8236",
   "checks": [
-    "source-preservation",
-    "wrong-correct-unlock",
-    "900/901-character boundary",
-    "reload-writing",
-    "first-try mark",
-    "redo history and best mark",
+    "protected-course-preservation",
+    "legacy wrong-correct unlock and 900/901 boundary",
+    "legacy writing reload, first-try mark, redo and best mark",
     "all three memorization modes",
     "written review",
-    "eight-word cap",
-    "Frayer reload",
+    "eight-word cap and Frayer reload",
     "popup route scroll and Escape",
-    "HTTP embed creation",
-    "mobile six routes no overflow"
+    "106 textbook links match the printed-page offset and open the in-course page reader",
+    "22 matching lesson/library videos and HTTP iframe creation",
+    "all nine added paired checks: wrong/correct unlock, 3200/3201 boundary, finish and reload",
+    "ten-check progress reaches 100%",
+    "all 23 routes and their images at desktop/tablet/mobile without overflow",
+    "200% text and narrow-layout checks",
+    "forced IndexedDB failure and draft recovery"
   ],
-  "at": "2026-09-10T17:03:06.717Z"
+  "at": "2026-09-14T15:50:29.205Z"
 }

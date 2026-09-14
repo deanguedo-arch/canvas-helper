@@ -22,6 +22,8 @@ Examples:
 
 ## Minimal Verification Expectations
 
+These are Rollout-checkpoint expectations, not commands to rerun after every Build-mode prompt. During routine authoring, complete the requested change, keep the affected preview usable, and record the applicable checks as deferred. Run an immediate targeted check only for saved-state compatibility, destructive behavior, security/trust boundaries, or a broken affected preview. Testing-framework suites run when that framework changes. Existing push/PR CI remains unchanged.
+
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
 - Codex-to-Studio course creation changes: `npm run test:codex-course`, the focused live-discovery browser scenario, `npm.cmd run build:studio`, and `npm.cmd run typecheck`
@@ -69,10 +71,10 @@ Add or update tests when:
 
 ## Definition of Done
 
-A task is done when:
+A rollout candidate is ready when:
 
 - the change stays within its architectural boundary
-- the minimum verification has been run
+- the relevant accumulated verification has been run
 - affected docs are updated
 - shared Studio releases have a current `docs/releases/` note and a passing machine-readable `.runtime/studio-release-report.json`
 - risks and next steps are explicit

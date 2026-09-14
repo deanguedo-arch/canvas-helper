@@ -10,6 +10,31 @@ Its job is:
 
 Canvas Helper is not only a first-pass generator. External first-pass generation (for example Gemini Canvas) is officially supported. Canvas Helper then turns those artifacts into cleaner, integrated, export-ready deliverables.
 
+## Default Work Cadence
+
+Every new chat and artifact starts in **Build mode** unless the user explicitly requests testing, packaging, deployment, or rollout.
+
+In Build mode:
+
+- “Finish this change” means complete the requested edit and make the affected preview usable. It does not mean certify the whole course or repository.
+- Inspect the affected source and rendered area. Rebuild only what the preview needs.
+- Do not run full-course E2E, exhaustive responsive checks, Studio editability coverage, reversible-edit certification, SCORM tests, broad smoke suites, or previously passing suites after each prompt.
+- Keep a short cumulative list of checks deferred until rollout. Never describe a deferred check as passed.
+- Preserve canonical ownership, stable IDs, safe saving, editable HTML, and required metadata while building. Defer the comprehensive proof of those contracts, not the foundations required to pass it.
+- Run an immediate, narrowly targeted check only when the change affects saved-answer/state compatibility, destructive behavior, security or trust boundaries, or a defect that prevents the affected preview from working. Tell the user why that exception is needed before running it.
+- Tests for a testing framework or policy run when that framework or policy changes, not for ordinary course-content edits.
+
+At the **Rollout checkpoint**, triggered by an explicit request such as “test it,” “ready to package,” “prepare the release,” “deploy,” or “roll out”:
+
+1. Finish and freeze the agreed candidate.
+2. Run one planned validation batch, ordered from inexpensive static/focused checks to learner E2E and then expensive Studio/readiness proof.
+3. If a failure requires a fix, rerun only the failed or affected checks, plus any final gate whose evidence the fix invalidated.
+4. Package or deploy only when authorized, then verify the actual artifact and target environment before claiming release or LMS readiness.
+
+Existing push/PR CI remains authoritative and unchanged. Local Build-mode deferral does not waive CI or rollout gates.
+
+Keep agent work economical: use targeted reads, concise successful command output, failure-only log expansion, changed-area screenshots, and short Build-mode handoffs. Avoid duplicate reviews, repeated full-file/history reads, unnecessary subagents, and regenerated reports. Write the full handoff at a meaningful session, candidate, or release boundary.
+
 ## Official Workflows
 
 ### 1) `conversion`
@@ -32,7 +57,7 @@ Goals:
 - expand depth, hierarchy, navigation, and interaction quality
 - produce coherent export-ready modules
 
-For a net-new course, the user only needs to ask for the course. The agent must route creation through the Studio-aware course or owning factory workflow automatically; do not make the user choose an internal fast path or remember a verification command. A newly created or newly activated `active`/`ready-for-export` course is not complete until the automatic new-course readiness gate proves its versioned editability contract, complete learner inventory, rendered routine-content thresholds, and reversible Studio lifecycle. Imported or unresolved legacy material must remain `blocked` until that proof exists.
+For a net-new course, the user only needs to ask for the course. The agent must route creation through the Studio-aware course or owning factory workflow automatically; do not make the user choose an internal fast path or remember a verification command. A newly created or newly activated `active`/`ready-for-export` course is not rollout-ready until the automatic new-course readiness gate proves its versioned editability contract, complete learner inventory, rendered routine-content thresholds, and reversible Studio lifecycle. Imported or unresolved legacy material must remain `blocked` until that proof exists.
 
 ### 3) `injection/integration`
 
@@ -59,7 +84,7 @@ npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" 
 - If the course later requires a generated workspace or family builder, do not keep claiming Direct ownership. Introduce a supported adapter, stored overrides, rebuild path, and reversible pilot before enabling Edit for that generated boundary.
 - Imported, conversion, English-factory, and Social-factory work must use their owning intake/factory workflow rather than this from-scratch scaffold.
 
-Completion floor for a new Codex course:
+Rollout completion floor for a new Codex course (deferred during Build mode):
 
 - `npm run course:doctor -- --project <slug>`
 - `npm run verify -- --project <slug> --mode workspace`
@@ -328,9 +353,9 @@ Read-discipline, surgical-default, and mode-overlay rules must be interpreted in
 
 ## E2E Automation Policy
 
-Use browser automation as a regression gate for interaction-heavy work.
+Use browser automation as a rollout regression gate for interaction-heavy work.
 
-Run E2E before finishing a task when any of the following changed:
+Accumulate E2E coverage for the Rollout checkpoint when any of the following changed:
 - shared Studio/player UI
 - learner/archive mode logic
 - module navigation logic
@@ -349,7 +374,7 @@ Rules:
 - If project behavior expectations changed, update `projects/<slug>/meta/e2e-contract.json`.
 - Keep the high-confidence suite project-agnostic by defining `assertionProfiles`, `modulePassTargets`, and `visibilityChecks` in the project contract when deeper coverage is needed.
 - Project-contract runs are strict: missing slug/contract, invalid schema, empty deep targets, or missing required `data-testid` hooks must fail fast.
-- A task touching critical interaction flows is not complete until the required E2E command passes.
+- A release candidate touching critical interaction flows is not rollout-ready until the required E2E command passes. An individual Build-mode edit may finish with that check explicitly deferred.
 
 ## Commit Rules
 
@@ -368,7 +393,7 @@ Every task handoff must include:
 5. Source-of-truth location
 6. Fragile areas / what might drift
 7. Next prompt assumptions
-8. Exact next command
+8. Exact next action, with a command only when one is actually required
 9. Exact next file to open
 
 Use the stricter template in `docs/ops/HANDOFF.md` for ongoing session work.
@@ -393,10 +418,11 @@ When creating or reshaping UI artifacts:
 5. Include meaningful states where they improve comprehension and flow continuity.
 6. Prefer coherent production-like surfaces over placeholder scaffolds.
 
-## Verification Floor
+## Rollout Verification Floor
 
-- Run the smallest meaningful set of checks for the touched area.
-- For a net-new course or a change to a governed new course, run `npm run test:new-course-readiness` and the automatic `verify:new-course-readiness` exact-head gate. Direct, English factory, and Social factory courses may become active only after it passes; imported, proposal-only, and unresolved legacy work remains blocked.
+- During Build mode, defer the checks below and record them in the handoff. Run only a required narrow risk check described in Default Work Cadence.
+- At the Rollout checkpoint, run the smallest meaningful accumulated set of checks for the candidate.
+- For a net-new course or a change to a governed new course, the rollout batch includes `npm run test:new-course-readiness` and the automatic `verify:new-course-readiness` exact-head gate. Direct, English factory, and Social factory courses may become active only after it passes; imported, proposal-only, and unresolved legacy work remains blocked.
 - For repo-wide architecture or governance changes, the minimum floor is:
   - `npm.cmd run typecheck`
   - `npm.cmd run build:studio`

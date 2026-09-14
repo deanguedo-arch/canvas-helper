@@ -29,6 +29,8 @@ If Studio is running, the promoted course appears automatically in its picker.
 
 The manifest also declares the versioned `studio-routine-content-v1` editability profile. That marker is an obligation, not a flag that grants editing: the exact-head gate must still measure the finished rendered course and complete a reversible public-route lifecycle.
 
+After the scaffold succeeds, continue in Build mode. Complete requested authoring changes and the affected preview without rerunning course-wide validation after each prompt. Maintain the editability contract in the source, but defer its comprehensive proof until the teacher explicitly requests testing, packaging, deployment, or rollout.
+
 ## 2. Author for both learners and teachers
 
 Develop the actual course only in its canonical workspace and declared assets. Preserve these conditions:
@@ -43,7 +45,15 @@ Develop the actual course only in its canonical workspace and declared assets. P
 
 Interactive course code is allowed. The boundary is visible: source-owned supported elements show an Edit action, while runtime-created or replaced elements show **Annotation only** and can move directly into a Codex Review Set.
 
-## 3. Verify source ownership
+## 3. Accumulate rollout checks
+
+During Build mode, record the relevant checks below as deferred in the handoff. For a visual/content change, inspect only the changed area and rebuild only what the preview needs. Do not rerun these commands merely because another ordinary course edit was completed.
+
+Run a narrow immediate check only for saved-state compatibility, destructive behavior, a security/trust boundary, or a defect that prevents the affected preview from working.
+
+## 4. Verify the frozen rollout candidate
+
+When the teacher explicitly requests testing, packaging, deployment, or rollout, freeze the agreed candidate and run one batch in increasing cost order:
 
 ```bash
 npm run course:doctor -- --project <slug>
@@ -54,9 +64,9 @@ npm run test:new-course-readiness
 
 The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. The coverage report must have a complete learner inventory and retain the new-course block/text/category/capability floors exercised by `npm run test:new-course-readiness`. Fix the canonical contract rather than forcing eligibility.
 
-CI then runs `verify:new-course-readiness` against the correct Git comparison base, repeats production rendered measurement, and uploads content-free exact-head evidence. The change-aware gate covers a newly added active course, a blocked course promoted to active, a safe adapter newly onboarded onto an older course, and every later project/resource change to a governed course.
+CI then runs `verify:new-course-readiness` against the correct Git comparison base, repeats production rendered measurement, and uploads content-free exact-head evidence. The change-aware gate covers a newly added active course, a blocked course promoted to active, a safe adapter newly onboarded onto an older course, and every later project/resource change to a governed course. Existing push/PR CI remains unchanged and is separate from local Build-mode deferral.
 
-## 4. Prove the real Studio lifecycle
+## 5. Prove the real Studio lifecycle
 
 1. Open the course in Studio.
 2. Select **Edit** and inspect the visual map for the actual current page.
@@ -70,7 +80,7 @@ Do not use Undo after Codex, a builder, or another tool changes the course; Stud
 
 The CI lifecycle must return `pass`; a page map, no-target result, skipped checkpoint, or failed restoration does not satisfy new-course readiness.
 
-## 5. Add interaction acceptance when needed
+## 6. Add interaction acceptance when needed
 
 When the course gains navigation, assessments, stored responses, conditional content, or other learner behavior, create `projects/<slug>/meta/e2e-contract.json` and run:
 
@@ -78,7 +88,9 @@ When the course gains navigation, assessments, stored responses, conditional con
 npm run test:e2e:project -- --project <slug>
 ```
 
-Package and cross-browser persistence acceptance remain separate export-stage gates.
+Package and cross-browser persistence acceptance remain separate export-stage gates. After authorized SCORM packaging, verify resume, saved answers, completion, scores, and timing in the target LMS before claiming LMS readiness.
+
+If validation finds a defect, fix it and rerun the failed or affected checks. Refresh a final gate only when the fix invalidated its evidence; do not restart unrelated passing suites.
 
 Generic imports and unresolved legacy sources start `blocked`. They can be previewed, inspected, and migrated, but previewability alone cannot make them active or Studio-editable. Direct, English factory, and Social factory output becomes active only with the same versioned contract and the same measured gate.
 

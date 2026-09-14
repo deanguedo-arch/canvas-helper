@@ -1,9 +1,28 @@
 {
-  "status": "failed-not-enabled",
+  "status": "passed-edit-enabled",
   "isolatedSnapshot": "/tmp/biology30-pilot3-validation.VzOFlG",
-  "snapshotCommit": "2b3f2f0a5b0fdb5e36e1cc903da6f4937a91a006",
-  "failedCodes": ["block-coverage-90", "candidate-prose-80", "teacher-text-coverage-90"],
-  "lifecycle": "not-run",
+  "snapshotCommit": "1671cf85d69fa759dd6703c3d01f6d255378ae67",
+  "candidateSha256": "d01528cbce3a0d947f0f7ca1af093258d203cb104848819f7e62986f26a4ab88",
+  "failedCodes": [],
+  "lifecycle": {
+    "status": "passed",
+    "editableMapCount": 5054,
+    "annotationOnlyMapCount": 212
+  },
+  "coverage": {
+    "status": "passed",
+    "learnerSurfaceCount": 179,
+    "blockCoverage": {
+      "numerator": 4389,
+      "denominator": 4832
+    },
+    "teacherTextCoverage": {
+      "numerator": 206471,
+      "denominator": 221581
+    }
+  },
+  "readinessReportDigest": "397c016edc68ebe290b6cc20723fe626baa944442016f4c4cb9108b91f982491",
+  "coverageReportDigest": "45ebe0516e08fa477c8781c0dd1c838077229038423a0cabe2cc19b9af2238fd",
   "projectE2E": "passed-1-of-1",
-  "boundary": "Preview and Annotate available; Studio Edit remains blocked. No release or LMS certification. User requested review now to conserve usage."
+  "boundary": "Chapter 11 learner work and focused checks complete. All 106 linked textbook references match the printed-page offset and now open the requested PDF page in a closable in-course reader without changing the lesson route; a separate-window link remains available. All 14 destinations retain the approved lesson-entry patterns, and lesson/library videos appear automatically. Exact-head rendered coverage and the reversible Studio apply, reload and Undo lifecycle passed on 2026-09-14. Studio Edit remains enabled through active authoring status. No release or LMS certification."
 }

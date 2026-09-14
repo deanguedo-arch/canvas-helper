@@ -9,7 +9,7 @@ Every meaningful stop point must produce a handoff that another human or agent c
 
 - Project: <slug or repo-wide>
 - Task: <one sentence>
-- Status: <not started | in progress | blocked | ready for validation | complete>
+- Status: <building | blocked | ready for rollout validation | validated | released>
 
 ## Files changed
 - <path>
@@ -32,13 +32,13 @@ Every meaningful stop point must produce a handoff that another human or agent c
 - <starting assumptions for next operator>
 
 ## What still needs validation
-- <specific check>
+- <specific check deferred until rollout, or none>
 
 ## Known risks
 - <specific risk>
 
-## Exact next command
-`<command>`
+## Exact next action
+- <await the next requested change, or the exact required command>
 
 ## Exact next file to open
 `<path>`
@@ -51,10 +51,12 @@ Every meaningful stop point must produce a handoff that another human or agent c
 
 - Be specific, not narrative.
 - Name exact files, not vague areas.
-- Include one exact next command.
+- Include one exact next action. Use a command only when one is actually required; otherwise write `Await the next requested change.`
 - Include one exact next file to open.
 - Call out blockers directly.
 - Do not hide missing verification.
+- In Build mode, keep a short cumulative list of checks deferred until rollout. Do not regenerate reports or repeat passing suites merely to refresh the handoff.
+- Use the compact template for ordinary Build-mode stops. Reserve a detailed verification record for a meaningful session boundary or Rollout checkpoint.
 - Explicitly record source-of-truth location and fragile areas.
 - Add assumptions the next prompt should start with.
 - Keep the single active handoff in `docs/ops/ACTIVE_HANDOFF.md` for all work.
