@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biology Course Review</title>
+  <style>
+    :root{color-scheme:light;--ink:#17211d;--muted:#56645c;--canvas:#f3f5f0;--surface:#fff;--line:#ccd5cc;--green:#2f6339;--green-dark:#21462a;--teal:#176b6a}
+    *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
+    header{border-bottom:1px solid var(--line);background:var(--ink);color:#fff;padding:22px clamp(20px,5vw,64px)}
+    header p{max-width:760px;margin:8px 0 0;color:#dce8dc}header .title{font-size:28px;line-height:1.15;font-weight:750}
+    main{max-width:1180px;margin:0 auto;padding:28px clamp(20px,5vw,64px) 56px}.intro{max-width:760px;margin:0 0 24px;color:var(--muted)}
+    .course-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:0 0 28px}
+    .course-card{display:flex;flex-direction:column;gap:10px;min-height:190px;padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+    .course-card[aria-selected="true"]{border-color:var(--green);box-shadow:0 0 0 2px #d8e8d8}.course-card h2{margin:0;font-size:21px;line-height:1.2}.course-card p{margin:0;color:var(--muted)}
+    .course-card button{align-self:flex-start;margin-top:auto;min-height:42px;padding:8px 14px;border:1px solid var(--green);border-radius:7px;background:var(--green);color:#fff;font-weight:700;cursor:pointer}.course-card button:hover{background:var(--green-dark)}
+    .viewer{border:1px solid var(--line);background:var(--surface)}.viewer-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;border-bottom:1px solid var(--line)}.viewer-head p{margin:0;color:var(--muted)}
+    .viewer-head a{color:var(--teal);font-weight:700}.viewer iframe{display:block;width:100%;height:min(78vh,900px);min-height:620px;border:0;background:#fff}
+    .library-header{display:flex;align-items:center;gap:18px;min-height:68px;padding:8px clamp(18px,5vw,64px);background:#151a18;color:#fff}.library-logo{display:none}.library-heading{min-width:220px}.library-heading strong{display:block;font-size:16px;line-height:1.1}.library-heading span{display:block;margin-top:5px;color:#cbd7cc;font-size:13px}.library-picker{display:flex;align-items:center;gap:18px;margin-left:auto}.library-picker label{font-size:13px}.library-picker select{width:min(420px,42vw);height:42px;padding:0 12px;border:1px solid #c8d0c8;border-radius:3px;background:#fff;color:#17211d;font-size:15px}.library-picker button{height:42px;padding:0 14px;border:1px solid #c8d0c8;border-radius:3px;background:#fff;color:#17211d;cursor:pointer}.library-note,.intro,.course-list{display:none}main{max-width:none;padding:0}.viewer{border:0}.viewer-head{padding:12px clamp(18px,5vw,64px)}
+    @media(max-width:700px){.library-header{flex-wrap:wrap}.library-picker{width:100%;margin-left:0}.library-picker select{flex:1;width:auto}.library-picker label{display:none}.viewer iframe{min-height:560px}.viewer-head{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="library-header">
+    <img class="library-logo" src="./assets/brand/next-step-logo-transparent.png" alt="">
+    <div class="library-heading"><strong>Course library</strong><span>Teacher review · five courses</span></div>
+    <div class="library-picker"><label for="course-select">Course</label><select id="course-select" aria-label="Choose a course"><option value="biology30-a">Biology 30 — Unit A (Pilot 2)</option><option value="biology30-b">Biology 30 — Unit B</option><option value="biology30-c">Biology 30 — Unit C</option><option value="biology30-d">Biology 30 — Unit D</option><option value="biology20-a">Biology 20 — Unit A</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
+  </header>
+  <p class="library-note">Teacher review builds · curriculum reconciliation, teacher approval, and Brightspace release remain separate steps.</p>
+  <main>
+    <p class="intro">This is a review hub, not a learner release. Each course remains a separate source project; this page provides one shared entry point.</p>
+    <section class="course-list" aria-label="Courses" hidden>
+      <article class="course-card" data-course="biology30-a" aria-selected="true">
+        <h2>Biology 30 — Unit A</h2><p>Nervous and Endocrine Systems · Pilot 2</p><button type="button">Open Biology 30 A</button>
+      </article>
+      <article class="course-card" data-course="biology30-b" aria-selected="false">
+        <h2>Biology 30 — Unit B</h2><p>Reproduction and Development</p><button type="button">Open Biology 30 B</button>
+      </article>
+      <article class="course-card" data-course="biology30-c" aria-selected="false">
+        <h2>Biology 30 — Unit C</h2><p>Cell Division, Genetics and Molecular Biology</p><button type="button">Open Biology 30 C</button>
+      </article>
+      <article class="course-card" data-course="biology30-d" aria-selected="false">
+        <h2>Biology 30 — Unit D</h2><p>Population and Community Dynamics</p><button type="button">Open Biology 30 D</button>
+      </article>
+      <article class="course-card" data-course="biology20-a" aria-selected="false">
+        <h2>Biology 20 — Unit A</h2><p>Energy and Matter Exchange in the Biosphere</p><button type="button">Open Biology 20 A</button>
+      </article>
+    </section>
+    <section class="viewer" aria-label="Selected course preview">
+      <div class="viewer-head"><p id="selection-label">Biology 30 — Unit A: Nervous and Endocrine Systems</p><a id="open-link" href="./biology30-a/index.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+      <iframe id="course-frame" title="Selected Biology course" src="./biology30-a/index.html"></iframe>
+    </section>
+  </main>
+  <script>
+    const courses={
+      'biology30-a':{label:'Biology 30 — Unit A: Nervous and Endocrine Systems',src:'./biology30-a/index.html',local:'../../../biology30-unit-a-pilot-2/workspace/index.html'},
+      'biology30-b':{label:'Biology 30 — Unit B: Reproduction and Development',src:'./biology30-b/index.html',local:'../../../biology30-unit-b/workspace/index.html'},
+      'biology30-c':{label:'Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology',src:'./biology30-c/index.html',local:'../../../biology30-unit-c/workspace/index.html'},
+      'biology30-d':{label:'Biology 30 — Unit D: Population and Community Dynamics',src:'./biology30-d/index.html',local:'../../../biology30-unit-d/workspace/index.html'},
+      'biology20-a':{label:'Biology 20 — Unit A: Energy and Matter Exchange in the Biosphere',src:'./biology20-a/index.html',local:'../../../biology20-unit-a/workspace/index.html'}
+    };
+    const frame=document.querySelector('#course-frame'), label=document.querySelector('#selection-label'), link=document.querySelector('#open-link');
+    function selectCourse(id){const c=courses[id];if(!c)return;const src=location.protocol==='file:'?c.local:c.src;frame.src=src;frame.title=c.label;label.textContent=c.label;link.href=src;picker.value=id;document.querySelectorAll('.course-card').forEach(card=>card.setAttribute('aria-selected',String(card.dataset.course===id)));history.replaceState(null,'','#'+id)}
+    document.querySelectorAll('.course-card button').forEach(button=>button.addEventListener('click',()=>selectCourse(button.closest('.course-card').dataset.course)));
+    const picker=document.querySelector('#course-select');
+    const copyButton=document.querySelector('#copy-review-link');
+    picker.addEventListener('change',()=>selectCourse(picker.value));
+    copyButton.addEventListener('click',async()=>{const c=courses[picker.value]||courses['biology30-a'];const url=new URL(location.protocol==='file:'?c.local:c.src,location.href).href;try{await navigator.clipboard.writeText(url);copyButton.textContent='Copied';setTimeout(()=>copyButton.textContent='Copy review link',1500)}catch{copyButton.textContent=url}});
+    const initial=location.hash.slice(1);if(courses[initial]){picker.value=initial;selectCourse(initial)}else{selectCourse('biology30-a')}
+  </script>
+</body>
+</html>

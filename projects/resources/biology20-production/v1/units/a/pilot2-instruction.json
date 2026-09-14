@@ -1,0 +1,1303 @@
+{
+  "unit": "A",
+  "courseId": "biology20",
+  "status": "partial-authoring; source, calculation, coverage, time and rendered checks pending",
+  "parts": [
+    {
+      "partId": "a-topic-intro-to-ecology-system-boundaries",
+      "outcomeIds": [],
+      "workedExample": {
+        "id": "a-topic-intro-to-ecology-system-boundaries-worked",
+        "prompt": "A transparent jar containing moist soil and a small plant is sealed for a short observation period. Light reaches the jar, its temperature changes, and no material is added or removed. Classify the jar system and explain whether water evaporating from the soil makes it an open system.",
+        "steps": [
+          "Choose the outside of the sealed jar as the boundary. The air, plant, soil and water inside are all part of the system.",
+          "Identify energy transfers. Light passes through the jar and heat can be transferred between the jar and the room; the system is therefore not isolated.",
+          "Identify matter transfers across the boundary. Under the stated conditions, none is observed. Evaporation moves water from the soil into the air inside the jar, but that water has not crossed the boundary.",
+          "Classify the system as approximately closed over this observation period. A leak or opening the lid would change the matter exchanges and therefore the classification for that period."
+        ],
+        "conclusion": "An internal change is not automatically an exchange with the surroundings. The jar is approximately closed, not isolated, because energy crosses its boundary while matter remains inside.",
+        "sourceRole": "Authored explanatory scenario, not a report of a performed experiment."
+      },
+      "stopCheck": {
+        "id": "a-topic-intro-to-ecology-system-boundaries-stop",
+        "prompt": "Now place the boundary around only the plant, leaving the jar air and soil outside it. The plant takes in water and carbon dioxide and receives light. Is the plant system open, closed or isolated? Explain which exchanges decide your answer before opening the guide.",
+        "guide": "The plant system is open: water and carbon dioxide are matter entering from the surroundings, and light transfers energy into it. Sealing the larger jar does not make every smaller system inside it closed. The answer depends on the boundary, not simply the presence of a lid.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-intro-to-ecology-system-boundaries-advanced",
+        "title": "One pond, two boundaries, different balances",
+        "structureVersion": "a-style-v1",
+        "connection": "The core idea separated internal movement from exchange across a boundary. Apply that distinction to a numerical water balance without treating evaporation as the destruction of matter.",
+        "paragraphs": [
+          "A water budget compares the amount inside a boundary at the start and end of a stated interval. For a pond-water boundary, inflow and rain add water; an outlet and evaporation remove it. The change in storage equals total inputs minus total outputs. Every quantity must use the same units and time interval before it can be combined.",
+          "Use the illustrative daily values in the table. Inputs total 30 cubic metres and outputs total 35 cubic metres, so pond-water storage decreases by 5 cubic metres. The negative result describes a change, not a negative final volume. If the pond started with 1,000 cubic metres, it would end with 995 cubic metres under these assumptions.",
+          "Move the boundary outward to include the pond, nearby land and air. Some water that crossed the smaller pond boundary may now remain within this larger system. You cannot reuse the same input and output totals without reconsidering where each transfer goes. A boundary-specific budget is therefore a model of an identified system, not a universal account of the whole watershed."
+        ],
+        "evidence": {
+          "caption": "Illustrative water transfers across a pond-water boundary during one day",
+          "description": "Invented values for practising a balance calculation; these are not observations from a real pond. One cubic metre equals 1,000 litres.",
+          "columns": [
+            "Transfer",
+            "Direction across the pond-water boundary",
+            "Volume during the day (m³)"
+          ],
+          "rows": [
+            [
+              "Stream inflow",
+              "Into the pond",
+              "20"
+            ],
+            [
+              "Rain",
+              "Into the pond",
+              "10"
+            ],
+            [
+              "Outlet flow",
+              "Out of the pond",
+              "25"
+            ],
+            [
+              "Evaporation",
+              "Out of the pond water into the air",
+              "10"
+            ]
+          ],
+          "limitation": "This simplified budget omits groundwater exchange, seepage and measurement uncertainty. It cannot establish the balance of a real pond without additional evidence."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-intro-to-ecology",
+          "focusId": "a-topic-intro-to-ecology-system-boundaries-worked",
+          "label": "Return to the sealed-jar boundary example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Companion draft only. Official outcome IDs and time allocation are not yet frozen; the stop-check guide is not collected independent evidence."
+    },
+    {
+      "partId": "a-topic-intro-to-ecology-energy-and-albedo",
+      "outcomeIds": [],
+      "workedExample": {
+        "id": "a-topic-intro-to-ecology-energy-and-albedo-worked",
+        "prompt": "Two equal areas receive 1,000 J of sunlight during the same interval. Surface S has albedo 0.80; surface G has albedo 0.20. Assume neither transmits light. Calculate reflection and absorption for each, then explain the limitation of predicting their temperatures.",
+        "steps": [
+          "Use reflected energy = albedo × incoming energy. S reflects 0.80 × 1,000 J = 800 J. G reflects 0.20 × 1,000 J = 200 J.",
+          "Use absorbed energy = incoming − reflected when transmission is negligible. S absorbs 200 J; G absorbs 800 J.",
+          "G absorbs 600 J more during this interval. Both accounts conserve the incoming energy: 800 + 200 = 1,000 J.",
+          "Do not equate that difference with an exact temperature difference. Material mass, heat capacity, evaporation and energy losses have not been supplied."
+        ],
+        "conclusion": "Under equal input and the stated assumptions, the lower-albedo surface absorbs more. These illustrative energy values do not determine final temperature.",
+        "sourceRole": "Authored illustrative example; not observed student evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-intro-to-ecology-energy-and-albedo-stop",
+        "prompt": "A surface receives 600 J and reflects 150 J. Calculate its albedo and absorbed energy, assuming no transmission. State your denominator before revealing the guide. Classify energy transfer when an animal touches cooler ground, rising air carries warmth, and infrared waves leave a surface.",
+        "guide": "Albedo = reflected/incoming = 150/600 = 0.25, or 25%. Absorbed energy = 600 − 150 = 450 J. The denominator is incoming energy, not absorbed energy. These are conduction, convection and radiation respectively. Respiration supplies thermal energy but is not itself one of those transfer mechanisms.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-intro-to-ecology-energy-and-albedo-advanced",
+        "title": "Why a darker surface does not always absorb more energy",
+        "structureVersion": "a-style-v1",
+        "connection": "The core comparison kept incoming sunlight equal. Change that condition and test whether albedo alone still predicts total absorption.",
+        "paragraphs": [
+          "A fraction and a total answer different questions. Albedo describes the reflected share of an input. Total reflected or absorbed energy depends on the size of that input as well. Comparing two surfaces without checking exposure confuses a surface property with the conditions under which it is observed.",
+          "In the illustrative table, the high-albedo surface receives 1,000 J and absorbs 300 J. The low-albedo surface is shaded, receives only 200 J and absorbs 160 J. The darker surface absorbs a larger fraction but a smaller total. There is no contradiction: the two fractions use different incoming-energy denominators.",
+          "To investigate the effect of albedo itself, compare equal areas under matched exposure and state how other conditions are controlled. An observational comparison can still be useful, but different exposure is an alternative explanation that must be considered. Neither calculation, by itself, predicts the final surface temperature."
+        ],
+        "evidence": {
+          "caption": "Illustrative equal-area comparison with unequal exposure",
+          "description": "Constructed values over the same interval; assume no transmission.",
+          "columns": [
+            "Surface",
+            "Incoming energy (J)",
+            "Albedo",
+            "Reflected (J)",
+            "Absorbed (J)"
+          ],
+          "rows": [
+            [
+              "High albedo, exposed",
+              "1,000",
+              "0.70",
+              "700",
+              "300"
+            ],
+            [
+              "Low albedo, shaded",
+              "200",
+              "0.20",
+              "40",
+              "160"
+            ]
+          ],
+          "limitation": "Exposure is deliberately not controlled. These values cannot isolate albedo's effect on temperature or represent measured snow/soil properties."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-intro-to-ecology",
+          "focusId": "a-topic-intro-to-ecology-energy-and-albedo-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Companion draft. Outcome IDs and time allocation pending; revealed guide is not collected independent evidence."
+    },
+    {
+      "partId": "a-topic-intro-to-ecology-producing-organic-matter",
+      "outcomeIds": [],
+      "workedExample": {
+        "id": "a-topic-intro-to-ecology-producing-organic-matter-worked",
+        "prompt": "Compare a photosynthetic alga and a microorganism known to fix carbon dioxide using energy from sulfide oxidation. Identify each organism's carbon source and energy source. Does the second organism need sunlight as its immediate energy source?",
+        "steps": [
+          "The alga takes carbon from carbon dioxide; light supplies the energy for photosynthesis.",
+          "The specified microorganism also takes carbon from carbon dioxide, but obtains energy from a chemical reaction involving sulfide oxidation.",
+          "Both can make organic matter from inorganic carbon, so both fit the supplied description of autotrophs. They differ in their immediate energy source.",
+          "The microorganism does not require sunlight as the immediate energy source for this pathway. This does not prove that its wider ecosystem is completely independent of photosynthesis; other reactants may have external origins."
+        ],
+        "conclusion": "Autotrophy describes carbon acquisition. Photo- and chemo- distinguish the immediate energy source; darkness alone is not evidence of a particular metabolism.",
+        "sourceRole": "Authored illustrative example; not observed student evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-intro-to-ecology-producing-organic-matter-stop",
+        "prompt": "A plant takes in carbon dioxide and a rabbit eats plant tissue. Where does the carbon in each organism's new organic matter come from? Explain why sunlight is not the plant's carbon source before revealing the guide.",
+        "guide": "The plant uses carbon atoms from carbon dioxide. The rabbit obtains carbon in organic molecules in its food. Sunlight transfers energy but supplies no carbon atoms. Both organisms require matter inputs; this distinction is separate from whether they also respire.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-intro-to-ecology-producing-organic-matter-advanced",
+        "title": "Two producer pathways, one carbon-accounting question",
+        "structureVersion": "a-style-v1",
+        "connection": "The core idea separated carbon inputs from energy inputs. Extend it by checking what evidence would actually distinguish two producer pathways.",
+        "paragraphs": [
+          "Seeing an organism grow does not establish how it obtains carbon or energy. A dark habitat rules out local sunlight at that moment, but an organism could consume organic matter made elsewhere. A claim of chemoautotrophy therefore needs evidence of inorganic carbon incorporation and an appropriate chemical energy source, not just a photograph of a vent.",
+          "The comparison table separates observations from the conclusions they support. Incorporation of labelled inorganic carbon can support carbon fixation when controls address contamination and other carbon sources. Dependence on an inorganic electron donor can support a proposed chemical energy pathway, but a single missing-input treatment may have more than one effect on cells.",
+          "These examples describe how evidence could distinguish explanations; you are not performing an isotope or microbial experiment. Real studies require suitable controls, identification of organisms and chemical measurements. In an online investigation, restrict conclusions to the observations actually supplied and identify a competing explanation when the evidence is incomplete."
+        ],
+        "evidence": {
+          "caption": "Evidence and limits when comparing producer pathways",
+          "description": "Conceptual comparison, not results of a performed laboratory study.",
+          "columns": [
+            "Evidence supplied",
+            "Supported inference",
+            "What it does not establish alone"
+          ],
+          "rows": [
+            [
+              "Growth observed in darkness",
+              "Growth does not require light during that observation",
+              "Whether carbon came from carbon dioxide or pre-existing organic food"
+            ],
+            [
+              "Inorganic carbon incorporated into organic material, with suitable controls",
+              "Carbon fixation occurred",
+              "Which energy source powered it"
+            ],
+            [
+              "Growth and fixation depend on an inorganic donor under controlled conditions",
+              "Evidence supports a linked chemical energy pathway",
+              "That all vent organisms use the same reaction"
+            ]
+          ],
+          "limitation": "No quantitative experimental dataset is supplied here. The table cannot identify the metabolism of an unknown organism without additional evidence."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-intro-to-ecology",
+          "focusId": "a-topic-intro-to-ecology-producing-organic-matter-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Companion draft. Outcome IDs and time allocation pending; revealed guide is not collected independent evidence."
+    },
+    {
+      "partId": "a-topic-trophic-levels-and-efficiency-feeding-roles",
+      "outcomeIds": [
+        "20-A1.3k"
+      ],
+      "workedExample": {
+        "id": "a-topic-trophic-levels-and-efficiency-feeding-roles-worked",
+        "prompt": "A bear eats berries and an insect that feeds on leaves. Classify the bear on each supplied pathway. Explain why giving it one permanent trophic level would be misleading.",
+        "steps": [
+          "On berries → bear, the berries are producer material and the bear acts as a primary consumer, at the second trophic level.",
+          "On leaves → herbivorous insect → bear, the insect is a primary consumer and the bear acts as a secondary consumer, at the third trophic level.",
+          "Keep the two pathways separate. The bear's omnivory links them, rather than creating one universally correct trophic rank."
+        ],
+        "conclusion": "Feeding-role classifications depend on the specified food source. A species name alone does not supply its complete diet.",
+        "sourceRole": "Authored illustrative case; no empirical finding claimed."
+      },
+      "stopCheck": {
+        "id": "a-topic-trophic-levels-and-efficiency-feeding-roles-stop",
+        "prompt": "A bird eats a fish. The fish's food is not stated. What can you classify confidently, and what further information is needed to assign the bird a numbered trophic level?",
+        "guide": "The bird is a consumer on the fish → bird pathway. Its numbered level depends on the fish's food pathway back to producers. Do not assume the fish is a herbivore.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-trophic-levels-and-efficiency-feeding-roles-advanced",
+        "title": "Why decomposers do not fit on one top rung",
+        "structureVersion": "a-style-v1",
+        "connection": "The core classified consumers along feeding pathways. Follow dead material from several levels to see why decomposition cannot be represented by one final rung.",
+        "paragraphs": [
+          "Dead plant matter, animal remains and wastes can enter detrital pathways from many parts of a food web. A decomposer using dead producer tissue and one using animal remains are not necessarily receiving material from the same trophic level. Drawing all decomposers above the top predator hides these different inputs.",
+          "Detritivores ingest fragments and may increase the surface area available for microbial activity. Many decomposing fungi release enzymes externally, then absorb smaller molecules. These processes can occur together in the same sample of decaying leaves, but evidence of one does not prove that every organism there performs the other.",
+          "The table identifies operations, not rigid labels for every species. Nutrient release also depends on microbial uptake, chemical conditions and time. A diagram showing dead material becoming nutrients is a simplified account of transformations, not evidence that all elements become immediately available to plants."
+        ],
+        "evidence": {
+          "caption": "Operations in a simplified detrital pathway",
+          "description": "Conceptual examples; no decomposition rates are supplied.",
+          "columns": [
+            "Observed or specified operation",
+            "Useful description",
+            "Limit"
+          ],
+          "rows": [
+            [
+              "An earthworm ingests dead leaf fragments",
+              "Detritivory",
+              "Ingestion does not establish external microbial digestion"
+            ],
+            [
+              "A fungus releases enzymes and absorbs soluble products",
+              "Decomposition through external digestion",
+              "The fungus also uses and retains some material"
+            ],
+            [
+              "Plant roots take up available mineral nutrients",
+              "Nutrient uptake",
+              "Dead material is not converted directly into every plant nutrient in one step"
+            ]
+          ],
+          "limitation": "These descriptions do not identify every organism in a real soil community or quantify the rate of nutrient release."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-trophic-levels-and-efficiency",
+          "focusId": "a-topic-trophic-levels-and-efficiency-feeding-roles-worked",
+          "label": "Return to the related feeding/energy example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes, not complete outcome clearance. Time, figures, vocabulary and collected independent evidence pending."
+    },
+    {
+      "partId": "a-topic-trophic-levels-and-efficiency-food-web-evidence",
+      "outcomeIds": [
+        "20-A1.3k",
+        "20-A1.1sts"
+      ],
+      "workedExample": {
+        "id": "a-topic-trophic-levels-and-efficiency-food-web-evidence-worked",
+        "prompt": "A supplied web lists grass → hare, grass → elk, hare → owl and elk → wolf. A student predicts that more wolves must reduce hares because wolves eat hares. Evaluate the prediction using only this web.",
+        "steps": [
+          "Read arrows toward consumers. The stated wolf prey is elk; the supplied web contains no hare → wolf arrow.",
+          "Reject the claim that this web establishes direct wolf predation on hares. This does not prove wolves never eat hares in nature.",
+          "An indirect pathway is possible: changes in elk could alter grass availability for hares. Its direction and size require evidence about feeding pressure and other limiting conditions.",
+          "Request diet observations and population/resource data before making a definite hare prediction."
+        ],
+        "conclusion": "The defensible response distinguishes a missing direct link from a possible indirect mechanism. The web alone does not guarantee the population outcome.",
+        "sourceRole": "Authored illustrative case; no empirical finding claimed."
+      },
+      "stopCheck": {
+        "id": "a-topic-trophic-levels-and-efficiency-food-web-evidence-stop",
+        "prompt": "If grass → hare and hare → owl are supplied, which direction should the arrow between the hare and owl point? Does that arrow establish how many hares an owl eats per day?",
+        "guide": "The arrow points hare → owl because matter and energy pass from the food to its consumer. It gives no daily consumption rate unless quantitative data are also supplied.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-trophic-levels-and-efficiency-food-web-evidence-advanced",
+        "title": "A relationship is not an effect size",
+        "structureVersion": "a-style-v1",
+        "connection": "The core used arrows to distinguish supported relationships from assumptions. Compare the additional evidence needed to estimate a population effect.",
+        "paragraphs": [
+          "A binary food web records whether a feeding link is present, not how strong that link is. A predator may obtain most of its food from one prey type and rarely consume another. Treating both arrows as equally strong can lead to an unsupported prediction about which prey population will change most.",
+          "Counts over time add information but do not automatically establish cause. Predator and prey counts may both respond to weather, habitat or sampling effort. Evidence about diet, survival and the timing of changes helps distinguish these explanations. Comparable methods matter when interpreting apparent increases or decreases.",
+          "The simple table separates three kinds of claims. You can communicate a plausible mechanism without presenting it as a measured result: state the pathway, explain the conditions it requires, and name the missing evidence. This is stronger scientific reasoning than choosing a definite answer from an incomplete web."
+        ],
+        "evidence": {
+          "caption": "What different evidence can support",
+          "description": "Conceptual evidence comparison, not a population dataset.",
+          "columns": [
+            "Evidence",
+            "Supports",
+            "Does not establish alone"
+          ],
+          "rows": [
+            [
+              "A documented feeding observation",
+              "A feeding relationship occurs",
+              "Typical diet share or population impact"
+            ],
+            [
+              "Comparable counts before and after a change",
+              "A population trend over the observed interval",
+              "The cause of the trend"
+            ],
+            [
+              "Diet, survival and resource evidence with competing explanations addressed",
+              "A better-supported mechanism",
+              "A universal prediction for other ecosystems"
+            ]
+          ],
+          "limitation": "No manipulation or field study was performed for this lesson; avoid causal certainty from a single schematic arrow."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-trophic-levels-and-efficiency",
+          "focusId": "a-topic-trophic-levels-and-efficiency-food-web-evidence-worked",
+          "label": "Return to the related feeding/energy example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes, not complete outcome clearance. Time, figures, vocabulary and collected independent evidence pending."
+    },
+    {
+      "partId": "a-topic-trophic-levels-and-efficiency-transfer-efficiency",
+      "outcomeIds": [
+        "20-A1.1k",
+        "20-A1.4k"
+      ],
+      "workedExample": {
+        "id": "a-topic-trophic-levels-and-efficiency-transfer-efficiency-worked",
+        "prompt": "Over the same area and year, producer production contains 20,000 kJ and herbivore production contains 2,400 kJ. Calculate the measured transfer efficiency. Then use an explicitly assumed 10% efficiency to estimate production available at the next consumer level.",
+        "steps": [
+          "Match area and time intervals before comparing the values. Both supplied production totals refer to the same area and year.",
+          "Measured producer-to-herbivore efficiency = 2,400/20,000 × 100 = 12%. The measured ratio is not 10%.",
+          "For the next transfer only, apply the stated assumption: 2,400 × 0.10 = 240 kJ over the same area and year.",
+          "Label 240 kJ as an estimate under the assumption. It is not an observed predator production value."
+        ],
+        "conclusion": "Keep a calculated measurement ratio distinct from an assumed transfer used to project the next level.",
+        "sourceRole": "Authored illustrative case; no empirical finding claimed."
+      },
+      "stopCheck": {
+        "id": "a-topic-trophic-levels-and-efficiency-transfer-efficiency-stop",
+        "prompt": "A simplified chain starts with 50,000 kJ of producer production. Assuming 10% at each transfer, estimate primary- and secondary-consumer production. How many transfers did you apply?",
+        "guide": "Primary consumers: 50,000 × 0.10 = 5,000 kJ. Secondary consumers: 5,000 × 0.10 = 500 kJ. Two transfers give 1% of the starting value, not 20%. All values must share the same area and time interval.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-trophic-levels-and-efficiency-transfer-efficiency-advanced",
+        "title": "Production efficiency is not digestion efficiency",
+        "structureVersion": "a-style-v1",
+        "connection": "The core compared production at adjacent trophic levels. Follow one consumer's energy account to distinguish ingestion, assimilation and production.",
+        "paragraphs": [
+          "A consumer does not incorporate all swallowed energy into new biomass. In a simplified account, ingestion is divided into egested material and assimilated energy. Assimilated energy is then allocated among respiration and production. These categories must use a consistent accounting convention and time interval.",
+          "The illustrative table assigns 1,000 kJ to ingestion, 300 kJ to egestion, 500 kJ to respiration and 200 kJ to production. Assimilation is 700 kJ. Assimilation efficiency is 700/1,000 = 70%, while production as a fraction of ingestion is 200/1,000 = 20%. The different denominators and categories answer different questions.",
+          "Neither ratio is automatically the transfer efficiency from the preceding trophic level. Some material at that preceding level may never have been eaten, so its total production could be larger than the consumer's intake. A valid comparison starts by identifying the boundary and categories, not by searching for a familiar percentage."
+        ],
+        "evidence": {
+          "caption": "Illustrative consumer energy account over one interval",
+          "description": "Constructed values for accounting practice; consistent units of kJ.",
+          "columns": [
+            "Category",
+            "Energy (kJ)",
+            "Relationship"
+          ],
+          "rows": [
+            [
+              "Ingestion",
+              "1,000",
+              "Total swallowed input"
+            ],
+            [
+              "Egestion",
+              "300",
+              "Not assimilated in this simplified account"
+            ],
+            [
+              "Assimilation",
+              "700",
+              "1,000 − 300"
+            ],
+            [
+              "Respiration",
+              "500",
+              "Part of assimilated energy"
+            ],
+            [
+              "Production",
+              "200",
+              "700 − 500"
+            ]
+          ],
+          "limitation": "This simplified account omits finer subdivisions and must not be treated as measured energy use for a particular animal."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-trophic-levels-and-efficiency",
+          "focusId": "a-topic-trophic-levels-and-efficiency-transfer-efficiency-worked",
+          "label": "Return to the related feeding/energy example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes, not complete outcome clearance. Time, figures, vocabulary and collected independent evidence pending."
+    },
+    {
+      "partId": "a-topic-ecological-pyramids-concentration-along-food-webs",
+      "outcomeIds": [
+        "20-A1.3k",
+        "20-A1.1sts"
+      ],
+      "workedExample": {
+        "id": "a-topic-ecological-pyramids-concentration-along-food-webs-worked",
+        "prompt": "Illustrative samples contain 2 µg of a substance in 0.5 kg of prey tissue and 12 µg in 1.5 kg of predator tissue. Use the same tissue basis to compare concentrations. Does this show accumulation within one organism over time?",
+        "steps": [
+          "Prey concentration = 2/0.5 = 4 µg kg⁻¹.",
+          "Predator concentration = 12/1.5 = 8 µg kg⁻¹.",
+          "The predator-to-prey concentration ratio is 8/4 = 2. The total-amount ratio of 12/2 = 6 answers a different question.",
+          "This cross-level comparison is consistent with magnification in the stated pathway. It does not track one organism through time, establish the cause, or describe every individual."
+        ],
+        "conclusion": "Normalize amounts to the same tissue-mass basis before comparing trophic levels; distinguish the comparison from a time series.",
+        "sourceRole": "Authored illustrative data extending teacher slide 36; not measured contamination or health advice."
+      },
+      "stopCheck": {
+        "id": "a-topic-ecological-pyramids-concentration-along-food-webs-stop",
+        "prompt": "A 0.2 kg prey sample contains 1 µg; a 2 kg predator sample contains 8 µg. Which has the higher concentration? Explain why total amount alone misleads.",
+        "guide": "Prey: 1/0.2 = 5 µg kg⁻¹. Predator: 8/2 = 4 µg kg⁻¹. The predator has more total substance but a lower concentration. These samples do not show magnification along this link.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-ecological-pyramids-concentration-along-food-webs-advanced",
+        "title": "A concentration comparison needs a common basis",
+        "structureVersion": "a-style-v1",
+        "connection": "The core separated accumulation over time from magnification across levels. Now test whether two reported concentrations are actually comparable.",
+        "paragraphs": [
+          "Dividing contaminant amount by sample mass produces a concentration, but the mass basis still matters. A kilogram of wet tissue includes water; a kilogram of dry tissue does not. Two correctly calculated numbers may therefore answer different measurement questions.",
+          "In the illustrative sample below, drying removes water without losing the stated substance. The same 2 µg is divided by either 0.5 kg wet mass or 0.1 kg dry mass. The numerical concentration changes fivefold even though no contaminant was added. This is a denominator change, not a biological increase.",
+          "A defensible food-web comparison specifies tissue type, preparation method, sampling period and units. Real preparation may also affect recovery of the measured substance, so the simple no-loss assumption would need checking. A single mismatched pair should trigger a method question before a broad ecological conclusion."
+        ],
+        "evidence": {
+          "caption": "One illustrative sample reported on two mass bases",
+          "description": "Constructed accounting example assuming no measured-substance loss during drying.",
+          "columns": [
+            "Basis",
+            "Sample mass",
+            "Concentration"
+          ],
+          "rows": [
+            [
+              "Wet tissue",
+              "0.5 kg",
+              "2/0.5 = 4 µg kg⁻¹ wet mass"
+            ],
+            [
+              "Dry tissue",
+              "0.1 kg",
+              "2/0.1 = 20 µg kg⁻¹ dry mass"
+            ]
+          ],
+          "limitation": "This is not a measured tissue-water fraction or a contaminant safety threshold. Compare like preparation methods."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-ecological-pyramids",
+          "focusId": "a-topic-ecological-pyramids-concentration-along-food-webs-worked",
+          "label": "Return to the concentration calculation"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft source-backed extension; timing, selected figures and collected independent evidence pending."
+    },
+    {
+      "partId": "a-topic-ecological-pyramids-numbers-and-biomass",
+      "outcomeIds": [
+        "20-A1.4k",
+        "20-A1.3s"
+      ],
+      "workedExample": {
+        "id": "a-topic-ecological-pyramids-numbers-and-biomass-worked",
+        "prompt": "In one illustrative plot there are 2 trees, 200 feeding insects and 10 insect-eating birds. Their total dry masses are respectively 400 kg, 0.4 kg and 0.8 kg. Describe the numbers and standing-biomass diagrams. What cannot be calculated?",
+        "steps": [
+          "For numbers, label the levels 2 trees, 200 insects and 10 birds. The producer bar is narrower than the primary-consumer bar.",
+          "For biomass, use 400 kg, 0.4 kg and 0.8 kg on a separate mass scale. The bird stock exceeds the insect stock in this snapshot.",
+          "Do not compare a count bar directly with a mass bar. Both refer to the same plot but different quantities.",
+          "These are standing stocks, not production over time. Energy transfer efficiency cannot be calculated from these numbers alone."
+        ],
+        "conclusion": "The measurement determines the diagram. Neither a count inversion nor a standing-stock inversion establishes a violation of energy conservation.",
+        "sourceRole": "Authored illustrative snapshot, not a survey of a real plot."
+      },
+      "stopCheck": {
+        "id": "a-topic-ecological-pyramids-numbers-and-biomass-stop",
+        "prompt": "A diagram labels its bars 'organisms per plot' but gives widths based on kilograms. Identify the correction and one limitation that remains after fixing the label.",
+        "guide": "Either redraw using organism counts or label the bars with the measured biomass units and mass basis. Even correctly labelled standing biomass does not give annual production, and an incomplete sample may omit organisms.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-ecological-pyramids-numbers-and-biomass-advanced",
+        "title": "Sampling time can change a standing-stock picture",
+        "structureVersion": "a-style-v1",
+        "connection": "The core treated biomass as a stock at a particular time. Compare repeated snapshots before explaining an inverted pattern.",
+        "paragraphs": [
+          "Standing biomass can vary while a community continues producing new material. A rapid producer increase followed by consumption may give very different snapshots depending on the sampling date. A diagram without its sampling period hides that context.",
+          "The illustrative series shows producer stocks rising from 2 to 8 and then falling to 3 g dry mass m⁻², while the consumer stock changes from 4 to 5 to 6. Producers exceed consumers on only the middle date. It would be misleading to call the whole system permanently upright or permanently inverted from one row.",
+          "Differences between successive stocks do not equal total production. Production, consumption, mortality and imports or exports can occur between samples. Repeated snapshots improve the description but still require process measurements to explain the changes."
+        ],
+        "evidence": {
+          "caption": "Illustrative standing dry biomass on three sampling dates",
+          "description": "All values use g dry mass m⁻² and the same sampling boundary.",
+          "columns": [
+            "Date",
+            "Producer stock",
+            "Consumer stock"
+          ],
+          "rows": [
+            [
+              "Day 1",
+              "2",
+              "4"
+            ],
+            [
+              "Day 8",
+              "8",
+              "5"
+            ],
+            [
+              "Day 15",
+              "3",
+              "6"
+            ]
+          ],
+          "limitation": "Constructed snapshots do not measure production or identify the cause of a stock change."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-ecological-pyramids",
+          "focusId": "a-topic-ecological-pyramids-numbers-and-biomass-worked",
+          "label": "Return to choosing a pyramid"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support, not curriculum clearance. Time and independent collected evidence remain pending."
+    },
+    {
+      "partId": "a-topic-ecological-pyramids-energy-rate-and-turnover",
+      "outcomeIds": [
+        "20-A1.4k",
+        "20-A3.1k",
+        "20-A1.3s"
+      ],
+      "workedExample": {
+        "id": "a-topic-ecological-pyramids-energy-rate-and-turnover-worked",
+        "prompt": "Illustrative producer standing biomass is 4 g dry mass m⁻², and production is 2 g dry mass m⁻² day⁻¹. Calculate stock divided by production. Explain why a consumer stock of 6 g dry mass m⁻² does not establish an inverted energy-production pyramid.",
+        "steps": [
+          "Use matching dry-mass and area bases. Divide 4 g m⁻² by 2 g m⁻² day⁻¹.",
+          "Mass and area units cancel, leaving 2 days: a stock-to-production timescale under the stated rate.",
+          "Over 10 days, a constant production rate would add 20 g m⁻² of new biomass before accounting for losses. This is not a prediction that the standing stock becomes 24 g m⁻².",
+          "The 6 g m⁻² consumer value is another stock, not an energy-production rate. A valid energy pyramid needs compatible production-energy measurements for both levels."
+        ],
+        "conclusion": "A rapidly replenished small stock can support a larger, slower-changing stock. Keep timescales, stock changes and production distinct.",
+        "sourceRole": "Authored illustrative quantities; constant rate assumed for the calculation."
+      },
+      "stopCheck": {
+        "id": "a-topic-ecological-pyramids-energy-rate-and-turnover-stop",
+        "prompt": "A producer stock is 6 g m⁻² and production is 3 g m⁻² day⁻¹ on the same mass basis. Calculate the timescale. Can you infer that every organism lives exactly that long?",
+        "guide": "6/3 = 2 days. This stock-to-production timescale is not an individual lifespan. Mixed ages, ongoing growth and losses are not resolved by the ratio.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-ecological-pyramids-energy-rate-and-turnover-advanced",
+        "title": "An apparent energy deficit can reveal an omitted input",
+        "structureVersion": "a-style-v1",
+        "connection": "The core required a consistent boundary for an energy pyramid. Expand a stream boundary to include food arriving from nearby land.",
+        "paragraphs": [
+          "A local production measurement is not always the only input feeding consumers. Leaves, insects or other organic matter can arrive from outside the sampled area. An energy account restricted to local producers may omit these transfers even if the consumer measurement is accurate.",
+          "The constructed account below provides 100 kJ m⁻² yr⁻¹ from measured local producer production and 300 through imported organic matter. Consumer production of 120 exceeds the first number but not the combined 400. The example shows why an apparent ratio above 100% can flag a boundary mismatch rather than energy creation.",
+          "Combining the input categories is only legitimate if their area, period and energy accounting are compatible and not double-counted. The ratio 120/400 = 30% describes this simplified combined-input account, not a universal trophic efficiency. Remaining outputs and changes in stored energy would still be needed for a complete budget."
+        ],
+        "evidence": {
+          "caption": "Illustrative local and imported energy inputs",
+          "description": "Constructed values in kJ m⁻² yr⁻¹; no empirical stream result is claimed.",
+          "columns": [
+            "Quantity",
+            "Value",
+            "Accounting role"
+          ],
+          "rows": [
+            [
+              "Local producer production",
+              "100",
+              "One measured supply"
+            ],
+            [
+              "Imported organic energy",
+              "300",
+              "Additional supply across the boundary"
+            ],
+            [
+              "Consumer production",
+              "120",
+              "Part of the combined supply incorporated into new biomass"
+            ]
+          ],
+          "limitation": "The categories are simplified and not a complete ecosystem budget. This example does not establish real transfer efficiency."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-ecological-pyramids",
+          "focusId": "a-topic-ecological-pyramids-energy-rate-and-turnover-worked",
+          "label": "Return to the stock and production calculation"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for stock/rate reasoning; final timing, figures and independent evidence pending."
+    },
+    {
+      "partId": "a-topic-water-and-the-hydrologic-cycle-water-properties",
+      "outcomeIds": [
+        "20-A2.2k"
+      ],
+      "workedExample": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-water-properties-worked",
+        "prompt": "In an illustrative comparison, equal masses of water and material X receive equal energy inputs with no losses or phase changes. Water's temperature rises 2 °C while X rises 6 °C. Which has the higher specific heat capacity, and by what factor?",
+        "steps": [
+          "Use Q = mcΔT for the stated constant-capacity comparison. Equal Q and equal m mean c is inversely proportional to ΔT.",
+          "c(water)/c(X) = ΔT(X)/ΔT(water) = 6/2 = 3.",
+          "Water requires three times as much energy per unit mass per degree in this illustrative comparison.",
+          "This inference depends on the equal-mass, equal-energy and negligible-loss assumptions. A lower final temperature alone, without those controls, would not establish the ratio."
+        ],
+        "conclusion": "Link the measured temperature change to a controlled energy comparison, not an unexplained statement that water resists heat.",
+        "sourceRole": "Authored illustrative comparison supporting the teacher's heat-capacity topic; not a measured value for a named material."
+      },
+      "stopCheck": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-water-properties-stop",
+        "prompt": "Two samples receive the same energy but have different masses. One warms less. Can you conclude from this alone that it has a greater specific heat capacity?",
+        "guide": "No. Q = mcΔT includes mass. A larger mass can show a smaller temperature rise even with the same specific heat capacity. Compare equal masses or calculate with the measured masses.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-water-properties-advanced",
+        "title": "Temperature buffering depends on more than the material",
+        "structureVersion": "a-style-v1",
+        "connection": "The core connected water's properties to biological roles. Separate specific heat capacity from the total amount of material being heated.",
+        "paragraphs": [
+          "Specific heat capacity is a property expressed per unit mass. The energy needed to warm an entire sample also depends on how much material is present. Doubling the mass doubles the required energy for the same temperature change in the simple model, even though the material's specific heat capacity has not changed.",
+          "The table compares two hypothetical samples of water using the same approximate specific heat capacity. If both receive 4.2 kJ, the smaller sample warms more. The calculation treats heat capacity as constant over the small temperature range and assumes no energy escapes into the container or surroundings.",
+          "Real lakes and organisms exchange energy continuously, and evaporation, mixing and radiation matter. The calculation isolates one contribution to temperature buffering rather than modelling all those processes. Before transferring the result to an ecosystem, name the missing inputs, outputs and physical boundaries."
+        ],
+        "evidence": {
+          "caption": "Illustrative equal-energy heating of two water samples",
+          "description": "Use c ≈ 4.2 kJ kg⁻¹ °C⁻¹ for the small temperature changes in this model.",
+          "columns": [
+            "Water mass",
+            "Added energy",
+            "Predicted temperature rise"
+          ],
+          "rows": [
+            [
+              "1 kg",
+              "4.2 kJ",
+              "4.2/(1 × 4.2) = 1 °C"
+            ],
+            [
+              "2 kg",
+              "4.2 kJ",
+              "4.2/(2 × 4.2) = 0.5 °C"
+            ]
+          ],
+          "limitation": "No heat loss, container heating, evaporation or phase change is included. These are not measured lake temperatures."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-water-and-the-hydrologic-cycle",
+          "focusId": "a-topic-water-and-the-hydrologic-cycle-water-properties-worked",
+          "label": "Return to the controlled heat-capacity comparison"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Authored support; optional time, diagram and independent evidence bindings pending."
+    },
+    {
+      "partId": "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing",
+      "outcomeIds": [
+        "20-A2.2k",
+        "20-A2.2s"
+      ],
+      "workedExample": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-worked",
+        "prompt": "An illustrative freshwater lake has temperatures of 20, 12 and 5 °C at depths of 0, 5 and 15 m on one date. On a later date all three samples measure 5 °C. Compare the profiles. Does the later profile prove uniform oxygen or complete mixing on every date?",
+        "steps": [
+          "The first profile has a 15 °C surface-to-deep difference, consistent with strong thermal layering.",
+          "The later profile has no measured temperature difference at the three sampled depths, consistent with weakened thermal stratification.",
+          "This supports investigating mixing, but three temperatures do not measure dissolved oxygen or show every depth.",
+          "Obtain measurements of oxygen and other relevant variables across depths and dates before claiming uniform conditions or a permanent seasonal pattern."
+        ],
+        "conclusion": "Use temperature evidence to support a bounded mixing inference; do not silently substitute it for measurements of dissolved substances.",
+        "sourceRole": "Authored illustrative profiles extending teacher slides 50–51; not observations from a named lake."
+      },
+      "stopCheck": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-stop",
+        "prompt": "A student says surface freshwater at 1 °C must sink below water at 4 °C because it is colder. What is wrong with this reasoning?",
+        "guide": "Freshwater is densest near 4 °C under the stated ordinary conditions. Water at 1 °C is less dense, so colder does not automatically mean denser. Salinity and other conditions must also be considered outside this simplified case.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-advanced",
+        "title": "Separate a temperature profile from an oxygen profile",
+        "structureVersion": "a-style-v1",
+        "connection": "The core used density differences to explain resistance to mixing. Now compare two measured variables instead of assuming that one represents the other.",
+        "paragraphs": [
+          "Temperature and dissolved oxygen describe different properties of water. Physical mixing can redistribute both, but oxygen is also influenced by gas exchange, photosynthesis, respiration and other processes. Equal temperature at two depths is therefore not a complete oxygen measurement.",
+          "The illustrative profile below has the same temperature at all sampled depths, but dissolved oxygen decreases with depth. It challenges a claim that equal temperature necessarily establishes equal oxygen. The numbers identify a difference that needs explanation without identifying its cause by themselves.",
+          "Possible explanations would require additional evidence about the timing of mixing, oxygen consumption, biological activity and measurement quality. Repeat measurements and sampling methods matter. The table is a reasoning exercise, not proof that every thermally uniform lake has an oxygen gradient."
+        ],
+        "evidence": {
+          "caption": "Illustrative paired temperature and dissolved-oxygen samples",
+          "description": "Constructed data at three depths on one date.",
+          "columns": [
+            "Depth",
+            "Temperature",
+            "Dissolved oxygen"
+          ],
+          "rows": [
+            [
+              "0 m",
+              "5 °C",
+              "10 mg L⁻¹"
+            ],
+            [
+              "5 m",
+              "5 °C",
+              "8 mg L⁻¹"
+            ],
+            [
+              "15 m",
+              "5 °C",
+              "5 mg L⁻¹"
+            ]
+          ],
+          "limitation": "Three samples do not identify the cause or duration of a gradient. No real lake or water-quality assessment is represented."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-water-and-the-hydrologic-cycle",
+          "focusId": "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-worked",
+          "label": "Return to the lake temperature profiles"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Supplied-data reasoning only, not performance of field sampling or a full skills-outcome clearance."
+    },
+    {
+      "partId": "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links",
+      "outcomeIds": [
+        "20-A2.3s",
+        "20-A2.1sts",
+        "20-A2.4s"
+      ],
+      "workedExample": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links-worked",
+        "prompt": "An illustrative pond begins a week with 500 m³ of water. Rain adds 80 m³ and inflow adds 40 m³; evaporation removes 50 m³ and outflow removes 100 m³. Calculate storage change and final storage, assuming no other exchanges. Distinguish a measured input from a missing one.",
+        "steps": [
+          "Inputs = 80 + 40 = 120 m³ over the week. Outputs = 50 + 100 = 150 m³ over the same week.",
+          "Storage change = 120 − 150 = −30 m³. A negative sign means a decrease, not a negative amount of water remaining.",
+          "Final storage = 500 − 30 = 470 m³ under the stated assumptions.",
+          "Groundwater exchange is omitted, not demonstrated to be zero. If the observed final storage differs, check omitted transfers and measurement uncertainty."
+        ],
+        "conclusion": "Keep initial storage, net change and final storage distinct, and state which flows the budget excludes.",
+        "sourceRole": "Authored illustrative water budget, not a measured pond result."
+      },
+      "stopCheck": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links-stop",
+        "prompt": "The calculated final storage is 470 m³, but a measurement gives 490 m³. What additional net transfer would reconcile them if the measurements were exact? Does this identify a groundwater pathway?",
+        "guide": "An unaccounted net input of 20 m³ would reconcile the numbers. It might also be described as 20 m³ less outflow than assumed. The difference alone does not identify groundwater or rule out measurement error.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links-advanced",
+        "title": "A water-saving response can alter carbon uptake",
+        "structureVersion": "a-style-v1",
+        "connection": "The core connected stomatal closure to water loss and carbon dioxide entry. Use a controlled illustrative comparison while keeping the conclusion at the scale actually measured.",
+        "paragraphs": [
+          "Stomata regulate exchange between the leaf interior and the surrounding air. A reduction in stomatal opening can reduce water-vapour loss while restricting carbon dioxide entry. The two consequences are related, but their sizes depend on environmental conditions and the plant's physiology.",
+          "The illustrative comparison shows lower water loss and lower net carbon uptake during the restricted-opening condition. Compared with the reference condition, water loss falls by 50% and net uptake falls by 25%. Different percentage changes are possible because the measurements do not describe identical processes or units.",
+          "These leaf-scale rates cannot establish the whole ecosystem's carbon balance. Respiration elsewhere, leaf area, duration, soil processes and other exchanges are missing. Use the example to state a mechanism and trade-off, then list the additional evidence needed before predicting atmospheric change."
+        ],
+        "evidence": {
+          "caption": "Illustrative leaf exchange rates under two controlled conditions",
+          "description": "Constructed values; equal leaf-area basis and comparison interval assumed.",
+          "columns": [
+            "Condition",
+            "Water loss (mmol m⁻² s⁻¹)",
+            "Net CO₂ uptake (µmol m⁻² s⁻¹)"
+          ],
+          "rows": [
+            [
+              "Reference opening",
+              "4",
+              "12"
+            ],
+            [
+              "Restricted opening",
+              "2",
+              "9"
+            ]
+          ],
+          "limitation": "This is not an empirical drought response or a prediction for all plants. Leaf-scale net uptake does not determine global atmospheric CO₂."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-water-and-the-hydrologic-cycle",
+          "focusId": "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links-worked",
+          "label": "Return to balancing inputs and outputs"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Time allocation, reviewed illustrations and independently saved practice still pending; no required workload added by these self-checks."
+    },
+    {
+      "partId": "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+      "outcomeIds": [
+        "20-A2.1k",
+        "20-A3.2k"
+      ],
+      "workedExample": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-worked",
+        "prompt": "An illustrative forest account fixes 120 units of carbon during a year and returns 85 by respiration and decomposition. Harvest exports 20. Calculate the change in forest carbon storage if these are the only flows.",
+        "steps": [
+          "Inputs to forest carbon = 120 units. Outputs = 85 + 20 = 105 units.",
+          "Storage change = 120 − 105 = +15 units of carbon over the year.",
+          "The forest is a net accumulating store under this account. Harvested carbon has left its boundary but has not necessarily entered the atmosphere immediately.",
+          "State what the account omits, such as fire or lateral transfers. Do not add molecular-oxygen quantities directly to carbon quantities."
+        ],
+        "conclusion": "State the process, use the supplied evidence and retain the stated limitations.",
+        "sourceRole": "Authored illustrative explanation; not observed learner or field evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-stop",
+        "prompt": "Next year fixation is 90, respiration/decomposition 85 and harvest 20 in the same units. Is a large forest carbon store necessarily still a sink?",
+        "guide": "90 − 85 − 20 = −15 units. The store declines under this account even if it remains large. Stock size and net exchange are different quantities.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-advanced",
+        "title": "A reservoir can change from sink to source",
+        "structureVersion": "a-style-v1",
+        "connection": "The core separated stored carbon from net exchange. Compare two years without confusing their balances with the total stock.",
+        "paragraphs": [
+          "A reservoir can remain large while gaining carbon in one period and losing it in another. The sign of its net change follows the difference between inputs and outputs, not the label forest, soil or ocean. Keep the boundary and measurement interval consistent when comparing periods.",
+          "The illustrative values below keep non-harvest outputs and harvest constant while changing fixation. The net forest balance changes from +15 to −15 units. The example identifies which measured term changed; it does not establish why fixation changed or how every part of the ecosystem responded.",
+          "A complete atmosphere account would also track the exported material's destination and later fate. Carbon in harvested products may be stored or released elsewhere. Expanding the boundary can therefore change the accounting categories even though the atoms are conserved."
+        ],
+        "evidence": {
+          "caption": "A reservoir can change from sink to source — illustrative comparison",
+          "description": "Authored instructional example, not an empirical finding.",
+          "columns": [
+            "Year",
+            "Fixation",
+            "Respiration/decomposition + harvest",
+            "Storage change"
+          ],
+          "rows": [
+            [
+              "1",
+              "120",
+              "85 + 20",
+              "+15"
+            ],
+            [
+              "2",
+              "90",
+              "85 + 20",
+              "−15"
+            ]
+          ],
+          "limitation": "Constructed carbon units and complete-flow assumptions only; not an empirical forest carbon estimate."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+          "focusId": "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes. Full source/figure review, timing and independently saved evidence still pending."
+    },
+    {
+      "partId": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations",
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "workedExample": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations-worked",
+        "prompt": "Label these changes: N₂ becomes biologically available reduced nitrogen; ammonium is converted through nitrite to nitrate; nitrate nitrogen becomes part of plant protein; nitrate is reduced to gaseous nitrogen products.",
+        "steps": [
+          "N₂ entering a reduced biologically available form is nitrogen fixation.",
+          "Ammonium through nitrite to nitrate is nitrification: the nitrogen was already fixed.",
+          "Incorporation into plant organic compounds is assimilation.",
+          "Reduction of nitrate to gaseous products is denitrification under suitable conditions. Nitrogen concentration alone does not prove that pathway occurred."
+        ],
+        "conclusion": "State the process, use the supplied evidence and retain the stated limitations.",
+        "sourceRole": "Authored illustrative explanation; not observed learner or field evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations-stop",
+        "prompt": "A plant takes up ammonium and incorporates its nitrogen into amino acids. Must nitrification have occurred immediately before this uptake?",
+        "guide": "No. Plants can assimilate ammonium. Nitrification produces nitrate from reduced nitrogen; it is not a prerequisite for every plant nitrogen uptake pathway.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations-advanced",
+        "title": "A decline in nitrate does not identify its destination",
+        "structureVersion": "a-style-v1",
+        "connection": "The core named nitrogen transformations. Consider different processes that could produce the same measured nitrate change.",
+        "paragraphs": [
+          "A measured decline identifies a difference in a particular nitrogen pool, not the pathway that caused it. Nitrate might be taken up, move with water or be transformed by microorganisms. It may also appear to change because the sampled water volume changed.",
+          "The table gives candidate explanations and the additional observations needed to distinguish them. More than one can operate at the same time. For example, a decrease in nitrate concentration and an increase in plant nitrogen support investigating uptake but do not automatically account for all the missing nitrogen.",
+          "Use a mass balance where possible and collect measurements on compatible time and spatial scales. Gas production, water flow and changes in biomass answer different questions. A good explanation makes its evidence requirements explicit rather than assigning the most familiar process name."
+        ],
+        "evidence": {
+          "caption": "A decline in nitrate does not identify its destination — illustrative comparison",
+          "description": "Authored instructional example, not an empirical finding.",
+          "columns": [
+            "Candidate pathway",
+            "Additional evidence",
+            "Remaining caution"
+          ],
+          "rows": [
+            [
+              "Plant assimilation",
+              "Change in plant nitrogen and biomass",
+              "Other nitrogen sources may also contribute"
+            ],
+            [
+              "Transport out",
+              "Water flow and nitrate carried out",
+              "Concentration alone is not a flux"
+            ],
+            [
+              "Denitrification",
+              "Conditions and nitrogen gas-product evidence",
+              "Low oxygen alone does not quantify the rate"
+            ]
+          ],
+          "limitation": "These are hypotheses and evidence requirements, not measured outcomes or instructions for culturing microbes."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+          "focusId": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes. Full source/figure review, timing and independently saved evidence still pending."
+    },
+    {
+      "partId": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management",
+      "outcomeIds": [
+        "20-A2.1sts",
+        "20-A2.1k"
+      ],
+      "workedExample": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-worked",
+        "prompt": "An illustrative field receives 40 kg N ha⁻¹ in fertilizer and 25 through biological fixation during one season. Harvest removes 45, and measured other losses remove 15. Calculate the residual balance and explain what it does not establish.",
+        "steps": [
+          "Inputs = 40 + 25 = 65 kg N ha⁻¹ for the season.",
+          "Outputs = 45 + 15 = 60 kg N ha⁻¹.",
+          "Residual = +5 kg N ha⁻¹, consistent with an increase in stored nitrogen if the account is complete.",
+          "This residual does not show that 5 kg of nitrate is available to the next crop. The chemical form and unmeasured flows remain important."
+        ],
+        "conclusion": "State the process, use the supplied evidence and retain the stated limitations.",
+        "sourceRole": "Authored illustrative explanation; not observed learner or field evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-stop",
+        "prompt": "If the same field's unmeasured additional loss is 8 kg N ha⁻¹, what happens to the estimated storage change?",
+        "guide": "The earlier +5 becomes 5 − 8 = −3 kg N ha⁻¹. A positive residual in an incomplete budget is not proof of net accumulation.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-advanced",
+        "title": "Compare management options with more than one outcome",
+        "structureVersion": "a-style-v1",
+        "connection": "The core connected nitrogen supply with uptake and loss. Evaluate a trade-off without assuming the largest input is the best option.",
+        "paragraphs": [
+          "A management comparison should state what it seeks to improve. Crop removal, soil storage and nitrogen losses are different outcomes, and a change benefiting one can have costs elsewhere. Equal-area, equal-season comparisons are a starting point rather than a substitute for field context.",
+          "In the illustrative table, option B has lower total input and lower measured loss but also lower harvest removal. Both leave the same residual in the simplified account. That equality does not make their economic or ecological effects identical, nor does nitrogen removed in a crop fully describe its yield or value.",
+          "Replication, weather, soil conditions and longer-term effects would be needed to evaluate a real intervention. Treat the data as a constrained decision exercise. Do not convert these invented amounts into a recommendation for applying fertilizer."
+        ],
+        "evidence": {
+          "caption": "Compare management options with more than one outcome — illustrative comparison",
+          "description": "Authored instructional example, not an empirical finding.",
+          "columns": [
+            "Option",
+            "Input",
+            "Harvest removal",
+            "Other losses",
+            "Residual"
+          ],
+          "rows": [
+            [
+              "A",
+              "65",
+              "45",
+              "15",
+              "+5"
+            ],
+            [
+              "B",
+              "50",
+              "38",
+              "7",
+              "+5"
+            ]
+          ],
+          "limitation": "Illustrative kg N ha⁻¹ per season; excludes costs, crop quality, uncertainty and several possible pathways."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+          "focusId": "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes. Full source/figure review, timing and independently saved evidence still pending."
+    },
+    {
+      "partId": "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence",
+      "outcomeIds": [
+        "20-A2.1sts",
+        "20-A2.4s"
+      ],
+      "workedExample": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence-worked",
+        "prompt": "A diagram links exposed sulfur-bearing rock directly to atmospheric SO₂, labels fossil-fuel burning as weathering, and shows plants taking up sulfur gas from soil. Describe a corrected set of pathways.",
+        "steps": [
+          "Show weathering transferring sulfur-containing substances from rock into soil or water, with the chemical forms specified where known.",
+          "Show combustion of sulfur-containing fuel as a possible atmospheric sulfur-gas source; do not relabel it weathering.",
+          "Show atmospheric transport, chemical reactions and wet or dry deposition as separate stages.",
+          "Include plant uptake of sulfate from soil water and biological transfers. Keep gas emissions distinct from dissolved nutrient uptake."
+        ],
+        "conclusion": "State the process, use the supplied evidence and retain the stated limitations.",
+        "sourceRole": "Authored illustrative explanation; not observed learner or field evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence-stop",
+        "prompt": "Two lakes receive similar acid inputs but show different pH changes. Does this alone prove that one input measurement is wrong?",
+        "guide": "No. Buffering capacity, initial conditions and other processes can differ. Similar input does not guarantee an identical response; measurement quality still needs checking.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence-advanced",
+        "title": "Equal acid input need not produce equal pH change",
+        "structureVersion": "a-style-v1",
+        "connection": "The core linked deposition to receiving ecosystems. Distinguish a source measurement from the response of a buffered system.",
+        "paragraphs": [
+          "An input describes what crosses a boundary, whereas pH describes a chemical condition after interactions within the system. Minerals and dissolved substances can influence resistance to pH change. Two waters therefore need not respond identically to similar acid additions.",
+          "The table is a qualitative comparison, not an experiment to perform at home. If one supplied sample shows a smaller pH change, greater buffering is a possible explanation to test. Initial composition, mixing and measurement conditions would also need to be considered.",
+          "Because pH is logarithmic, differences in pH values should not be treated as linear measures of total acid added. A claim about acid deposition requires appropriate chemical measurements, not simply a subtraction of pH numbers. This model introduces the distinction without prescribing hazardous handling."
+        ],
+        "evidence": {
+          "caption": "Equal acid input need not produce equal pH change — illustrative comparison",
+          "description": "Authored instructional example, not an empirical finding.",
+          "columns": [
+            "Observation",
+            "Supported statement",
+            "Not established"
+          ],
+          "rows": [
+            [
+              "Same stated acid input; different pH changes",
+              "Responses differ under the comparison",
+              "One lake received no acid"
+            ],
+            [
+              "Smaller pH change in sample B",
+              "Investigate buffering and other differences",
+              "B can withstand unlimited deposition"
+            ]
+          ],
+          "limitation": "Qualitative supplied comparison only; no acid-handling activity, real lake diagnosis or universal buffering value."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-sulfur-and-phosphorus-cycles",
+          "focusId": "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes. Full source/figure review, timing and independently saved evidence still pending."
+    },
+    {
+      "partId": "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication",
+      "outcomeIds": [
+        "20-A2.1k",
+        "20-A2.1sts"
+      ],
+      "workedExample": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-worked",
+        "prompt": "An illustrative lake record shows nutrient input rising first, algal biomass rising later, and low dissolved oxygen after a large amount of organic material is present. Explain a plausible sequence and name evidence missing from the record.",
+        "steps": [
+          "An added limiting nutrient can increase producer growth when light and other conditions permit it.",
+          "More organic material can support respiration by organisms including decomposers, increasing oxygen consumption.",
+          "Net dissolved oxygen also depends on photosynthesis, mixing, gas exchange and other conditions.",
+          "The sequence is consistent with a nutrient-enrichment mechanism, but measurements of those processes and comparison conditions are needed to attribute the oxygen decline."
+        ],
+        "conclusion": "State the process, use the supplied evidence and retain the stated limitations.",
+        "sourceRole": "Authored illustrative explanation; not observed learner or field evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-stop",
+        "prompt": "A student says algae only respire at night and that every bloom kills the whole lake. Correct both claims.",
+        "guide": "Algae respire in light and darkness; photosynthetic oxygen release requires suitable light. Harm depends on oxygen balance, exposure and ecological conditions, so complete lake death is not inevitable.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-advanced",
+        "title": "Use nutrient additions to test limitation",
+        "structureVersion": "a-style-v1",
+        "connection": "The core avoided a universal phosphorus-only explanation. Compare supplied treatments to identify what the measured producer response supports.",
+        "paragraphs": [
+          "A nutrient is limiting when its availability constrains the response under the conditions being tested. A treatment comparison can help separate hypotheses if other conditions are held sufficiently similar. The response variable must be stated; producer growth is not the same measurement as dissolved oxygen.",
+          "In the illustrative table, adding phosphorus alone produces little change, nitrogen alone produces some increase and adding both gives a much larger response. This pattern supports considering interacting nutrient limitations in this model rather than concluding that phosphorus is always the sole control.",
+          "A single constructed set has no replication or uncertainty estimate. Real interpretation would require controls, repeated measurements, comparable starting conditions and consideration of light and other resources. Even a verified growth response would not by itself measure the later oxygen balance."
+        ],
+        "evidence": {
+          "caption": "Use nutrient additions to test limitation — illustrative comparison",
+          "description": "Authored instructional example, not an empirical finding.",
+          "columns": [
+            "Treatment",
+            "Relative producer growth"
+          ],
+          "rows": [
+            [
+              "No addition",
+              "1.0"
+            ],
+            [
+              "+ phosphorus",
+              "1.1"
+            ],
+            [
+              "+ nitrogen",
+              "1.4"
+            ],
+            [
+              "+ both",
+              "2.8"
+            ]
+          ],
+          "limitation": "Illustrative relative values, not observations or instructions to fertilize natural water bodies."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-sulfur-and-phosphorus-cycles",
+          "focusId": "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes. Full source/figure review, timing and independently saved evidence still pending."
+    },
+    {
+      "partId": "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life",
+      "outcomeIds": [
+        "20-A3.2k",
+        "20-A3.3k"
+      ],
+      "workedExample": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-worked",
+        "prompt": "A claim says every layered rock is a stromatolite, every iron-rich band proves high atmospheric oxygen, and one specimen gives the date of a global transition. Separate observation from inference.",
+        "steps": [
+          "Describe the observed layers, textures and minerals before assigning a biological origin.",
+          "A microbial-mat interpretation needs appropriate features and geological context; layering alone is insufficient.",
+          "Iron mineralogy can inform oxidation conditions but is not a direct numerical atmospheric-oxygen measurement.",
+          "Dating and multiple independent records are needed for a claim about a global transition. Do not infer exact chronology from one undated sample."
+        ],
+        "conclusion": "State the process, use the supplied evidence and retain the stated limitations.",
+        "sourceRole": "Authored illustrative explanation; not observed learner or field evidence."
+      },
+      "stopCheck": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-stop",
+        "prompt": "Does evidence that an organism produced oxygen prove that atmospheric oxygen accumulated at the same time?",
+        "guide": "No. Oxygen consumption by biological and chemical sinks can offset production. Accumulation requires a positive net balance over the relevant boundary and time.",
+        "persistence": "self-check-reveal; no new response field or completion requirement"
+      },
+      "advanced": {
+        "id": "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-advanced",
+        "title": "Production and accumulation are different claims",
+        "structureVersion": "a-style-v1",
+        "connection": "The core linked biological oxygen supply with geological sinks. Use a simple account to separate a gross source from net accumulation.",
+        "paragraphs": [
+          "A gas can be produced continuously without its stored amount increasing if removal keeps pace. The same accounting idea used for pond water applies: net change depends on all included sources and sinks. The categories here represent a simplified model, not a reconstruction of early Earth.",
+          "The table holds illustrative oxygen production at 10 units and changes combined removal from 10 to 7. In the first interval there is no accumulation; in the second there is a gain of 3 units. The arithmetic demonstrates the logical distinction without identifying a geological date or the cause of the changed removal.",
+          "A historical explanation would require evidence about production, chemical sinks, transport and timing. A model helps organize those questions but cannot supply missing measurements. Keep the conceptual balance separate from claims about exact ancient oxygen concentrations."
+        ],
+        "evidence": {
+          "caption": "Production and accumulation are different claims — illustrative comparison",
+          "description": "Authored instructional example, not an empirical finding.",
+          "columns": [
+            "Interval",
+            "Production",
+            "Combined removal",
+            "Net change"
+          ],
+          "rows": [
+            [
+              "1",
+              "10",
+              "10",
+              "0"
+            ],
+            [
+              "2",
+              "10",
+              "7",
+              "+3"
+            ]
+          ],
+          "limitation": "Arbitrary illustrative oxygen units; not ancient atmospheric concentrations, chronology or empirical fluxes."
+        },
+        "related": {
+          "kind": "worked-example",
+          "routeId": "a-topic-sulfur-and-phosphorus-cycles",
+          "focusId": "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-worked",
+          "label": "Return to the related worked example"
+        },
+        "optional": true,
+        "initiallyExpanded": false,
+        "completionRequired": false
+      },
+      "reviewLimits": "Draft support for named outcomes. Full source/figure review, timing and independently saved evidence still pending."
+    }
+  ]
+}

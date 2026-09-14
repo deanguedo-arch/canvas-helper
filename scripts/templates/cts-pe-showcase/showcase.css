@@ -1,0 +1,11 @@
+@font-face{font-family:"Hanken Grotesk";src:url("assets/HankenGrotesk-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("assets/WorkSans-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;height:100%;color:#171b1b;background:#f6f8f5;font:15px/1.4 "Work Sans","Helvetica Neue",sans-serif}body{display:flex;flex-direction:column;height:100dvh}a{color:#154212;text-underline-offset:3px}a:hover{text-decoration-thickness:2px}
+.site-header{min-height:72px;padding:8px clamp(16px,4vw,48px);display:flex;align-items:center;gap:18px;background:#171b19;color:#f7faf6;border-bottom:1px solid #38423a;flex:none}
+.brand{display:flex;align-items:center}.brand img{width:132px;height:54px;object-fit:contain}
+.header-copy{display:flex;flex-direction:column;gap:1px}.header-copy strong{font-family:"Hanken Grotesk",sans-serif;font-size:1.02rem}.header-copy span{color:#c8d3c5;font-size:.86rem}
+.site-header label{margin-left:auto;font-size:.88rem;color:#dbe5d8}.site-header select,.site-header button{min-height:42px;font:inherit;border:1px solid #93a48e;border-radius:4px;padding:7px 10px;background:#fff;color:#171b1b}.site-header select{min-width:min(420px,34vw)}.site-header button{cursor:pointer;white-space:nowrap}.site-header button:hover{background:#edf4eb}
+.review-note{margin:0;padding:7px 20px;border-bottom:1px solid #d5ddd3;background:#edf4eb;color:#435147;font-size:.86rem;flex:none;text-align:center}
+iframe{display:block;flex:1;width:100%;min-height:0;border:0;background:#fff}
+:focus-visible{outline:3px solid #75a967;outline-offset:3px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.site-header{flex-wrap:wrap;gap:8px 12px;padding:8px 12px}.brand img{width:118px;height:48px}.header-copy{flex:1}.site-header label{order:3;margin-left:0;flex:0 0 auto}.site-header select{order:4;flex:1;min-width:0;width:100%}.site-header button{order:5;font-size:.82rem}.review-note{font-size:.78rem;text-align:left;padding:7px 12px}}

@@ -237,8 +237,11 @@ See [docs/workflows/english-course-factory.md](docs/workflows/english-course-fac
 - It also writes an unpacked folder to `projects/<slug>/exports/scorm-2004/` or `projects/<slug>/exports/scorm-1-2/`
 - SCORM 2004 is the recommended default for larger suspend-data payloads
 - The SCORM export injects a bridge script that syncs workspace localStorage state into `cmi.suspend_data`
+- Every export includes visible LMS save status, a Save now retry, and estimated active session time. Supported hash-page courses also get resume and saved page times; recognized Next Step Social/ELA shells report their actual required-item completion and SCORM 2004 progress.
+- The exporter prints capabilities and warnings and includes `scorm-tracking-report.json` in the package. Other course builders, including Science, can provide the versioned `workspace/scorm-tracking.json` contract described in [SCORM tracking](docs/workflows/scorm-tracking.md). Missing completion wiring is reported explicitly, never inferred from visits.
 - For autosaved courses, the bridge must load before inline/local course scripts so LMS suspend data restores into `localStorage` before the course reads response state
 - Before Brightspace upload, verify response fields accept continuous typing, reload restores saved work, `npm run test:scorm` passes, and `unzip -tq projects/<slug>/exports/<slug>-scorm-2004.zip` reports no errors
+- Run `npm run test:e2e:scorm` for browser checks of resume, completion, active time, save failures, and narrow-screen status controls. Brightspace percentage displays and teacher-visible time reports still require a real LMS pilot; page times in suspend data are not native LMS page reports.
 - SCORM cross-browser restore only works when launched through an LMS SCORM API; opening the zip or HTML directly can only prove browser-local storage
 - Export commands now only mark the workspace as approved in `project.json`; they do not regenerate prompt-pack or other intelligence artifacts unless you run the intelligence-producing commands explicitly
 

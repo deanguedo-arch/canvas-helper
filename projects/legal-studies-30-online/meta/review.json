@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "legal-studies-30-online",
+  "status": "local-review-candidate",
+  "htmlSha256": "6dc32dd804f72b77b64fbff2b5f988d4c831b6a30ed56f29cef382609edcbc2d",
+  "workspaceSha256": "bb1e4c5154ff119dd4cb599d17b12b6bbfaa21e57780d28dada6808a2ec64081",
+  "teacherApproval": false,
+  "authoringStatus": "blocked",
+  "studioEdit": false,
+  "exports": false,
+  "hosting": null,
+  "curriculumVerification": "incomplete: all detailed official outcomes, prerequisites and parameters require reconciliation",
+  "soloPerformanceValidation": "unresolved; see curriculum-assessment-map.json",
+  "assessmentModel": "Four-category shared rubric plus task-specific descriptors. No automatic grade.",
+  "nextApprovalRequirements": [
+    "Exact build and learning depth",
+    "Every general/specific official outcome mapped to instruction and evidence",
+    "Prerequisites and delivery parameters",
+    "Project eligibility and distinct learning",
+    "Solo performance exceptions, particularly actual event facilitation",
+    "Rubric application and accessibility"
+  ],
+  "technicalVerification": "verification.json; e2e/specs/cts-online.spec.ts; scripts/tests/cts-online.test.ts",
+  "technicalStatus": "pass; expected doctor not-active only",
+  "browserSuite": "5/5 CTS suite passed 2026-09-09",
+  "visualReview": "All main routes in Studio/Full Preview, module opening views, mobile and representative saved/error states inspected; see visual-review/.",
+  "lastVerificationAt": "2026-09-09T17:04:41.481Z"
+}

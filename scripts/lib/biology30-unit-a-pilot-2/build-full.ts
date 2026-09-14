@@ -4,6 +4,7 @@ import { copyFile, cp, lstat, mkdir, mkdtemp, readFile, rename, rm, writeFile } 
 import path from "node:path";
 
 import { load as loadHtml } from "cheerio";
+import {packWordFrayers,type WordFrayerSchema} from '../biology30-vocabulary/word-frayer-state.js';
 
 import { validateProjectManifestPolicy } from "../project-manifest-policy.js";
 import {
@@ -181,6 +182,7 @@ function compactRecordKeys<T>(record: Record<string, T>, encode: (value: T) => u
 
 export function estimateWorstCaseState(html: string, fixedVocabularyIds: string[]) {
   const $ = loadHtml(html);
+  const wordSchema:WordFrayerSchema|undefined=$('#biology-word-data').length?JSON.parse($('#biology-word-data').text()).schema:undefined;
   const optionalVocabularyIds = $("[data-vocabulary-entry]").map((_index, element) => $(element).attr("data-vocabulary-entry")).get()
     .filter((id) => !fixedVocabularyIds.includes(id)).slice(0, 2);
   const allowedVocabularyIds = new Set([...fixedVocabularyIds, ...optionalVocabularyIds]);
@@ -190,6 +192,7 @@ export function estimateWorstCaseState(html: string, fixedVocabularyIds: string[
     const id = node.attr("data-response-id");
     if (!id || responses[id] !== undefined) return;
     const vocabularyMatch = id.match(/:core-vocabulary:([^:]+):/);
+    if(vocabularyMatch&&wordSchema)return;
     if (vocabularyMatch && !allowedVocabularyIds.has(vocabularyMatch[1])) return;
     responses[id] = "x".repeat(Number(node.attr("maxlength") ?? 2000));
   });
@@ -225,7 +228,11 @@ export function estimateWorstCaseState(html: string, fixedVocabularyIds: string[
     textbookReviewAttempts: [...TEXTBOOK_REVIEW_ATTEMPT_IDS],
     advanced: { c: "ffffffffff" }
   };
-  return { characters: JSON.stringify(state).length, responseCount: Object.keys(responses).length, practiceCount: Object.keys(practice).length, mediaCheckpointCount: mediaIds.length, modelCount: modelIds.length, textbookReviewAttemptCount: TEXTBOOK_REVIEW_ATTEMPT_IDS.length, advancedCompletionCount: ADVANCED_LEARNING_MANIFEST_IDS.length };
+  if(wordSchema){
+    state.vocabulary={activeId:wordSchema.legacyIds.slice().sort((a,b)=>b.length-a.length)[0],choiceIds:[],collectedIds:[]};
+    (state as typeof state&{wordFrayers:unknown}).wordFrayers=packWordFrayers(wordSchema.wordIds.slice(-8).map(id=>({kind:'word',id,answers:['x'.repeat(240),'x'.repeat(240),'x'.repeat(240),'x'.repeat(240)],collected:true})),wordSchema);
+  }
+  return { characters: JSON.stringify(state).length, responseCount: Object.keys(responses).length+(wordSchema?32:0), practiceCount: Object.keys(practice).length, mediaCheckpointCount: mediaIds.length, modelCount: modelIds.length, textbookReviewAttemptCount: TEXTBOOK_REVIEW_ATTEMPT_IDS.length, advancedCompletionCount: ADVANCED_LEARNING_MANIFEST_IDS.length, state };
 }
 
 function normalizePracticeId(id: string) {

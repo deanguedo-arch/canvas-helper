@@ -113,6 +113,7 @@
     "projects/resources/biology30-production/v1/units/unit-c/pilot2-time.json",
     "projects/resources/biology30-production/v1/units/unit-c/pilot2-topic-teaching.json",
     "projects/resources/biology30-production/v1/units/unit-c/pilot2-vocabulary.json",
+    "projects/resources/biology30-production/v1/units/unit-c/word-details.json",
     "projects/resources/biology30-unit-a-pilot/v2/assets/brand/nxt-ce-logo-white-with-ce.png",
     "app/shared/course-editability.ts",
     "package-lock.json",
@@ -127,6 +128,7 @@
     "scripts/lib/biology30-course/v1/content-d.ts",
     "scripts/lib/biology30-course/v1/content-factory.ts",
     "scripts/lib/biology30-course/v1/content-types.ts",
+    "scripts/lib/biology30-course/v1/course-identity.ts",
     "scripts/lib/biology30-course/v1/curriculum.ts",
     "scripts/lib/biology30-course/v1/figure-grammar.ts",
     "scripts/lib/biology30-course/v1/glossary-b.ts",
@@ -189,6 +191,7 @@
     "scripts/lib/biology30-course/v1/pilot2-state.ts",
     "scripts/lib/biology30-course/v1/pilot2-video-placement.ts",
     "scripts/lib/biology30-course/v1/pilot2-vocabulary-panel.ts",
+    "scripts/lib/biology30-course/v1/pilot2-word-profile.ts",
     "scripts/lib/biology30-course/v1/render.ts",
     "scripts/lib/biology30-course/v1/suspend-data.ts",
     "scripts/lib/biology30-unit-a/source.ts",
@@ -199,11 +202,21 @@
     "scripts/lib/biology30-unit-a/v2/runtime.ts",
     "scripts/lib/biology30-unit-a/v2/styles.ts",
     "scripts/lib/biology30-vocabulary/panel.ts",
+    "scripts/lib/biology30-vocabulary/word-frayer-runtime.ts",
+    "scripts/lib/biology30-vocabulary/word-frayer-state.ts",
+    "scripts/lib/biology30-vocabulary/word-page-runtime.ts",
+    "scripts/lib/biology30-vocabulary/word-page.ts",
+    "scripts/lib/biology30-vocabulary/word-reader.ts",
+    "scripts/lib/biology30-vocabulary/word-record.ts",
     "scripts/lib/english-unit/evidence-bank-core.ts",
     "scripts/lib/next-step-course-shell.ts",
     "scripts/lib/project-manifest-policy.ts",
     "scripts/lib/science-comparison.ts",
     "scripts/prepare-biology30-course-resources.py",
+    "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-word-vocabulary-delivery/baseline.json",
+    "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-all-word-vocabulary-final/baseline.json",
+    "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-all-word-vocabulary/baseline.json",
+    "projects/resources/biology30-production/v1/pilot2/source-review/word-frayer-rollout.json",
     "projects/resources/biology30-production/v1/pilot2/authority/performance-column-register.json",
     "projects/resources/biology30-production/v1/pilot2/authority/program-outcome-register.json",
     "projects/resources/biology30-production/v1/pilot2/baselines/2ad72ec06b104c589f91e4b5afb8d86c322bc168/baseline.json",
@@ -282,7 +295,7 @@
     "projects/resources/biology30-production/v1/pilot2/source-review/c-first-use-instructional-repair.json",
     "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-07-instructional-repairs/baseline-2.json",
     "projects/resources/biology30-production/v1/pilot2/source-review/a-first-use-successor-protection.json",
-    "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-08-inline-vocabulary/baseline.json",
+    "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-word-frayers/baseline.json",
     "projects/resources/biology30-production/v1/pilot2/source-review/inline-vocabulary-advanced-learning.json"
   ],
   "generatedOutputs": [
@@ -320,5 +333,5 @@
     "projects/biology30-unit-c/raw/intake.json"
   ],
   "sourceOfTruthNotes": "The frozen Pilot 2 contracts, authored resource inputs and transitive Biology owner generate this local candidate. Unit A remains provisional. Teacher acceptance, Studio Edit, export and publication are not granted.",
-  "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha 0093c353494125e9c54e22f02f2cc99ee98a62852ee8f69581455f4f25b291dd"
+  "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha aa2f6b78db5b9378668d80de1f2190911a1abaeb868af76e9851a87a082ef760"
 }

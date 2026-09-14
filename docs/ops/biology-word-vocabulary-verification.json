@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-09",
+  "status": "verified-local-word-vocabulary-rollout",
+  "teacherAcceptance": null,
+  "scope": "Biology30 A Pilot2/B/C/D individual-word reader, word structure and any-eight Frayers; Biology20 A word structure and shared-runtime parity.",
+  "candidates": [
+    {
+      "project": "biology30-unit-a-pilot-2",
+      "wordCount": 141,
+      "maximumStateCharacters": 42383,
+      "htmlSha256": "7b7df6f5859c3d91104cdca25e9facf121d9fb14ee061d999ac7d0598a99367a",
+      "javascriptSha256": "inline in HTML",
+      "wordSource": "projects/biology30-unit-a-pilot-2/meta/word-details.json",
+      "wordSourceSha256": "fbc2cd22af5b29a18403fdef2357b32cb89e0732f630657f6289b8af618b9f54",
+      "regenerateCommand": "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc"
+    },
+    {
+      "project": "biology30-unit-b",
+      "wordCount": 153,
+      "maximumStateCharacters": 34047,
+      "htmlSha256": "9978e4f1e15fbfea4a1ef7fd07305c77c4e26b0613cf02c63d5a677e8ba32595",
+      "javascriptSha256": "813b21e2dbc314df52e4150d5f360883c2244789d1412bc129b1568d92b0cbb7",
+      "wordSource": "projects/resources/biology30-production/v1/units/unit-b/word-details.json",
+      "wordSourceSha256": "5aa072991040a8a1eb6550c5b85dea066c98d7a8fb378abb4f815ef1918037db",
+      "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-b --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha 540c9323616d1fcdf326256080348ca2f26f428236b4e285c6bb78a3c574325b"
+    },
+    {
+      "project": "biology30-unit-c",
+      "wordCount": 249,
+      "maximumStateCharacters": 43515,
+      "htmlSha256": "15ea556b7606d80646e34ad010604bde9e55d910de279db5da7430024fc8ac2b",
+      "javascriptSha256": "813b21e2dbc314df52e4150d5f360883c2244789d1412bc129b1568d92b0cbb7",
+      "wordSource": "projects/resources/biology30-production/v1/units/unit-c/word-details.json",
+      "wordSourceSha256": "72f5e8b576914bcbafd5ed2e70aef32a6a08ff4eb44bbde98054c2a481d9e3ac",
+      "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha aa2f6b78db5b9378668d80de1f2190911a1abaeb868af76e9851a87a082ef760"
+    },
+    {
+      "project": "biology30-unit-d",
+      "wordCount": 99,
+      "maximumStateCharacters": 27766,
+      "htmlSha256": "2e3f6eeaa864cb304dd277b661c7ce0095f5fa55a3d4b6b13b2dcc1a2f9d5f9f",
+      "javascriptSha256": "813b21e2dbc314df52e4150d5f360883c2244789d1412bc129b1568d92b0cbb7",
+      "wordSource": "projects/resources/biology30-production/v1/units/unit-d/word-details.json",
+      "wordSourceSha256": "c3438bbf9f8621700a006160a49e7d2aa495933e67bcb6d2d5803fdb81e50985",
+      "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-d --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha e8c15e0d933bf60ae3b53b18813207cdb2f3b5063f40ccf75124bb020bd7ad94"
+    },
+    {
+      "project": "biology20-unit-a",
+      "wordCount": 35,
+      "maximumStateCharacters": 43393,
+      "htmlSha256": "50d201049674a94a64715d0742e221e80b015b917701ec05d3d6431ffd44a22f",
+      "javascriptSha256": "407d850af53add9e05be6ec773d84831b310c717ec0d087e3911a04fd3e77796",
+      "wordSource": "projects/resources/biology20-production/v1/units/a/word-details.json",
+      "wordSourceSha256": "4c58fc92ba433e7717e509d3d4cb79224309938f46c8ece868941b3362321be6",
+      "regenerateCommand": "npx tsx scripts/build-biology20-course.ts --module a"
+    }
+  ],
+  "rules": {
+    "maximumWords": 8,
+    "fieldsPerWord": 4,
+    "charactersPerField": 240,
+    "target": 44000,
+    "hardGuard": 48000,
+    "initialAnswers": "empty",
+    "legacyWriting": "retained with original category labels; explicit copy/removal",
+    "comparisonModels": "28 original A models retained for their exact original entries; no full new model claimed for every added word"
+  },
+  "checks": [
+    {
+      "command": "npx tsx --test scripts/tests/biology30-a-word-candidate.test.ts scripts/tests/biology-word-record.test.ts scripts/tests/biology-eight-word-candidate.test.ts",
+      "result": "7/7 passed on final source/runtime; A copy-collection, model comparison, ordinary/Unicode capacity, legacy migration, popup, eight slots, removal and oversized drafts"
+    },
+    {
+      "command": "npx tsx --test scripts/tests/biology30-word-candidate.test.ts scripts/tests/biology30-eight-word-profile.test.ts scripts/tests/biology-word-frayer-state.test.ts",
+      "result": "9/9 passed; 501 exact BCD teaching targets; widths 1117,768,559 with DPR2,390"
+    },
+    {
+      "command": "npx tsx --test scripts/tests/biology20-unit-a.test.ts scripts/tests/biology20-resource-parity.test.ts",
+      "result": "3/3 passed; all routes, original source videos, glossary contexts, PDFs, vocabulary and model"
+    },
+    {
+      "command": "npm run verify -- --project <each candidate project> --mode workspace",
+      "result": "5/5 passed; no missing local assets or embeds"
+    },
+    {
+      "command": "npm run test:e2e:project -- --project <each candidate project>",
+      "result": "5/5 passed on final learner candidates"
+    },
+    {
+      "command": "npm run test:e2e:smoke",
+      "result": "1/1 passed; concurrent dev-server port warning was nonfatal; assertions ran successfully"
+    },
+    {
+      "command": "npx tsx --test scripts/tests/biology30-pilot2-state.test.ts",
+      "result": "8/8 passed; unchanged non-opt-in formats, failure recovery, old state and Unicode"
+    },
+    {
+      "command": "npx tsx --test scripts/tests/biology30-pilot2-session-browser.test.ts",
+      "result": "3/3 passed in Chromium, Firefox and WebKit before display-only exact-entry comparison addition"
+    },
+    {
+      "command": "npx tsx --test --test-name-pattern='online finalization|Process Collection has|Chapter 11 diagram' scripts/tests/biology30-unit-a-pilot-2.test.ts",
+      "result": "3/3 passed after updating the changed state-budget assertions to 42383"
+    }
+  ],
+  "preservation": {
+    "comparison": "Normalized rendered teaching text and Advanced Learning text compared with HEAD for all four Biology30 units.",
+    "unchanged": true,
+    "advancedBlocks": {
+      "A": 40,
+      "B": 34,
+      "C": 71,
+      "D": 22
+    },
+    "sourcePins": {
+      "B": 72,
+      "C": 92,
+      "D": 57,
+      "biology20A": 135
+    },
+    "sourcePinDrift": 0,
+    "ownerClosureFiles": 99,
+    "protectedATrees": 4,
+    "biology20FinalMetadataRefresh": "After the final protected-baseline update, rebuilt the Bio20 receipt. HTML and browser JS hashes stayed identical to the tested candidate; all135 source pins now reconcile."
+  },
+  "visuals": {
+    "inspected": [
+      "/tmp/a-word-integration.png",
+      "/tmp/biology30-a-word-reader-1117.png",
+      "/tmp/biology30-b-word-reader-768.png",
+      "/tmp/biology30-c-word-reader-390.png",
+      "/tmp/biology30-c-word-reader-559.png",
+      "/tmp/biology30-d-word-reader-1117.png",
+      "/tmp/biology30-d-word-reader-768.png"
+    ],
+    "zoomBoundary": "559 CSS px with DPR2 is responsive/zoom reflow emulation, not native browser zoom or assistive-technology certification."
+  },
+  "knownBoundaries": [
+    "A remains blocked/proposal-only by policy. course:doctor reports not-active; no Studio or release permissions were changed.",
+    "The older full A historical suite initially had5 failures. Three changed budget assertions were updated and passed their focused rerun. Two pre-existing historical expectations remain: direct-workspace ownership (HEAD already declared the authored renderer/proposal-only), and old whole-project protected hashes predating later authorized operational files. Do not claim that whole historical suite passes.",
+    "Individual references and empty Frayers are available for every word; full new four-quadrant comparison examples were not authored for every added word. Existing A28 exact-entry models were preserved rather than relabelled.",
+    "A retains original category-linked lesson/textbook references; BCD501 exact word teaching targets were verified.",
+    "Teacher acceptance, observed student learning levels, live LMS save certification and formal accessibility certification are not established by these tests.",
+    "No deployment, review ZIP, SCORM export, commit or Studio activation. Hosted/packaged copies remain unchanged."
+  ]
+}

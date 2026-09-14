@@ -132,6 +132,8 @@ function runScormBridgeHarness(options: {
     localStorage,
     setTimeout: () => 1,
     clearTimeout: () => undefined,
+    setInterval: () => 1,
+    clearInterval: () => undefined,
     addEventListener: () => undefined,
     dispatchEvent: (event: FakeCustomEvent) => {
       dispatchedEvents.push(event.type);

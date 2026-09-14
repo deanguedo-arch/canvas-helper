@@ -2,6 +2,7 @@ import type {KeyValueStorage,TopicLms} from './pilot2-state.js';
 import type {TopicRestoreSource} from './pilot2-restore.js';
 import {readTopicRecoveryArchive} from './pilot2-restore.js';
 import type {LegacyRecord} from './pilot2-legacy-work.js';
+import {biologyRuntimeStorageBase,biologyRuntimeStorageKey,type BiologyRuntimeIdentity} from './course-identity.js';
 
 type Scorm2004={Initialize(value:string):unknown;GetValue(name:string):unknown;GetLastError():unknown;SetValue(name:string,value:string):unknown;Commit(value:string):unknown;Terminate(value:string):unknown};
 export type TopicHost={parent?:TopicHost;opener?:TopicHost|null;API_1484_11?:unknown;localStorage?:KeyValueStorage};
@@ -32,30 +33,30 @@ export function connectTopicLms(host:TopicHost) {
 
 /** Capture every known exact unit key before mounting any save listeners.
  * An unreadable storage channel is an error, not evidence of an empty course. */
-export function captureTopicSources(unit:'B'|'C'|'D',local:KeyValueStorage|null,lmsRaw:string|null):TopicRestoreSource[] {
- const base=`biology30-unit-${unit.toLowerCase()}`,key=`${base}:pilot2-v3`,sources:TopicRestoreSource[]=[];
+export function captureTopicSources(unit:string,local:KeyValueStorage|null,lmsRaw:string|null,courseId?:BiologyRuntimeIdentity['courseId']):TopicRestoreSource[] {
+ const identity={unit,courseId},base=biologyRuntimeStorageBase(identity),key=biologyRuntimeStorageKey(identity),sources:TopicRestoreSource[]=[];
  const add=(id:string,label:string,raw:string|null,role:TopicRestoreSource['role'],legacyKind?:LegacyRecord['kind'])=>{if(raw!==null&&raw!=='')sources.push({id,label,raw,role,...(legacyKind?{legacyKind}:{})});};
  if(local){
   add(key,'This device',local.getItem(key),'current');
   add(`${key}:previous`,'Previous device save',local.getItem(`${key}:previous`),'previous');
-  for(const [suffix,label,kind] of [['state:v1','Earlier course work','state-v1'],['responses','Earlier written responses','responses'],['complete','Earlier completion markers','completions'],['manual-evidence-notes','Earlier notebook entries','notes']] as const)add(`${base}:${suffix}`,label,local.getItem(`${base}:${suffix}`),'legacy',kind);
+  if(!courseId)for(const [suffix,label,kind] of [['state:v1','Earlier course work','state-v1'],['responses','Earlier written responses','responses'],['complete','Earlier completion markers','completions'],['manual-evidence-notes','Earlier notebook entries','notes']] as const)add(`${base}:${suffix}`,label,local.getItem(`${base}:${suffix}`),'legacy',kind);
  }
  if(lmsRaw!==null&&lmsRaw!==''){
   let kind:LegacyRecord['kind']|undefined;
-  try{const value=JSON.parse(lmsRaw);if(value&&typeof value==='object'){if(value.v===2)kind='compact-v2';else if(value.schemaVersion===1)kind='state-v1';}}catch{}
+  if(!courseId)try{const value=JSON.parse(lmsRaw);if(value&&typeof value==='object'){if(value.v===2)kind='compact-v2';else if(value.schemaVersion===1)kind='state-v1';}}catch{}
   add('lms','Learning platform save',lmsRaw,kind?'legacy':'current',kind);
  }
  // Old keys deliberately remain intact. Once their exact bytes have a verified
  // recovery archive and a current save exists, do not ask the same migration
  // question on every reload. Changed old bytes must re-enter recovery.
- const archive=local&&sources.some(source=>source.role==='current')?readTopicRecoveryArchive(local,{unit}):[];
+ const archive=local&&sources.some(source=>source.role==='current')?readTopicRecoveryArchive(local,identity):[];
  return sources.filter(source=>source.role!=='legacy'||!archive.some(entry=>entry.source===source.id&&entry.raw===source.raw));
 }
 
-export function captureTopicEnvironment(host:TopicHost,unit:'B'|'C'|'D') {
+export function captureTopicEnvironment(host:TopicHost,unit:string,courseId?:BiologyRuntimeIdentity['courseId']) {
  // Access can throw in private/blocked storage environments. Do not mount an
  // empty session that could replace an unreadable earlier save on retry.
  const local=host.localStorage??null,connection=connectTopicLms(host);
- try{return{local,lms:connection.adapter,sources:captureTopicSources(unit,local,connection.raw),close:connection.close};}
+ try{return{local,lms:connection.adapter,sources:captureTopicSources(unit,local,connection.raw,courseId),close:connection.close};}
  catch(error){try{connection.close();}catch{}throw error;}
 }

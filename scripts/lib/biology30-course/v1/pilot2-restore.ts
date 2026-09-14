@@ -1,5 +1,6 @@
 import {decodeTopicState,encodeTopicState,emptyTopicState,type TopicState,type TopicStateSchema,type KeyValueStorage} from './pilot2-state.js';
 import {validateLegacyRecord,type LegacyRecord} from './pilot2-legacy-work.js';
+import {biologyRuntimeStorageKey,type BiologyRuntimeIdentity} from './course-identity.js';
 export type TopicRestoreSource={id:string;label:string;raw:string;role:'current'|'previous'|'legacy';legacyKind?:LegacyRecord['kind']};
 export type TopicRestoreCandidate={id:string;label:string;state:TopicState;sources:string[]};
 export type TopicRestoreInspection={sources:TopicRestoreSource[];candidates:TopicRestoreCandidate[];automaticId:string|null;requiresChoice:boolean;issues:{source:string;message:string}[]};
@@ -30,8 +31,8 @@ function readArchive(storage:KeyValueStorage,key:string):ArchiveEntry[]{
  if(!Array.isArray(data)||data.some(entry=>!entry||typeof entry.source!=='string'||typeof entry.label!=='string'||typeof entry.key!=='string')||new Set(data.map(entry=>entry.key)).size!==data.length)throw new Error('Recovery archive index is unreadable; preserve it before proceeding');
  return data;
 }
-export function readTopicRecoveryArchive(storage:KeyValueStorage,schema:Pick<TopicStateSchema,'unit'>) {
- const prefix=`biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3:recovery`;
+export function readTopicRecoveryArchive(storage:KeyValueStorage,schema:BiologyRuntimeIdentity) {
+ const prefix=`${biologyRuntimeStorageKey(schema)}:recovery`;
  return readArchive(storage,`${prefix}:index`).map(entry=>{if(!entry.key.startsWith(prefix+':source:'))throw new Error('Recovery key outside the unit archive');const raw=storage.getItem(entry.key);if(raw===null)throw new Error('Recovery archive entry is missing');return {...entry,raw};});
 }
 /** A learner explicitly chooses recovery. Verify every original backup before
@@ -39,7 +40,7 @@ export function readTopicRecoveryArchive(storage:KeyValueStorage,schema:Pick<Top
 export function activateTopicRestore(inspection:TopicRestoreInspection,candidateId:string,schema:TopicStateSchema,storage:KeyValueStorage,confirmed:boolean) {
  if(inspection.requiresChoice&&!confirmed)throw new Error('Choose and confirm the recovery version first');
  const candidate=inspection.candidates.find(candidate=>candidate.id===candidateId);if(!candidate)throw new Error('Unknown recovery candidate');
- const payload=encodeTopicState(candidate.state,schema),prefix=`biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3:recovery`,indexKey=`${prefix}:index`,originalIndex=storage.getItem(indexKey);
+ const payload=encodeTopicState(candidate.state,schema),prefix=`${biologyRuntimeStorageKey(schema)}:recovery`,indexKey=`${prefix}:index`,originalIndex=storage.getItem(indexKey);
  const archive=readTopicRecoveryArchive(storage,schema).map(({source,label,key})=>({source,label,key}));
  for(const source of inspection.sources){
   let key='';for(let slot=0;slot<1000;slot++){const proposed=`${prefix}:source:${encodeURIComponent(source.id)}:${slot}`,existing=storage.getItem(proposed);if(existing===null||existing===source.raw){key=proposed;break;}}
@@ -49,7 +50,7 @@ export function activateTopicRestore(inspection:TopicRestoreInspection,candidate
  }
  if(storage.getItem(indexKey)!==originalIndex)throw new Error('Recovery archive changed during preparation');
  const archived=JSON.stringify(archive);storage.setItem(indexKey,archived);if(storage.getItem(indexKey)!==archived)throw new Error('Recovery archive index was not verified');
- const active=`biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3`;
+ const active=biologyRuntimeStorageKey(schema);
  const local=inspection.sources.find(source=>source.id===active);
  if(local&&storage.getItem(active)!==local.raw)throw new Error('Local work changed while recovery was open; inspect it again');
  if(!local&&storage.getItem(active)!==null)throw new Error('Local work appeared while recovery was open; inspect it again');

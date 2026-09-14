@@ -1,0 +1,17 @@
+{
+  "projectSlug": "biology30-unit-a-pilot-3",
+  "requiredTestIds": ["studio-shell", "course-studio-tab", "workspace-project-select", "project-root", "workspace-preview-frame"],
+  "modes": {"enabled": false},
+  "navigation": {"enabled": false},
+  "quiz": {"enabled": false, "lessonTitle": "Neuron Structure"},
+  "fallbackPanel": {"enabled": false},
+  "learnerCourse": {
+    "enabled": true,
+    "routes": ["overview", "lesson-01", "practice", "lesson-check", "topic-review", "process-collection", "core-vocabulary", "textbook-library", "video-library", "sources-and-credits"],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "resourceChecks": [],
+    "evidenceScenario": {"kind":"pilot3-local-run","route":"topic-review","activityId":"topic-review","collectionRoute":"process-collection"},
+    "mobile": {"width": 390, "height": 844, "routes": ["overview", "lesson-01", "practice", "lesson-check", "core-vocabulary", "textbook-library"]}
+  }
+}

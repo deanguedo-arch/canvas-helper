@@ -1,5 +1,7 @@
 import { FIRST_USE_REPAIR } from "./first-use-repair.js";
 import { renderAVocabularyPanel } from '../biology30-vocabulary/render-a.js';
+import {renderAWordPage} from '../biology30-vocabulary/a-word-page.js';
+import type {BiologyWordPageData} from '../biology30-vocabulary/word-page.js';
 import { A_VOCABULARY_BRIDGE } from '../biology30-vocabulary/a-bridge.js';
 import type { Pilot2Lesson } from "./contracts.js";
 import { CHAPTER_11_STUDY_TASKS, actionPotentialFigure, studyDiagram, studyResponseId } from "./chapter-11-study.js";
@@ -78,6 +80,7 @@ type VideoRecord = {
 };
 
 type RenderInput = {
+  wordData?: BiologyWordPageData;
   lessons: Pilot2Lesson[];
   vocabularyEntries: VocabularyEntry[];
   fixedVocabularyIds: string[];
@@ -1148,7 +1151,7 @@ function runtime() {
   function saveMessage(result){if(result.lms==="saved")return "Saved to course";if(result.local==="saved"&&result.lms==="unavailable")return "Saved on this device";if(result.local==="saved")return "Saved on this device only";return "Not saved—copy your work before leaving"}
   function saveSucceeded(result){return result.local==="saved"||result.lms==="saved"}
   function announceSaveResult(result,action){var message=saveMessage(result);announce(action&&saveSucceeded(result)?action+" "+message+".":message)}
-  function save(){var api=scormApi();var serialized=serializeState(state);var result={local:"failed",lms:api?"failed":"unavailable"};if(serialized.length>STATE_LIMIT||Object.keys(state.responses).some(function(id){return id.indexOf(":core-vocabulary:")>=0&&String(state.responses[id]).length>240})){inlineVocabularyStatus="Not saved: a response exceeds its limit. Your draft remains available; copy or revise it before leaving.";announceSaveResult(result);return result}try{localStorage.setItem(STORAGE,serialized);if(localStorage.getItem(STORAGE)===serialized){result.local="saved";lastValid=serialized}}catch(_error){if(lastValid)try{localStorage.setItem(STORAGE,lastValid)}catch(_ignore){}}
+  function save(){try{if(window.biologyWordBeforeSave)window.biologyWordBeforeSave()}catch(error){var refused={local:"failed",lms:"unavailable"};announce("Not saved. "+String(error)+". Your draft remains available.");return refused;}var api=scormApi();var serialized=serializeState(state);var result={local:"failed",lms:api?"failed":"unavailable"};if(serialized.length>STATE_LIMIT||Object.keys(state.responses).some(function(id){return id.indexOf(":core-vocabulary:")>=0&&String(state.responses[id]).length>240})){inlineVocabularyStatus="Not saved: a response exceeds its limit. Your draft remains available; copy or revise it before leaving.";announceSaveResult(result);return result}try{localStorage.setItem(STORAGE,serialized);if(localStorage.getItem(STORAGE)===serialized){result.local="saved";lastValid=serialized}}catch(_error){if(lastValid)try{localStorage.setItem(STORAGE,lastValid)}catch(_ignore){}}
     if(api){try{var calls=[api.SetValue("cmi.suspend_data",serialized),api.SetValue("cmi.location",state.route),api.SetValue("cmi.progress_measure",String(state.completedRoutes.length/18)),api.SetValue("cmi.completion_status",state.completedRoutes.length===18?"completed":"incomplete")];var finalItems=Array.from(document.querySelectorAll('#final-practice [data-practice-id][data-required="true"]'));if(finalItems.length===18&&finalItems.every(function(item){return practiceSubmitted(item.getAttribute("data-practice-id"))})){var correct=finalItems.filter(function(item){return state.practice[item.getAttribute("data-practice-id")].correct}).length;calls.push(api.SetValue("cmi.score.min","0"),api.SetValue("cmi.score.max","100"),api.SetValue("cmi.score.raw",String(Math.round(correct/18*100))),api.SetValue("cmi.success_status","unknown"))}var committed=api.Commit("");result.lms=calls.every(scormCallSucceeded)&&scormCallSucceeded(committed)?"saved":"failed"}catch(_error){result.lms="failed"}}
     inlineVocabularyStatus=saveMessage(result);document.querySelectorAll("[data-a-frayer-save-status]").forEach(function(node){node.textContent=inlineVocabularyStatus});return result}
   window.nextStepEvidenceBank={list:function(filters){var responseId=filters&&filters.responseId;return state.evidenceIds.filter(function(id){return !responseId||id===responseId}).map(function(id){return {contributionId:id,responseId:id,evidence:String(state.responses[id]||"")}})},upsert:function(entry){var id=entry&&(entry.contributionId||entry.responseId);if(!id)return false;if(entry.evidence!==undefined)state.responses[id]=String(entry.evidence);if(state.evidenceIds.indexOf(id)<0)state.evidenceIds.push(id);return saveSucceeded(save())},remove:function(id){var index=state.evidenceIds.indexOf(id);if(index<0)return false;state.evidenceIds.splice(index,1);return saveSucceeded(save())}};
@@ -1372,7 +1375,7 @@ ${renderGlossary(input.vocabularyEntries)}
 ${renderSources()}
 </div></main><button class="button save-exit" type="button" onclick="window.dispatchEvent(new Event('beforeunload'))">Save and Exit</button><p class="toast" data-save-toast aria-live="polite"></p><dialog class="figure-dialog" data-figure-dialog><div class="dialog-head"><h2>Figure</h2><button class="button button--secondary" type="button" data-close-dialog>Close</button></div><div class="dialog-body"></div></dialog><script>${runtime()}</script></body></html>`;
   return {
-    html: html.replace('</body>', renderAVocabularyPanel(input.vocabularyEntries) + '</body>'),
+    html: (input.wordData?renderAWordPage(html,input.wordData):html).replace('</body>', renderAVocabularyPanel(input.vocabularyEntries) + '</body>'),
     learnerRoutes: [...fullLearnerRoutes],
     guidedItems: guidedItems.map(correctPracticeItem),
     chapterItems: [...chapter11Items, ...CHAPTER_12_ITEMS, ...CHAPTER_13_ITEMS].map(correctPracticeItem),

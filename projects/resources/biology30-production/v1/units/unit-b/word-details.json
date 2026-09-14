@@ -1,0 +1,4066 @@
+{
+  "schemaVersion": 1,
+  "status": "word-specific content authored; final candidate verification required",
+  "words": [
+    {
+      "id": "b-term-testes",
+      "term": "testes",
+      "categoryIds": [
+        "b-family-testis-compartments"
+      ],
+      "definition": "Paired reproductive organs that support sperm development and release hormones, including testosterone.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Irregular plural: one testis, two testes. Testicular is the related adjective. These forms identify the organ; they do not distinguish its internal cell types."
+      },
+      "whatItDoes": "Different tissues within them coordinate sperm development and androgen secretion.",
+      "relatedTermIds": [
+        "b-term-seminiferous-tubules",
+        "b-term-sertoli-cells",
+        "b-term-interstitial-cells"
+      ],
+      "commonConfusion": "Sperm production and hormone secretion occur in different compartments.",
+      "retrievalPrompt": "Could normal testosterone coexist with impaired sperm development? Explain.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-testes",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-seminiferous-tubules",
+      "term": "seminiferous tubules",
+      "categoryIds": [
+        "b-family-testis-compartments"
+      ],
+      "definition": "Coiled tubes inside the testes where sperm cells develop among supporting cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tubules names small tubes; seminiferous specifies the sperm-producing tubes of the testis. Read the modifier with the noun, not as a separate organ."
+      },
+      "whatItDoes": "Their epithelium provides the local setting for the developing sperm lineage.",
+      "relatedTermIds": [
+        "b-term-testes",
+        "b-term-sertoli-cells",
+        "b-term-interstitial-cells"
+      ],
+      "commonConfusion": "These are production sites, not the main storage duct.",
+      "retrievalPrompt": "Trace where cells go after developing in these tubules.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-seminiferous-tubules",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-sertoli-cells",
+      "term": "Sertoli cells",
+      "categoryIds": [
+        "b-family-testis-compartments"
+      ],
+      "definition": "Supporting cells within the sperm-producing tubes of a testis; they nourish developing sperm and regulate their local conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sertoli is an eponym, a personal name used in anatomy; cells is the head noun. The name itself does not encode the cells' supporting function."
+      },
+      "whatItDoes": "They support germ cells and respond to FSH within the tubules.",
+      "relatedTermIds": [
+        "b-term-testes",
+        "b-term-seminiferous-tubules",
+        "b-term-interstitial-cells"
+      ],
+      "commonConfusion": "They are not the principal testosterone-producing cells.",
+      "retrievalPrompt": "Predict an effect of damaged Sertoli support despite open transport ducts.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-sertoli-cells",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-interstitial-cells",
+      "term": "interstitial cells",
+      "categoryIds": [
+        "b-family-testis-compartments"
+      ],
+      "definition": "Cells between the sperm-producing tubes of a testis that release the hormone testosterone into blood; also called Leydig cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Inter- means between. Interstitial describes location between other structures; cells names the tissue units. In this lesson the location is between seminiferous tubules."
+      },
+      "whatItDoes": "They respond to LH by secreting testosterone into circulation.",
+      "relatedTermIds": [
+        "b-term-testes",
+        "b-term-seminiferous-tubules",
+        "b-term-sertoli-cells"
+      ],
+      "commonConfusion": "Their position between tubules differs from Sertoli cells inside them.",
+      "retrievalPrompt": "How could an LH change affect testosterone without directly acting on sperm?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-interstitial-cells",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-epididymis",
+      "term": "epididymis",
+      "categoryIds": [
+        "b-family-sperm-transport"
+      ],
+      "definition": "A coiled duct where sperm mature and are stored after leaving the testes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "An anatomical noun: singular epididymis, plural epididymides; epididymal is the adjective. Keep it distinct from the testis and vas deferens in the transport sequence."
+      },
+      "whatItDoes": "Its environment supports sperm maturation before subsequent transport.",
+      "relatedTermIds": [
+        "b-term-vas-deferens",
+        "b-term-ejaculatory-duct",
+        "b-term-urethra"
+      ],
+      "commonConfusion": "Maturation here is not the meiotic production of sperm.",
+      "retrievalPrompt": "Why can sperm leave the testis without yet having completed maturation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-epididymis",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-vas-deferens",
+      "term": "vas deferens",
+      "categoryIds": [
+        "b-family-sperm-transport"
+      ],
+      "definition": "A muscular duct that transports sperm from the epididymis toward the ejaculatory duct; also called the ductus deferens.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A two-word anatomical name for a transporting duct. Vas deferens is singular; vasa deferentia is plural. Ductus deferens is an alternative name."
+      },
+      "whatItDoes": "Muscular activity moves sperm along the transport pathway.",
+      "relatedTermIds": [
+        "b-term-epididymis",
+        "b-term-ejaculatory-duct",
+        "b-term-urethra"
+      ],
+      "commonConfusion": "Blocking transport does not necessarily stop testicular hormone secretion.",
+      "retrievalPrompt": "Predict which function an obstruction here directly disrupts.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-vas-deferens",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-ejaculatory-duct",
+      "term": "ejaculatory duct",
+      "categoryIds": [
+        "b-family-sperm-transport"
+      ],
+      "definition": "A short duct that carries sperm and seminal-vesicle fluid into the urethra.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Duct names a passage; ejaculatory is the adjective connecting that passage to ejaculation. The modifier describes its role, not sperm production."
+      },
+      "whatItDoes": "It joins the transport of sperm with accessory-gland fluid toward the urethra.",
+      "relatedTermIds": [
+        "b-term-epididymis",
+        "b-term-vas-deferens",
+        "b-term-urethra"
+      ],
+      "commonConfusion": "It is not a site where sperm are formed.",
+      "retrievalPrompt": "Place this duct between its upstream and downstream structures.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ejaculatory-duct",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-urethra",
+      "term": "urethra",
+      "categoryIds": [
+        "b-family-sperm-transport"
+      ],
+      "definition": "A duct carrying urine and, at different times in typical male anatomy, semen to the exterior.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Urethra is a singular anatomical noun; urethral is its adjective. Do not confuse urethra with ureter, a different urinary passage."
+      },
+      "whatItDoes": "It provides an outward passage used by different systems at different times.",
+      "relatedTermIds": [
+        "b-term-epididymis",
+        "b-term-vas-deferens",
+        "b-term-ejaculatory-duct"
+      ],
+      "commonConfusion": "Urine and semen are not normally discharged together.",
+      "retrievalPrompt": "Why does a shared passage not imply simultaneous discharge?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-urethra",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-penis",
+      "term": "penis",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "An external organ containing a urethral passage that can deliver semen.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Penis is an anatomical noun; penile is the related adjective. This is an organ name, not a compound specifying every tissue or function within it."
+      },
+      "whatItDoes": "Its tissues support delivery of semen through the urethral passage.",
+      "relatedTermIds": [
+        "b-term-y-chromosome",
+        "b-term-responsive-target",
+        "b-term-sti"
+      ],
+      "commonConfusion": "It does not produce sperm.",
+      "retrievalPrompt": "Distinguish delivery by this organ from sperm production.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-penis",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-seminal-vesicles",
+      "term": "seminal vesicles",
+      "categoryIds": [
+        "b-family-semen"
+      ],
+      "definition": "Paired glands that add a substantial part of the fluid in semen; they do not produce sperm.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Vesicles names small sac-like structures; seminal connects the glands with semen. Seminal does not mean that the glands make sperm."
+      },
+      "whatItDoes": "Their secretions contribute substances and volume to seminal fluid.",
+      "relatedTermIds": [
+        "b-term-semen",
+        "b-term-prostate-gland",
+        "b-term-cowper-glands"
+      ],
+      "commonConfusion": "They are glands, not containers producing sperm.",
+      "retrievalPrompt": "Could reduced gland secretion change semen while sperm production continues?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-seminal-vesicles",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-prostate-gland",
+      "term": "prostate gland",
+      "categoryIds": [
+        "b-family-semen"
+      ],
+      "definition": "A male accessory gland that contributes fluid to semen.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Gland names the secretory organ type; prostate identifies which gland. Prostatic is the corresponding adjective."
+      },
+      "whatItDoes": "Prostatic secretion contributes to the fluid environment of semen.",
+      "relatedTermIds": [
+        "b-term-semen",
+        "b-term-seminal-vesicles",
+        "b-term-cowper-glands"
+      ],
+      "commonConfusion": "Prostatic fluid is not a population of sperm cells.",
+      "retrievalPrompt": "Separate the gland's contribution from the testes' contribution.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-prostate-gland",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-semen-and-accessory-glands"
+      ]
+    },
+    {
+      "id": "b-term-cowper-glands",
+      "term": "Cowper glands",
+      "categoryIds": [
+        "b-family-semen"
+      ],
+      "definition": "Small glands below the prostate that release fluid into the urethra; also called bulbourethral glands.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cowper is an eponym rather than a descriptive root. The alternative bulbourethral glands names their anatomical association with the urethra."
+      },
+      "whatItDoes": "Their secretion enters the urethra and contributes to lubrication and local conditions.",
+      "relatedTermIds": [
+        "b-term-semen",
+        "b-term-seminal-vesicles",
+        "b-term-prostate-gland"
+      ],
+      "commonConfusion": "The name is not a label for sperm-producing tissue.",
+      "retrievalPrompt": "Why does a gland secretion not establish that sperm are present?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cowper-glands",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-semen-and-accessory-glands"
+      ]
+    },
+    {
+      "id": "b-term-semen",
+      "term": "semen",
+      "categoryIds": [
+        "b-family-semen"
+      ],
+      "definition": "Fluid containing sperm when present plus secretions from reproductive accessory glands.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Semen is a mass noun for the reproductive fluid mixture; seminal is its adjective. Sperm names cells, not a grammatical plural of semen."
+      },
+      "whatItDoes": "It carries the mixture of cells when present and reproductive secretions.",
+      "relatedTermIds": [
+        "b-term-seminal-vesicles",
+        "b-term-prostate-gland",
+        "b-term-cowper-glands"
+      ],
+      "commonConfusion": "Semen and sperm are not interchangeable terms.",
+      "retrievalPrompt": "Could seminal fluid be present without sperm? Explain the distinction.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-semen",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-y-chromosome",
+      "term": "Y chromosome",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "A sex chromosome that typically carries a testis-development signal in humans; its presence alone does not establish every sex trait.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Y is a conventional chromosome label; chromosome is the head noun. The letter is not an abbreviation for all male traits."
+      },
+      "whatItDoes": "Genes it carries can influence a developmental signalling pathway.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-responsive-target",
+        "b-term-sti"
+      ],
+      "commonConfusion": "A chromosome finding alone does not describe every sex trait.",
+      "retrievalPrompt": "Why must downstream signals and tissue responses also be considered?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-y-chromosome",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-reproductive-development-and-health"
+      ]
+    },
+    {
+      "id": "b-term-testosterone",
+      "term": "testosterone",
+      "categoryIds": [
+        "b-family-negative-feedback"
+      ],
+      "definition": "A chemical messenger made mainly by cells between the sperm-producing tubes of the testes; it contributes to reproductive development, function and feedback.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "This is a hormone name; testosterone is a particular androgen. Do not treat every hormone name ending similarly as having the same receptor or effect."
+      },
+      "whatItDoes": "Responsive tissues use its signal in reproductive function and upstream feedback.",
+      "relatedTermIds": [
+        "b-term-negative-feedback",
+        "b-term-inhibin"
+      ],
+      "commonConfusion": "More circulating signal does not guarantee more sperm production.",
+      "retrievalPrompt": "Explain how an outside androgen signal could suppress upstream stimulation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-testosterone",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-responsive-target",
+      "term": "responsive target",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "A cell or tissue with the receptors and internal machinery needed to respond to a particular signal.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Target names the receiving cell or tissue; responsive specifies that it can react to the signal, not merely that the signal reaches it."
+      },
+      "whatItDoes": "Receptors and intracellular pathways connect a signal to a cellular response.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-sti"
+      ],
+      "commonConfusion": "Signal delivery alone does not prove that a tissue can respond.",
+      "retrievalPrompt": "Predict the result if a hormone reaches cells lacking its receptor.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-responsive-target",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-reproductive-development-and-health"
+      ]
+    },
+    {
+      "id": "b-term-sti",
+      "term": "STI",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "An infection that can be transmitted through sexual contact; pathogens, symptoms, prevention, testing, and treatment differ.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for sexually transmitted infection. Infection is the head noun; sexually transmitted describes a route of transmission."
+      },
+      "whatItDoes": "A transmissible pathogen can establish infection through an appropriate exposure pathway.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target"
+      ],
+      "commonConfusion": "Different infections do not share identical symptoms or prevention limits.",
+      "retrievalPrompt": "Why is absence of symptoms insufficient to establish absence of infection?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-sti",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-reproductive-development-and-health"
+      ]
+    },
+    {
+      "id": "b-term-fertility",
+      "term": "fertility",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "The biological capacity or probability of reproduction, influenced by many interacting factors and not established by one classroom measure.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Fertile is an adjective; fertility is the corresponding noun for reproductive capacity. It is not the same word as fertilization, a specific cellular process."
+      },
+      "whatItDoes": "It describes reproductive capacity while recognizing multiple interacting pathways.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target"
+      ],
+      "commonConfusion": "A normal classroom indicator is not a guarantee of conception.",
+      "retrievalPrompt": "Name two distinct functions needed beyond production of a gamete.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fertility",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-diploid",
+      "term": "diploid",
+      "categoryIds": [
+        "b-family-gamete-chromosome-sets"
+      ],
+      "definition": "Having two chromosome sets, conventionally written 2n.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Diplo- means double; ploid refers here to chromosome-set number. Diploid means two sets, not necessarily two chromatids per chromosome."
+      },
+      "whatItDoes": "Two sets allow homologous chromosomes to be distinguished in meiotic reasoning.",
+      "relatedTermIds": [
+        "b-term-haploid",
+        "b-term-primary-spermatocyte",
+        "b-term-secondary-spermatocyte"
+      ],
+      "commonConfusion": "Duplicating DNA does not itself change diploid status.",
+      "retrievalPrompt": "Why is a primary spermatocyte diploid after DNA replication?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-diploid",
+        "pilot2-instruction.json#b-topic-spermatogenesis-gametes-and-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-haploid",
+      "term": "haploid",
+      "categoryIds": [
+        "b-family-gamete-chromosome-sets"
+      ],
+      "definition": "Having one chromosome set, conventionally written n.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Haploid is the chromosome-set term for one set. Pair it with n; do not use it as a synonym for an unduplicated chromosome."
+      },
+      "whatItDoes": "One chromosome set describes the products after homologous sets separate.",
+      "relatedTermIds": [
+        "b-term-diploid",
+        "b-term-primary-spermatocyte",
+        "b-term-secondary-spermatocyte"
+      ],
+      "commonConfusion": "A haploid cell can still contain duplicated chromosomes.",
+      "retrievalPrompt": "How can a secondary spermatocyte be haploid before meiosis II?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-haploid",
+        "pilot2-instruction.json#b-topic-spermatogenesis-gametes-and-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-spermatogonium",
+      "term": "spermatogonium",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A precursor cell in the sperm-producing lineage with two chromosome sets; its divisions can maintain precursor cells and produce cells that develop toward sperm.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Spermato- identifies the sperm lineage. Spermatogonium is singular; spermatogonia is plural. The full name identifies a precursor stage."
+      },
+      "whatItDoes": "Its lineage divisions can retain precursors while supplying differentiating germ cells.",
+      "relatedTermIds": [
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic",
+        "b-term-controlled-variable"
+      ],
+      "commonConfusion": "It is not already a mature haploid sperm.",
+      "retrievalPrompt": "Explain how renewal and differentiation can both occur in this lineage.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-spermatogonium",
+        "pilot2-instruction.json#b-topic-spermatogenesis-gametes-and-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-primary-spermatocyte",
+      "term": "primary spermatocyte",
+      "categoryIds": [
+        "b-family-gamete-chromosome-sets"
+      ],
+      "definition": "A diploid germ cell that has replicated its DNA and enters meiosis I during spermatogenesis.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Spermato- identifies the sperm lineage and -cyte a cell. Primary specifies the stage entering meiosis I, not the mature sperm."
+      },
+      "whatItDoes": "It begins meiotic segregation with duplicated homologous chromosomes.",
+      "relatedTermIds": [
+        "b-term-diploid",
+        "b-term-haploid",
+        "b-term-secondary-spermatocyte"
+      ],
+      "commonConfusion": "DNA amount and number of chromosome sets describe different quantities.",
+      "retrievalPrompt": "What separates during its first meiotic division?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-primary-spermatocyte",
+        "pilot2-instruction.json#b-topic-spermatogenesis-gametes-and-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-secondary-spermatocyte",
+      "term": "secondary spermatocyte",
+      "categoryIds": [
+        "b-family-gamete-chromosome-sets"
+      ],
+      "definition": "A haploid cell produced by meiosis I that proceeds through meiosis II during spermatogenesis.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Spermato- identifies the sperm lineage and -cyte a cell. Secondary places it after meiosis I and before completion of meiosis II."
+      },
+      "whatItDoes": "It carries one homolog from each pair into the second meiotic division.",
+      "relatedTermIds": [
+        "b-term-diploid",
+        "b-term-haploid",
+        "b-term-primary-spermatocyte"
+      ],
+      "commonConfusion": "Its chromosomes can still consist of paired sister chromatids.",
+      "retrievalPrompt": "What separates when this cell completes meiosis II?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-secondary-spermatocyte",
+        "pilot2-instruction.json#b-topic-spermatogenesis-division-and-differentiation"
+      ]
+    },
+    {
+      "id": "b-term-spermatid",
+      "term": "spermatid",
+      "categoryIds": [
+        "b-family-sperm-differentiation"
+      ],
+      "definition": "A haploid cell produced by meiosis II that differentiates into a sperm cell.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The sperm-lineage stem links this word with spermatocyte and spermatozoon. The ending distinguishes the post-meiotic differentiating stage, not another cell division."
+      },
+      "whatItDoes": "Differentiation reorganizes its structure without another reduction in chromosome sets.",
+      "relatedTermIds": [
+        "b-term-spermatozoon",
+        "b-term-acrosome",
+        "b-term-flagellum"
+      ],
+      "commonConfusion": "Differentiation into sperm is not an extra meiotic division.",
+      "retrievalPrompt": "How can shape change while chromosome-set number stays the same?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-spermatid",
+        "pilot2-instruction.json#b-topic-spermatogenesis-division-and-differentiation"
+      ]
+    },
+    {
+      "id": "b-term-spermatozoon",
+      "term": "spermatozoon",
+      "categoryIds": [
+        "b-family-sperm-differentiation"
+      ],
+      "definition": "A specialized sperm cell carrying one chromosome set and able, under suitable conditions, to interact with a developing egg cell.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Spermatozoon is singular; spermatozoa is plural. Sperm is also used collectively. The full technical noun identifies the specialized sperm cell."
+      },
+      "whatItDoes": "Specialized head and motile structures support transport and interaction with the oocyte.",
+      "relatedTermIds": [
+        "b-term-spermatid",
+        "b-term-acrosome",
+        "b-term-flagellum"
+      ],
+      "commonConfusion": "Being present does not guarantee successful fertilization.",
+      "retrievalPrompt": "Identify two functions required beyond carrying paternal chromosomes.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-spermatozoon",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-semen-and-accessory-glands"
+      ]
+    },
+    {
+      "id": "b-term-acrosome",
+      "term": "acrosome",
+      "categoryIds": [
+        "b-family-sperm-differentiation"
+      ],
+      "definition": "A specialized cap on the sperm head involved in interaction with the oocyte's coverings.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Acrosome is the name of the sperm-head cap; acrosomal is its adjective. The related phrase acrosome reaction names a process involving that structure."
+      },
+      "whatItDoes": "Its contents and membrane changes assist interaction with oocyte coverings.",
+      "relatedTermIds": [
+        "b-term-spermatid",
+        "b-term-spermatozoon",
+        "b-term-flagellum"
+      ],
+      "commonConfusion": "It is not the sperm's nucleus or its energy-producing region.",
+      "retrievalPrompt": "Why would impaired acrosomal function matter after sperm reaches the oocyte?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-acrosome",
+        "pilot2-instruction.json#b-topic-spermatogenesis-division-and-differentiation"
+      ]
+    },
+    {
+      "id": "b-term-flagellum",
+      "term": "flagellum",
+      "categoryIds": [
+        "b-family-sperm-differentiation"
+      ],
+      "definition": "A long cellular extension that produces movement, as in the tail of a sperm cell.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Flagellum is singular; flagella is plural; flagellar is the adjective. The name identifies a cellular extension rather than every mechanism that moves it."
+      },
+      "whatItDoes": "Coordinated bending produces propulsive movement.",
+      "relatedTermIds": [
+        "b-term-spermatid",
+        "b-term-spermatozoon",
+        "b-term-acrosome"
+      ],
+      "commonConfusion": "Movement is not the same process as sperm production.",
+      "retrievalPrompt": "Predict which step could fail if sperm are formed but their flagella do not function.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-flagellum",
+        "pilot2-instruction.json#b-topic-spermatogenesis-division-and-differentiation"
+      ]
+    },
+    {
+      "id": "b-term-gnrh",
+      "term": "GnRH",
+      "categoryIds": [
+        "b-family-endocrine-signalling"
+      ],
+      "definition": "Gonadotropin-releasing hormone: a chemical signal from the brain region called the hypothalamus that stimulates release of FSH and LH from the front part of the pituitary gland.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for gonadotropin-releasing hormone. Releasing identifies its upstream signalling role: it stimulates release of pituitary gonadotropins."
+      },
+      "whatItDoes": "It stimulates pituitary gonadotropin signalling within a regulated axis.",
+      "relatedTermIds": [
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-hypothalamus",
+        "b-term-anterior-pituitary"
+      ],
+      "commonConfusion": "It does not directly perform every gonadal response.",
+      "retrievalPrompt": "Trace its effect through pituitary and gonadal targets.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-gnrh",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-fsh",
+      "term": "FSH",
+      "categoryIds": [
+        "b-family-endocrine-signalling"
+      ],
+      "definition": "Follicle-stimulating hormone: a signal from the anterior pituitary that supports growth of the cells around a developing egg and acts through Sertoli cells to support sperm development.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for follicle-stimulating hormone. The name highlights an ovarian action, but the same hormone also acts through testicular support cells."
+      },
+      "whatItDoes": "It acts on gonadal support pathways involved in gamete development.",
+      "relatedTermIds": [
+        "b-term-gnrh",
+        "b-term-lh",
+        "b-term-hypothalamus",
+        "b-term-anterior-pituitary"
+      ],
+      "commonConfusion": "Its actions are not identical to LH's actions.",
+      "retrievalPrompt": "Contrast an FSH-responsive testicular cell with an LH-responsive cell.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fsh",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-lh",
+      "term": "LH",
+      "categoryIds": [
+        "b-family-endocrine-signalling"
+      ],
+      "definition": "Luteinizing hormone: a signal from the anterior pituitary that stimulates testosterone release in testes and helps trigger egg release and formation of temporary hormone-producing tissue in ovaries.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for luteinizing hormone. Luteinizing links the name to corpus-luteum formation; the name does not list every gonadal action."
+      },
+      "whatItDoes": "It promotes gonadal responses including androgen secretion and ovarian ovulatory changes.",
+      "relatedTermIds": [
+        "b-term-gnrh",
+        "b-term-fsh",
+        "b-term-hypothalamus",
+        "b-term-anterior-pituitary"
+      ],
+      "commonConfusion": "A basal level and a transient surge are different signal patterns.",
+      "retrievalPrompt": "Why does an ovarian LH surge convey more than the statement that LH is present?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-lh",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-hypothalamus",
+      "term": "hypothalamus",
+      "categoryIds": [
+        "b-family-endocrine-signalling"
+      ],
+      "definition": "A brain region that integrates information and releases signals to help regulate the pituitary gland.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hypo- means below; thalamus is an anatomical reference. The positional name does not by itself describe its endocrine control functions."
+      },
+      "whatItDoes": "It integrates information and regulates pituitary stimulation through releasing signals.",
+      "relatedTermIds": [
+        "b-term-gnrh",
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-anterior-pituitary"
+      ],
+      "commonConfusion": "It is not the source of every hormone in the axis.",
+      "retrievalPrompt": "Trace one hypothalamic signal to a pituitary and then a gonadal response.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-hypothalamus",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-anterior-pituitary",
+      "term": "anterior pituitary",
+      "categoryIds": [
+        "b-family-endocrine-signalling"
+      ],
+      "definition": "The hormone-producing front part of the pituitary gland below the brain.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Anterior means toward the front; pituitary names the gland. The modifier distinguishes this hormone-producing region from the posterior pituitary."
+      },
+      "whatItDoes": "Its endocrine cells release hormones acting on downstream targets.",
+      "relatedTermIds": [
+        "b-term-gnrh",
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-hypothalamus"
+      ],
+      "commonConfusion": "It differs from the posterior pituitary's role in releasing hypothalamic hormones.",
+      "retrievalPrompt": "Distinguish the source and target of one anterior-pituitary hormone.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-anterior-pituitary",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-primary-sex-characteristic",
+      "term": "primary sex characteristic",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A structure directly involved in reproduction, such as an ovary or testis.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Characteristic is the head noun; sex identifies the context and primary identifies direct reproductive anatomy. Primary is not a measure of importance."
+      },
+      "whatItDoes": "It identifies anatomy directly participating in reproductive processes.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-secondary-sex-characteristic",
+        "b-term-controlled-variable"
+      ],
+      "commonConfusion": "Primary does not mean appearing earlier on every developmental timeline.",
+      "retrievalPrompt": "Explain why a testis fits this category.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-primary-sex-characteristic",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-secondary-sex-characteristic",
+      "term": "secondary sex characteristic",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A pubertal trait influenced by hormones that is not itself a gamete-producing or gamete-transporting organ.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Characteristic is the head noun; secondary distinguishes associated pubertal traits from structures directly involved in gamete production or transport."
+      },
+      "whatItDoes": "Hormonal effects can change traits without making the trait a gamete-producing organ.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-controlled-variable"
+      ],
+      "commonConfusion": "Secondary does not mean biologically unimportant.",
+      "retrievalPrompt": "Contrast a pubertal body trait with a gamete-producing structure.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-secondary-sex-characteristic",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-negative-feedback",
+      "term": "negative feedback",
+      "categoryIds": [
+        "b-family-negative-feedback"
+      ],
+      "definition": "Control in which a response reduces the original deviation or lowers upstream stimulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Feedback names a response returned to an earlier process. Negative specifies reduction of the initiating deviation or upstream drive, not harm."
+      },
+      "whatItDoes": "A downstream response reduces an earlier deviation or upstream drive.",
+      "relatedTermIds": [
+        "b-term-inhibin",
+        "b-term-testosterone"
+      ],
+      "commonConfusion": "Negative does not mean harmful.",
+      "retrievalPrompt": "Trace how a rising downstream hormone could reduce upstream stimulation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-negative-feedback",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-inhibin",
+      "term": "inhibin",
+      "categoryIds": [
+        "b-family-negative-feedback"
+      ],
+      "definition": "A gonadal hormone that provides feedback reducing FSH release.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The name connects with inhibit, to reduce an activity. Here the named hormone inhibits FSH release; it does not inhibit every reproductive process."
+      },
+      "whatItDoes": "Its feedback helps regulate pituitary FSH output.",
+      "relatedTermIds": [
+        "b-term-negative-feedback",
+        "b-term-testosterone"
+      ],
+      "commonConfusion": "It does not replace every other gonadal feedback signal.",
+      "retrievalPrompt": "Predict the direction of FSH change when inhibin feedback increases.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-inhibin",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-controlled-variable",
+      "term": "controlled variable",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A factor intentionally kept consistent so it does not confound the tested comparison.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Variable names a factor; controlled specifies that it is intentionally held consistent. Compare independent and dependent variables."
+      },
+      "whatItDoes": "Holding it consistent improves interpretation of the tested contrast.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "It is not necessarily the independent variable being deliberately changed.",
+      "retrievalPrompt": "Name a controlled condition for comparing two sperm-development models.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-controlled-variable",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-ovary",
+      "term": "ovary",
+      "categoryIds": [
+        "b-family-follicle-and-oocyte"
+      ],
+      "definition": "A reproductive organ that contains developing egg cells and releases reproductive hormones.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ovary is singular; ovaries is plural; ovarian is the adjective. Oocyte names a cell within an ovarian developmental system, not another form of the organ's name."
+      },
+      "whatItDoes": "Follicular and later luteal tissues coordinate oocyte development with endocrine changes.",
+      "relatedTermIds": [
+        "b-term-follicle",
+        "b-term-oocyte",
+        "b-term-corpus-luteum"
+      ],
+      "commonConfusion": "An ovary is not just a passive store of mature eggs.",
+      "retrievalPrompt": "Explain how different ovarian tissues contribute before and after ovulation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ovary",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-follicle",
+      "term": "follicle",
+      "categoryIds": [
+        "b-family-follicle-and-oocyte"
+      ],
+      "definition": "An ovarian structure containing an oocyte and surrounding support and hormone-producing cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Follicle is a structural noun; follicular is the adjective. Ovarian follicle specifies the context, because follicle also occurs in other anatomical names."
+      },
+      "whatItDoes": "Surrounding cells support the oocyte and participate in hormone signalling.",
+      "relatedTermIds": [
+        "b-term-ovary",
+        "b-term-oocyte",
+        "b-term-corpus-luteum"
+      ],
+      "commonConfusion": "Follicle and oocyte name different levels of organization.",
+      "retrievalPrompt": "What remains of the follicular tissue after the oocyte is released?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-follicle",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-oocyte",
+      "term": "oocyte",
+      "categoryIds": [
+        "b-family-follicle-and-oocyte"
+      ],
+      "definition": "A developing female germ cell; stage names such as primary and secondary oocyte reflect meiotic state.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Oo- concerns the egg lineage and -cyte means cell. The prefix does not specify meiotic stage; primary or secondary supplies that distinction."
+      },
+      "whatItDoes": "Its developmental stage links meiotic state with reproductive events.",
+      "relatedTermIds": [
+        "b-term-ovary",
+        "b-term-follicle",
+        "b-term-corpus-luteum"
+      ],
+      "commonConfusion": "Oocyte does not always mean a cell that has completed meiosis.",
+      "retrievalPrompt": "Why is a stage label necessary when describing an oocyte?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-oocyte",
+        "pilot2-instruction.json#b-topic-spermatogenesis-division-and-differentiation"
+      ]
+    },
+    {
+      "id": "b-term-corpus-luteum",
+      "term": "corpus luteum",
+      "categoryIds": [
+        "b-family-follicle-and-oocyte",
+        "b-family-progesterone-support",
+        "b-family-hcg-signalling"
+      ],
+      "definition": "Temporary hormone-producing tissue formed from a follicle after ovulation; it releases progesterone and estrogen.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A two-word anatomical name traditionally rendered yellow body. Corpus luteum is singular; corpora lutea is plural; luteal is the related adjective."
+      },
+      "whatItDoes": "Its hormones sustain secretory endometrial conditions during the luteal interval.",
+      "relatedTermIds": [
+        "b-term-ovary",
+        "b-term-follicle",
+        "b-term-oocyte",
+        "b-term-progesterone"
+      ],
+      "commonConfusion": "It is not the released oocyte.",
+      "retrievalPrompt": "How does loss of its hormonal support relate to endometrial change?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-corpus-luteum",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-fallopian-tube",
+      "term": "Fallopian tube",
+      "categoryIds": [
+        "b-family-reproductive-surfaces"
+      ],
+      "definition": "A uterine tube that receives an ovulated oocyte and is the usual site of fertilization; its lining and muscular wall support transport toward the uterus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Fallopian is an eponymic adjective; tube is the structure noun. Uterine tube is the descriptive alternative used for the same structure."
+      },
+      "whatItDoes": "Cilia and muscular movements help convey reproductive material toward the uterus.",
+      "relatedTermIds": [
+        "b-term-uterus",
+        "b-term-endometrium",
+        "b-term-cervix",
+        "b-term-vagina"
+      ],
+      "commonConfusion": "Fertilization and implantation normally occur at different locations.",
+      "retrievalPrompt": "Trace the usual sequence from fertilization to uterine implantation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fallopian-tube",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-fimbriae",
+      "term": "fimbriae",
+      "categoryIds": [
+        "b-topic-female-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "Finger-like extensions near the opening of a uterine tube that help receive an ovulated oocyte.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Fimbriae is plural; fimbria is singular. Fimbrial is the adjective describing the fringe-like extensions near a uterine-tube opening."
+      },
+      "whatItDoes": "Their position and movement help receive the ovulated oocyte near the tube opening.",
+      "relatedTermIds": [
+        "b-term-ciliary-transport",
+        "b-term-fertility-probability",
+        "b-term-revision"
+      ],
+      "commonConfusion": "They are not an impermeable sealed connection to the ovary.",
+      "retrievalPrompt": "Why does release from the ovary not itself prove successful tubal entry?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fimbriae",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-uterus",
+      "term": "uterus",
+      "categoryIds": [
+        "b-family-reproductive-surfaces"
+      ],
+      "definition": "A muscular reproductive organ containing the endometrium and supporting implantation and prenatal development.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Uterus is the organ noun; uterine is its adjective. The adjective can modify lining, wall or cycle, which are different aspects of the organ."
+      },
+      "whatItDoes": "Its lining and muscular wall support distinct phases of reproductive function.",
+      "relatedTermIds": [
+        "b-term-fallopian-tube",
+        "b-term-endometrium",
+        "b-term-cervix",
+        "b-term-vagina"
+      ],
+      "commonConfusion": "The endometrium is one component, not the entire uterus.",
+      "retrievalPrompt": "Distinguish a lining function from a muscular-wall function.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-uterus",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-endometrium",
+      "term": "endometrium",
+      "categoryIds": [
+        "b-family-reproductive-surfaces"
+      ],
+      "definition": "The hormone-responsive inner lining of the uterus where implantation may occur.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Endo- means within; the complete anatomical name identifies the uterine lining. Endometrial is its adjective; it does not name the whole uterus."
+      },
+      "whatItDoes": "Hormonal signals alter its growth, secretion and receptivity.",
+      "relatedTermIds": [
+        "b-term-fallopian-tube",
+        "b-term-uterus",
+        "b-term-cervix",
+        "b-term-vagina"
+      ],
+      "commonConfusion": "A thick lining alone does not guarantee implantation.",
+      "retrievalPrompt": "Why does receptivity involve physiological state as well as tissue amount?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-endometrium",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-cervix",
+      "term": "cervix",
+      "categoryIds": [
+        "b-family-reproductive-surfaces"
+      ],
+      "definition": "The lower, narrow region of the uterus that opens into the vagina.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cervix is a neck-region anatomical noun; cervical is its adjective. In this reproductive context it means the uterine cervix, not the cervical spine."
+      },
+      "whatItDoes": "It forms the lower uterine passage and undergoes changes in reproductive processes.",
+      "relatedTermIds": [
+        "b-term-fallopian-tube",
+        "b-term-uterus",
+        "b-term-endometrium",
+        "b-term-vagina"
+      ],
+      "commonConfusion": "It is not another name for the vagina.",
+      "retrievalPrompt": "Place it anatomically between the uterus and vagina.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cervix",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-vagina",
+      "term": "vagina",
+      "categoryIds": [
+        "b-family-reproductive-surfaces"
+      ],
+      "definition": "A muscular canal connecting the cervix with the exterior.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Vagina is the anatomical noun; vaginal is its adjective. It names a canal, whereas vulva names external genital structures."
+      },
+      "whatItDoes": "It provides a muscular passage connecting the cervix to the exterior.",
+      "relatedTermIds": [
+        "b-term-fallopian-tube",
+        "b-term-uterus",
+        "b-term-endometrium",
+        "b-term-cervix"
+      ],
+      "commonConfusion": "It is not the location of ovarian gamete production.",
+      "retrievalPrompt": "Distinguish this passage from the uterus and uterine tube.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-vagina",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-primary-oocyte",
+      "term": "primary oocyte",
+      "categoryIds": [
+        "b-family-oogenesis"
+      ],
+      "definition": "A developing oocyte that has entered meiosis I and may remain arrested in prophase I for years.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Oocyte names an egg-lineage cell; primary specifies the stage that has entered meiosis I. Primary is a developmental qualifier."
+      },
+      "whatItDoes": "Meiotic arrest separates entry into meiosis from later completion of the first division.",
+      "relatedTermIds": [
+        "b-term-secondary-oocyte",
+        "b-term-polar-body",
+        "b-term-ovulation"
+      ],
+      "commonConfusion": "It has not already completed both meiotic divisions.",
+      "retrievalPrompt": "Why can elapsed age differ greatly from time spent actively dividing?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-primary-oocyte",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses"
+      ]
+    },
+    {
+      "id": "b-term-secondary-oocyte",
+      "term": "secondary oocyte",
+      "categoryIds": [
+        "b-family-oogenesis"
+      ],
+      "definition": "The cell produced after meiosis I in oogenesis; in humans it is typically arrested in metaphase II until fertilization.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Oocyte names an egg-lineage cell; secondary specifies the stage after meiosis I. It does not mean meiosis II has already finished."
+      },
+      "whatItDoes": "Its usual arrest links completion of meiosis II with fertilization-related activation.",
+      "relatedTermIds": [
+        "b-term-primary-oocyte",
+        "b-term-polar-body",
+        "b-term-ovulation"
+      ],
+      "commonConfusion": "Ovulation does not ordinarily release a cell that has completed meiosis II.",
+      "retrievalPrompt": "Which event can trigger completion of its arrested division?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-secondary-oocyte",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-polar-body",
+      "term": "polar body",
+      "categoryIds": [
+        "b-family-oogenesis"
+      ],
+      "definition": "A small haploid cell produced by unequal cytokinesis during oogenesis that usually does not become an egg.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Body names a small cell-like product here; polar distinguishes the unequal meiotic division product. The phrase does not mean a pole of the entire embryo."
+      },
+      "whatItDoes": "Unequal division separates chromosome material while retaining most cytoplasm in the oocyte.",
+      "relatedTermIds": [
+        "b-term-primary-oocyte",
+        "b-term-secondary-oocyte",
+        "b-term-ovulation"
+      ],
+      "commonConfusion": "Its small size does not imply absence of a chromosome set.",
+      "retrievalPrompt": "Why does unequal cytokinesis differ from unequal chromosome segregation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-polar-body",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses"
+      ]
+    },
+    {
+      "id": "b-term-ovulation",
+      "term": "ovulation",
+      "categoryIds": [
+        "b-family-oogenesis"
+      ],
+      "definition": "Release of a secondary oocyte and surrounding cells from a mature ovarian follicle.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The process noun is related to ovulate. It names release from a mature ovarian follicle, not the later process of fertilization."
+      },
+      "whatItDoes": "It moves an oocyte out of its follicular setting into the next transport stage.",
+      "relatedTermIds": [
+        "b-term-primary-oocyte",
+        "b-term-secondary-oocyte",
+        "b-term-polar-body"
+      ],
+      "commonConfusion": "Ovulation is not fertilization.",
+      "retrievalPrompt": "Name two events still required after ovulation for implantation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ovulation",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-ciliary-transport",
+      "term": "ciliary transport",
+      "categoryIds": [
+        "b-topic-female-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "Movement of material along a surface by coordinated beating of tiny cell extensions called cilia.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ciliary is the adjective from cilium, plural cilia. Transport names movement; the modifier specifies movement driven by ciliary action."
+      },
+      "whatItDoes": "Coordinated ciliary beating moves material along epithelial surfaces.",
+      "relatedTermIds": [
+        "b-term-fimbriae",
+        "b-term-fertility-probability",
+        "b-term-revision"
+      ],
+      "commonConfusion": "It is distinct from contraction of the surrounding muscular wall.",
+      "retrievalPrompt": "How could impaired cilia affect transport without stopping oocyte production?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ciliary-transport",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-structure-and-reproductive-function"
+      ]
+    },
+    {
+      "id": "b-term-obstruction",
+      "term": "obstruction",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "A blockage that reduces movement through a passage; it does not necessarily stop production upstream.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Obstruct is a verb meaning block; obstruction is the condition or blockage. The word concerns passage, not necessarily upstream production."
+      },
+      "whatItDoes": "It reduces passage through a defined route.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target"
+      ],
+      "commonConfusion": "An upstream production site may remain functional.",
+      "retrievalPrompt": "Explain why a blocked duct does not establish failure of hormone secretion.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-obstruction",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-fertility-probability",
+      "term": "fertility probability",
+      "categoryIds": [
+        "b-topic-female-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "The chance of a specified reproductive outcome under stated conditions; it depends on many factors and is not established by one classroom measurement.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Probability is the numerical chance; fertility supplies the reproductive context. State the specific outcome rather than treating fertility as one guaranteed event."
+      },
+      "whatItDoes": "It frames a reproductive outcome as conditional rather than guaranteed.",
+      "relatedTermIds": [
+        "b-term-fimbriae",
+        "b-term-ciliary-transport",
+        "b-term-revision"
+      ],
+      "commonConfusion": "A probability requires a specified outcome and population or conditions.",
+      "retrievalPrompt": "What must be stated before comparing two fertility probabilities?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fertility-probability",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-structure-and-reproductive-function"
+      ]
+    },
+    {
+      "id": "b-term-ovarian-cycle",
+      "term": "ovarian cycle",
+      "categoryIds": [
+        "b-family-coordinated-cycles"
+      ],
+      "definition": "The sequence of follicular development, ovulation, and luteal activity in the ovaries.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ovarian means relating to the ovary; cycle names the recurring sequence of follicular, ovulatory and luteal events."
+      },
+      "whatItDoes": "It relates follicular, ovulatory and luteal events over time.",
+      "relatedTermIds": [
+        "b-term-uterine-cycle",
+        "b-term-follicular-phase",
+        "b-term-luteal-phase"
+      ],
+      "commonConfusion": "It is related to but not identical with the uterine cycle.",
+      "retrievalPrompt": "Connect one ovarian event to a subsequent endometrial effect.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ovarian-cycle",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-two-coordinated-cycles"
+      ]
+    },
+    {
+      "id": "b-term-uterine-cycle",
+      "term": "uterine cycle",
+      "categoryIds": [
+        "b-family-coordinated-cycles"
+      ],
+      "definition": "The recurring changes in the endometrium, including shedding, rebuilding and secretory preparation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Uterine means relating to the uterus; cycle here names recurring endometrial changes. Its organ modifier differs from ovarian cycle."
+      },
+      "whatItDoes": "Changes in the lining prepare, maintain or shed functional tissue.",
+      "relatedTermIds": [
+        "b-term-ovarian-cycle",
+        "b-term-follicular-phase",
+        "b-term-luteal-phase"
+      ],
+      "commonConfusion": "Its phases are not simply names for ovarian structures.",
+      "retrievalPrompt": "Why should an ovarian event and uterine response be plotted separately?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-uterine-cycle",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-two-coordinated-cycles"
+      ]
+    },
+    {
+      "id": "b-term-follicular-phase",
+      "term": "follicular phase",
+      "categoryIds": [
+        "b-family-coordinated-cycles"
+      ],
+      "definition": "The ovarian-cycle phase during which follicles develop before ovulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Follicular is the adjective from follicle; phase identifies a time interval. The phrase connects the interval to developing follicles."
+      },
+      "whatItDoes": "Follicular development precedes the ovulatory transition.",
+      "relatedTermIds": [
+        "b-term-ovarian-cycle",
+        "b-term-uterine-cycle",
+        "b-term-luteal-phase"
+      ],
+      "commonConfusion": "Its duration is not universally fixed.",
+      "retrievalPrompt": "How could variable follicular timing change total cycle length?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-follicular-phase",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-two-coordinated-cycles"
+      ]
+    },
+    {
+      "id": "b-term-luteal-phase",
+      "term": "luteal phase",
+      "categoryIds": [
+        "b-family-coordinated-cycles"
+      ],
+      "definition": "The ovarian-cycle phase after ovulation when the corpus luteum produces progesterone and estrogen.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Luteal links the phrase to the corpus luteum; phase identifies the post-ovulatory interval rather than the tissue itself."
+      },
+      "whatItDoes": "Corpus-luteum hormone output characterizes the interval after ovulation.",
+      "relatedTermIds": [
+        "b-term-ovarian-cycle",
+        "b-term-uterine-cycle",
+        "b-term-follicular-phase"
+      ],
+      "commonConfusion": "It is not the interval of early follicle recruitment before ovulation.",
+      "retrievalPrompt": "Which tissue explains the progesterone pattern in this phase?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-luteal-phase",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-two-coordinated-cycles"
+      ]
+    },
+    {
+      "id": "b-term-estrogen",
+      "term": "estrogen",
+      "categoryIds": [
+        "b-family-positive-feedback"
+      ],
+      "definition": "A class of steroid hormones involved in reproductive-tissue function, secondary sex characteristics, cycle regulation, and feedback.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Estrogen is a hormone-class name; estrogenic is its adjective. The class includes more than one molecule, unlike the name of a single concentration reading."
+      },
+      "whatItDoes": "Receptor-mediated effects connect hormone levels with tissue changes and feedback.",
+      "relatedTermIds": [
+        "b-term-positive-feedback",
+        "b-term-lh-surge"
+      ],
+      "commonConfusion": "Feedback direction depends on physiological context and exposure pattern.",
+      "retrievalPrompt": "Why is estrogen not adequately described as always causing negative feedback?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-estrogen",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-positive-feedback",
+      "term": "positive feedback",
+      "categoryIds": [
+        "b-family-positive-feedback"
+      ],
+      "definition": "Control in which a response amplifies the initiating change until an endpoint interrupts the loop.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Feedback names a response fed back into a process. Positive specifies reinforcement of the initiating change, not whether the result is desirable."
+      },
+      "whatItDoes": "A response reinforces upstream drive until a terminating event or limit intervenes.",
+      "relatedTermIds": [
+        "b-term-lh-surge",
+        "b-term-estrogen"
+      ],
+      "commonConfusion": "Positive does not mean beneficial.",
+      "retrievalPrompt": "Identify the reinforcing steps and endpoint in a labour feedback loop.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-positive-feedback",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-follicle-growth-and-changing-feedback"
+      ]
+    },
+    {
+      "id": "b-term-lh-surge",
+      "term": "LH surge",
+      "categoryIds": [
+        "b-family-positive-feedback"
+      ],
+      "definition": "A brief marked increase in luteinizing hormone associated with final follicular changes and ovulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "LH expands to luteinizing hormone; surge names a marked transient rise. The second word describes the time pattern, not a different hormone."
+      },
+      "whatItDoes": "Its sharp change is associated with the transition toward ovulation.",
+      "relatedTermIds": [
+        "b-term-positive-feedback",
+        "b-term-estrogen"
+      ],
+      "commonConfusion": "A sampled peak may not locate the exact time of ovulation.",
+      "retrievalPrompt": "What can a sparse hormone graph establish about the surge's timing?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-lh-surge",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-follicle-growth-and-changing-feedback"
+      ]
+    },
+    {
+      "id": "b-term-progesterone",
+      "term": "progesterone",
+      "categoryIds": [
+        "b-family-progesterone-support",
+        "b-family-hcg-signalling"
+      ],
+      "definition": "A steroid hormone that supports secretory endometrial conditions, pregnancy-related changes, and reproductive feedback.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Progesterone is a specific steroid hormone name; progestogenic describes related activity. Its name does not specify a universal effect in every tissue."
+      },
+      "whatItDoes": "Its signalling supports secretory uterine conditions and reproductive feedback.",
+      "relatedTermIds": [
+        "b-term-menstruation",
+        "b-term-corpus-luteum",
+        "b-term-hcg",
+        "b-term-trophoblast"
+      ],
+      "commonConfusion": "It does not act in isolation from other hormones or tissue responsiveness.",
+      "retrievalPrompt": "Predict an endometrial consequence when luteal progesterone support falls.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-progesterone",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-ovaries-and-supporting-tissues"
+      ]
+    },
+    {
+      "id": "b-term-menstruation",
+      "term": "menstruation",
+      "categoryIds": [
+        "b-family-progesterone-support"
+      ],
+      "definition": "Shedding of much of the functional endometrial layer after ovarian-hormone support declines in a non-pregnant cycle.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Menstruate is the verb; menstruation is the process noun and menstrual the adjective. These forms refer to endometrial shedding in a cycle."
+      },
+      "whatItDoes": "Withdrawal of ovarian support leads to shedding of much functional lining.",
+      "relatedTermIds": [
+        "b-term-progesterone",
+        "b-term-corpus-luteum"
+      ],
+      "commonConfusion": "The entire uterine wall is not shed.",
+      "retrievalPrompt": "Explain the sequence from declining luteal support to shedding.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-menstruation",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-two-coordinated-cycles"
+      ]
+    },
+    {
+      "id": "b-term-axis",
+      "term": "axis",
+      "categoryIds": [
+        "b-family-graph-evidence"
+      ],
+      "definition": "A labelled reference line on a graph indicating a variable and its measurement scale.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Axis is singular; axes is plural. A graph axis is a reference line; a hormonal axis is a linked signalling system, a different contextual use."
+      },
+      "whatItDoes": "It defines how graph position represents a variable and scale.",
+      "relatedTermIds": [
+        "b-term-relative-concentration",
+        "b-term-peak",
+        "b-term-cycle-variation"
+      ],
+      "commonConfusion": "A curve's height has no quantitative meaning without its axis.",
+      "retrievalPrompt": "What information must you read before comparing two hormone peaks?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-axis",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-two-coordinated-cycles"
+      ]
+    },
+    {
+      "id": "b-term-relative-concentration",
+      "term": "relative concentration",
+      "categoryIds": [
+        "b-family-graph-evidence"
+      ],
+      "definition": "A concentration expressed against a reference scale rather than necessarily in absolute chemical units.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Concentration is the measured quantity; relative specifies comparison to a reference. It does not automatically carry absolute concentration units."
+      },
+      "whatItDoes": "It supports comparison against a stated reference rather than an assumed absolute amount.",
+      "relatedTermIds": [
+        "b-term-axis",
+        "b-term-peak",
+        "b-term-cycle-variation"
+      ],
+      "commonConfusion": "Equal plotted values on separate relative scales need not equal chemical concentrations.",
+      "retrievalPrompt": "Why might two normalized hormone curves not be directly comparable in absolute units?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-relative-concentration",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-follicle-growth-and-changing-feedback"
+      ]
+    },
+    {
+      "id": "b-term-peak",
+      "term": "peak",
+      "categoryIds": [
+        "b-family-graph-evidence"
+      ],
+      "definition": "The highest observed value in a defined region or interval; sparse observations may miss the actual maximum.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Peak is both a noun and a verb. A measured peak is a local or interval maximum; peaked describes the observed curve, not an unsampled value."
+      },
+      "whatItDoes": "It identifies the greatest value among observations in a stated interval.",
+      "relatedTermIds": [
+        "b-term-axis",
+        "b-term-relative-concentration",
+        "b-term-cycle-variation"
+      ],
+      "commonConfusion": "An observed maximum may miss the true maximum between samples.",
+      "retrievalPrompt": "How does sampling interval limit a claim about peak timing?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-peak",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-follicle-growth-and-changing-feedback"
+      ]
+    },
+    {
+      "id": "b-term-cycle-variation",
+      "term": "cycle variation",
+      "categoryIds": [
+        "b-family-graph-evidence"
+      ],
+      "definition": "Differences in the timing or length of reproductive cycles; an illustrative 28-day model is not universal.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cycle names the recurring process; variation names differences among its timings or patterns. Neither word establishes a fixed 28-day schedule."
+      },
+      "whatItDoes": "It describes differences that an illustrative regular cycle can conceal.",
+      "relatedTermIds": [
+        "b-term-axis",
+        "b-term-relative-concentration",
+        "b-term-peak"
+      ],
+      "commonConfusion": "A 28-day teaching model is not a universal schedule.",
+      "retrievalPrompt": "Which claim should be qualified when applying a fixed-day diagram to individuals?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cycle-variation",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-graphs-and-cycle-variation"
+      ]
+    },
+    {
+      "id": "b-term-contraception",
+      "term": "contraception",
+      "categoryIds": [
+        "b-topic-menstrual-cycle-additional-vocabulary"
+      ],
+      "definition": "Methods intended to reduce the probability of pregnancy by acting at defined reproductive steps.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Contra- means against. In this whole process name the intended outcome is prevention of pregnancy; the word alone does not specify the method."
+      },
+      "whatItDoes": "Different methods act at different steps in reproduction.",
+      "relatedTermIds": [
+        "b-term-benefit",
+        "b-term-limitation",
+        "b-term-menopause"
+      ],
+      "commonConfusion": "Pregnancy prevention and infection-risk reduction are not identical outcomes.",
+      "retrievalPrompt": "Why must a comparison state which outcome and mechanism it addresses?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-contraception",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-hormonal-technologies-and-perspectives"
+      ]
+    },
+    {
+      "id": "b-term-feedback-suppression",
+      "term": "feedback suppression",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "Reduction of an upstream signal when a downstream response feeds back on its source.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Feedback names the regulatory pathway; suppression specifies reduced activity. Read which signal is suppressed rather than assuming all outputs fall."
+      },
+      "whatItDoes": "A downstream signal reduces an earlier source of stimulation.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "A suppressed upstream level does not imply that all downstream functions rise.",
+      "retrievalPrompt": "Trace how added androgen can suppress gonadotropin stimulation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-feedback-suppression",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-benefit",
+      "term": "benefit",
+      "categoryIds": [
+        "b-topic-menstrual-cycle-additional-vocabulary"
+      ],
+      "definition": "A favourable outcome for a specified person, group or system, evaluated using stated criteria.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Benefit is an evaluative noun. Beneficial is its adjective; both require a stated outcome and an affected person, group or system."
+      },
+      "whatItDoes": "It evaluates a favourable result against explicit goals and affected groups.",
+      "relatedTermIds": [
+        "b-term-contraception",
+        "b-term-limitation",
+        "b-term-menopause"
+      ],
+      "commonConfusion": "A benefit for one criterion does not remove all limitations.",
+      "retrievalPrompt": "State a criterion needed to compare benefits of two reproductive technologies.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-benefit",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-hormonal-technologies-and-perspectives"
+      ]
+    },
+    {
+      "id": "b-term-limitation",
+      "term": "limitation",
+      "categoryIds": [
+        "b-topic-menstrual-cycle-additional-vocabulary"
+      ],
+      "definition": "A boundary on what a method, dataset or model can establish.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Limit is the base word; limitation names a boundary on interpretation or use. Limited evidence is not the same as no evidence."
+      },
+      "whatItDoes": "It bounds how far a conclusion or method can be applied.",
+      "relatedTermIds": [
+        "b-term-contraception",
+        "b-term-benefit",
+        "b-term-menopause"
+      ],
+      "commonConfusion": "A limitation is not proof that all evidence is useless.",
+      "retrievalPrompt": "Name a conclusion a small classroom fertility model cannot establish.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-limitation",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-follicle-growth-and-changing-feedback"
+      ]
+    },
+    {
+      "id": "b-term-fertilization",
+      "term": "fertilization",
+      "categoryIds": [
+        "b-family-fertilization"
+      ],
+      "definition": "A sequence in which sperm and oocyte membranes and genetic material combine to begin development of a zygote.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Fertilize is the verb; fertilization is the process noun. In this unit it names gamete interaction, not adding fertilizer to soil."
+      },
+      "whatItDoes": "Cellular interactions coordinate gamete entry, activation and parental chromosome participation.",
+      "relatedTermIds": [
+        "b-term-capacitation",
+        "b-term-acrosome-reaction",
+        "b-term-zona-pellucida"
+      ],
+      "commonConfusion": "It is a sequence, not a synonym for implantation.",
+      "retrievalPrompt": "Place activation and implantation in their appropriate sequence.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fertilization",
+        "pilot2-instruction.json#b-topic-spermatogenesis-gametes-and-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-capacitation",
+      "term": "capacitation",
+      "categoryIds": [
+        "b-family-fertilization"
+      ],
+      "definition": "Functional changes sperm undergo in the female reproductive tract that help prepare them for fertilization.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Capacitate concerns acquiring a capacity; capacitation names the functional preparation of sperm for fertilization. It is distinct from making new sperm."
+      },
+      "whatItDoes": "It changes sperm function in preparation for later fertilization interactions.",
+      "relatedTermIds": [
+        "b-term-fertilization",
+        "b-term-acrosome-reaction",
+        "b-term-zona-pellucida"
+      ],
+      "commonConfusion": "Maturation in the epididymis and capacitation are distinct stages.",
+      "retrievalPrompt": "Why can mature sperm still require additional functional changes?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-capacitation",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-gametes-meet"
+      ]
+    },
+    {
+      "id": "b-term-acrosome-reaction",
+      "term": "acrosome reaction",
+      "categoryIds": [
+        "b-family-fertilization"
+      ],
+      "definition": "Release of enzymes and membrane changes that help a sperm cell cross layers surrounding an oocyte.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Acrosome identifies the structure; reaction identifies the coordinated cellular changes involving it. The phrase is a process name, not a second organ."
+      },
+      "whatItDoes": "Membrane and enzyme events assist passage through oocyte-associated layers.",
+      "relatedTermIds": [
+        "b-term-fertilization",
+        "b-term-capacitation",
+        "b-term-zona-pellucida"
+      ],
+      "commonConfusion": "It is not the meiotic division of the sperm.",
+      "retrievalPrompt": "Which barrier-related step does this reaction help address?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-acrosome-reaction",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-gametes-meet"
+      ]
+    },
+    {
+      "id": "b-term-zona-pellucida",
+      "term": "zona pellucida",
+      "categoryIds": [
+        "b-family-fertilization"
+      ],
+      "definition": "The protective protein-and-sugar layer around a developing egg cell and the early developing cell group before it hatches from this layer.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A two-word anatomical name for the transparent surrounding layer. Zona is singular and zonae plural; keep the whole name distinct from the cell membrane."
+      },
+      "whatItDoes": "This extracellular layer surrounds the oocyte and early conceptus before hatching.",
+      "relatedTermIds": [
+        "b-term-fertilization",
+        "b-term-capacitation",
+        "b-term-acrosome-reaction"
+      ],
+      "commonConfusion": "It is not the oocyte's plasma membrane.",
+      "retrievalPrompt": "Why must hatching precede normal implantation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-zona-pellucida",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-gametes-meet"
+      ]
+    },
+    {
+      "id": "b-term-meiotic-completion",
+      "term": "meiotic completion",
+      "categoryIds": [
+        "b-family-restoring-diploidy"
+      ],
+      "definition": "Finishing a meiotic division; in a typical human secondary oocyte, meiosis II completes after sperm-triggered activation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Meiotic is the adjective from meiosis; completion names finishing a specified division. State meiosis I or meiosis II when using the phrase."
+      },
+      "whatItDoes": "It finishes chromosome segregation associated with a particular meiotic division.",
+      "relatedTermIds": [
+        "b-term-pronucleus",
+        "b-term-zygote",
+        "b-term-polyspermy-block"
+      ],
+      "commonConfusion": "The term needs a specified cell and division.",
+      "retrievalPrompt": "Which meiotic completion is normally linked to activation of a human secondary oocyte?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-meiotic-completion",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-oogenesis-and-meiotic-pauses"
+      ]
+    },
+    {
+      "id": "b-term-pronucleus",
+      "term": "pronucleus",
+      "categoryIds": [
+        "b-family-restoring-diploidy"
+      ],
+      "definition": "A haploid parental nucleus present during early fertilization before the parental chromosome sets participate in the first mitosis.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Pro- marks a preceding stage here; nucleus is the head noun. Pronucleus is singular, pronuclei plural; each refers to a parental nucleus before first mitosis."
+      },
+      "whatItDoes": "It contains a parental haploid set before the first developmental mitosis.",
+      "relatedTermIds": [
+        "b-term-meiotic-completion",
+        "b-term-zygote",
+        "b-term-polyspermy-block"
+      ],
+      "commonConfusion": "It is not itself a new diploid embryo.",
+      "retrievalPrompt": "Why are the parental nuclei described as haploid at this stage?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-pronucleus",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-combining-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-zygote",
+      "term": "zygote",
+      "categoryIds": [
+        "b-family-restoring-diploidy"
+      ],
+      "definition": "The diploid cell formed after fertilization and combination of parental chromosome sets.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Zygote is the developmental-stage noun; zygotic is its adjective. It does not name all later multicellular stages."
+      },
+      "whatItDoes": "It initiates the developmental lineage with combined parental chromosome sets.",
+      "relatedTermIds": [
+        "b-term-meiotic-completion",
+        "b-term-pronucleus",
+        "b-term-polyspermy-block"
+      ],
+      "commonConfusion": "Zygote and blastocyst identify different developmental stages.",
+      "retrievalPrompt": "What changes between the zygote and a multicellular cleavage stage?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-zygote",
+        "pilot2-instruction.json#b-topic-spermatogenesis-gametes-and-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-polyspermy-block",
+      "term": "polyspermy block",
+      "categoryIds": [
+        "b-family-restoring-diploidy"
+      ],
+      "definition": "Changes following fertilization that reduce entry of additional sperm into the oocyte.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Poly- means many; sperm specifies the entering cells; block names a prevention process. It limits additional entry, not the number of nearby sperm."
+      },
+      "whatItDoes": "Fertilization-triggered changes reduce additional sperm entry.",
+      "relatedTermIds": [
+        "b-term-meiotic-completion",
+        "b-term-pronucleus",
+        "b-term-zygote"
+      ],
+      "commonConfusion": "It does not mean that only one sperm ever approached the oocyte.",
+      "retrievalPrompt": "Why is limiting additional entry important for chromosome-set balance?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-polyspermy-block",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-combining-chromosome-sets"
+      ]
+    },
+    {
+      "id": "b-term-cleavage",
+      "term": "cleavage",
+      "categoryIds": [
+        "b-family-cleavage-and-blastocyst"
+      ],
+      "definition": "Rapid early mitotic divisions that increase cell number without a proportional increase in overall conceptus size.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cleave is a verb meaning split; cleavage is the division-process noun. Developmental cleavage partitions cells without proportional overall growth."
+      },
+      "whatItDoes": "It partitions the early conceptus into increasing numbers of smaller cells.",
+      "relatedTermIds": [
+        "b-term-morula",
+        "b-term-blastocyst",
+        "b-term-inner-cell-mass",
+        "b-term-trophoblast"
+      ],
+      "commonConfusion": "More cells do not require proportional growth in total size at this stage.",
+      "retrievalPrompt": "Predict the average cell-size change during early cleavage.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cleavage",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation"
+      ]
+    },
+    {
+      "id": "b-term-morula",
+      "term": "morula",
+      "categoryIds": [
+        "b-family-cleavage-and-blastocyst"
+      ],
+      "definition": "A compact ball of cells formed by early divisions after fertilization, before a fluid-filled blastocyst develops.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Morula is a whole stage name; morulae is its plural. Morula and blastocyst distinguish organization, not simply different spellings for any embryo."
+      },
+      "whatItDoes": "Its compact cell mass precedes organization of the fluid-filled blastocyst.",
+      "relatedTermIds": [
+        "b-term-cleavage",
+        "b-term-blastocyst",
+        "b-term-inner-cell-mass",
+        "b-term-trophoblast"
+      ],
+      "commonConfusion": "A morula is not yet characterized by the same cavity as a blastocyst.",
+      "retrievalPrompt": "Which structural change distinguishes the following stage?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-morula",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation"
+      ]
+    },
+    {
+      "id": "b-term-blastocyst",
+      "term": "blastocyst",
+      "categoryIds": [
+        "b-family-cleavage-and-blastocyst"
+      ],
+      "definition": "An early developmental stage with an outer trophoblast, inner cell mass, and fluid-filled cavity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Blastocyst names the early hollow developmental stage. Cyst denotes a cavity-bearing structure in this name; it does not mean a disease cyst."
+      },
+      "whatItDoes": "Its cell populations support embryonic development and implantation-related functions.",
+      "relatedTermIds": [
+        "b-term-cleavage",
+        "b-term-morula",
+        "b-term-inner-cell-mass",
+        "b-term-trophoblast"
+      ],
+      "commonConfusion": "Its outer layer and inner cell mass have different contributions.",
+      "retrievalPrompt": "Contrast the future roles of its inner and outer cells.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-blastocyst",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-inner-cell-mass",
+      "term": "inner cell mass",
+      "categoryIds": [
+        "b-family-cleavage-and-blastocyst"
+      ],
+      "definition": "The blastocyst cell cluster that contributes to the embryo proper and some extra-embryonic tissues.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mass is the head noun, cell specifies its material and inner specifies its position within the blastocyst."
+      },
+      "whatItDoes": "Its descendants contribute to the embryo proper and selected supporting tissues.",
+      "relatedTermIds": [
+        "b-term-cleavage",
+        "b-term-morula",
+        "b-term-blastocyst",
+        "b-term-trophoblast"
+      ],
+      "commonConfusion": "It is not the sole source of every placental tissue.",
+      "retrievalPrompt": "Why should it be distinguished from trophoblast?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-inner-cell-mass",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation"
+      ]
+    },
+    {
+      "id": "b-term-trophoblast",
+      "term": "trophoblast",
+      "categoryIds": [
+        "b-family-cleavage-and-blastocyst",
+        "b-family-hcg-signalling"
+      ],
+      "definition": "The blastocyst outer cell layer that contributes to implantation and the fetal portion of the placenta.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Trophoblast is the outer blastocyst cell-layer name; trophoblastic is its adjective. Its developmental role differs from that of the inner cell mass."
+      },
+      "whatItDoes": "Its interactions support implantation and fetal placental development.",
+      "relatedTermIds": [
+        "b-term-cleavage",
+        "b-term-morula",
+        "b-term-blastocyst",
+        "b-term-inner-cell-mass"
+      ],
+      "commonConfusion": "It does not form the entire embryo proper.",
+      "retrievalPrompt": "Connect its location in the blastocyst with one later function.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-trophoblast",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation"
+      ]
+    },
+    {
+      "id": "b-term-implantation",
+      "term": "implantation",
+      "categoryIds": [
+        "b-family-implantation"
+      ],
+      "definition": "Attachment and embedding of a hatched blastocyst in a receptive uterine endometrium.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Implant is the verb; implantation names attachment and embedding. The process noun does not mean the same thing as embryo transfer."
+      },
+      "whatItDoes": "Attachment and embedding connect the developing conceptus with receptive uterine tissue.",
+      "relatedTermIds": [
+        "b-term-receptive-endometrium",
+        "b-term-embryo-transfer",
+        "b-term-ivf"
+      ],
+      "commonConfusion": "Embryo transfer does not guarantee implantation.",
+      "retrievalPrompt": "Why must both embryonic and endometrial conditions be considered?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-implantation",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-transport-and-implantation-surfaces"
+      ]
+    },
+    {
+      "id": "b-term-receptive-endometrium",
+      "term": "receptive endometrium",
+      "categoryIds": [
+        "b-family-implantation"
+      ],
+      "definition": "A uterine lining in a physiological state that can support blastocyst attachment and implantation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Endometrium identifies the tissue; receptive describes a functional state that permits implantation. The modifier is not just a thickness measurement."
+      },
+      "whatItDoes": "Its physiological condition permits the interactions needed for implantation.",
+      "relatedTermIds": [
+        "b-term-implantation",
+        "b-term-embryo-transfer",
+        "b-term-ivf"
+      ],
+      "commonConfusion": "Receptivity is not guaranteed merely by embryo presence.",
+      "retrievalPrompt": "What separates placing an embryo in a uterus from successful attachment?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-receptive-endometrium",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-implantation-and-reproductive-technology"
+      ]
+    },
+    {
+      "id": "b-term-ivf",
+      "term": "IVF",
+      "categoryIds": [
+        "b-family-implantation"
+      ],
+      "definition": "An assisted-reproduction process in which oocytes and sperm are combined or injected in a laboratory before an embryo may be transferred.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for in vitro fertilization. In vitro refers to a laboratory setting outside the body; fertilization is the process being assisted."
+      },
+      "whatItDoes": "It moves specified fertilization steps into a laboratory setting before possible transfer.",
+      "relatedTermIds": [
+        "b-term-implantation",
+        "b-term-receptive-endometrium",
+        "b-term-embryo-transfer"
+      ],
+      "commonConfusion": "It does not guarantee implantation or birth.",
+      "retrievalPrompt": "Which steps still depend on uterine and developmental conditions?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ivf",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-implantation-and-reproductive-technology"
+      ]
+    },
+    {
+      "id": "b-term-embryo-transfer",
+      "term": "embryo transfer",
+      "categoryIds": [
+        "b-family-implantation"
+      ],
+      "definition": "Placement of an embryo into a uterus during an assisted-reproduction procedure.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Embryo identifies what is placed; transfer identifies the placement step. Transfer and implantation name different operations."
+      },
+      "whatItDoes": "It places an embryo where implantation may subsequently occur.",
+      "relatedTermIds": [
+        "b-term-implantation",
+        "b-term-receptive-endometrium",
+        "b-term-ivf"
+      ],
+      "commonConfusion": "Transfer is not itself implantation.",
+      "retrievalPrompt": "Name a biological event that must follow a successful placement.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-embryo-transfer",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-implantation-and-reproductive-technology"
+      ]
+    },
+    {
+      "id": "b-term-hcg",
+      "term": "hCG",
+      "categoryIds": [
+        "b-family-hcg-signalling"
+      ],
+      "definition": "Human chorionic gonadotropin; a trophoblast-derived hormone that helps maintain corpus-luteum function early in pregnancy.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for human chorionic gonadotropin. Human specifies species context; chorionic links the signal to chorion-associated developmental tissue."
+      },
+      "whatItDoes": "It signals continued early corpus-luteum support.",
+      "relatedTermIds": [
+        "b-term-trophoblast",
+        "b-term-corpus-luteum",
+        "b-term-progesterone"
+      ],
+      "commonConfusion": "It is not made by the corpus luteum as its principal early source.",
+      "retrievalPrompt": "Trace its source, target and indirect uterine effect.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-hcg",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-corpus-luteum-and-the-endometrium"
+      ]
+    },
+    {
+      "id": "b-term-gastrulation",
+      "term": "gastrulation",
+      "categoryIds": [
+        "b-family-gastrulation"
+      ],
+      "definition": "Early embryonic cell movements that establish primary germ layers and body organization.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Gastrula names a developmental stage; gastrulation names the cell-reorganization process establishing germ layers. It is not adult digestion."
+      },
+      "whatItDoes": "Coordinated cell movements establish germ-layer relationships and organization.",
+      "relatedTermIds": [
+        "b-term-cell-migration",
+        "b-term-differentiation",
+        "b-term-germ-layer"
+      ],
+      "commonConfusion": "It is not simply an increase in cell number.",
+      "retrievalPrompt": "Why does cell position matter as well as cell division?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-gastrulation",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-gastrulation-establishes-layers"
+      ]
+    },
+    {
+      "id": "b-term-cell-migration",
+      "term": "cell migration",
+      "categoryIds": [
+        "b-family-gastrulation"
+      ],
+      "definition": "Movement of cells from one location to another during development or other biological processes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Migration names movement from one position to another; cell identifies what moves. Compare cell division and cell differentiation."
+      },
+      "whatItDoes": "Changes in location bring developing cells into new relationships.",
+      "relatedTermIds": [
+        "b-term-gastrulation",
+        "b-term-differentiation",
+        "b-term-germ-layer"
+      ],
+      "commonConfusion": "Movement and differentiation are not interchangeable processes.",
+      "retrievalPrompt": "How could normal cell division coexist with abnormal tissue placement?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cell-migration",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-gastrulation-establishes-layers"
+      ]
+    },
+    {
+      "id": "b-term-differentiation",
+      "term": "differentiation",
+      "categoryIds": [
+        "b-family-gastrulation"
+      ],
+      "definition": "The regulated process through which cells develop specialized gene-expression patterns, structures, and functions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Differentiate is the verb; differentiation is the process noun and differentiated the resulting state. It refers to specialization, not simply separation."
+      },
+      "whatItDoes": "Regulated expression and cellular interactions establish specialized functions.",
+      "relatedTermIds": [
+        "b-term-gastrulation",
+        "b-term-cell-migration",
+        "b-term-germ-layer"
+      ],
+      "commonConfusion": "Specialization does not usually require losing all unused genes.",
+      "retrievalPrompt": "Explain how cells sharing a genome can develop different structures.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-differentiation",
+        "pilot2-instruction.json#b-topic-spermatogenesis-division-and-differentiation"
+      ]
+    },
+    {
+      "id": "b-term-germ-layer",
+      "term": "germ layer",
+      "categoryIds": [
+        "b-family-gastrulation"
+      ],
+      "definition": "One of the primary embryonic tissue layers—ectoderm, mesoderm, or endoderm—from which tissues develop.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Layer identifies an organized embryonic tissue region; germ here means a developmental origin, not a pathogen."
+      },
+      "whatItDoes": "Its name locates a tissue lineage within early embryonic organization.",
+      "relatedTermIds": [
+        "b-term-gastrulation",
+        "b-term-cell-migration",
+        "b-term-differentiation"
+      ],
+      "commonConfusion": "A mature organ can contain tissues from more than one lineage.",
+      "retrievalPrompt": "Why should organ origin be described by tissue component?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-germ-layer",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-gastrulation-establishes-layers"
+      ]
+    },
+    {
+      "id": "b-term-ectoderm",
+      "term": "ectoderm",
+      "categoryIds": [
+        "b-family-germ-layer-derivatives"
+      ],
+      "definition": "The primary germ layer that contributes to the epidermis, nervous system, and selected sensory structures.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ecto- means outer and derm concerns a layer or skin. The embryonic layer name is a positional clue, not a claim that all outer adult tissues share one origin."
+      },
+      "whatItDoes": "Its descendants contribute to surface and nervous-system tissues.",
+      "relatedTermIds": [
+        "b-term-mesoderm",
+        "b-term-endoderm"
+      ],
+      "commonConfusion": "Ectoderm does not mean every tissue near the exterior has that origin.",
+      "retrievalPrompt": "Contrast the epidermis with deeper supporting tissue.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-ectoderm",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-gastrulation-establishes-layers"
+      ]
+    },
+    {
+      "id": "b-term-mesoderm",
+      "term": "mesoderm",
+      "categoryIds": [
+        "b-family-germ-layer-derivatives"
+      ],
+      "definition": "The primary germ layer that contributes to muscle, skeleton, connective tissues, blood, kidneys, gonads, and many reproductive structures.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Meso- means middle and derm concerns a layer or skin. The name identifies an embryonic germ layer, not just adult skin."
+      },
+      "whatItDoes": "Its descendants contribute to diverse supporting, contractile and transport tissues.",
+      "relatedTermIds": [
+        "b-term-ectoderm",
+        "b-term-endoderm"
+      ],
+      "commonConfusion": "It is not limited to one mature organ system.",
+      "retrievalPrompt": "Why can blood and skeletal muscle share an early germ-layer origin?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-mesoderm",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-gastrulation-establishes-layers"
+      ]
+    },
+    {
+      "id": "b-term-endoderm",
+      "term": "endoderm",
+      "categoryIds": [
+        "b-family-germ-layer-derivatives"
+      ],
+      "definition": "The primary germ layer that contributes to much of the digestive and respiratory epithelial lining and to selected glands.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Endo- means inner and derm concerns a layer or skin. The name describes a germ layer; it does not make every inner organ entirely endodermal."
+      },
+      "whatItDoes": "Its descendants contribute to many internal epithelial linings and selected glands.",
+      "relatedTermIds": [
+        "b-term-ectoderm",
+        "b-term-mesoderm"
+      ],
+      "commonConfusion": "An endodermal lining does not make the entire organ endodermal.",
+      "retrievalPrompt": "Distinguish digestive epithelium from its surrounding muscle.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-endoderm",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-gastrulation-establishes-layers"
+      ]
+    },
+    {
+      "id": "b-term-nervous-tissue",
+      "term": "nervous tissue",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "Specialized cells and supporting tissue that receive, process or transmit information.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tissue is the organizational noun; nervous specifies information-processing and signalling functions, not an emotional state."
+      },
+      "whatItDoes": "Specialized cells and support structures enable information reception and transmission.",
+      "relatedTermIds": [
+        "b-term-epidermis",
+        "b-term-skeleton",
+        "b-term-digestive-lining"
+      ],
+      "commonConfusion": "Nervous tissue is not synonymous with every cell in a nerve-associated organ.",
+      "retrievalPrompt": "Connect specialized cell function with one information pathway.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-nervous-tissue",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-epidermis",
+      "term": "epidermis",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "The outer surface layer of skin, distinct from the deeper supporting tissue.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Epi- means upon and derm concerns skin. Epidermis is the outer skin layer; epidermal is the adjective."
+      },
+      "whatItDoes": "It forms the superficial epithelial layer of skin.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-skeleton",
+        "b-term-digestive-lining"
+      ],
+      "commonConfusion": "It differs from deeper dermal supporting tissues.",
+      "retrievalPrompt": "Why does the skin's layered structure matter when discussing developmental origin?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-epidermis",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-skeleton",
+      "term": "skeleton",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "The supporting framework of bones and cartilage in the body.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Skeleton is a collective structure noun; skeletal is the adjective. Skeletal muscle uses that adjective but is not itself bone."
+      },
+      "whatItDoes": "Its components support shape, protection and movement with other tissues.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-digestive-lining"
+      ],
+      "commonConfusion": "Bone and cartilage are not identical tissues.",
+      "retrievalPrompt": "Explain how skeletal support contributes to movement with muscle.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-skeleton",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-muscle",
+      "term": "muscle",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "Tissue specialized for contraction and force production.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Muscle names contractile tissue or an organ composed largely of it; muscular is the adjective. The noun does not specify skeletal, smooth or cardiac type."
+      },
+      "whatItDoes": "Contraction produces force within coordinated tissue systems.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "Producing force does not mean every contraction produces the same movement.",
+      "retrievalPrompt": "How can attachment and surrounding structures affect contraction's result?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-muscle",
+        "pilot2-instruction.json#b-topic-spermatogenesis-hormone-sources-and-targets"
+      ]
+    },
+    {
+      "id": "b-term-reproductive-structures",
+      "term": "reproductive structures",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "Organs and tissues involved in forming gametes, transporting them or supporting reproductive processes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Structures is the plural head noun; reproductive names their functional context. The modifier includes more than gamete-producing organs."
+      },
+      "whatItDoes": "Different tissues contribute to gamete formation, movement and reproductive support.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target"
+      ],
+      "commonConfusion": "A structure involved in reproduction need not itself make gametes.",
+      "retrievalPrompt": "Contrast a production structure with a transport structure.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-reproductive-structures",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-digestive-lining",
+      "term": "digestive lining",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "The layer of cells facing the internal space of the digestive tract.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lining names the surface-facing tissue layer; digestive specifies the tract. It does not refer to every tissue in the tract wall."
+      },
+      "whatItDoes": "Its epithelial surface mediates interactions with material in the digestive lumen.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton"
+      ],
+      "commonConfusion": "The lining is not the entire intestinal wall.",
+      "retrievalPrompt": "Why should lining and surrounding muscle have separate lineage descriptions?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-digestive-lining",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-respiratory-lining",
+      "term": "respiratory lining",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "The layer of cells facing the air passages of the respiratory system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lining names the epithelial surface; respiratory specifies the air-passage context. The modifier differs from respiration as a cellular process."
+      },
+      "whatItDoes": "Its epithelial surface interfaces with air passages and their local environment.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton"
+      ],
+      "commonConfusion": "Airway lining and all surrounding lung tissues are not one tissue type.",
+      "retrievalPrompt": "Explain why a mature organ can combine several developmental contributions.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-respiratory-lining",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-endocrine-tissue",
+      "term": "endocrine tissue",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "Hormone-secreting tissue; different endocrine organs can have different embryonic origins.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tissue identifies the material; endocrine specifies hormone secretion to internal signalling pathways. It contrasts with secretion through an exocrine duct."
+      },
+      "whatItDoes": "It releases hormones that affect responsive targets.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton"
+      ],
+      "commonConfusion": "Endocrine function does not identify a single universal germ-layer origin.",
+      "retrievalPrompt": "Why cannot hormone secretion alone establish embryonic origin?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-endocrine-tissue",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-timing",
+      "term": "timing",
+      "categoryIds": [
+        "b-family-developmental-evidence"
+      ],
+      "definition": "The position and order of events relative to a clearly stated starting point or interval.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Time is the base noun; timing names the placement or order of events. A starting reference must accompany developmental timing."
+      },
+      "whatItDoes": "A stated reference point lets developmental events be ordered consistently.",
+      "relatedTermIds": [
+        "b-term-teratogen",
+        "b-term-dose",
+        "b-term-route",
+        "b-term-confounder"
+      ],
+      "commonConfusion": "Fertilization age and clinical gestational dating use different starting conventions.",
+      "retrievalPrompt": "What must be specified before comparing two age-labelled diagrams?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-timing",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-reproductive-development-and-health"
+      ]
+    },
+    {
+      "id": "b-term-model",
+      "term": "model",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "A simplified representation used to explain observations or make testable predictions under stated assumptions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Model can be a noun or a verb. A scientific model represents selected relationships; modelling does not mean making an exact duplicate organism."
+      },
+      "whatItDoes": "It isolates selected relationships to support explanation or prediction.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target"
+      ],
+      "commonConfusion": "A useful model does not reproduce every biological feature.",
+      "retrievalPrompt": "Identify one assumption needed when applying a developmental diagram.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-model",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-observation",
+      "term": "observation",
+      "categoryIds": [
+        "b-topic-male-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "Information recorded using a specified method; an explanation of its cause is an inference.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Observe is the verb; observation is the recorded result or act of observing. The word does not itself specify a causal explanation."
+      },
+      "whatItDoes": "It records what a method detected under stated conditions.",
+      "relatedTermIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target"
+      ],
+      "commonConfusion": "The proposed cause of the observation is an inference.",
+      "retrievalPrompt": "Separate a recorded hormone change from a claim about its cause.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-observation",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-compartments-of-the-testes"
+      ]
+    },
+    {
+      "id": "b-term-causal-limit",
+      "term": "causal limit",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "A reason the available evidence cannot establish that one factor caused another.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Causal is the adjective from cause; limit names a boundary on what evidence can establish about cause and effect."
+      },
+      "whatItDoes": "It identifies missing evidence or alternative explanations that restrict causal interpretation.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton"
+      ],
+      "commonConfusion": "Association alone does not establish a mechanism.",
+      "retrievalPrompt": "What additional comparison could strengthen a proposed developmental cause?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-causal-limit",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-developmental-evidence"
+      ]
+    },
+    {
+      "id": "b-term-amnion",
+      "term": "amnion",
+      "categoryIds": [
+        "b-family-extraembryonic-support"
+      ],
+      "definition": "The extra-embryonic membrane that encloses the fluid-filled amniotic cavity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Amnion is a membrane name; amniotic is its adjective, as in amniotic fluid. Membrane and fluid are different nouns."
+      },
+      "whatItDoes": "It encloses the fluid environment surrounding the developing organism.",
+      "relatedTermIds": [
+        "b-term-chorion",
+        "b-term-allantois",
+        "b-term-umbilical-cord"
+      ],
+      "commonConfusion": "It is distinct from the outer chorion.",
+      "retrievalPrompt": "How does enclosing fluid differ from forming placental exchange tissue?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-amnion",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-support-membranes"
+      ]
+    },
+    {
+      "id": "b-term-chorion",
+      "term": "chorion",
+      "categoryIds": [
+        "b-family-extraembryonic-support"
+      ],
+      "definition": "An outer extra-embryonic membrane that contributes to the fetal portion of the placenta and chorionic villi.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Chorion is a membrane name; chorionic is its adjective, as in chorionic villi. The adjective identifies an association, not the whole placenta."
+      },
+      "whatItDoes": "It contributes to outer supporting structures and fetal placental interfaces.",
+      "relatedTermIds": [
+        "b-term-amnion",
+        "b-term-allantois",
+        "b-term-umbilical-cord"
+      ],
+      "commonConfusion": "It does not constitute all maternal placental tissue.",
+      "retrievalPrompt": "Distinguish fetal and maternal contributions to the placenta.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-chorion",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-support-membranes"
+      ]
+    },
+    {
+      "id": "b-term-allantois",
+      "term": "allantois",
+      "categoryIds": [
+        "b-family-extraembryonic-support"
+      ],
+      "definition": "An extra-embryonic structure that contributes to parts of the umbilical cord and urinary-bladder developmental pathway.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Allantois is the developmental structure noun; allantoic is its adjective. Retain the species context when comparing structures with this name."
+      },
+      "whatItDoes": "Its developmental contributions connect with umbilical and urinary pathways.",
+      "relatedTermIds": [
+        "b-term-amnion",
+        "b-term-chorion",
+        "b-term-umbilical-cord"
+      ],
+      "commonConfusion": "Its role in humans should not be copied unchanged from an egg diagram.",
+      "retrievalPrompt": "Why must species context accompany an extra-embryonic comparison?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-allantois",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-support-membranes"
+      ]
+    },
+    {
+      "id": "b-term-placenta",
+      "term": "placenta",
+      "categoryIds": [
+        "b-family-placental-exchange"
+      ],
+      "definition": "A temporary exchange, endocrine, immune, and metabolic organ formed from fetal and maternal tissues during pregnancy.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Placenta is an organ noun; placental is its adjective. The adjective can qualify exchange or delivery, which are different processes."
+      },
+      "whatItDoes": "Its tissues support exchange and signalling between maternal and fetal systems.",
+      "relatedTermIds": [
+        "b-term-placental-exchange",
+        "b-term-diffusion",
+        "b-term-umbilical-artery",
+        "b-term-umbilical-vein"
+      ],
+      "commonConfusion": "Maternal and fetal blood do not normally mix as one unrestricted pool.",
+      "retrievalPrompt": "How can exchange occur while the circulations remain normally separate?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-placenta",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-cleavage-and-blastocyst-formation"
+      ]
+    },
+    {
+      "id": "b-term-umbilical-cord",
+      "term": "umbilical cord",
+      "categoryIds": [
+        "b-family-extraembryonic-support"
+      ],
+      "definition": "The connection carrying fetal blood vessels between the developing fetus and the placenta.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cord is the structure noun; umbilical connects it with the navel-region attachment. The phrase includes multiple fetal vessels, not one vessel."
+      },
+      "whatItDoes": "Its fetal vessels connect the fetus with placental exchange pathways.",
+      "relatedTermIds": [
+        "b-term-amnion",
+        "b-term-chorion",
+        "b-term-allantois"
+      ],
+      "commonConfusion": "The cord is not the maternal circulation itself.",
+      "retrievalPrompt": "Trace blood movement through its arterial and venous vessels.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-umbilical-cord",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-support-membranes"
+      ]
+    },
+    {
+      "id": "b-term-placental-exchange",
+      "term": "placental exchange",
+      "categoryIds": [
+        "b-family-placental-exchange"
+      ],
+      "definition": "Transfer of substances across the placental interface between normally separate maternal and fetal circulations.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Placental identifies the interface; exchange names transfer across it. Exchange does not require the two circulations to become one pool."
+      },
+      "whatItDoes": "Substances move across interfaces according to their transport properties and gradients.",
+      "relatedTermIds": [
+        "b-term-placenta",
+        "b-term-diffusion",
+        "b-term-umbilical-artery",
+        "b-term-umbilical-vein"
+      ],
+      "commonConfusion": "The placenta is not an absolute barrier to every substance.",
+      "retrievalPrompt": "Why does transfer depend on the substance rather than just its presence?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-placental-exchange",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-support-membranes"
+      ]
+    },
+    {
+      "id": "b-term-diffusion",
+      "term": "diffusion",
+      "categoryIds": [
+        "b-family-placental-exchange"
+      ],
+      "definition": "Net movement of particles down a concentration gradient through random molecular motion.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Diffuse is the verb; diffusion is the process noun. Net diffusion describes the overall balance of movements, not the motion of every particle."
+      },
+      "whatItDoes": "Random motion produces net movement down a concentration gradient.",
+      "relatedTermIds": [
+        "b-term-placenta",
+        "b-term-placental-exchange",
+        "b-term-umbilical-artery",
+        "b-term-umbilical-vein"
+      ],
+      "commonConfusion": "Individual particles do not all move in one direction.",
+      "retrievalPrompt": "Explain net transfer across an interface despite movement both ways.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-diffusion",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation"
+      ]
+    },
+    {
+      "id": "b-term-umbilical-artery",
+      "term": "umbilical artery",
+      "categoryIds": [
+        "b-family-placental-exchange"
+      ],
+      "definition": "A fetal vessel carrying blood from the fetus toward the placenta.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Artery names a vessel carrying blood away from the heart; umbilical specifies this fetal pathway. The name does not promise oxygen-rich blood."
+      },
+      "whatItDoes": "It carries fetal blood outward toward the placenta.",
+      "relatedTermIds": [
+        "b-term-placenta",
+        "b-term-placental-exchange",
+        "b-term-diffusion",
+        "b-term-umbilical-vein"
+      ],
+      "commonConfusion": "Artery names direction from the heart, not high oxygen content.",
+      "retrievalPrompt": "Why can an umbilical artery carry less oxygen-enriched blood?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-umbilical-artery",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation"
+      ]
+    },
+    {
+      "id": "b-term-umbilical-vein",
+      "term": "umbilical vein",
+      "categoryIds": [
+        "b-family-placental-exchange"
+      ],
+      "definition": "A fetal vessel carrying oxygen- and nutrient-enriched blood from the placenta toward the fetus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Vein names a vessel returning blood toward the heart; umbilical specifies the fetal connection with the placenta."
+      },
+      "whatItDoes": "It returns placentally enriched blood toward the fetus.",
+      "relatedTermIds": [
+        "b-term-placenta",
+        "b-term-placental-exchange",
+        "b-term-diffusion",
+        "b-term-umbilical-artery"
+      ],
+      "commonConfusion": "Vein does not universally mean oxygen-poor blood.",
+      "retrievalPrompt": "Use direction to explain this vessel's name.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-umbilical-vein",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-maternal-and-fetal-circulation"
+      ]
+    },
+    {
+      "id": "b-term-organogenesis",
+      "term": "organogenesis",
+      "categoryIds": [
+        "b-family-organogenesis"
+      ],
+      "definition": "Developmental formation and organization of organs from interacting tissues.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Organo- concerns organs; genesis names formation or development. The compound emphasizes formation and organization, not merely later enlargement."
+      },
+      "whatItDoes": "Interactions among developing tissues establish organ structure and relationships.",
+      "relatedTermIds": [
+        "b-term-embryo",
+        "b-term-fetus",
+        "b-term-trimester"
+      ],
+      "commonConfusion": "Organ formation and later growth are overlapping but distinct emphases.",
+      "retrievalPrompt": "Why can disruption at one developmental stage affect a specific organ?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-organogenesis",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development"
+      ]
+    },
+    {
+      "id": "b-term-embryo",
+      "term": "embryo",
+      "categoryIds": [
+        "b-family-organogenesis"
+      ],
+      "definition": "A developing organism in an early stage of organ formation; human stage labels must specify the dating convention.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Embryo is the stage noun; embryonic is its adjective. State the organism and age convention when using the stage name."
+      },
+      "whatItDoes": "The label identifies an early developmental stage under a stated dating convention.",
+      "relatedTermIds": [
+        "b-term-organogenesis",
+        "b-term-fetus",
+        "b-term-trimester"
+      ],
+      "commonConfusion": "The label alone does not identify an exact age without convention.",
+      "retrievalPrompt": "What timing reference is needed to compare embryonic diagrams?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-embryo",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-reproductive-development-and-health"
+      ]
+    },
+    {
+      "id": "b-term-fetus",
+      "term": "fetus",
+      "categoryIds": [
+        "b-family-organogenesis"
+      ],
+      "definition": "The developing human from the ninth week after fertilization until birth, when growth and organ maturation predominate.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Fetus is the stage noun; fetal is the adjective. In the human sequence it follows the embryonic period; neither word gives an exact date alone."
+      },
+      "whatItDoes": "Growth and maturation predominate during this named human developmental interval.",
+      "relatedTermIds": [
+        "b-term-organogenesis",
+        "b-term-embryo",
+        "b-term-trimester"
+      ],
+      "commonConfusion": "Development does not stop when the embryonic stage ends.",
+      "retrievalPrompt": "Describe a continuing developmental change after the fetal stage begins.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-fetus",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-support-membranes"
+      ]
+    },
+    {
+      "id": "b-term-trimester",
+      "term": "trimester",
+      "categoryIds": [
+        "b-family-organogenesis"
+      ],
+      "definition": "One of three broad time divisions used to describe pregnancy; biological processes overlap these boundaries.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tri- means three. Trimester names one of three broad pregnancy intervals, not a boundary that every biological process obeys."
+      },
+      "whatItDoes": "It groups pregnancy time into broad descriptive intervals.",
+      "relatedTermIds": [
+        "b-term-organogenesis",
+        "b-term-embryo",
+        "b-term-fetus"
+      ],
+      "commonConfusion": "Biological events need not start or end exactly at trimester boundaries.",
+      "retrievalPrompt": "Why should organ formation not be treated as confined by a calendar division?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-trimester",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development"
+      ]
+    },
+    {
+      "id": "b-term-teratogen",
+      "term": "teratogen",
+      "categoryIds": [
+        "b-family-developmental-evidence"
+      ],
+      "definition": "An environmental agent that can disrupt development under particular dose, route, timing, and biological conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Teratogen is an agent noun; teratogenic is the adjective for developmental-disruption potential. An agent name does not specify dose, route or timing."
+      },
+      "whatItDoes": "An exposure can interfere with development under particular biological conditions.",
+      "relatedTermIds": [
+        "b-term-dose",
+        "b-term-route",
+        "b-term-timing",
+        "b-term-confounder"
+      ],
+      "commonConfusion": "An agent's effect is not independent of dose and timing.",
+      "retrievalPrompt": "Why can the same exposure at different developmental times have different effects?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-teratogen",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-dose",
+      "term": "dose",
+      "categoryIds": [
+        "b-family-developmental-evidence"
+      ],
+      "definition": "The amount of an agent delivered or received, with its units and exposure conditions stated.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Dose is an amount noun; dosage describes an administration pattern or regimen. Attach units and exposure conditions to a dose."
+      },
+      "whatItDoes": "It quantifies exposure with units and conditions needed for interpretation.",
+      "relatedTermIds": [
+        "b-term-teratogen",
+        "b-term-route",
+        "b-term-timing",
+        "b-term-confounder"
+      ],
+      "commonConfusion": "Dose is not interchangeable with a substance's name or concentration alone.",
+      "retrievalPrompt": "What information is missing from the statement that exposure was high?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-dose",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development"
+      ]
+    },
+    {
+      "id": "b-term-route",
+      "term": "route",
+      "categoryIds": [
+        "b-family-developmental-evidence"
+      ],
+      "definition": "The path by which a substance enters or moves through a system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Route is a pathway noun. Exposure route specifies entry, while transport route specifies movement through a system."
+      },
+      "whatItDoes": "It specifies an entry or movement pathway relevant to exposure.",
+      "relatedTermIds": [
+        "b-term-teratogen",
+        "b-term-dose",
+        "b-term-timing",
+        "b-term-confounder"
+      ],
+      "commonConfusion": "Different routes can produce different effective exposures.",
+      "retrievalPrompt": "Why must entry route accompany a developmental exposure comparison?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-route",
+        "pilot2-instruction.json#b-topic-male-reproductive-structures-the-transport-pathway"
+      ]
+    },
+    {
+      "id": "b-term-confounder",
+      "term": "confounder",
+      "categoryIds": [
+        "b-family-developmental-evidence"
+      ],
+      "definition": "Another factor related to both the proposed cause and the measured outcome, which can distort the apparent relationship between them.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Confound is the verb; confounder names a factor that can mix up interpretation of an exposure-outcome relationship."
+      },
+      "whatItDoes": "It can create or distort an apparent relation between an exposure and outcome.",
+      "relatedTermIds": [
+        "b-term-teratogen",
+        "b-term-dose",
+        "b-term-route",
+        "b-term-timing"
+      ],
+      "commonConfusion": "Not every unmeasured variable is automatically a confounder.",
+      "retrievalPrompt": "Explain how a second factor related to both variables could mislead a conclusion.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-confounder",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-environmental-influence-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-parturition",
+      "term": "parturition",
+      "categoryIds": [
+        "b-family-parturition"
+      ],
+      "definition": "The coordinated process of labour and birth.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Parturition is the technical process noun for labour and birth. It is a whole event name rather than a list of its component hormones."
+      },
+      "whatItDoes": "Coordinated hormonal, mechanical and tissue changes support labour and birth.",
+      "relatedTermIds": [
+        "b-term-cervical-stretch",
+        "b-term-oxytocin",
+        "b-term-prostaglandin"
+      ],
+      "commonConfusion": "It is not explained by one isolated hormone acting alone.",
+      "retrievalPrompt": "Connect a mechanical signal with a reinforcing hormonal response.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-parturition",
+        "pilot2-instruction.json#b-topic-parturition-labour-and-positive-feedback"
+      ]
+    },
+    {
+      "id": "b-term-cervical-stretch",
+      "term": "cervical stretch",
+      "categoryIds": [
+        "b-family-parturition"
+      ],
+      "definition": "Distension of the cervix that can contribute to the positive-feedback signalling of labour.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cervical is the adjective from cervix; stretch names mechanical distension. In this context the adjective refers to the uterine cervix."
+      },
+      "whatItDoes": "Mechanical stimulation contributes to signalling that can reinforce contractions.",
+      "relatedTermIds": [
+        "b-term-parturition",
+        "b-term-oxytocin",
+        "b-term-prostaglandin"
+      ],
+      "commonConfusion": "Stretch is a signal, not the hormone itself.",
+      "retrievalPrompt": "Trace the feedback from increased stretch to stronger contraction.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cervical-stretch",
+        "pilot2-instruction.json#b-topic-parturition-labour-and-positive-feedback"
+      ]
+    },
+    {
+      "id": "b-term-oxytocin",
+      "term": "oxytocin",
+      "categoryIds": [
+        "b-family-parturition"
+      ],
+      "definition": "A hormone made in the hypothalamus and released from the posterior pituitary; it contributes to uterine contraction and milk ejection.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Oxytocin is a specific hormone name; oxytocin-mediated identifies an effect involving its signal. The name is not a synonym for prolactin."
+      },
+      "whatItDoes": "Responsive contractile tissues use its signal in uterine activity and milk ejection.",
+      "relatedTermIds": [
+        "b-term-parturition",
+        "b-term-cervical-stretch",
+        "b-term-prostaglandin"
+      ],
+      "commonConfusion": "It is not the primary signal for milk synthesis.",
+      "retrievalPrompt": "Distinguish its mammary effect from prolactin's effect.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-oxytocin",
+        "pilot2-instruction.json#b-topic-parturition-labour-and-positive-feedback"
+      ]
+    },
+    {
+      "id": "b-term-prostaglandin",
+      "term": "prostaglandin",
+      "categoryIds": [
+        "b-family-parturition"
+      ],
+      "definition": "A locally acting lipid signal involved in processes including cervical change and uterine contraction.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Prostaglandin is a class name for local lipid signals; prostaglandins is plural. The historical name does not restrict their action to the prostate."
+      },
+      "whatItDoes": "Local signalling can influence cervical tissues and uterine activity.",
+      "relatedTermIds": [
+        "b-term-parturition",
+        "b-term-cervical-stretch",
+        "b-term-oxytocin"
+      ],
+      "commonConfusion": "Its signalling is not identical to a pituitary hormone pathway.",
+      "retrievalPrompt": "Why can locally acting signals matter alongside circulating hormones?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-prostaglandin",
+        "pilot2-instruction.json#b-topic-parturition-labour-and-positive-feedback"
+      ]
+    },
+    {
+      "id": "b-term-cervical-dilation",
+      "term": "cervical dilation",
+      "categoryIds": [
+        "b-topic-parturition-additional-vocabulary"
+      ],
+      "definition": "Opening of the cervix during labour.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cervical identifies the cervix; dilation names widening. Dilate is the verb and dilated the resulting state."
+      },
+      "whatItDoes": "Opening enlarges the passage during labour.",
+      "relatedTermIds": [
+        "b-term-delivery",
+        "b-term-placental-delivery",
+        "b-term-newborn-transition"
+      ],
+      "commonConfusion": "Dilation and uterine contraction describe different changes.",
+      "retrievalPrompt": "Explain how contraction and cervical opening contribute differently to birth.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-cervical-dilation",
+        "pilot2-instruction.json#b-topic-parturition-birth-and-the-transition"
+      ]
+    },
+    {
+      "id": "b-term-delivery",
+      "term": "delivery",
+      "categoryIds": [
+        "b-topic-parturition-additional-vocabulary"
+      ],
+      "definition": "The birth stage in which the fetus passes out of the uterus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Deliver is the verb; delivery names a stage of birth in this context. Fetal or placental specifies what is delivered."
+      },
+      "whatItDoes": "It describes the stage when the fetus exits the uterus.",
+      "relatedTermIds": [
+        "b-term-cervical-dilation",
+        "b-term-placental-delivery",
+        "b-term-newborn-transition"
+      ],
+      "commonConfusion": "Fetal delivery is not the end of every stage of labour.",
+      "retrievalPrompt": "Which major tissue delivery follows?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-delivery",
+        "pilot2-instruction.json#b-topic-parturition-labour-and-positive-feedback"
+      ]
+    },
+    {
+      "id": "b-term-placental-delivery",
+      "term": "placental delivery",
+      "categoryIds": [
+        "b-topic-parturition-additional-vocabulary"
+      ],
+      "definition": "Expulsion of the placenta and associated membranes after the fetus is delivered.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Placental is the adjective from placenta; delivery names its expulsion. The modifier distinguishes this from delivery of the fetus."
+      },
+      "whatItDoes": "Separation and expulsion remove the placenta after fetal birth.",
+      "relatedTermIds": [
+        "b-term-cervical-dilation",
+        "b-term-delivery",
+        "b-term-newborn-transition"
+      ],
+      "commonConfusion": "It is distinct from the fetus passing through the birth canal.",
+      "retrievalPrompt": "Why should birth-stage diagrams include a post-fetal stage?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-placental-delivery",
+        "pilot2-instruction.json#b-topic-parturition-birth-and-the-transition"
+      ]
+    },
+    {
+      "id": "b-term-newborn-transition",
+      "term": "newborn transition",
+      "categoryIds": [
+        "b-topic-parturition-additional-vocabulary"
+      ],
+      "definition": "Changes that allow a newborn to exchange gases and obtain support outside the placenta.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Newborn identifies the life stage; transition names a change between physiological support arrangements."
+      },
+      "whatItDoes": "Physiological changes shift support from placental exchange to neonatal functions.",
+      "relatedTermIds": [
+        "b-term-cervical-dilation",
+        "b-term-delivery",
+        "b-term-placental-delivery"
+      ],
+      "commonConfusion": "It is not only a change in location.",
+      "retrievalPrompt": "Name an exchange function that must change after placental separation.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-newborn-transition",
+        "pilot2-instruction.json#b-topic-parturition-birth-and-the-transition"
+      ]
+    },
+    {
+      "id": "b-term-prolactin",
+      "term": "prolactin",
+      "categoryIds": [
+        "b-family-lactation"
+      ],
+      "definition": "An anterior-pituitary hormone that supports milk production in mammary tissue.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lact- concerns milk. Prolactin is a hormone name linked with milk production; that clue does not make it the milk-ejection hormone."
+      },
+      "whatItDoes": "Its signal supports mammary production of milk.",
+      "relatedTermIds": [
+        "b-term-milk-synthesis",
+        "b-term-milk-ejection",
+        "b-term-suckling"
+      ],
+      "commonConfusion": "Production is distinct from oxytocin-driven ejection.",
+      "retrievalPrompt": "Why might making milk and releasing it respond to different signals?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-prolactin",
+        "pilot2-instruction.json#b-topic-parturition-milk-synthesis-and-release"
+      ]
+    },
+    {
+      "id": "b-term-milk-synthesis",
+      "term": "milk synthesis",
+      "categoryIds": [
+        "b-family-lactation"
+      ],
+      "definition": "Production of milk by mammary secretory cells, supported by prolactin; it differs from milk ejection.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Milk identifies the product; synthesis means making it. Compare milk ejection, which moves an already-produced substance."
+      },
+      "whatItDoes": "Secretory cells produce the components of milk under hormonal support.",
+      "relatedTermIds": [
+        "b-term-prolactin",
+        "b-term-milk-ejection",
+        "b-term-suckling"
+      ],
+      "commonConfusion": "Milk moving into ducts is a different process.",
+      "retrievalPrompt": "Which hormone pathway primarily supports production?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-milk-synthesis",
+        "pilot2-instruction.json#b-topic-parturition-milk-synthesis-and-release"
+      ]
+    },
+    {
+      "id": "b-term-milk-ejection",
+      "term": "milk ejection",
+      "categoryIds": [
+        "b-family-lactation"
+      ],
+      "definition": "Movement of milk into mammary ducts when surrounding contractile cells respond to oxytocin; it differs from making milk.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Milk identifies what moves; ejection names its movement out of secretory regions toward ducts. It is not synthesis."
+      },
+      "whatItDoes": "Contractile cells move milk toward ducts in response to signalling.",
+      "relatedTermIds": [
+        "b-term-prolactin",
+        "b-term-milk-synthesis",
+        "b-term-suckling"
+      ],
+      "commonConfusion": "It does not create the milk being moved.",
+      "retrievalPrompt": "Explain how oxytocin can alter milk movement without being the synthesis signal.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-milk-ejection",
+        "pilot2-instruction.json#b-topic-parturition-milk-synthesis-and-release"
+      ]
+    },
+    {
+      "id": "b-term-suckling",
+      "term": "suckling",
+      "categoryIds": [
+        "b-family-lactation"
+      ],
+      "definition": "Stimulation associated with an infant feeding that can activate prolactin and oxytocin pathways.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Suckle is the verb; suckling names the feeding-associated action or stimulation. It can also describe a young animal, so use the sentence context."
+      },
+      "whatItDoes": "Sensory input can stimulate coordinated production and ejection pathways.",
+      "relatedTermIds": [
+        "b-term-prolactin",
+        "b-term-milk-synthesis",
+        "b-term-milk-ejection"
+      ],
+      "commonConfusion": "One sensory event can activate more than one hormonal response.",
+      "retrievalPrompt": "Trace two distinct downstream effects of suckling.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-suckling",
+        "pilot2-instruction.json#b-topic-parturition-milk-synthesis-and-release"
+      ]
+    },
+    {
+      "id": "b-term-barrier-method",
+      "term": "barrier method",
+      "categoryIds": [
+        "b-family-reproductive-technologies"
+      ],
+      "definition": "A reproductive-health method that physically reduces movement or contact, with effectiveness depending on the specific method and use.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Method is the head noun; barrier identifies a physical mechanism that reduces specified movement or contact."
+      },
+      "whatItDoes": "A physical mechanism reduces specified movement or contact.",
+      "relatedTermIds": [
+        "b-term-hormonal-method",
+        "b-term-sterilization",
+        "b-term-infertility-reversal"
+      ],
+      "commonConfusion": "Different barriers have different outcome and use limitations.",
+      "retrievalPrompt": "Why must pregnancy prevention and pathogen-contact reduction be evaluated separately?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-barrier-method",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-hormonal-technologies-and-perspectives"
+      ]
+    },
+    {
+      "id": "b-term-hormonal-method",
+      "term": "hormonal method",
+      "categoryIds": [
+        "b-family-reproductive-technologies"
+      ],
+      "definition": "A conception-control approach that uses hormones to change ovulation, mucus, endometrial, or related reproductive conditions depending on the method.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Method is the head noun; hormonal identifies the type of signalling intervention. The adjective alone does not identify a particular hormone or effect."
+      },
+      "whatItDoes": "Signals alter specified reproductive conditions through method-dependent mechanisms.",
+      "relatedTermIds": [
+        "b-term-barrier-method",
+        "b-term-sterilization",
+        "b-term-infertility-reversal"
+      ],
+      "commonConfusion": "All hormonal approaches do not act identically.",
+      "retrievalPrompt": "Why must a mechanism claim name the particular method or model?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-hormonal-method",
+        "pilot2-instruction.json#b-topic-parturition-technologies-infertility-and-perspectives"
+      ]
+    },
+    {
+      "id": "b-term-sterilization",
+      "term": "sterilization",
+      "categoryIds": [
+        "b-family-reproductive-technologies"
+      ],
+      "definition": "A procedure intended as highly effective permanent conception control by interrupting gamete transport or reproductive anatomy.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sterilize is the verb; sterilization is the process noun. Here it refers to intended permanent conception control, not disinfecting laboratory equipment."
+      },
+      "whatItDoes": "Anatomical interruption is intended to prevent specified reproductive transport or function.",
+      "relatedTermIds": [
+        "b-term-barrier-method",
+        "b-term-hormonal-method",
+        "b-term-infertility-reversal"
+      ],
+      "commonConfusion": "It does not necessarily eliminate gonadal hormone production.",
+      "retrievalPrompt": "Predict a transport effect without assuming endocrine shutdown.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-sterilization",
+        "pilot2-instruction.json#b-topic-parturition-technologies-infertility-and-perspectives"
+      ]
+    },
+    {
+      "id": "b-term-infertility-reversal",
+      "term": "infertility reversal",
+      "categoryIds": [
+        "b-family-reproductive-technologies"
+      ],
+      "definition": "An attempt to restore a disrupted reproductive pathway; restoring one function does not guarantee conception.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "In- negates fertile in infertility; reversal names an attempted restoration. The phrase does not guarantee restoration of every reproductive function."
+      },
+      "whatItDoes": "A procedure attempts to restore a previously disrupted pathway.",
+      "relatedTermIds": [
+        "b-term-barrier-method",
+        "b-term-hormonal-method",
+        "b-term-sterilization"
+      ],
+      "commonConfusion": "Restored patency is not a guarantee of conception.",
+      "retrievalPrompt": "What additional biological functions matter after a duct is reopened?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-infertility-reversal",
+        "pilot2-instruction.json#b-topic-parturition-technologies-infertility-and-perspectives"
+      ]
+    },
+    {
+      "id": "b-term-variables",
+      "term": "variables",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "Features that can change, be controlled or be measured in an investigation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Variable is singular; variables is plural. Independent, dependent and controlled identify different investigative roles."
+      },
+      "whatItDoes": "They identify what is changed, held constant or measured in an investigation.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "Those roles should not be conflated.",
+      "retrievalPrompt": "Assign distinct roles to three features of a controlled reproductive model.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-variables",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-comparison",
+      "term": "comparison",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "Examination of similarities and differences between specified conditions or observations.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Compare is the verb; comparison names examination of similarities and differences under stated conditions."
+      },
+      "whatItDoes": "Defined conditions make differences and similarities interpretable.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "A comparison without comparable measurements can mislead.",
+      "retrievalPrompt": "What must be held consistent when comparing hormone graphs?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-comparison",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-data",
+      "term": "data",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "Recorded observations or measurements with their context, units and method.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Data is conventionally the plural of datum, though often used collectively. A dataset is an organized collection; the word does not itself establish causation."
+      },
+      "whatItDoes": "Context and measurement methods determine how recorded values can be interpreted.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "A collection of numbers is not automatically causal evidence.",
+      "retrievalPrompt": "What units and timing information belong with hormone measurements?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-data",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-revision",
+      "term": "revision",
+      "categoryIds": [
+        "b-topic-female-reproductive-structures-additional-vocabulary"
+      ],
+      "definition": "A reasoned change to a prediction, explanation or plan after considering evidence or feedback.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Revise is the verb; revision names a reasoned change to an earlier account. It does not mean erasing the evidence that prompted the change."
+      },
+      "whatItDoes": "It updates an explanation in response to evidence while retaining traceable reasoning.",
+      "relatedTermIds": [
+        "b-term-fimbriae",
+        "b-term-ciliary-transport",
+        "b-term-fertility-probability"
+      ],
+      "commonConfusion": "Revision is not arbitrary replacement without a reason.",
+      "retrievalPrompt": "Which new observation would justify revising your original pathway explanation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-revision",
+        "pilot2-instruction.json#b-topic-female-reproductive-structures-structure-and-reproductive-function"
+      ]
+    },
+    {
+      "id": "b-term-anabolic-steroid",
+      "term": "anabolic steroid",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A steroid substance with actions related to testosterone; an outside androgen signal can alter feedback and suppress normal sperm production.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Steroid names a chemical class; anabolic describes tissue-building-related effects. The modifier does not establish that exposure improves normal reproductive function."
+      },
+      "whatItDoes": "An outside androgen signal can change the feedback controlling endogenous reproductive stimulation.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "Increased androgen exposure does not guarantee increased sperm production.",
+      "retrievalPrompt": "Trace a feedback explanation for reduced sperm production despite an added androgen signal.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-anabolic-steroid",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-growth-hormone",
+      "term": "growth hormone",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A protein hormone released by the anterior pituitary that contributes to growth and metabolism; also called hGH or somatotropin.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hormone is the signalling noun; growth identifies a prominent action. GH is the initialism; hGH adds human, and somatotropin is an alternative name."
+      },
+      "whatItDoes": "Its signalling contributes to coordinated growth and metabolic effects.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "It is not a substitute name for a gonadotropin.",
+      "retrievalPrompt": "Distinguish its source from the targets of LH and FSH.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-growth-hormone",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-andropause",
+      "term": "andropause",
+      "categoryIds": [
+        "b-topic-spermatogenesis-additional-vocabulary"
+      ],
+      "definition": "A term sometimes used for age-associated testicular hormone changes; it does not mean an abrupt universal cessation of sperm production.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Andro- concerns male biology; pause suggests reduced activity. The whole term must not be read as an abrupt universal end to sperm production."
+      },
+      "whatItDoes": "It describes some age-associated hormone changes rather than a universal abrupt reproductive endpoint.",
+      "relatedTermIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic"
+      ],
+      "commonConfusion": "It is not a direct male equivalent of cessation of menstrual cycles.",
+      "retrievalPrompt": "Why should this label not imply that sperm production stops at one fixed age?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-andropause",
+        "pilot2-instruction.json#b-topic-spermatogenesis-feedback-and-evidence"
+      ]
+    },
+    {
+      "id": "b-term-menopause",
+      "term": "menopause",
+      "categoryIds": [
+        "b-topic-menstrual-cycle-additional-vocabulary"
+      ],
+      "definition": "The end of recurring menstrual cycles associated with loss of ovarian follicular function; the preceding transition can involve changing cycles and hormones.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Menopause is the name of the end of menstrual cycling; menopausal is its adjective. Distinguish the endpoint from the preceding transition."
+      },
+      "whatItDoes": "Declining follicular function changes ovarian cycling and endocrine feedback.",
+      "relatedTermIds": [
+        "b-term-contraception",
+        "b-term-benefit",
+        "b-term-limitation"
+      ],
+      "commonConfusion": "The preceding transition is not necessarily one abrupt uniform event.",
+      "retrievalPrompt": "How can changing ovarian feedback alter pituitary stimulation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-menopause",
+        "pilot2-instruction.json#b-topic-menstrual-cycle-graphs-and-cycle-variation"
+      ]
+    },
+    {
+      "id": "b-term-neurulation",
+      "term": "neurulation",
+      "categoryIds": [
+        "b-topic-extraembryonic-structures-and-organogenesis-additional-vocabulary"
+      ],
+      "definition": "The developmental process in which the neural plate folds and forms the neural tube, a foundation of the central nervous system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Neural relates to nervous tissue; neurulation names early neural-tube formation. The process noun is distinct from gastrulation."
+      },
+      "whatItDoes": "Folding and closure organize tissue that develops into the central nervous system.",
+      "relatedTermIds": [
+        "b-term-neural-plate"
+      ],
+      "commonConfusion": "It is not identical with gastrulation.",
+      "retrievalPrompt": "Place neural-plate folding after establishment of the relevant germ layer.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-neurulation",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development"
+      ]
+    },
+    {
+      "id": "b-term-neural-plate",
+      "term": "neural plate",
+      "categoryIds": [
+        "b-topic-extraembryonic-structures-and-organogenesis-additional-vocabulary"
+      ],
+      "definition": "A thickened region of embryonic ectoderm that folds during early nervous-system development.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Plate names a flattened tissue region; neural identifies its developmental nervous-system role."
+      },
+      "whatItDoes": "This organized ectodermal region participates in folding toward a neural tube.",
+      "relatedTermIds": [
+        "b-term-neurulation"
+      ],
+      "commonConfusion": "A plate and a tube are different structural stages.",
+      "retrievalPrompt": "Describe the shape change that connects the two terms.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-neural-plate",
+        "pilot2-instruction.json#b-topic-extraembryonic-structures-and-organogenesis-organ-formation-across-development"
+      ]
+    },
+    {
+      "id": "b-term-neural-tube",
+      "term": "neural tube",
+      "categoryIds": [
+        "b-topic-hcg-and-gastrulation-additional-vocabulary"
+      ],
+      "definition": "An embryonic structure formed through neural-plate folding that gives rise to the brain and spinal cord.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tube names the shape; neural identifies the developing nervous-system tissue. Plate and tube describe different structural stages."
+      },
+      "whatItDoes": "Its developmental regions contribute to the brain and spinal cord.",
+      "relatedTermIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton"
+      ],
+      "commonConfusion": "It does not become every tissue in the body.",
+      "retrievalPrompt": "Connect its embryonic origin with the central nervous system.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-neural-tube",
+        "pilot2-instruction.json#b-topic-hcg-and-gastrulation-layer-to-tissue-relationships"
+      ]
+    },
+    {
+      "id": "b-term-artificial-insemination",
+      "term": "artificial insemination",
+      "categoryIds": [
+        "b-topic-fertilization-to-implantation-additional-vocabulary"
+      ],
+      "definition": "Placement of sperm in the reproductive tract to assist fertilization within the body.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Insemination names placement of sperm; artificial specifies assistance rather than intercourse. The phrase does not imply that fertilization itself occurs outside the body."
+      },
+      "whatItDoes": "Placement assists sperm access while fertilization can still occur within the body.",
+      "relatedTermIds": [],
+      "commonConfusion": "It is not the same procedure as laboratory fertilization.",
+      "retrievalPrompt": "Contrast where fertilization occurs in this approach and IVF.",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#b-term-artificial-insemination",
+        "pilot2-instruction.json#b-topic-fertilization-to-implantation-implantation-and-reproductive-technology"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "b-family-testis-compartments",
+      "label": "Testis compartments",
+      "wordIds": [
+        "b-term-testes",
+        "b-term-seminiferous-tubules",
+        "b-term-sertoli-cells",
+        "b-term-interstitial-cells"
+      ]
+    },
+    {
+      "id": "b-family-sperm-transport",
+      "label": "Sperm transport",
+      "wordIds": [
+        "b-term-epididymis",
+        "b-term-vas-deferens",
+        "b-term-ejaculatory-duct",
+        "b-term-urethra"
+      ]
+    },
+    {
+      "id": "b-family-semen",
+      "label": "Semen",
+      "wordIds": [
+        "b-term-semen",
+        "b-term-seminal-vesicles",
+        "b-term-prostate-gland",
+        "b-term-cowper-glands"
+      ]
+    },
+    {
+      "id": "b-family-gamete-chromosome-sets",
+      "label": "Gamete chromosome sets",
+      "wordIds": [
+        "b-term-diploid",
+        "b-term-haploid",
+        "b-term-primary-spermatocyte",
+        "b-term-secondary-spermatocyte"
+      ]
+    },
+    {
+      "id": "b-family-sperm-differentiation",
+      "label": "Sperm differentiation",
+      "wordIds": [
+        "b-term-spermatid",
+        "b-term-spermatozoon",
+        "b-term-acrosome",
+        "b-term-flagellum"
+      ]
+    },
+    {
+      "id": "b-family-endocrine-signalling",
+      "label": "Endocrine signalling",
+      "wordIds": [
+        "b-term-gnrh",
+        "b-term-fsh",
+        "b-term-lh",
+        "b-term-hypothalamus",
+        "b-term-anterior-pituitary"
+      ]
+    },
+    {
+      "id": "b-family-negative-feedback",
+      "label": "Negative feedback",
+      "wordIds": [
+        "b-term-negative-feedback",
+        "b-term-inhibin",
+        "b-term-testosterone"
+      ]
+    },
+    {
+      "id": "b-family-follicle-and-oocyte",
+      "label": "Follicle and oocyte",
+      "wordIds": [
+        "b-term-ovary",
+        "b-term-follicle",
+        "b-term-oocyte",
+        "b-term-corpus-luteum"
+      ]
+    },
+    {
+      "id": "b-family-reproductive-surfaces",
+      "label": "Reproductive surfaces",
+      "wordIds": [
+        "b-term-fallopian-tube",
+        "b-term-uterus",
+        "b-term-endometrium",
+        "b-term-cervix",
+        "b-term-vagina"
+      ]
+    },
+    {
+      "id": "b-family-oogenesis",
+      "label": "Oogenesis",
+      "wordIds": [
+        "b-term-primary-oocyte",
+        "b-term-secondary-oocyte",
+        "b-term-polar-body",
+        "b-term-ovulation"
+      ]
+    },
+    {
+      "id": "b-family-coordinated-cycles",
+      "label": "Coordinated cycles",
+      "wordIds": [
+        "b-term-ovarian-cycle",
+        "b-term-uterine-cycle",
+        "b-term-follicular-phase",
+        "b-term-luteal-phase"
+      ]
+    },
+    {
+      "id": "b-family-positive-feedback",
+      "label": "Positive feedback",
+      "wordIds": [
+        "b-term-positive-feedback",
+        "b-term-lh-surge",
+        "b-term-estrogen"
+      ]
+    },
+    {
+      "id": "b-family-progesterone-support",
+      "label": "Progesterone support",
+      "wordIds": [
+        "b-term-progesterone",
+        "b-term-menstruation",
+        "b-term-corpus-luteum"
+      ]
+    },
+    {
+      "id": "b-family-graph-evidence",
+      "label": "Graph evidence",
+      "wordIds": [
+        "b-term-axis",
+        "b-term-relative-concentration",
+        "b-term-peak",
+        "b-term-cycle-variation"
+      ]
+    },
+    {
+      "id": "b-family-fertilization",
+      "label": "Fertilization",
+      "wordIds": [
+        "b-term-fertilization",
+        "b-term-capacitation",
+        "b-term-acrosome-reaction",
+        "b-term-zona-pellucida"
+      ]
+    },
+    {
+      "id": "b-family-restoring-diploidy",
+      "label": "Restoring diploidy",
+      "wordIds": [
+        "b-term-meiotic-completion",
+        "b-term-pronucleus",
+        "b-term-zygote",
+        "b-term-polyspermy-block"
+      ]
+    },
+    {
+      "id": "b-family-cleavage-and-blastocyst",
+      "label": "Cleavage and blastocyst",
+      "wordIds": [
+        "b-term-cleavage",
+        "b-term-morula",
+        "b-term-blastocyst",
+        "b-term-inner-cell-mass",
+        "b-term-trophoblast"
+      ]
+    },
+    {
+      "id": "b-family-implantation",
+      "label": "Implantation",
+      "wordIds": [
+        "b-term-implantation",
+        "b-term-receptive-endometrium",
+        "b-term-embryo-transfer",
+        "b-term-ivf"
+      ]
+    },
+    {
+      "id": "b-family-hcg-signalling",
+      "label": "hCG signalling",
+      "wordIds": [
+        "b-term-hcg",
+        "b-term-trophoblast",
+        "b-term-corpus-luteum",
+        "b-term-progesterone"
+      ]
+    },
+    {
+      "id": "b-family-gastrulation",
+      "label": "Gastrulation",
+      "wordIds": [
+        "b-term-gastrulation",
+        "b-term-cell-migration",
+        "b-term-differentiation",
+        "b-term-germ-layer"
+      ]
+    },
+    {
+      "id": "b-family-germ-layer-derivatives",
+      "label": "Germ-layer derivatives",
+      "wordIds": [
+        "b-term-ectoderm",
+        "b-term-mesoderm",
+        "b-term-endoderm"
+      ]
+    },
+    {
+      "id": "b-family-extraembryonic-support",
+      "label": "Extraembryonic support",
+      "wordIds": [
+        "b-term-amnion",
+        "b-term-chorion",
+        "b-term-allantois",
+        "b-term-umbilical-cord"
+      ]
+    },
+    {
+      "id": "b-family-placental-exchange",
+      "label": "Placental exchange",
+      "wordIds": [
+        "b-term-placenta",
+        "b-term-placental-exchange",
+        "b-term-diffusion",
+        "b-term-umbilical-artery",
+        "b-term-umbilical-vein"
+      ]
+    },
+    {
+      "id": "b-family-organogenesis",
+      "label": "Organogenesis",
+      "wordIds": [
+        "b-term-organogenesis",
+        "b-term-embryo",
+        "b-term-fetus",
+        "b-term-trimester"
+      ]
+    },
+    {
+      "id": "b-family-developmental-evidence",
+      "label": "Developmental evidence",
+      "wordIds": [
+        "b-term-teratogen",
+        "b-term-dose",
+        "b-term-route",
+        "b-term-timing",
+        "b-term-confounder"
+      ]
+    },
+    {
+      "id": "b-family-parturition",
+      "label": "Parturition",
+      "wordIds": [
+        "b-term-parturition",
+        "b-term-cervical-stretch",
+        "b-term-oxytocin",
+        "b-term-prostaglandin"
+      ]
+    },
+    {
+      "id": "b-family-lactation",
+      "label": "Lactation",
+      "wordIds": [
+        "b-term-prolactin",
+        "b-term-milk-synthesis",
+        "b-term-milk-ejection",
+        "b-term-suckling"
+      ]
+    },
+    {
+      "id": "b-family-reproductive-technologies",
+      "label": "Reproductive technologies",
+      "wordIds": [
+        "b-term-barrier-method",
+        "b-term-hormonal-method",
+        "b-term-sterilization",
+        "b-term-infertility-reversal"
+      ]
+    },
+    {
+      "id": "b-topic-male-reproductive-structures-additional-vocabulary",
+      "label": "Male Reproductive Structures — additional terms",
+      "wordIds": [
+        "b-term-penis",
+        "b-term-y-chromosome",
+        "b-term-responsive-target",
+        "b-term-sti",
+        "b-term-fertility",
+        "b-term-obstruction",
+        "b-term-reproductive-structures",
+        "b-term-model",
+        "b-term-observation"
+      ]
+    },
+    {
+      "id": "b-topic-spermatogenesis-additional-vocabulary",
+      "label": "Spermatogenesis — additional terms",
+      "wordIds": [
+        "b-term-spermatogonium",
+        "b-term-primary-sex-characteristic",
+        "b-term-secondary-sex-characteristic",
+        "b-term-controlled-variable",
+        "b-term-feedback-suppression",
+        "b-term-muscle",
+        "b-term-variables",
+        "b-term-comparison",
+        "b-term-data",
+        "b-term-anabolic-steroid",
+        "b-term-growth-hormone",
+        "b-term-andropause"
+      ]
+    },
+    {
+      "id": "b-topic-female-reproductive-structures-additional-vocabulary",
+      "label": "Female Reproductive Structures — additional terms",
+      "wordIds": [
+        "b-term-fimbriae",
+        "b-term-ciliary-transport",
+        "b-term-fertility-probability",
+        "b-term-revision"
+      ]
+    },
+    {
+      "id": "b-topic-menstrual-cycle-additional-vocabulary",
+      "label": "Menstrual Cycle — additional terms",
+      "wordIds": [
+        "b-term-contraception",
+        "b-term-benefit",
+        "b-term-limitation",
+        "b-term-menopause"
+      ]
+    },
+    {
+      "id": "b-topic-hcg-and-gastrulation-additional-vocabulary",
+      "label": "hCG and Gastrulation — additional terms",
+      "wordIds": [
+        "b-term-nervous-tissue",
+        "b-term-epidermis",
+        "b-term-skeleton",
+        "b-term-digestive-lining",
+        "b-term-respiratory-lining",
+        "b-term-endocrine-tissue",
+        "b-term-causal-limit",
+        "b-term-neural-tube"
+      ]
+    },
+    {
+      "id": "b-topic-parturition-additional-vocabulary",
+      "label": "Parturition — additional terms",
+      "wordIds": [
+        "b-term-cervical-dilation",
+        "b-term-delivery",
+        "b-term-placental-delivery",
+        "b-term-newborn-transition"
+      ]
+    },
+    {
+      "id": "b-topic-extraembryonic-structures-and-organogenesis-additional-vocabulary",
+      "label": "Extraembryonic Structures and Organogenesis — additional terms",
+      "wordIds": [
+        "b-term-neurulation",
+        "b-term-neural-plate"
+      ]
+    },
+    {
+      "id": "b-topic-fertilization-to-implantation-additional-vocabulary",
+      "label": "Fertilization to Implantation — additional terms",
+      "wordIds": [
+        "b-term-artificial-insemination"
+      ]
+    }
+  ]
+}

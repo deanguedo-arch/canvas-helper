@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-authored-operation-review-complete; not-curriculum-certification",
+  "teacherAcceptance": null,
+  "authoritySha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+  "reviewScope": "Read official Unit A outcomes and compare exact current teaching and activity operations. Supporting italic examples are not a mandatory separate activity quota. Saved opportunities are not observed student mastery.",
+  "repairs": [
+    "Added explicit conduction/convection/radiation mechanism and self-check.",
+    "Added four questions for water-quality interpretation, controlled nutrient comparison, source discrimination and productivity.",
+    "Seminar revision now synthesizes EPA and NASA source summaries for a council audience with benefits, trade-offs and a measurement need.",
+    "Closed-system model includes a fewer-producers comparison and a water-pathway design prompt using existing saved IDs."
+  ],
+  "sourceLinks": [
+    {
+      "id": "EPA",
+      "url": "https://www.epa.gov/nutrientpollution/basic-information-nutrient-pollution",
+      "treatment": "Short local paraphrase; general mechanism, not the illustrative pond measurements."
+    },
+    {
+      "id": "NASA",
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-carbon-cycle/",
+      "treatment": "Short local paraphrase; deforestation/regrowth mechanism, not the illustrative carbon budget."
+    }
+  ],
+  "operations": [
+    {
+      "id": "20-A1.1k",
+      "operation": "Trace radiant or chemical energy through production, respiration and thermal transfer; distinguish energy conservation from decreasing availability.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1431,
+        "endLine": 1435
+      },
+      "teaching": [
+        "a-topic-intro-to-ecology-energy-and-albedo-teaching"
+      ],
+      "workedExample": [
+        "a-topic-intro-to-ecology-energy-and-albedo-worked"
+      ],
+      "independentOpportunity": "a-topic-intro-to-ecology-evidence",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.2k",
+      "operation": "Compare photosynthetic and chemosynthetic production with respiration, including an ecosystem without sunlight.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1436,
+        "endLine": 1440
+      },
+      "teaching": [
+        "a-topic-intro-to-ecology-producing-organic-matter-teaching"
+      ],
+      "workedExample": [
+        "a-topic-intro-to-ecology-producing-organic-matter-worked"
+      ],
+      "independentOpportunity": "a-topic-intro-to-ecology-evidence",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.3k",
+      "operation": "Construct and annotate a food web with arrows toward consumers; explain decomposer connections and changing trophic roles.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1441,
+        "endLine": 1442
+      },
+      "teaching": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence-teaching"
+      ],
+      "workedExample": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence-worked"
+      ],
+      "independentOpportunity": "a-investigation-pond-representation",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.4k",
+      "operation": "Calculate transfer efficiency and compare numbers, biomass and energy pyramids with appropriate area and time units.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1443,
+        "endLine": 1444
+      },
+      "teaching": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover-teaching"
+      ],
+      "workedExample": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover-worked"
+      ],
+      "independentOpportunity": "a-topic-ecological-pyramids-evidence",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.1sts",
+      "operation": "Evaluate an energy-flow explanation against supplied evidence and identify an assumption or alternative explanation.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1449,
+        "endLine": 1458
+      },
+      "teaching": [
+        "a-topic-intro-to-ecology-energy-and-albedo-teaching"
+      ],
+      "workedExample": [
+        "a-topic-intro-to-ecology-energy-and-albedo-worked"
+      ],
+      "independentOpportunity": "a-topic-intro-to-ecology-media",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.1s",
+      "operation": "Formulate a testable light-versus-production question, predict a relationship and identify variables and controls.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1488,
+        "endLine": 1493
+      },
+      "teaching": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency-teaching"
+      ],
+      "workedExample": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency-worked"
+      ],
+      "independentOpportunity": "a-investigation-pond-plan",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.2s",
+      "operation": "Organize supplied production observations and construct an annotated ecosystem representation; distinguish data analysis from physically conducting an experiment.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1498,
+        "endLine": 1503
+      },
+      "teaching": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence-teaching"
+      ],
+      "workedExample": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence-worked"
+      ],
+      "independentOpportunity": "a-investigation-pond-representation",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": "Text-arrow representation and supplied observations, not physical experimentation."
+    },
+    {
+      "id": "20-A1.3s",
+      "operation": "Analyze production data, choose a suitable pyramid representation and assess a prediction with limitations.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1508,
+        "endLine": 1516
+      },
+      "teaching": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover-teaching"
+      ],
+      "workedExample": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover-worked"
+      ],
+      "independentOpportunity": "a-investigation-pond-analysis",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A1.4s",
+      "operation": "Communicate quantitative ecosystem results with units, appropriate precision and a reasoned comparison; do not claim observed teamwork.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1521,
+        "endLine": 1525
+      },
+      "teaching": [
+        "a-topic-ecological-pyramids-numbers-and-biomass-teaching"
+      ],
+      "workedExample": [
+        "a-topic-ecological-pyramids-numbers-and-biomass-worked"
+      ],
+      "independentOpportunity": "a-investigation-pond-representation",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": "Independent scientific communication; teamwork is not observed or certified."
+    },
+    {
+      "id": "20-A2.1k",
+      "operation": "Trace carbon, oxygen, nitrogen and phosphorus through reservoirs and processes without treating matter as newly created.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1555,
+        "endLine": 1556
+      },
+      "teaching": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations-teaching"
+      ],
+      "workedExample": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations-worked"
+      ],
+      "independentOpportunity": "a-topic-carbon-oxygen-and-nitrogen-cycles-evidence",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A2.2k",
+      "operation": "Connect polarity and hydrogen bonding to dissolution, transport, temperature buffering and water movement in cycles.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1557,
+        "endLine": 1558
+      },
+      "teaching": [
+        "a-topic-water-and-the-hydrologic-cycle-water-properties-teaching"
+      ],
+      "workedExample": [
+        "a-topic-water-and-the-hydrologic-cycle-water-properties-worked"
+      ],
+      "independentOpportunity": "a-topic-water-and-the-hydrologic-cycle-retrieval",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A2.1sts",
+      "operation": "Evaluate intended and unintended effects of a human intervention on linked nutrient or water cycles, including environmental evidence and a trade-off.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1564,
+        "endLine": 1584
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-worked"
+      ],
+      "independentOpportunity": "a-seminar-revise",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A2.1s",
+      "operation": "Predict a disruption in a nutrient cycle and design a controlled comparison capable of testing the mechanism.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1614,
+        "endLine": 1622
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-worked"
+      ],
+      "independentOpportunity": "a-final-cycle-design",
+      "feedback": "Check-answer feedback",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A2.2s",
+      "operation": "Read and record supplied water-quality measurements with units and method limitations; do not claim hands-on chemical testing.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1627,
+        "endLine": 1630
+      },
+      "teaching": [
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-teaching"
+      ],
+      "workedExample": [
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-worked"
+      ],
+      "independentOpportunity": "a-final-water-quality",
+      "feedback": "Check-answer feedback",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": "Supplied-data selected-response recording/interpretation, not physical water testing."
+    },
+    {
+      "id": "20-A2.3s",
+      "operation": "Calculate water gain/loss from supplied observations and explain uncertainty and biological consequences.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1635,
+        "endLine": 1638
+      },
+      "teaching": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links-teaching"
+      ],
+      "workedExample": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links-worked"
+      ],
+      "independentOpportunity": "a-topic-water-and-the-hydrologic-cycle-media",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A2.4s",
+      "operation": "Synthesize source-separated evidence about human influence on cycles and communicate a justified conclusion; mark collaborative performance as unobserved.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1643,
+        "endLine": 1647
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-worked"
+      ],
+      "independentOpportunity": "a-seminar-revise",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": "Independent scientific communication; teamwork is not observed or certified."
+    },
+    {
+      "id": "20-A3.1k",
+      "operation": "Explain productivity using both available energy and matter; compare environments without equating standing biomass with production rate.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1671,
+        "endLine": 1677
+      },
+      "teaching": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-teaching"
+      ],
+      "workedExample": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-worked"
+      ],
+      "independentOpportunity": "a-final-productivity",
+      "feedback": "Check-answer feedback",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A3.2k",
+      "operation": "Use photosynthesis and respiration gas exchanges to explain atmospheric balance and effects of unequal rates.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1678,
+        "endLine": 1679
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-worked"
+      ],
+      "independentOpportunity": "a-model-gas-explanation",
+      "feedback": "Predict/Test result with mechanism and limitation; revise explanation",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A3.3k",
+      "operation": "Interpret stromatolite and iron-oxidation evidence for changing atmospheric oxygen; separate observation, inference and schematic timeline.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1680,
+        "endLine": 1682
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-worked"
+      ],
+      "independentOpportunity": "a-topic-sulfur-and-phosphorus-cycles-retrieval",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A3.1sts",
+      "operation": "Evaluate a closed biological life-support system by tracing energy input, matter cycling and its practical limits.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1688,
+        "endLine": 1693
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-worked"
+      ],
+      "independentOpportunity": "a-model-gas-explanation",
+      "feedback": "Predict/Test result with mechanism and limitation; revise explanation",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A3.2sts",
+      "operation": "Explain how a human activity changes photosynthetic/respiratory balance and evaluate environmental consequences.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1695,
+        "endLine": 1701
+      },
+      "teaching": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-teaching"
+      ],
+      "workedExample": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-worked"
+      ],
+      "independentOpportunity": "a-final-human-evidence",
+      "feedback": "Check-answer feedback",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": null
+    },
+    {
+      "id": "20-A3.1s",
+      "operation": "Predict oxygen and carbon dioxide changes after a specified reduction in producers, stating system boundaries.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1730,
+        "endLine": 1734
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life-worked"
+      ],
+      "independentOpportunity": "a-model-gas-prediction",
+      "feedback": "Predict/Test result with mechanism and limitation; revise explanation",
+      "status": "implemented-online-opportunity",
+      "limits": null
+    },
+    {
+      "id": "20-A3.2s",
+      "operation": "Select and compare supplied sources on a human disruption of biosphere gas exchange, distinguishing evidence from assertion.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1739,
+        "endLine": 1743
+      },
+      "teaching": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-teaching"
+      ],
+      "workedExample": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-worked"
+      ],
+      "independentOpportunity": "a-seminar-revise",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": "Compare supplied print/electronic source explanations; open-ended source searching is not required."
+    },
+    {
+      "id": "20-A3.3s",
+      "operation": "Design and test a closed-system model of water, oxygen and carbon dioxide exchange; account for its external energy supply and limitations.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1748,
+        "endLine": 1753
+      },
+      "teaching": [
+        "a-topic-intro-to-ecology-system-boundaries-teaching"
+      ],
+      "workedExample": [
+        "a-topic-intro-to-ecology-system-boundaries-worked"
+      ],
+      "independentOpportunity": "a-model-gas-explanation",
+      "feedback": "Predict/Test result with mechanism and limitation; revise explanation",
+      "status": "implemented-online-opportunity",
+      "limits": "Proposed sealed-water design and selectable gas simulation; not an empirical life-support test."
+    },
+    {
+      "id": "20-A3.4s",
+      "operation": "Communicate a source-based environmental explanation for an audience, compare perspectives and identify further evidence; do not certify teamwork.",
+      "authority": {
+        "sourceSha256": "07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f",
+        "startLine": 1758,
+        "endLine": 1762
+      },
+      "teaching": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-teaching"
+      ],
+      "workedExample": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-worked"
+      ],
+      "independentOpportunity": "a-seminar-revise",
+      "feedback": "Attempt-before-guide comparison and criteria",
+      "status": "online-adaptation-with-explicit-performance-limits",
+      "limits": "Independent scientific communication; teamwork is not observed or certified."
+    }
+  ],
+  "remainingBoundaries": [
+    "No physical laboratory or team performance is certified by an independent online course.",
+    "Teacher acceptance and formal curriculum certification remain external decisions.",
+    "Unreviewed external videos are not selected; each topic has a complete local illustrated explanation and saved checkpoint."
+  ]
+}

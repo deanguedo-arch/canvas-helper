@@ -128,6 +128,7 @@ const LearnerIndividualEvidenceScenarioSchema = z
   .strict();
 
 const LearnerEvidenceScenarioSchema = z.union([
+  z.object({kind:z.literal("pilot3-local-run"),route:LearnerRouteId,activityId:LearnerStorageId,collectionRoute:LearnerRouteId}).strict(),
   LearnerCollectionEvidenceScenarioSchema,
   LearnerIndividualEvidenceScenarioSchema,
   z.object({kind:z.literal("pilot2"),route:LearnerRouteId,responseId:LearnerStorageId,collectionRoute:LearnerRouteId,collectionFlag:LearnerStorageId,activateSelector:NonEmptyString.optional()}).strict()

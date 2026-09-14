@@ -17,6 +17,7 @@ import {buildTopicActivityIndex,type ActivityInputs} from './pilot2-activity-ind
 import {topicHtml as h} from './pilot2-render-common.js';
 import type {TopicBrowserPayload} from './pilot2-browser-entry.js';
 import type {Biology30SuspendDataSchema} from './suspend-data.js';
+import {renderTopicWordPage,type BiologyWordPageData} from '../../biology30-vocabulary/word-page.js';
 
 export type TopicCourseInputs={sourceVideos?:SourceVideo[];title:string;summary:string;outcomes:string[];logoPath:string;topic:Omit<TopicRenderInputs,'vocabulary'>&{vocabulary:RenderTopicVocabulary};models:RenderTopicModel[];investigations:RenderTopicInvestigation[];seminar:RenderTopicSeminar;textbookGroups:{id:string;chapter:number|null;textbookUnit:number|null;items:TopicTextbookQuestion[]}[];materials:{sourcePath:string;figure:TopicFigure}[];videos:TopicMediaClip[]};
 export function topicCourseActivities(input:TopicCourseInputs):ActivityInputs {
@@ -24,7 +25,7 @@ export function topicCourseActivities(input:TopicCourseInputs):ActivityInputs {
 }
 /** Pure whole-course assembly. The owning build must verify ALL three frozen
  * contracts and the transitive code/asset closure before invoking this function. */
-export function renderTopicCourse(input:TopicCourseInputs,legacySchema?:Biology30SuspendDataSchema) {
+export function renderTopicCourse(input:TopicCourseInputs&{wordData?:BiologyWordPageData},legacySchema?:Biology30SuspendDataSchema) {
  const {topic}=input,{contract,state}=topic,unit=state.unit.toLowerCase(),graphs=topic.graphs??[];
  if(contract.status!=='frozen'||contract.teacherAcceptance!==null)throw new Error('Whole-course rendering requires a frozen, unaccepted author contract');
  if(!/^assets\/[a-zA-Z0-9/_.-]+\.(png|svg|webp)$/.test(input.logoPath)||input.logoPath.includes('..'))throw new Error('Unsafe course logo path');
@@ -91,6 +92,7 @@ export function renderTopicCourse(input:TopicCourseInputs,legacySchema?:Biology3
  }
 
  adaptTopicHubs(input,pages);
+ if(input.wordData){const page=pages.get(`${unit}-core-vocabulary`)!;page.html=renderTopicWordPage(page.html,input.wordData);}
  const shell=renderPresentationShell(input,pages,TOPIC_COMPONENT_CSS+TOPIC_MEDIA_CSS+TOPIC_COLLECTION_CSS+TOPIC_FIGURE_VIEWER_CSS);
  const $=load(shell);
  $(`#${unit}-sources-and-credits`).attr('data-p2-presentation-route','');

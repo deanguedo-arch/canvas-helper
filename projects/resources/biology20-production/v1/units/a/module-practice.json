@@ -1,0 +1,969 @@
+{
+  "schemaVersion": 1,
+  "courseId": "biology20",
+  "unit": "A",
+  "status": "authored operation-linked practice; academic clearance pending",
+  "items": [
+    {
+      "id": "a-roles",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-trophic-levels-and-efficiency",
+      "prompt": "A bird eats a seed, then an insect that ate a leaf. Its roles in these two chains are:",
+      "options": [
+        "Primary then secondary consumer",
+        "Producer then primary consumer",
+        "Secondary consumer in both",
+        "Decomposer then producer"
+      ],
+      "correctIndex": 0,
+      "rationale": "Eating producer material gives a primary-consumer role; eating a primary consumer gives a secondary-consumer role.",
+      "misconceptionFeedback": [
+        "Correct. Eating producer material gives a primary-consumer role; eating a primary consumer gives a secondary-consumer role.",
+        "“Producer then primary consumer” does not fit the stated evidence. Eating producer material gives a primary-consumer role; eating a primary consumer gives a secondary-consumer role.",
+        "“Secondary consumer in both” does not fit the stated evidence. Eating producer material gives a primary-consumer role; eating a primary consumer gives a secondary-consumer role.",
+        "“Decomposer then producer” does not fit the stated evidence. Eating producer material gives a primary-consumer role; eating a primary consumer gives a secondary-consumer role."
+      ],
+      "teachingTopicId": "a-topic-trophic-levels-and-efficiency",
+      "teachingPartIds": [
+        "a-topic-trophic-levels-and-efficiency-feeding-roles"
+      ],
+      "componentIds": [
+        "a-topic-trophic-levels-and-efficiency-feeding-roles"
+      ],
+      "outcomeIds": [
+        "20-A1.3k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-efficiency",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-trophic-levels-and-efficiency",
+      "prompt": "Production is 12,000 kJ m⁻² yr⁻¹ at the producer level and 900 at the next level. Efficiency is:",
+      "options": [
+        "13.3%",
+        "75%",
+        "10% by definition",
+        "7.5%"
+      ],
+      "correctIndex": 3,
+      "rationale": "900/12,000 × 100 = 7.5%; use matched production units, not an assumed universal value.",
+      "misconceptionFeedback": [
+        "“13.3%” does not fit the stated evidence. 900/12,000 × 100 = 7.5%; use matched production units, not an assumed universal value.",
+        "“75%” does not fit the stated evidence. 900/12,000 × 100 = 7.5%; use matched production units, not an assumed universal value.",
+        "“10% by definition” does not fit the stated evidence. 900/12,000 × 100 = 7.5%; use matched production units, not an assumed universal value.",
+        "Correct. 900/12,000 × 100 = 7.5%; use matched production units, not an assumed universal value."
+      ],
+      "teachingTopicId": "a-topic-trophic-levels-and-efficiency",
+      "teachingPartIds": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency"
+      ],
+      "componentIds": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency"
+      ],
+      "outcomeIds": [
+        "20-A1.4k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-concentration",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-ecological-pyramids",
+      "prompt": "A 0.4 kg sample contains 2 µg of a substance. Its concentration is:",
+      "options": [
+        "0.2 µg kg⁻¹",
+        "2 µg kg⁻¹",
+        "5 µg kg⁻¹",
+        "0.8 µg kg⁻¹"
+      ],
+      "correctIndex": 2,
+      "rationale": "Divide amount by sample mass: 2/0.4 = 5 µg kg⁻¹.",
+      "misconceptionFeedback": [
+        "“0.2 µg kg⁻¹” does not fit the stated evidence. Divide amount by sample mass: 2/0.4 = 5 µg kg⁻¹.",
+        "“2 µg kg⁻¹” does not fit the stated evidence. Divide amount by sample mass: 2/0.4 = 5 µg kg⁻¹.",
+        "Correct. Divide amount by sample mass: 2/0.4 = 5 µg kg⁻¹.",
+        "“0.8 µg kg⁻¹” does not fit the stated evidence. Divide amount by sample mass: 2/0.4 = 5 µg kg⁻¹."
+      ],
+      "teachingTopicId": "a-topic-ecological-pyramids",
+      "teachingPartIds": [
+        "a-topic-ecological-pyramids-concentration-along-food-webs"
+      ],
+      "componentIds": [
+        "a-topic-ecological-pyramids-concentration-along-food-webs"
+      ],
+      "outcomeIds": [
+        "20-A1.1sts"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-stock",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-ecological-pyramids",
+      "prompt": "Which measurement can label a standing-biomass pyramid?",
+      "options": [
+        "Percentage of sunlight reflected",
+        "g dry mass m⁻² on a specified date",
+        "kJ m⁻² yr⁻¹ of production",
+        "Total organisms born per year"
+      ],
+      "correctIndex": 1,
+      "rationale": "Standing biomass is mass at a time on a stated area basis, not an energy-production rate.",
+      "misconceptionFeedback": [
+        "“Percentage of sunlight reflected” does not fit the stated evidence. Standing biomass is mass at a time on a stated area basis, not an energy-production rate.",
+        "Correct. Standing biomass is mass at a time on a stated area basis, not an energy-production rate.",
+        "“kJ m⁻² yr⁻¹ of production” does not fit the stated evidence. Standing biomass is mass at a time on a stated area basis, not an energy-production rate.",
+        "“Total organisms born per year” does not fit the stated evidence. Standing biomass is mass at a time on a stated area basis, not an energy-production rate."
+      ],
+      "teachingTopicId": "a-topic-ecological-pyramids",
+      "teachingPartIds": [
+        "a-topic-ecological-pyramids-numbers-and-biomass"
+      ],
+      "componentIds": [
+        "a-topic-ecological-pyramids-numbers-and-biomass"
+      ],
+      "outcomeIds": [
+        "20-A1.4k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-density",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-water-and-the-hydrologic-cycle",
+      "prompt": "In the stated ordinary freshwater model, which is denser?",
+      "options": [
+        "Water near 4 °C than water at 1 °C",
+        "Water at 1 °C than water near 4 °C",
+        "Ice than liquid water",
+        "All phases have identical density"
+      ],
+      "correctIndex": 0,
+      "rationale": "Freshwater's density is greatest near 4 °C; colder is not always denser.",
+      "misconceptionFeedback": [
+        "Correct. Freshwater's density is greatest near 4 °C; colder is not always denser.",
+        "“Water at 1 °C than water near 4 °C” does not fit the stated evidence. Freshwater's density is greatest near 4 °C; colder is not always denser.",
+        "“Ice than liquid water” does not fit the stated evidence. Freshwater's density is greatest near 4 °C; colder is not always denser.",
+        "“All phases have identical density” does not fit the stated evidence. Freshwater's density is greatest near 4 °C; colder is not always denser."
+      ],
+      "teachingTopicId": "a-topic-water-and-the-hydrologic-cycle",
+      "teachingPartIds": [
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing"
+      ],
+      "componentIds": [
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing"
+      ],
+      "outcomeIds": [
+        "20-A2.2k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-budget",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-water-and-the-hydrologic-cycle",
+      "prompt": "A store receives 45 m³ and loses 62 m³ in a week. Its change is:",
+      "options": [
+        "107 m³",
+        "17 m³ remaining",
+        "−107 m³",
+        "−17 m³"
+      ],
+      "correctIndex": 3,
+      "rationale": "Change = input − output = 45 − 62 = −17 m³; final storage also needs an initial value.",
+      "misconceptionFeedback": [
+        "“107 m³” does not fit the stated evidence. Change = input − output = 45 − 62 = −17 m³; final storage also needs an initial value.",
+        "“17 m³ remaining” does not fit the stated evidence. Change = input − output = 45 − 62 = −17 m³; final storage also needs an initial value.",
+        "“−107 m³” does not fit the stated evidence. Change = input − output = 45 − 62 = −17 m³; final storage also needs an initial value.",
+        "Correct. Change = input − output = 45 − 62 = −17 m³; final storage also needs an initial value."
+      ],
+      "teachingTopicId": "a-topic-water-and-the-hydrologic-cycle",
+      "teachingPartIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links"
+      ],
+      "componentIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links"
+      ],
+      "outcomeIds": [
+        "20-A2.3s"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-nitrogen",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "prompt": "A plant directly incorporates ammonium nitrogen into organic compounds. This is:",
+      "options": [
+        "Denitrification",
+        "Proof of atmospheric N₂ uptake",
+        "Assimilation",
+        "Nitrification"
+      ],
+      "correctIndex": 2,
+      "rationale": "Assimilation incorporates available nitrogen into organic compounds; ammonium need not first become nitrate.",
+      "misconceptionFeedback": [
+        "“Denitrification” does not fit the stated evidence. Assimilation incorporates available nitrogen into organic compounds; ammonium need not first become nitrate.",
+        "“Proof of atmospheric N₂ uptake” does not fit the stated evidence. Assimilation incorporates available nitrogen into organic compounds; ammonium need not first become nitrate.",
+        "Correct. Assimilation incorporates available nitrogen into organic compounds; ammonium need not first become nitrate.",
+        "“Nitrification” does not fit the stated evidence. Assimilation incorporates available nitrogen into organic compounds; ammonium need not first become nitrate."
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "teachingPartIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations"
+      ],
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-sink",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "prompt": "A carbon store is large but releases more than it takes up this year. It is:",
+      "options": [
+        "Creating carbon atoms",
+        "A net source for that interval",
+        "Necessarily a net sink",
+        "Not a reservoir"
+      ],
+      "correctIndex": 1,
+      "rationale": "Reservoir size and the sign of net exchange are different properties.",
+      "misconceptionFeedback": [
+        "“Creating carbon atoms” does not fit the stated evidence. Reservoir size and the sign of net exchange are different properties.",
+        "Correct. Reservoir size and the sign of net exchange are different properties.",
+        "“Necessarily a net sink” does not fit the stated evidence. Reservoir size and the sign of net exchange are different properties.",
+        "“Not a reservoir” does not fit the stated evidence. Reservoir size and the sign of net exchange are different properties."
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "teachingPartIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen"
+      ],
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-oxygen",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-sulfur-and-phosphorus-cycles",
+      "prompt": "Why can oxygen decline after nutrient enrichment?",
+      "options": [
+        "Respiration can exceed oxygen supply and transport",
+        "Algae only respire at night",
+        "Phosphate directly destroys every oxygen molecule",
+        "Every bloom necessarily removes all life"
+      ],
+      "correctIndex": 0,
+      "rationale": "An increased organic supply may support oxygen-consuming respiration; the net balance also includes photosynthesis and transport.",
+      "misconceptionFeedback": [
+        "Correct. An increased organic supply may support oxygen-consuming respiration; the net balance also includes photosynthesis and transport.",
+        "“Algae only respire at night” does not fit the stated evidence. An increased organic supply may support oxygen-consuming respiration; the net balance also includes photosynthesis and transport.",
+        "“Phosphate directly destroys every oxygen molecule” does not fit the stated evidence. An increased organic supply may support oxygen-consuming respiration; the net balance also includes photosynthesis and transport.",
+        "“Every bloom necessarily removes all life” does not fit the stated evidence. An increased organic supply may support oxygen-consuming respiration; the net balance also includes photosynthesis and transport."
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "teachingPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "outcomeIds": [
+        "20-A2.1sts"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-evidence",
+      "kind": "multiple-choice",
+      "role": "guided",
+      "routeId": "a-topic-sulfur-and-phosphorus-cycles",
+      "prompt": "Which conclusion is justified by a layered rock alone?",
+      "options": [
+        "It gives an exact global oxygenation date",
+        "Every layer is a dead cyanobacterial cell",
+        "Its iron content directly measures atmospheric oxygen percentage",
+        "Its layers can be described; biological origin requires more evidence"
+      ],
+      "correctIndex": 3,
+      "rationale": "Observation must be separated from inference; geological context and independent evidence are needed.",
+      "misconceptionFeedback": [
+        "“It gives an exact global oxygenation date” does not fit the stated evidence. Observation must be separated from inference; geological context and independent evidence are needed.",
+        "“Every layer is a dead cyanobacterial cell” does not fit the stated evidence. Observation must be separated from inference; geological context and independent evidence are needed.",
+        "“Its iron content directly measures atmospheric oxygen percentage” does not fit the stated evidence. Observation must be separated from inference; geological context and independent evidence are needed.",
+        "Correct. Observation must be separated from inference; geological context and independent evidence are needed."
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "teachingPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life"
+      ],
+      "outcomeIds": [
+        "20-A3.3k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-boundary",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-1-practice",
+      "prompt": "A sealed transparent jar exchanges heat and light but not matter over the stated interval. It is:",
+      "options": [
+        "Isolated because glass surrounds it",
+        "Neither a system nor a boundary",
+        "Approximately closed, not isolated",
+        "Open because energy enters"
+      ],
+      "correctIndex": 2,
+      "rationale": "Closed refers to matter exchange; isolated excludes both matter and energy exchange.",
+      "misconceptionFeedback": [
+        "“Isolated because glass surrounds it” does not fit the stated evidence. Closed refers to matter exchange; isolated excludes both matter and energy exchange.",
+        "“Neither a system nor a boundary” does not fit the stated evidence. Closed refers to matter exchange; isolated excludes both matter and energy exchange.",
+        "Correct. Closed refers to matter exchange; isolated excludes both matter and energy exchange.",
+        "“Open because energy enters” does not fit the stated evidence. Closed refers to matter exchange; isolated excludes both matter and energy exchange."
+      ],
+      "teachingTopicId": "a-topic-intro-to-ecology",
+      "teachingPartIds": [
+        "a-topic-intro-to-ecology-system-boundaries"
+      ],
+      "componentIds": [
+        "a-topic-intro-to-ecology-system-boundaries"
+      ],
+      "outcomeIds": [
+        "20-A1.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-web",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-1-practice",
+      "prompt": "For a plant eaten by an insect, the food-web arrow points:",
+      "options": [
+        "Nowhere because only predators get arrows",
+        "From plant toward insect",
+        "From insect toward plant",
+        "Both ways to show recycled energy"
+      ],
+      "correctIndex": 1,
+      "rationale": "Food-web arrows point toward the consumer receiving matter and chemical energy.",
+      "misconceptionFeedback": [
+        "“Nowhere because only predators get arrows” does not fit the stated evidence. Food-web arrows point toward the consumer receiving matter and chemical energy.",
+        "Correct. Food-web arrows point toward the consumer receiving matter and chemical energy.",
+        "“From insect toward plant” does not fit the stated evidence. Food-web arrows point toward the consumer receiving matter and chemical energy.",
+        "“Both ways to show recycled energy” does not fit the stated evidence. Food-web arrows point toward the consumer receiving matter and chemical energy."
+      ],
+      "teachingTopicId": "a-topic-trophic-levels-and-efficiency",
+      "teachingPartIds": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence"
+      ],
+      "componentIds": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence"
+      ],
+      "outcomeIds": [
+        "20-A1.3k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-turnover",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-1-practice",
+      "prompt": "A stock of 8 g m⁻² produces 2 g m⁻² day⁻¹. Stock/production is:",
+      "options": [
+        "4 days",
+        "16 days",
+        "0.25 days",
+        "4 g m⁻²"
+      ],
+      "correctIndex": 0,
+      "rationale": "8/2 = 4 days after mass and area cancel; it is not necessarily individual lifespan.",
+      "misconceptionFeedback": [
+        "Correct. 8/2 = 4 days after mass and area cancel; it is not necessarily individual lifespan.",
+        "“16 days” does not fit the stated evidence. 8/2 = 4 days after mass and area cancel; it is not necessarily individual lifespan.",
+        "“0.25 days” does not fit the stated evidence. 8/2 = 4 days after mass and area cancel; it is not necessarily individual lifespan.",
+        "“4 g m⁻²” does not fit the stated evidence. 8/2 = 4 days after mass and area cancel; it is not necessarily individual lifespan."
+      ],
+      "teachingTopicId": "a-topic-ecological-pyramids",
+      "teachingPartIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ],
+      "componentIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ],
+      "outcomeIds": [
+        "20-A3.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-units",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-1-practice",
+      "prompt": "What invalidates a proposed energy-transfer ratio?",
+      "options": [
+        "Using matched areas",
+        "Using matched time intervals",
+        "Showing the calculation and units",
+        "Comparing annual production with a one-day standing energy stock"
+      ],
+      "correctIndex": 3,
+      "rationale": "A stock and a production rate describe different quantities and cannot be substituted.",
+      "misconceptionFeedback": [
+        "“Using matched areas” does not fit the stated evidence. A stock and a production rate describe different quantities and cannot be substituted.",
+        "“Using matched time intervals” does not fit the stated evidence. A stock and a production rate describe different quantities and cannot be substituted.",
+        "“Showing the calculation and units” does not fit the stated evidence. A stock and a production rate describe different quantities and cannot be substituted.",
+        "Correct. A stock and a production rate describe different quantities and cannot be substituted."
+      ],
+      "teachingTopicId": "a-topic-ecological-pyramids",
+      "teachingPartIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ],
+      "componentIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ],
+      "outcomeIds": [
+        "20-A1.4k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-solvent",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-2-practice",
+      "prompt": "Which statement is most defensible?",
+      "options": [
+        "Dissolved ions no longer exist",
+        "Water is nonpolar",
+        "Water dissolves many ionic and polar substances, but not everything",
+        "Water dissolves every compound equally"
+      ],
+      "correctIndex": 2,
+      "rationale": "Polarity helps explain dissolution of many substances; universal solvent is not literal.",
+      "misconceptionFeedback": [
+        "“Dissolved ions no longer exist” does not fit the stated evidence. Polarity helps explain dissolution of many substances; universal solvent is not literal.",
+        "“Water is nonpolar” does not fit the stated evidence. Polarity helps explain dissolution of many substances; universal solvent is not literal.",
+        "Correct. Polarity helps explain dissolution of many substances; universal solvent is not literal.",
+        "“Water dissolves every compound equally” does not fit the stated evidence. Polarity helps explain dissolution of many substances; universal solvent is not literal."
+      ],
+      "teachingTopicId": "a-topic-water-and-the-hydrologic-cycle",
+      "teachingPartIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-properties"
+      ],
+      "componentIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-properties"
+      ],
+      "outcomeIds": [
+        "20-A2.2k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-fixation",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-2-practice",
+      "prompt": "Which converts nitrogen gas into biologically available fixed nitrogen?",
+      "options": [
+        "Harvest removal",
+        "Nitrogen fixation",
+        "Nitrification of ammonium",
+        "Plant respiration"
+      ],
+      "correctIndex": 1,
+      "rationale": "Fixation begins with N₂; nitrification changes nitrogen that is already fixed.",
+      "misconceptionFeedback": [
+        "“Harvest removal” does not fit the stated evidence. Fixation begins with N₂; nitrification changes nitrogen that is already fixed.",
+        "Correct. Fixation begins with N₂; nitrification changes nitrogen that is already fixed.",
+        "“Nitrification of ammonium” does not fit the stated evidence. Fixation begins with N₂; nitrification changes nitrogen that is already fixed.",
+        "“Plant respiration” does not fit the stated evidence. Fixation begins with N₂; nitrification changes nitrogen that is already fixed."
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "teachingPartIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations"
+      ],
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-phosphorus",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-2-practice",
+      "prompt": "The simplified phosphorus cycle differs from nitrogen because it:",
+      "options": [
+        "Has no major gaseous reservoir",
+        "Never moves in water",
+        "Contains no biological uptake",
+        "Cannot be transported in dust"
+      ],
+      "correctIndex": 0,
+      "rationale": "The simplified phosphorus cycle lacks a major gaseous store, but particles can travel through air.",
+      "misconceptionFeedback": [
+        "Correct. The simplified phosphorus cycle lacks a major gaseous store, but particles can travel through air.",
+        "“Never moves in water” does not fit the stated evidence. The simplified phosphorus cycle lacks a major gaseous store, but particles can travel through air.",
+        "“Contains no biological uptake” does not fit the stated evidence. The simplified phosphorus cycle lacks a major gaseous store, but particles can travel through air.",
+        "“Cannot be transported in dust” does not fit the stated evidence. The simplified phosphorus cycle lacks a major gaseous store, but particles can travel through air."
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "teachingPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-chapter-sulfur",
+      "kind": "multiple-choice",
+      "role": "chapter",
+      "routeId": "a-chapter-2-practice",
+      "prompt": "Weathering sulfur-bearing rock and burning sulfur-containing fuel should be shown as:",
+      "options": [
+        "The same SO₂ emission in every case",
+        "Processes that create sulfur atoms",
+        "Proof that smell indicates safety",
+        "Distinct processes with their products and destinations specified"
+      ],
+      "correctIndex": 3,
+      "rationale": "Weathering, combustion, transport and uptake are different pathways, not interchangeable labels.",
+      "misconceptionFeedback": [
+        "“The same SO₂ emission in every case” does not fit the stated evidence. Weathering, combustion, transport and uptake are different pathways, not interchangeable labels.",
+        "“Processes that create sulfur atoms” does not fit the stated evidence. Weathering, combustion, transport and uptake are different pathways, not interchangeable labels.",
+        "“Proof that smell indicates safety” does not fit the stated evidence. Weathering, combustion, transport and uptake are different pathways, not interchangeable labels.",
+        "Correct. Weathering, combustion, transport and uptake are different pathways, not interchangeable labels."
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "teachingPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence"
+      ],
+      "outcomeIds": [
+        "20-A2.1sts"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-albedo",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "A surface receives 1,200 J and reflects 360 J. With no transmission, absorption is:",
+      "options": [
+        "0.30 J",
+        "1,560 J",
+        "840 J",
+        "360 J"
+      ],
+      "correctIndex": 2,
+      "rationale": "Absorption = 1,200 − 360 = 840 J; albedo is the dimensionless ratio 0.30.",
+      "misconceptionFeedback": [
+        "“0.30 J” does not fit the stated evidence. Absorption = 1,200 − 360 = 840 J; albedo is the dimensionless ratio 0.30.",
+        "“1,560 J” does not fit the stated evidence. Absorption = 1,200 − 360 = 840 J; albedo is the dimensionless ratio 0.30.",
+        "Correct. Absorption = 1,200 − 360 = 840 J; albedo is the dimensionless ratio 0.30.",
+        "“360 J” does not fit the stated evidence. Absorption = 1,200 − 360 = 840 J; albedo is the dimensionless ratio 0.30."
+      ],
+      "teachingTopicId": "a-topic-intro-to-ecology",
+      "teachingPartIds": [
+        "a-topic-intro-to-ecology-energy-and-albedo"
+      ],
+      "componentIds": [
+        "a-topic-intro-to-ecology-energy-and-albedo"
+      ],
+      "outcomeIds": [
+        "20-A1.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-chain",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "Under an explicitly assumed 10% per transfer, 30,000 kJ of producer production gives secondary consumers:",
+      "options": [
+        "30 kJ",
+        "300 kJ",
+        "3,000 kJ",
+        "6,000 kJ"
+      ],
+      "correctIndex": 1,
+      "rationale": "Two transfers: 30,000 × 0.1 × 0.1 = 300 kJ.",
+      "misconceptionFeedback": [
+        "“30 kJ” does not fit the stated evidence. Two transfers: 30,000 × 0.1 × 0.1 = 300 kJ.",
+        "Correct. Two transfers: 30,000 × 0.1 × 0.1 = 300 kJ.",
+        "“3,000 kJ” does not fit the stated evidence. Two transfers: 30,000 × 0.1 × 0.1 = 300 kJ.",
+        "“6,000 kJ” does not fit the stated evidence. Two transfers: 30,000 × 0.1 × 0.1 = 300 kJ."
+      ],
+      "teachingTopicId": "a-topic-trophic-levels-and-efficiency",
+      "teachingPartIds": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency"
+      ],
+      "componentIds": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency"
+      ],
+      "outcomeIds": [
+        "20-A1.4k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-inversion",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "A small producer biomass supports a larger consumer stock. Which should be investigated?",
+      "options": [
+        "Producer turnover and matched production measurements",
+        "Whether energy conservation has stopped",
+        "A universal six-level maximum",
+        "Why all aquatic pyramids must be inverted"
+      ],
+      "correctIndex": 0,
+      "rationale": "Rapid producer replacement can reconcile stock inversion with an upright energy-production comparison.",
+      "misconceptionFeedback": [
+        "Correct. Rapid producer replacement can reconcile stock inversion with an upright energy-production comparison.",
+        "“Whether energy conservation has stopped” does not fit the stated evidence. Rapid producer replacement can reconcile stock inversion with an upright energy-production comparison.",
+        "“A universal six-level maximum” does not fit the stated evidence. Rapid producer replacement can reconcile stock inversion with an upright energy-production comparison.",
+        "“Why all aquatic pyramids must be inverted” does not fit the stated evidence. Rapid producer replacement can reconcile stock inversion with an upright energy-production comparison."
+      ],
+      "teachingTopicId": "a-topic-ecological-pyramids",
+      "teachingPartIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ],
+      "componentIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ],
+      "outcomeIds": [
+        "20-A1.4k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-water",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "A pond starts at 900 m³, gains 140 and loses 175. Final storage is:",
+      "options": [
+        "−35 m³",
+        "1,215 m³",
+        "935 m³",
+        "865 m³"
+      ],
+      "correctIndex": 3,
+      "rationale": "Net change is −35 m³; add it to 900 to obtain 865 m³.",
+      "misconceptionFeedback": [
+        "“−35 m³” does not fit the stated evidence. Net change is −35 m³; add it to 900 to obtain 865 m³.",
+        "“1,215 m³” does not fit the stated evidence. Net change is −35 m³; add it to 900 to obtain 865 m³.",
+        "“935 m³” does not fit the stated evidence. Net change is −35 m³; add it to 900 to obtain 865 m³.",
+        "Correct. Net change is −35 m³; add it to 900 to obtain 865 m³."
+      ],
+      "teachingTopicId": "a-topic-water-and-the-hydrologic-cycle",
+      "teachingPartIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links"
+      ],
+      "componentIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links"
+      ],
+      "outcomeIds": [
+        "20-A2.3s"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-carbon",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "Fixation is 80 carbon units and total outputs are 95. The storage change is:",
+      "options": [
+        "175 carbon units",
+        "Impossible because atoms are conserved",
+        "−15 carbon units",
+        "+15 carbon units"
+      ],
+      "correctIndex": 2,
+      "rationale": "A negative storage change means carbon left the chosen system, not that atoms were destroyed.",
+      "misconceptionFeedback": [
+        "“175 carbon units” does not fit the stated evidence. A negative storage change means carbon left the chosen system, not that atoms were destroyed.",
+        "“Impossible because atoms are conserved” does not fit the stated evidence. A negative storage change means carbon left the chosen system, not that atoms were destroyed.",
+        "Correct. A negative storage change means carbon left the chosen system, not that atoms were destroyed.",
+        "“+15 carbon units” does not fit the stated evidence. A negative storage change means carbon left the chosen system, not that atoms were destroyed."
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "teachingPartIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen"
+      ],
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-denitrification",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "A nitrate decline alone establishes:",
+      "options": [
+        "That fixation must have stopped",
+        "A changed nitrate measurement, not its unique cause",
+        "That all nitrate became N₂",
+        "That every plant stopped growing"
+      ],
+      "correctIndex": 1,
+      "rationale": "Uptake, transport, transformation and measurement effects can produce a nitrate decline.",
+      "misconceptionFeedback": [
+        "“That fixation must have stopped” does not fit the stated evidence. Uptake, transport, transformation and measurement effects can produce a nitrate decline.",
+        "Correct. Uptake, transport, transformation and measurement effects can produce a nitrate decline.",
+        "“That all nitrate became N₂” does not fit the stated evidence. Uptake, transport, transformation and measurement effects can produce a nitrate decline.",
+        "“That every plant stopped growing” does not fit the stated evidence. Uptake, transport, transformation and measurement effects can produce a nitrate decline."
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "teachingPartIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations"
+      ],
+      "outcomeIds": [
+        "20-A2.1k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-bloom",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "A claim about low oxygen after a bloom is strengthened by:",
+      "options": [
+        "Depth/time oxygen measurements and evidence about sources and consumption",
+        "Algal colour alone",
+        "Assuming respiration only occurs in darkness",
+        "Assuming every lake responds identically"
+      ],
+      "correctIndex": 0,
+      "rationale": "The proposed oxygen-balance mechanism needs measurements of the relevant processes and conditions.",
+      "misconceptionFeedback": [
+        "Correct. The proposed oxygen-balance mechanism needs measurements of the relevant processes and conditions.",
+        "“Algal colour alone” does not fit the stated evidence. The proposed oxygen-balance mechanism needs measurements of the relevant processes and conditions.",
+        "“Assuming respiration only occurs in darkness” does not fit the stated evidence. The proposed oxygen-balance mechanism needs measurements of the relevant processes and conditions.",
+        "“Assuming every lake responds identically” does not fit the stated evidence. The proposed oxygen-balance mechanism needs measurements of the relevant processes and conditions."
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "teachingPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "outcomeIds": [
+        "20-A2.1sts"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-history",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "Oxygen production can occur without accumulation when:",
+      "options": [
+        "No photosynthesis occurs",
+        "Oxygen is not conserved",
+        "A single rock is undated",
+        "Removal balances production"
+      ],
+      "correctIndex": 3,
+      "rationale": "Net change depends on sources minus sinks, so balanced rates produce no accumulation.",
+      "misconceptionFeedback": [
+        "“No photosynthesis occurs” does not fit the stated evidence. Net change depends on sources minus sinks, so balanced rates produce no accumulation.",
+        "“Oxygen is not conserved” does not fit the stated evidence. Net change depends on sources minus sinks, so balanced rates produce no accumulation.",
+        "“A single rock is undated” does not fit the stated evidence. Net change depends on sources minus sinks, so balanced rates produce no accumulation.",
+        "Correct. Net change depends on sources minus sinks, so balanced rates produce no accumulation."
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "teachingPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life"
+      ],
+      "outcomeIds": [
+        "20-A3.2k"
+      ],
+      "componentEvidenceRole": "Independent selected answer; explanation and reasoning also collected in lesson evidence"
+    },
+    {
+      "id": "a-final-water-quality",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "Illustrative oxygen-probe readings are 8.0 and 5.0 mg/L at 0 and 10 m at noon. What is the defensible record?",
+      "options": [
+        "Oxygen decreased by 3.0 mg/L across the two sampled depths; these readings do not establish a daily mean.",
+        "The whole lake contains 13.0 mg of oxygen.",
+        "Temperature decreased by 3.0 °C.",
+        "The readings prove nutrient pollution caused fish deaths."
+      ],
+      "correctIndex": 0,
+      "rationale": "Concentration is not total mass. Record depth, time, units and probe calibration; two values do not prove a cause.",
+      "outcomeIds": [
+        "20-A2.2s"
+      ],
+      "teachingTopicId": "a-topic-water-and-the-hydrologic-cycle",
+      "partIds": [
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing"
+      ],
+      "componentIds": [
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing-teaching"
+      ],
+      "sourceRole": "Authored independent question. Numerical observations explicitly illustrative.",
+      "misconceptionFeedback": [
+        "Concentration is not total mass. Record depth, time, units and probe calibration; two values do not prove a cause.",
+        "Reconsider: Concentration is not total mass. Record depth, time, units and probe calibration; two values do not prove a cause.",
+        "Reconsider: Concentration is not total mass. Record depth, time, units and probe calibration; two values do not prove a cause.",
+        "Reconsider: Concentration is not total mass. Record depth, time, units and probe calibration; two values do not prove a cause."
+      ]
+    },
+    {
+      "id": "a-final-cycle-design",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "You predict nutrient enrichment raises algal growth and later oxygen consumption. Which comparison best tests the mechanism?",
+      "options": [
+        "Compare unrelated lakes at different temperatures without measuring nutrients.",
+        "Use replicated equal-volume samples with matched initial organisms, light and temperature; vary nutrient input and measure growth and oxygen over time.",
+        "Add every nutrient and change light in the only test sample.",
+        "Measure one final oxygen value and assume every earlier process."
+      ],
+      "correctIndex": 1,
+      "rationale": "Vary the proposed cause while controlling other influences, use replication and measure both the proposed intermediate response and oxygen balance.",
+      "outcomeIds": [
+        "20-A2.1s"
+      ],
+      "teachingTopicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "partIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "componentIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication-teaching"
+      ],
+      "sourceRole": "Authored independent question. Numerical observations explicitly illustrative.",
+      "misconceptionFeedback": [
+        "Reconsider: Vary the proposed cause while controlling other influences, use replication and measure both the proposed intermediate response and oxygen balance.",
+        "Vary the proposed cause while controlling other influences, use replication and measure both the proposed intermediate response and oxygen balance.",
+        "Reconsider: Vary the proposed cause while controlling other influences, use replication and measure both the proposed intermediate response and oxygen balance.",
+        "Reconsider: Vary the proposed cause while controlling other influences, use replication and measure both the proposed intermediate response and oxygen balance."
+      ]
+    },
+    {
+      "id": "a-final-human-evidence",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "NASA's carbon-cycle explanation describes carbon release from deforestation and removal during regrowth. Your lesson's forest account gives a +15 carbon-unit balance. Which comparison is valid?",
+      "options": [
+        "NASA measured exactly +15 units in the lesson's forest.",
+        "The two statements cannot both be true.",
+        "The agency source describes real processes; +15 is an illustrative account under specified flows, not independent field confirmation.",
+        "A positive balance proves every forest offsets any fossil-fuel emission."
+      ],
+      "correctIndex": 2,
+      "rationale": "Separate a published process explanation from a constructed numerical example. Neither supplies the local clearing rate or complete emissions balance.",
+      "outcomeIds": [
+        "20-A3.2s",
+        "20-A3.2sts"
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "partIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen-teaching"
+      ],
+      "sourceRole": "Authored independent question. Numerical observations explicitly illustrative.",
+      "misconceptionFeedback": [
+        "Reconsider: Separate a published process explanation from a constructed numerical example. Neither supplies the local clearing rate or complete emissions balance.",
+        "Reconsider: Separate a published process explanation from a constructed numerical example. Neither supplies the local clearing rate or complete emissions balance.",
+        "Separate a published process explanation from a constructed numerical example. Neither supplies the local clearing rate or complete emissions balance.",
+        "Reconsider: Separate a published process explanation from a constructed numerical example. Neither supplies the local clearing rate or complete emissions balance."
+      ]
+    },
+    {
+      "id": "a-final-productivity",
+      "kind": "multiple-choice",
+      "role": "final",
+      "routeId": "a-final-practice",
+      "prompt": "Two environments receive similar light, but one lacks available nitrogen and has lower annual production. Which interpretation is supported?",
+      "options": [
+        "Equal light guarantees equal production.",
+        "The lower-production site must contain less standing biomass.",
+        "Nitrogen supplies new energy instead of matter.",
+        "Production depends on available matter as well as usable energy; matched-light evidence alone cannot establish every limiting factor."
+      ],
+      "correctIndex": 3,
+      "rationale": "Nitrogen is needed for biological compounds, while light provides energy. Measure other variables before identifying a unique cause.",
+      "outcomeIds": [
+        "20-A3.1k"
+      ],
+      "teachingTopicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "partIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management"
+      ],
+      "componentIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management-teaching"
+      ],
+      "sourceRole": "Authored independent question. Numerical observations explicitly illustrative.",
+      "misconceptionFeedback": [
+        "Reconsider: Nitrogen is needed for biological compounds, while light provides energy. Measure other variables before identifying a unique cause.",
+        "Reconsider: Nitrogen is needed for biological compounds, while light provides energy. Measure other variables before identifying a unique cause.",
+        "Reconsider: Nitrogen is needed for biological compounds, while light provides energy. Measure other variables before identifying a unique cause.",
+        "Nitrogen is needed for biological compounds, while light provides energy. Measure other variables before identifying a unique cause."
+      ]
+    }
+  ]
+}

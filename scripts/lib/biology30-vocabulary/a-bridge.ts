@@ -20,4 +20,8 @@ export const A_VOCABULARY_BRIDGE = String.raw`
   window.biologyVocabulary={unlocked:function(id){var button=document.querySelector('[data-vocabulary-target="'+id+'"]');return Boolean(button&&vocabularyUnlocked(button))},refresh:refreshInlineFrayers,status:function(){return inlineVocabularyStatus},selectedFamilies:function(){return state.vocabulary.choiceIds.slice()}};
   document.addEventListener("click",function(event){var button=event.target.closest&&event.target.closest("[data-select-frayer]");if(!button)return;queueMicrotask(function(){refreshInlineFrayers();if(state.vocabulary.choiceIds.length>=2){choiceManager.open=true;choiceManager.querySelector("[data-a-choice-status]").textContent="Both learner-choice slots are occupied. Existing writing is protected by the confirmation controls below."}})});
   refreshInlineFrayers();
+  window.biologyVocabulary.wordState=function(){return state};
+  var originalCollectionText=collectionText;
+  collectionText=function(){var original=originalCollectionText(),words=window.biologyWordCollectionText&&window.biologyWordCollectionText();return words?original.replace("No work has been started yet.","No other work has been started yet.")+"\n\nWord Frayers\n\n"+words:original};
+  window.biologyVocabulary.saveWords=function(){var result=save();return {saved:saveSucceeded(result),message:saveMessage(result)}};
 `;

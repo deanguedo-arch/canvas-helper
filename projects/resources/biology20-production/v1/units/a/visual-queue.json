@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "status": "first-topic-survey; not complete-unit visual clearance",
+  "courseId": "biology20",
+  "moduleId": "a",
+  "sourceVisuals": [
+    {
+      "path": "assets/75c080c39ced8001c3dce53f18e0d143391ce12e76fc4592cf429957d87bedfb.png",
+      "slide": 9,
+      "opened": true,
+      "finding": "80%/10% high-low albedo diagram. Concept valid for illustrative comparison; no defined surface measurement or origin clearance. Recreate exact quantitative comparison natively with explicit illustrative caption.",
+      "disposition": "reference-only"
+    },
+    {
+      "path": "assets/3a94cdc3db056aa4ac24af6b002deb3b7eecc7ac65faf15e9b9e47eba23c3005.png",
+      "slide": 9,
+      "opened": true,
+      "finding": "Car-colour analogy; omits exposure and other temperature factors. Redundant with clearer surface energy budget.",
+      "disposition": "reference-only"
+    },
+    {
+      "path": "assets/0a0ab97d43e7e00b948a555e51c152bdd707ac4bf13c8e46c74b04e33d9c9a17.png",
+      "slide": 13,
+      "opened": true,
+      "finding": "Small sunflower photograph; does not explain carbon or energy operation. Not selected for explanatory role.",
+      "disposition": "reference-only"
+    },
+    {
+      "path": "assets/25a11b2ee313832ea8d9ada28b9c09b852e7f6876187b4182a480297c96107ba.png",
+      "slide": 14,
+      "opened": true,
+      "finding": "Balanced overall oxygenic photosynthesis equation; useful reference. Render equation as selectable accessible course text, with net-process limitation.",
+      "disposition": "reference-only"
+    },
+    {
+      "path": "assets/13286ec382f02d2eadfdf8f7f0917ef8d8cbed77372860c2ec9b3b852a6d4a81.jpg",
+      "slide": 15,
+      "opened": true,
+      "finding": "Stylized vent with unlabeled red arrows and animal silhouette; does not distinguish energy source, carbon fixation or feeding. Unsuitable as mechanism evidence.",
+      "disposition": "replace-for-explanation"
+    }
+  ],
+  "slots": [
+    {
+      "id": "a-topic-intro-to-ecology-system-boundaries-figure",
+      "method": "native-diagram",
+      "status": "authored-and-opened; in-lesson-check-pending",
+      "operation": "Distinguish internal transfer from boundary crossing in jar and plant systems.",
+      "file": "figures/system-boundaries.svg",
+      "review": "Native SVG rendered and visually inspected. Albedo equal-length input bars and 800/200 shares reconcile; jar compares external and internal transfers. No empirical data claim."
+    },
+    {
+      "id": "a-topic-intro-to-ecology-energy-and-albedo-figure",
+      "method": "native-diagram",
+      "status": "authored-and-opened; in-lesson-check-pending",
+      "operation": "Track equal incoming energy into reflected and absorbed amounts with labelled illustrative values.",
+      "file": "figures/albedo-budget.svg",
+      "review": "Native SVG rendered and visually inspected. Albedo equal-length input bars and 800/200 shares reconcile; jar compares external and internal transfers. No empirical data claim."
+    },
+    {
+      "id": "a-topic-intro-to-ecology-producing-organic-matter-figure",
+      "method": "authenticated-chatgpt-browser",
+      "status": "provisionally-selected; in-lesson-check-pending",
+      "operation": "Distinguish carbon inputs from two immediate energy sources.",
+      "prompt": "Create one high-resolution landscape scientific teaching illustration for Alberta Biology 20. Title: \"Two ways to build organic matter\". White background, restrained forest-green headings, clear dark lettering, detailed but uncluttered textbook-style biological illustrations. Two side-by-side panels, both equally important. LEFT title \"Photosynthetic producer\": show a green algal cell in water with a clearly labelled sunlight arrow entering; a separate clearly labelled \"Carbon dioxide: carbon input\" arrow enters the cell; an output arrow leads to a simple labelled box \"Organic matter\". RIGHT title \"Chemoautotrophic producer\": show a scientifically schematic microbial cell beside a small dark hydrothermal-vent habitat inset, explicitly mark the inset \"Example habitat\"; a clearly labelled \"Energy from inorganic chemical reactions\" arrow enters the cell, separate from an arrow labelled \"Carbon dioxide: carbon input\"; an output arrow leads to a box \"Organic matter\". Give energy-input arrows amber dashed lines and carbon/matter arrows dark green solid lines, with a small exact legend: \"Dashed amber: energy input\" and \"Solid green: carbon/matter\". Do not draw an arrow from sunlight to carbon dioxide or suggest energy becomes carbon. Do not show an unbalanced chemical equation, sulfuric acid, giant animals making food themselves, or a universal pathway for all vent organisms. Neither panel should imply that respiration is absent. Bottom caption exactly: \"Conceptual comparison, not a measured experiment. Other reactants and cellular steps are omitted.\" All arrows must have clear destinations, no crossed leaders, no invented numerical data, no decorative logos. Large legible text and generous separation for inline course reading. Generate the image, not a written description.",
+      "sourceAuthority": [
+        "https://repository.library.noaa.gov/view/noaa/61170",
+        "https://oceantoday.noaa.gov/methane-seepsofthe-deepocean/"
+      ],
+      "candidates": [
+        {
+          "id": "producer-comparison-v1",
+          "file": "figures/producer-comparison-v1.png",
+          "sha256": "8587c5499268b8cccfc8670635a4541d6a01fdb99b7a56e76ecf490a81d235fa",
+          "width": 1586,
+          "height": 992,
+          "download": "ChatGPT browser Save original",
+          "opened": true,
+          "disposition": "superseded",
+          "finding": "Bacterium has multiple membrane-bounded-looking internal bodies; request specific prokaryotic correction."
+        },
+        {
+          "id": "producer-comparison-v2",
+          "file": "figures/producer-comparison-v2.png",
+          "sha256": "e0146452df77a2ef2d87bb7223c6e0b5d7677626af6f2cfa94bab21480b796a5",
+          "width": 1536,
+          "height": 1024,
+          "download": "ChatGPT browser Save original",
+          "opened": true,
+          "disposition": "provisional-local-review",
+          "finding": "Corrected unbounded DNA region and small dots; separate energy and carbon arrows, accurate labels and limitation preserved. Stylized cells and habitat are explanatory, not microscopy or authentic observation evidence.",
+          "revisionPrompt": "Make one focused scientific correction to this image. In the right-hand bacterium only, replace the many large membrane-bounded-looking internal bodies with an unmistakably prokaryotic schematic interior: diffuse cytoplasm, many small ribosome dots, and one irregular unbounded nucleoid DNA region. No nucleus, chloroplasts, mitochondria or large organelle-like vesicles. Keep the left alga, every label, arrow direction, legend, title, layout, colours, habitat inset and bottom limitation unchanged. This is a conceptual bacterium, not a microscopy observation."
+        }
+      ],
+      "teacherDecision": null,
+      "conversationUrl": "https://chatgpt.com/c/6aa0b8d2-0d7c-83e8-9ebe-9c2dac7f7711",
+      "selected": "producer-comparison-v2"
+    }
+  ],
+  "release": "local blocked review only; no teacher acceptance"
+}

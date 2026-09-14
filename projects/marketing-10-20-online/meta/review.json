@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "marketing-10-20-online",
+  "status": "local-review-candidate",
+  "htmlSha256": "a0c90927d612ed0a1a6dbc297049e1648e8b22b91d8177183d69b6880cb5ace8",
+  "workspaceSha256": "b19144879c8c357b0d8fb66359111e973f7d7839d6515e6e3546487379322360",
+  "teacherApproval": false,
+  "authoringStatus": "blocked",
+  "studioEdit": false,
+  "exports": false,
+  "hosting": null,
+  "curriculumVerification": "incomplete: all detailed official outcomes, prerequisites and parameters require reconciliation",
+  "soloPerformanceValidation": "unresolved; see curriculum-assessment-map.json",
+  "assessmentModel": "Four-category shared rubric plus task-specific descriptors. No automatic grade.",
+  "nextApprovalRequirements": [
+    "Exact build and learning depth",
+    "Every general/specific official outcome mapped to instruction and evidence",
+    "Prerequisites and delivery parameters",
+    "Project eligibility and distinct learning",
+    "Solo performance exceptions, particularly actual event facilitation",
+    "Rubric application and accessibility"
+  ],
+  "technicalVerification": "verification.json; e2e/specs/cts-online.spec.ts; scripts/tests/cts-online.test.ts",
+  "technicalStatus": "pass; expected doctor not-active only",
+  "browserSuite": "5/5 CTS suite passed 2026-09-09",
+  "visualReview": "All main routes in Studio/Full Preview, module opening views, mobile and representative saved/error states inspected; see visual-review/.",
+  "lastVerificationAt": "2026-09-09T17:04:41.404Z"
+}

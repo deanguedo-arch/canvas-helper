@@ -1,0 +1,75 @@
+{
+  "projectSlug": "biology20-unit-a",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Intro to Ecology"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "a-topic-intro-to-ecology",
+      "a-topic-trophic-levels-and-efficiency",
+      "a-topic-ecological-pyramids",
+      "a-topic-water-and-the-hydrologic-cycle",
+      "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "a-topic-sulfur-and-phosphorus-cycles",
+      "a-chapter-1-practice",
+      "a-chapter-2-practice",
+      "a-review-seminar",
+      "a-final-practice",
+      "a-core-vocabulary",
+      "a-glossary",
+      "a-models",
+      "a-investigations",
+      "a-all-my-work",
+      "a-advanced",
+      "a-video-library",
+      "a-textbook",
+      "a-notes"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "resourceChecks": [],
+    "evidenceScenario": {
+      "kind": "pilot2",
+      "route": "a-topic-intro-to-ecology",
+      "responseId": "a-topic-intro-to-ecology-evidence",
+      "collectionFlag": "a-topic-intro-to-ecology-evidence-collected",
+      "collectionRoute": "a-all-my-work"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "a-topic-intro-to-ecology",
+        "a-topic-trophic-levels-and-efficiency",
+        "a-topic-ecological-pyramids",
+        "a-topic-water-and-the-hydrologic-cycle",
+        "a-topic-carbon-oxygen-and-nitrogen-cycles",
+        "a-topic-sulfur-and-phosphorus-cycles",
+        "a-chapter-1-practice",
+        "a-chapter-2-practice",
+        "a-review-seminar",
+        "a-final-practice",
+        "a-all-my-work"
+      ]
+    }
+  }
+}

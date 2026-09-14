@@ -2,7 +2,9 @@ import {renderPresentationLessonHeader} from './pilot2-lesson-header.js';
 import {renderTopicAdvanced} from './pilot2-render-advanced.js';
 import {renderTopicMediaClip,type TopicMediaClip} from './pilot2-media.js';
 import type { GraphWork } from "./pilot2-graph-work.js";
-import type { TopicContract } from "./pilot2-contract.js";
+import type { TopicLayout } from "./topic-layout.js";
+import type {TopicContract} from "./pilot2-contract.js";
+import {validateBiologyRuntimeIdentity} from './course-identity.js';
 import type { CoreTeaching, Instruction, TopicTeaching } from "./pilot2-instruction-audit.js";
 import type { LearningInputs } from "./pilot2-learning-audit.js";
 import type { TopicStateSchema } from "./pilot2-state.js";
@@ -10,7 +12,7 @@ import { topicHtml as h, renderTopicPractice, renderTopicWritingActivity, type R
 
 export type TopicFigurePanel = { id: string; src: string; width: number; height: number; alt: string; caption: string; equivalentExplanation: string; scienceReview: "passed"; useScope: "local-blocked-review"; sha256: string };
 export type TopicFigure = TopicFigurePanel & {panels?:TopicFigurePanel[];comparisonGuide?:string};
-export type TopicRenderInputs = { contract: TopicContract; core: CoreTeaching; instruction: Instruction; framing: TopicTeaching; state: TopicStateSchema; vocabulary: LearningInputs["vocabulary"]; practice: RenderPractice[]; figures: TopicFigure[]; graphs?: GraphWork[]; videos?: TopicMediaClip[]; timing?: {routes:{routeId:string;requiredMinutes:number}[];optionalAllocations:{id:string;minutes:number}[]}; textbookLinks?:{topicId:string;pdf:string;printedPage:number;physicalPage:number}[] };
+export type TopicRenderInputs<C extends TopicLayout = TopicContract> = { contract: C; core: CoreTeaching; instruction: Instruction; framing: TopicTeaching; state: TopicStateSchema; vocabulary: LearningInputs["vocabulary"]; practice: RenderPractice[]; figures: TopicFigure[]; graphs?: GraphWork[]; videos?: TopicMediaClip[]; timing?: {routes:{routeId:string;requiredMinutes:number}[];optionalAllocations:{id:string;minutes:number}[]}; textbookLinks?:{topicId:string;pdf:string;printedPage:number;physicalPage:number}[] };
 export function renderTopicFigure(figure: TopicFigure, instance = ""):string {
   if (!/^assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+\.(?:png|jpg|jpeg|webp|svg)$/.test(figure.src) || figure.src.includes("..") || !Number.isInteger(figure.width) || !Number.isInteger(figure.height) || figure.width < 1 || figure.height < 1 || !figure.alt.trim() || !figure.caption.trim() || !figure.equivalentExplanation.trim() || figure.scienceReview !== "passed" || figure.useScope !== "local-blocked-review" || !/^[a-f0-9]{64}$/.test(figure.sha256)) throw new Error(`Unresolved or unsafe figure: ${figure.id}`);
   const id = figure.id + instance;
@@ -21,7 +23,9 @@ export function renderTopicFigure(figure: TopicFigure, instance = ""):string {
   return `<figure id="${h(id)}" class="p2-figure"><img src="${h(figure.src)}" width="${figure.width}" height="${figure.height}" alt="${h(figure.alt)}" loading="lazy"><figcaption>${h(figure.caption)}</figcaption><p>${h(figure.equivalentExplanation)}</p><button type="button" data-pilot2-enlarge aria-haspopup="dialog" aria-label="${h(`Enlarge: ${figure.caption}`)}">Enlarge figure</button></figure>`;
 }
 /** Component authoring is separate from the frozen all-unit build entry point. */
-export function renderBiology30Topic(topicId: string, input: TopicRenderInputs) {
+export function renderBiology30Topic(topicId: string, input: TopicRenderInputs<TopicLayout>) {
+  validateBiologyRuntimeIdentity(input.contract);
+  if(input.contract.courseId!==input.state.courseId)throw Error('Teaching course identity does not match saved-state schema');
   const topic = input.contract.topics.find(topic => topic.id === topicId), framing = input.framing.topics.find(topic => topic.topicId === topicId);
   if (!topic || !framing) throw new Error(`Missing topic renderer input: ${topicId}`);
   if ([input.core.unit,input.instruction.unit,input.framing.unit,input.state.unit,input.vocabulary.unit].some(unit => unit !== input.contract.unit)) throw new Error("Cross-unit renderer inputs");

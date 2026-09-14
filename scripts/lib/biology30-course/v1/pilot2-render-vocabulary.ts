@@ -1,4 +1,4 @@
-import type { TopicContract } from "./pilot2-contract.js";
+import type { TopicLayout } from "./topic-layout.js";
 import type { TopicStateSchema } from "./pilot2-state.js";
 import type { LearningInputs } from "./pilot2-learning-audit.js";
 import { renderTopicResponse } from "./pilot2-render-controls.js";
@@ -8,7 +8,7 @@ export type RenderTopicFamily=LearningInputs['vocabulary']['conceptFamilies'][nu
 export type RenderTopicVocabulary=Omit<LearningInputs['vocabulary'],'conceptFamilies'>&{conceptFamilies:RenderTopicFamily[]};
 const labels=['My definition in context','Essential characteristics or mechanism','Unit example or evidence','Non-example or common confusion'];
 const modelKeys=['contextualDefinition','essentialMechanism','unitEvidence','nonExampleOrConfusion'];
-export function renderTopicVocabulary(vocabulary:RenderTopicVocabulary,contract:TopicContract,schema:TopicStateSchema) {
+export function renderTopicVocabulary(vocabulary:RenderTopicVocabulary,contract:TopicLayout,schema:TopicStateSchema) {
   const options=schema.families.selectable.map(id=>{const family=vocabulary.conceptFamilies.find(family=>family.id===id);if(!family)throw new Error('Unknown selectable Frayer');return `<option value="${h(id)}">${h(family.label)}</option>`;}).join('');
   const chapters=[...new Set(contract.topics.map(t=>t.chapter))];
   return `<div class="p2-topic"><header class="page-header"><p class="eyebrow">Process Collection</p><h1>Core Vocabulary</h1><p>Build the concept families as they appear in the lessons. Future terms show where they will be taught; their explanation opens after that lesson has begun.</p><p class="vocab-progress"><strong data-p2-vocabulary-progress>0 of 8</strong> added to Process Collection</p></header><div class="vocabulary-tools"><label>Search concepts<input type="search" data-p2-vocabulary-search placeholder="Search a concept or term"></label><label>Show<select data-p2-vocabulary-filter><option value="learned">Learned so far</option><option value="all">All term names</option>${chapters.map(c=>`<option value="${c}">Chapter ${c}</option>`).join('')}</select></label></div><div class="vocabulary-layout"><nav class="vocabulary-index" aria-label="Core vocabulary concepts">${vocabulary.conceptFamilies.map(family=>{

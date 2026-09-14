@@ -72,7 +72,7 @@ The contained index change replaced duplicate evidence displays with one state-d
 
 ## Current academic review and B-D production recipe
 
-- Current learner SHA: `aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544`; tree SHA: `65d07258da159ad4ab463f0a447d2d6e533892b9cba10673ccb7d2e3d9957df9`.
+- Current learner SHA: `7b7df6f5859c3d91104cdca25e9facf121d9fb14ee061d999ac7d0598a99367a`; tree SHA: `e038e2f41b0be33d219161ae0d9c193c76fd7cb8c2e49980eb02c9c1c88558c9`.
 - Checkpoint: `2ad72ec06b104c589f91e4b5afb8d86c322bc168`; immutable pre-audit SHA: `219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc`.
 - Corrective batch: [practice and source-column changes](./academic-corrections.md), [all 86 before/after records](./academic-corrections.json), and [exact-build verification](./academic-corrections-verification.json). The review-only findings remain attached to the preserved 21363490 baseline, not this corrected build.
 - Start at [the canonical playbook](../../biology30-unit-a-pilot/meta/unit-a-to-bcd-improvement-playbook.md#current-production-recipe), then [the exact academic findings](./final-academic-review.json), [both-pilot transfer contract](../../biology30-unit-a-pilot/meta/biology30-improvement-transfer-contract.json), and [B-D material readiness](../../biology30-unit-a-pilot/meta/bcd-material-readiness.json).

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "scope": "Lesson 1 only; local saving. LMS reporting deferred.",
+  "sourceHtmlSha": "7b7df6f5859c3d91104cdca25e9facf121d9fb14ee061d999ac7d0598a99367a",
+  "deck": {
+    "path": "projects/resources/biology30-unit-a-pilot/_sources/74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1.pptx",
+    "sha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1",
+    "slides": [
+      1,
+      20
+    ]
+  },
+  "textbook": {
+    "path": "projects/biology30-unit-a-pilot-2/workspace/assets/textbook/chapter-11.pdf",
+    "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec",
+    "printedPages": [
+      367,
+      368,
+      369,
+      370,
+      371,
+      372,
+      384
+    ]
+  },
+  "questions": [
+    {
+      "id": "check-1",
+      "sourceId": "class-2026-27:res-quiz-59222:obj-2130965",
+      "prompt": "Identify the type of neuron that carries impulses toward the central nervous system (CNS)."
+    },
+    {
+      "id": "check-2",
+      "sourceId": "class-2026-27:res-quiz-59222:obj-2130967",
+      "prompt": "Which row above identifies the first and last elements in a reflex arc?"
+    }
+  ],
+  "written": [
+    {
+      "id": "written-1",
+      "page": 370,
+      "question": 5
+    },
+    {
+      "id": "written-2",
+      "page": 371,
+      "question": "11.A application 4"
+    },
+    {
+      "id": "review-1",
+      "page": 372,
+      "question": 8
+    },
+    {
+      "id": "review-2",
+      "page": 384,
+      "question": 3
+    }
+  ],
+  "protectedHashes": {
+    "biology30-unit-a-pilot-2": "7b7df6f5859c3d91104cdca25e9facf121d9fb14ee061d999ac7d0598a99367a",
+    "biology30-unit-b": "9978e4f1e15fbfea4a1ef7fd07305c77c4e26b0613cf02c63d5a677e8ba32595",
+    "biology30-unit-c": "15ea556b7606d80646e34ad010604bde9e55d910de279db5da7430024fc8ac2b",
+    "biology30-unit-d": "2e3f6eeaa864cb304dd277b661c7ce0095f5fa55a3d4b6b13b2dcc1a2f9d5f9f"
+  },
+  "corrections": [
+    "Peripheral versus central myelin",
+    "No regeneration guarantee from myelination",
+    "Do not call MS simply a genetic disorder",
+    "Spinal withdrawal reflex scope"
+  ],
+  "figurePolicy": "Source figures only; embedded PowerPoint provenance remains a release boundary",
+  "initializer": "npx tsx scripts/create-biology30-unit-a-pilot-3.ts (one-time, refuses existing target)"
+}

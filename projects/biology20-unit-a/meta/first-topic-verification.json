@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "status": "internal-shell-and-first-topic-checks-passed; module incomplete",
+  "candidateFiles": [
+    {
+      "file": "index.html",
+      "sha256": "4716302c10a89e1bc8e3ad266be94dbcfe9da598c590830eafe4b90d8206355b"
+    },
+    {
+      "file": "proof.js",
+      "sha256": "a8044dd9f6b15a04aeb59bbdc88df4de5229f26f4a01d13d935f95633a4a19f5"
+    },
+    {
+      "file": "assets/brand/nxt-ce-logo-white-with-ce.png",
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "file": "assets/fonts/HankenGrotesk-Variable.ttf",
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+    },
+    {
+      "file": "assets/fonts/WorkSans-Variable.ttf",
+      "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+    },
+    {
+      "file": "assets/fonts/OFL-Hanken-Grotesk.txt",
+      "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+    },
+    {
+      "file": "assets/fonts/OFL-Work-Sans.txt",
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "file": "assets/system-boundaries.svg",
+      "sha256": "36085054fa549a8fc3431622e79bb1a697a1a5dc7a98a954e2c020ced7f21e66"
+    },
+    {
+      "file": "assets/albedo-budget.svg",
+      "sha256": "1b9ecc3dc6eeb6b40a8031a4a90cb1f2e45b5a752676404f2e6c7050c88d6415"
+    },
+    {
+      "file": "assets/producer-comparison-v2.png",
+      "sha256": "e0146452df77a2ef2d87bb7223c6e0b5d7677626af6f2cfa94bab21480b796a5"
+    }
+  ],
+  "maximumInternalProofCharacters": 21907,
+  "capacityScope": "First-topic responses plus six anchors and all six possible pairs of four choices, with ordinary, Unicode and escape-heavy maximum values. Not full-module capacity.",
+  "checks": [
+    "Desktop 1440 and mobile 390: shared panel/full-page edits persist in both directions and after reload.",
+    "Oversized draft remains through close/reopen; failed save does not replace previous saved writing.",
+    "Future-family meanings available immediately; future Frayers remain locked.",
+    "Panel Escape returns focus and restores lesson hash and scroll position.",
+    "Collection and model comparison operate; editing hides the previous model comparison.",
+    "All six optional-choice pairs round-trip; written choice cannot be replaced before explicit scoped clearing; unrelated writing retained.",
+    "Existing answer, figure enlargement, optional Advanced and exact return checks pass.",
+    "23 authored terms, six anchor families, four eligible choices; nine core parts and nine Advanced companions reconcile.",
+    "Actual shared Biology30 presentation shell, header and complete sidebar destinations; all sidebar targets exist.",
+    "Desktop sidebar collapse and mobile menu Escape pass; Saved Work displays actual lesson answers and Frayer writing.",
+    "Unbuilt lesson notices do not supply completed activities; preview progress is explicitly labelled, not a full-module percentage.",
+    "Default Biology30 shell output remains byte-identical in the legacy fixture.",
+    "Current desktop shell, mobile shell and open mobile menu screenshots opened and inspected."
+  ],
+  "screenshots": [
+    {
+      "path": "/tmp/biology20-shell-1440.png",
+      "sha256": "d1b1ecf9c270608caa42fff30a8ff4bda4aa2d21b0fa97b3e9715653148e0d77"
+    },
+    {
+      "path": "/tmp/biology20-shell-390.png",
+      "sha256": "b91fbbc8c1389baa25db9a4d3dbd526bee1dcda5d0e376ffc6b2bc398d281187"
+    },
+    {
+      "path": "/tmp/biology20-shell-mobile-menu.png",
+      "sha256": "f68283aac51f22529d837c1bc80442a2de2308288682f1df9a6407bd0a68d55f"
+    }
+  ],
+  "limits": [
+    "Full shell around an internal partial composition, not a complete learner module or full session/recovery verification.",
+    "No physical mobile-keyboard, screen-reader, 200% zoom or print verification yet.",
+    "Generated figure remains conceptual and provisional; teacher comparison pending.",
+    "Full-module source/curriculum, pacing, saved-state and candidate gates remain."
+  ],
+  "tests": {
+    "focused": "/tmp/biology20-shell-final-tests.log — 21/21",
+    "finalBrowser": "/tmp/biology20-shell-final-browser.log — 2/2",
+    "sharedSmoke": "/tmp/biology20-shell-smoke.log — 1/1",
+    "intake": "/tmp/biology20-shell-intake.log — all four protected Biology30 workspaces unchanged",
+    "typecheck": "/tmp/biology20-shell-types.log — existing unrelated diagnostics; no Biology20 or touched shell diagnostics"
+  },
+  "authoringInventory": {
+    "coreParts": 12,
+    "advancedBlocks": 12,
+    "terms": 23,
+    "conceptFamilies": 10,
+    "fixedFrayers": 6,
+    "eligibleChoices": 4,
+    "maximumSimultaneousChoices": 2,
+    "topicsWithDrafts": 4,
+    "interactiveTopics": 1
+  },
+  "teacherAcceptance": null
+}

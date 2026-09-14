@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "courseId": "biology20",
+  "unit": "A",
+  "status": "authored-module-activity-design; existing limits preserved",
+  "examplesRole": "Authored student-style test examples, not observed learner evidence",
+  "topics": [
+    {
+      "topicId": "a-topic-trophic-levels-and-efficiency",
+      "responses": [
+        {
+          "id": "a-topic-trophic-levels-and-efficiency-retrieval",
+          "limit": 200,
+          "prompt": "Explain what a food-web arrow points toward.",
+          "example": "An arrow points from food to its consumer, showing transfer of matter and chemical energy."
+        },
+        {
+          "id": "a-topic-trophic-levels-and-efficiency-media",
+          "limit": 350,
+          "prompt": "Producer and herbivore production are 8,000 and 960 kJ m⁻² yr⁻¹. Calculate efficiency and state the matched boundaries.",
+          "example": "960/8,000 × 100 = 12%. Both values must refer to the same area and year; the ratio compares production, not organism counts."
+        },
+        {
+          "id": "a-topic-trophic-levels-and-efficiency-evidence",
+          "limit": 550,
+          "prompt": "A bird eats insects and seeds. Explain its possible trophic roles, how decomposers connect to the web, and why reduced transfer does not mean energy is destroyed.",
+          "example": "The bird is a primary consumer when eating seeds and a secondary consumer when eating plant-eating insects. Decomposers obtain organic matter from several levels. Some energy supports respiration or remains in uneaten material rather than becoming the next level's biomass. Energy is transferred and transformed, not destroyed."
+        }
+      ]
+    },
+    {
+      "topicId": "a-topic-ecological-pyramids",
+      "responses": [
+        {
+          "id": "a-topic-ecological-pyramids-retrieval",
+          "limit": 200,
+          "prompt": "Distinguish standing biomass from production.",
+          "example": "Biomass is a stock at a stated time. Production is new material formed over an interval; it requires a time basis."
+        },
+        {
+          "id": "a-topic-ecological-pyramids-media",
+          "limit": 350,
+          "prompt": "Prey tissue contains 3 µg in 0.5 kg and predator tissue contains 16 µg in 2 kg. Compare concentrations.",
+          "example": "Prey concentration = 3/0.5 = 6 µg kg⁻¹; predator = 16/2 = 8 µg kg⁻¹. The predator concentration is 8/6 ≈ 1.33 times higher on the same tissue basis."
+        },
+        {
+          "id": "a-topic-ecological-pyramids-evidence",
+          "limit": 550,
+          "prompt": "A producer stock of 3 g m⁻² produces 1.5 g m⁻² day⁻¹. Consumers have a 5 g m⁻² stock. Calculate a turnover timescale and evaluate the claim that this proves energy is created.",
+          "example": "Stock/production = 3/1.5 = 2 days. The consumer stock exceeds the producer stock, but a rapidly replaced producer stock can support consumers. These are mass stocks, not matched energy-production rates. The inversion does not establish energy creation; the timescale is not every organism's lifespan."
+        }
+      ]
+    },
+    {
+      "topicId": "a-topic-water-and-the-hydrologic-cycle",
+      "responses": [
+        {
+          "id": "a-topic-water-and-the-hydrologic-cycle-retrieval",
+          "limit": 200,
+          "prompt": "Distinguish cohesion from adhesion.",
+          "example": "Cohesion is attraction among water molecules. Adhesion is attraction between water and another suitable surface."
+        },
+        {
+          "id": "a-topic-water-and-the-hydrologic-cycle-media",
+          "limit": 350,
+          "prompt": "A pond begins with 700 m³. Weekly inputs are 60 and 90 m³; outputs are 80 and 100 m³. Calculate change and final storage.",
+          "example": "Inputs = 150 m³; outputs = 180 m³. Change = −30 m³; final storage = 670 m³. The result assumes groundwater and other omitted flows are zero."
+        },
+        {
+          "id": "a-topic-water-and-the-hydrologic-cycle-evidence",
+          "limit": 550,
+          "prompt": "A freshwater lake has a warm surface and cold deep water. Explain how cooling can support mixing and why equal temperatures do not prove equal dissolved oxygen.",
+          "example": "Cooling the warm surface toward 4 °C can increase density and weaken thermal layering, allowing deeper mixing with wind and convection. Below about 4 °C, colder freshwater is less dense. Oxygen also reflects photosynthesis, respiration and gas exchange; a uniform temperature profile cannot replace oxygen measurements."
+        }
+      ]
+    },
+    {
+      "topicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "responses": [
+        {
+          "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-retrieval",
+          "limit": 200,
+          "prompt": "Distinguish nitrogen fixation from nitrification.",
+          "example": "Fixation converts N₂ into biologically available fixed nitrogen. Nitrification changes already fixed reduced nitrogen through nitrite to nitrate."
+        },
+        {
+          "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-media",
+          "limit": 350,
+          "prompt": "A carbon account fixes 95 units and releases 70 through respiration/decomposition; 30 leave in harvest. Find the storage change.",
+          "example": "95 − 70 − 30 = −5 units. The reservoir loses carbon during the interval even if its total stock remains large. Exported carbon need not enter the atmosphere immediately."
+        },
+        {
+          "id": "a-topic-carbon-oxygen-and-nitrogen-cycles-evidence",
+          "limit": 550,
+          "prompt": "A farmer says legumes guarantee unlimited nitrate and animals get nitrogen only by eating plants. Correct both claims and identify a measurement needed to evaluate a rotation.",
+          "example": "Legume-associated fixation depends on organisms and conditions. Uptake, harvest removal and losses affect what remains; ammonium as well as nitrate can supply plants. Animals also obtain nitrogen by eating other animals. Compare equal-area seasonal nitrogen inputs, harvest removal, losses and stored forms before judging the rotation."
+        }
+      ]
+    },
+    {
+      "topicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "responses": [
+        {
+          "id": "a-topic-sulfur-and-phosphorus-cycles-retrieval",
+          "limit": 250,
+          "prompt": "Distinguish an observation from an inference about ancient oxygen.",
+          "example": "Rock layers and minerals are observations. Inferring an ancient oxygen environment requires geological context and other evidence; one undated rock gives no global date."
+        },
+        {
+          "id": "a-topic-sulfur-and-phosphorus-cycles-media",
+          "limit": 350,
+          "prompt": "An illustrative oxygen account produces 12 units and removes 9. Calculate net change, then repeat with removal of 12.",
+          "example": "12 − 9 = +3 units. If removal is 12, net change is zero despite ongoing production. These arbitrary units do not date an ancient atmospheric transition."
+        },
+        {
+          "id": "a-topic-sulfur-and-phosphorus-cycles-evidence",
+          "limit": 550,
+          "prompt": "A nutrient-enriched lake shows a bloom followed by low oxygen. Explain a plausible mechanism, a missing measurement, and why not every bloom must kill the entire lake.",
+          "example": "Added limiting nutrients can increase growth. Organic material can support respiration that consumes oxygen; algae respire in light and darkness. Measure oxygen across depth and time plus mixing or respiration to test the explanation. Harm depends on exposure and conditions; the sequence does not prove universal complete lake death."
+        }
+      ]
+    }
+  ]
+}

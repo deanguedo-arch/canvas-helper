@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "marketing-10-20-online",
+  "storageKey": "canvas-helper:marketing-10-20-online:state:v1",
+  "maximumSerializedCharacters": 48000,
+  "maximumPopulatedStateCharacters": 34960,
+  "maximumMethod": "Every draft field contains 400 backslashes (2 JSON characters each), all practice selections, all reviewed and saved IDs, longest route, and a 30-character valid timestamp.",
+  "fields": {
+    "schemaVersion": "exactly 1",
+    "projectSlug": "exact course slug",
+    "drafts": {
+      "keys": [
+        "MAM1010",
+        "MAM1020",
+        "MAM1910",
+        "MAM2010",
+        "MAM2030",
+        "MAM2040",
+        "MAM2090",
+        "MAM2910",
+        "MAM2920"
+      ],
+      "normalFields": [
+        "plan",
+        "work",
+        "evidence",
+        "reflection"
+      ],
+      "projectFields": [
+        "connections",
+        "proposal",
+        "plan",
+        "work",
+        "evidence",
+        "reflection"
+      ],
+      "maximumFieldUtf16Units": 400,
+      "allowedText": "Well-formed Unicode; no C0 controls except tab, LF, CR. No binaries or uploaded files."
+    },
+    "practice": "Known module IDs; decision and transfer integer 0–2 only.",
+    "reviewed": "Unique known module IDs in canonical order; reading only.",
+    "portfolioIds": "Unique known module IDs in canonical order; membership only, live-linked to drafts.",
+    "lastRoute": "One canonical base route; lesson anchor is navigation-only.",
+    "updatedAt": "Parseable timestamp string, at most 30 characters."
+  },
+  "structuralReadiness": "Every applicable draft field is nonempty after trimming. Not a quality judgment, grade, outcome mastery or project eligibility decision.",
+  "portfolio": "Save is gated by structural readiness. Saved membership remains after later edits, including incomplete edits. No snapshot or remove behaviour.",
+  "restore": "Validate all schema, keys, IDs, text, size and project before replacing memory. Invalid JSON leaves valid state untouched. Files over 192000 bytes rejected before text decoding. Corrupt initial storage is left untouched until an intentional valid action.",
+  "quota": "Visible in-page-only warning if localStorage fails. Download JSON backup before closing; browser storage is not official submission.",
+  "teacherApprovalStored": false,
+  "binaryEvidenceStored": false,
+  "networkOrAnalytics": false
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "candidateSha256": "72e210fcda2567d2a7296ded86fea1388efcfe848fb394845b4b8546e54d5dd0",
+  "status": "local-resource-correction-tested; provider-playback-unconfirmed",
+  "supersedes": {
+    "candidateSha256": "65a31fb242201f16c339883acfbe8da01bbd65c2200a40a06969a25ae2981ceb",
+    "reason": "Individual word browsing and explicit named Frayer focuses; preserve original response records."
+  },
+  "inspected": [
+    "word-browser-1117.png",
+    "word-browser-390.png"
+  ],
+  "findings": [
+    "All 35 individually selectable words retain exact definitions; multiple-family terms expose each context. Named Frayer focuses keep original records with explicit former-family notices. Six anchors and two choices from the existing four eligible concepts; not 35 separate Frayers.",
+    "All ten families expose static explanations immediately, retaining Biology30 styling; only Frayer writing is lesson-gated.",
+    "Shared overview and desktop reading frame match the A Pilot 2 structure and measured 1120-pixel width.",
+    "All 35 glossary links land on actual term-containing teaching text; core families retain their own lesson contexts.",
+    "Internal textbook links select exact PDF pages; optional review guides and summary links restored. Attempt disclosure is session-only, not persisted evidence.",
+    "All 16 original PowerPoint videos have exact teaching placement, viewing cues, slide provenance and shared library players. Local walkthroughs remain alternatives, not replacements.",
+    "Native PDF rendering is not established by blank headless iframe screenshots. Full-screen/download fallbacks remain."
+  ],
+  "automatedEvidence": {
+    "focused": "/tmp/bio20-words-tests.log: 4 passed",
+    "workspace": "/tmp/bio20-words-verify.log: passed",
+    "projectE2E": "/tmp/bio20-words-e2e.log: passed",
+    "smoke": "/tmp/bio20-words-smoke.log: passed",
+    "studio": "/tmp/bio20-words-studio.log: passed",
+    "protected": "/tmp/bio20-words-protected.log: passed",
+    "typecheck": "/tmp/bio20-words-types.log: unrelated baseline errors; no Biology20 diagnostics",
+    "visual": "Exact-candidate module-verification.json: 105 route visits, 100 figure loads, no errors"
+  },
+  "maximumSavedCharacters": 43297,
+  "permissions": {
+    "authoringStatus": "blocked",
+    "studioEditing": false,
+    "deployed": false,
+    "teacherAccepted": false,
+    "curriculumCertified": false
+  },
+  "limits": [
+    "All 16 video metadata endpoints reachable; no complete audiovisual or caption certification.",
+    "Actual file-mode embedding produced YouTube Error 153. Explicit external/local fallback added. HTTP preview loads controls but actual playback advancement remains unconfirmed. Mocked provider frames prove app behavior only.",
+    "HTTP preview and file course have separate browser origins and local saves; no migration performed.",
+    "Optional textbook guide attempt is session-only. No new saved fields or required work.",
+    "No deployment, packaging, live LMS or broader curriculum certification. Other four modules remain unfinished."
+  ],
+  "previousResourceEvidence": {
+    "focused": "/tmp/bio20-resource-final-tests.log: 8 passed",
+    "workspace": "/tmp/bio20-resource-workspace.log: passed",
+    "projectE2E": "/tmp/bio20-resource-e2e.log: passed",
+    "smoke": "/tmp/bio20-resource-smoke.log: passed",
+    "visual": "module-verification.json: 105 route visits, 100 figure loads, 123 source hashes and 30 learner hashes; no errors",
+    "protected": "/tmp/bio20-resource-protected.log: four Biology30 workspaces unchanged",
+    "studio": "/tmp/bio20-resource-studio.log: passed",
+    "typecheck": "/tmp/bio20-resource-typecheck.log: unrelated baseline failures, no diagnostics in newly touched Biology20 or shared resource modules"
+  },
+  "previousVocabularyEvidence": {
+    "focused": "/tmp/bio20-vocab-tests.log: 4 passed",
+    "workspace": "/tmp/bio20-vocab-verify.log: passed",
+    "projectE2E": "/tmp/bio20-vocab-e2e.log: passed",
+    "smoke": "/tmp/bio20-vocab-smoke.log: passed",
+    "studio": "/tmp/bio20-vocab-studio.log: passed",
+    "protected": "/tmp/bio20-vocab-protected.log: four Biology30 workspaces preserved",
+    "typecheck": "/tmp/bio20-vocab-types.log: unrelated baseline errors; no Biology20 diagnostics",
+    "visual": "module-verification.json matches candidateSha256: 105 route visits, 100 figure loads, no errors"
+  }
+}

@@ -3,6 +3,9 @@ import type {ActivityInputs} from './pilot2-activity-index.js';
 import type {TopicState} from './pilot2-state.js';
 import type {TopicControlSave} from './pilot2-controls-runtime.js';
 import type {RenderTopicVocabulary} from './pilot2-render-vocabulary.js';
+import {mountTopicWordPage} from '../../biology30-vocabulary/word-page-runtime.js';
+import type {BiologyWordPageData} from '../../biology30-vocabulary/word-page.js';
+import {mountWordFrayerControls} from '../../biology30-vocabulary/word-frayer-runtime.js';
 
 export function mountTopicVocabularyPanel(root:HTMLElement,input:ActivityInputs,state:TopicState,controls:{refresh():void;saveDraft():TopicControlSave}){
   const source=input.vocabulary as RenderTopicVocabulary;
@@ -10,13 +13,20 @@ export function mountTopicVocabularyPanel(root:HTMLElement,input:ActivityInputs,
   let lastMessage='Writing saves as you type. Each field allows 240 characters.';
   const observe=(event:Event)=>{const detail=(event as CustomEvent).detail;if(detail?.message)lastMessage=detail.message;};
   root.addEventListener('pilot2-state-change',observe);
-  const panel=mountVocabularyPanel({root,families,
-    terms:source.introducedTerms.filter(t=>source.conceptFamilies.some(f=>f.termIds.includes(t.id))).map(t=>({term:t.term,definition:t.definition,familyIds:source.conceptFamilies.filter(f=>f.termIds.includes(t.id)).map(f=>f.id)})),
+  const dataElement=root.querySelector('#biology-word-data');
+  const wordData:BiologyWordPageData|undefined=dataElement?JSON.parse(dataElement.textContent!):undefined;
+  const unlocked=(id:string)=>{const route=root.querySelector<HTMLElement>(`[data-p2-family-panel="${CSS.escape(id)}"]`)?.dataset.p2UnlockRoute;return Boolean(route&&state.visited.includes(route));};
+  const freelyChosen=Boolean(input.state.wordFrayers&&wordData);
+  const wordPage=wordData?(freelyChosen?mountWordFrayerControls(root,wordData,input.state.wordFrayers!,{get:()=>state.wordFrayers!,set:slots=>{state.wordFrayers=slots;},save:()=>controls.saveDraft()}):mountTopicWordPage(root,wordData,unlocked,()=>controls.refresh(),route=>state.visited.includes(route))):undefined;
+  const wordFamilies:VocabularyFamily[]=wordData?wordData.categories.map(c=>({id:c.id,label:c.label,meaning:'',wordAnalysis:[],routes:[...new Set(c.wordIds.map(id=>wordData.wordRoutes?.[id]).filter((r):r is string=>Boolean(r)))]})):families;
+  const panel=mountVocabularyPanel({root,families:wordFamilies,
+    words:wordData?.words,wordFrayers:freelyChosen?Object.fromEntries(wordData!.words.map(w=>[w.id,w.id])):wordData?.wordFrayers,
+    terms:wordData?wordData.words.map(w=>({term:w.term,definition:w.definition,familyIds:w.categoryIds})):source.introducedTerms.filter(t=>source.conceptFamilies.some(f=>f.termIds.includes(t.id))).map(t=>({term:t.term,definition:t.definition,familyIds:source.conceptFamilies.filter(f=>f.termIds.includes(t.id)).map(f=>f.id)})),
     sections:()=>Array.from(root.querySelectorAll('.p2-part > .lesson-block,.p2-part > .worked-example,.p2-part > .p2-advanced,.p2-walkthrough-frame')),
     route:section=>section.closest<HTMLElement>('[data-pilot2-topic]')!.dataset.pilot2Topic!,
-    unlocked:id=>{const route=root.querySelector<HTMLElement>(`[data-p2-family-panel="${CSS.escape(id)}"]`)?.dataset.p2UnlockRoute;return Boolean(route&&state.visited.includes(route));},
-    frayer:id=>root.querySelector<HTMLElement>(`[data-p2-family-panel="${CSS.escape(id)}"] .frayer`),
-    choices:()=>root.querySelector<HTMLElement>('.p2-family-choices'),refresh:()=>controls.refresh(),status:()=>lastMessage,
+    unlocked:freelyChosen?()=>true:unlocked,
+    frayer:id=>freelyChosen?root.querySelector<HTMLElement>(`[data-word-frayer="${CSS.escape(id)}"]`):wordData?root.querySelector<HTMLElement>(`[data-biology-frayer-record="${CSS.escape(id)}"]`):root.querySelector<HTMLElement>(`[data-p2-family-panel="${CSS.escape(id)}"] .frayer`),
+    choices:()=>freelyChosen?null:root.querySelector<HTMLElement>('.p2-family-choices'),refresh:()=>controls.refresh(),status:()=>lastMessage,
     selectedFamilies:()=>state.frayerChoices,
   });
   const choose=(event:Event)=>{const button=event.target instanceof Element?event.target.closest<HTMLElement>('dialog.bio-vocabulary [data-p2-choose-family]'):null;
@@ -26,5 +36,5 @@ export function mountTopicVocabularyPanel(root:HTMLElement,input:ActivityInputs,
     }
   };
   root.addEventListener('click',choose,true);
-  return {dispose(){panel.dispose();root.removeEventListener('click',choose,true);root.removeEventListener('pilot2-state-change',observe);}};
+  return {dispose(){panel.dispose();wordPage?.dispose();root.removeEventListener('click',choose,true);root.removeEventListener('pilot2-state-change',observe);}};
 }

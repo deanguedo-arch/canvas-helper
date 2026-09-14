@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "all-six-topic-core-and-companion-drafts-authored; module-incomplete",
+  "sourceFiles": [
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/core-teaching.json",
+      "sha256": "e4a10fa8544e4cf9a30ad92fe193c726c23e0fc759c5ae6b7d044ae1fab72a8f"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/pilot2-instruction.json",
+      "sha256": "a8eb68c83c872c809b83c3b5bf5d15f365b830efe3c2d80077b70bd5b51a39fe"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/source-review.json",
+      "sha256": "b412fc87e4fd437561bd80cc9f471e9a22518f08c8ce0ed230dcf3c048391b8a"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/cycle-source-review.md",
+      "sha256": "ee0695a2c1c85c805070195902945a516ecd9b5620520473e150a0d32a2eef16"
+    }
+  ],
+  "inventory": {
+    "topicsWithDrafts": 6,
+    "coreParts": 18,
+    "advancedCompanions": 18,
+    "interactiveTopicsInPreview": 1,
+    "completeModules": 0
+  },
+  "verification": {
+    "focused": "/tmp/biology20-cycles-tests.log — 4/4",
+    "preview": "All ten files still match their existing build receipt; no course rebuild or E2E rerun necessary for this source-only batch.",
+    "protectedTrees": "See /tmp/biology20-cycles-intake.log"
+  },
+  "remaining": [
+    "Complete full-module saved activity inventory and authored response examples before freezing capacity.",
+    "Bind reviewed diagrams, textbook destinations and local/video supports.",
+    "Assemble lessons 2–6, chapter practice, seminar, investigation and models through the owning builder.",
+    "Run complete module academic, workspace, project E2E, accessibility and visual checks.",
+    "Build B, C, D Part1 and D Part2, plus selector and image review gallery."
+  ],
+  "teacherAcceptance": null
+}

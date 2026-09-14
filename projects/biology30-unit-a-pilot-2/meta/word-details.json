@@ -1,0 +1,4249 @@
+{
+  "schemaVersion": 1,
+  "status": "word-specific content authored; candidate verification required",
+  "words": [
+    {
+      "id": "a-word-homeostasis",
+      "term": "Homeostasis",
+      "modelFrayer": ["Active regulation that keeps internal variables within workable ranges.","Uses detection, coordination, effectors, and feedback; values can fluctuate around a range.","When body temperature rises, sweating and skin blood-flow changes increase heat loss.","A room cooling only because outdoor temperature falls, with no regulating response."],
+      "categoryIds": [
+        "homeostasis"
+      ],
+      "definition": "The active maintenance of internal conditions within ranges that allow cells and organs to function, even while conditions inside or outside the body change.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "homeo-: similar or steady. -stasis: standing or condition. The word suggests steadiness, but living systems remain dynamic and variable.",
+        "parts": [
+          {
+            "text": "homeo-",
+            "meaning": "similar or steady"
+          },
+          {
+            "text": "-stasis",
+            "meaning": "standing or condition"
+          }
+        ],
+        "caution": "The word suggests steadiness, but living systems remain dynamic and variable."
+      },
+      "whatItDoes": "A regulated variable is detected, information is integrated, and effectors adjust the variable. The value may fluctuate; it is not held perfectly still.",
+      "relatedTermIds": [
+        "a-word-dynamic-stability",
+        "a-word-workable-range"
+      ],
+      "commonConfusion": "Homeostasis does not mean that every internal value is constant or that a response always restores one exact number.",
+      "retrievalPrompt": "Explain why sweating during a hot afternoon is evidence of change and stability at the same time.",
+      "sourceRefs": [
+        "core-vocabulary.json#homeostasis"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-dynamic-stability",
+      "term": "dynamic stability",
+      "categoryIds": [
+        "homeostasis"
+      ],
+      "definition": "A condition maintained within limits through ongoing change and adjustment.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Dynamic means changing; stability describes persistence of workable conditions, not immobility."
+      },
+      "whatItDoes": "Regulatory responses offset disturbances while values fluctuate.",
+      "relatedTermIds": [
+        "a-word-homeostasis",
+        "a-word-workable-range"
+      ],
+      "commonConfusion": "A perfectly unchanging value is not required.",
+      "retrievalPrompt": "Why can a changing heart rate support stability?",
+      "sourceRefs": [
+        "core-vocabulary.json#homeostasis"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-workable-range",
+      "term": "workable range",
+      "categoryIds": [
+        "homeostasis",
+        "regulated-variable-set-point"
+      ],
+      "definition": "An interval of values compatible with the relevant physiological function.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Workable qualifies range by function; it does not mean every value is equally optimal."
+      },
+      "whatItDoes": "Keeping variables within tolerable limits supports cellular processes.",
+      "relatedTermIds": [
+        "a-word-homeostasis",
+        "a-word-dynamic-stability",
+        "a-word-regulated-variable-and-set-point",
+        "a-word-regulated-variable"
+      ],
+      "commonConfusion": "A range is not a single set point.",
+      "retrievalPrompt": "Why describe body temperature with a range rather than one exact value?",
+      "sourceRefs": [
+        "core-vocabulary.json#homeostasis"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-regulated-variable-and-set-point",
+      "term": "Regulated variable and set point",
+      "modelFrayer": ["A measurable internal condition and the reference range used to evaluate it.","Must be measurable, monitored, and influenced by a response.","Blood glucose concentration is monitored and adjusted after a meal or during fasting.","Insulin release is a response, not the regulated variable itself."],
+      "categoryIds": [
+        "regulated-variable-set-point"
+      ],
+      "definition": "A regulated variable is a measurable internal condition that a control system influences. A set point or range is the reference used to judge change.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "regulate: control or adjust. variable: a measurable quantity that can change. set point: a reference value, often operating as a range in biology. A set point is not always one unchanging number.",
+        "parts": [
+          {
+            "text": "regulate",
+            "meaning": "control or adjust"
+          },
+          {
+            "text": "variable",
+            "meaning": "a measurable quantity that can change"
+          },
+          {
+            "text": "set point",
+            "meaning": "a reference value, often operating as a range in biology"
+          }
+        ],
+        "caution": "A set point is not always one unchanging number."
+      },
+      "whatItDoes": "Receptors provide information about the variable. A control centre compares that information with a reference and coordinates an appropriate response.",
+      "relatedTermIds": [
+        "a-word-regulated-variable",
+        "a-word-set-point",
+        "a-word-workable-range"
+      ],
+      "commonConfusion": "The regulated variable is the condition being controlled, not the effector action used to change it.",
+      "retrievalPrompt": "In blood-glucose regulation, identify the regulated variable and one response that changes it.",
+      "sourceRefs": [
+        "core-vocabulary.json#regulated-variable-set-point"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-regulated-variable",
+      "term": "regulated variable",
+      "categoryIds": [
+        "regulated-variable-set-point"
+      ],
+      "definition": "A physiological quantity monitored and adjusted by a control system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Regulated modifies variable, the quantity that can change."
+      },
+      "whatItDoes": "Its deviation supplies information that initiates corrective responses.",
+      "relatedTermIds": [
+        "a-word-regulated-variable-and-set-point",
+        "a-word-set-point",
+        "a-word-workable-range"
+      ],
+      "commonConfusion": "An effector is not the variable it changes.",
+      "retrievalPrompt": "In temperature regulation, which is the variable and which is an effector?",
+      "sourceRefs": [
+        "core-vocabulary.json#regulated-variable-set-point"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-set-point",
+      "term": "set point",
+      "categoryIds": [
+        "regulated-variable-set-point"
+      ],
+      "definition": "A reference value or operating target used in a regulatory comparison.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Set modifies point; the phrase is a control-system term, not a permanently fixed anatomical location."
+      },
+      "whatItDoes": "Comparing a variable with a reference helps determine an adjustment.",
+      "relatedTermIds": [
+        "a-word-regulated-variable-and-set-point",
+        "a-word-regulated-variable",
+        "a-word-workable-range"
+      ],
+      "commonConfusion": "A set point can change with physiological conditions.",
+      "retrievalPrompt": "How does a fever-related set-point change differ from ordinary warming?",
+      "sourceRefs": [
+        "core-vocabulary.json#regulated-variable-set-point"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-control-system-roles",
+      "term": "Control-system roles",
+      "modelFrayer": ["The functional jobs that connect a detected change to a coordinated response.","Includes stimulus, receptor, integration, effector, and response in a defensible order.","Thermoreceptors signal the hypothalamus, which coordinates sweating when body temperature rises.","Listing sweating as the receptor and temperature as the effector."],
+      "categoryIds": [
+        "control-system-roles"
+      ],
+      "definition": "A control pathway names what changes, what detects it, where information is integrated, what acts, and what response follows.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "receptor: the detector in the pathway. effector: the tissue or organ that carries out the response. These are functional roles. A structure may serve different roles in different pathways.",
+        "parts": [
+          {
+            "text": "receptor",
+            "meaning": "the detector in the pathway"
+          },
+          {
+            "text": "effector",
+            "meaning": "the tissue or organ that carries out the response"
+          }
+        ],
+        "caution": "These are functional roles. A structure may serve different roles in different pathways."
+      },
+      "whatItDoes": "A stimulus changes a condition. A receptor detects relevant evidence, a control centre integrates it, and an effector produces a response.",
+      "relatedTermIds": [
+        "a-word-stimulus",
+        "a-word-receptor",
+        "a-word-control-centre",
+        "a-word-effector"
+      ],
+      "commonConfusion": "The receptor detects information; it is not automatically the structure that corrects the disturbance.",
+      "retrievalPrompt": "For a cold-environment response, name one plausible receptor, control centre, and effector.",
+      "sourceRefs": [
+        "core-vocabulary.json#control-system-roles"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-stimulus",
+      "term": "stimulus",
+      "categoryIds": [
+        "control-system-roles"
+      ],
+      "definition": "A detectable change or condition capable of initiating a response.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "One stimulus, several stimuli; stimulate is the verb."
+      },
+      "whatItDoes": "It changes receptor activity and begins a signalling sequence.",
+      "relatedTermIds": [
+        "a-word-control-system-roles",
+        "a-word-receptor",
+        "a-word-control-centre",
+        "a-word-effector"
+      ],
+      "commonConfusion": "A stimulus is not the resulting response.",
+      "retrievalPrompt": "What is the stimulus when bright light causes pupil constriction?",
+      "sourceRefs": [
+        "core-vocabulary.json#control-system-roles"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-receptor",
+      "term": "receptor",
+      "categoryIds": [
+        "control-system-roles",
+        "reflex-arc",
+        "endocrine-signalling"
+      ],
+      "definition": "A structure or molecule that detects a particular signal or change.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Receptor is a detection-related noun; distinguish sensory receptors from hormone receptor proteins."
+      },
+      "whatItDoes": "Detection converts a relevant change into altered cellular activity.",
+      "relatedTermIds": [
+        "a-word-control-system-roles",
+        "a-word-stimulus",
+        "a-word-control-centre",
+        "a-word-effector"
+      ],
+      "commonConfusion": "Not all receptors are whole sense organs.",
+      "retrievalPrompt": "How does a hormone receptor differ from a sensory receptor cell?",
+      "sourceRefs": [
+        "core-vocabulary.json#control-system-roles"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-control-centre",
+      "term": "control centre",
+      "categoryIds": [
+        "control-system-roles"
+      ],
+      "definition": "The part of a regulatory system that integrates information and coordinates responses.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Centre names an integrating role; control identifies its regulatory function."
+      },
+      "whatItDoes": "It relates incoming information to appropriate effector activity.",
+      "relatedTermIds": [
+        "a-word-control-system-roles",
+        "a-word-stimulus",
+        "a-word-receptor",
+        "a-word-effector"
+      ],
+      "commonConfusion": "It need not be a single conscious brain area.",
+      "retrievalPrompt": "Why can regulation occur without conscious awareness?",
+      "sourceRefs": [
+        "core-vocabulary.json#control-system-roles"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-effector",
+      "term": "effector",
+      "categoryIds": [
+        "control-system-roles",
+        "reflex-arc"
+      ],
+      "definition": "A cell, tissue or organ that carries out a response to a signal.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Effector names what brings about an effect, rather than the detector."
+      },
+      "whatItDoes": "Its activity changes a condition, such as muscle contraction or gland secretion.",
+      "relatedTermIds": [
+        "a-word-control-system-roles",
+        "a-word-stimulus",
+        "a-word-receptor",
+        "a-word-control-centre"
+      ],
+      "commonConfusion": "A receptor detects; an effector acts.",
+      "retrievalPrompt": "Which tissues act as effectors in shivering and sweating?",
+      "sourceRefs": [
+        "core-vocabulary.json#control-system-roles"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-response",
+      "term": "response",
+      "categoryIds": [
+        "control-system-roles"
+      ],
+      "definition": "A biological change produced following a stimulus or signal.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Response is the noun; respond is the verb."
+      },
+      "whatItDoes": "It alters cell or organ activity and may change the original stimulus.",
+      "relatedTermIds": [
+        "a-word-control-system-roles",
+        "a-word-stimulus",
+        "a-word-receptor",
+        "a-word-control-centre"
+      ],
+      "commonConfusion": "A response is not necessarily corrective negative feedback.",
+      "retrievalPrompt": "When would a response amplify rather than oppose an initial change?",
+      "sourceRefs": [
+        "core-vocabulary.json#control-system-roles"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-negative-feedback",
+      "term": "Negative feedback",
+      "modelFrayer": ["A response pattern that reduces the original departure of a regulated variable.","Requires a measurable change, a response, and evidence that the response opposes that change.","High blood glucose promotes insulin effects that lower blood glucose toward its workable range.","A stimulus produces a response, but the response has no effect on the initiating variable."],
+      "categoryIds": [
+        "negative-feedback"
+      ],
+      "definition": "A control pattern in which the response reduces the initiating departure of a regulated variable from its reference range.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "negative: opposes or reduces the initiating change. feedback: the response influences the condition that started the pathway. Negative means opposing, not harmful.",
+        "parts": [
+          {
+            "text": "negative",
+            "meaning": "opposes or reduces the initiating change"
+          },
+          {
+            "text": "feedback",
+            "meaning": "the response influences the condition that started the pathway"
+          }
+        ],
+        "caution": "Negative means opposing, not harmful."
+      },
+      "whatItDoes": "The response feeds information or effects back into the system in a direction that opposes the original change.",
+      "relatedTermIds": [
+        "a-word-feedback-loop",
+        "a-word-return-effect"
+      ],
+      "commonConfusion": "A pathway is not negative feedback merely because it has arrows or because the response is beneficial.",
+      "retrievalPrompt": "What return effect would prove that an insulin response forms a negative-feedback loop?",
+      "sourceRefs": [
+        "core-vocabulary.json#negative-feedback"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-feedback-loop",
+      "term": "feedback loop",
+      "categoryIds": [
+        "negative-feedback"
+      ],
+      "definition": "A causal pathway in which a system's output affects subsequent input or activity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Feedback describes returned influence; loop describes the causal connection."
+      },
+      "whatItDoes": "It changes further system activity based on the result already produced.",
+      "relatedTermIds": [
+        "a-word-negative-feedback",
+        "a-word-return-effect"
+      ],
+      "commonConfusion": "A sequence without a return influence is not a feedback loop.",
+      "retrievalPrompt": "Which arrow closes a hormone feedback loop?",
+      "sourceRefs": [
+        "core-vocabulary.json#negative-feedback"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-return-effect",
+      "term": "return effect",
+      "categoryIds": [
+        "negative-feedback"
+      ],
+      "definition": "The influence of a response back on the variable or process that initiated it.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Return identifies the direction of causal influence; effect is the resulting change."
+      },
+      "whatItDoes": "Its direction distinguishes opposing from amplifying feedback.",
+      "relatedTermIds": [
+        "a-word-negative-feedback",
+        "a-word-feedback-loop"
+      ],
+      "commonConfusion": "A return effect is not simply a hormone travelling back physically.",
+      "retrievalPrompt": "How would you identify the sign of feedback from the response's effect?",
+      "sourceRefs": [
+        "core-vocabulary.json#negative-feedback"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-scientific-explanation",
+      "term": "Scientific explanation",
+      "modelFrayer": ["A claim supported by relevant evidence and connected through scientific reasoning.","Separates observation from mechanism, uses precise terms, and acknowledges uncertainty or limitations.","The data suggest reduced ADH action because dilute urine persisted while plasma osmotic concentration remained high.","ADH is the answer because ADH is about water."],
+      "categoryIds": [
+        "scientific-explanation"
+      ],
+      "definition": "A defensible account that answers a question with a claim, selects relevant evidence, and uses biological reasoning to connect the evidence to a mechanism.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "explain: make a relationship understandable. evidence: observations or data relevant to a claim. limitation: a boundary on interpretation. A claim repeated in different words is not reasoning.",
+        "parts": [
+          {
+            "text": "explain",
+            "meaning": "make a relationship understandable"
+          },
+          {
+            "text": "evidence",
+            "meaning": "observations or data relevant to a claim"
+          },
+          {
+            "text": "limitation",
+            "meaning": "a boundary on interpretation"
+          }
+        ],
+        "caution": "A claim repeated in different words is not reasoning."
+      },
+      "whatItDoes": "The explanation distinguishes what was observed from why it likely occurred and states limits on what the evidence can establish.",
+      "relatedTermIds": [
+        "a-word-claim",
+        "a-word-evidence",
+        "a-word-reasoning",
+        "a-word-mechanism"
+      ],
+      "commonConfusion": "Evidence describes the pattern; reasoning uses science to explain why that pattern supports the claim.",
+      "retrievalPrompt": "Turn one observation from a Unit A model into a claim-evidence-reasoning chain.",
+      "sourceRefs": [
+        "core-vocabulary.json#scientific-explanation"
+      ],
+      "route": "lesson-05"
+    },
+    {
+      "id": "a-word-claim",
+      "term": "claim",
+      "categoryIds": [
+        "scientific-explanation"
+      ],
+      "definition": "A statement offered as an answer or explanation that can be supported or challenged.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Claim is both noun and verb; a claimed result still needs evidence."
+      },
+      "whatItDoes": "It states the conclusion that evidence and reasoning must address.",
+      "relatedTermIds": [
+        "a-word-scientific-explanation",
+        "a-word-evidence",
+        "a-word-reasoning",
+        "a-word-mechanism"
+      ],
+      "commonConfusion": "A confident statement is not automatically established fact.",
+      "retrievalPrompt": "What claim could a measured reflex delay support?",
+      "sourceRefs": [
+        "core-vocabulary.json#scientific-explanation"
+      ],
+      "route": "lesson-05"
+    },
+    {
+      "id": "a-word-evidence",
+      "term": "evidence",
+      "categoryIds": [
+        "scientific-explanation"
+      ],
+      "definition": "Observations or results relevant to evaluating a claim.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Evidence is a collective noun; it is distinct from the interpretation drawn from it."
+      },
+      "whatItDoes": "It constrains which explanations fit the observations.",
+      "relatedTermIds": [
+        "a-word-scientific-explanation",
+        "a-word-claim",
+        "a-word-reasoning",
+        "a-word-mechanism"
+      ],
+      "commonConfusion": "A diagram generated to explain a model is not measured evidence.",
+      "retrievalPrompt": "Which part of a hormone graph is observation and which part is inference?",
+      "sourceRefs": [
+        "core-vocabulary.json#scientific-explanation"
+      ],
+      "route": "lesson-05"
+    },
+    {
+      "id": "a-word-reasoning",
+      "term": "reasoning",
+      "categoryIds": [
+        "scientific-explanation"
+      ],
+      "definition": "The logical connection between evidence and a conclusion.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The -ing form of reason names the explanatory process."
+      },
+      "whatItDoes": "It uses biological principles to explain why observations support a claim.",
+      "relatedTermIds": [
+        "a-word-scientific-explanation",
+        "a-word-claim",
+        "a-word-evidence",
+        "a-word-mechanism"
+      ],
+      "commonConfusion": "Repeating a number does not supply the causal connection.",
+      "retrievalPrompt": "How would you connect receptor loss to reduced hormone response?",
+      "sourceRefs": [
+        "core-vocabulary.json#scientific-explanation"
+      ],
+      "route": "lesson-05"
+    },
+    {
+      "id": "a-word-mechanism",
+      "term": "mechanism",
+      "categoryIds": [
+        "scientific-explanation"
+      ],
+      "definition": "The causal steps by which a biological process produces an outcome.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mechanism is the process-explanation noun; mechanistic is the adjective."
+      },
+      "whatItDoes": "It links molecular or cellular events to observed function.",
+      "relatedTermIds": [
+        "a-word-scientific-explanation",
+        "a-word-claim",
+        "a-word-evidence",
+        "a-word-reasoning"
+      ],
+      "commonConfusion": "Naming the organ alone does not explain how it works.",
+      "retrievalPrompt": "Which steps connect neurotransmitter release to a postsynaptic change?",
+      "sourceRefs": [
+        "core-vocabulary.json#scientific-explanation"
+      ],
+      "route": "lesson-05"
+    },
+    {
+      "id": "a-word-limitation",
+      "term": "limitation",
+      "categoryIds": [
+        "scientific-explanation"
+      ],
+      "definition": "A boundary on what a method, model or evidence can establish.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Limitation derives from limit; it specifies a constraint rather than dismissing all usefulness."
+      },
+      "whatItDoes": "It prevents conclusions that go beyond the conditions tested.",
+      "relatedTermIds": [
+        "a-word-scientific-explanation",
+        "a-word-claim",
+        "a-word-evidence",
+        "a-word-reasoning"
+      ],
+      "commonConfusion": "A limitation is not automatically a fatal flaw.",
+      "retrievalPrompt": "What can an isolated-neuron model not establish about a whole person's response?",
+      "sourceRefs": [
+        "core-vocabulary.json#scientific-explanation"
+      ],
+      "route": "lesson-05"
+    },
+    {
+      "id": "a-word-neuron-structure",
+      "term": "Neuron structure",
+      "modelFrayer": ["A specialized cell organized to receive, integrate, conduct, and transmit information.","Has receiving, integrating, conducting, and transmitting regions whose forms vary by neuron type.","A motor neuron's axon carries a signal from the central nervous system toward skeletal muscle.","A hormone travelling through blood; it is a chemical signal, not a neuron."],
+      "categoryIds": [
+        "neuron-structure"
+      ],
+      "definition": "A neuron is a specialized cell whose structures receive, integrate, conduct, and transmit information.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "neur- / neuro-: nerve. dendr-: tree-like branching. The word roots help identify form or topic but do not describe every neuron's exact shape.",
+        "parts": [
+          {
+            "text": "neur- / neuro-",
+            "meaning": "nerve"
+          },
+          {
+            "text": "dendr-",
+            "meaning": "tree-like branching"
+          }
+        ],
+        "caution": "The word roots help identify form or topic but do not describe every neuron's exact shape."
+      },
+      "whatItDoes": "Dendrites and the cell body receive and integrate input; an axon carries electrical change toward terminals that communicate with another cell.",
+      "relatedTermIds": [
+        "a-word-neuron",
+        "a-word-dendrite",
+        "a-word-cell-body",
+        "a-word-axon"
+      ],
+      "commonConfusion": "Information flow is not simply every signal entering dendrites and leaving one identical terminal; neurons vary and integrate many inputs.",
+      "retrievalPrompt": "Trace information through a typical neuron from receiving region to transmitting region.",
+      "sourceRefs": [
+        "core-vocabulary.json#neuron-structure"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-neuron",
+      "term": "neuron",
+      "categoryIds": [
+        "neuron-structure"
+      ],
+      "definition": "An excitable cell specialized for receiving, integrating and transmitting information.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Neur-/neuro- relates to nerve; neuronal is the adjective."
+      },
+      "whatItDoes": "Its membrane and processes support signalling to other cells.",
+      "relatedTermIds": [
+        "a-word-neuron-structure",
+        "a-word-dendrite",
+        "a-word-cell-body",
+        "a-word-axon"
+      ],
+      "commonConfusion": "A nerve is a bundle of axons, not one neuron.",
+      "retrievalPrompt": "How does neuron structure support directional information flow?",
+      "sourceRefs": [
+        "core-vocabulary.json#neuron-structure"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-dendrite",
+      "term": "dendrite",
+      "categoryIds": [
+        "neuron-structure"
+      ],
+      "definition": "A usually branching neuron process that commonly receives input.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Dendr- relates to tree-like branching; dendritic is the adjective."
+      },
+      "whatItDoes": "Its membrane receives synaptic input that can influence integration.",
+      "relatedTermIds": [
+        "a-word-neuron-structure",
+        "a-word-neuron",
+        "a-word-cell-body",
+        "a-word-axon"
+      ],
+      "commonConfusion": "Neurons vary; not every dendrite has an identical shape or role.",
+      "retrievalPrompt": "Why can extensive dendritic branching increase possible inputs?",
+      "sourceRefs": [
+        "core-vocabulary.json#neuron-structure"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-cell-body",
+      "term": "cell body",
+      "categoryIds": [
+        "neuron-structure"
+      ],
+      "definition": "The neuron region containing its nucleus and much of its biosynthetic machinery.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Body is the main-region metaphor; cell specifies the individual unit."
+      },
+      "whatItDoes": "It supports metabolism and contributes to integration of inputs.",
+      "relatedTermIds": [
+        "a-word-neuron-structure",
+        "a-word-neuron",
+        "a-word-dendrite",
+        "a-word-axon"
+      ],
+      "commonConfusion": "The cell body is not the whole neuron.",
+      "retrievalPrompt": "Why does an axon depend on its cell body's synthesis machinery?",
+      "sourceRefs": [
+        "core-vocabulary.json#neuron-structure"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-axon",
+      "term": "axon",
+      "categoryIds": [
+        "neuron-structure"
+      ],
+      "definition": "A neuron process specialized for conducting signals toward target cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Axon is the noun; axonal is the adjective."
+      },
+      "whatItDoes": "Regenerative membrane changes can transmit information along its length.",
+      "relatedTermIds": [
+        "a-word-neuron-structure",
+        "a-word-neuron",
+        "a-word-dendrite",
+        "a-word-cell-body"
+      ],
+      "commonConfusion": "An axon does not normally carry a progressively fading action potential.",
+      "retrievalPrompt": "How is long-distance signalling maintained along an axon?",
+      "sourceRefs": [
+        "core-vocabulary.json#neuron-structure"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-axon-terminal",
+      "term": "axon terminal",
+      "categoryIds": [
+        "neuron-structure"
+      ],
+      "definition": "A specialized end region of an axon that communicates with a target.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Terminal means an end region; axon identifies the neuronal process."
+      },
+      "whatItDoes": "Arrival of an action potential can trigger transmitter release at a chemical synapse.",
+      "relatedTermIds": [
+        "a-word-neuron-structure",
+        "a-word-neuron",
+        "a-word-dendrite",
+        "a-word-cell-body"
+      ],
+      "commonConfusion": "A terminal is not the same structure as the postsynaptic receptor.",
+      "retrievalPrompt": "What links terminal depolarization to vesicle release?",
+      "sourceRefs": [
+        "core-vocabulary.json#neuron-structure"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-myelin-and-saltatory-conduction",
+      "term": "Myelin and saltatory conduction",
+      "modelFrayer": ["Insulated axon segments and exposed nodes that support faster signal propagation.","Requires intact axon membrane, myelin between nodes, and signal regeneration at nodes.","A myelinated axon conducts rapidly as local current reaches the next node of Ranvier.","A neurotransmitter diffusing across a synaptic cleft."],
+      "categoryIds": [
+        "myelin-conduction"
+      ],
+      "definition": "Myelin is a glial-cell membrane wrapping that insulates sections of an axon and supports rapid regeneration of the action potential at exposed nodes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "saltatory: leaping, describing node-to-node regeneration. oligo-: few. dendr-: branching. -cyte: cell. Schwann and Ranvier are names, not functional word parts.",
+        "parts": [
+          {
+            "text": "saltatory",
+            "meaning": "leaping, describing node-to-node regeneration"
+          },
+          {
+            "text": "oligo-",
+            "meaning": "few"
+          },
+          {
+            "text": "dendr-",
+            "meaning": "branching"
+          },
+          {
+            "text": "-cyte",
+            "meaning": "cell"
+          }
+        ],
+        "caution": "Schwann and Ranvier are names, not functional word parts."
+      },
+      "whatItDoes": "Current spreads quickly under myelin, while voltage-gated channels concentrated near nodes regenerate the signal. Schwann cells myelinate PNS axons; oligodendrocytes myelinate CNS axons.",
+      "relatedTermIds": [
+        "a-word-myelin",
+        "a-word-node-of-ranvier",
+        "a-word-saltatory-conduction",
+        "a-word-schwann-cell"
+      ],
+      "commonConfusion": "The impulse does not literally disappear and jump through empty space, and CNS and PNS repair capacity are not identical.",
+      "retrievalPrompt": "Why can losing myelin slow signalling even when the axon has not been cut?",
+      "sourceRefs": [
+        "core-vocabulary.json#myelin-conduction"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-myelin",
+      "term": "myelin",
+      "categoryIds": [
+        "myelin-conduction"
+      ],
+      "definition": "A lipid-rich insulating sheath formed around some axons by glial cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Myelin is the noun; myelinated describes an ensheathed axon."
+      },
+      "whatItDoes": "It reduces current loss and changes how depolarization spreads between nodes.",
+      "relatedTermIds": [
+        "a-word-myelin-and-saltatory-conduction",
+        "a-word-node-of-ranvier",
+        "a-word-saltatory-conduction",
+        "a-word-schwann-cell"
+      ],
+      "commonConfusion": "Myelin does not produce the action potential itself.",
+      "retrievalPrompt": "Why can losing myelin slow or block conduction?",
+      "sourceRefs": [
+        "core-vocabulary.json#myelin-conduction"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-node-of-ranvier",
+      "term": "node of Ranvier",
+      "categoryIds": [
+        "myelin-conduction"
+      ],
+      "definition": "A gap between myelin segments where axonal membrane is exposed.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ranvier is a personal name; node names the exposed interval."
+      },
+      "whatItDoes": "Concentrated channels support action-potential regeneration at nodes.",
+      "relatedTermIds": [
+        "a-word-myelin-and-saltatory-conduction",
+        "a-word-myelin",
+        "a-word-saltatory-conduction",
+        "a-word-schwann-cell"
+      ],
+      "commonConfusion": "The gap is in the sheath, not a break in the axon.",
+      "retrievalPrompt": "Why are nodes needed in a myelinated axon?",
+      "sourceRefs": [
+        "core-vocabulary.json#myelin-conduction"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-saltatory-conduction",
+      "term": "saltatory conduction",
+      "categoryIds": [
+        "myelin-conduction"
+      ],
+      "definition": "Action-potential conduction with regeneration at separated nodes along a myelinated axon.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Saltatory describes a jumping appearance; conduction is signal propagation."
+      },
+      "whatItDoes": "Local current spreads under myelin and depolarizes the next node.",
+      "relatedTermIds": [
+        "a-word-myelin-and-saltatory-conduction",
+        "a-word-myelin",
+        "a-word-node-of-ranvier",
+        "a-word-schwann-cell"
+      ],
+      "commonConfusion": "The signal does not literally leave the axon and jump through space.",
+      "retrievalPrompt": "What travels between nodes and what is regenerated at each node?",
+      "sourceRefs": [
+        "core-vocabulary.json#myelin-conduction"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-schwann-cell",
+      "term": "Schwann cell",
+      "categoryIds": [
+        "myelin-conduction"
+      ],
+      "definition": "A peripheral glial cell that supports axons and may form a myelin segment.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Schwann is a personal name; cell names the biological unit."
+      },
+      "whatItDoes": "A myelinating Schwann cell wraps a segment of a peripheral axon.",
+      "relatedTermIds": [
+        "a-word-myelin-and-saltatory-conduction",
+        "a-word-myelin",
+        "a-word-node-of-ranvier",
+        "a-word-saltatory-conduction"
+      ],
+      "commonConfusion": "It is not the myelin-producing cell of the CNS.",
+      "retrievalPrompt": "How does a Schwann cell's location distinguish it from an oligodendrocyte?",
+      "sourceRefs": [
+        "core-vocabulary.json#myelin-conduction"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-oligodendrocyte",
+      "term": "oligodendrocyte",
+      "categoryIds": [
+        "myelin-conduction"
+      ],
+      "definition": "A central nervous system glial cell that can myelinate segments of multiple axons.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Oligo- means few, dendro- relates to branching and -cyte means cell; the historical name does not specify its full function."
+      },
+      "whatItDoes": "Its processes form insulating segments in CNS pathways.",
+      "relatedTermIds": [
+        "a-word-myelin-and-saltatory-conduction",
+        "a-word-myelin",
+        "a-word-node-of-ranvier",
+        "a-word-saltatory-conduction"
+      ],
+      "commonConfusion": "One oligodendrocyte is not limited to one axon segment.",
+      "retrievalPrompt": "Why can damage to one oligodendrocyte affect several axon segments?",
+      "sourceRefs": [
+        "core-vocabulary.json#myelin-conduction"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-resting-membrane-potential",
+      "term": "Resting membrane potential",
+      "modelFrayer": ["The voltage across a non-firing neuron's membrane, negative inside relative to outside.","Depends on ion gradients, selective permeability, leak channels, and maintained pump activity.","A typical model begins near minus 70 millivolts before threshold is reached.","The positive peak reached during the rising phase of an action potential."],
+      "categoryIds": [
+        "resting-membrane-potential"
+      ],
+      "definition": "The voltage difference across a neuron's membrane when it is not producing an action potential, usually negative inside relative to outside.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "resting: not currently firing an action potential. membrane: the boundary across which charge is separated. potential: electrical potential difference. Resting does not mean inactive; channels and pumps continue to operate.",
+        "parts": [
+          {
+            "text": "resting",
+            "meaning": "not currently firing an action potential"
+          },
+          {
+            "text": "membrane",
+            "meaning": "the boundary across which charge is separated"
+          },
+          {
+            "text": "potential",
+            "meaning": "electrical potential difference"
+          }
+        ],
+        "caution": "Resting does not mean inactive; channels and pumps continue to operate."
+      },
+      "whatItDoes": "Unequal ion distributions and selective membrane permeability, especially potassium leak, create the voltage; pumps maintain gradients over time.",
+      "relatedTermIds": [
+        "a-word-ion-gradient",
+        "a-word-selective-permeability"
+      ],
+      "commonConfusion": "The sodium-potassium pump maintains ion gradients but does not by itself create each rapid phase of an action potential.",
+      "retrievalPrompt": "Use ion distribution and permeability to explain why the resting axon interior is negative.",
+      "sourceRefs": [
+        "core-vocabulary.json#resting-membrane-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-ion-gradient",
+      "term": "ion gradient",
+      "categoryIds": [
+        "resting-membrane-potential"
+      ],
+      "definition": "A difference in an ion's concentration across a membrane.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ion identifies the charged particle; gradient describes a spatial difference."
+      },
+      "whatItDoes": "Together with electrical forces it influences ion movement through channels.",
+      "relatedTermIds": [
+        "a-word-resting-membrane-potential",
+        "a-word-selective-permeability"
+      ],
+      "commonConfusion": "A concentration gradient alone is not the entire electrochemical force.",
+      "retrievalPrompt": "Why must voltage also be considered when predicting ion movement?",
+      "sourceRefs": [
+        "core-vocabulary.json#resting-membrane-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-selective-permeability",
+      "term": "selective permeability",
+      "categoryIds": [
+        "resting-membrane-potential"
+      ],
+      "definition": "The property of allowing some substances to cross more readily than others.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Selective qualifies permeability, the capacity to pass through a barrier."
+      },
+      "whatItDoes": "Channel types and states determine which ions can move at a given time.",
+      "relatedTermIds": [
+        "a-word-resting-membrane-potential",
+        "a-word-ion-gradient"
+      ],
+      "commonConfusion": "Permeable does not mean equally open to all ions.",
+      "retrievalPrompt": "How can opening potassium channels change membrane voltage?",
+      "sourceRefs": [
+        "core-vocabulary.json#resting-membrane-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-action-potential",
+      "term": "Action potential",
+      "modelFrayer": ["A threshold-triggered, all-or-none voltage event regenerated along an axon.","Has ordered ion-channel phases, does not fade during normal propagation, and is followed by refractory behaviour.","A membrane reaches threshold, sodium channels open rapidly, and the signal propagates along the axon.","A small subthreshold voltage change that fades without triggering the full channel sequence."],
+      "categoryIds": [
+        "action-potential"
+      ],
+      "definition": "A brief, regenerated reversal and restoration of membrane voltage that begins after threshold and carries information along an axon.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "action: an active electrical event. potential: voltage difference. threshold: the level at which regenerative opening begins. Potential means voltage here, not a possibility.",
+        "parts": [
+          {
+            "text": "action",
+            "meaning": "an active electrical event"
+          },
+          {
+            "text": "potential",
+            "meaning": "voltage difference"
+          },
+          {
+            "text": "threshold",
+            "meaning": "the level at which regenerative opening begins"
+          }
+        ],
+        "caution": "Potential means voltage here, not a possibility."
+      },
+      "whatItDoes": "Threshold opens voltage-gated sodium channels, sodium entry drives the rising phase, and delayed potassium-channel opening supports the falling phase and recovery.",
+      "relatedTermIds": [
+        "a-word-threshold",
+        "a-word-all-or-none-response",
+        "a-word-propagation"
+      ],
+      "commonConfusion": "A stronger stimulus does not create a taller action potential; it can increase firing frequency or recruit more neurons.",
+      "retrievalPrompt": "Explain why crossing threshold produces a full event while a slightly weaker stimulus fades.",
+      "sourceRefs": [
+        "core-vocabulary.json#action-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-threshold",
+      "term": "threshold",
+      "categoryIds": [
+        "action-potential"
+      ],
+      "definition": "The membrane or stimulus condition at which an action potential is initiated.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A threshold is a boundary metaphor, not a separate anatomical structure."
+      },
+      "whatItDoes": "Enough depolarization recruits regenerative voltage-gated channel activity.",
+      "relatedTermIds": [
+        "a-word-action-potential",
+        "a-word-all-or-none-response",
+        "a-word-propagation"
+      ],
+      "commonConfusion": "Threshold is not the maximum action-potential voltage.",
+      "retrievalPrompt": "Why can a small additional input trigger a large response near threshold?",
+      "sourceRefs": [
+        "core-vocabulary.json#action-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-all-or-none-response",
+      "term": "all-or-none response",
+      "categoryIds": [
+        "action-potential"
+      ],
+      "definition": "A response in which an individual action potential is initiated once threshold conditions are met, rather than scaling its amplitude with stimulus strength.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "All-or-none joins the two alternatives; response here refers to one action potential."
+      },
+      "whatItDoes": "Regenerative channel activation produces a stereotyped event under stated conditions.",
+      "relatedTermIds": [
+        "a-word-action-potential",
+        "a-word-threshold",
+        "a-word-propagation"
+      ],
+      "commonConfusion": "Stronger stimuli can alter frequency or recruitment rather than enlarge each event indefinitely.",
+      "retrievalPrompt": "How is stimulus strength encoded if individual action potentials are all-or-none?",
+      "sourceRefs": [
+        "core-vocabulary.json#action-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-propagation",
+      "term": "propagation",
+      "categoryIds": [
+        "action-potential"
+      ],
+      "definition": "The spread of a signal through successive regions of excitable membrane.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Propagation is the process noun; propagate is the verb."
+      },
+      "whatItDoes": "Local current brings adjacent membrane toward threshold and regenerates the event.",
+      "relatedTermIds": [
+        "a-word-action-potential",
+        "a-word-threshold",
+        "a-word-all-or-none-response"
+      ],
+      "commonConfusion": "It is not one packet of sodium ions travelling the whole axon length.",
+      "retrievalPrompt": "How does local current support a nondecrementing signal?",
+      "sourceRefs": [
+        "core-vocabulary.json#action-potential"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-membrane-potential-phases",
+      "term": "Membrane-potential phases",
+      "modelFrayer": ["Ordered changes that move membrane voltage up, back down, and briefly below rest.","Each phase is explained by channel state, ion movement, and voltage direction.","Potassium exit while sodium channels are inactivated drives the falling phase.","Calling every negative voltage hyperpolarization, even when voltage is merely returning toward rest."],
+      "categoryIds": [
+        "membrane-potential-phases"
+      ],
+      "definition": "The named voltage changes of an action potential: becoming less negative, returning toward resting voltage, and briefly becoming more negative than rest.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "de-: remove or reduce. re-: back or again. hyper-: beyond or more than. polar: having separated electrical charge. -ization: a process or change. The prefixes help track voltage direction, but ion-channel evidence explains the mechanism.",
+        "parts": [
+          {
+            "text": "de-",
+            "meaning": "remove or reduce"
+          },
+          {
+            "text": "re-",
+            "meaning": "back or again"
+          },
+          {
+            "text": "hyper-",
+            "meaning": "beyond or more than"
+          },
+          {
+            "text": "polar",
+            "meaning": "having separated electrical charge"
+          },
+          {
+            "text": "-ization",
+            "meaning": "a process or change"
+          }
+        ],
+        "caution": "The prefixes help track voltage direction, but ion-channel evidence explains the mechanism."
+      },
+      "whatItDoes": "Sodium entry drives depolarization; sodium-channel inactivation and potassium exit drive repolarization; delayed potassium-channel closing contributes to hyperpolarization.",
+      "relatedTermIds": [
+        "a-word-depolarization",
+        "a-word-repolarization",
+        "a-word-hyperpolarization"
+      ],
+      "commonConfusion": "Repolarization is not the sodium-potassium pump instantly moving every ion back to its starting side.",
+      "retrievalPrompt": "Match each voltage phase with the dominant voltage-gated channel state and net ion movement.",
+      "sourceRefs": [
+        "core-vocabulary.json#membrane-potential-phases"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-depolarization",
+      "term": "depolarization",
+      "categoryIds": [
+        "membrane-potential-phases"
+      ],
+      "definition": "A reduction in the usual voltage difference across the membrane, often making the inside less negative.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "De- indicates a reduction of polarization in this usage."
+      },
+      "whatItDoes": "Ion-channel activity can move membrane voltage toward threshold or through an action-potential upstroke.",
+      "relatedTermIds": [
+        "a-word-membrane-potential-phases",
+        "a-word-repolarization",
+        "a-word-hyperpolarization"
+      ],
+      "commonConfusion": "Depolarization need not make the inside positive.",
+      "retrievalPrompt": "Can a change from −70 to −60 mV be depolarization?",
+      "sourceRefs": [
+        "core-vocabulary.json#membrane-potential-phases"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-repolarization",
+      "term": "repolarization",
+      "categoryIds": [
+        "membrane-potential-phases"
+      ],
+      "definition": "Movement of membrane voltage back toward its polarized resting condition after depolarization.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Re- means again; polarization concerns charge separation."
+      },
+      "whatItDoes": "Changes in channel activity, especially potassium conductance in the basic model, restore negative voltage.",
+      "relatedTermIds": [
+        "a-word-membrane-potential-phases",
+        "a-word-depolarization",
+        "a-word-hyperpolarization"
+      ],
+      "commonConfusion": "It is not identical to instantly restoring all ion concentrations.",
+      "retrievalPrompt": "Why distinguish voltage recovery from restoration of ion gradients?",
+      "sourceRefs": [
+        "core-vocabulary.json#membrane-potential-phases"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-hyperpolarization",
+      "term": "hyperpolarization",
+      "categoryIds": [
+        "membrane-potential-phases"
+      ],
+      "definition": "A membrane voltage more negative than the relevant resting or reference level.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hyper- means beyond or greater; polarization identifies the voltage separation."
+      },
+      "whatItDoes": "Continued outward potassium current can take voltage below the resting level.",
+      "relatedTermIds": [
+        "a-word-membrane-potential-phases",
+        "a-word-depolarization",
+        "a-word-repolarization"
+      ],
+      "commonConfusion": "It is not merely the absence of an action potential.",
+      "retrievalPrompt": "Why can hyperpolarization make another action potential harder to trigger?",
+      "sourceRefs": [
+        "core-vocabulary.json#membrane-potential-phases"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-refractory-period",
+      "term": "Refractory period",
+      "modelFrayer": ["The post-spike recovery interval when firing is impossible or more difficult.","Depends on sodium-channel recovery and, later, persistent potassium permeability.","An axon cannot immediately fire at the same membrane region while sodium channels are inactivated.","A resting neuron that is fully excitable and has not just fired."],
+      "categoryIds": [
+        "refractory-period"
+      ],
+      "definition": "A recovery interval after an action potential during which another event is impossible or requires a stronger-than-usual stimulus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "refractory: resistant or not readily responsive. Treat the word as a named recovery state rather than trying to decode it into a channel mechanism.",
+        "parts": [
+          {
+            "text": "refractory",
+            "meaning": "resistant or not readily responsive"
+          }
+        ],
+        "caution": "Treat the word as a named recovery state rather than trying to decode it into a channel mechanism."
+      },
+      "whatItDoes": "Inactivated sodium channels prevent immediate refiring; during later recovery, some channels reset while the membrane may remain hyperpolarized.",
+      "relatedTermIds": [
+        "a-word-absolute-refractory-period",
+        "a-word-relative-refractory-period",
+        "a-word-channel-inactivation"
+      ],
+      "commonConfusion": "Absolute and relative refractory periods are not identical: one prevents another event, while the other raises the stimulus requirement.",
+      "retrievalPrompt": "How does sodium-channel inactivation limit firing rate and support forward propagation?",
+      "sourceRefs": [
+        "core-vocabulary.json#refractory-period"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-absolute-refractory-period",
+      "term": "absolute refractory period",
+      "categoryIds": [
+        "refractory-period"
+      ],
+      "definition": "An interval during which a second action potential cannot be initiated in the affected membrane.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Absolute qualifies refractory period: stimulus strength cannot overcome this interval's channel state."
+      },
+      "whatItDoes": "Inactivated sodium channels prevent immediate re-excitation.",
+      "relatedTermIds": [
+        "a-word-refractory-period",
+        "a-word-relative-refractory-period",
+        "a-word-channel-inactivation"
+      ],
+      "commonConfusion": "A stronger stimulus does not override sodium-channel inactivation.",
+      "retrievalPrompt": "Why does channel state limit firing frequency?",
+      "sourceRefs": [
+        "core-vocabulary.json#refractory-period"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-relative-refractory-period",
+      "term": "relative refractory period",
+      "categoryIds": [
+        "refractory-period"
+      ],
+      "definition": "An interval when another action potential is possible but requires a stronger stimulus than usual.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Relative qualifies refractory: excitability is reduced rather than entirely absent."
+      },
+      "whatItDoes": "Incomplete recovery and elevated potassium conductance can raise the stimulus requirement.",
+      "relatedTermIds": [
+        "a-word-refractory-period",
+        "a-word-absolute-refractory-period",
+        "a-word-channel-inactivation"
+      ],
+      "commonConfusion": "It is not the same as the absolute interval.",
+      "retrievalPrompt": "Why can a larger input sometimes trigger firing during this period?",
+      "sourceRefs": [
+        "core-vocabulary.json#refractory-period"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-channel-inactivation",
+      "term": "channel inactivation",
+      "categoryIds": [
+        "refractory-period"
+      ],
+      "definition": "A temporary nonconducting channel state distinct from a closed state ready to activate.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Inactivation is a state-change noun; channel identifies the gated membrane protein."
+      },
+      "whatItDoes": "An inactivated sodium channel must recover before it can reopen normally.",
+      "relatedTermIds": [
+        "a-word-refractory-period",
+        "a-word-absolute-refractory-period",
+        "a-word-relative-refractory-period"
+      ],
+      "commonConfusion": "Closed and inactivated are not interchangeable states.",
+      "retrievalPrompt": "Why does repolarization help restore sodium-channel availability?",
+      "sourceRefs": [
+        "core-vocabulary.json#refractory-period"
+      ],
+      "route": "lesson-02"
+    },
+    {
+      "id": "a-word-synaptic-transmission",
+      "term": "Synaptic transmission",
+      "modelFrayer": ["The ordered conversion of an arriving electrical signal into chemical release and a target-cell response.","Requires presynaptic calcium entry, transmitter release, receptor binding, and signal termination.","Acetylcholine crosses a cleft, binds receptors, and is then broken down by acetylcholinesterase.","A hormone travelling from a gland to distant targets through the bloodstream."],
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "Communication across a synapse in which an arriving electrical signal changes chemical release and the chemical signal changes the receiving cell.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "syn-: together. neuro-: nerve. trans-: across. -mitter: sender. The word parts identify communication, but they do not predict whether a neurotransmitter excites or inhibits a particular target.",
+        "parts": [
+          {
+            "text": "syn-",
+            "meaning": "together"
+          },
+          {
+            "text": "neuro-",
+            "meaning": "nerve"
+          },
+          {
+            "text": "trans-",
+            "meaning": "across"
+          },
+          {
+            "text": "-mitter",
+            "meaning": "sender"
+          }
+        ],
+        "caution": "The word parts identify communication, but they do not predict whether a neurotransmitter excites or inhibits a particular target."
+      },
+      "whatItDoes": "An action potential opens presynaptic calcium channels, vesicles release neurotransmitter, receptors bind it, and removal by breakdown, diffusion, or reuptake limits the signal.",
+      "relatedTermIds": [
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine",
+        "a-word-cholinesterase"
+      ],
+      "commonConfusion": "A neurotransmitter is not automatically excitatory; its effect depends on receptor and target-cell mechanisms.",
+      "retrievalPrompt": "Predict what changes if acetylcholinesterase is inhibited while release remains normal.",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-synapse",
+      "term": "synapse",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "A junction through which a neuron communicates with another cell.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Synapse is the noun; synaptic is the adjective."
+      },
+      "whatItDoes": "Chemical synapses transmit through released molecules and receptors; electrical synapses use direct coupling.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine",
+        "a-word-cholinesterase"
+      ],
+      "commonConfusion": "A synapse is not always a chemical cleft alone.",
+      "retrievalPrompt": "Which structures belong to a chemical synapse beyond its cleft?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-neurotransmitter",
+      "term": "neurotransmitter",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "A chemical released by a neuron that acts on target-cell receptors at a synapse.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Neuro- relates to nerve; transmitter describes signalling function."
+      },
+      "whatItDoes": "Its receptor interactions change target-cell activity.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-acetylcholine",
+        "a-word-cholinesterase"
+      ],
+      "commonConfusion": "The same transmitter can have different effects at different receptor types.",
+      "retrievalPrompt": "Why does transmitter identity alone not determine excitation or inhibition?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-acetylcholine",
+      "term": "acetylcholine",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "A neurotransmitter used at neuromuscular junctions and many autonomic and CNS synapses.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A whole chemical name combining acetyl and choline; ACh is its common abbreviation."
+      },
+      "whatItDoes": "Binding to appropriate receptors can alter ion flow or intracellular signalling.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-cholinesterase"
+      ],
+      "commonConfusion": "Its effect depends on receptor type rather than being always excitatory.",
+      "retrievalPrompt": "Why can acetylcholine have different effects on skeletal muscle and heart rate?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-cholinesterase",
+      "term": "cholinesterase",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "An enzyme class that hydrolyses choline esters; acetylcholinesterase breaks down acetylcholine at relevant synapses.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Choline-ester-ase identifies substrate chemistry and an enzyme ending."
+      },
+      "whatItDoes": "Breakdown helps terminate acetylcholine signalling.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine"
+      ],
+      "commonConfusion": "Breaking down transmitter is not the same as blocking its receptor.",
+      "retrievalPrompt": "How would inhibited acetylcholinesterase affect signal duration?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-norepinephrine",
+      "term": "norepinephrine",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "A catecholamine used as a neurotransmitter and hormone, also called noradrenaline.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Norepinephrine and noradrenaline are alternate names, not different transmitter classes."
+      },
+      "whatItDoes": "Adrenergic receptor interactions contribute to autonomic responses.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine"
+      ],
+      "commonConfusion": "It does not cause the same response in all target tissues.",
+      "retrievalPrompt": "Why can sympathetic signalling produce different responses in different organs?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-agonist",
+      "term": "agonist",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "A substance that activates a receptor to produce a response.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Agonist is the noun; agonistic describes its receptor action."
+      },
+      "whatItDoes": "It mimics or stimulates the receptor's signalling action.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine"
+      ],
+      "commonConfusion": "Binding alone does not establish agonism.",
+      "retrievalPrompt": "What observation would distinguish an agonist from a binding blocker?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-antagonist",
+      "term": "antagonist",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "A substance that reduces or blocks receptor activation by an agonist.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Antagonist names opposition in this receptor context; it need not be an opposing hormone."
+      },
+      "whatItDoes": "Blocking receptor action reduces the signal's effect.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine"
+      ],
+      "commonConfusion": "An antagonist need not destroy the transmitter.",
+      "retrievalPrompt": "How can receptor blockade reduce a response while transmitter remains present?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-reuptake",
+      "term": "reuptake",
+      "categoryIds": [
+        "synaptic-transmission"
+      ],
+      "definition": "Transport of released neurotransmitter back into cells from the extracellular synaptic region.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Re- means again; uptake describes cellular transport."
+      },
+      "whatItDoes": "Transporters reduce transmitter availability and permit recycling or metabolism.",
+      "relatedTermIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine"
+      ],
+      "commonConfusion": "It is not the same as enzymatic breakdown in the cleft.",
+      "retrievalPrompt": "How can reuptake inhibition prolong signalling?",
+      "sourceRefs": [
+        "core-vocabulary.json#synaptic-transmission"
+      ],
+      "route": "lesson-03"
+    },
+    {
+      "id": "a-word-central-and-peripheral-nervous-systems",
+      "term": "Central and peripheral nervous systems",
+      "modelFrayer": ["Two anatomical divisions: brain and spinal cord centrally, and neural pathways outside them peripherally.","The PNS carries input toward and output away from CNS integration.","A sensory nerve carries skin-receptor information toward the spinal cord.","Calling the spinal cord part of the peripheral nervous system."],
+      "categoryIds": [
+        "central-peripheral-systems"
+      ],
+      "definition": "The CNS consists of the brain and spinal cord; the PNS consists of neural structures outside them that carry information to and from the CNS.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "central: the integrating brain and spinal cord. peri- / peripheral: around or outside the centre. Peripheral does not mean unimportant; it describes location relative to the CNS.",
+        "parts": [
+          {
+            "text": "central",
+            "meaning": "the integrating brain and spinal cord"
+          },
+          {
+            "text": "peri- / peripheral",
+            "meaning": "around or outside the centre"
+          }
+        ],
+        "caution": "Peripheral does not mean unimportant; it describes location relative to the CNS."
+      },
+      "whatItDoes": "Peripheral sensory pathways bring evidence toward central integration, while peripheral motor pathways carry output toward effectors.",
+      "relatedTermIds": [
+        "a-word-central-nervous-system",
+        "a-word-peripheral-nervous-system",
+        "a-word-cns",
+        "a-word-pns"
+      ],
+      "commonConfusion": "Cranial and spinal nerves are part of the PNS even though they connect directly to central structures.",
+      "retrievalPrompt": "Trace one sensory message from a fingertip into the CNS and one motor command back out.",
+      "sourceRefs": [
+        "core-vocabulary.json#central-peripheral-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-central-nervous-system",
+      "term": "central nervous system",
+      "categoryIds": [
+        "central-peripheral-systems"
+      ],
+      "definition": "The brain and spinal cord.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Central specifies this anatomical division; nervous system names the signalling network."
+      },
+      "whatItDoes": "It integrates information and coordinates many responses.",
+      "relatedTermIds": [
+        "a-word-central-and-peripheral-nervous-systems",
+        "a-word-peripheral-nervous-system",
+        "a-word-cns",
+        "a-word-pns"
+      ],
+      "commonConfusion": "Central does not mean all processing is conscious.",
+      "retrievalPrompt": "Why can a spinal reflex be integrated without a conscious decision?",
+      "sourceRefs": [
+        "core-vocabulary.json#central-peripheral-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-peripheral-nervous-system",
+      "term": "peripheral nervous system",
+      "categoryIds": [
+        "central-peripheral-systems"
+      ],
+      "definition": "Nervous tissue outside the brain and spinal cord, including nerves and ganglia.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Peripheral specifies location outside the CNS."
+      },
+      "whatItDoes": "It carries sensory information toward and motor signals away from central structures.",
+      "relatedTermIds": [
+        "a-word-central-and-peripheral-nervous-systems",
+        "a-word-central-nervous-system",
+        "a-word-cns",
+        "a-word-pns"
+      ],
+      "commonConfusion": "Peripheral nerves can contain both sensory and motor fibres.",
+      "retrievalPrompt": "Why is a mixed nerve not purely an input or output pathway?",
+      "sourceRefs": [
+        "core-vocabulary.json#central-peripheral-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-cns",
+      "term": "CNS",
+      "categoryIds": [
+        "central-peripheral-systems"
+      ],
+      "definition": "The central nervous system: brain and spinal cord.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for central nervous system; letters identify the anatomical division."
+      },
+      "whatItDoes": "It provides major sites of integration and coordination.",
+      "relatedTermIds": [
+        "a-word-central-and-peripheral-nervous-systems",
+        "a-word-central-nervous-system",
+        "a-word-peripheral-nervous-system",
+        "a-word-pns"
+      ],
+      "commonConfusion": "CNS is not a synonym for brain alone.",
+      "retrievalPrompt": "Which CNS structure can integrate a withdrawal reflex?",
+      "sourceRefs": [
+        "core-vocabulary.json#central-peripheral-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-pns",
+      "term": "PNS",
+      "categoryIds": [
+        "central-peripheral-systems"
+      ],
+      "definition": "The peripheral nervous system outside the brain and spinal cord.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for peripheral nervous system."
+      },
+      "whatItDoes": "It links receptors and effectors with central pathways.",
+      "relatedTermIds": [
+        "a-word-central-and-peripheral-nervous-systems",
+        "a-word-central-nervous-system",
+        "a-word-peripheral-nervous-system",
+        "a-word-cns"
+      ],
+      "commonConfusion": "PNS does not mean only autonomic nerves.",
+      "retrievalPrompt": "How do somatic and autonomic pathways relate to the PNS?",
+      "sourceRefs": [
+        "core-vocabulary.json#central-peripheral-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-somatic-and-autonomic-systems",
+      "term": "Somatic and autonomic systems",
+      "modelFrayer": ["Motor-system divisions distinguished mainly by their target tissues and pathway organization.","Somatic pathways target skeletal muscle; autonomic pathways regulate cardiac muscle, smooth muscle, and glands.","Autonomic output changes heart rate during a stress response.","Assuming every reflex is autonomic because it happens rapidly."],
+      "categoryIds": [
+        "somatic-autonomic-systems"
+      ],
+      "definition": "Somatic motor pathways primarily control skeletal muscle; autonomic pathways regulate smooth muscle, cardiac muscle, and glands.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "soma- / somatic: body. auto-: self. -nomic: governing or managing. Autonomic activity is regulated, not independent of the brain and spinal cord.",
+        "parts": [
+          {
+            "text": "soma- / somatic",
+            "meaning": "body"
+          },
+          {
+            "text": "auto-",
+            "meaning": "self"
+          },
+          {
+            "text": "-nomic",
+            "meaning": "governing or managing"
+          }
+        ],
+        "caution": "Autonomic activity is regulated, not independent of the brain and spinal cord."
+      },
+      "whatItDoes": "The divisions differ by targets and pathway organization, while both are coordinated by the nervous system and can interact during a response.",
+      "relatedTermIds": [
+        "a-word-somatic-nervous-system",
+        "a-word-autonomic-nervous-system",
+        "a-word-voluntary-control",
+        "a-word-visceral-control"
+      ],
+      "commonConfusion": "Somatic is not simply conscious and autonomic is not simply unconscious; reflexes and coordinated control complicate that shortcut.",
+      "retrievalPrompt": "Classify pupil diameter and a deliberate hand movement by motor division and target tissue.",
+      "sourceRefs": [
+        "core-vocabulary.json#somatic-autonomic-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-somatic-nervous-system",
+      "term": "somatic nervous system",
+      "categoryIds": [
+        "somatic-autonomic-systems"
+      ],
+      "definition": "The division associated with somatic sensory information and skeletal-muscle motor control.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Somatic refers to the body; nervous system specifies the signalling division."
+      },
+      "whatItDoes": "Motor pathways activate skeletal muscle for voluntary actions and reflexes.",
+      "relatedTermIds": [
+        "a-word-somatic-and-autonomic-systems",
+        "a-word-autonomic-nervous-system",
+        "a-word-voluntary-control",
+        "a-word-visceral-control"
+      ],
+      "commonConfusion": "Somatic does not mean every response is consciously chosen.",
+      "retrievalPrompt": "Why is a knee-jerk reflex somatic despite being involuntary?",
+      "sourceRefs": [
+        "core-vocabulary.json#somatic-autonomic-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-autonomic-nervous-system",
+      "term": "autonomic nervous system",
+      "categoryIds": [
+        "somatic-autonomic-systems"
+      ],
+      "definition": "The motor system regulating visceral effectors such as smooth muscle, cardiac muscle and glands.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Autonomic is the system's conventional adjective; it does not mean disconnected from CNS control."
+      },
+      "whatItDoes": "It adjusts organ activity through sympathetic, parasympathetic and related pathways.",
+      "relatedTermIds": [
+        "a-word-somatic-and-autonomic-systems",
+        "a-word-somatic-nervous-system",
+        "a-word-voluntary-control",
+        "a-word-visceral-control"
+      ],
+      "commonConfusion": "Autonomic is not equivalent to all involuntary sensory activity.",
+      "retrievalPrompt": "Which effectors distinguish autonomic from somatic motor output?",
+      "sourceRefs": [
+        "core-vocabulary.json#somatic-autonomic-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-voluntary-control",
+      "term": "voluntary control",
+      "categoryIds": [
+        "somatic-autonomic-systems"
+      ],
+      "definition": "Control of actions that can be initiated or modified consciously.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Voluntary describes the degree of conscious direction, not a separate tissue."
+      },
+      "whatItDoes": "Conscious motor planning can recruit skeletal-muscle pathways.",
+      "relatedTermIds": [
+        "a-word-somatic-and-autonomic-systems",
+        "a-word-somatic-nervous-system",
+        "a-word-autonomic-nervous-system",
+        "a-word-visceral-control"
+      ],
+      "commonConfusion": "A voluntarily controlled muscle can also participate in reflexes.",
+      "retrievalPrompt": "How can the same muscle serve voluntary movement and a reflex?",
+      "sourceRefs": [
+        "core-vocabulary.json#somatic-autonomic-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-visceral-control",
+      "term": "visceral control",
+      "categoryIds": [
+        "somatic-autonomic-systems"
+      ],
+      "definition": "Regulation of internal-organ activity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Visceral relates to internal organs; control identifies regulation."
+      },
+      "whatItDoes": "Autonomic output changes glandular, smooth-muscle and cardiac activity.",
+      "relatedTermIds": [
+        "a-word-somatic-and-autonomic-systems",
+        "a-word-somatic-nervous-system",
+        "a-word-autonomic-nervous-system",
+        "a-word-voluntary-control"
+      ],
+      "commonConfusion": "Visceral regulation is not necessarily conscious sensation.",
+      "retrievalPrompt": "How can heart rate change without a deliberate command?",
+      "sourceRefs": [
+        "core-vocabulary.json#somatic-autonomic-systems"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-sympathetic-and-parasympathetic-divisions",
+      "term": "Sympathetic and parasympathetic divisions",
+      "modelFrayer": ["Autonomic divisions that create coordinated, organ-specific patterns suited to current conditions.","Often oppose one another, use different pathways and receptors, and remain under central regulation.","During acute stress, sympathetic pathways can increase heart activity while reducing digestive activity.","Claiming sympathetic activity increases every organ's activity in exactly the same way."],
+      "categoryIds": [
+        "sympathetic-parasympathetic"
+      ],
+      "definition": "Two coordinated autonomic divisions that adjust organ activity in context; they often have opposing effects but do not function as simple universal on/off switches.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "sympathetic: a historical anatomical name. parasympathetic: the contrasted autonomic division. The everyday meanings of sympathy and calm do not predict each division's complete physiology.",
+        "parts": [
+          {
+            "text": "sympathetic",
+            "meaning": "a historical anatomical name"
+          },
+          {
+            "text": "parasympathetic",
+            "meaning": "the contrasted autonomic division"
+          }
+        ],
+        "caution": "The everyday meanings of sympathy and calm do not predict each division's complete physiology."
+      },
+      "whatItDoes": "Different central pathways, peripheral neurons, neurotransmitters, and receptors produce organ-specific patterns suited to challenge, activity, recovery, and maintenance.",
+      "relatedTermIds": [
+        "a-word-sympathetic-division",
+        "a-word-parasympathetic-division",
+        "a-word-autonomic-balance"
+      ],
+      "commonConfusion": "Sympathetic does not activate every organ, and parasympathetic does not simply turn every sympathetic effect backward.",
+      "retrievalPrompt": "Explain why one organ-specific prediction is stronger than saying sympathetic activity turns the whole body on.",
+      "sourceRefs": [
+        "core-vocabulary.json#sympathetic-parasympathetic"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-sympathetic-division",
+      "term": "sympathetic division",
+      "categoryIds": [
+        "sympathetic-parasympathetic"
+      ],
+      "definition": "An autonomic division that coordinates context-dependent adjustments often associated with activity and challenge.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sympathetic is an anatomical label, not an emotional description."
+      },
+      "whatItDoes": "Its pathways can redistribute activity among organs during changing demands.",
+      "relatedTermIds": [
+        "a-word-sympathetic-and-parasympathetic-divisions",
+        "a-word-parasympathetic-division",
+        "a-word-autonomic-balance"
+      ],
+      "commonConfusion": "It does not simply stimulate every organ.",
+      "retrievalPrompt": "Why might heart activity rise while digestive activity falls?",
+      "sourceRefs": [
+        "core-vocabulary.json#sympathetic-parasympathetic"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-parasympathetic-division",
+      "term": "parasympathetic division",
+      "categoryIds": [
+        "sympathetic-parasympathetic"
+      ],
+      "definition": "An autonomic division supporting context-dependent maintenance, conservation and digestive functions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Parasympathetic is the division's compound anatomical name."
+      },
+      "whatItDoes": "Its output adjusts target organs through specific receptors and circuits.",
+      "relatedTermIds": [
+        "a-word-sympathetic-and-parasympathetic-divisions",
+        "a-word-sympathetic-division",
+        "a-word-autonomic-balance"
+      ],
+      "commonConfusion": "It is not always a global off switch opposing every sympathetic action.",
+      "retrievalPrompt": "Why should organ-specific effects be considered?",
+      "sourceRefs": [
+        "core-vocabulary.json#sympathetic-parasympathetic"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-autonomic-balance",
+      "term": "autonomic balance",
+      "categoryIds": [
+        "sympathetic-parasympathetic"
+      ],
+      "definition": "The net organ-specific outcome of changing autonomic influences.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Balance is a functional metaphor, not necessarily equal activity in two divisions."
+      },
+      "whatItDoes": "Changing relative inputs helps adapt organ function to conditions.",
+      "relatedTermIds": [
+        "a-word-sympathetic-and-parasympathetic-divisions",
+        "a-word-sympathetic-division",
+        "a-word-parasympathetic-division"
+      ],
+      "commonConfusion": "Equal sympathetic and parasympathetic firing is not required.",
+      "retrievalPrompt": "How can a resting heart rate reflect active regulation?",
+      "sourceRefs": [
+        "core-vocabulary.json#sympathetic-parasympathetic"
+      ],
+      "route": "lesson-04"
+    },
+    {
+      "id": "a-word-reflex-arc",
+      "term": "Reflex arc",
+      "modelFrayer": ["A rapid neural route connecting stimulus detection to a predictable effector response.","Includes receptor, sensory neuron, central integration, motor neuron, and effector in that functional order.","A withdrawal response routes skin-receptor input through spinal integration to flexor muscle output.","Catching a ruler after consciously seeing it fall and deciding to close the fingers."],
+      "categoryIds": [
+        "reflex-arc"
+      ],
+      "definition": "A neural pathway that produces a rapid, predictable response to a stimulus through receptor, sensory, integrating, motor, and effector components.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "reflex: a rapid, predictable response pathway. arc: the complete route from detection to response. The pathway is not necessarily a literal curved arc, and reaction-time tasks include more than a simple spinal reflex.",
+        "parts": [
+          {
+            "text": "reflex",
+            "meaning": "a rapid, predictable response pathway"
+          },
+          {
+            "text": "arc",
+            "meaning": "the complete route from detection to response"
+          }
+        ],
+        "caution": "The pathway is not necessarily a literal curved arc, and reaction-time tasks include more than a simple spinal reflex."
+      },
+      "whatItDoes": "Sensory input reaches central integration, often in the spinal cord, and motor output reaches an effector while information can also travel to the brain.",
+      "relatedTermIds": [
+        "a-word-reflex",
+        "a-word-receptor",
+        "a-word-sensory-neuron",
+        "a-word-interneuron"
+      ],
+      "commonConfusion": "A ruler-drop reaction-time task includes perception and decision and does not directly measure the speed of a spinal reflex.",
+      "retrievalPrompt": "Put the five functional parts of a withdrawal reflex in order and explain where integration occurs.",
+      "sourceRefs": [
+        "core-vocabulary.json#reflex-arc"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-reflex",
+      "term": "reflex",
+      "categoryIds": [
+        "reflex-arc"
+      ],
+      "definition": "A relatively rapid, stereotyped response mediated by a defined neural pathway.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Reflex is the noun; reflexive is the adjective."
+      },
+      "whatItDoes": "A receptor-to-effector circuit produces a response without requiring a prior conscious decision.",
+      "relatedTermIds": [
+        "a-word-reflex-arc",
+        "a-word-receptor",
+        "a-word-sensory-neuron",
+        "a-word-interneuron"
+      ],
+      "commonConfusion": "Reflexes may still be modified by higher centres.",
+      "retrievalPrompt": "Why can withdrawal occur before conscious awareness of pain?",
+      "sourceRefs": [
+        "core-vocabulary.json#reflex-arc"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-sensory-neuron",
+      "term": "sensory neuron",
+      "categoryIds": [
+        "reflex-arc"
+      ],
+      "definition": "A neuron carrying information from a receptor toward an integrating pathway.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sensory specifies information input; neuron identifies the cell."
+      },
+      "whatItDoes": "It transmits receptor-related signals to CNS or other integrative circuits.",
+      "relatedTermIds": [
+        "a-word-reflex-arc",
+        "a-word-reflex",
+        "a-word-receptor",
+        "a-word-interneuron"
+      ],
+      "commonConfusion": "Sensory does not mean the signal has already become a conscious perception.",
+      "retrievalPrompt": "What information enters a reflex arc through this neuron?",
+      "sourceRefs": [
+        "core-vocabulary.json#reflex-arc"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-interneuron",
+      "term": "interneuron",
+      "categoryIds": [
+        "reflex-arc"
+      ],
+      "definition": "A neuron that connects and processes information within neural circuits.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Inter- means between; neuron names the cell."
+      },
+      "whatItDoes": "It can integrate inputs and modify output to other neurons.",
+      "relatedTermIds": [
+        "a-word-reflex-arc",
+        "a-word-reflex",
+        "a-word-receptor",
+        "a-word-sensory-neuron"
+      ],
+      "commonConfusion": "Not every reflex requires the same number of interneurons.",
+      "retrievalPrompt": "How can an interneuron coordinate opposing muscles?",
+      "sourceRefs": [
+        "core-vocabulary.json#reflex-arc"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-motor-neuron",
+      "term": "motor neuron",
+      "categoryIds": [
+        "reflex-arc"
+      ],
+      "definition": "A neuron whose output influences an effector, especially muscle in the somatic system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Motor identifies an output role; neuron is the signalling cell."
+      },
+      "whatItDoes": "Its activity can cause muscle contraction through a neuromuscular junction.",
+      "relatedTermIds": [
+        "a-word-reflex-arc",
+        "a-word-reflex",
+        "a-word-receptor",
+        "a-word-sensory-neuron"
+      ],
+      "commonConfusion": "Motor output is not always voluntarily initiated.",
+      "retrievalPrompt": "Where does a motor neuron sit in a withdrawal pathway?",
+      "sourceRefs": [
+        "core-vocabulary.json#reflex-arc"
+      ],
+      "route": "lesson-01"
+    },
+    {
+      "id": "a-word-sensory-transduction",
+      "term": "Sensory transduction",
+      "modelFrayer": ["Conversion of stimulus energy or chemistry into a receptor-cell change that influences neural signalling.","Requires a specialized receptor and links stimulus properties to membrane or transmitter change.","Sound-driven fluid movement bends cochlear hair bundles and changes hair-cell signalling.","An action potential simply travelling farther along an already activated sensory axon."],
+      "categoryIds": [
+        "sensory-transduction"
+      ],
+      "definition": "The conversion of a physical or chemical stimulus into a change in a receptor cell that can influence neural signalling.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "trans-: across or from one form to another. -duct-: lead or carry. -ion: a process. Transduction is conversion of stimulus information, not merely movement of a signal along an axon.",
+        "parts": [
+          {
+            "text": "trans-",
+            "meaning": "across or from one form to another"
+          },
+          {
+            "text": "-duct-",
+            "meaning": "lead or carry"
+          },
+          {
+            "text": "-ion",
+            "meaning": "a process"
+          }
+        ],
+        "caution": "Transduction is conversion of stimulus information, not merely movement of a signal along an axon."
+      },
+      "whatItDoes": "A stimulus affects specialized receptor proteins or structures, changes membrane behaviour, and alters communication with sensory neurons.",
+      "relatedTermIds": [
+        "a-word-receptor-potential",
+        "a-word-stimulus-energy"
+      ],
+      "commonConfusion": "The lens focusing light and the ossicles transmitting vibration support sensing, but receptor cells perform the transduction step.",
+      "retrievalPrompt": "Compare what is converted by a retinal photoreceptor and a cochlear hair cell.",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-transduction"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-receptor-potential",
+      "term": "receptor potential",
+      "categoryIds": [
+        "sensory-transduction"
+      ],
+      "definition": "A graded membrane-potential change produced by sensory stimulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Receptor identifies the detecting structure; potential is voltage, not a probability."
+      },
+      "whatItDoes": "Its magnitude can influence transmitter release or action-potential frequency.",
+      "relatedTermIds": [
+        "a-word-sensory-transduction",
+        "a-word-stimulus-energy"
+      ],
+      "commonConfusion": "It is not necessarily an all-or-none action potential.",
+      "retrievalPrompt": "How can a stronger stimulus change the receptor potential?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-transduction"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-stimulus-energy",
+      "term": "stimulus energy",
+      "categoryIds": [
+        "sensory-transduction"
+      ],
+      "definition": "The physical or chemical input available for sensory detection.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Stimulus specifies the initiating input; energy identifies its physical basis."
+      },
+      "whatItDoes": "Receptor mechanisms convert the relevant input into cellular signalling.",
+      "relatedTermIds": [
+        "a-word-sensory-transduction",
+        "a-word-receptor-potential"
+      ],
+      "commonConfusion": "The nervous system does not directly transmit the original light or sound energy along the nerve.",
+      "retrievalPrompt": "What transformation connects sound vibration with nerve impulses?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-transduction"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-sensory-receptor-classes",
+      "term": "Sensory receptor classes",
+      "modelFrayer": ["Receptor groups named for the stimulus form they are specialized to detect.","Share transduction but differ in stimulus, structure, location, and adaptation pattern.","Retinal rods and cones are photoreceptors because light changes their signalling.","Calling the lens a photoreceptor because light passes through it."],
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "Groups of sensory receptors classified by the kind of stimulus they detect and convert into biological signals.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "photo-: light. mechano-: force or movement. chemo-: chemical. thermo-: heat or temperature. nocice-: harm or injury. proprio-: one's own. -receptor: detector. A receptor class identifies the preferred stimulus, not a single body location.",
+        "parts": [
+          {
+            "text": "photo-",
+            "meaning": "light"
+          },
+          {
+            "text": "mechano-",
+            "meaning": "force or movement"
+          },
+          {
+            "text": "chemo-",
+            "meaning": "chemical"
+          },
+          {
+            "text": "thermo-",
+            "meaning": "heat or temperature"
+          },
+          {
+            "text": "nocice-",
+            "meaning": "harm or injury"
+          },
+          {
+            "text": "proprio-",
+            "meaning": "one's own"
+          },
+          {
+            "text": "-receptor",
+            "meaning": "detector"
+          }
+        ],
+        "caution": "A receptor class identifies the preferred stimulus, not a single body location."
+      },
+      "whatItDoes": "Each receptor class has structures and proteins suited to light, mechanical force, chemicals, temperature, tissue-damaging stimuli, or body position.",
+      "relatedTermIds": [
+        "a-word-photoreceptor",
+        "a-word-mechanoreceptor",
+        "a-word-chemoreceptor",
+        "a-word-thermoreceptor"
+      ],
+      "commonConfusion": "Nociceptors detect potentially damaging conditions; they are not identical to the conscious experience of pain.",
+      "retrievalPrompt": "Classify the receptor most directly involved in light detection, head rotation, blood chemistry, and joint position.",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-photoreceptor",
+      "term": "photoreceptor",
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "A receptor specialized for detecting light.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Photo- means light; receptor names detection."
+      },
+      "whatItDoes": "Light-sensitive molecular changes alter signalling in rods and cones.",
+      "relatedTermIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-mechanoreceptor",
+        "a-word-chemoreceptor",
+        "a-word-thermoreceptor"
+      ],
+      "commonConfusion": "A photoreceptor does not form a conscious image by itself.",
+      "retrievalPrompt": "How do rods and cones contribute differently under dim and bright conditions?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-mechanoreceptor",
+      "term": "mechanoreceptor",
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "A receptor that responds to mechanical deformation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mechano- identifies mechanical input; receptor names detection."
+      },
+      "whatItDoes": "Stretch or movement changes channel activity and membrane voltage.",
+      "relatedTermIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-photoreceptor",
+        "a-word-chemoreceptor",
+        "a-word-thermoreceptor"
+      ],
+      "commonConfusion": "It does not respond only to conscious touch.",
+      "retrievalPrompt": "Why are inner-ear hair cells mechanoreceptors?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-chemoreceptor",
+      "term": "chemoreceptor",
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "A receptor responsive to particular chemical conditions or molecules.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Chemo- refers to chemical input; receptor identifies detection."
+      },
+      "whatItDoes": "Chemical binding or concentration changes alter receptor activity.",
+      "relatedTermIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-photoreceptor",
+        "a-word-mechanoreceptor",
+        "a-word-thermoreceptor"
+      ],
+      "commonConfusion": "Chemoreception is not restricted to smell and taste.",
+      "retrievalPrompt": "How can blood-chemistry monitoring be chemoreception?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-thermoreceptor",
+      "term": "thermoreceptor",
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "A receptor responsive to temperature changes within its operating range.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Thermo- means heat; receptor names detection."
+      },
+      "whatItDoes": "Temperature-dependent cellular responses provide information about warming or cooling.",
+      "relatedTermIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-photoreceptor",
+        "a-word-mechanoreceptor",
+        "a-word-chemoreceptor"
+      ],
+      "commonConfusion": "It is not a precise thermometer reading available directly to consciousness.",
+      "retrievalPrompt": "Why do receptor operating ranges matter?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-nociceptor",
+      "term": "nociceptor",
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "A sensory receptor responsive to potentially tissue-damaging stimuli.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Nociceptor is a specialized whole receptor name; nociception is detection of noxious input."
+      },
+      "whatItDoes": "Its activity initiates protective signalling that can contribute to pain perception.",
+      "relatedTermIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-photoreceptor",
+        "a-word-mechanoreceptor",
+        "a-word-chemoreceptor"
+      ],
+      "commonConfusion": "Nociception and the subjective experience of pain are not identical.",
+      "retrievalPrompt": "Why can detection and perception be distinguished?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-proprioceptor",
+      "term": "proprioceptor",
+      "categoryIds": [
+        "sensory-receptor-classes"
+      ],
+      "definition": "A receptor providing information about body position, movement or force.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Proprio- relates to one's own; receptor identifies detection."
+      },
+      "whatItDoes": "Signals from muscles, tendons and joints support posture and movement control.",
+      "relatedTermIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-photoreceptor",
+        "a-word-mechanoreceptor",
+        "a-word-chemoreceptor"
+      ],
+      "commonConfusion": "It does not require seeing the body part.",
+      "retrievalPrompt": "How can you sense arm position with your eyes closed?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-receptor-classes"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-sensory-adaptation",
+      "term": "Sensory adaptation",
+      "modelFrayer": ["A change, often a decrease, in sensory response during a sustained stimulus.","Occurs over time, can differ by receptor system, and does not require stimulus removal.","Steady room odour becomes less noticeable after several minutes.","A light is switched off and visual input falls because the stimulus ended."],
+      "categoryIds": [
+        "sensory-adaptation"
+      ],
+      "definition": "A decrease or change in sensory-system response during a sustained, unchanging stimulus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "adapt: adjust to conditions. -ation: a process or result. Adaptation here describes response change over time, not evolutionary adaptation across generations.",
+        "parts": [
+          {
+            "text": "adapt",
+            "meaning": "adjust to conditions"
+          },
+          {
+            "text": "-ation",
+            "meaning": "a process or result"
+          }
+        ],
+        "caution": "Adaptation here describes response change over time, not evolutionary adaptation across generations."
+      },
+      "whatItDoes": "Receptor and neural pathway properties can reduce signalling or awareness over time while the stimulus may still be present.",
+      "relatedTermIds": [
+        "a-word-sustained-stimulus",
+        "a-word-response-change"
+      ],
+      "commonConfusion": "Reduced awareness does not prove that the stimulus disappeared or that receptors were damaged.",
+      "retrievalPrompt": "Explain why you may stop noticing steady clothing pressure while the pressure remains.",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-adaptation"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-sustained-stimulus",
+      "term": "sustained stimulus",
+      "categoryIds": [
+        "sensory-adaptation"
+      ],
+      "definition": "A stimulus that persists over an interval rather than occurring only briefly.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sustained qualifies duration, not necessarily intensity."
+      },
+      "whatItDoes": "Continued stimulation can reveal adaptation in receptor or circuit responses.",
+      "relatedTermIds": [
+        "a-word-sensory-adaptation",
+        "a-word-response-change"
+      ],
+      "commonConfusion": "A constant stimulus does not guarantee a constant neural response.",
+      "retrievalPrompt": "What would you compare to demonstrate adaptation?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-adaptation"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-response-change",
+      "term": "response change",
+      "categoryIds": [
+        "sensory-adaptation"
+      ],
+      "definition": "A difference in biological activity over time or between conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Change is the difference; response identifies the measured output."
+      },
+      "whatItDoes": "Measuring it against a stimulus helps characterize sensitivity or adaptation.",
+      "relatedTermIds": [
+        "a-word-sensory-adaptation",
+        "a-word-sustained-stimulus"
+      ],
+      "commonConfusion": "A declining response can have several mechanisms, not only receptor fatigue.",
+      "retrievalPrompt": "What control would distinguish adaptation from a weakening stimulus?",
+      "sourceRefs": [
+        "core-vocabulary.json#sensory-adaptation"
+      ],
+      "route": "lesson-06"
+    },
+    {
+      "id": "a-word-vision-pathway",
+      "term": "Vision pathway",
+      "modelFrayer": ["The optical and neural route from entering light to retinal signalling and optic-nerve output.","Separates refraction, photoreceptor transduction, retinal processing, and neural transmission.","Light is focused on the retina, rods and cones change signalling, and ganglion-cell axons leave in the optic nerve.","Saying the lens detects light and sends action potentials directly to the brain."],
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "The optical and neural sequence by which light is refracted, focused on the retina, transduced by photoreceptors, and conveyed toward the brain.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "photo-: light. optic: related to sight. retina: the neural tissue lining the back of the eye. Anatomical word origins do not replace tracing the actual direction of light and neural information.",
+        "parts": [
+          {
+            "text": "photo-",
+            "meaning": "light"
+          },
+          {
+            "text": "optic",
+            "meaning": "related to sight"
+          },
+          {
+            "text": "retina",
+            "meaning": "the neural tissue lining the back of the eye"
+          }
+        ],
+        "caution": "Anatomical word origins do not replace tracing the actual direction of light and neural information."
+      },
+      "whatItDoes": "Cornea and lens refract light; rods and cones alter signalling; retinal circuits process that information before ganglion-cell axons form the optic nerve.",
+      "relatedTermIds": [
+        "a-word-cornea",
+        "a-word-lens",
+        "a-word-retina",
+        "a-word-rod"
+      ],
+      "commonConfusion": "The brain does not simply flip a finished retinal picture; perception emerges from distributed neural processing.",
+      "retrievalPrompt": "Trace light and then neural information from the cornea to the optic nerve without reversing the directions.",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-cornea",
+      "term": "cornea",
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "The transparent anterior surface of the eye that provides substantial refraction.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cornea is the anatomical noun; corneal is the adjective."
+      },
+      "whatItDoes": "Its curved boundary bends incoming light toward the optical pathway.",
+      "relatedTermIds": [
+        "a-word-vision-pathway",
+        "a-word-lens",
+        "a-word-retina",
+        "a-word-rod"
+      ],
+      "commonConfusion": "The lens is not the eye's only refracting structure.",
+      "retrievalPrompt": "Why can corneal curvature affect focus?",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-lens",
+      "term": "lens",
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "The transparent eye structure whose shape can change to adjust focusing.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lens is a whole optical name; lenticular is a related adjective."
+      },
+      "whatItDoes": "Accommodation changes refractive power for viewing different distances.",
+      "relatedTermIds": [
+        "a-word-vision-pathway",
+        "a-word-cornea",
+        "a-word-retina",
+        "a-word-rod"
+      ],
+      "commonConfusion": "The lens does not detect light like the retina.",
+      "retrievalPrompt": "How does accommodation differ from pupil constriction?",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-retina",
+      "term": "retina",
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "The light-sensitive neural layer at the back of the eye.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Retina is the noun; retinal is the adjective."
+      },
+      "whatItDoes": "Photoreceptors and retinal circuits convert and process light-related signals.",
+      "relatedTermIds": [
+        "a-word-vision-pathway",
+        "a-word-cornea",
+        "a-word-lens",
+        "a-word-rod"
+      ],
+      "commonConfusion": "The retina is not a passive projection screen.",
+      "retrievalPrompt": "What processing occurs before signals enter the optic nerve?",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-rod",
+      "term": "rod",
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "A retinal photoreceptor class especially useful in dim-light vision.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Rod is a shape-derived cell name, not a literal rigid rod."
+      },
+      "whatItDoes": "Its sensitivity supports vision at low light levels.",
+      "relatedTermIds": [
+        "a-word-vision-pathway",
+        "a-word-cornea",
+        "a-word-lens",
+        "a-word-retina"
+      ],
+      "commonConfusion": "Rods do not provide the same colour discrimination as cones.",
+      "retrievalPrompt": "Why is colour discrimination poorer in very dim light?",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-cone",
+      "term": "cone",
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "A retinal photoreceptor class supporting colour and high-acuity vision in adequate light.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cone is a shape-derived cell name; cone cell specifies the receptor."
+      },
+      "whatItDoes": "Different spectral sensitivities contribute to colour comparisons.",
+      "relatedTermIds": [
+        "a-word-vision-pathway",
+        "a-word-cornea",
+        "a-word-lens",
+        "a-word-retina"
+      ],
+      "commonConfusion": "One cone alone does not identify every perceived colour.",
+      "retrievalPrompt": "Why does colour vision depend on comparing receptor signals?",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-optic-nerve",
+      "term": "optic nerve",
+      "categoryIds": [
+        "vision-pathway"
+      ],
+      "definition": "The bundle of retinal ganglion-cell axons carrying visual information toward the brain.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Optic means vision-related; nerve names the axon bundle."
+      },
+      "whatItDoes": "It transmits processed retinal output to central pathways.",
+      "relatedTermIds": [
+        "a-word-vision-pathway",
+        "a-word-cornea",
+        "a-word-lens",
+        "a-word-retina"
+      ],
+      "commonConfusion": "It does not carry light rays from the eye to the brain.",
+      "retrievalPrompt": "What physical signal travels along the optic nerve?",
+      "sourceRefs": [
+        "core-vocabulary.json#vision-pathway"
+      ],
+      "route": "lesson-07"
+    },
+    {
+      "id": "a-word-hearing-and-equilibrium-pathway",
+      "term": "Hearing and equilibrium pathway",
+      "modelFrayer": ["Ear pathways that transmit sound and detect head movement through specialized hair-cell systems.","Distinguishes mechanical transmission, cochlear transduction, and vestibular transduction.","Ossicle movement leads to cochlear fluid motion that bends organ-of-Corti hair bundles.","Using one online tone to diagnose a person's hearing condition."],
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "The linked ear structures that transmit sound vibration to cochlear hair cells and detect head movement through vestibular hair-cell systems.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "tympan-: drum-like membrane. cochlea: a snail-shaped structure. semi-circular: partly circular canal shape. equilibrium: balance. Shape words help identify anatomy but do not explain transduction.",
+        "parts": [
+          {
+            "text": "tympan-",
+            "meaning": "drum-like membrane"
+          },
+          {
+            "text": "cochlea",
+            "meaning": "a snail-shaped structure"
+          },
+          {
+            "text": "semi-circular",
+            "meaning": "partly circular canal shape"
+          },
+          {
+            "text": "equilibrium",
+            "meaning": "balance"
+          }
+        ],
+        "caution": "Shape words help identify anatomy but do not explain transduction."
+      },
+      "whatItDoes": "Sound moves the tympanic membrane and ossicles, creates cochlear fluid and membrane movement, and bends auditory hair bundles; rotational movement bends vestibular hair bundles in semicircular canals.",
+      "relatedTermIds": [
+        "a-word-tympanic-membrane",
+        "a-word-ossicles",
+        "a-word-cochlea",
+        "a-word-organ-of-corti"
+      ],
+      "commonConfusion": "Browser tones and classroom balance activities are not diagnostic hearing or vestibular tests.",
+      "retrievalPrompt": "Separate the mechanical transmission steps of hearing from the hair-cell transduction step.",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-tympanic-membrane",
+      "term": "tympanic membrane",
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "The eardrum separating the external auditory canal from the middle ear.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tympanic is the drum-related adjective; membrane names the sheet of tissue."
+      },
+      "whatItDoes": "Sound-pressure differences produce vibrations transmitted to ossicles.",
+      "relatedTermIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-ossicles",
+        "a-word-cochlea",
+        "a-word-organ-of-corti"
+      ],
+      "commonConfusion": "It is not the sensory receptor that converts sound to nerve signals.",
+      "retrievalPrompt": "What lies between eardrum vibration and hair-cell transduction?",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-ossicles",
+      "term": "ossicles",
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "The three small middle-ear bones: malleus, incus and stapes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ossicle means a small bone; ossicles is plural."
+      },
+      "whatItDoes": "Their mechanical linkage transfers vibrations toward the inner ear.",
+      "relatedTermIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-tympanic-membrane",
+        "a-word-cochlea",
+        "a-word-organ-of-corti"
+      ],
+      "commonConfusion": "They do not themselves produce auditory action potentials.",
+      "retrievalPrompt": "How do ossicles connect the tympanic membrane with the inner ear?",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-cochlea",
+      "term": "cochlea",
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "The coiled inner-ear structure containing the hearing apparatus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cochlea is the anatomical noun; cochlear is the adjective."
+      },
+      "whatItDoes": "Fluid and membrane motion drive frequency-dependent hair-cell stimulation.",
+      "relatedTermIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-tympanic-membrane",
+        "a-word-ossicles",
+        "a-word-organ-of-corti"
+      ],
+      "commonConfusion": "The cochlea is not the semicircular-canal balance apparatus.",
+      "retrievalPrompt": "How can different frequencies stimulate different cochlear regions?",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-organ-of-corti",
+      "term": "organ of Corti",
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "The sensory structure on the basilar membrane containing auditory hair cells and supporting cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Corti is a personal name; organ identifies the organized sensory structure."
+      },
+      "whatItDoes": "Relative membrane motion bends hair bundles and changes receptor signalling.",
+      "relatedTermIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-tympanic-membrane",
+        "a-word-ossicles",
+        "a-word-cochlea"
+      ],
+      "commonConfusion": "It is not the entire cochlea.",
+      "retrievalPrompt": "Why does basilar-membrane movement matter for hearing?",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-hair-cell",
+      "term": "hair cell",
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "A mechanosensory cell with a bundle of hair-like projections.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hair describes the bundle's appearance; it is not an ordinary skin hair."
+      },
+      "whatItDoes": "Bundle deflection changes ion-channel activity and transmitter release.",
+      "relatedTermIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-tympanic-membrane",
+        "a-word-ossicles",
+        "a-word-cochlea"
+      ],
+      "commonConfusion": "The hair cell and the auditory nerve fibre are different cells.",
+      "retrievalPrompt": "How does bundle bending influence a sensory neuron?",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-semicircular-canal",
+      "term": "semicircular canal",
+      "categoryIds": [
+        "hearing-equilibrium-pathway"
+      ],
+      "definition": "One of the curved inner-ear structures associated with sensing angular acceleration.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Semi- means half; circular describes the curved form, and canal the passage."
+      },
+      "whatItDoes": "Fluid-related deflection in its sensory apparatus signals rotational changes.",
+      "relatedTermIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-tympanic-membrane",
+        "a-word-ossicles",
+        "a-word-cochlea"
+      ],
+      "commonConfusion": "It does not by itself detect all linear acceleration.",
+      "retrievalPrompt": "How does head rotation differ from straight-line acceleration?",
+      "sourceRefs": [
+        "core-vocabulary.json#hearing-equilibrium-pathway"
+      ],
+      "route": "lesson-08"
+    },
+    {
+      "id": "a-word-endocrine-signalling",
+      "term": "Endocrine signalling",
+      "modelFrayer": ["Hormone communication from endocrine cells to receptor-bearing targets through body fluids.","Includes release, transport, receptor binding, target-cell response, and often feedback regulation.","Insulin travels in blood and changes glucose-handling pathways in responsive target cells.","Assuming every cell near the pancreas responds to insulin simply because the hormone is nearby."],
+      "categoryIds": [
+        "endocrine-signalling"
+      ],
+      "definition": "Longer-distance chemical communication in which endocrine cells release hormones into body fluids and only receptor-bearing target cells produce the relevant response.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "endo-: within. -crine: secrete or separate. target: a cell capable of responding because it has the required receptor. Hormones may travel widely, but proximity to a gland does not make every cell a target.",
+        "parts": [
+          {
+            "text": "endo-",
+            "meaning": "within"
+          },
+          {
+            "text": "-crine",
+            "meaning": "secrete or separate"
+          },
+          {
+            "text": "target",
+            "meaning": "a cell capable of responding because it has the required receptor"
+          }
+        ],
+        "caution": "Hormones may travel widely, but proximity to a gland does not make every cell a target."
+      },
+      "whatItDoes": "A hormone is released, transported, binds a compatible receptor, and changes target-cell activity. Solubility affects receptor location and signalling mechanism.",
+      "relatedTermIds": [
+        "a-word-endocrine-gland",
+        "a-word-hormone",
+        "a-word-target-cell",
+        "a-word-receptor"
+      ],
+      "commonConfusion": "A hormone in the bloodstream does not cause the same response in every tissue; receptor and intracellular machinery determine responsiveness.",
+      "retrievalPrompt": "Explain why two cells exposed to the same hormone can respond differently or not at all.",
+      "sourceRefs": [
+        "core-vocabulary.json#endocrine-signalling"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-endocrine-gland",
+      "term": "endocrine gland",
+      "categoryIds": [
+        "endocrine-signalling"
+      ],
+      "definition": "A gland that releases hormones into surrounding fluid and circulation rather than through a duct to a surface.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Endo- means within; endocrine is the secretion-system adjective."
+      },
+      "whatItDoes": "Circulation distributes its chemical signals to receptor-bearing targets.",
+      "relatedTermIds": [
+        "a-word-endocrine-signalling",
+        "a-word-hormone",
+        "a-word-target-cell",
+        "a-word-receptor"
+      ],
+      "commonConfusion": "An endocrine signal does not act on every cell reached by blood.",
+      "retrievalPrompt": "Why are receptors essential for target specificity?",
+      "sourceRefs": [
+        "core-vocabulary.json#endocrine-signalling"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-hormone",
+      "term": "hormone",
+      "categoryIds": [
+        "endocrine-signalling"
+      ],
+      "definition": "A chemical messenger released by endocrine cells that influences receptor-bearing target cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hormone is the noun; hormonal is the adjective."
+      },
+      "whatItDoes": "Binding changes target-cell signalling, metabolism or gene expression.",
+      "relatedTermIds": [
+        "a-word-endocrine-signalling",
+        "a-word-endocrine-gland",
+        "a-word-target-cell",
+        "a-word-receptor"
+      ],
+      "commonConfusion": "Blood transport does not make all tissues equally responsive.",
+      "retrievalPrompt": "Why can the same hormone produce tissue-specific effects?",
+      "sourceRefs": [
+        "core-vocabulary.json#endocrine-signalling"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-target-cell",
+      "term": "target cell",
+      "categoryIds": [
+        "endocrine-signalling"
+      ],
+      "definition": "A cell able to respond to a signal through the relevant receptor and signalling machinery.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Target describes responsiveness; cell names the biological unit."
+      },
+      "whatItDoes": "Its receptors and internal machinery determine the effect of a hormone.",
+      "relatedTermIds": [
+        "a-word-endocrine-signalling",
+        "a-word-endocrine-gland",
+        "a-word-hormone",
+        "a-word-receptor"
+      ],
+      "commonConfusion": "Proximity alone does not establish target status.",
+      "retrievalPrompt": "Why might a circulating hormone leave one tissue unaffected?",
+      "sourceRefs": [
+        "core-vocabulary.json#endocrine-signalling"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-water-soluble-hormone",
+      "term": "water-soluble hormone",
+      "categoryIds": [
+        "endocrine-signalling"
+      ],
+      "definition": "A hormone with chemical properties favouring dissolution in water.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Water-soluble is a compound adjective modifying hormone."
+      },
+      "whatItDoes": "Many bind surface receptors and act through intracellular signalling pathways.",
+      "relatedTermIds": [
+        "a-word-endocrine-signalling",
+        "a-word-endocrine-gland",
+        "a-word-hormone",
+        "a-word-target-cell"
+      ],
+      "commonConfusion": "Solubility alone does not specify one particular second messenger.",
+      "retrievalPrompt": "Why is a membrane receptor useful for a signal that crosses lipid bilayers poorly?",
+      "sourceRefs": [
+        "core-vocabulary.json#endocrine-signalling"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-lipid-soluble-hormone",
+      "term": "lipid-soluble hormone",
+      "categoryIds": [
+        "endocrine-signalling"
+      ],
+      "definition": "A hormone with chemical properties favouring association with lipids.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lipid-soluble modifies hormone; lipid identifies the relevant chemical environment."
+      },
+      "whatItDoes": "Many cross membranes and act through intracellular receptors influencing transcription.",
+      "relatedTermIds": [
+        "a-word-endocrine-signalling",
+        "a-word-endocrine-gland",
+        "a-word-hormone",
+        "a-word-target-cell"
+      ],
+      "commonConfusion": "Not every lipid-soluble hormone has identical transport or timing.",
+      "retrievalPrompt": "Why are carrier proteins common in the transport of these hormones?",
+      "sourceRefs": [
+        "core-vocabulary.json#endocrine-signalling"
+      ],
+      "route": "lesson-09"
+    },
+    {
+      "id": "a-word-hypothalamus-pituitary-axis",
+      "term": "Hypothalamus-pituitary axis",
+      "modelFrayer": ["A linked hypothalamic and pituitary signalling route connecting neural regulation to endocrine targets.","Can use releasing hormones and anterior-pituitary hormones or direct hypothalamic axons to the posterior pituitary.","TRH supports TSH release, which stimulates the thyroid, while thyroid hormone feeds back upstream.","Describing the pituitary as acting alone without hypothalamic control or target-gland feedback."],
+      "categoryIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "definition": "A coordinated signalling pathway in which the hypothalamus and pituitary connect neural information with endocrine control of other glands or direct target tissues.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "hypo-: below. hypothalamus: region below the thalamus. tropic: acting on another endocrine tissue. Pituitary is a historical name, and the gland is not an independent master; hypothalamic and target-gland feedback regulate it.",
+        "parts": [
+          {
+            "text": "hypo-",
+            "meaning": "below"
+          },
+          {
+            "text": "hypothalamus",
+            "meaning": "region below the thalamus"
+          },
+          {
+            "text": "tropic",
+            "meaning": "acting on another endocrine tissue"
+          }
+        ],
+        "caution": "Pituitary is a historical name, and the gland is not an independent master; hypothalamic and target-gland feedback regulate it."
+      },
+      "whatItDoes": "Hypothalamic releasing hormones can regulate anterior-pituitary output; posterior-pituitary pathways release hormones made by hypothalamic neurons.",
+      "relatedTermIds": [
+        "a-word-hypothalamus",
+        "a-word-pituitary",
+        "a-word-releasing-hormone",
+        "a-word-tropic-hormone"
+      ],
+      "commonConfusion": "ADH is synthesized in hypothalamic neurons and released from posterior-pituitary terminals; it is not made by posterior-pituitary gland cells.",
+      "retrievalPrompt": "Contrast an anterior-pituitary tropic axis with the hypothalamic-neuron pathway for ADH release.",
+      "sourceRefs": [
+        "core-vocabulary.json#hypothalamus-pituitary-axis"
+      ],
+      "route": "lesson-10"
+    },
+    {
+      "id": "a-word-hypothalamus",
+      "term": "hypothalamus",
+      "categoryIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "definition": "A brain region integrating many homeostatic functions and linking neural and endocrine regulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hypo- means below; thalamus identifies the anatomical relation in the name."
+      },
+      "whatItDoes": "It controls pituitary pathways and produces hormones including ADH and oxytocin.",
+      "relatedTermIds": [
+        "a-word-hypothalamus-pituitary-axis",
+        "a-word-pituitary",
+        "a-word-releasing-hormone",
+        "a-word-tropic-hormone"
+      ],
+      "commonConfusion": "The posterior pituitary stores and releases these hormones but does not synthesize them.",
+      "retrievalPrompt": "How does the hypothalamus connect nervous and endocrine control?",
+      "sourceRefs": [
+        "core-vocabulary.json#hypothalamus-pituitary-axis"
+      ],
+      "route": "lesson-10"
+    },
+    {
+      "id": "a-word-pituitary",
+      "term": "pituitary",
+      "categoryIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "definition": "An endocrine organ connected to the hypothalamus with distinct anterior and posterior regions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Pituitary is a whole anatomical name; pituitary gland is the common phrase."
+      },
+      "whatItDoes": "Its regions participate in different hormone synthesis, storage and release pathways.",
+      "relatedTermIds": [
+        "a-word-hypothalamus-pituitary-axis",
+        "a-word-hypothalamus",
+        "a-word-releasing-hormone",
+        "a-word-tropic-hormone"
+      ],
+      "commonConfusion": "Anterior and posterior pituitary functions are not interchangeable.",
+      "retrievalPrompt": "Why must a hormone's synthesis and release sites be distinguished?",
+      "sourceRefs": [
+        "core-vocabulary.json#hypothalamus-pituitary-axis"
+      ],
+      "route": "lesson-10"
+    },
+    {
+      "id": "a-word-releasing-hormone",
+      "term": "releasing hormone",
+      "categoryIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "definition": "A hypothalamic signal that stimulates release of a particular anterior-pituitary hormone.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Releasing identifies the effect on another endocrine cell; hormone identifies the messenger."
+      },
+      "whatItDoes": "Portal circulation carries it to anterior-pituitary targets.",
+      "relatedTermIds": [
+        "a-word-hypothalamus-pituitary-axis",
+        "a-word-hypothalamus",
+        "a-word-pituitary",
+        "a-word-tropic-hormone"
+      ],
+      "commonConfusion": "It is not necessarily the final hormone acting on a distant nonendocrine tissue.",
+      "retrievalPrompt": "Where does a hypothalamic releasing hormone act first?",
+      "sourceRefs": [
+        "core-vocabulary.json#hypothalamus-pituitary-axis"
+      ],
+      "route": "lesson-10"
+    },
+    {
+      "id": "a-word-tropic-hormone",
+      "term": "tropic hormone",
+      "categoryIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "definition": "A hormone that regulates another endocrine gland's activity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Tropic describes direction of endocrine control here, not tropical climate."
+      },
+      "whatItDoes": "It stimulates downstream hormone synthesis or secretion in an axis.",
+      "relatedTermIds": [
+        "a-word-hypothalamus-pituitary-axis",
+        "a-word-hypothalamus",
+        "a-word-pituitary",
+        "a-word-releasing-hormone"
+      ],
+      "commonConfusion": "Not every pituitary hormone is tropic.",
+      "retrievalPrompt": "Why is TSH tropic while its target hormone has broader metabolic effects?",
+      "sourceRefs": [
+        "core-vocabulary.json#hypothalamus-pituitary-axis"
+      ],
+      "route": "lesson-10"
+    },
+    {
+      "id": "a-word-axis",
+      "term": "axis",
+      "categoryIds": [
+        "hypothalamus-pituitary-axis"
+      ],
+      "definition": "A linked regulatory pathway connecting endocrine centres and targets.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Axis is an organizing-line metaphor; axes is its plural."
+      },
+      "whatItDoes": "Sequential signals and feedback coordinate multiple organs.",
+      "relatedTermIds": [
+        "a-word-hypothalamus-pituitary-axis",
+        "a-word-hypothalamus",
+        "a-word-pituitary",
+        "a-word-releasing-hormone"
+      ],
+      "commonConfusion": "An axis is not a literal duct joining all its glands.",
+      "retrievalPrompt": "Which feedback links belong in a thyroid axis diagram?",
+      "sourceRefs": [
+        "core-vocabulary.json#hypothalamus-pituitary-axis"
+      ],
+      "route": "lesson-10"
+    },
+    {
+      "id": "a-word-antagonistic-hormones",
+      "term": "Antagonistic hormones",
+      "modelFrayer": ["Hormones whose target effects move a regulated variable in opposing directions.","Act through their own receptors and pathways and become useful under different physiological conditions.","Insulin favours lower blood glucose after a meal; glucagon supports higher blood glucose during fasting.","Two hormones that both increase the same target response."],
+      "categoryIds": [
+        "antagonistic-hormones"
+      ],
+      "definition": "Hormones whose effects push a regulated variable in opposing directions as conditions change.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "ant- / anti-: against or opposing. agon: contest or struggle. The hormones need not bind one another; their physiological effects oppose each other.",
+        "parts": [
+          {
+            "text": "ant- / anti-",
+            "meaning": "against or opposing"
+          },
+          {
+            "text": "agon",
+            "meaning": "contest or struggle"
+          }
+        ],
+        "caution": "The hormones need not bind one another; their physiological effects oppose each other."
+      },
+      "whatItDoes": "Different endocrine signals favour different target-cell processes, allowing regulation in both directions rather than one hormone simply cancelling another in the bloodstream.",
+      "relatedTermIds": [
+        "a-word-opposing-effects",
+        "a-word-coordinated-regulation"
+      ],
+      "commonConfusion": "Antagonistic hormones do not necessarily use the same receptor, target every same tissue, or circulate at equal concentrations.",
+      "retrievalPrompt": "Explain how insulin and glucagon can oppose one another without directly destroying or blocking each other.",
+      "sourceRefs": [
+        "core-vocabulary.json#antagonistic-hormones"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-opposing-effects",
+      "term": "opposing effects",
+      "categoryIds": [
+        "antagonistic-hormones"
+      ],
+      "definition": "Effects that shift a specified variable in different directions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Opposing modifies effects on a named variable, not every action of two hormones."
+      },
+      "whatItDoes": "Different responses can raise or lower the same regulated quantity.",
+      "relatedTermIds": [
+        "a-word-antagonistic-hormones",
+        "a-word-coordinated-regulation"
+      ],
+      "commonConfusion": "Two hormones need not oppose each other in all tissues.",
+      "retrievalPrompt": "Why specify the variable when calling hormones antagonistic?",
+      "sourceRefs": [
+        "core-vocabulary.json#antagonistic-hormones"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-coordinated-regulation",
+      "term": "coordinated regulation",
+      "categoryIds": [
+        "antagonistic-hormones"
+      ],
+      "definition": "Adjustment produced by interacting control pathways.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Coordinated modifies regulation: responses are related rather than isolated."
+      },
+      "whatItDoes": "Combined neural and hormonal signals match different organs to changing demands.",
+      "relatedTermIds": [
+        "a-word-antagonistic-hormones",
+        "a-word-opposing-effects"
+      ],
+      "commonConfusion": "Coordination does not require identical response timing.",
+      "retrievalPrompt": "Why might fast neural and slower endocrine signals be useful together?",
+      "sourceRefs": [
+        "core-vocabulary.json#antagonistic-hormones"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-thyroid-and-calcium-feedback",
+      "term": "Thyroid and calcium feedback",
+      "modelFrayer": ["Feedback systems involving thyroid hormone and blood-calcium regulation by parathyroid and thyroid signals.","Separates the TSH-thyroxine axis from PTH/calcitonin calcium effects and traces return feedback.","High thyroid hormone suppresses upstream drive, producing a high-thyroxine and low-TSH pattern.","Calling PTH a pituitary tropic hormone because its abbreviation ends in H."],
+      "categoryIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "definition": "Two related endocrine contexts: a pituitary-thyroid axis regulating thyroid hormone and parathyroid/thyroid signals contributing to blood-calcium regulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "TSH: thyroid-stimulating hormone. PTH: parathyroid hormone. para-: beside, describing gland location. calc-: calcium-related. Acronym expansion names the signal; it does not state every target or effect.",
+        "parts": [
+          {
+            "text": "TSH",
+            "meaning": "thyroid-stimulating hormone"
+          },
+          {
+            "text": "PTH",
+            "meaning": "parathyroid hormone"
+          },
+          {
+            "text": "para-",
+            "meaning": "beside, describing gland location"
+          },
+          {
+            "text": "calc-",
+            "meaning": "calcium-related"
+          }
+        ],
+        "caution": "Acronym expansion names the signal; it does not state every target or effect."
+      },
+      "whatItDoes": "TSH stimulates thyroid output and thyroid hormone feeds back upstream. PTH raises blood calcium through multiple targets; calcitonin can oppose some effects but is less central in adult human regulation.",
+      "relatedTermIds": [
+        "a-word-tsh",
+        "a-word-thyroxine",
+        "a-word-pth",
+        "a-word-calcitonin"
+      ],
+      "commonConfusion": "The parathyroid glands are distinct glands on the posterior thyroid, and PTH is not secreted by thyroid follicles.",
+      "retrievalPrompt": "Use high thyroxine with low TSH to identify the feedback direction without claiming a diagnosis.",
+      "sourceRefs": [
+        "core-vocabulary.json#thyroid-calcium-feedback"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-tsh",
+      "term": "TSH",
+      "categoryIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "definition": "Thyroid-stimulating hormone, an anterior-pituitary signal regulating thyroid activity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for thyroid-stimulating hormone."
+      },
+      "whatItDoes": "It promotes thyroid hormone production and secretion within feedback regulation.",
+      "relatedTermIds": [
+        "a-word-thyroid-and-calcium-feedback",
+        "a-word-thyroxine",
+        "a-word-pth",
+        "a-word-calcitonin"
+      ],
+      "commonConfusion": "TSH is not made by the thyroid gland.",
+      "retrievalPrompt": "How might TSH respond to low thyroid hormone in an intact axis?",
+      "sourceRefs": [
+        "core-vocabulary.json#thyroid-calcium-feedback"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-thyroxine",
+      "term": "thyroxine",
+      "categoryIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "definition": "The thyroid hormone T4, containing four iodine atoms.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Thyroxine is a chemical hormone name; T4 denotes its four iodine atoms."
+      },
+      "whatItDoes": "It participates in regulation of metabolism, including through conversion to T3.",
+      "relatedTermIds": [
+        "a-word-thyroid-and-calcium-feedback",
+        "a-word-tsh",
+        "a-word-pth",
+        "a-word-calcitonin"
+      ],
+      "commonConfusion": "T4 is not the same molecule as TSH.",
+      "retrievalPrompt": "Why can thyroid and pituitary hormone levels move in opposite directions?",
+      "sourceRefs": [
+        "core-vocabulary.json#thyroid-calcium-feedback"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-pth",
+      "term": "PTH",
+      "categoryIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "definition": "Parathyroid hormone, a signal important in calcium regulation.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for parathyroid hormone; para- distinguishes the parathyroid glands from the thyroid."
+      },
+      "whatItDoes": "It can raise blood calcium through effects on kidney, bone and vitamin-D-mediated absorption.",
+      "relatedTermIds": [
+        "a-word-thyroid-and-calcium-feedback",
+        "a-word-tsh",
+        "a-word-thyroxine",
+        "a-word-calcitonin"
+      ],
+      "commonConfusion": "It is not secreted by the pituitary despite the similar abbreviation pattern.",
+      "retrievalPrompt": "Which responses help PTH raise blood calcium?",
+      "sourceRefs": [
+        "core-vocabulary.json#thyroid-calcium-feedback"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-calcitonin",
+      "term": "calcitonin",
+      "categoryIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "definition": "A thyroid C-cell hormone that can contribute to lowering blood calcium.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Calcitonin is a whole hormone name; calcium-related wording helps identify the topic, not its entire mechanism."
+      },
+      "whatItDoes": "It can reduce bone resorption; its physiological role is context-dependent.",
+      "relatedTermIds": [
+        "a-word-thyroid-and-calcium-feedback",
+        "a-word-tsh",
+        "a-word-thyroxine",
+        "a-word-pth"
+      ],
+      "commonConfusion": "It is not an equally dominant mirror-image regulator of PTH in adult humans.",
+      "retrievalPrompt": "Why should a simple opposing-hormone diagram state its limitations?",
+      "sourceRefs": [
+        "core-vocabulary.json#thyroid-calcium-feedback"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-calcium-regulation",
+      "term": "calcium regulation",
+      "categoryIds": [
+        "thyroid-calcium-feedback"
+      ],
+      "definition": "Control of calcium availability and concentration across body compartments.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Calcium identifies the ion/element; regulation names its controlled balance."
+      },
+      "whatItDoes": "Hormonal effects on bone, kidney and intestine influence blood calcium.",
+      "relatedTermIds": [
+        "a-word-thyroid-and-calcium-feedback",
+        "a-word-tsh",
+        "a-word-thyroxine",
+        "a-word-pth"
+      ],
+      "commonConfusion": "Bone storage and blood concentration are related but not identical quantities.",
+      "retrievalPrompt": "How can blood calcium be maintained while bone stores change?",
+      "sourceRefs": [
+        "core-vocabulary.json#thyroid-calcium-feedback"
+      ],
+      "route": "lesson-12"
+    },
+    {
+      "id": "a-word-blood-glucose-regulation",
+      "term": "Blood-glucose regulation",
+      "modelFrayer": ["Hormonal coordination of glucose storage, use, and release around a workable blood concentration.","Uses pancreatic sensing, insulin and glucagon, target-specific responses, and feedback evidence.","After a meal, insulin supports glucose uptake in responsive tissues and glycogen formation while blood glucose falls.","Claiming insulin physically carries glucose through the bloodstream into every cell."],
+      "categoryIds": [
+        "blood-glucose-regulation"
+      ],
+      "definition": "Endocrine regulation that coordinates glucose storage, use, and release so blood glucose remains within a workable range.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "gluc- / glyc-: sugar or glucose-related. hyper-: above or excessive. -emia: a blood condition. Diabetes names a group of disorders; its word history does not explain the modern biological mechanism.",
+        "parts": [
+          {
+            "text": "gluc- / glyc-",
+            "meaning": "sugar or glucose-related"
+          },
+          {
+            "text": "hyper-",
+            "meaning": "above or excessive"
+          },
+          {
+            "text": "-emia",
+            "meaning": "a blood condition"
+          }
+        ],
+        "caution": "Diabetes names a group of disorders; its word history does not explain the modern biological mechanism."
+      },
+      "whatItDoes": "Rising glucose supports insulin release and target-cell responses; falling glucose supports glucagon release and liver glucose output. Tissue responses differ by receptor and pathway.",
+      "relatedTermIds": [
+        "a-word-insulin",
+        "a-word-glucagon",
+        "a-word-glycogen",
+        "a-word-hyperglycemia"
+      ],
+      "commonConfusion": "Insulin does not make every tissue respond identically, and glucagon acts principally on the liver rather than every cell.",
+      "retrievalPrompt": "Predict glucose, insulin, and target-tissue evidence after a meal when insulin responsiveness is reduced.",
+      "sourceRefs": [
+        "core-vocabulary.json#blood-glucose-regulation"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-insulin",
+      "term": "insulin",
+      "categoryIds": [
+        "blood-glucose-regulation"
+      ],
+      "definition": "A pancreatic beta-cell hormone that helps regulate nutrient use and blood glucose.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Insulin is the whole hormone name; insulin-related is a compound adjective, not a root breakdown."
+      },
+      "whatItDoes": "It promotes glucose uptake in responsive tissues and storage while reducing hepatic glucose output.",
+      "relatedTermIds": [
+        "a-word-blood-glucose-regulation",
+        "a-word-glucagon",
+        "a-word-glycogen",
+        "a-word-hyperglycemia"
+      ],
+      "commonConfusion": "Insulin does not physically carry glucose through the bloodstream.",
+      "retrievalPrompt": "How do uptake and liver responses together lower blood glucose?",
+      "sourceRefs": [
+        "core-vocabulary.json#blood-glucose-regulation"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-glucagon",
+      "term": "glucagon",
+      "categoryIds": [
+        "blood-glucose-regulation"
+      ],
+      "definition": "A pancreatic alpha-cell hormone that helps raise blood glucose during relevant conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Glucagon is a whole hormone name; distinguish it from glycogen, a storage polymer."
+      },
+      "whatItDoes": "It stimulates liver processes releasing glucose, including glycogen breakdown.",
+      "relatedTermIds": [
+        "a-word-blood-glucose-regulation",
+        "a-word-insulin",
+        "a-word-glycogen",
+        "a-word-hyperglycemia"
+      ],
+      "commonConfusion": "It is not the stored carbohydrate itself.",
+      "retrievalPrompt": "Why is the liver central to glucagon's blood-glucose effect?",
+      "sourceRefs": [
+        "core-vocabulary.json#blood-glucose-regulation"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-glycogen",
+      "term": "glycogen",
+      "categoryIds": [
+        "blood-glucose-regulation"
+      ],
+      "definition": "A branched glucose-storage polymer in animals.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Glycogen names a carbohydrate polymer; glycogenic is related wording, not a hormone name."
+      },
+      "whatItDoes": "Its synthesis stores glucose units and its breakdown mobilizes them.",
+      "relatedTermIds": [
+        "a-word-blood-glucose-regulation",
+        "a-word-insulin",
+        "a-word-glucagon",
+        "a-word-hyperglycemia"
+      ],
+      "commonConfusion": "Glycogen and glucagon are different kinds of molecule.",
+      "retrievalPrompt": "How does glycogen support short-term glucose availability?",
+      "sourceRefs": [
+        "core-vocabulary.json#blood-glucose-regulation"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-hyperglycemia",
+      "term": "hyperglycemia",
+      "categoryIds": [
+        "blood-glucose-regulation"
+      ],
+      "definition": "Blood glucose above the relevant normal or target range.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hyper- means high or excessive; glyc- concerns sugar and -emia a blood condition."
+      },
+      "whatItDoes": "It indicates an imbalance between glucose input, production and use.",
+      "relatedTermIds": [
+        "a-word-blood-glucose-regulation",
+        "a-word-insulin",
+        "a-word-glucagon",
+        "a-word-glycogen"
+      ],
+      "commonConfusion": "It is not synonymous with one specific cause or diabetes type.",
+      "retrievalPrompt": "Why can several different mechanisms produce high blood glucose?",
+      "sourceRefs": [
+        "core-vocabulary.json#blood-glucose-regulation"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-diabetes-mellitus",
+      "term": "diabetes mellitus",
+      "categoryIds": [
+        "blood-glucose-regulation"
+      ],
+      "definition": "A group of disorders characterized by persistent hyperglycemia related to insulin secretion, action or both.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The two-word clinical name distinguishes diabetes mellitus from diabetes insipidus; it is not a mechanism description."
+      },
+      "whatItDoes": "Different impairments in insulin availability or response disrupt glucose regulation.",
+      "relatedTermIds": [
+        "a-word-blood-glucose-regulation",
+        "a-word-insulin",
+        "a-word-glucagon",
+        "a-word-glycogen"
+      ],
+      "commonConfusion": "The different types do not all involve the same primary defect.",
+      "retrievalPrompt": "How can impaired secretion and impaired response both produce hyperglycemia?",
+      "sourceRefs": [
+        "core-vocabulary.json#blood-glucose-regulation"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-water-and-salt-regulation",
+      "term": "Water and salt regulation",
+      "modelFrayer": ["Hormonal and kidney control of water, sodium, osmotic concentration, and volume-related evidence.","Distinguishes ADH-driven water reabsorption from aldosterone-driven sodium handling and traces feedback.","High plasma osmotic concentration supports ADH release, greater kidney water reabsorption, and more concentrated urine.","Saying aldosterone and ADH are the same hormone because both can affect body water."],
+      "categoryIds": [
+        "water-salt-regulation"
+      ],
+      "definition": "Coordinated neural, endocrine, and kidney responses that regulate water balance, sodium handling, osmotic concentration, and blood volume or pressure.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "ADH: antidiuretic hormone. anti-: against. diuresis: urine production. osmo-: osmotic movement or concentration. ADH reduces water loss; it does not mean that urine production stops completely.",
+        "parts": [
+          {
+            "text": "ADH",
+            "meaning": "antidiuretic hormone"
+          },
+          {
+            "text": "anti-",
+            "meaning": "against"
+          },
+          {
+            "text": "diuresis",
+            "meaning": "urine production"
+          },
+          {
+            "text": "osmo-",
+            "meaning": "osmotic movement or concentration"
+          }
+        ],
+        "caution": "ADH reduces water loss; it does not mean that urine production stops completely."
+      },
+      "whatItDoes": "Osmoreceptors influence ADH release and kidney water reabsorption; aldosterone changes sodium reabsorption, with water effects depending on gradients and other controls.",
+      "relatedTermIds": [
+        "a-word-adh",
+        "a-word-aldosterone",
+        "a-word-osmoreceptor",
+        "a-word-osmotic-concentration"
+      ],
+      "commonConfusion": "Plasma osmotic concentration and blood volume provide related but different evidence and should not be treated as one identical variable.",
+      "retrievalPrompt": "Explain the evidence pattern expected when plasma osmotic concentration is high but ADH action is insufficient.",
+      "sourceRefs": [
+        "core-vocabulary.json#water-salt-regulation"
+      ],
+      "route": "lesson-11"
+    },
+    {
+      "id": "a-word-adh",
+      "term": "ADH",
+      "categoryIds": [
+        "water-salt-regulation"
+      ],
+      "definition": "Antidiuretic hormone, also called vasopressin, which regulates water conservation among other effects.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for antidiuretic hormone; anti- opposes diuresis, urine-water loss."
+      },
+      "whatItDoes": "It increases water permeability in kidney collecting pathways under relevant conditions.",
+      "relatedTermIds": [
+        "a-word-water-and-salt-regulation",
+        "a-word-aldosterone",
+        "a-word-osmoreceptor",
+        "a-word-osmotic-concentration"
+      ],
+      "commonConfusion": "It is synthesized in the hypothalamus, not in the posterior pituitary that releases it.",
+      "retrievalPrompt": "How does greater kidney water reabsorption affect urine concentration?",
+      "sourceRefs": [
+        "core-vocabulary.json#water-salt-regulation"
+      ],
+      "route": "lesson-11"
+    },
+    {
+      "id": "a-word-aldosterone",
+      "term": "aldosterone",
+      "categoryIds": [
+        "water-salt-regulation"
+      ],
+      "definition": "An adrenal-cortex hormone important in sodium and potassium balance.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Aldosterone is a whole steroid-hormone name; it is distinct from ADH."
+      },
+      "whatItDoes": "It promotes renal sodium reabsorption and potassium secretion, influencing fluid balance.",
+      "relatedTermIds": [
+        "a-word-water-and-salt-regulation",
+        "a-word-adh",
+        "a-word-osmoreceptor",
+        "a-word-osmotic-concentration"
+      ],
+      "commonConfusion": "Sodium retention and direct water-channel regulation are not the same mechanism.",
+      "retrievalPrompt": "How do aldosterone and ADH differ in their kidney effects?",
+      "sourceRefs": [
+        "core-vocabulary.json#water-salt-regulation"
+      ],
+      "route": "lesson-11"
+    },
+    {
+      "id": "a-word-osmoreceptor",
+      "term": "osmoreceptor",
+      "categoryIds": [
+        "water-salt-regulation"
+      ],
+      "definition": "A receptor responsive to changes in osmotic conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Osmo- refers to osmotic conditions; receptor identifies detection."
+      },
+      "whatItDoes": "Changes in cell water balance contribute to signals controlling thirst and ADH.",
+      "relatedTermIds": [
+        "a-word-water-and-salt-regulation",
+        "a-word-adh",
+        "a-word-aldosterone",
+        "a-word-osmotic-concentration"
+      ],
+      "commonConfusion": "It does not directly count every solute molecule consciously.",
+      "retrievalPrompt": "Why can increased extracellular concentration stimulate water-conserving responses?",
+      "sourceRefs": [
+        "core-vocabulary.json#water-salt-regulation"
+      ],
+      "route": "lesson-11"
+    },
+    {
+      "id": "a-word-osmotic-concentration",
+      "term": "osmotic concentration",
+      "categoryIds": [
+        "water-salt-regulation"
+      ],
+      "definition": "The concentration of osmotically active particles in a solution.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Osmotic qualifies concentration by particle effects on water movement."
+      },
+      "whatItDoes": "Differences across a selectively permeable membrane influence water movement.",
+      "relatedTermIds": [
+        "a-word-water-and-salt-regulation",
+        "a-word-adh",
+        "a-word-aldosterone",
+        "a-word-osmoreceptor"
+      ],
+      "commonConfusion": "Mass concentration alone may not represent the number of dissolved particles.",
+      "retrievalPrompt": "Why do particle number and membrane permeability matter?",
+      "sourceRefs": [
+        "core-vocabulary.json#water-salt-regulation"
+      ],
+      "route": "lesson-11"
+    },
+    {
+      "id": "a-word-stress-response",
+      "term": "Stress response",
+      "modelFrayer": ["Neural and endocrine adjustments that help the body respond to challenge and recover afterward.","Includes a fast sympathetic-adrenal-medulla route and a slower ACTH-cortisol route with distinct timing.","A sudden alarm rapidly increases sympathetic output and epinephrine while longer challenge can sustain cortisol effects.","Treating cortisol and epinephrine as interchangeable names for one identical signal."],
+      "categoryIds": [
+        "stress-response"
+      ],
+      "definition": "Coordinated neural and endocrine responses that adjust energy use, circulation, and other functions during challenge and support return toward a workable range afterward.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "ACTH: adrenocorticotropic hormone. adrenal: near the kidney. cortex: outer layer. medulla: inner region. Acronym and anatomical clues identify pathway parts but do not make every stress response identical.",
+        "parts": [
+          {
+            "text": "ACTH",
+            "meaning": "adrenocorticotropic hormone"
+          },
+          {
+            "text": "adrenal",
+            "meaning": "near the kidney"
+          },
+          {
+            "text": "cortex",
+            "meaning": "outer layer"
+          },
+          {
+            "text": "medulla",
+            "meaning": "inner region"
+          }
+        ],
+        "caution": "Acronym and anatomical clues identify pathway parts but do not make every stress response identical."
+      },
+      "whatItDoes": "Fast autonomic signalling activates adrenal-medulla epinephrine release; a slower hypothalamus-pituitary-adrenal pathway supports adrenal-cortex cortisol release.",
+      "relatedTermIds": [
+        "a-word-acth",
+        "a-word-cortisol",
+        "a-word-epinephrine",
+        "a-word-adrenal-cortex"
+      ],
+      "commonConfusion": "Cortisol and epinephrine differ in source, timing, receptor pathways, and effects; stress is not one hormone or always harmful.",
+      "retrievalPrompt": "Contrast the fast adrenal-medulla pathway with the slower ACTH-cortisol pathway.",
+      "sourceRefs": [
+        "core-vocabulary.json#stress-response"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-acth",
+      "term": "ACTH",
+      "categoryIds": [
+        "stress-response"
+      ],
+      "definition": "Adrenocorticotropic hormone, an anterior-pituitary signal regulating adrenal-cortex activity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Initialism for adrenocorticotropic hormone: adreno- adrenal, cortico- cortex, tropic endocrine stimulation."
+      },
+      "whatItDoes": "It stimulates cortisol secretion within the hypothalamic-pituitary-adrenal axis.",
+      "relatedTermIds": [
+        "a-word-stress-response",
+        "a-word-cortisol",
+        "a-word-epinephrine",
+        "a-word-adrenal-cortex"
+      ],
+      "commonConfusion": "It does not directly name an adrenal-medulla catecholamine.",
+      "retrievalPrompt": "What feedback would increased cortisol exert in an intact axis?",
+      "sourceRefs": [
+        "core-vocabulary.json#stress-response"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-cortisol",
+      "term": "cortisol",
+      "categoryIds": [
+        "stress-response"
+      ],
+      "definition": "An adrenal-cortex glucocorticoid hormone affecting metabolism and stress responses.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cortisol is a whole hormone name; glucocorticoid identifies a steroid class, not glucose itself."
+      },
+      "whatItDoes": "It changes substrate availability and influences many tissues through receptor-mediated regulation.",
+      "relatedTermIds": [
+        "a-word-stress-response",
+        "a-word-acth",
+        "a-word-epinephrine",
+        "a-word-adrenal-cortex"
+      ],
+      "commonConfusion": "Cortisol is not identical to the rapid neural alarm response.",
+      "retrievalPrompt": "Why can cortisol responses have different timing from epinephrine responses?",
+      "sourceRefs": [
+        "core-vocabulary.json#stress-response"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-epinephrine",
+      "term": "epinephrine",
+      "categoryIds": [
+        "stress-response"
+      ],
+      "definition": "A catecholamine hormone from the adrenal medulla, also called adrenaline.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Epinephrine and adrenaline are alternate names for the same molecule."
+      },
+      "whatItDoes": "Adrenergic receptors mediate effects supporting acute adjustments in circulation and metabolism.",
+      "relatedTermIds": [
+        "a-word-stress-response",
+        "a-word-acth",
+        "a-word-cortisol",
+        "a-word-adrenal-cortex"
+      ],
+      "commonConfusion": "It is not made by the adrenal cortex.",
+      "retrievalPrompt": "Why does its action differ among receptor-bearing organs?",
+      "sourceRefs": [
+        "core-vocabulary.json#stress-response"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-adrenal-cortex",
+      "term": "adrenal cortex",
+      "categoryIds": [
+        "stress-response"
+      ],
+      "definition": "The outer region of the adrenal gland that produces steroid hormones.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Adrenal identifies the gland; cortex means its outer region."
+      },
+      "whatItDoes": "Its zones produce hormone classes including glucocorticoids and mineralocorticoids.",
+      "relatedTermIds": [
+        "a-word-stress-response",
+        "a-word-acth",
+        "a-word-cortisol",
+        "a-word-epinephrine"
+      ],
+      "commonConfusion": "It is distinct from the catecholamine-producing medulla.",
+      "retrievalPrompt": "Which adrenal region produces cortisol and aldosterone?",
+      "sourceRefs": [
+        "core-vocabulary.json#stress-response"
+      ],
+      "route": "lesson-13"
+    },
+    {
+      "id": "a-word-adrenal-medulla",
+      "term": "adrenal medulla",
+      "categoryIds": [
+        "stress-response"
+      ],
+      "definition": "The inner region of the adrenal gland containing catecholamine-secreting cells.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Medulla identifies an inner region; adrenal distinguishes it from other organs' medullae."
+      },
+      "whatItDoes": "Sympathetic input can trigger epinephrine and norepinephrine release.",
+      "relatedTermIds": [
+        "a-word-stress-response",
+        "a-word-acth",
+        "a-word-cortisol",
+        "a-word-epinephrine"
+      ],
+      "commonConfusion": "It does not produce the same steroid hormones as the cortex.",
+      "retrievalPrompt": "How does its neural input connect nervous and endocrine responses?",
+      "sourceRefs": [
+        "core-vocabulary.json#stress-response"
+      ],
+      "route": "lesson-13"
+    }
+  ],
+  "categories": [
+    {
+      "id": "homeostasis",
+      "label": "Homeostasis",
+      "wordIds": [
+        "a-word-homeostasis",
+        "a-word-dynamic-stability",
+        "a-word-workable-range"
+      ]
+    },
+    {
+      "id": "regulated-variable-set-point",
+      "label": "Regulated variable and set point",
+      "wordIds": [
+        "a-word-regulated-variable-and-set-point",
+        "a-word-regulated-variable",
+        "a-word-set-point",
+        "a-word-workable-range"
+      ]
+    },
+    {
+      "id": "control-system-roles",
+      "label": "Control-system roles",
+      "wordIds": [
+        "a-word-control-system-roles",
+        "a-word-stimulus",
+        "a-word-receptor",
+        "a-word-control-centre",
+        "a-word-effector",
+        "a-word-response"
+      ]
+    },
+    {
+      "id": "negative-feedback",
+      "label": "Negative feedback",
+      "wordIds": [
+        "a-word-negative-feedback",
+        "a-word-feedback-loop",
+        "a-word-return-effect"
+      ]
+    },
+    {
+      "id": "scientific-explanation",
+      "label": "Scientific explanation",
+      "wordIds": [
+        "a-word-scientific-explanation",
+        "a-word-claim",
+        "a-word-evidence",
+        "a-word-reasoning",
+        "a-word-mechanism",
+        "a-word-limitation"
+      ]
+    },
+    {
+      "id": "neuron-structure",
+      "label": "Neuron structure",
+      "wordIds": [
+        "a-word-neuron-structure",
+        "a-word-neuron",
+        "a-word-dendrite",
+        "a-word-cell-body",
+        "a-word-axon",
+        "a-word-axon-terminal"
+      ]
+    },
+    {
+      "id": "myelin-conduction",
+      "label": "Myelin and saltatory conduction",
+      "wordIds": [
+        "a-word-myelin-and-saltatory-conduction",
+        "a-word-myelin",
+        "a-word-node-of-ranvier",
+        "a-word-saltatory-conduction",
+        "a-word-schwann-cell",
+        "a-word-oligodendrocyte"
+      ]
+    },
+    {
+      "id": "resting-membrane-potential",
+      "label": "Resting membrane potential",
+      "wordIds": [
+        "a-word-resting-membrane-potential",
+        "a-word-ion-gradient",
+        "a-word-selective-permeability"
+      ]
+    },
+    {
+      "id": "action-potential",
+      "label": "Action potential",
+      "wordIds": [
+        "a-word-action-potential",
+        "a-word-threshold",
+        "a-word-all-or-none-response",
+        "a-word-propagation"
+      ]
+    },
+    {
+      "id": "membrane-potential-phases",
+      "label": "Membrane-potential phases",
+      "wordIds": [
+        "a-word-membrane-potential-phases",
+        "a-word-depolarization",
+        "a-word-repolarization",
+        "a-word-hyperpolarization"
+      ]
+    },
+    {
+      "id": "refractory-period",
+      "label": "Refractory period",
+      "wordIds": [
+        "a-word-refractory-period",
+        "a-word-absolute-refractory-period",
+        "a-word-relative-refractory-period",
+        "a-word-channel-inactivation"
+      ]
+    },
+    {
+      "id": "synaptic-transmission",
+      "label": "Synaptic transmission",
+      "wordIds": [
+        "a-word-synaptic-transmission",
+        "a-word-synapse",
+        "a-word-neurotransmitter",
+        "a-word-acetylcholine",
+        "a-word-cholinesterase",
+        "a-word-norepinephrine",
+        "a-word-agonist",
+        "a-word-antagonist",
+        "a-word-reuptake"
+      ]
+    },
+    {
+      "id": "central-peripheral-systems",
+      "label": "Central and peripheral nervous systems",
+      "wordIds": [
+        "a-word-central-and-peripheral-nervous-systems",
+        "a-word-central-nervous-system",
+        "a-word-peripheral-nervous-system",
+        "a-word-cns",
+        "a-word-pns"
+      ]
+    },
+    {
+      "id": "somatic-autonomic-systems",
+      "label": "Somatic and autonomic systems",
+      "wordIds": [
+        "a-word-somatic-and-autonomic-systems",
+        "a-word-somatic-nervous-system",
+        "a-word-autonomic-nervous-system",
+        "a-word-voluntary-control",
+        "a-word-visceral-control"
+      ]
+    },
+    {
+      "id": "sympathetic-parasympathetic",
+      "label": "Sympathetic and parasympathetic divisions",
+      "wordIds": [
+        "a-word-sympathetic-and-parasympathetic-divisions",
+        "a-word-sympathetic-division",
+        "a-word-parasympathetic-division",
+        "a-word-autonomic-balance"
+      ]
+    },
+    {
+      "id": "reflex-arc",
+      "label": "Reflex arc",
+      "wordIds": [
+        "a-word-reflex-arc",
+        "a-word-reflex",
+        "a-word-receptor",
+        "a-word-sensory-neuron",
+        "a-word-interneuron",
+        "a-word-motor-neuron",
+        "a-word-effector"
+      ]
+    },
+    {
+      "id": "sensory-transduction",
+      "label": "Sensory transduction",
+      "wordIds": [
+        "a-word-sensory-transduction",
+        "a-word-receptor-potential",
+        "a-word-stimulus-energy"
+      ]
+    },
+    {
+      "id": "sensory-receptor-classes",
+      "label": "Sensory receptor classes",
+      "wordIds": [
+        "a-word-sensory-receptor-classes",
+        "a-word-photoreceptor",
+        "a-word-mechanoreceptor",
+        "a-word-chemoreceptor",
+        "a-word-thermoreceptor",
+        "a-word-nociceptor",
+        "a-word-proprioceptor"
+      ]
+    },
+    {
+      "id": "sensory-adaptation",
+      "label": "Sensory adaptation",
+      "wordIds": [
+        "a-word-sensory-adaptation",
+        "a-word-sustained-stimulus",
+        "a-word-response-change"
+      ]
+    },
+    {
+      "id": "vision-pathway",
+      "label": "Vision pathway",
+      "wordIds": [
+        "a-word-vision-pathway",
+        "a-word-cornea",
+        "a-word-lens",
+        "a-word-retina",
+        "a-word-rod",
+        "a-word-cone",
+        "a-word-optic-nerve"
+      ]
+    },
+    {
+      "id": "hearing-equilibrium-pathway",
+      "label": "Hearing and equilibrium pathway",
+      "wordIds": [
+        "a-word-hearing-and-equilibrium-pathway",
+        "a-word-tympanic-membrane",
+        "a-word-ossicles",
+        "a-word-cochlea",
+        "a-word-organ-of-corti",
+        "a-word-hair-cell",
+        "a-word-semicircular-canal"
+      ]
+    },
+    {
+      "id": "endocrine-signalling",
+      "label": "Endocrine signalling",
+      "wordIds": [
+        "a-word-endocrine-signalling",
+        "a-word-endocrine-gland",
+        "a-word-hormone",
+        "a-word-target-cell",
+        "a-word-receptor",
+        "a-word-water-soluble-hormone",
+        "a-word-lipid-soluble-hormone"
+      ]
+    },
+    {
+      "id": "hypothalamus-pituitary-axis",
+      "label": "Hypothalamus-pituitary axis",
+      "wordIds": [
+        "a-word-hypothalamus-pituitary-axis",
+        "a-word-hypothalamus",
+        "a-word-pituitary",
+        "a-word-releasing-hormone",
+        "a-word-tropic-hormone",
+        "a-word-axis"
+      ]
+    },
+    {
+      "id": "antagonistic-hormones",
+      "label": "Antagonistic hormones",
+      "wordIds": [
+        "a-word-antagonistic-hormones",
+        "a-word-opposing-effects",
+        "a-word-coordinated-regulation"
+      ]
+    },
+    {
+      "id": "thyroid-calcium-feedback",
+      "label": "Thyroid and calcium feedback",
+      "wordIds": [
+        "a-word-thyroid-and-calcium-feedback",
+        "a-word-tsh",
+        "a-word-thyroxine",
+        "a-word-pth",
+        "a-word-calcitonin",
+        "a-word-calcium-regulation"
+      ]
+    },
+    {
+      "id": "blood-glucose-regulation",
+      "label": "Blood-glucose regulation",
+      "wordIds": [
+        "a-word-blood-glucose-regulation",
+        "a-word-insulin",
+        "a-word-glucagon",
+        "a-word-glycogen",
+        "a-word-hyperglycemia",
+        "a-word-diabetes-mellitus"
+      ]
+    },
+    {
+      "id": "water-salt-regulation",
+      "label": "Water and salt regulation",
+      "wordIds": [
+        "a-word-water-and-salt-regulation",
+        "a-word-adh",
+        "a-word-aldosterone",
+        "a-word-osmoreceptor",
+        "a-word-osmotic-concentration"
+      ]
+    },
+    {
+      "id": "stress-response",
+      "label": "Stress response",
+      "wordIds": [
+        "a-word-stress-response",
+        "a-word-acth",
+        "a-word-cortisol",
+        "a-word-epinephrine",
+        "a-word-adrenal-cortex",
+        "a-word-adrenal-medulla"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "courseId": "biology20",
+  "unit": "A",
+  "status": "authored draft; full source and curriculum review pending",
+  "wordAnalysisPolicy": "Explicit contextual word analysis only. No historical origins asserted. Later teaching links are planned, not completed lesson evidence.",
+  "termDefinitions": {
+    "energy": "A conserved physical quantity that can be transferred and transformed; ecological accounts track its inputs, outputs and storage.",
+    "food web": "A representation of interconnected feeding relationships in a stated ecological system.",
+    "decomposer": "An organism that chemically breaks down organic matter, commonly releasing enzymes and absorbing products.",
+    "transfer efficiency": "The receiving trophic level's production divided by source-level production over matching boundaries, usually expressed as a percentage.",
+    "water": "The substance H₂O; its polarity and hydrogen bonding contribute to properties important to living systems.",
+    "hydrologic cycle": "Transfers of water among stores through processes including evaporation, precipitation, infiltration and runoff.",
+    "carbon": "The chemical element present in carbon dioxide and in the organic compounds of living systems.",
+    "nitrogen cycle": "Transfers and chemical transformations of nitrogen among organisms and nonliving stores.",
+    "biomass": "The mass of living material within a defined system, often measured as dry mass for ecological comparisons.",
+    "ecological pyramid": "A comparison of trophic levels using numbers, biomass or energy production, with the quantity and units specified.",
+    "oxygen": "A chemical element; molecular oxygen, O₂, is released by oxygenic photosynthesis and used in aerobic respiration.",
+    "producer": "An organism that builds organic matter from inorganic carbon using a source of energy; ecological producers include photosynthetic and chemosynthetic autotrophs.",
+    "consumer": "An organism that obtains organic matter by feeding on other organisms or their products; its trophic position depends on the stated feeding pathway.",
+    "nitrogen": "The chemical element N, present in amino acids and nucleic acids; its chemical form affects its biological availability.",
+    "phosphorus": "The chemical element P, present in nucleic acids, phospholipids and energy-transfer compounds; plants obtain it principally as phosphate from their surroundings.",
+    "sulfur": "The chemical element S, found in some amino acids and in nonliving stores; sulfate in soil water is an important plant source.",
+    "cohesion": "Attraction among molecules of the same substance; attractions among water molecules contribute to its surface behaviour.",
+    "adhesion": "Attraction between different substances, such as water and a suitable solid surface.",
+    "nitrogen fixation": "Conversion of molecular nitrogen, N₂, into reduced forms that can enter biological nitrogen pathways.",
+    "nitrification": "Oxidation of ammonium through nitrite to nitrate; this transforms already-fixed nitrogen.",
+    "denitrification": "Microbial reduction of nitrate or nitrite to gaseous nitrogen products under suitable conditions, commonly where oxygen is limited.",
+    "eutrophication": "Nutrient enrichment that can increase production and alter aquatic conditions, including oxygen balance; effects depend on the system.",
+    "productivity": "The rate of biological production over a stated area or volume and time; it is not simply the standing amount of biomass."
+  },
+  "families": [
+    {
+      "id": "a-family-systems",
+      "label": "Systems and boundaries",
+      "fixedFrayer": true,
+      "topicId": "a-topic-intro-to-ecology",
+      "partSuffix": "system-boundaries",
+      "slides": [
+        4,
+        5,
+        6
+      ],
+      "terms": [
+        "ecology",
+        "system",
+        "open system",
+        "closed system",
+        "isolated system",
+        "biosphere"
+      ],
+      "meaning": "A system is the set of parts chosen for study. Its boundary determines which transfers count as exchanges with the surroundings.",
+      "wordAnalysis": "Read open, closed and isolated as modifiers of system. Here they describe matter and energy exchange, not whether a place looks enclosed.",
+      "model": [
+        "A pond system includes the water, organisms and sediments inside my chosen boundary.",
+        "Rain and runoff carry matter across it; sunlight and heat transfer energy. This is an open system.",
+        "A sealed transparent jar is approximately closed to matter over a short period, but light still enters.",
+        "Closed does not mean isolated. Water evaporating within a sealed jar has not crossed the jar boundary."
+      ]
+    },
+    {
+      "id": "a-family-energy",
+      "label": "Energy transfer and conservation",
+      "fixedFrayer": true,
+      "topicId": "a-topic-intro-to-ecology",
+      "partSuffix": "energy-and-albedo",
+      "slides": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "terms": [
+        "energy",
+        "cellular respiration",
+        "productivity"
+      ],
+      "meaning": "Energy is transferred between systems and transformed between forms; an account must conserve energy while identifying where it goes.",
+      "wordAnalysis": "Transfer describes movement between systems; transformation describes a change of form. These are different operations in an energy account.",
+      "model": [
+        "An energy account identifies inputs, outputs and changes in energy stored within a boundary.",
+        "Reflected radiation leaves without being absorbed; absorbed energy can later leave as heat or in other transfers.",
+        "In an illustrative model, 1,000 J arriving with 800 J reflected leaves 200 J absorbed when transmission is zero.",
+        "Energy used by organisms is not destroyed. A smaller amount available to the next trophic level does not violate conservation."
+      ]
+    },
+    {
+      "id": "a-family-food-webs",
+      "label": "Food webs and trophic roles",
+      "fixedFrayer": true,
+      "topicId": "a-topic-trophic-levels-and-efficiency",
+      "partSuffix": "feeding-roles",
+      "slides": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "terms": [
+        "food web",
+        "autotroph",
+        "decomposer",
+        "producer",
+        "consumer"
+      ],
+      "meaning": "A food web represents feeding links through which matter and energy move. A trophic role describes how an organism obtains food in the stated relationship.",
+      "wordAnalysis": "Food web is a compound expression: web emphasizes connected feeding relationships, not one unbranched chain.",
+      "model": [
+        "A food web links organisms through specified feeding relationships.",
+        "An arrow runs from a food source to the consumer that receives its matter and chemical energy.",
+        "If an insect eats a plant and a bird eats that insect, the model includes plant → insect → bird.",
+        "An omnivore need not occupy one trophic level in every chain. A missing arrow is not evidence of a feeding relationship."
+      ]
+    },
+    {
+      "id": "a-family-efficiency",
+      "label": "Trophic transfer efficiency",
+      "fixedFrayer": true,
+      "topicId": "a-topic-trophic-levels-and-efficiency",
+      "partSuffix": "transfer-efficiency",
+      "slides": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "terms": [
+        "transfer efficiency"
+      ],
+      "meaning": "Trophic transfer efficiency compares production at a receiving trophic level with production at its source level over matching area and time boundaries.",
+      "wordAnalysis": "Efficiency names a ratio with a particular numerator and denominator. Transfer specifies which movement between levels is being measured.",
+      "model": [
+        "Transfer efficiency is the receiving level's production divided by source-level production, expressed as a percentage.",
+        "Match energy units, area and time before dividing. Respiration and material not consumed limit transfer to new biomass.",
+        "Illustratively, 80 kJ m⁻² yr⁻¹ divided by 1,000 kJ m⁻² yr⁻¹ gives 8%.",
+        "Ten percent is a model assumption, not a universal constant. Production divided by ingestion measures a different ratio."
+      ]
+    },
+    {
+      "id": "a-family-water",
+      "label": "Water properties and cycling",
+      "fixedFrayer": true,
+      "topicId": "a-topic-water-and-the-hydrologic-cycle",
+      "partSuffix": "water-properties",
+      "slides": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "terms": [
+        "water",
+        "hydrologic cycle",
+        "cohesion",
+        "adhesion"
+      ],
+      "meaning": "Water's molecular properties influence its biological roles. The hydrologic cycle tracks transfers among water stores through processes such as evaporation, precipitation and runoff.",
+      "wordAnalysis": "In hydrologic cycle, cycle describes repeated transfers among stores. A cycle is not a claim that every water molecule follows the same route.",
+      "model": [
+        "The hydrologic cycle traces water moving among atmospheric, surface and subsurface stores.",
+        "Evaporation changes liquid water to vapour; precipitation transfers atmospheric water toward Earth's surface.",
+        "In a stated pond model, inflows of 30 m³ and outflows of 35 m³ reduce stored water by 5 m³.",
+        "A water store is an amount at a time; a flow is a transfer over time. Water is not a solvent for every substance."
+      ]
+    },
+    {
+      "id": "a-family-matter-cycles",
+      "label": "Matter stores and biogeochemical cycles",
+      "fixedFrayer": true,
+      "topicId": "a-topic-carbon-oxygen-and-nitrogen-cycles",
+      "partSuffix": "carbon-and-oxygen",
+      "slides": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "terms": [
+        "carbon",
+        "nitrogen cycle",
+        "photosynthesis",
+        "cellular respiration",
+        "nitrogen",
+        "phosphorus",
+        "sulfur",
+        "nitrogen fixation",
+        "nitrification",
+        "denitrification",
+        "eutrophication"
+      ],
+      "meaning": "Biogeochemical cycles trace elements among living organisms and nonliving stores. Chemical reactions change compounds without creating or destroying their atoms.",
+      "wordAnalysis": "Store names where matter is held; process names how it moves or changes chemical form. Keep the element name separate from the compound containing it.",
+      "model": [
+        "A matter cycle traces atoms among organisms, air, water, soil and rock through named processes.",
+        "Photosynthesis incorporates inorganic carbon into organic matter; respiration can return carbon as carbon dioxide.",
+        "A plant can obtain carbon from atmospheric CO₂ while obtaining mineral nitrogen from soil compounds.",
+        "Most plants do not directly use atmospheric N₂ as their nitrogen source. Matter cycling does not mean energy is recycled indefinitely."
+      ]
+    },
+    {
+      "id": "a-family-albedo",
+      "label": "Albedo and feedback",
+      "fixedFrayer": false,
+      "topicId": "a-topic-intro-to-ecology",
+      "partSuffix": "energy-and-albedo",
+      "slides": [
+        9,
+        10,
+        11
+      ],
+      "terms": [
+        "albedo",
+        "positive feedback"
+      ],
+      "meaning": "Albedo is the fraction of incoming radiation reflected by a surface. A positive feedback amplifies an initial change through a returning causal effect.",
+      "wordAnalysis": "Positive modifies feedback: it means amplifying, not beneficial. Use albedo as the complete scientific term; no historical origin is asserted.",
+      "model": [
+        "Albedo compares reflected radiation with incoming radiation under the stated conditions.",
+        "Divide reflected by incoming energy. A higher ratio means a greater reflected fraction, not necessarily a greater total reflection.",
+        "Reflecting 240 J from an incoming 800 J gives an albedo of 0.30.",
+        "An albedo of 0.80 with 200 J incoming reflects less energy than 0.30 with 1,000 J incoming. Compare denominators."
+      ]
+    },
+    {
+      "id": "a-family-producers",
+      "label": "Producer carbon and energy sources",
+      "fixedFrayer": false,
+      "topicId": "a-topic-intro-to-ecology",
+      "partSuffix": "producing-organic-matter",
+      "slides": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "terms": [
+        "autotroph",
+        "photosynthesis",
+        "chemosynthesis"
+      ],
+      "meaning": "Autotrophs build organic matter from inorganic carbon. Photosynthetic and chemosynthetic pathways differ in their energy sources.",
+      "wordAnalysis": "Compare the complete pathway terms by carbon input and energy input. Do not infer a cell's pathway from a name, location or darkness alone.",
+      "model": [
+        "An autotroph builds organic compounds using an inorganic carbon source.",
+        "Photosynthesis uses light energy; the chemosynthetic example uses energy released by inorganic chemical reactions.",
+        "In the conceptual diagram, both producers receive CO₂, but only the alga receives light as its energy source.",
+        "Finding an organism in darkness does not establish chemosynthesis. It might consume organic matter produced elsewhere."
+      ]
+    },
+    {
+      "id": "a-family-pyramids",
+      "label": "Ecological pyramids",
+      "fixedFrayer": false,
+      "topicId": "a-topic-ecological-pyramids",
+      "partSuffix": "numbers-and-biomass",
+      "slides": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "terms": [
+        "biomass",
+        "ecological pyramid"
+      ],
+      "meaning": "Ecological pyramids compare trophic levels using a specified quantity: organism numbers, standing biomass or energy production over time.",
+      "wordAnalysis": "Numbers, biomass and energy modify pyramid by identifying what its width represents. The geometric name does not guarantee an upright shape.",
+      "model": [
+        "An ecological pyramid compares a named quantity across trophic levels within a defined system.",
+        "Numbers count organisms; standing biomass measures living material at a time; energy production includes a time interval.",
+        "A small standing producer biomass can support a larger consumer biomass when producer turnover is rapid.",
+        "An inverted standing-biomass pyramid does not show energy creation. A stock of biomass is not a rate of energy production."
+      ]
+    },
+    {
+      "id": "a-family-gas-balance",
+      "label": "Atmospheric gas balance",
+      "fixedFrayer": false,
+      "topicId": "a-topic-sulfur-and-phosphorus-cycles",
+      "partSuffix": "atmosphere-and-life",
+      "slides": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "terms": [
+        "oxygen",
+        "photosynthesis",
+        "cellular respiration"
+      ],
+      "meaning": "Atmospheric gas amounts reflect multiple processes adding and removing gases. A net change depends on their balance over a specified period.",
+      "wordAnalysis": "Balance means comparing gains and losses; it does not imply that the amounts must stay constant.",
+      "model": [
+        "Gas balance compares processes that add and remove a gas within a stated boundary and time period.",
+        "Oxygenic photosynthesis releases oxygen, while aerobic respiration consumes it. Other reactions also influence oxygen amounts.",
+        "A closed model's oxygen can decline if consumption exceeds release, even when some plants are present.",
+        "The presence of producers alone does not guarantee constant oxygen. A small model cannot reproduce every global process."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1204 @@
+{
+  "status": "local-review-candidate; final-verification-required",
+  "regenerateCommand": "npx tsx scripts/build-biology20-course.ts --module a",
+  "sources": [
+    {
+      "file": "projects/resources/biology20-production/v1/resource-manifest.json",
+      "sha256": "44b37ea9a0d4aa6ac9de197489512624323d5dd76feae62b55d7d2b9b53266a2"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/contract.json",
+      "sha256": "32c4143c8486ca5e567798cd05978ff17b3de1570825d08dbff3bdcd6a17c5e2"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/core-teaching.json",
+      "sha256": "d23ecc30c87b6141a4f710a85e39ff6faa12ad3f1729f4c0c0ee85b67eb3056e"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/cycle-source-review.md",
+      "sha256": "ee0695a2c1c85c805070195902945a516ecd9b5620520473e150a0d32a2eef16"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/figures/albedo-budget.svg",
+      "sha256": "1b9ecc3dc6eeb6b40a8031a4a90cb1f2e45b5a752676404f2e6c7050c88d6415"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/figures/producer-comparison-v2.png",
+      "sha256": "e0146452df77a2ef2d87bb7223c6e0b5d7677626af6f2cfa94bab21480b796a5"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/figures/system-boundaries.svg",
+      "sha256": "36085054fa549a8fc3431622e79bb1a697a1a5dc7a98a954e2c020ced7f21e66"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/first-topic-design.json",
+      "sha256": "330f0623cefbf5a799ac0fc39f77c772b96bf50a05a10e7505752d717dfd6d10"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/module-activity-design.json",
+      "sha256": "4f7dd0655674e6a0ac1eda3d92e2d6c311ab47a4f6e5c1bb543935fd35c7b4ab"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/module-coverage-review.json",
+      "sha256": "16cf76efa9d582af547b30226f1367b168701319880cbb918292a82e2aa9483a"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/module-figure-review.json",
+      "sha256": "137293d803b45dade27f1bcf2e7aa4a3e35d9b2594af19189c832e7d92ea4737"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/module-figures.json",
+      "sha256": "b99f29328103815c869b6bf6af18c368602e27d4570b66d1d9d7d2738995f357"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/module-integrated-work.json",
+      "sha256": "1585ee82441ff9df5780072dd053207e5be00a6fcb04042153c8eded436b76ee"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/module-practice.json",
+      "sha256": "6a4506ad824940f0edab6bb3a13c0ad1398885c98485364b48da2f7c5855af13"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/pilot2-instruction.json",
+      "sha256": "e3e4627ab38f77b014286122d7b26306a7e31933fe8bd2677bc5fdca6e164594"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/source-figure-bindings.json",
+      "sha256": "121410aadd2ef5f714bdbd0102f15772a2908b873845fc64fabd1146309b3d6a"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/source-review.json",
+      "sha256": "94efed760febd22d34a3684c85e90a8f9511d60c32beff5ab408710a8271b32d"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/source-videos.json",
+      "sha256": "43269689251a5fe7e8afb50438788e1cc0ed997b1c56bb18c54caba209b94e85"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/textbook-support.json",
+      "sha256": "b20cdb704c4bf6956ed049aa227a0fb434a27dbe235e74ba2ffabbf53d34c91d"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/visual-queue.json",
+      "sha256": "dcdef692e4c072146d066381a72d365758d6c38727e77ada68019f9248c19917"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/vocabulary-families.json",
+      "sha256": "0d0c7e3e78de9983f4347f1c652aa80f1ca12a5d2e5512acd452f51568c48264"
+    },
+    {
+      "file": "projects/resources/biology20-production/v1/units/a/word-details.json",
+      "sha256": "4c58fc92ba433e7717e509d3d4cb79224309938f46c8ece868941b3362321be6"
+    },
+    {
+      "file": "scripts/build-biology20-course.ts",
+      "sha256": "248cd8723184243131cdb2511bed6434e367cb45e87407a20262c29b9ef7a64d"
+    },
+    {
+      "file": "scripts/build-biology20-first-topic-proof.ts",
+      "sha256": "bcaca4eae6ecb4c4e7f0ac27e33bccd36677fbbfe643480304c04d03529df0f1"
+    },
+    {
+      "file": "scripts/lib/biology20-course/academic-map.ts",
+      "sha256": "c1cf47458683bfde9e517445f40f6abd098576c29143148263697818d8b813eb"
+    },
+    {
+      "file": "scripts/lib/biology20-course/browser-entry.ts",
+      "sha256": "e2afe4aac29118c8e530c0b1e5fa8f9af3f2f2f82d0485ce02831b9c1ff0b330"
+    },
+    {
+      "file": "scripts/lib/biology20-course/curriculum.ts",
+      "sha256": "833ecb7931c941b682cf9764476dc197d3ee49aa9feab25ebdd38493b5c969e9"
+    },
+    {
+      "file": "scripts/lib/biology20-course/diagrams.ts",
+      "sha256": "6553d35f125294fb3a16b7fe74a7f1366e10300080dc70e0c81acf8ff43de172"
+    },
+    {
+      "file": "scripts/lib/biology20-course/first-topic-proof.ts",
+      "sha256": "ef0b8da9df754d3ee1ed0e1fdb5852cbade8e20b228a81d205ba46f96185e8c3"
+    },
+    {
+      "file": "scripts/lib/biology20-course/hubs.ts",
+      "sha256": "9a60e105ea82b2bf189661df482558278c29790c1750a9c906c5e4793ce8a044"
+    },
+    {
+      "file": "scripts/lib/biology20-course/intake.ts",
+      "sha256": "438b4ecd8e09230f3b18b9d0ca9c2e87e73cefee98b86e1d0cb8708039b8d0ac"
+    },
+    {
+      "file": "scripts/lib/biology20-course/profile.ts",
+      "sha256": "92190a4a5548437d44d80142b0ada6582fb985c8fcaedfc3e07851169dad81bf"
+    },
+    {
+      "file": "scripts/lib/biology20-course/proof-shell.ts",
+      "sha256": "b37ae2b0be04a2476364ca70bc9e8c2e4767ee2b5aa74d90a5e199c8b9f715e6"
+    },
+    {
+      "file": "scripts/lib/biology20-course/reference-parity.ts",
+      "sha256": "d8e3908c28b784e6ace52845914c902d77c575e747f946a4b32a46c7f9cc9f62"
+    },
+    {
+      "file": "scripts/lib/biology20-course/topic-map.ts",
+      "sha256": "e95977cf873fba3e32183827e9c28ac6c2613efdf3f934ca521e828cc57f9c01"
+    },
+    {
+      "file": "scripts/lib/biology20-course/unit-a-inputs.ts",
+      "sha256": "7fc3ea3744d658db2d8e8daff22df2661c98ab5dcc8f0f5388f6f61a3e17af2b"
+    },
+    {
+      "file": "scripts/lib/biology20-course/vocabulary.ts",
+      "sha256": "e4158f55eb80634553d06166f82c74a0a9046ccdca41d549f148f1a2e3e9dd23"
+    },
+    {
+      "file": "scripts/lib/biology20-course/word-browser.ts",
+      "sha256": "fbfa40dabb5f993266a619d75767d5e0478672e922e3b7b223bd018a82cbad18"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/acceptance.ts",
+      "sha256": "c045df24f523fb2877f915bb420d0e4131e3965e862b145b720c2f33ecdb2704"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/blueprint.ts",
+      "sha256": "26c714b5ea274ecc2f216a8b93c5ebe54e5f8ee3d0e86f3a55f7d3cc96ae27b6"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/build.ts",
+      "sha256": "fb2538240458cf7aeffc11b52810f932f7b7b89907ee7ca440513dc2b2fbad52"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-b.ts",
+      "sha256": "a1e85688c5d859e64dfd17d8437bd3fd356a0fedc517fcbe6f8be5532c0417b7"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-c.ts",
+      "sha256": "0fbb3a32b9a18298e84daa8e15e51d6e6d119e07f6aa8cf3ad370e173ec23deb"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-d.ts",
+      "sha256": "30a596de8ce9a72b5e4b6b724e9f2ab94460c0307cb3b079cda2782cc1152cc2"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-factory.ts",
+      "sha256": "b20bd7a18c5a496910b4afacbe16de7831cb674479605078750dd97a732de560"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/content-types.ts",
+      "sha256": "22642f7554da22dab701939d790173bf4a08f01ab41934c88ac3c8d558f814b3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/course-identity.ts",
+      "sha256": "4a73ca2ad46a659bb944beb222a8a736746e33455216b3a829bc4bae14dd88e0"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/curriculum.ts",
+      "sha256": "40d6ed9ce9dd6305ce216e5a5248328f5d9bf0541b386a4de7620039c21f667f"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/figure-grammar.ts",
+      "sha256": "54ea8977b74d5f35c313d64738906f6aad80339dfd3d02d01c7da3fa86d4458d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/glossary-b.ts",
+      "sha256": "3b4cbe24175046ed4e389e1c473eab26ea371d3b5f8a53395e103746ddeb5a81"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/glossary-c.ts",
+      "sha256": "034a99a2e98f3290554263aef728ec97aa86bf9ef856b80fbfcdc8b235df94b9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/glossary-d.ts",
+      "sha256": "30f776476044bf22695cf28c7e300c788f515a02ef3de43749726ccff4bda6de"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/intake.ts",
+      "sha256": "fe90c22015a26d0471a28b8da01da3c243c407dc26b6506d9ac643a39cdfd30c"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-a-hubs.ts",
+      "sha256": "953150ae85a3cfee15fbe65bc2f014279033fbcf87241da4c6287e3ea6d2d529"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-a-presentation.ts",
+      "sha256": "91b4d3a797878ef7cf5657bb9af128af665e5887ab96722f0f7ea43fdbbf8e65"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-activity-index.ts",
+      "sha256": "e740a982847598b8f7d0a4f9f5766af8994ce1cb7106033ae0cb58cf3cbdc143"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-browser-bundle.ts",
+      "sha256": "e3c30ee36b6cc5a3454680ed2299939070e7a1fc3741d3b602490ebb860191e5"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-browser-entry.ts",
+      "sha256": "843bfb6404f2c3d01f901154c7b81046c6fdab799b9aca227a1e769ff6fa6b2a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-browser-environment.ts",
+      "sha256": "c6d55c536626672864e30e96bbe82892b1f9e30a2f58581921ac810327bcb491"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-build-transaction.ts",
+      "sha256": "20c982492ea69b9c59fa515f44a539ad975bb9b4511ce6819ba84909aebf4b30"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-build.ts",
+      "sha256": "62e7de33291900ca0d53eb9956ad45878f10d976cc916b531d10ea983610564e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-collection-view.ts",
+      "sha256": "5d5778901986b24cdc3df30ae5e5fbed96310676875256c7407ad14b6b4f853a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-contract.ts",
+      "sha256": "71d1704fa53dde9334809df9baa9d99e55c3205711b534f61f037b05f23c13c3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-controls-runtime.ts",
+      "sha256": "d02a86a085dc06d5d828dd6440eab10f8b8de9be959e2d0623c0981d32e68a75"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-definition-review.ts",
+      "sha256": "a90d63fd06c2b05c75c70629a944a23a36bdba7bf2730848ce6ec181d73596f5"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-figure-bindings.ts",
+      "sha256": "0e7ec60eec055507a2ae41ed07ef2ed6b059287964c9fd8ecfedea20034842ce"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-figure-viewer.ts",
+      "sha256": "e272d4d53c2ce7b2e65548577abf1b5ec1fc229ebdbfc081d27f64d7b2fcf110"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-frayer-controls.ts",
+      "sha256": "9500656ce944bf6fdffea0cfd197bd312d707c280010c2987f1ae67b77542ae4"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-audit.ts",
+      "sha256": "ce36724089a6626fac75f7c0e3ad5af809db4319e4662656d27756fd21bdc1b0"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-controls.ts",
+      "sha256": "6806f7d0cead77630b371ad83bc57147fa9eff903c1dfdab76ee6aaaa5917a75"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-svg.ts",
+      "sha256": "f6c4f63c011ad9b2e909597b4f326ee792241821cd423aee723c42e008c8c9a2"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-graph-work.ts",
+      "sha256": "d1e3aa53c44157876100b434adfa56e4181b14dbef38907921fec7ebfb9856d7"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-inputs.ts",
+      "sha256": "af440eaaf55ebf07c60bda8c0e6903cfaa8f85b67602b9433544f70c1a0824cb"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-instruction-audit.ts",
+      "sha256": "82d0eafb541fc8e41bf8c76b494f9bae56103b20e61c16a089fbd33aa3d8e3d4"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-investigation-audit.ts",
+      "sha256": "ce69ce8952aeeb24da71eee15795e56970390faa61cc2f139e2ae11eee4692d7"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-learning-audit.ts",
+      "sha256": "79efb694a29ff8e40b21d9549818167b6e99890802e4b970a276c12007dd025d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-legacy-work.ts",
+      "sha256": "42e86be832db8c2b0453223c8f483d79fc8a402c91ddca3e5b8e0c881eef1b4a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-lesson-header.ts",
+      "sha256": "d0727926390ad0fa1ebf6d17014be83b73941e21eb0b92e1e4078a5003f685f3"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-media-controls.ts",
+      "sha256": "21a64d0edf9f0f323358db06b94e32fb8a34039f76da6d9a8273e0db18e9d18a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-media.ts",
+      "sha256": "dedb7bd5656ec0947b9641afddde82e2515a79ca4d5d4bd67a8c0d79cd6c56d5"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-model-audit.ts",
+      "sha256": "141d8649a0756aaf595705e1607a3ab9d525c4da2b6d80c53b580bbe06672f7f"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-model-controls.ts",
+      "sha256": "4119300b2ec116ae0edf834b9d3cb100970bbba157d71cc4785b83e3efb8ff4b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-model-plot.ts",
+      "sha256": "727b0e4634b89ed1663d2245ddf41170c8fa5a0e13a65f6df0d4423da2588c7b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-models.ts",
+      "sha256": "66cd7d683cfd5480243df19c34f3576b3f289ed81e35dd1c1011f354c7830fe9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-owner-closure.ts",
+      "sha256": "c7a4fef2908ebcea67ca0535472f00283a88fb994d5ecb39b2460d1867de74bd"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-passage-audit.ts",
+      "sha256": "e5102235b213d82d24161e5fcb315bddf59df88c0ec2f7c655c8283938dc434b"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-planning-audit.ts",
+      "sha256": "6261718ab30e202518dd20851c9ae26b3a51444346dc4005aa92199dc9643f63"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-practice-operations.ts",
+      "sha256": "ce3b7be3202199edad4cc8b4f0c6be6d69e3aacece4ab47ef0cf5c6d4ea87a81"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-practice-options.ts",
+      "sha256": "16777982c5f39ac50e173ef93a110c786392117f04ce3af84627e62637b3cf62"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-practice-review.ts",
+      "sha256": "91756728d550799c7d192eb1c5c6ecffb8ad99fb1f8bc91b2a3ee4a829757035"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-preflight.ts",
+      "sha256": "ccec4a76680f41deeb26e96f50aeaefcaba7a60b4065459d28a38044764b97c9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-runtime.ts",
+      "sha256": "a59221328a3b1ba38599c38b2496ea2fbc7bba46961013eaf8508fbe78cc7108"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-presentation-shell.ts",
+      "sha256": "59698da9883ab2d8289a4ed42a5a25fa7a9eda92deceed1553176dca6d68745a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-reading.ts",
+      "sha256": "91b99eb41c83425be2b73e31e193fff548712a059ca607dbe587af459f79a87a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-recovery-view.ts",
+      "sha256": "63fea05c6b61f167b99b1aaf712234c860a5f41cfa8bb3a2d407bc069f0a48db"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-advanced.ts",
+      "sha256": "ddc17721f9e8a4d9a1662c558c7d5ed77d0b2b5f7a324782b383d65a6af49744"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-common.ts",
+      "sha256": "e1337022bf3d21579077f69d9c4d5e4149d959284968cf6521ade3188533431e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-controls.ts",
+      "sha256": "b983aafe4868a250906a714496690be56ea6584210704633e4d1ab41c9993efc"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-course.ts",
+      "sha256": "dc2b6b97744e1cc02b1ff7aa524d989d1b48b871f9d5b4d4a39b45aa58e314a8"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-graph.ts",
+      "sha256": "aa88dbab96bd3adefc9e663df1b885801135082a7aadc88df63bfdd4340c8373"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-investigation.ts",
+      "sha256": "078ff839675298d72afbc5d9c2e06a37d87a13a7c9d80b775f79f789c2cd466a"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-model-output.ts",
+      "sha256": "78017dee50579b6e7d16e07df184252d75b06f440a7d82296780928b80ba0fe8"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-model.ts",
+      "sha256": "70e8b1a90c0f58677cc65a5d300728a1b34c033f9b762c21ceb2beac0a6b46f5"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-reference.ts",
+      "sha256": "ce0bbf7ea3f284688115257602f34d5a18472d118347e715ac64f3609daa9b9e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-review.ts",
+      "sha256": "5182c15ecb37bc3eb61b962cc5c282741bc17a60893c6c8dd5994443a23db370"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-textbook.ts",
+      "sha256": "f8742d32063a8935ec6a26ce8d88004d90c172419234e93c055c27cc921454cc"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-topic.ts",
+      "sha256": "7789afc7566d02548b00507c0072003b20fa2c5e960290c0cd466abcc0e6a383"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-render-vocabulary.ts",
+      "sha256": "6fc61b2dfb2287533cdffb61210ad66f9b7015ea96364f4214190707a6ac9281"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-restore.ts",
+      "sha256": "de6c86100cb651c3c51d127a491777063765a6ca779b1fb5ec2abbe2cbecd150"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-retention-audit.ts",
+      "sha256": "07c0a9cf77d57b66664082dbcb53e04eb03b1154e0fc9c4697d43deff2422f4d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-return-links.ts",
+      "sha256": "f5bf1b5be7c24e93b4740354126c161ff023c4e3b429ac510f572f6daf5a0036"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-science.ts",
+      "sha256": "0ed6cfafcd400027897cec7c236e6f3f95010a95df7ec7f8ca6e6694add45909"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-session.ts",
+      "sha256": "55012fa339a79f3545b15ea88643626e7ae2aff6bbfb42670cf93f88922c2e25"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-source-videos.ts",
+      "sha256": "d62e17c72c141798332c37e28322f97fd1611ea00c4f0dae8b23060ee0d4bde5"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-startup.ts",
+      "sha256": "5b4f86c8fc8d7bd39effde9b66e031e545eee1a85e0af7e04996a7235e919d4e"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-state.ts",
+      "sha256": "0df4ec6fd21c197bc7a939fc02c4016175691d556c0ee6f405c404eddca1cba9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-textbook-audit.ts",
+      "sha256": "cb9ded06b952da609d5cec2081a88f1c73ec9ae50944c7cb02b300e6fdc75361"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-video-placement.ts",
+      "sha256": "069ac272fd209f558b913c256fb6eb4f7feef68c4bfea85a48c25e11b2cc26e9"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-vocabulary-panel.ts",
+      "sha256": "ccfc0d24d2c3c49ab6ecc03f9ed9f38f53d5fa29e09a69ac70ed1e5080f284a4"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/pilot2-word-profile.ts",
+      "sha256": "a0a71e82d5b9499140838bcb5636dba941d1e2e3595c03259b1e2cc984822051"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/render.ts",
+      "sha256": "6797b17183c7b2595908c6dc88145609777e7eaf8783dbc0178d8a1f4fa8e86d"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/suspend-data.ts",
+      "sha256": "bf427853afda49d328241405f38cffe6e752bed37df2c633969538deaef87745"
+    },
+    {
+      "file": "scripts/lib/biology30-course/v1/topic-layout.ts",
+      "sha256": "157698db0045a16c94a4d904f90fcdff3f0db163c6dff1842db10e8f4666a48f"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/a-bridge.ts",
+      "sha256": "4e0fdaaf89ccda9ae55d0bf9f63b3e9fe0e0909140f92764ec9a772ff60a3bd4"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/a-entry.ts",
+      "sha256": "52d72b3c29af1703a6bb9e722b30a205fc29fd01fb3a2aaedeff5290205c9192"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/a-word-page.ts",
+      "sha256": "32813bc7de314dd9702c2b033237e80c143ea5f9b8ca9fbfb8d6011bfc7dc1e3"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/a-word-runtime.ts",
+      "sha256": "dbc1532feb6313c007ff29535552ddb713e03033ce392d9feac711ad80592384"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/panel.ts",
+      "sha256": "828a7492c252725b7d49daee1f7b7467f9dec2aab02892e69e9361c73e2d4f20"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/render-a.ts",
+      "sha256": "5825c3f9f52df09e7275aeb02a92b30b0af4fe103c65c004b163d3f6d33940e1"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/word-frayer-runtime.ts",
+      "sha256": "76060d593d42e0e15192607d676f5c22da0f4bd1e9674f627dd2a9cbd7416317"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/word-frayer-state.ts",
+      "sha256": "14cf977a71d4d3740c22358cb7641c55296e862a0f8fd3010a671da65f20c745"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/word-page-runtime.ts",
+      "sha256": "0a1b0ea71cb85db35dde44f2ae681cf76b617aebbc314ef34b404198df245d8b"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/word-page.ts",
+      "sha256": "aefd656d1e5e9141ca123d346bfe165336bbdf1af28c511f77e8a8ff7c8dfaa0"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/word-reader.ts",
+      "sha256": "f3a83bfec64cfbe35f4919890dd3103a088627d787f26b2d139a38518c827c0c"
+    },
+    {
+      "file": "scripts/lib/biology30-vocabulary/word-record.ts",
+      "sha256": "2f3b77e8946d9a7eb505bbc28098c1075a0bbf5bae807046c37a01fe462c837f"
+    }
+  ],
+  "files": [
+    {
+      "file": "assets/brand/nxt-ce-logo-white-with-ce.png",
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "file": "assets/fonts/HankenGrotesk-Variable.ttf",
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+    },
+    {
+      "file": "assets/fonts/WorkSans-Variable.ttf",
+      "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+    },
+    {
+      "file": "assets/fonts/OFL-Hanken-Grotesk.txt",
+      "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+    },
+    {
+      "file": "assets/fonts/OFL-Work-Sans.txt",
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "file": "assets/system-boundaries.svg",
+      "sha256": "36085054fa549a8fc3431622e79bb1a697a1a5dc7a98a954e2c020ced7f21e66"
+    },
+    {
+      "file": "assets/albedo-budget.svg",
+      "sha256": "1b9ecc3dc6eeb6b40a8031a4a90cb1f2e45b5a752676404f2e6c7050c88d6415"
+    },
+    {
+      "file": "assets/producer-comparison-v2.png",
+      "sha256": "e0146452df77a2ef2d87bb7223c6e0b5d7677626af6f2cfa94bab21480b796a5"
+    },
+    {
+      "file": "assets/feeding-roles.svg",
+      "sha256": "383507070208458966848c29d77f9e1d79ab0e67f5b3ada1d9dd281dde6b288b"
+    },
+    {
+      "file": "assets/food-web-evidence.svg",
+      "sha256": "ce0406ff6c583846b501876903d36f077f59ded4903c5983742cf1b4e7ea0bd7"
+    },
+    {
+      "file": "assets/transfer-efficiency.svg",
+      "sha256": "5d0887fb09843c939daf1e54a3baad3ee6315ca9c138d9ae30fa33be476b0aad"
+    },
+    {
+      "file": "assets/concentration-along-food-webs.svg",
+      "sha256": "9be193aeaf2e7a1c9159eb7405bb10f889e176d61907c840cecaedf35dea5d86"
+    },
+    {
+      "file": "assets/numbers-and-biomass.svg",
+      "sha256": "de53341f06c7be92e83f9e1fc99c2b07a96bfa3d57298582f5a88b370e53bccf"
+    },
+    {
+      "file": "assets/energy-rate-and-turnover.svg",
+      "sha256": "0351a4060a7b206375cfbdc3d424f9eaeda182051c05aec85c5e17e240582bfa"
+    },
+    {
+      "file": "assets/water-properties.svg",
+      "sha256": "2b5f48be00c971822458662329c3f5fbd60b1de3303fe3da49ee866bf06bccf4"
+    },
+    {
+      "file": "assets/density-and-lake-mixing.svg",
+      "sha256": "6a866579f21d98a6abbccb0e15260eb394752fb6d17e88999aa740c6379fb01d"
+    },
+    {
+      "file": "assets/water-budget-and-carbon-links.svg",
+      "sha256": "b948074e7c37f7a0dbe6442104d82d6ff083375e995c66f52a6bc1a6df9d6cf6"
+    },
+    {
+      "file": "assets/carbon-and-oxygen.svg",
+      "sha256": "cca2b4fad655a2405eaf1065c58c92a839ac30a039912738a05737b82504117f"
+    },
+    {
+      "file": "assets/nitrogen-transformations.svg",
+      "sha256": "7dcd7b1c152571b1ec274e16c4d7178645c58851b529eebdc026739150411f2d"
+    },
+    {
+      "file": "assets/nitrogen-management.svg",
+      "sha256": "b79392c9b7c5f858d77282106273d2d9eb664799286cf8d26a71d72a0cab0011"
+    },
+    {
+      "file": "assets/sulfur-and-human-influence.svg",
+      "sha256": "c8f7a2d7d71b1f3784ac6577b108ed34f9f499c46bda25b3a1d82d8c1cf878b5"
+    },
+    {
+      "file": "assets/phosphorus-and-eutrophication.svg",
+      "sha256": "da5b5ada6ac042543c250ffba6933f3b24d4f26ce65ff53792cb8c4279fd409c"
+    },
+    {
+      "file": "assets/atmosphere-and-life.svg",
+      "sha256": "6f66b3276ced938ce0d8c2a5999ead3f62d0abf36a42378496794d4fcd6bba02"
+    },
+    {
+      "file": "assets/source-water-budget-and-carbon-links.png",
+      "sha256": "90312879bf681c04a14fb28afc01038e74e3ffa28b554bdfc8ad12b20e119810"
+    },
+    {
+      "file": "assets/source-numbers-and-biomass.png",
+      "sha256": "df2eb790d9e57e2d1758ec0cc05fea5eb7062b745dcdd949d0ad875ad095f76d"
+    },
+    {
+      "file": "assets/textbook-chapter-1.pdf",
+      "sha256": "43ac232c5a3ee564e9bb443c5ff904e7faa3f990942929c4ea74c7145ab5925d"
+    },
+    {
+      "file": "assets/textbook-chapter-2a.pdf",
+      "sha256": "cd92f3543261cc7d369f839ed1ac72a8510cd1873b17b0d985c44d1d2a31dd90"
+    },
+    {
+      "file": "assets/textbook-chapter-2b.pdf",
+      "sha256": "e204fba085cd57b583710b24d927b29ea19a847bfbf57cdce0a8c1ef37b91797"
+    },
+    {
+      "file": "assets/pilot2-course.js",
+      "sha256": "407d850af53add9e05be6ec773d84831b310c717ec0d087e3911a04fd3e77796"
+    },
+    {
+      "file": "index.html",
+      "sha256": "50d201049674a94a64715d0742e221e80b015b917701ec05d3d6431ffd44a22f"
+    }
+  ],
+  "topics": 6,
+  "teachingParts": 18,
+  "advanced": 18,
+  "practice": 32,
+  "requiredRoutes": 10,
+  "maximumState": 43393,
+  "capacity": [
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-producers"
+      ],
+      "character": "x",
+      "characters": 22012
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "x",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-producers"
+      ],
+      "character": "漢",
+      "characters": 22012
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "漢",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-producers"
+      ],
+      "character": "\\",
+      "characters": 43292
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "\\",
+      "characters": 43393
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-producers"
+      ],
+      "character": "😀",
+      "characters": 22012
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "😀",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-pyramids"
+      ],
+      "character": "x",
+      "characters": 22011
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "x",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-pyramids"
+      ],
+      "character": "漢",
+      "characters": 22011
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "漢",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-pyramids"
+      ],
+      "character": "\\",
+      "characters": 43291
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "\\",
+      "characters": 43393
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-pyramids"
+      ],
+      "character": "😀",
+      "characters": 22011
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "😀",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-gas-balance"
+      ],
+      "character": "x",
+      "characters": 22014
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "x",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-gas-balance"
+      ],
+      "character": "漢",
+      "characters": 22014
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "漢",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-gas-balance"
+      ],
+      "character": "\\",
+      "characters": 43294
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "\\",
+      "characters": 43393
+    },
+    {
+      "choices": [
+        "a-family-albedo",
+        "a-family-gas-balance"
+      ],
+      "character": "😀",
+      "characters": 22014
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "😀",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-pyramids"
+      ],
+      "character": "x",
+      "characters": 22014
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "x",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-pyramids"
+      ],
+      "character": "漢",
+      "characters": 22014
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "漢",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-pyramids"
+      ],
+      "character": "\\",
+      "characters": 43294
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "\\",
+      "characters": 43393
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-pyramids"
+      ],
+      "character": "😀",
+      "characters": 22014
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "😀",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-gas-balance"
+      ],
+      "character": "x",
+      "characters": 22017
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "x",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-gas-balance"
+      ],
+      "character": "漢",
+      "characters": 22017
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "漢",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-gas-balance"
+      ],
+      "character": "\\",
+      "characters": 43297
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "\\",
+      "characters": 43393
+    },
+    {
+      "choices": [
+        "a-family-producers",
+        "a-family-gas-balance"
+      ],
+      "character": "😀",
+      "characters": 22017
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "😀",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-pyramids",
+        "a-family-gas-balance"
+      ],
+      "character": "x",
+      "characters": 22016
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "x",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-pyramids",
+        "a-family-gas-balance"
+      ],
+      "character": "漢",
+      "characters": 22016
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "漢",
+      "characters": 22113
+    },
+    {
+      "choices": [
+        "a-family-pyramids",
+        "a-family-gas-balance"
+      ],
+      "character": "\\",
+      "characters": 43296
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "\\",
+      "characters": 43393
+    },
+    {
+      "choices": [
+        "a-family-pyramids",
+        "a-family-gas-balance"
+      ],
+      "character": "😀",
+      "characters": 22016
+    },
+    {
+      "choices": [
+        "a-term-sulfur",
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication",
+        "a-term-productivity"
+      ],
+      "character": "😀",
+      "characters": 22113
+    }
+  ]
+}

@@ -29,6 +29,8 @@ async function main() {
       `(${result.fileCount} file(s) in ${result.exportDir}).`
   );
   console.log(`Tracked storage keys: ${result.storageKeys.join(", ")}`);
+  console.log(`SCORM tracking (${result.trackingReport.source}): ${JSON.stringify(result.trackingReport.features)}`);
+  for (const warning of result.trackingReport.warnings) console.warn(`SCORM tracking: ${warning}`);
 }
 
 main().catch((error) => {

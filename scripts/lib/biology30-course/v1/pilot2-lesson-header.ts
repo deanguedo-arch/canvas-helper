@@ -1,6 +1,7 @@
 import {topicHtml as h} from './pilot2-render-common.js';
 import type {TopicRenderInputs} from './pilot2-render-topic.js';
-export function renderPresentationLessonHeader(topicId:string,input:TopicRenderInputs){
+import type {TopicLayout} from "./topic-layout.js";
+export function renderPresentationLessonHeader(topicId:string,input:TopicRenderInputs<TopicLayout>){
  const topic=input.contract.topics.find(t=>t.id===topicId)!,frame=input.framing.topics.find(t=>t.topicId===topicId)!;
  const terms=input.vocabulary.introducedTerms,extended=topic as typeof topic&{anchorTermIds?:string[];newTermIds?:string[];reusedTermIds?:string[];teacherTextbookAssignment?:string};
  const ids=extended.newTermIds??terms.filter(t=>topic.parts.some(p=>p.id===t.firstTeachingPartId)).map(t=>t.id),reused=extended.reusedTermIds??[];

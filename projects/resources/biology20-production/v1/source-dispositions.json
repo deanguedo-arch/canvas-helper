@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "findings": [
+    {
+      "source": "Unit B Review Plan.docx",
+      "finding": "Review label says Unit A inside a different unit plan",
+      "disposition": "correct-label-after-textbook-folio-check"
+    },
+    {
+      "source": "Unit C Review Plan.docx",
+      "finding": "Review label says Unit A inside a different unit plan",
+      "disposition": "correct-label-after-textbook-folio-check"
+    },
+    {
+      "finding": "Calendar pacing is not a measured duration; chapter 5 repeats respiration over two days",
+      "disposition": "merge-continuation-into-one-topic; preserve-two-day-allocation"
+    },
+    {
+      "finding": "Slide 100 is assigned at the respiratory/circulatory boundary",
+      "disposition": "inspect-slide-and-map-once-with-cross-reference"
+    },
+    {
+      "finding": "No standalone Unit A review plan in outer bundle",
+      "disposition": "resolve-from-current-class-export-and-chapter-reviews"
+    },
+    {
+      "finding": "Physical investigations require online adaptations",
+      "disposition": "author-supplied-evidence; no-physical-performance-claim"
+    }
+  ],
+  "secureMaterial": "original-archive-only; no automatic learner selection",
+  "sourcePrecedence": [
+    "official-curriculum",
+    "daily-plans-and-slides",
+    "textbook-and-current-class-support",
+    "system-2020-support"
+  ],
+  "academicReview": "pending"
+}

@@ -1,0 +1,295 @@
+{
+  "courseId": "biology20",
+  "unit": "A",
+  "seminar": {
+    "unit": "A",
+    "id": "a-review-seminar",
+    "title": "Review Seminar",
+    "teachingTarget": "a-seminar-case",
+    "introduction": [
+      "Connect energy flow, matter budgets and evidence limits in one supplied case. Write each explanation before comparing the guide.",
+      "The values below are illustrative and describe separate quantities; do not add carbon units to water volumes or energy production.",
+      "Source A — EPA, Basic Information on Nutrient Pollution: excess nitrogen and phosphorus can stimulate algal growth and reduce oxygen available to aquatic organisms. This is a general process explanation, not measurements from our illustrative pond.",
+      "Source B — NASA Earth Observatory, The Carbon Cycle: clearing forests can release carbon dioxide, while regrowth removes it. This explains a carbon pathway; it does not quantify the effects of a specific local clearing proposal.",
+      "Two constructed stakeholder perspectives: a grower wants productive land and affordable runoff control; a downstream resident prioritizes aquatic habitat and reliable water quality. These are discussion scenarios, not recorded interviews."
+    ],
+    "case": {
+      "title": "A pond and its surroundings",
+      "scope": "Illustrative one-week water account and separately specified annual production account.",
+      "columns": [
+        "Quantity",
+        "Value",
+        "Basis"
+      ],
+      "rows": [
+        [
+          "Initial water",
+          "500",
+          "m³"
+        ],
+        [
+          "Water input",
+          "120",
+          "m³ per week"
+        ],
+        [
+          "Water output",
+          "150",
+          "m³ per week"
+        ],
+        [
+          "Producer production",
+          "8,000",
+          "kJ m⁻² yr⁻¹"
+        ],
+        [
+          "Herbivore production",
+          "800",
+          "kJ m⁻² yr⁻¹"
+        ],
+        [
+          "After enrichment",
+          "Bloom then low oxygen",
+          "Qualitative supplied sequence"
+        ]
+      ]
+    },
+    "activities": [
+      {
+        "id": "a-seminar-connect",
+        "prompt": "Calculate final water storage and trophic transfer efficiency. Explain why these are separate accounts.",
+        "modelResponse": "Water change = 120 − 150 = −30 m³; final storage = 500 − 30 = 470 m³. Transfer efficiency = 800/8,000 × 100 = 10%, using matched area and annual production. Water volume is a matter account, while the production values track energy; their units and intervals cannot be added together.",
+        "criteria": [
+          "Working and units",
+          "Matched boundaries",
+          "Matter/energy distinction"
+        ],
+        "attemptBeforeGuide": true
+      },
+      {
+        "id": "a-seminar-evaluate",
+        "prompt": "Explain a plausible link between enrichment and low oxygen. Name a missing measurement and an alternative influence.",
+        "modelResponse": "Extra limiting nutrients can increase growth and organic material. Respiration by organisms including decomposers may increase oxygen consumption. Depth/time oxygen and respiration measurements would test this. Temperature, mixing or other exchanges could also influence oxygen, so the sequence alone does not prove a unique cause.",
+        "criteria": [
+          "Mechanism",
+          "Missing evidence",
+          "Alternative influence"
+        ],
+        "attemptBeforeGuide": true
+      },
+      {
+        "id": "a-seminar-revise",
+        "prompt": "Write a brief recommendation to a local council about limiting nutrient runoff while retaining vegetation. Use and distinguish Source A and Source B, explain the intended benefit and a practical trade-off, and request one local measurement.",
+        "modelResponse": "Council: reduce excess nutrient runoff and retain vegetation. EPA links enrichment with algal growth and oxygen loss; NASA explains carbon release from clearing and uptake during regrowth. These are general mechanisms, not local impact measurements. Runoff controls and retained vegetation may benefit water and carbon balances but cost money or growing area. Measure local nutrient inputs and oxygen over time before judging effectiveness.",
+        "criteria": [
+          "Distinguish the two sources",
+          "Explain linked mechanisms",
+          "Communicate a benefit, trade-off and evidence need"
+        ],
+        "attemptBeforeGuide": true
+      }
+    ],
+    "optionalExtension": {
+      "id": "a-seminar-extension",
+      "minutes": 8,
+      "required": false,
+      "prompt": "Test the reduced-light case in the closed-system model. Use its limits to refine your existing seminar revision.",
+      "modelLinks": [
+        "a-models"
+      ],
+      "collectionPolicy": "Use existing model and seminar response records; no added required field."
+    }
+  },
+  "investigations": [
+    {
+      "id": "a-investigation-pond",
+      "title": "Energy pathways from supplied observations",
+      "question": "How would you test light effects on production, represent a feeding pathway and evaluate transfer efficiency?",
+      "sourceKind": "Authored illustrative observations; online analysis, not a claim of physically performing a laboratory investigation.",
+      "variables": {
+        "compare": "Low and high light for the supplied algal comparison",
+        "observe": "Production measurements and a separately supplied feeding pathway",
+        "holdConstant": "Proposed controls include algal starting biomass, temperature, nutrients, volume and duration."
+      },
+      "dataset": {
+        "columns": [
+          "Dataset",
+          "Condition or level",
+          "Values",
+          "Units"
+        ],
+        "rows": [
+          [
+            "Light comparison",
+            "Low light, three replicates",
+            "18, 20, 22",
+            "mg dry production per stated interval"
+          ],
+          [
+            "Light comparison",
+            "High light, three replicates",
+            "38, 40, 42",
+            "same basis"
+          ],
+          [
+            "Food pathway",
+            "Algae → herbivorous insects → fish",
+            "1,200 → 180 → 18",
+            "kJ m⁻² yr⁻¹"
+          ]
+        ]
+      },
+      "prediction": "Before viewing the supplied outcomes, propose a testable question, prediction and controlled comparison for light and algal production.",
+      "procedure": [
+        "Write your proposed comparison before revealing the observations.",
+        "Analyze the separate production measurements; do not mix dry mass with energy units.",
+        "Construct a labelled food/energy representation in your response and evaluate the inference."
+      ],
+      "expected": "The illustrative means are 20 and 40 mg per interval. The energy pathway transfers 15% then 10%; an upright energy-production representation uses matched area and time. These are constructed observations, not causal proof without a valid design.",
+      "limitations": [
+        "Constructed data are not empirical findings.",
+        "The two datasets have different quantities and must be analyzed separately.",
+        "This online task does not certify physical sampling or collaboration."
+      ],
+      "coreSkillPartId": "a-topic-trophic-levels-and-efficiency-transfer-efficiency",
+      "investigationExtensionRequired": false,
+      "collaborationEvidence": "Work independently; no group participation is claimed.",
+      "responseFields": [
+        {
+          "id": "a-investigation-pond-plan",
+          "label": "Plan",
+          "prompt": "Propose a testable light/production question, prediction, independent and dependent variables, and two controls.",
+          "modelResponse": "Does increasing light increase algal dry-mass production over the same interval? I predict higher production in the higher-light treatment. Change light; measure production. Hold starting biomass, nutrients, volume, temperature and duration constant, and use replicates.",
+          "comparisonPolicy": "Compare after attempting; this describes a proposed experiment.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "a-investigation-pond-representation",
+          "label": "Represent the pathway",
+          "prompt": "Construct a labelled food-web fragment with arrows toward consumers, add a decomposer connection, and give energy-production bar values with units.",
+          "modelResponse": "Algae → herbivorous insects → fish. Dead material from each level → decomposers. Arrow direction is toward the recipient of food. An energy-production pyramid has algae 1,200, insects 180 and fish 18 kJ m⁻² yr⁻¹, so bar widths decrease upward on one consistent scale. Decomposers receive material from several levels, not just fish.",
+          "comparisonPolicy": "Your text-arrow diagram must show direction and labelled quantities.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "a-investigation-pond-analysis",
+          "label": "Calculate and compare",
+          "prompt": "Calculate both light-treatment means and both transfer efficiencies. Explain why the mass and energy results cannot be combined into one ratio.",
+          "modelResponse": "Low-light mean = (18+20+22)/3 = 20 mg; high-light mean = (38+40+42)/3 = 40 mg per interval. Energy efficiencies: 180/1,200 ×100 = 15%; 18/180 ×100 = 10%. The mass comparison is a separate experiment and lacks the energy conversion and shared boundaries needed to combine it with the food-pathway values.",
+          "comparisonPolicy": "Check units, denominators and separate datasets.",
+          "attemptBeforeGuide": true
+        },
+        {
+          "id": "a-investigation-pond-limits",
+          "label": "Evaluate and revise",
+          "prompt": "State what the light comparison supports, one design detail needed for causal inference, and why the energy results do not prove universal 10% transfer.",
+          "modelResponse": "The supplied high-light group has higher mean production. To attribute that difference to light, I need evidence of matched controls, comparable starting conditions and appropriate treatment allocation. The first energy transfer is 15%, not 10%; efficiencies depend on the defined pathway and conditions. These illustrative observations are not measurements I collected.",
+          "comparisonPolicy": "Do not claim physical experimental performance or measured real-ecosystem results.",
+          "attemptBeforeGuide": true
+        }
+      ],
+      "materialFiles": []
+    }
+  ],
+  "models": [
+    {
+      "id": "a-model-closed-system",
+      "modelVersion": 1,
+      "title": "Closed-system gas balance",
+      "options": [
+        "light",
+        "reduced-light",
+        "fewer-producers"
+      ],
+      "cases": [
+        {
+          "value": "light",
+          "label": "Reference light",
+          "parameters": {
+            "production": 12,
+            "consumption": 10
+          }
+        },
+        {
+          "value": "reduced-light",
+          "label": "Reduced light",
+          "parameters": {
+            "production": 7,
+            "consumption": 10
+          }
+        },
+        {
+          "value": "fewer-producers",
+          "label": "Fewer producers",
+          "parameters": {
+            "production": 6,
+            "consumption": 8
+          }
+        }
+      ],
+      "predictionId": "a-model-gas-prediction",
+      "explanationId": "a-model-gas-explanation",
+      "testFlag": "a-model-gas-tested",
+      "collectionFlag": "a-model-gas-collected",
+      "predictionPrompt": "Predict oxygen and CO₂ changes for your case. State the boundary and a control for a fair comparison.",
+      "explanationPrompt": "Explain the oxygen/CO₂ result. Propose a closed water-pathway design, predict what happens to total water, and name the energy input and a practical limitation.",
+      "dataProvenance": "Illustrative gas-accounting model, not measured physiology. Equal and opposite CO₂ terms are a stated simplified coupling, not every reaction in an ecosystem. The fewer-producers case changes both aggregate production and respiration; the supplied rates are assumed, not inferred from biomass alone. In the sealed water model, evaporation and condensation move water internally; total water remains fixed, but energy crosses the jar boundary.",
+      "requiredForCompletion": false,
+      "requiredForScore": false,
+      "teachingTopicId": "a-topic-intro-to-ecology",
+      "sourceInvestigationId": "a-investigation-pond"
+    }
+  ],
+  "examples": [
+    {
+      "id": "a-model-gas-prediction",
+      "limit": 300,
+      "example": "With reduced light, I predict oxygen decreases because production falls below consumption. I would hold initial biomass and temperature constant when changing light."
+    },
+    {
+      "id": "a-model-gas-explanation",
+      "limit": 500,
+      "example": "Reduced light gives oxygen 7−10 = −3 and simplified CO₂ +3 units. I would seal the water pathway so evaporation can condense and return internally; total water stays constant only if leaks and other transfers are excluded. Light still crosses the boundary. Gas recycling and water return need energy and maintenance, so this design does not prove indefinite equilibrium."
+    },
+    {
+      "id": "a-seminar-connect",
+      "limit": 600,
+      "example": "Water change = 120 − 150 = −30 m³; final storage = 500 − 30 = 470 m³. Transfer efficiency = 800/8,000 × 100 = 10%, using matched area and annual production. Water volume is a matter account, while the production values track energy; their units and intervals cannot be added together."
+    },
+    {
+      "id": "a-seminar-evaluate",
+      "limit": 600,
+      "example": "Extra limiting nutrients can increase growth and organic material. Respiration by organisms including decomposers may increase oxygen consumption. Depth/time oxygen and respiration measurements would test this. Temperature, mixing or other exchanges could also influence oxygen, so the sequence alone does not prove a unique cause."
+    },
+    {
+      "id": "a-seminar-revise",
+      "limit": 600,
+      "example": "Council: reduce excess nutrient runoff and retain vegetation. EPA links enrichment with algal growth and oxygen loss; NASA explains carbon release from clearing and uptake during regrowth. These are general mechanisms, not local impact measurements. Runoff controls and retained vegetation may benefit water and carbon balances but cost money or growing area. Measure local nutrient inputs and oxygen over time before judging effectiveness."
+    },
+    {
+      "id": "a-investigation-pond-plan",
+      "limit": 400,
+      "example": "Does increasing light increase algal dry-mass production over the same interval? I predict higher production in the higher-light treatment. Change light; measure production. Hold starting biomass, nutrients, volume, temperature and duration constant, and use replicates."
+    },
+    {
+      "id": "a-investigation-pond-representation",
+      "limit": 650,
+      "example": "Algae → herbivorous insects → fish. Dead material from each level → decomposers. Arrow direction is toward the recipient of food. An energy-production pyramid has algae 1,200, insects 180 and fish 18 kJ m⁻² yr⁻¹, so bar widths decrease upward on one consistent scale. Decomposers receive material from several levels, not just fish."
+    },
+    {
+      "id": "a-investigation-pond-analysis",
+      "limit": 650,
+      "example": "Low-light mean = (18+20+22)/3 = 20 mg; high-light mean = (38+40+42)/3 = 40 mg per interval. Energy efficiencies: 180/1,200 ×100 = 15%; 18/180 ×100 = 10%. The mass comparison is a separate experiment and lacks the energy conversion and shared boundaries needed to combine it with the food-pathway values."
+    },
+    {
+      "id": "a-investigation-pond-limits",
+      "limit": 650,
+      "example": "The supplied high-light group has higher mean production. To attribute that difference to light, I need evidence of matched controls, comparable starting conditions and appropriate treatment allocation. The first energy transfer is 15%, not 10%; efficiencies depend on the defined pathway and conditions. These illustrative observations are not measurements I collected."
+    },
+    {
+      "id": "a-process-note",
+      "limit": 300,
+      "example": "Revisit stock versus flow and check that the efficiency denominator refers to source production over the same area and year."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "git": {
+    "branch": "codex/studio-direct-editing-v1",
+    "commit": "4e9ce787197f1a2b7eaa800ece2b96b28072108d"
+  },
+  "predecessor": {
+    "file": "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-08-inline-vocabulary/baseline.json",
+    "sha256": "895b70cdb3af29150360a54c05a094c20d9625c76fe824e002d7436a5023d153"
+  },
+  "authority": "User requested continuation of individual words and any-eight Frayers across Biology30. All four protected tree hashes verified unchanged; successor records current Git consolidation HEAD only. No release or Studio authorization.",
+  "trees": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace",
+      "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace",
+      "sha256": "67fc0a5da03f24a015878688c692061396dc9c648d38cf2c166472d7aa33d847"
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace",
+      "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b"
+    },
+    {
+      "path": "scripts/lib/biology30-unit-a-pilot-2",
+      "sha256": "46d4cc3d80902db7417205251496b2393cbdc7b6b2cca51d3a89e8db4eaf489a"
+    }
+  ],
+  "teacherAcceptance": null
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Next Step course library · Teacher review</title>
+  <link rel="stylesheet" href="showcase.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Next Step course library">
+      <img src="assets/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education">
+    </a>
+    <div class="header-copy">
+      <strong>Course library</strong>
+      <span>Teacher review · six courses</span>
+    </div>
+    <label for="course-select">Course</label>
+    <select id="course-select" aria-label="Select a course"></select>
+    <button id="copy" type="button">Copy review link</button>
+  </header>
+  <p class="review-note">Teacher review builds · curriculum reconciliation, teacher approval, and Brightspace release remain separate steps.</p>
+  <iframe id="course" title="Selected course preview" allow="fullscreen" allowfullscreen></iframe>
+  <noscript>Enable JavaScript to choose a course. <a href="courses/pe10-online-pilot/index.html#overview">Open Physical Education 10</a>.</noscript>
+  <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+  <script src="showcase.js"></script>
+</body>
+</html>

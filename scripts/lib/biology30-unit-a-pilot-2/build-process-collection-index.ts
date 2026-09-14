@@ -238,7 +238,8 @@ export async function buildBiology30UnitAPilot2ProcessCollectionIndex(request: P
     return { ...source, ...record, chapter: PILOT_2_LESSONS.find((lesson) => lesson.id === record.routeId)?.chapter ?? 11 };
   });
   const fixedVocabularyIds = vocabulary.fixedMilestones.map((entry: { entryId: string }) => entry.entryId);
-  const rendered = renderPilot2Full({ lessons: PILOT_2_LESSONS, vocabularyEntries: vocabulary.entries, fixedVocabularyIds, videos });
+  const wordData=JSON.parse(await readFile(path.join(metaDir,"word-details.json"),"utf8"));
+  const rendered = renderPilot2Full({ lessons: PILOT_2_LESSONS, vocabularyEntries: vocabulary.entries, fixedVocabularyIds, videos, wordData });
   const generatedAt = new Date().toISOString();
   curriculum.performanceBehaviours = buildPerformanceBehaviours();
   curriculum.generatedAt = generatedAt;
@@ -517,6 +518,7 @@ export async function buildBiology30UnitAPilot2ProcessCollectionIndex(request: P
       manifest.referenceOnly = [...new Set([...manifest.referenceOnly, `projects/${PILOT_2_SLUG}/raw/chapter-11-academic-baselines/${CHAPTER_11_BASELINE}/`])];
       manifest.sourceOfTruthNotes = `The learner candidate is generated from authored TypeScript under scripts/lib/biology30-unit-a-pilot-2/. Workspace SHA ${workspaceSha256} is a complete online authoring candidate blocked for exact-build teacher review. See meta/final-academic-review.json. Direct Studio editing, export, deployment and B-D transfer remain disabled. The checkpoint is ${FINAL_ACADEMIC_CHECKPOINT}.`;
       manifest.authoring.driverId = "proposal-only-v1";
+      manifest.canonicalSources=[...new Set([...manifest.canonicalSources,`projects/${PILOT_2_SLUG}/meta/word-details.json`,...["a-word-page","a-word-runtime","word-record","word-reader","word-frayer-state","word-frayer-runtime"].map(name=>`scripts/lib/biology30-vocabulary/${name}.ts`)])];
       manifest.canonicalEntry = "scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts";
       manifest.canonicalSources = [...new Set([...manifest.canonicalSources.filter((file:string)=>file!==`projects/${PILOT_2_SLUG}/workspace/index.html`),manifest.canonicalEntry,...["panel","render-a","a-entry","a-bridge"].map(name=>`scripts/lib/biology30-vocabulary/${name}.ts`)])];
       manifest.generatedOutputs = [...new Set([...(manifest.generatedOutputs??[]),`projects/${PILOT_2_SLUG}/workspace/index.html`])];

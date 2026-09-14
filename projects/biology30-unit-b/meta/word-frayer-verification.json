@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-09",
+  "status": "local-word-workflow-verified; wider-rollout-incomplete",
+  "teacherAcceptance": null,
+  "buildSha256": "59e98b8ef538820767f814d175d4922f94f6e6e6b82dcb62247e41b673602e99",
+  "htmlSha256": "caccd1a28c798172092675662b2f631d20998c39e9169ed7b2642fc36227f97d",
+  "browserSha256": "f58d7cc991dbde11806bff2ae747c1eb68dd335de6245dbf4eaa1d92021bb1aa",
+  "words": 153,
+  "maximumSelectedWords": 8,
+  "fieldCharacterLimit": 240,
+  "maximumOrdinaryUnicodeState": 34047,
+  "target": 44000,
+  "guard": 48000,
+  "checks": {
+    "individualWordInventoryAndExactTeachingTargets": "153/153 passed",
+    "actualCandidate": "Passed at 1117, 768, 559 and 390 CSS pixels: choose eight, reject ninth, save, collect, reload, popup/full-page synchronization, exact focus/route/scroll restoration, explicit removal and empty replacement",
+    "responsiveVisual": "Final tablet and 2x-density narrow-viewport screenshots inspected; word index is bounded and reader stacks below it. Native browser zoom was not certified; CSS zoom was rejected as a misleading simulation.",
+    "projectE2E": "passed 1/1 on final candidate",
+    "workspace": "passed on final candidate",
+    "sharedSmoke": "passed after final runtime change; only reader CSS changed afterward",
+    "biology20Regression": "Final rebuilt A full route/desktop/mobile/popup check and project E2E passed",
+    "lessonTextPreservation": "Eight B teaching routes compared with prior candidate; normalized text unchanged",
+    "state": "B/C exhaustive selected-family pair migration and new-word maximum ordinary/Unicode states passed; identity, selection, confirmation and Chromium/Firefox/WebKit session tests passed"
+  },
+  "sourceReview": "projects/resources/biology30-production/v1/pilot2/source-review/word-frayer-rollout.json",
+  "limitations": [
+    "Biology30 A, C and D remain unintegrated; C capacity proof is not a delivered course.",
+    "Unverified word analysis is explicitly unavailable, not guessed morphology.",
+    "Word-specific model Frayer comparisons are not yet authored or included.",
+    "Earlier category writing retains its original label and consumes a slot until explicitly removed.",
+    "Pathological all-escape states may exceed the unchanged guard; saving refuses them without truncating drafts.",
+    "No deployment, packaging, SCORM export, teacher acceptance or live LMS certification."
+  ]
+}

@@ -35,6 +35,12 @@ export function runBiology30TopicModel(model: TopicModel, choice: string): Model
   const result = (output: Omit<ModelOutput, "modelId" | "modelVersion" | "choice" | "title">): ModelOutput =>
     ({ modelId: model.id, modelVersion: 1, choice, title: selected.label, ...output });
   switch (model.id) {
+    case "a-model-closed-system": {
+      const production=number('production'),consumption=number('consumption');
+      if(production<0||consumption<0)throw new Error('Gas model rates cannot be negative');
+      const oxygenChange=production-consumption;
+      return result({columns:['Account','Source','Sink','Net change'],rows:[['Oxygen',production,consumption,oxygenChange],['Carbon dioxide (simplified coupling)',consumption,production,-oxygenChange]],explanation:'Net change equals source minus sink over the same interval. Reduced production can reverse the sign even while oxygen is still being produced.',limitation:'Illustrative arbitrary gas units, with equal and opposite CO₂ coupling assumed. This is not a complete chemical mechanism, a real sealed-ecosystem measurement or a guarantee of indefinite balance.',visual:'pathway-observations',values:{production,consumption,oxygenChange}});
+    }
     case "b-model-signal-pathway": {
       const keys = ["germCells", "support", "LH", "duct"];
       const observations = keys.map(text);

@@ -1,5 +1,223 @@
 # Archived Handoffs
 
+## Archived before Pilot 3 review handoff — 2026-09-10
+
+# Handoff — verified Biology word-vocabulary delivery
+
+- Projects: biology30-unit-a-pilot-2, biology30-unit-b, biology30-unit-c, biology30-unit-d; biology20-unit-a parity.
+- Task: finish word-owned references/word structure and any-eight saved Frayers while preserving Biology30 teaching and A aesthetics.
+- Status: COMPLETE for this local vocabulary rollout; blocked course/release status deliberately unchanged.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d.
+- Full result: [delivery report](BIOLOGY_WORD_VOCABULARY_DELIVERY.md). Exact hashes, sources, tests and limitations: [verification receipt](biology-word-vocabulary-verification.json).
+
+## Files changed / source of truth
+
+- New A141 and D99 word records; B153/Bio20A35 structures completed; C249 records reviewed and structures completed. Exact resource paths are in the receipt.
+- Shared `scripts/lib/biology30-vocabulary/word-record.ts`, `word-reader.ts`, `word-frayer-runtime.ts`; A-specific `a-word-page.ts`, `a-word-runtime.ts`, `a-entry.ts`, `a-bridge.ts`.
+- A owning renderer/build adapters: `scripts/lib/biology30-unit-a-pilot-2/render-gate1.ts`, `build-process-collection-index.ts`, `build-full.ts`.
+- BCD input opt-in, owner closure, protected baseline and exact dependent frozen contract pins. Learner outputs rebuilt only through owners.
+- Tests: `biology30-a-word-candidate.test.ts`, `biology30-word-candidate.test.ts`, `biology30-eight-word-profile.test.ts`; three changed A state-budget assertions updated.
+- Generated workspaces and owning receipts updated. Unrelated dirty CTS/PE/Studio/SCORM work preserved.
+
+## What changed / why
+
+All642 Biology30 entries and35 Bio20A entries have individual meanings, structure, function, relationships, confusion and retrieval. Eight freely selected words open empty four-field240-character Frayers. Original category writing retains its label in legacy slots. A's28 original exact-entry models are retained; broader guides are not assigned to unrelated words. A collection copying includes new word writing.
+
+Existing Biology30 teaching and167 Advanced Learning blocks are text-identical to HEAD. Maximum ordinary/Unicode states: A42383, B34047, C43515, D27766, Bio20A43393. Limits44000/48000 unchanged.
+
+## Verification
+
+- Final five workspace checks and five project E2E checks passed.
+- Final A/record/Bio20 eight-word batch7/7; BCD actual-candidate/capacity/shared-state batch9/9; Bio20 route/resource batch3/3; shared smoke1/1.
+- Unchanged-format state regression8/8 and Chromium/Firefox/WebKit session3/3 passed.
+- A online-finalization/collection/Chapter11 changed-budget assertions3/3 passed on the final candidate.
+- All72/92/57 BCD and135 Bio20 source pins reconcile;99 owner files and4 protected A trees verified read-only.
+- BCD501 exact word destinations validated; desktop/tablet/mobile screenshots inspected. 559px/DPR2 is reflow emulation, not native browser zoom certification.
+
+## Known risks / fragile areas
+
+- A remains proposal-only and blocked. Doctor's not-active result is expected; do not activate Studio to make it green.
+- Two old full-A-suite expectations remain outside this correction: pre-existing direct-workspace ownership assertion and historical whole-project hashes predating later operational files. Do not claim the full historical suite passes.
+- Full newly authored four-quadrant model examples for every added individual word were not delivered. Original A28 comparisons remain available. A retains original category-linked lesson/textbook references; BCD exact word links were verified.
+- The original A178-entry process registry remains the historical activity index; new word drafts/collections are an additional shared-slot view, included in copy/print. Do not confuse178 original records with141 possible word references or8 saved slots.
+- Future A changes invalidate BCD protected baseline. Preserve the predecessor records; reconcile through the declared owner instead of bypassing guards.
+- Storage mapping identity is persisted; do not reorder the word map or reassign old writing.
+- Hosted copies, ZIPs and LMS packages remain unchanged.
+
+## Next prompt should assume
+
+The local word-vocabulary request is delivered. Continue broader Biology20 construction only if requested; do not reopen this as another general review. Preserve original A as Pilot2 and B/C/D current structures. No deployment, packaging, export, commit or acceptance was performed.
+
+## What still needs external validation
+
+Teacher suitability/acceptance and actual student learning levels; live LMS save/restore and formal accessibility certification. These are not technical browser-test claims.
+
+## Exact next command
+
+`sed -n '1,180p' docs/ops/BIOLOGY_WORD_VOCABULARY_DELIVERY.md`
+
+## Exact next file to open
+
+`docs/ops/biology-word-vocabulary-verification.json`
+
+## Do not do next
+
+Do not edit generated HTML, activate Studio/release, deploy, package, export or change unrelated dirty work without a new applicable request. Regeneration commands for every candidate are recorded in the delivery report.
+
+---
+
+The preceding in-progress updates below are historical and superseded by this delivery.
+
+## Historical — Biology word-owned vocabulary, any eight saved Frayers
+
+## Latest continuation — Biology30 B integrated
+
+- IN PROGRESS overall. Biology20 A and Biology30 B now have individual word readers with any eight saved Frayers. Biology30 A Pilot2, C and D still require rollout; no additional approval is needed to continue that authorized work.
+- B exposes all 153 canonical introduced terms, including those absent from the former concept-family list. Every word has a verified exact first-teaching term-list destination. Existing B lesson text was compared against the prior candidate and is unchanged.
+- Added `scripts/lib/biology30-course/v1/pilot2-word-profile.ts`; opted B into it in `pilot2-inputs.ts` and integrated the reader after `adaptTopicHubs` in `pilot2-render-course.ts`. C/D remain non-opt-in.
+- Shared `word-page.ts` supports word-specific lesson targets; `pilot2-vocabulary-panel.ts` uses all word categories in word mode, including additional-topic categories. `word-reader.ts` bounds the mobile word list to 40vh/320px, correcting the excessively long 153-word list above the reader.
+- Explicit browser dependency allowlist extended in `pilot2-browser-bundle.ts` for the six shared vocabulary modules. No broad dependency-boundary bypass.
+- Added source delta `projects/resources/biology30-production/v1/pilot2/source-review/word-frayer-rollout.json`. The B draft file's original pending status is historical; the delta records the bounded author review and remaining morphology/model-comparison limits. Do not claim teacher acceptance or full content certification.
+- Recorded successor protected baseline `projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-word-frayers/baseline.json`: all four protected trees match the predecessor exactly; only the Git consolidation HEAD was updated. Old baseline retained. Updated `pilot2-preflight.ts`, owner closure and dependent B/C/D frozen pins; C/D learner files were not rebuilt.
+- B maximum ordinary/Unicode state: **34,047**; C proposed profile maximum: **43,515** (capacity proof only, NOT C delivery). Target 44,000 and guard 48,000 unchanged. Pathological all-escape maximum states are rejected by the existing guard, not silently truncated.
+- Tests added: `scripts/tests/biology30-eight-word-profile.test.ts` and `scripts/tests/biology30-word-candidate.test.ts`. Shared state/session test batch passed 8/8; prior state/reader batch passed 12/12. B actual candidate selection/removal/reload/popup and all 153 exact targets passed before the mobile-height adjustment; final desktop/tablet/mobile/zoom rerun is recorded in the final verification receipt. B and Bio20 A final project E2E passed 1/1 each; final workspace checks passed. Shared smoke passed after runtime changes; only CSS changed subsequently.
+- Bio20 A rebuilt through its owner to pick up shared popup/category and mobile reader changes; its full route/desktop/mobile/popup/zoom regression passed. Build receipt's 133 source pins reconcile without drift.
+- Final B tree SHA: `59e98b8ef538820767f814d175d4922f94f6e6e6b82dcb62247e41b673602e99`; HTML `caccd1a28c798172092675662b2f631d20998c39e9169ed7b2642fc36227f97d`; JS `f58d7cc991dbde11806bff2ae747c1eb68dd335de6245dbf4eaa1d92021bb1aa`.
+- Final Bio20 A HTML `4f2529e5299c54562a83a052432a82cb0960c1fecd2dbafa2d1a62127db8b6b5`; JS `fd0b2403f5b8df18e0a49859634022f33fa2c4cb6708df07b930573bb246bb5e`.
+- Exact B regeneration: `npm run build:biology30-course -- --project biology30-unit-b --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha 59e98b8ef538820767f814d175d4922f94f6e6e6b82dcb62247e41b673602e99`.
+- Final visual refinement: stack the vocabulary reader below the bounded word index at viewport widths <=1000px; tablet comparison exposed the former cramped columns. Zoom reflow uses a 559px viewport at 2x pixel density, not CSS `zoom`, whose media-query behavior produced misleading screenshots. This is responsive emulation, not a native-browser zoom certification.
+- Final candidate test batch passed 3/3, including B at all four widths and Bio20 A. Final tablet and 2x-density screenshots opened and inspected. Exact candidate results and limitations: `projects/biology30-unit-b/meta/word-frayer-verification.json`.
+- Next work: review C's 249 individual detail records, integrate C using `prepareTopicWordProfile`, then finish D99 and A141 with A's separate save adapter. Word-specific Frayer comparison models and reviewed morphology remain substantive follow-up, not something the save tests establish.
+- Exact next command: `sed -n '1,160p' projects/resources/biology30-production/v1/units/unit-c/word-details.json`.
+- Exact next file: `projects/resources/biology30-production/v1/units/unit-c/word-details.json`.
+- Do not deploy, export, package, activate Studio, commit, change unrelated dirty work, or claim all four Biology30 units are finished.
+
+The earlier update below is historical where superseded by this continuation.
+
+## Authoritative update — 2026-09-09
+
+- Status: IN PROGRESS across five courses. The new eight-word selection/save workflow is implemented and tested in Biology20 A only. Biology30 A/B/C/D rollout and word-content review remain unfinished.
+- Latest user decision supersedes every-word saving AND six compulsory anchors/two choices: explore every individual word, choose ANY EIGHT for empty Frayers and Process Collection, explicitly remove a chosen word to free a slot. No storage-choice approval is outstanding.
+- Original Biology30 A reader styling is retained. Categories organize words only. No deployment, packaging, SCORM export, Studio activation or commit.
+- Branch/HEAD unchanged: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d. Preserve unrelated dirty work.
+
+### Files changed in this continuation
+
+- `scripts/lib/biology30-vocabulary/word-frayer-state.ts`: strict eight-slot identity-pinned encoding, selection, confirmation and validation.
+- `scripts/lib/biology30-vocabulary/word-frayer-runtime.ts`: four 240-character fields per chosen word, collection, copy and scoped removal; no prefilled student answers or silent replacement.
+- `scripts/lib/biology30-vocabulary/word-page.ts`; `scripts/lib/biology20-course/word-browser.ts`: any-eight page contract, original categories retained for older writing.
+- `scripts/lib/biology30-course/v1/pilot2-state.ts`: opt-in compact word slots, map identity validation and migration of old category writing under its original label. No change to non-opt-in course save formats.
+- `scripts/lib/biology30-course/v1/pilot2-session.ts`: migration and All My Work entries; prior writing occupies legacy slots until explicitly removed.
+- `scripts/lib/biology30-course/v1/pilot2-vocabulary-panel.ts`: shared page/popup controls use the same actual word Frayer nodes and state.
+- `scripts/lib/biology20-course/unit-a-inputs.ts`: pins ordered word identities and measures all eight slots alongside existing maximum ordinary/Unicode course states.
+- `scripts/tests/biology-word-frayer-state.test.ts`; `scripts/tests/biology-eight-word-candidate.test.ts`; `scripts/tests/biology20-unit-a.test.ts`: state/migration, candidate selection/removal/reload and popup/full-page tests.
+- Rebuilt Biology20 A workspace through `npx tsx scripts/build-biology20-course.ts --module a`.
+
+### Verification tied to this candidate
+
+- Any-eight actual candidate tests: desktop/mobile choose eight, reject ninth, collect, reload, require removal confirmation, free/reuse slot, oversized draft preservation and old category migration passed.
+- Injected device-storage failure test passed: truthful failure message, last valid payload unchanged, visible unsaved draft preserved across route changes.
+- Full Biology20 A route/desktop/mobile/popup/zoom test passed; resource parity test passed. The inventory assertion was updated from the old 43,297 to the newly measured 43,393 and its focused rerun passed.
+- Shared state and synthetic session regression: 14/14 passed, including Chromium, Firefox and WebKit sessions.
+- Biology20 A project E2E: 1/1 passed. Shared smoke: 1/1 passed. Workspace verification passed.
+- Maximum measured state: **43,393 characters**, below unchanged 44,000 target and 48,000 guard. Four 240-character fields per selected word; no unrelated field reductions.
+- Desktop/mobile popup screenshots inspected at `/tmp/bio20-a-module-1440-vocabulary.png` and `/tmp/bio20-a-module-390-vocabulary.png`; reader labels, related/confusion layout and shaded retrieval retained.
+- HTML SHA-256: `3de6957c00757bef0f05b8bdd72293a381d9938373b8b3861e7a41644760b768`.
+- JS SHA-256: `045090f00fa4c2744379d5c5c3f3d7fbd54ba3f0560ad720e3d98675ec4811d0`.
+- All 132 build source hashes reconciled without drift. Technical checks are not teacher acceptance or live LMS certification.
+
+### Remaining work / fragile areas
+
+1. Biology30 B153/C249 detail drafts remain unreviewed and unintegrated. Biology30 A141 and D99 individual detail inventories remain unfinished. Do not claim the five-course correction complete.
+2. Complete source/scientific/word-analysis review; explicitly unverified morphology is not a verified word-origin explanation. Add genuinely word-specific model comparison content where needed; current new Frayer controls do not include model comparison.
+3. Enable the opt-in schema and shared reader through each Biology30 owner, with its own exact max-state proof. A Pilot2 needs its separate persistence adapter; do not treat its save format as B–D's.
+4. Prior category Frayers are retained, labelled and copyable/removable, not silently mapped to a new word. Removal currently validates all slots first; overlong drafts must be revised/copied before removal. No truncation.
+5. New any-eight mode allows immediate word selection. Earlier lesson-unlock/six-anchor rules are not active in this opt-in mode. Do not restore compulsory anchors in a continuation.
+6. User's ambient tab is the historical `meta/first-topic-proof/index.html`; the current full candidate is `projects/biology20-unit-a/workspace/index.html`. Do not edit/rebuild the historical proof to fake the full module update.
+7. Public hosted copies and packages remain unchanged. Live LMS save verification remains separate.
+
+### Source of truth / next assumptions
+
+Canonical sources are the shared vocabulary files, course state/session owners, Biology20 unit loader and unit-specific resource JSON; generated workspace files are outputs. Continue with any eight words, no compulsory anchors, existing-writing preservation and original A aesthetics. No additional design approval is needed.
+
+Exact regeneration command: `npx tsx scripts/build-biology20-course.ts --module a`.
+
+Exact next command: `sed -n '1,140p' scripts/lib/biology30-course/v1/pilot2-inputs.ts`.
+
+Exact next file: `scripts/lib/biology30-course/v1/pilot2-inputs.ts`.
+
+## Historical handoff below — superseded where inconsistent
+
+- Projects: biology20-unit-a; biology30-unit-a-pilot-2; biology30-unit-b; biology30-unit-c; biology30-unit-d.
+- Status: IN PROGRESS. Biology20 A word-reference reader integrated; all-word Frayer storage and Biology30 rollout unfinished.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d. Unrelated dirty work preserved; previous CTS/PE deployment handoff archived intact.
+- Latest user instruction SUPERSEDES the six-anchor/two-choice restriction: EVERY word must have its own Frayer, save and Process Collection action. Preserve the original Biology30 A reader structure/aesthetic shown in the user's screenshots.
+- Pending user choice requested asynchronously: must all word writing follow students across devices through the LMS, or is device-local saving with downloadable backup acceptable? No answer received when this handoff was written. Do not silently choose device-only storage or claim LMS portability.
+
+## What changed / files changed
+
+- scripts/lib/biology30-vocabulary/word-record.ts — word-owned Meaning, Word structure, What it does, Related ideas, Common confusion and Retrieve the idea; original A-style labels, side-by-side contrast and retrieval panel.
+- scripts/lib/biology30-vocabulary/word-reader.ts — category headings with individual word controls; plain rows, pale selected state, no green action-button styling, reader heading/focus, responsive original-A dimensions.
+- scripts/lib/biology30-vocabulary/word-page.ts and word-page-runtime.ts — retain original control nodes in an internal bank and loan them between page and popup. This transitional adapter still uses the OLD limited Frayer inventory; it is NOT the newly requested every-word persistence solution.
+- scripts/lib/biology30-vocabulary/panel.ts and scripts/lib/biology30-course/v1/pilot2-vocabulary-panel.ts — optional shared word-data path; no category-definition substitution when word data exists. Non-migrated courses retain existing behavior.
+- scripts/lib/biology20-course/word-browser.ts and browser-entry.ts — replace the rejected selector-over-family display with shared word reader. Old ten-record bindings are explicitly transitional and superseded for the final storage design.
+- scripts/build-biology20-course.ts; projects/biology20-unit-a/meta/project.json — consume and pin word-details.json through the owning builder.
+- projects/biology20-unit-a/workspace/index.html, assets/pilot2-course.js, build.json — rebuilt local candidate.
+- projects/resources/biology30-production/v1/units/unit-b/word-details.json — 153 individually authored drafts; 36 organizer categories including eight source-topic groups for previously ungrouped terms.
+- projects/resources/biology30-production/v1/units/unit-c/word-details.json — 249 individually authored drafts; 58 organizer categories including eighteen source-topic groups for previously ungrouped terms.
+- scripts/tests/biology-word-page-browser.test.ts; biology-word-record.test.ts; biology20-unit-a.test.ts; biology20-resource-parity.test.ts — new loan/draft tests, word-selection updates and actual computed-style regression assertions.
+
+## Verification
+
+- Eight focused tests passed on the final rebuilt candidate: shared word records/reader/page-popup, Biology20 full-route desktop/mobile behavior and original video/PDF/glossary resource behavior.
+- Biology20 A project E2E passed 1/1 after the final rebuild.
+- Shared smoke passed 1/1.
+- Biology20 A workspace verification passed; no missing local assets/embeds/shell resources.
+- Maximum saved state remains 43,297 characters; response inventory and original stored field IDs are unchanged.
+- New B/C draft datasets pass structural word/category/relationship validation. This is not scientific review or learner integration.
+- Actual screenshots viewed: /tmp/biology-word-aesthetic-1117.png, /tmp/biology-word-aesthetic-390.png, /tmp/biology-word-aesthetic-final.png. Final reader uses transparent unselected rows, #e9f2ee selection, original fonts/teal labels, responsive contrast.
+- Final A HTML SHA-256: 48833b10af1555389b2b94e541f978ab509294e7c6c60ef9f63615963bcf7a9a.
+- Final A JS SHA-256: e82f0d64302ddfe9206084128fac2d64624e9fef0739c64a95a99e1b0582cac4.
+- build.json source pins reconciled with no drift.
+- Final Biology20 A rerun with the added computed-style assertions passed 2/2, including desktop/mobile save behavior and the original-A navigation/label styling.
+- No Biology30 candidate was rebuilt or deployed in this turn.
+
+## Source of truth
+
+Owning sources are scripts/lib/biology30-vocabulary/**, scripts/lib/biology20-course/**, scripts/lib/biology30-course/v1/** and unit-specific canonical JSON. Generated workspace HTML is not an authoring target. Inventory baseline and earlier commands remain in docs/plans/biology-word-migration/inventory.json.
+
+## Known risks / unfinished work
+
+1. Resolve expanded persistence. 249 × 4 × 240 = 239,040 raw response characters for C Frayers alone. Existing 44,000 target / 48,000 guard cannot hold that maximum. Do not shrink unrelated fields, truncate writing, silently choose local-only storage, or increase thresholds to pretend compatibility.
+2. Replace the transitional ten-record Bio20 Frayer adapter with per-word response identities and explicit preservation of older category writing. Remove the eight-item selection/replacement UI only as part of a functioning, verified replacement. The CURRENT candidate still displays 0 of 8; the new requirement is not implemented.
+3. Every word requires its own appropriate model comparison and save/collection workflow; broader original category models must not be relabelled as word-specific model answers. The current transitional UI identifies retained guides as broader context.
+4. Complete scientific/source/morphology review for Bio20 A35 and B153/C249 drafts. Current word-structure notes are contextual where already authored, otherwise explicitly unverified; do not invent etymology. Some draft source references identify broad teaching parts; tighten these and exact word-specific lesson/PDF targets.
+5. Biology30 A141: retain rich28 only for matching terms; author missing113 definitions and remaining word details. D99 still needs individual detail authoring. B/C drafts not integrated.
+6. Apply the final common reader and expanded save design to all five owning builds, then run exact-candidate state, workspace, E2E, shared and visual checks. Preserve original A Advanced Learning and all unrelated learner content.
+7. Public sites, review ZIPs and SCORM packages have not been refreshed. No release/certification claim.
+
+## Next prompt assumptions
+
+Latest user instruction is authoritative: every word is independently selectable AND independently saveable; categories are organizers only; match Biology30 A aesthetics exactly. Do not resume the obsolete six-plus-two plan. Preserve original writing and scopes. The original current-device vs LMS-portability question is the material unresolved choice, not permission to continue ordinary implementation.
+
+## Exact regeneration command
+
+`npx tsx scripts/build-biology20-course.ts --module a`
+
+## Exact next command
+
+`cat docs/plans/biology-word-migration/README.md`
+
+## Exact next file to open
+
+`scripts/lib/biology30-vocabulary/word-page-runtime.ts`
+
+## Do not do next
+
+No deploy, export, package, commit, Studio activation, unrelated CTS modifications or guessed bulk word origins. Do not call the five-course task complete.
+
+
+
 This file retains previous handoffs after the single active handoff was standardized.
 
 ## Archive Index
@@ -13455,3 +13673,550 @@ Scoped technical verification is complete. The hosted teacher showcase was last 
 
 ## Do not do next / warnings
 Do not rebuild, redeploy, regenerate ZIPs, commit, push, enable Studio Edit or change teacher-acceptance/learner-release flags without a new request. Do not refresh unrelated freeze/retention evidence. The prior handoff is archived in `docs/ops/ARCHIVED_HANDOFFS.md`.
+
+
+---
+
+Archived 2026-09-08 before shared SCORM tracking work.
+
+# Handoff — GitHub consolidation
+
+- Project: repository-wide preservation checkpoint
+- Task: Commit and push accumulated work at the user's explicit request.
+- Status: prepared for commit/push; remote result is recorded in the task response.
+
+## What changed / files changed
+Consolidated all non-ignored project/source/reference work; added exact Git LFS rules for 127 large paths and ignore rules for local runtime/test/temp caches. Added `docs/ops/github-consolidation-2026-09-08.md`. Fixed two type annotations in `scripts/tests/biology30-inline-vocabulary-acceptance.test.ts`; rerun passed. No cleanup, rebuild, deployment, export, or release flag changes.
+
+## Verification run
+Studio build and smoke passed. Biology final verification passed. Repository-wide typecheck and two existing provenance expectations fail; see the consolidation record. Large staged assets were verified as LFS pointers. Prior Biology validation handoff is archived.
+
+## Source of truth
+Project manifests, canonical owning scripts and resource records remain authoritative. Publication record: `docs/ops/github-consolidation-2026-09-08.md`.
+
+## What still needs validation / known risks
+Verify the pushed remote branch matches local HEAD after upload. This is a consolidation checkpoint with recorded test failures, not a release. Teacher acceptance and LMS certification remain outstanding; review ZIPs remain stale. Local caches remain on disk and ignored.
+
+## Fragile areas / watchouts
+Do not patch generated Biology workspace HTML or rewrite remote history. Large assets rely on Git LFS. Source changes invalidate prior exact-hash evidence.
+
+## Next prompt should assume
+The user authorized this commit and push to the existing branch. Do not merge into main or deploy without a new request. Check remote state before retrying any interrupted upload.
+
+## Exact next command
+`git status -sb`
+
+## Exact next file to open
+`docs/ops/github-consolidation-2026-09-08.md`
+
+
+# Handoff — Shared SCORM export tracking
+
+- Project: shared exporter; no real course rebuild or export
+- Task: Add reusable save status, resume, completion/progress, and active time to future Social, ELA, and Science SCORM exports.
+- Status: implementation complete; real Brightspace acceptance and Science completion integration remain pending.
+
+## What changed
+The shared export bridge now provides visible pending/saving/saved/error status, Save now, and Save and Exit, with explicit disconnected status outside an LMS. It reports cumulative active session time for SCORM 2004 and 1.2. Hidden tabs, idle time beyond five minutes, and delayed sleep callbacks do not inflate the estimate. Supported hash pages get bookmark restore and saved page timing. Recognized Next Step shells (including older Social lesson-list shells) report the actual required-item fraction and completion. No scores or pass/fail outcomes are invented.
+
+The versioned optional canonical workspace/scorm-tracking.json contract connects other builders to page IDs and an actual completed-ID array, including nested storage paths. Each export prints capabilities/warnings and includes scorm-tracking-report.json. Invalid explicit contracts fail before replacing a prior export. Unknown completion rules are reported as unconnected. Older version-1 saved responses remain readable. Incompatible saved envelopes and restore-storage failures stop automatic saving. Oversized data fails before completion writes; rejected LMS writes/commits remain visible and retryable.
+
+## Files changed
+- scripts/lib/scorm-tracking.ts — contract validation/detection and tracking runtime
+- scripts/lib/scorm.ts — shared bridge integration, save controls, completion, failure handling
+- scripts/lib/exports/scorm-package.ts — contract validation and packaged capability report
+- scripts/export-scorm.ts — capability/warning output
+- scripts/tests/scorm-export.test.ts — timer-aware existing harness
+- scripts/tests/scorm-tracking.test.ts — contract, representative-source, and real temporary ZIP tests
+- e2e/specs/scorm-tracking.spec.ts — nine browser cases with a simulated LMS
+- e2e/playwright.scorm.config.ts — isolated browser gate
+- package.json — expanded test:scorm and new test:e2e:scorm command
+- README.md, ARCHITECTURE.md, CONTRIBUTING.md, docs/workflows/scorm-tracking.md — usage, ownership, contract, verification boundaries
+- docs/ops/ACTIVE_HANDOFF.md and docs/ops/ARCHIVED_HANDOFFS.md — operating handoff
+
+## Why this changed
+The user wants future exports to acquire tracking without redesigning or rebuilding every class. Science must use a declared connection instead of inheriting Social/ELA completion assumptions.
+
+## Verification run
+- npm run test:scorm — 25 passed, including reading representative Social 20-1 and ELA 10-2 workspaces without modification, a real temporary export/ZIP integrity check, and preservation of prior ZIP/output on invalid contract.
+- npm run test:e2e:scorm — 9 passed: fresh-context resume, required versus optional completion, active/page time, hidden and idle handling, save rejection/overflow, old saves, nested builder state, SCORM 1.2, incompatible saves, standalone status, mobile fit.
+- npm run test:e2e:smoke — 1 passed.
+- npm run build:studio — passed.
+- Mobile save-status screenshot opened and visually inspected (generated test-results/scorm output).
+- git diff --check — passed.
+- npm run typecheck — fails in unrelated existing English/Forensics/Social/Biology30/PE10 files; the last run also found a concurrent Biology20 intake type error. No errors were reported in this task's changed SCORM files.
+
+## Source of truth
+scripts/lib/scorm.ts, scripts/lib/scorm-tracking.ts, and scripts/lib/exports/scorm-package.ts. The builder integration contract and LMS test procedure are in docs/workflows/scorm-tracking.md. Each course's owning source remains authoritative; exports are generated copies.
+
+## Fragile areas / watchouts
+- Detection is deliberately conservative: unfamiliar/minified completion code needs an explicit contract.
+- Biology packed/computed state is not decoded. Its builder must expose actual completed IDs before automatic completion is connected; no Biology source or release gates were changed here.
+- Page timing is stored in suspend data, not a native teacher-facing Brightspace page report. Brightspace may show a checkmark rather than the exact percentage.
+- Time is an estimate; quiet reading and child-frame interaction can be undercounted.
+- The existing suspend-data size limit still applies, including tracking overhead. Preserve IDs/storage keys across updates.
+- Repository was clean at the start. Unrelated Biology20 intake files appeared concurrently; they were not edited or cleaned up by this task.
+
+## Next prompt should assume
+The user authorized shared exporter implementation. Real courses have not been rebuilt, exported, uploaded, deployed, committed, or promoted. Temporary test fixtures were removed. Before Science export, read its owning builder/manifest and connect its exact required completion rules through the documented contract. Do not infer completion from visited pages.
+
+## What still needs validation
+A real Brightspace pilot must verify existing-attempt preservation on package update, saved responses and resume across sessions/devices, completion/progress presentation, and accumulated session time. The simulated LMS tests do not certify those displays.
+
+## Known risks
+Repository-wide typecheck is not clean. Existing installed packages do not change until deliberately re-exported and updated in the LMS. No new-course readiness or learner-release approval is implied.
+
+## Exact next command
+`npm run test:scorm && npm run test:e2e:scorm` after any tracking integration change.
+
+## Exact next file to open
+`docs/workflows/scorm-tracking.md`
+
+## Do not do next / warnings
+Do not broadly rebuild classes or patch generated workspaces. Do not export blocked Science courses or replace live student attempts without the relevant project release authority and LMS update verification.
+
+---
+
+## Archived before Unit A full local delivery
+
+# Handoff — Biology 20 implementation
+
+- Project: biology20-production, five modules A/B/C/D Part 1/D Part 2
+- Task: Implement the approved complete Biology20 experience and Biology30 production process.
+- Status: IN PROGRESS. Unit A now has eighteen core-part drafts and eighteen Advanced companions across all six topics. Its internal preview uses the actual Biology30 shell/sidebar/mobile and Saved Work tools, but only topic1 is assembled interactively. Six anchor families plus four eligible choices are authored; two choices may be selected. ZERO complete learner modules. Not complete.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d. Preserve unrelated dirty SCORM and governance work.
+
+## What changed / files changed
+- Latest cycle continuation supersedes earlier twelve-part/four-topic draft counts below. Read slides58–77 once, added six source-based core sections and six full worked/self-check/Advanced companions in existing A core-teaching.json and pilot2-instruction.json. Source-review links corrected nitrogen, sulfur, H₂S safety, eutrophication and stromatolite treatments to exact authored parts. Added cycle-source-review.md with bounded EPA/NIOSH/NPS references; exact ancient oxygen chronology remains deliberately unasserted. No empirical data invented: new budgets/tables are labelled illustrative.
+- New exact-source receipt: projects/biology20-unit-a/meta/cycle-authoring-verification.json. Four source/Frayer/math tests pass in /tmp/biology20-cycles-tests.log; all ten existing preview files still match their receipt. This was source-only: no rebuild, image creation or UI change, so previous learner E2E results are not invalidated. /tmp/biology20-cycles-intake.log records the protection check. The preview still has unfinished notices for lessons2–6; do not mistake authored drafts for rendered, complete lessons.
+- Latest shell/water continuation supersedes earlier temporary-two-link-shell and nine-part notes below. Added `scripts/lib/biology20-course/proof-shell.ts`; updated the existing proof loader/builder to compose the actual shared presentation shell, brand, fonts/licenses, all sidebar destinations, existing collection renderer/runtime and vocabulary. Unbuilt destinations are explicit notices. No invented activities, saved fields, mastery or module percentage; header says Development preview. Same isolated saved-answer namespace, with additional valid preview routes. Optional `overviewHtml` input lets the owning partial preview describe its true status; the default Biology30 shell stays byte-identical in its test.
+- Water topic slides44–57 reread once; authored three core sections and three full worked/self-check/Advanced companions in existing A JSON inputs. Source-review records link corrections to those authored parts (solvent scope, heat-capacity mechanism, lake-model limits, precipitation phase, transpiration and conditional carbon response). Textbook, figures, timings and independent saved evidence remain pending for this topic.
+- Verification: `/tmp/biology20-shell-final-tests.log` 21/21; `/tmp/biology20-shell-final-browser.log` 2/2; `/tmp/biology20-shell-smoke.log` 1/1; `/tmp/biology20-shell-intake.log` protected Bio30 trees unchanged. Typecheck `/tmp/biology20-shell-types.log` has unrelated existing diagnostics, none in new Bio20 or touched shell. Opened desktop/mobile shell and mobile-menu screenshots. Current exact-file evidence: A meta/first-topic-verification.json; earlier receipt retained as first-topic-verification-before-shell.json. Partial-state maximum now 21,907 characters due to added preview routes, NOT a full-module capacity result.
+- Latest vocabulary continuation supersedes the earlier no-Frayer and six-companion notes below. Added `units/a/vocabulary-families.json` and `scripts/lib/biology20-course/vocabulary.ts`: 23 terms, ten families, six fixed anchors, four eligible optional families, four authored test/model answers per family and contextual word analysis without invented origins. Source/curriculum clearance remains pending. Added topic3's three worked examples, self-checks and full Advanced companions to `pilot2-instruction.json` (now nine).
+- Internal proof now mounts the existing Biology30 vocabulary panel, vocabulary renderer, presentation navigation and Frayer controls. The panel loans the same DOM and saved IDs as the full vocabulary page. Later lesson destinations are explicit planning notices, not completed lessons, and do not unlock future Frayers. Existing temporary proof saves remain readable. This is still NOT the full module shell or complete session/recovery checkpoint.
+- Updated the proof loader/builder, focused browser test, project metadata and prompt-pack; added `scripts/tests/biology20-vocabulary.test.ts`. Declared the missing root `regenerateCommand` for the internal generated output. Narrow type-only correction in `scripts/audit-biology30-topic-activities.ts` preserves its strict Biology30 contract after the earlier shared layout generalization; no Bio30 output rebuild.
+- Current automated results: `/tmp/biology20-vocabulary-tests.log` 29/29; `/tmp/biology20-vocabulary-final-browser.log` passes 2/2 with added collection/comparison assertions. Shared smoke `/tmp/biology20-vocabulary-smoke.log` passes. Intake/protected-tree checks `/tmp/biology20-vocabulary-intake.log` pass. Typecheck `/tmp/biology20-vocabulary-types-final.log` retains unrelated baseline errors, no Biology20 or touched audit diagnostics. Desktop/mobile panel screenshots `/tmp/biology20-vocabulary-panel-{1440,390}.png` opened. Current partial-state maximum is 21,702 characters, tested across all six choice pairs and ordinary, Unicode and escape-heavy values; NOT full-module capacity clearance.
+- Latest continuation supersedes the earlier foundation-only counts below. Added `scripts/lib/biology20-course/first-topic-proof.ts`, `scripts/build-biology20-first-topic-proof.ts`, `scripts/tests/biology20-first-topic-proof.test.ts`, A `first-topic-design.json`, `visual-queue.json`, two native SVGs and two ChatGPT originals under `units/a/figures/`. Extended core-teaching and pilot2-instruction for the first three/two topics respectively. Project A metadata declares canonical sources and isolated internal preview; permissions remain blocked.
+- Internal preview: `projects/biology20-unit-a/meta/first-topic-proof/index.html`. Regenerate: `npx tsx scripts/build-biology20-first-topic-proof.ts`. It uses actual shared topic, Advanced, answer controls, figure viewer, return-link code and A CSS/fonts. Its save key is `biology20-unit-a:internal-first-topic-proof:v1`, not the eventual module state. It is NOT the full shared shell/vocabulary checkpoint yet; no Frayers or inline vocabulary panel, complete module navigation, textbook or video integration.
+- New shared `topic-layout.ts` is a component boundary, not a relaxed Biology30 authoring contract. TopicRenderInputs remains generic with the original TopicContract default. Topic/vocabulary renderer and activity index accept explicit layouts; lesson-header/teaching-link types narrowed as needed. Rendering and activity startup reject mismatched course identities. Biology30 production validation remains strict.
+- ChatGPT browser conversation: https://chatgpt.com/c/6aa0b8d2-0d7c-83e8-9ebe-9c2dac7f7711 . Exact prompts and review dispositions in A visual-queue.json. Selected producer-comparison-v2.png SHA256 e0146452df77a2ef2d87bb7223c6e0b5d7677626af6f2cfa94bab21480b796a5 (1536x1024). V1 had organelle-like bacterial structures; V2 corrects them. Treat both cells and habitat inset as conceptual/generated, never microscopy or authentic observation. No paid API used. Native albedo and boundary SVGs were rendered, opened and corrected for one text overlap.
+- `projects/biology20-unit-a/meta/first-topic-verification.json` binds checks to current HTML/JS/font/figure hashes. Latest font repair copies Hanken Grotesk and Work Sans from the existing canonical Bio30 presentation assets; four refreshed desktop/mobile screenshots were opened. Small mobile raster lettering relies on adjacent full explanation plus original-size enlargement; further full-profile checks remain.
+- Existing intake: scripts/lib/biology20-course/{intake,topic-map,curriculum}.ts and matching CLIs/tests; shared sources and five blocked project manifests.
+- This continuation: scripts/lib/biology20-course/academic-map.ts, scripts/prepare-biology20-academic-map.ts, scripts/tests/biology20-academic-map.test.ts; generated academic-map.json maps all 108 official outcomes to explicit operations and teacher-topic destinations. Evidence arrays remain empty; status planned-not-verified.
+- A source-review.json records 14 specific corrections/verification needs after reading all 78 slides' extracted text. Includes mandatory correction of the hydrogen-sulfide smell claim; CDC NIOSH checked. Native visuals, textbook/LMS passages and complete academic review remain pending.
+- scripts/lib/biology30-course/v1/course-identity.ts plus pilot2-state.ts, pilot2-restore.ts, pilot2-browser-environment.ts and pilot2-browser-entry.ts: explicit Biology20 identity, independent current/previous/recovery namespaces and compact payload q discriminator. Original Biology30 key and serialized format unchanged.
+- scripts/lib/biology20-course/profile.ts and shared pilot2-presentation-shell.ts: five explicit labels/opening questions/chapter profiles. Existing shell reused, not copied. Bio20 Challenge Practice replaces diploma label; counts/time still come from authored contracts.
+- scripts/tests/biology20-{runtime-identity,presentation-profile}.test.ts. Updated obsolete synthetic biology30-pilot2-session-browser.test.ts fixture to include required navigation containers and perform case selection/Predict/Test before writing model explanation. Added immediate browser-error assertion; learner controls not bypassed.
+- units/a/core-teaching.json and pilot2-instruction.json: ONE draft teaching part, system boundaries, including developed core, jar worked example, independent self-check prompt/revealed support and full A-style Advanced with labelled illustrative water balance. Outcome IDs, vocabulary IDs and time allocation deliberately pending; no false completeness.
+- projects/biology20-unit-a/meta/project.json now includes these authored inputs and source review as canonical sources. Still blocked/proposal-only; no generated output or builder declared.
+
+## Why / source of truth
+Full agreed execution contract: docs/plans/biology20-production.md (P01–P15; parity audit CLOSED).
+Canonical course sources: projects/resources/biology20-production/v1/units/<module>/.
+Shared sources retained once; original ZIP SHA256 6b2b5ea780e96c6d2aa9592ed5a3477a9e717204136cbe54ffdaa8cd56ea8837.
+Official program PDF https://education.alberta.ca/media/159727/bio203007.pdf SHA256 07864cbe1e95b135ce87a8d6aa3339b38a9b8f414d2a4d10802e3d702922cb0f. LearnAlberta homepage returned403; official full PDF available.
+Do not reinterpret extracted source, mapped destinations or passing software tests as verified curriculum coverage.
+
+## Verification run
+- Latest continuation: `/tmp/biology20-current-tests.log` has 30/30 focused and existing Biology30 tests passing. `/tmp/biology20-proof-final-tests.log` has 2/2 current authored-example and desktop/mobile browser tests passing after the font repair. `/tmp/biology20-topic-smoke.log` has 1/1 shared smoke pass. First-topic tests cover real writing/reload, oversize preservation, isolated keys, modal Escape/focus, optional controls, exact returns, actual font loading and no page-level horizontal overflow. The final narrow typecheck is `/tmp/biology20-final-current-types.log`; inspect before claiming current results. No full Biology20 module/project E2E pass is claimed.
+- npx tsx --test scripts/tests/biology20-*.test.ts scripts/tests/biology30-pilot2-state.test.ts scripts/tests/biology30-pilot2-restore.test.ts scripts/tests/biology30-pilot2-browser-environment.test.ts scripts/tests/biology30-pilot2-session-browser.test.ts: 32/32 PASS, including Chromium/Firefox/WebKit full synthetic save/recovery. Log /tmp/biology20-foundation-tests.log.
+- npm run test:e2e:smoke: 1/1 PASS. Log /tmp/biology20-shared-smoke.log.
+- npx tsx scripts/verify-biology20-intake.ts: PASS, 5 modules,463 slides,543 assets,38 source topics,108 outcome IDs,all4 protected Biology30 workspaces unchanged,0 learner candidates.
+- Legacy shell compared with executing HEAD's renderer: byte-identical fixture HTML. Pinned expected SHA256 5ec53248226e64c2cbf22c63903ef865beb99c44c77937d724cccf7f014e45b6 in new test.
+- npx tsc --noEmit --pretty false: FAIL with existing unrelated ELA/Forensics/Social/PE and older BiologyA test diagnostics; no diagnostics in new Bio20 or modified runtime/profile files. Log /tmp/biology20-profile-typecheck.log.
+- git diff --check: PASS before final handoff edit; rerun after.
+- No Biology20 project E2E, visual verification, maximum FULL-MODULE saved-state proof or academic clearance is claimed.
+
+## Fragile areas / known risks
+- Shared source edits can stale Biology30 ownership/source-review dependency pins even while protected learner files remain unchanged. Reconcile narrowly after the source batch settles; do not rebuild Biology30 outputs or fabricate reviewed hashes.
+- The legacy TopicContract and its strict B/C/D count gates remain Biology30-only. Do not run existing BCD owning builders against Biology20. Shared topic/activity/model renderer type boundaries still need explicit Bio20 adaptation.
+- A profile shell is not a module builder. Still need owning build command, canonical complete inventory, vocabulary/Frayers, independent practice, model mappings, diagrams, local media, textbook exact folios, state capacity and final candidate verification.
+- Current academic map gives topic destinations, not exact component teaching/example/independent-answer/feedback evidence. Do not freeze until actual authored material reconciles. Preparing it again refuses to overwrite evidence-bearing maps.
+- A final teacher topic also covers atmosphere/stromatolites slides72–77; retain explicit destinations. D1 chapter8 begins101, not100. C respiration continuation shares30–40. B/C review-plan UnitA textbook labels remain unresolved. No calendar-day-to-hour guessing.
+- Credentials/keys remain restricted originals; never publish source archives, private catalogues or teacher keys.
+
+## Next prompt should assume
+Continuous implementation already authorized. No new design approval, intake repeat, five comparison versions or broad parity reread.
+User explicitly included historical ChatGPT Images browser sequence: source visual survey → exact slot/queue → scientific prompt → authenticated ChatGPT image candidate → focused corrections → full-resolution/provenance → provisional integration → batch comparison gallery → in-lesson/enlarged/mobile/print checks. No paid API fallback, invented evidence, per-image approval pauses or image quotas. The first figure has now reached provisional internal lesson integration; batch gallery, teacher decisions and remaining visual checks are pending.
+Preserve final Bio30 design including bold dotted vocabulary terms, panel/full-page single Frayer record, six anchors plus two choices, complete A-style Advanced, exact return links, model Predict/Test/Explain/Save, draft-safe saves and local selector resume.
+
+## What remains / next implementation
+Actual shell, sidebar, Saved Work and panel/full-page vocabulary are implemented in the internal preview. All six topics now have three core/Advanced drafts each. Only topic1 is interactively assembled; lessons2–6 remain notices. Next author the full Unit A saved-activity inventory with complete student-style examples, preserving current first-topic IDs/limits and six-plus-two Frayers; measure all choice combinations and ordinary/Unicode/escaped maxima before freezing. Then bind reviewed diagrams, textbook/local media, independently collected practice, seminar, investigation and models and assemble the full module. Do not weaken the renderer's required figure checks or add synthetic fields to make incomplete input pass. Full-module source/outcome, pacing, accessibility, recovery and academic clearance remain. Continue A→B→C→D1→D2 plus selector/gallery and final checks. All five complete workspaces remain outstanding.
+
+## Exact next command
+`cat projects/resources/biology20-production/v1/units/a/first-topic-design.json`
+
+## Exact next file to open
+`projects/resources/biology20-production/v1/units/a/first-topic-design.json` — reuse these existing IDs, examples and limits when authoring the full module response inventory.
+
+## Do not do next / warnings
+No deployment, ZIP, SCORM export, Studio activation, unrelated cleanup, commit/push or teacher/curriculum acceptance claims. Technical test fixtures are not review workspaces. Keep generated HTML out of authoring and protected Biology30 learner outputs unchanged.
+
+---
+
+Archived before the 2026-09-09 six-comment presentation correction. The following local-delivery verification missed hub presentation parity; its candidate has been superseded.
+
+# Handoff — Biology 20 Unit A local delivery
+
+- Project: biology20-unit-a
+- Task: FINISH A PLEASE — finish the full local Unit A, not another first-topic checkpoint.
+- Status: COMPLETE as a local review workspace. Not deployed, teacher-accepted, Studio-enabled or curriculum/LMS certified.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d. Preserve unrelated dirty SCORM/governance work.
+- Candidate HTML SHA256: b94e08d9685def643b0a5b56ac04ebfb73527e397411e8afb36817bf9679c4a3
+
+## Summary / what changed
+Full workspace: projects/biology20-unit-a/workspace/index.html. Six teacher-sequenced topics, 18 core/Advanced parts, 32 practice questions, 35 defined terms, six fixed plus two selected Frayer families, seminar, supplied-data investigation, three-case model, textbook/illustrated walkthrough libraries and All My Work. Uses the actual shared Biology shell/session/controls; no hand-copied per-module runtime.
+Required work estimate 400 minutes, optional Advanced 108 minutes; no classroom-day/hour inference.
+All extended authored examples fit their limits plus working room and save/reload. Full maximum 43,297 characters across all choice pairs and ordinary/Unicode/escaped cases, below unchanged 44,000/48,000 thresholds.
+One existing corrected ChatGPT image preserved; fifteen new native diagram specifications plus two reviewed original panels. Figures are hash-gated after review. No new image quota or paid generation.
+Four evidence-supported question additions and a source-separated council seminar address thin coverage; explicit conduction/convection/radiation and life-support explanations added. All 25 official A operations have exact destinations and performance limits in the coverage record.
+
+## Files changed
+- scripts/build-biology20-course.ts; scripts/lib/biology20-course/{unit-a-inputs,diagrams}.ts
+- scripts/verify-biology20-unit-a.ts; scripts/verify-biology20-intake.ts (now reports actual local candidates, not a hard-coded zero)
+- scripts/tests/biology20-unit-a.test.ts; biology20-vocabulary.test.ts
+- Shared pilot2-models.ts adds only the scoped A model case. pilot2-render-investigation.ts accepts TopicLayout without weakening Biology30 contract validation.
+- Canonical A JSON: module-activity-design, module-practice, module-integrated-work, module-figures, source-figure-bindings, module-figure-review, module-coverage-review; updated contract/core/instruction/vocabulary/source-review.
+- A project metadata, prompt-pack, E2E contract, generated workspace and meta/{module-verification,module-final-review,UNIT-A-DELIVERY} records; module-visuals screenshots.
+- Root academic-map.json points A to the bounded module review; other module rows remain planning-only.
+
+## Verification run
+- /tmp/bio20-a-all-bio20-tests.log: 20/20 PASS (all Biology20 tests).
+- /tmp/bio20-a-final-tests.log: 23/23 PASS, including full A save/reload/oversize/Frayer/model, authored examples, original Biology30 model/state behavior and Chromium/Firefox/WebKit session/recovery.
+- /tmp/bio20-a-project-e2e-final.log: project E2E PASS.
+- /tmp/bio20-a-workspace-final.log: workspace verifier PASS, no missing assets/embeds.
+- /tmp/bio20-a-visual.log: 63 route visits and 60 figure loads across current Biology presentation desktop/tablet/mobile dimensions; no page overflow or page errors. Gallery/representative visual inspection recorded in module-final-review.json.
+- /tmp/bio20-a-smoke.log: shared smoke PASS; /tmp/bio20-a-studio-build.log: Studio build PASS.
+- /tmp/bio20-a-protected-final.log: all four protected Biology30 workspaces unchanged; 543 original extracted assets valid; ONE Biology20 local candidate (A).
+- /tmp/bio20-a-final-types.log: repository baseline failures, no diagnostics in new Biology20 or newly touched model/investigation files.
+- course:doctor reports not-active because blocked/proposal-only permissions are intentionally retained. Do not enable editing to hide this result.
+- git diff --check PASS before this operational handoff update.
+
+## Source of truth
+projects/resources/biology20-production/v1/units/a/contract.json and canonical sources declared in A meta/project.json.
+Owner: scripts/build-biology20-course.ts; module adapter: scripts/lib/biology20-course/unit-a-inputs.ts.
+Workspace/build.json pins 119 source files and 30 learner files; module-verification.json and module-final-review.json bind results to the exact HTML candidate.
+Read projects/biology20-unit-a/meta/UNIT-A-DELIVERY.md for the concise complete report.
+
+## Fragile areas / known boundaries
+Do not edit generated workspace HTML. Figure-spec changes must receive a fresh reviewed hash. Shared-source edits stale source pins even if learner files remain unchanged.
+The internal first-topic proof is HISTORICAL and incomplete; it is not the delivered preview. Its saved work is preserved under its separate namespace. Full A uses biology20-unit-a:state:v1; no silent cross-course/proof migration.
+External videos remain unselected because metadata reachability is not caption/science review. Every topic has a complete local illustrated alternative and saved checkpoint; no required work depends on streaming.
+Source/coverage review is bounded. Physical experimental performance, actual teamwork, unrestricted research, teacher acceptance, formal curriculum certification and live LMS certification are not established.
+B/C/D1/D2 and the full five-module selector remain unfinished. Latest user narrowed this delivery to A; do not claim those are done.
+
+## Next prompt should assume
+Unit A is delivered locally; do not restart broad A design or show the historical first-topic proof. Open the full workspace for review. Keep Biology30 learner files and deployed site untouched.
+For continuation into another Biology20 module, reuse the intake, profile/shared runtime and explicit inventories; do not clone five runtimes or repeat intake.
+No deployment, ZIP/SCORM export, Studio activation, commit/push or teacher acceptance is authorized by this finish request.
+
+## Exact next command
+`npx tsx scripts/verify-biology20-unit-a.ts` — only if candidate/source changes need revalidation; passing unchanged checks need not be repeated.
+
+## Exact next file to open
+`projects/biology20-unit-a/meta/UNIT-A-DELIVERY.md`
+
+## Do not do next / warnings
+No further broad Unit A review cycle. Do not represent the intentional blocked ownership state as a broken learner course or switch permissions. Preserve all unrelated dirty work.
+# Handoff — Biology 20 Unit A presentation corrections
+
+- Project: biology20-unit-a
+- Task: Resolve all six browser comments: course-wide spacing, vocabulary discoverability, Resources, Models and Advanced Learning parity.
+- Status: COMPLETE for the six-comment local correction; final visual receipt in module-verification.json.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d. Preserve unrelated dirty SCORM/governance changes.
+- Candidate HTML SHA256: cbfd5fe6c86acdb98b4a8f224a7f25b31a49fa4348a1b8c5238817b688b8c575
+
+## Summary / why this changed
+The preceding delivery passed functional checks but missed Biology30 hub assembly. All A routes now have the established heading/padding hierarchy. Reused adaptTopicHubs for practice, Advanced checklist, model navigation, textbook chapter tabs/mobile selector, walkthrough playlist and glossary. Sources uses the reference source-list hierarchy.
+Vocabulary had 35 terms but defaulted to Learned so far. Now all 10 family names and their terms are initially visible, with term definitions available before lessons and the existing Frayer unlock still enforced. No extra saved fields, workload or capacity changes. Maximum state stays 43,297 characters.
+Model context was incorrectly attached to sulfur/phosphorus; its existing teachingTopicId now points to Intro to Ecology. Responses and science calculations are unchanged.
+
+## Files changed
+- scripts/build-biology20-course.ts; scripts/lib/biology20-course/hubs.ts (canonical presentation adapter)
+- scripts/lib/biology30-course/v1/pilot2-a-hubs.ts (narrow shared input type; explicit opt-outs for separate sources/work and no diploma route; existing defaults preserved)
+- projects/resources/biology20-production/v1/units/a/module-integrated-work.json (model teaching context)
+- projects/biology20-unit-a/meta/project.json (declares adapter), workspace/** rebuilt through owner
+- scripts/tests/biology20-hubs.test.ts; biology20-unit-a.test.ts (font readiness and reduced-motion deterministic scroll check)
+- scripts/verify-biology20-unit-a.ts (all routes captured, user viewport added)
+- A delivery/final-review/verification records and module-visuals; active/prior handoff
+
+## Verification run
+- /tmp/bio20-hubs-final-tests.log: 5 PASS, including every A route header, exact Biology30 header style comparison, all 35 terms, locked Frayers, library navigation, Advanced checklist/reload and existing full A save/oversize/model checks.
+- /tmp/bio20-hubs-bio30-regression.log: 2 PASS; actual B/C/D page assembly and synthetic whole-course identity tests.
+- /tmp/bio20-hubs-workspace-final.log and /tmp/bio20-hubs-e2e-final.log: PASS.
+- /tmp/bio20-hubs-smoke.log: PASS after retrying a concurrent test-server port conflict.
+- /tmp/bio20-hubs-protected.log: four protected Biology30 workspaces unchanged.
+- /tmp/bio20-hubs-types.log: unrelated repository baseline errors; none in Biology20 or pilot2-a-hubs.
+- /tmp/bio20-hubs-visual-final.log: PASS, 84 route visits and 80 figure loads across four widths; 120 source and 30 learner hashes reconcile.
+- Desktop all-route gallery and affected resources/practice/vocabulary/model/Advanced screenshots inspected against Biology30 reference.
+
+## Source of truth
+Unit A JSON: projects/resources/biology20-production/v1/units/a/.
+Presentation adapter: scripts/lib/biology20-course/hubs.ts; owner scripts/build-biology20-course.ts.
+workspace/build.json pins 120 sources and 30 learner files. Never hand-edit generated HTML.
+
+## Fragile areas / watchouts
+Do not bypass hub assembly in subsequent modules. Initial presentation checks missed it; keep biology20-hubs.test.ts and all-route screenshots.
+Keep future terms discoverable while preserving Frayer unlock/choice rules. Do not interpret family count as term count.
+Native PDF iframe rendering depends on browser PDF support; explicit Open PDF and Download chapter links remain available. Headless screenshot rendering does not certify the native PDF viewer.
+
+## Known risks / what still needs validation
+No hosted deployment, ZIP/SCORM, live LMS, Studio activation, teacher acceptance or formal curriculum certification. External clips remain unselected pending content/caption review; local walkthroughs are available. B/C/D1/D2 remain unfinished and outside this correction.
+
+## Next prompt should assume
+Open the full A workspace, not the historical first-topic proof. Existing browser tab needs reload to show changes. No new broad academic review or work on other modules was authorized by these comments.
+
+## Exact next command
+`npx tsx scripts/build-biology20-course.ts --module a` — only after canonical edits; then rerun checks invalidated by those edits.
+
+## Exact next file to open
+`projects/biology20-unit-a/meta/UNIT-A-DELIVERY.md`
+
+## Do not do next / warnings
+Do not deploy, publish, commit, change permissions or alter Biology30 learner files. Preserve saved schema and unrelated work.
+
+---
+# Handoff — Biology 20 Unit A reference and resource corrections
+
+- Project: biology20-unit-a
+- Status: Local implementation and app checks passed; external video playback remains unconfirmed.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d.
+- Candidate SHA256: 5891a44d1f68ca2de7b59be7abcb7c973574ec932f98346b98c69735dfa49fb8
+
+## What changed / why
+Teacher screenshots exposed differences missed by earlier checks. Restored the shared overview and 1120px reading frame; bold vocabulary lesson/textbook links and retrieval treatment; all 35 exact glossary contexts; in-course PDF page selection; optional chapter/final textbook review and seminar summaries. Restored all 16 original PowerPoint videos at relevant teaching parts and in the shared Video Library. Local explanations no longer substitute for those links.
+
+## Files changed
+- scripts/build-biology20-course.ts
+- scripts/lib/biology20-course/reference-parity.ts
+- scripts/lib/biology30-course/v1/pilot2-return-links.ts, pilot2-presentation-runtime.ts, pilot2-source-videos.ts
+- projects/resources/biology20-production/v1/units/a/source-videos.json, textbook-support.json
+- scripts/tests/biology20-resource-parity.test.ts, biology20-hubs.test.ts
+- scripts/verify-biology20-unit-a.ts
+- Unit A project metadata, owner-generated workspace, verification/screenshots and delivery records.
+
+## Verification run
+Eight focused/renderer tests passed; workspace, project E2E, shared smoke and Studio build passed. Visual runner: 105 route visits, 100 figure loads at five widths; 123 source and 30 learner hashes. Final screenshots inspected for overview, practice, seminar, final, textbooks and vocabulary desktop plus mobile vocabulary/video library. Four Biology30 workspaces unchanged. Maximum state unchanged at 43,297. Typecheck has unrelated baseline failures; newly touched resource modules have no diagnostics. Exact logs and limits: meta/module-final-review.json.
+
+## Source of truth
+Canonical JSON under projects/resources/biology20-production/v1/units/a/; reference-parity.ts and existing owning builder. Never edit generated workspace HTML.
+
+## Fragile areas / watchouts
+Original PowerPoint metadata and exact topic/part mappings are validated. Do not replace original videos with local walkthroughs or call mocked provider frames playback proof. Glossary whole-term links and family lesson contexts have separate mappings.
+Optional textbook-review attempt disclosure is session-only; no new response IDs or persisted mastery/attempt records. Saved schema and required work unchanged.
+HTTP preview is a different origin from file:// and does not contain that origin's existing saved answers. No migration performed.
+
+## What still needs validation / known risks
+Actual YouTube controls load in HTTP preview, but playback did not advance in the live automated check. File:// produced provider Error 153; explicit Watch on YouTube/local explanation fallback now replaces that broken embed. All 16 metadata endpoints are reachable, not full audiovisual/caption certification.
+Native PDF drawing is not established by headless screenshots; internal destinations and fallback links pass.
+No teacher acceptance, curriculum certification, Studio activation, live LMS, deployment or packaging. B/C/D1/D2 remain unfinished.
+
+## Next prompt should assume
+Full Unit A workspace is current; historical first-topic proof is not. Local preview server started for inspection at http://127.0.0.1:8769/index.html (loopback only, not deployment). Existing file tabs need reload. Preserve unrelated dirty SCORM/governance work and all Biology30 outputs.
+
+## Exact next command
+`npx tsx scripts/build-biology20-course.ts --module a` only after canonical changes; then rerun invalidated checks.
+
+## Exact next file to open
+`projects/biology20-unit-a/meta/module-final-review.json`
+
+## Do not do next / warnings
+Do not claim provider playback passed, silently migrate saves, deploy, export, activate Studio, commit or expand to other modules.
+
+---
+# Handoff — Biology20 A vocabulary reference visibility
+
+- Project: biology20-unit-a
+- Status: Vocabulary repair implemented; focused, workspace, E2E and smoke checks passed.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d
+- Candidate SHA256: 65a31fb242201f16c339883acfbe8da01bbd65c2200a40a06969a25ae2981ceb
+
+## What changed / why
+Static vocabulary explanations existed but were hidden with Frayer tools until lesson visits. All 10 families now show Meaning, Word structure, What it does, Related ideas, Common confusion and Retrieve the idea immediately. Only Frayer work retains the original lesson gate. No content invention or saved schema changes. Existing Biology30 styling retained.
+
+## Files changed / source of truth
+- scripts/lib/biology20-course/hubs.ts: move existing static sections outside the gated Frayer container.
+- scripts/tests/biology20-hubs.test.ts: all ten families, fresh state, desktop/mobile visibility and locked writing.
+- Owning build regenerated projects/biology20-unit-a/workspace/**.
+- Unit A delivery/final-review/verification metadata and screenshots.
+Canonical JSON remains projects/resources/biology20-production/v1/units/a/. Generated HTML is not editable source.
+
+## Verification
+4 focused tests passed, including full saved-answer/reload and resource behavior. Workspace, project E2E, smoke, Studio build passed. Protected Biology30 check passed. Unrelated baseline type errors remain. Desktop/mobile reference screenshots inspected. Maximum state remains 43,297.
+Full visual/hash runner passed: 105 route visits, 100 figure loads, no errors; module-verification.json matches this candidate. The running HTTP preview serves the same verified hash.
+
+## Fragile areas / next prompt assumptions
+Reference explanations and Frayer gates must stay separate. Preserve six anchors/two choices and response IDs. HTTP preview has different origin storage from file://. Reload the current preview to see this fix; historical proof is not current.
+
+## What still needs validation / risks
+Previously documented YouTube playback and native PDF display boundaries remain; this task did not certify external playback, LMS, curriculum or teacher acceptance. No deployment, exports, permission changes or work on other modules.
+
+## Exact next command
+`npx tsx scripts/verify-biology20-unit-a.ts` only if the current running verification fails or subsequent edits invalidate it.
+
+## Exact next file to open
+`projects/biology20-unit-a/meta/module-final-review.json`
+
+## Do not do next
+Do not deploy, commit, activate Studio or modify Biology30 outputs. Preserve unrelated dirty changes.
+
+---
+# Handoff — Biology20 A individual word browsing
+
+- Project: biology20-unit-a
+- Status: Implemented; focused and final all-route checks passed.
+- Candidate SHA256: 72e210fcda2567d2a7296ded86fea1388efcfe848fb394845b4b8546e54d5dd0
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d
+
+## What changed / why
+User could only select families. All 35 words now individually selectable with exact definitions and labelled links to each associated family context. Family reference sections remain visible before lesson visits.
+Each of the existing ten Frayer records now states one named focus. Six anchors and two choices remain; choices use the existing four eligible concepts, not arbitrary additional words. Existing writing, IDs, flags, model answers and capacities stay in place with former-label notices. No migration or new saved fields.
+
+## Files changed / source of truth
+- scripts/lib/biology20-course/word-browser.ts: canonical word view and explicit focus mapping.
+- scripts/lib/biology20-course/browser-entry.ts: module-only session view adapter; imports the unchanged shared startup.
+- scripts/build-biology20-course.ts: integrates view and module entry using existing builder.
+- scripts/tests/biology20-hubs.test.ts: all word definitions, selection focus and multiple-family behavior.
+- projects/biology20-unit-a/meta/project.json: declares canonical inputs.
+- Owner-generated workspace and delivery/verification/screenshots.
+Existing authored vocabulary remains projects/resources/biology20-production/v1/units/a/vocabulary-families.json.
+
+## Verification
+4 focused tests passed (word navigation, family visibility, existing saves/reload, resources). Workspace, project E2E, smoke, Studio build and protected Biology30 checks pass. Typecheck has unrelated baseline errors, no Biology20 diagnostics. Desktop/mobile word-browser screenshots inspected. State maximum unchanged: 43,297.
+All-route visual runner passed: 105 route visits, 100 figure loads, no errors; module-verification.json matches the candidate. The HTTP preview serves the same hash.
+
+## Fragile areas / next assumptions
+Word view is session-only. The original family record remains the persistence owner; focus labels clarify its scientific concept, not a silent transfer of writing to another term. In-lesson panel borrows the same Frayer node and therefore shows its focus/legacy notice.
+Do not claim every word owns a new Frayer. No guessed morphology: broader notes explicitly labelled family context. Full Unit A is current, not historical proof; refresh existing preview.
+
+## Remaining validation / risks
+Previously documented YouTube playback and native PDF display boundaries remain. No deployment, live LMS, formal certification, Studio activation, exports or changes to other modules.
+
+## Exact next command
+`npx tsx scripts/verify-biology20-unit-a.ts` only if the current run fails or later changes invalidate it.
+
+## Exact next file
+`projects/biology20-unit-a/meta/module-final-review.json`
+
+## Do not do next
+Do not deploy, commit, expand saved work, change permissions or alter Biology30 outputs. Preserve unrelated dirty changes.
+
+---
+
+## Archived at CTS review handoff — 2026-09-09
+
+The following Biology work was still in progress when archived; this archive does not mark it complete.
+
+# Handoff — word-owned vocabulary across five Biology courses
+
+- Scope: Biology20 A; Biology30 A Pilot 2, B, C, D. User explicitly authorized all five; the previous prohibition on modifying Biology30 outputs does not apply to this scoped correction.
+- Status: IN PROGRESS. No learner integration or rebuild in this turn. Current preview still has the old category-based interface.
+- Branch/HEAD: codex/studio-direct-editing-v1 / 4e9ce787197f1a2b7eaa800ece2b96b28072108d. Preserve unrelated dirty SCORM/governance work.
+
+## What changed / why
+Prior selector patches did not satisfy the user: categories must only group words, and every selected word must own its six explanation sections. Added a strict word-content schema and shared reader; inventoried all five candidates and drafted all 35 Bio20 word records. No category prose fallback is allowed.
+
+## Files changed / source of truth
+- scripts/lib/biology30-vocabulary/word-record.ts
+- scripts/lib/biology30-vocabulary/word-reader.ts
+- scripts/audit-biology-word-migration.ts
+- scripts/tests/biology-word-record.test.ts
+- scripts/tests/biology-word-reader-browser.test.ts
+- projects/resources/biology20-production/v1/units/a/word-details.json (draft; second scientific review pending)
+- docs/plans/biology-word-migration/README.md and inventory.json
+The new records/components are staged, not yet imported by current builders or active course manifests. Existing learner workspaces and saves are unchanged.
+
+## Verification run
+Four focused tests passed: record completeness, category-only structure, cohesion-specific content, all 35 word selections and keyboard focus at 1117/390 widths. Log: /tmp/biology-word-migration-tests.log. Typecheck has baseline errors; no new word-record/word-reader diagnostics in /tmp/biology-word-record-types.log. git diff --check passed. No claim of final project E2E or course visual verification for this staged work.
+
+## Inventory / remaining work
+677 unique-per-module words: 35/141/153/249/99. A's raw 152 panel entries deduplicate to 141; 113 lack individual definitions. Full details and exact commands/hashes are in inventory.json.
+Review the Bio20 35-word draft; wire both page/popup to the shared records; resolve explicit word Frayer targets and preservation of incompatible old family writing; author/review remaining Biology30 words; integrate owning adapters/builders; rebuild and verify all five. Do not merely replace labels or copy family mechanisms into word sections.
+
+## Fragile areas / next assumptions
+Existing family IDs/Frayer records must not silently be reassigned to another word. Maintain six anchors/two choices, save limits and draft safeguards; measure proposed migration rather than assuming it fits. Word analysis cannot be inferred from spelling. Existing Bio20 word-browser.ts and browser-entry.ts are the previous inadequate selector implementation and must be replaced when integration is ready, not layered beneath the new view.
+
+## Known risks / validation boundaries
+This pass is not finished. Draft science needs review and all final candidate checks remain. No deployment, ZIP, LMS certification, teacher acceptance or Studio permission changes. Previously documented video/PDF external limits remain.
+
+## Exact next file to open
+`projects/resources/biology20-production/v1/units/a/word-details.json`
+
+## Exact next command
+`npx tsx --test scripts/tests/biology-word-record.test.ts scripts/tests/biology-word-reader-browser.test.ts` after reviewing/adjusting the draft records; then implement the adapters described in docs/plans/biology-word-migration/README.md.
+
+## Do not do next
+Do not tell the user to refresh expecting the new word-owned version; it is not integrated. Do not mark all five complete or repeat another selector-only patch. Do not deploy or overwrite unrelated changes.
+
+---
+
+Archived 2026-09-09 before the shared CTS/PE teacher-review deployment.
+
+# Handoff — five CTS online review courses
+
+- Projects: marketing-10-20-online, marketing-30-online, legal-studies-30-online, tourism-10-20-online, tourism-30-online.
+- Status: local review builds implemented and technically verified; official detailed curriculum reconciliation and teacher acceptance remain blocked/unresolved.
+- Source of truth: each project’s workspace/** and meta/**; source records remain under projects/resources/cts-online/.
+- Verification: CTS content tests 11/11, dedicated browser suite 5/5, project contracts 5/5, workspace verification for all five, Studio build and readiness checks passed; doctor refusal was only the expected blocked/not-active condition.
+- Outstanding: reconcile current Alberta detailed outcomes, prerequisites and parameters; teacher review must address CTS depth, rubric use, distinct project learning and solo-performance exceptions.
+- No hosting, export, Brightspace deployment, commit or push had been performed at handoff.
+
+---
+
+Archived 2026-09-09 when resuming the Biology word-owned vocabulary correction. CTS/PE work is preserved unchanged.
+
+# Handoff — shared CTS and PE teacher-review selector
+
+- Projects: `pe10-online-pilot`, `marketing-10-20-online`, `marketing-30-online`, `legal-studies-30-online`, `tourism-10-20-online`, `tourism-30-online`.
+- Task: publish the six existing blocked review courses behind one Next Step selector, using the same Firebase Hosting site that previously served the PE-only root.
+- Status: deployed and live for teacher/stakeholder review. Learner release, Studio Edit, exports, SCORM and Brightspace upload remain disabled.
+- Branch/HEAD at task start: `codex/studio-direct-editing-v1` / `4e9ce787197f1a2b7eaa800ece2b96b28072108d`. Broad unrelated work remains dirty; no commit or push was performed.
+
+## What changed / files changed
+
+- `scripts/templates/cts-pe-showcase/{index.html,showcase.css,showcase.js}` — a restrained Next Step selector shell with course dropdown, embedded same-origin course frame, deep-link synchronization and copyable review links.
+- `scripts/deploy-cts-pe-showcase.ts` — verifies each canonical workspace, stages all six courses and shared local assets, deploys only Firebase Hosting site `nxtpe10`, and compares every live byte against the staged SHA-256 inventory.
+- `scripts/tests/cts-pe-showcase.test.ts` and `package.json` — staging contract and commands `npm run test:cts-pe-showcase` / `npm run deploy:cts-pe-showcase`.
+- `docs/ops/cts-pe-showcase-deployment.json` — exact deployment receipt, 60-file inventory and live verification.
+- `projects/pe10-online-pilot/meta/review-deployment.json` — marks the previous PE-only root deployment stale/superseded by the shared selector.
+- `docs/ops/ARCHIVED_HANDOFFS.md` — archived the five-course pre-deployment handoff before replacing this active handoff.
+
+## Live review
+
+- Selector: [https://nxtpe10.web.app](https://nxtpe10.web.app)
+- Direct course paths: `/courses/<project-slug>/index.html#overview`.
+- Firebase project/site: `calm-module-one` / `nxtpe10`.
+- The public root is a review selector, not a learner-release landing page. Each course keeps its own project-scoped state key on the same origin.
+
+## Verification run
+
+- `npm run test:cts-pe-showcase`: 1/1 passed; selector, embedded frame, six courses, local assets and no Firebase SDK/Analytics code.
+- CTS content/source tests: 11/11 passed.
+- PE state/content tests: 15/15 passed.
+- Workspace verification: all six projects passed with no missing local assets, embeds or shell resources.
+- Representative project E2E: marketing-10-20-online passed 1/1; the five dedicated CTS E2E contracts were already 5/5 before deployment.
+- Deployment: Firebase reported 60 hosted files; receipt verification reports `allFilesMatch: true`.
+- Hosted browser check: all six course titles matched their selected slugs at 390×844; desktop and mobile selector/frame checks had no overflow or console errors; deep-link hash and iframe navigation were confirmed.
+
+## Source of truth
+
+Canonical learner files remain in each project’s `workspace/**`; this selector is an operational review wrapper under `scripts/templates/cts-pe-showcase/**`. `docs/ops/cts-pe-showcase-deployment.json` is the publication receipt. CTS curriculum records remain authoring-only under `projects/resources/cts-online/**`.
+
+## Known risks / follow-up
+
+- The five CTS courses are still blocked pending current Alberta detailed outcome/prerequisite/parameter reconciliation and teacher approval. Their curriculum maps explicitly retain unresolved status; do not call them curriculum-certified.
+- Solo-performance and actual-event validation exceptions remain, especially Tourism event facilitation. A simulation is not automatically actual facilitation.
+- Public review hosting is not Brightspace/LMS certification. Do not enter real learner data; browser/device storage is separate from Brightspace grading and submissions.
+- `course:doctor` still returns only the expected `not-active` refusal for each blocked project. If any course workspace or selector asset changes, the deployment receipt is stale. Redeploy through `npm run deploy:cts-pe-showcase` after the focused tests and re-run the hosted check.
+
+## Next prompt assumptions
+
+Keep all six projects blocked, Studio Edit disabled and exports disabled. Do not commit, push, export SCORM, upload to Brightspace or promote without a separate approval request. Do not patch hosted files directly; rebuild from the canonical workspaces and selector template.
+
+## Exact next command
+
+`npm run test:cts-pe-showcase && npx tsx --test scripts/tests/cts-online.test.ts`
+
+## Exact next file to open
+
+`docs/ops/cts-pe-showcase-deployment.json`

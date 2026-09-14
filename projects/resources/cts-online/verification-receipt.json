@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-09-09",
+  "branch": "codex/studio-direct-editing-v1",
+  "head": "4e9ce787197f1a2b7eaa800ece2b96b28072108d",
+  "scope": "Five blocked local CTS review courses",
+  "checks": [
+    {
+      "command": "npx tsx --test scripts/tests/cts-online.test.ts",
+      "result": "11/11 passed"
+    },
+    {
+      "command": "npm run test:codex-course",
+      "result": "5/5 passed"
+    },
+    {
+      "command": "npm run test:new-course-readiness",
+      "result": "10/10 passed"
+    },
+    {
+      "command": "npm run verify -- --project <each CTS slug> --mode workspace",
+      "result": "5/5 passed; no missing local assets or runtime external dependencies"
+    },
+    {
+      "command": "npm run validate:manifests -- --project <each CTS slug>",
+      "result": "5/5 passed"
+    },
+    {
+      "command": "npm run test:e2e:project -- --project <each CTS slug>",
+      "result": "5/5 Studio discovery contracts passed; dedicated CTS suite supplies deep coverage"
+    },
+    {
+      "command": "npx playwright test -c e2e/playwright.config.ts e2e/specs/cts-online.spec.ts",
+      "result": "See final course review records; dedicated suite checks all 77 base/module routes and all 42 Portfolio records, Studio main routes, desktop/mobile, direct file, reload, invalid restore, printing and keyboard navigation."
+    },
+    {
+      "command": "npm run build:studio",
+      "result": "passed"
+    },
+    {
+      "command": "npm run course:doctor -- --project <each CTS slug>",
+      "result": "5 expected refusals, not-active only"
+    },
+    {
+      "command": "npm run verify:new-course-readiness -- --base HEAD --report projects/resources/cts-online/new-course-readiness.json --coverage-report projects/resources/cts-online/editability-coverage.json",
+      "result": "PASS; zero active courses require promotion proof. NOT a reversible-editability pass for these blocked courses."
+    },
+    {
+      "command": "npx tsx scripts/verify-cts-online.ts",
+      "result": "All 42 IDs present in authorized list; authored map anchors and state budgets valid; workspace hashes recorded; all 19 learner links HTTP 200"
+    }
+  ],
+  "visualReview": {
+    "mainRoutes": "All seven main routes per course inspected in Studio and Full Preview; mobile 390x844 captured and reviewed in contact sheets.",
+    "moduleRoutes": "All 42 module/project route opening views inspected in contact sheets.",
+    "states": "Empty Portfolio, saved incomplete record, completed saved collection, corrupt state, direct-file mobile and fixed-header navigation checked.",
+    "limitations": "Chromium automated/local visual proof only; not institutional browser or live Brightspace certification."
+  },
+  "curriculum": {
+    "officialOutcomesComplete": false,
+    "reason": "Detailed current official LGS/MAM/TOU files not obtained; migration notices preserved. Authored targets are not official outcome rows.",
+    "teacherApproval": false
+  },
+  "mutationsNotPerformed": [
+    "No hosting or Firebase deployment",
+    "No Studio activation",
+    "No SCORM export",
+    "No Brightspace deployment",
+    "No commit or push",
+    "No donor or shared-shell source editing"
+  ]
+}

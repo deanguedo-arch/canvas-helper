@@ -15,6 +15,8 @@ import type {RenderTopicVocabulary} from './pilot2-render-vocabulary.js';
 import type {RenderPractice} from './pilot2-render-controls.js';
 import type {TopicFigure} from './pilot2-render-topic.js';
 import type {Biology30SuspendDataSchema} from './suspend-data.js';
+import {prepareTopicWordProfile} from './pilot2-word-profile.js';
+import type {BiologyWordPageData} from '../../biology30-vocabulary/word-page.js';
 
 const resources='projects/resources/biology30-production/v1';
 const sharedAssets='projects/resources/biology30-unit-a-pilot/v2/assets';
@@ -44,6 +46,9 @@ export async function inspectTopicInputs(repoRoot:string,unit:TopicUnit) {
  validateBiology30Instruction(contract,core,instruction);
  validateBiology30TopicTeaching(contract,core,instruction,framing,state,vocabulary);
  validateBiology30LearningInputs(contract,{practice,vocabulary,timing,state});
+ // Only explicitly reviewed units opt in; the remaining candidates keep their
+ // existing save format until their individual word content is ready.
+ const wordData=prepareTopicWordProfile(JSON.parse((await bytes(`${base}/word-details.json`)).toString()) as BiologyWordPageData,vocabulary,state);
  const graphs=[primaryGraph,...(unit==='D'?[await json<GraphWork>('demographic-graph-work')]:[])];
  const responseOwners=new Set<string>();
  for(const graph of graphs){
@@ -102,7 +107,7 @@ export async function inspectTopicInputs(repoRoot:string,unit:TopicUnit) {
  const summary=`Work through ${contract.topics.length} topics, use the local illustrated explanations, and save your reasoning as you practise.`;
  return {unit,title,summary,outcomes:framing.topics.map(topic=>topic.learningGoal),topic:{contract,core,instruction,framing,state,vocabulary,timing,textbookLinks,practice:practice.items,figures:figureResult.figures,graphs},models:models.models,investigations:investigations.investigations,seminar,textbookGroups:textbook.groups,materials,legacySchema,logoPath,activities,index,copies,
   files:[...uniqueFiles].sort(([a],[b])=>a.localeCompare(b)).map(([file,sha256])=>({file,sha256})),
-  sourceVideos,videos,figureStatus:figureManifest.status,pendingFigures:figureResult.pending,reviewGates:checked.report.pending,rendered:false as const};
+  wordData,sourceVideos,videos,figureStatus:figureManifest.status,pendingFigures:figureResult.pending,reviewGates:checked.report.pending,rendered:false as const};
 }
 
 /** Every unit must be frozen before a production caller may obtain inputs.

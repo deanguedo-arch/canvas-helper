@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "status": "identified-slide-claims-remediated-in-local-A-candidate",
+  "scope": "Unit A deck slides 1–78: all extracted paragraphs read. This is not clearance of image text, embedded figures, captions, textbook passages or all Brightspace source sections. Completion dispositions concern selected learner content, not blanket approval of every imported asset.",
+  "originalsModified": false,
+  "sequenceDecision": {
+    "topicId": "a-topic-sulfur-and-phosphorus-cycles",
+    "retainedTeacherTitle": "Sulfur and Phosphorus Cycles",
+    "partsRequired": [
+      "Sulfur and human influence",
+      "Phosphorus and eutrophication",
+      "Changing atmosphere and biosphere balance"
+    ],
+    "reason": "The teacher-assigned slide range 65–77 includes atmosphere/stromatolite teaching on slides 72–77. Preserve those required ideas visibly inside the existing topic rather than dropping them because of its short title.",
+    "outcomes": [
+      "20-A3.2k",
+      "20-A3.3k"
+    ]
+  },
+  "corrections": [
+    {
+      "id": "a-energy-budget",
+      "slides": [
+        8
+      ],
+      "finding": "The slide mixes approximate solar partitions with an unsupported fixed photosynthesis fraction.",
+      "treatment": "Teach the distinction between reflected, atmospheric absorption and surface absorption. Use a clearly labelled simplified calculation rather than presenting a fixed photosynthesis percentage as a universal measured constant.",
+      "authority": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-intro-to-ecology-energy-and-albedo"
+      ]
+    },
+    {
+      "id": "a-albedo",
+      "slides": [
+        9,
+        10,
+        11
+      ],
+      "finding": "Albedo is described as an amount and local mechanisms are generalized to every climate/cloud response.",
+      "treatment": "Define reflected fraction relative to incoming radiation. Explain the snow/ice feedback with stated local conditions; do not imply every cloud or vegetation change has the same effect.",
+      "authority": "https://www.nasa.gov/centers-and-facilities/langley/what-is-earths-energy-budget-five-questions-with-a-guy-who-knows/",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-intro-to-ecology-energy-and-albedo"
+      ]
+    },
+    {
+      "id": "a-chemosynthesis",
+      "slides": [
+        15,
+        17
+      ],
+      "finding": "The printed reaction is not oxygen-balanced and the text treats sulfuric acid production and habitat statements as universal distinctions.",
+      "treatment": "Describe chemical energy from oxidation supporting carbon fixation. Distinguish energy source from carbon source. Do not copy the printed reaction or claim all chemosynthesis makes sulfuric acid; use a reaction only after independent atom balancing and pathway verification.",
+      "authority": "https://oceanexplorer.noaa.gov/ocean-fact/photochemo/",
+      "authorityLimit": "This source also prints the unbalanced schematic. Use it for the mechanism comparison, not as an independently verified stoichiometric equation.",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-intro-to-ecology-producing-organic-matter"
+      ]
+    },
+    {
+      "id": "a-decomposition",
+      "slides": [
+        21,
+        22
+      ],
+      "finding": "Worms/insects and absorptive microbial decomposers are placed in one undifferentiated list.",
+      "treatment": "Explain microbial decomposition and detritivore fragmentation as related but distinct contributions. Both remain heterotrophic; do not imply energy is recycled.",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-trophic-levels-and-efficiency-feeding-roles"
+      ]
+    },
+    {
+      "id": "a-trophic-limit",
+      "slides": [
+        27,
+        28,
+        29,
+        30,
+        35
+      ],
+      "finding": "Energy is described as produced/lost, a six-level maximum is asserted, and the ten-percent approximation is overgeneralized.",
+      "treatment": "Energy is transformed and dissipated, not created or destroyed. Transfer efficiencies vary; use ten percent only as a stated model assumption. Do not assert a universal maximum of six levels or turn an energy model into individualized dietary advice.",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-trophic-levels-and-efficiency-transfer-efficiency"
+      ]
+    },
+    {
+      "id": "a-banff-prediction",
+      "slides": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "finding": "The answer predicts wolf–hare and eagle–hare effects that are not specified by the supplied food relationships.",
+      "treatment": "Require an explicitly supplied feeding link before a direct-effect prediction. Keep alternative pathways, omnivore roles and uncertainty visible. Label the case as instructional, not measured Banff population data.",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-trophic-levels-and-efficiency-food-web-evidence"
+      ]
+    },
+    {
+      "id": "a-pyramid-units",
+      "slides": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "finding": "Energy pyramids omit area/time bases and standing biomass can be confused with production.",
+      "treatment": "Compare counts, standing dry mass and energy transfer over the same area/time basis; explain how turnover permits inverted standing biomass. Do not infer energy flow from organism size alone.",
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "authoredTreatmentPartIds": [
+        "a-topic-ecological-pyramids-energy-rate-and-turnover"
+      ]
+    },
+    {
+      "id": "a-water-properties",
+      "slides": [
+        46,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "finding": "Precipitation is called liquid even when snow is listed; universal solvent, lake mixing, plant transport and body-water percentages are overgeneralized.",
+      "treatment": "Include solid precipitation, qualify what water dissolves, explain hydrogen-bond rearrangement, restrict the seasonal model to suitable lakes, and distinguish transpiration from cohesion/adhesion and root-to-leaf bulk flow. Avoid conflicting fixed body-water percentages.",
+      "authoredTreatmentPartIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-properties",
+        "a-topic-water-and-the-hydrologic-cycle-density-and-lake-mixing",
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained"
+    },
+    {
+      "id": "a-drought",
+      "slides": [
+        55,
+        56
+      ],
+      "finding": "Stomatal closure is treated as a sufficient prediction of atmospheric carbon dioxide and generalized to all desert plants.",
+      "treatment": "Explain a possible reduction in carbon uptake with conditions and competing fluxes; distinguish a local mechanism from a guaranteed global outcome.",
+      "authoredTreatmentPartIds": [
+        "a-topic-water-and-the-hydrologic-cycle-water-budget-and-carbon-links"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained"
+    },
+    {
+      "id": "a-nitrogen",
+      "slides": [
+        62,
+        64
+      ],
+      "finding": "Plant ammonium uptake is discounted, animals are said to obtain nitrogen only by eating plants, and denitrification is presented as an automatic response to excess nitrate.",
+      "treatment": "Include plant uptake of ammonium and nitrate, animal dietary nitrogen from plants or other animals, and microbial/environmental conditions for denitrification. Crop rotation is not a guarantee of unlimited nitrate supply.",
+      "authoredTreatmentPartIds": [
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-transformations",
+        "a-topic-carbon-oxygen-and-nitrogen-cycles-nitrogen-management"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained"
+    },
+    {
+      "id": "a-sulfur-pathways",
+      "slides": [
+        65,
+        66
+      ],
+      "finding": "Weathering/uplift and combustion are treated as the same sulfur-dioxide pathway; regional/global emission magnitudes are unqualified.",
+      "treatment": "Separate rock weathering, atmospheric emissions, deposition and biological uptake. Use a bounded sourced example rather than a universal human-versus-natural magnitude claim.",
+      "authoredTreatmentPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained"
+    },
+    {
+      "id": "a-hydrogen-sulfide-safety",
+      "slides": [
+        67
+      ],
+      "finding": "The slide says hydrogen sulfide is easy to detect by smell and treats this as reassurance.",
+      "treatment": "Remove the reassurance. Smell is not a reliable safety warning because the ability to smell hydrogen sulfide can rapidly fatigue. No learner activity involves generating, collecting or smelling this gas.",
+      "authority": "https://www.cdc.gov/niosh/npg/npgd0337.html",
+      "authoredTreatmentPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-sulfur-and-human-influence"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained"
+    },
+    {
+      "id": "a-eutrophication",
+      "slides": [
+        69,
+        70,
+        71
+      ],
+      "finding": "Phosphate solubility, nitrate significance, night respiration and total lake death are overgeneralized.",
+      "treatment": "Distinguish soluble phosphate from mineral-bound forms, ecosystem-dependent nutrient limitation, respiration occurring day and night, and conditional oxygen depletion rather than inevitable complete lake death.",
+      "authoredTreatmentPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-phosphorus-and-eutrophication"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained"
+    },
+    {
+      "id": "a-stromatolites",
+      "slides": [
+        72,
+        73,
+        74,
+        75
+      ],
+      "finding": "Stromatolite formation is reduced to piles of dead cells and iron bands are conflated with all stromatolites.",
+      "treatment": "Separate microbial-mat sedimentary structures, iron-oxidation evidence and atmospheric oxygen inference. Verify the chronology before using numbers and avoid a single-cause instantaneous oxygen transition.",
+      "authoredTreatmentPartIds": [
+        "a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life"
+      ],
+      "status": "resolved-in-authored-learner-treatment; original-source-retained",
+      "disposition": "Exact ancient dates not used; retained geological observations/inference and source/sink explanation. No single-event chronology is asserted."
+    }
+  ],
+  "imageWork": {
+    "status": "selected-figures-reviewed",
+    "generationStarted": true,
+    "records": [
+      "visual-queue.json",
+      "source-figure-bindings.json",
+      "module-figure-review.json"
+    ],
+    "scope": "One corrected ChatGPT conceptual illustration, native diagrams and two selected source panels; nonselected media remain reference-only."
+  },
+  "authorityReviewDate": "2026-09-09",
+  "learnerAcceptance": null,
+  "textbookReview": "Opened printed folios 2,9,32,41; extracted exact physical pages 17→18,20→21,4→44,8→48 and geological/life-support passages56–57. Source misgeneralizations are not copied into learner conclusions."
+}

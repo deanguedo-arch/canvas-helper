@@ -2,7 +2,7 @@ import {mountSourceVideos} from './pilot2-source-videos.js';
 import {mountTopicVocabularyPanel} from './pilot2-vocabulary-panel.js';
 import {mountTopicPresentation} from './pilot2-presentation-runtime.js';
 import {mountTopicMedia} from './pilot2-media-controls.js';
-import {persistTopicState,validateTopicState,encodeTopicState,decodeTopicState,type TopicState,type KeyValueStorage,type TopicLms} from './pilot2-state.js';
+import {persistTopicState,validateTopicState,encodeTopicState,decodeTopicState,migrateTopicWordFrayers,type TopicState,type KeyValueStorage,type TopicLms} from './pilot2-state.js';
 import {completedTopicRoutes,buildTopicActivityIndex,collectTopicWork,type ActivityInputs,type WorkEntry} from './pilot2-activity-index.js';
 import {mountTopicControls} from './pilot2-controls-runtime.js';
 import {mountTopicModelControls} from './pilot2-model-controls.js';
@@ -27,7 +27,7 @@ export function topicSaveMessage(result:ReturnType<typeof persistTopicState>) {
 /** Mount only after startup has resolved current/previous/legacy source conflicts.
  * The owning shell supplies routes; this controller owns Biology answers only. */
 export function mountTopicSession(root:HTMLElement,input:ActivityInputs,state:TopicState,models:RenderTopicModel[],graphs:GraphWork[],local:KeyValueStorage|null,lms:TopicLms|null,legacySchema?:Biology30SuspendDataSchema) {
- validateTopicState(state,input.state);const index=buildTopicActivityIndex(input),cleanup:(()=>void)[]=[];let latestSaveConfirmed=true;
+ validateTopicState(state,input.state);if(input.state.wordFrayers)Object.assign(state,migrateTopicWordFrayers(state,input.state));const index=buildTopicActivityIndex(input),cleanup:(()=>void)[]=[];let latestSaveConfirmed=true;
  const progress=()=>{try{const completed=completedTopicRoutes(input,state,graphs);root.querySelectorAll<HTMLElement>('[data-pilot2-progress-percent]').forEach(node=>{node.textContent=`${Math.round(100*completed.length/input.contract.requiredRoutes.length)}%`;});root.querySelectorAll<HTMLElement>('[data-pilot2-progress-count]').forEach(node=>{node.textContent=`${completed.length} / ${input.contract.requiredRoutes.length} required routes`;});root.querySelectorAll<HTMLElement>('[data-pilot2-progress-fill]').forEach(node=>{node.style.width=`${Math.round(100*completed.length/input.contract.requiredRoutes.length)}%`;});root.querySelectorAll<HTMLElement>('[data-pilot2-required-progress]').forEach(node=>{node.textContent=`${completed.length} of ${input.contract.requiredRoutes.length} required activities complete.`;});root.querySelectorAll<HTMLElement>('[data-pilot2-route-status]').forEach(node=>{node.textContent=completed.includes(node.dataset.pilot2RouteStatus!)?'Complete':'In progress';});}catch{root.querySelectorAll<HTMLElement>('[data-pilot2-required-progress]').forEach(node=>{node.textContent='Progress cannot be updated until the current oversized or invalid draft is revised. Your writing remains available.';});}};
  const controls=mountTopicControls(root,state,input.state,current=>{const result=persistTopicState(current,input.state,local,lms);latestSaveConfirmed=result.local==='saved'||result.commit==='confirmed';return{saved:latestSaveConfirmed,message:topicSaveMessage(result)};},graphs);cleanup.push(controls.dispose);
  cleanup.push(mountTopicGraphControls(root,state,input.state,graphs,controls).dispose,mountTopicModelControls(root,state,input.state,models,controls).dispose,mountTopicFrayerControls(root,state,input.state,controls).dispose);
@@ -37,7 +37,8 @@ export function mountTopicSession(root:HTMLElement,input:ActivityInputs,state:To
    return{id:`recovery-archive-${position}`,title:`Preserved save: ${entry.label}`,category:'Preserved recovery versions',routeId:null,focusId:null,fields};
   }).filter(entry=>entry.fields.some(field=>field.text.trim().length>0));
  };
- cleanup.push(mountTopicCollection(root,index,state,input.state,graphs,legacySchema,()=>[...currentUnsavedGraphWork(root,graphs,index),...archiveWork()]).dispose);
+ const wordWork=():WorkEntry[]=>{if(!state.wordFrayers)return[];const data=JSON.parse(root.querySelector('#biology-word-data')?.textContent??'{}');return state.wordFrayers.filter(s=>s.answers.some(a=>a.length)).map(s=>({id:'word-frayer-'+s.id,title:s.kind==='word'?(data.words?.find((w:{id:string})=>w.id===s.id)?.term??s.id):'Preserved earlier Frayer: '+(data.categories?.find((c:{id:string})=>c.id===s.id)?.label??s.id),category:s.collected?'Collected vocabulary':'Vocabulary drafts',routeId:input.state.unit.toLowerCase()+'-core-vocabulary',focusId:s.kind==='word'?'word-frayer-'+s.id:null,fields:s.answers.map((text,i)=>({label:['Definition','Characteristics','Example','Non-example'][i],text}))}));};
+ cleanup.push(mountTopicCollection(root,index,state,input.state,graphs,legacySchema,()=>[...currentUnsavedGraphWork(root,graphs,index),...archiveWork(),...wordWork()]).dispose);
  cleanup.push(mountSourceVideos(root).dispose,mountTopicMedia(root).dispose,mountTopicFigureViewer(root).dispose,mountTopicReturnLinks(root,input.state.routes).dispose);
  if(root.querySelector('[data-pilot2-glossary-search]'))cleanup.push(mountTopicGlossary(root).dispose);
  const routeChanged=()=>{let hash:string;try{hash=decodeURIComponent(location.hash.slice(1));}catch{return;}const route=hash==='overview'?`${input.state.unit.toLowerCase()}-overview`:hash;if(!input.state.routes.includes(route))return;state.route=route;if(!state.visited.includes(route))state.visited.push(route);controls.saveDraft();};

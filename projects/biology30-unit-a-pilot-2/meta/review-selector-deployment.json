@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved-public-review-only",
+  "authorizedAt": "2026-09-09",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "biology30pilot",
+    "url": "https://biology30pilot.web.app"
+  },
+  "deployedAt": "2026-09-09T19:49:00Z",
+  "purpose": "Shared teacher-review selector for the Biology 30 Pilot 2 A-D and Biology 20 A course previews.",
+  "courses": [
+    {
+      "id": "biology30-a",
+      "projectSlug": "biology30-unit-a-pilot-2",
+      "title": "Biology 30 — Unit A (Pilot 2): Nervous and Endocrine Systems",
+      "deployedPath": "biology30-a/index.html",
+      "indexSha256": "7b7df6f5859c3d91104cdca25e9facf121d9fb14ee061d999ac7d0598a99367a"
+    },
+    {
+      "id": "biology30-b",
+      "projectSlug": "biology30-unit-b",
+      "title": "Biology 30 — Unit B: Reproduction and Development",
+      "deployedPath": "biology30-b/index.html",
+      "indexSha256": "9978e4f1e15fbfea4a1ef7fd07305c77c4e26b0613cf02c63d5a677e8ba32595"
+    },
+    {
+      "id": "biology30-c",
+      "projectSlug": "biology30-unit-c",
+      "title": "Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology",
+      "deployedPath": "biology30-c/index.html",
+      "indexSha256": "15ea556b7606d80646e34ad010604bde9e55d910de279db5da7430024fc8ac2b"
+    },
+    {
+      "id": "biology30-d",
+      "projectSlug": "biology30-unit-d",
+      "title": "Biology 30 — Unit D: Population and Community Dynamics",
+      "deployedPath": "biology30-d/index.html",
+      "indexSha256": "2e3f6eeaa864cb304dd277b661c7ce0095f5fa55a3d4b6b13b2dcc1a2f9d5f9f"
+    },
+    {
+      "id": "biology20-a",
+      "projectSlug": "biology20-unit-a",
+      "title": "Biology 20 — Unit A: Energy and Matter Exchange in the Biosphere",
+      "deployedPath": "biology20-a/index.html",
+      "indexSha256": "50d201049674a94a64715d0742e221e80b015b917701ec05d3d6431ffd44a22f"
+    }
+  ],
+  "selector": {
+    "source": "projects/biology30-unit-a-pilot-2/meta/review-selector/index.html",
+    "deployedPath": "index.html",
+    "indexSha256": "fc1bf4a22a07d4f49c9feba14f10eef59f2ec0704f24c75ecc44e976c19ac921"
+  },
+  "scope": {
+    "teacherReviewOnly": true,
+    "learnerRelease": false,
+    "doesNotAuthorize": ["SCORM export", "Brightspace upload", "promotion to production", "Studio editing"]
+  },
+  "knownRisks": [
+    "Firebase Hosting is publicly accessible; share the link only with intended reviewers.",
+    "Each course remains canonical in its own workspace; the selector is a deployment wrapper only."
+  ]
+}

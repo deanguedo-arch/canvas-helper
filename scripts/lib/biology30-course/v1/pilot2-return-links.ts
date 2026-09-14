@@ -13,7 +13,7 @@ export function mountTopicReturnLinks(root:HTMLElement, routes:string[]) {
       while(parent&&parent!==root){if(parent instanceof HTMLDetailsElement)parent.open=true;parent=parent.parentElement;}
       const visible=(node:HTMLElement)=>!node.closest('[hidden]')&&node.getClientRects().length>0;
       const field=target.matches('input,textarea,select,button,a[href]')&&visible(target)?target:[...target.querySelectorAll<HTMLElement>('textarea,input,select'),...target.querySelectorAll<HTMLElement>('button,a[href]')].find(visible);
-      const focus=field??target;if(!field&&!focus.hasAttribute('tabindex'))focus.tabIndex=-1;focus.focus();focus.scrollIntoView({block:'center'});frame=null;pending=null;
+      const reading=target.hasAttribute('data-p2-reading-target'),focus=reading?target:field??target;if((reading||!field)&&!focus.hasAttribute('tabindex'))focus.tabIndex=-1;focus.focus();focus.scrollIntoView({block:'center'});frame=null;pending=null;
     });
   };
   const onClick=(event:Event)=>{

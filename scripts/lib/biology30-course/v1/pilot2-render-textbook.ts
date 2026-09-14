@@ -6,7 +6,7 @@ export type TopicTextbookQuestion = {
   teachingPartId:string;teachingTargetId:string;teachingTopicId:string;prerequisitePartIds?:string[];prerequisiteTargetIds?:string[];furtherReadingPartIds?:string[];
   preAttemptContext?:string;preAttemptSourceNotice?:string;attemptRequiredToReveal:boolean;countsForRequiredCompletion:boolean;
 };
-export function renderTopicTeachingLink(contract:TopicContract,partId:string,labelPrefix="Review") {
+export function renderTopicTeachingLink(contract:Pick<TopicContract,'topics'>,partId:string,labelPrefix="Review") {
   const topic=contract.topics.find(topic=>topic.parts.some(part=>part.id===partId)),part=topic?.parts.find(part=>part.id===partId);
   if(!topic||!part)throw new Error(`Missing teaching return target: ${partId}`);
   return `<a href="#${h(topic.id)}" data-pilot2-return-route="${h(topic.id)}" data-pilot2-return-focus="${h(partId)}-teaching">${h(labelPrefix)}: ${h(part.title)}</a>`;

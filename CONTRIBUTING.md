@@ -31,6 +31,7 @@ Examples:
 - Studio direct-edit changes: `npm run test:course-editing`, `npm run test:studio-inspection`, `npm run verify:course-editing-pilots`, the focused direct-edit browser scenario, and the complete Studio release gate before publishing
 - Direct-edit exporter evidence changes: run `npm run test:exports` in addition to the Direct Editing floor
 - Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
+- SCORM exporter/bridge tracking changes: run `npm run test:scorm` and `npm run test:e2e:scorm`; retain the shared-UI smoke gate when learner controls or navigation behavior change. Generated tracking reports describe connected capabilities, not live Brightspace acceptance. See `docs/workflows/scorm-tracking.md` for the versioned workspace contract and LMS verification boundary.
 - Canvas Studio release candidates: `npm run test:studio-release`; do not replace its isolated port, local-tool, `forbidOnly`, full-inspection, smoke, or strict-project gates with a reused development server
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
 - Authoring enforcement changes: targeted deviation/preference tests plus `npm.cmd run typecheck`

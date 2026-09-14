@@ -1,0 +1,2643 @@
+{
+  "schemaVersion": 1,
+  "status": "word-specific content authored; final candidate verification required",
+  "words": [
+    {
+      "id": "d-term-population",
+      "term": "population",
+      "categoryIds": [
+        "d-family-gene-pools"
+      ],
+      "definition": "A defined group of organisms of one species in a stated place and time; its boundary includes the individuals being counted or studied.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Population is the group noun; population-level distinguishes group measurements from an individual's characteristics."
+      },
+      "whatItDoes": "A stated boundary determines which births, deaths and movements enter the count.",
+      "relatedTermIds": [
+        "d-term-gene-pool",
+        "d-term-allele",
+        "d-term-genotype"
+      ],
+      "commonConfusion": "A community includes multiple species, unlike one population.",
+      "retrievalPrompt": "Why must place and time be stated before comparing two population counts?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-population",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-gene-pool",
+      "term": "gene pool",
+      "categoryIds": [
+        "d-family-gene-pools"
+      ],
+      "definition": "All allele copies at all loci in a defined population.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Pool is a collection metaphor; gene identifies the inherited variants being considered."
+      },
+      "whatItDoes": "Allele copies enter frequency calculations across the defined population.",
+      "relatedTermIds": [
+        "d-term-population",
+        "d-term-allele",
+        "d-term-genotype"
+      ],
+      "commonConfusion": "A gene pool is not one individual's genotype.",
+      "retrievalPrompt": "How can two individuals contribute different allele combinations to the same pool?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-gene-pool",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-allele",
+      "term": "allele",
+      "categoryIds": [
+        "d-family-gene-pools"
+      ],
+      "definition": "One of two or more DNA-sequence versions at a gene or locus.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Allele is the noun; allelic is its adjective, referring to a sequence version at a locus."
+      },
+      "whatItDoes": "Counting each copy allows allele frequencies to be calculated.",
+      "relatedTermIds": [
+        "d-term-population",
+        "d-term-gene-pool",
+        "d-term-genotype"
+      ],
+      "commonConfusion": "A dominant allele need not be the most frequent.",
+      "retrievalPrompt": "How many A copies do AA and Aa individuals each contribute?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-allele",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-genotype",
+      "term": "genotype",
+      "categoryIds": [
+        "d-family-gene-pools"
+      ],
+      "definition": "The allele combination an organism or cell carries at one or more loci.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Genotype names allele constitution; genotypic is the adjective."
+      },
+      "whatItDoes": "Genotype counts determine how many copies of each allele are present.",
+      "relatedTermIds": [
+        "d-term-population",
+        "d-term-gene-pool",
+        "d-term-allele"
+      ],
+      "commonConfusion": "A phenotype may correspond to more than one genotype.",
+      "retrievalPrompt": "Why can a dominant phenotype hide two genotypes?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-genotype",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-p",
+      "term": "p",
+      "categoryIds": [
+        "d-family-hardy-weinberg-model"
+      ],
+      "definition": "The frequency assigned to one of two alleles in a Hardy-Weinberg model.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "An italic mathematical symbol defined by the model, not an allele's name."
+      },
+      "whatItDoes": "It records the fraction of copies assigned to one allele.",
+      "relatedTermIds": [
+        "d-term-q",
+        "d-term-p-squared",
+        "d-term-2pq",
+        "d-term-q-squared"
+      ],
+      "commonConfusion": "p is not automatically the proportion showing a dominant phenotype.",
+      "retrievalPrompt": "What denominator belongs in a calculation of p?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-p",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-q",
+      "term": "q",
+      "categoryIds": [
+        "d-family-hardy-weinberg-model"
+      ],
+      "definition": "The frequency assigned to the second of two alleles in a Hardy-Weinberg model, where p + q = 1.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A mathematical symbol for the other allele frequency in a two-allele model."
+      },
+      "whatItDoes": "With two alleles, it is one minus p.",
+      "relatedTermIds": [
+        "d-term-p",
+        "d-term-p-squared",
+        "d-term-2pq",
+        "d-term-q-squared"
+      ],
+      "commonConfusion": "q squared, not q, is the expected recessive homozygote frequency.",
+      "retrievalPrompt": "If p is 0.7, what is q and why?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-q",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-p-squared",
+      "term": "p squared",
+      "categoryIds": [
+        "d-family-hardy-weinberg-model"
+      ],
+      "definition": "The Hardy–Weinberg expected frequency of AA, equal to p × p; p is the frequency of allele A, not an allele name.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Read p-squared: the exponent means p multiplied by p."
+      },
+      "whatItDoes": "It predicts the homozygote frequency under random allele union.",
+      "relatedTermIds": [
+        "d-term-p",
+        "d-term-q",
+        "d-term-2pq",
+        "d-term-q-squared"
+      ],
+      "commonConfusion": "It is not the observed AA count unless multiplied by population size and interpreted appropriately.",
+      "retrievalPrompt": "Why does multiplying p by p represent two copies of the same allele?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-p-squared",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-2pq",
+      "term": "2pq",
+      "categoryIds": [
+        "d-family-hardy-weinberg-model"
+      ],
+      "definition": "The Hardy-Weinberg expected frequency of heterozygotes when two alleles have frequencies p and q.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Read two-p-q: twice the product of p and q."
+      },
+      "whatItDoes": "It combines the two parental allele-origin arrangements producing heterozygotes.",
+      "relatedTermIds": [
+        "d-term-p",
+        "d-term-q",
+        "d-term-p-squared",
+        "d-term-q-squared"
+      ],
+      "commonConfusion": "The two arrangements are not two different heterozygote genotypes.",
+      "retrievalPrompt": "Why is there a factor of two?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-2pq",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-q-squared",
+      "term": "q squared",
+      "categoryIds": [
+        "d-family-hardy-weinberg-model"
+      ],
+      "definition": "The Hardy–Weinberg expected frequency of aa, equal to q × q; q is the frequency of allele a, not an allele name.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Read q-squared, the product q times q."
+      },
+      "whatItDoes": "It predicts the second homozygote class under the model.",
+      "relatedTermIds": [
+        "d-term-p",
+        "d-term-q",
+        "d-term-p-squared",
+        "d-term-2pq"
+      ],
+      "commonConfusion": "Taking q squared as q overestimates or misstates allele frequency.",
+      "retrievalPrompt": "If recessive homozygotes are 0.09 under equilibrium, what is q?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-q-squared",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-large-population",
+      "term": "large population",
+      "categoryIds": [
+        "d-family-equilibrium-assumptions"
+      ],
+      "definition": "A model condition in which random sampling has a relatively small effect on allele frequencies; it is an approximation, not a fixed universal head count.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Large modifies population relative to the importance of random sampling, not a universal numerical cutoff."
+      },
+      "whatItDoes": "Large breeding populations reduce random allele-frequency fluctuations.",
+      "relatedTermIds": [
+        "d-term-random-mating",
+        "d-term-no-migration",
+        "d-term-no-mutation",
+        "d-term-no-selection"
+      ],
+      "commonConfusion": "A large census may conceal a small breeding population.",
+      "retrievalPrompt": "Why might a population with many juveniles still experience appreciable drift?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-large-population",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-random-mating",
+      "term": "random mating",
+      "categoryIds": [
+        "d-family-equilibrium-assumptions",
+        "d-family-nonrandom-mating"
+      ],
+      "definition": "Mating in which genotype at the focal locus does not affect partner choice or gamete union.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Random modifies mating with respect to the locus being modelled."
+      },
+      "whatItDoes": "It supports the genotype proportions expected from allele frequencies.",
+      "relatedTermIds": [
+        "d-term-large-population",
+        "d-term-no-migration",
+        "d-term-no-mutation",
+        "d-term-no-selection"
+      ],
+      "commonConfusion": "Random mating alone does not prevent migration or selection.",
+      "retrievalPrompt": "Why can nonrandom mating alter genotype proportions without immediately changing allele frequencies?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-random-mating",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-no-migration",
+      "term": "no migration",
+      "categoryIds": [
+        "d-family-equilibrium-assumptions"
+      ],
+      "definition": "An equilibrium assumption that no allele copies enter or leave through movement of reproducing individuals or gametes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "No negates migration, movement into or out of the defined population."
+      },
+      "whatItDoes": "Absence of migrants prevents this route of allele entry or loss.",
+      "relatedTermIds": [
+        "d-term-large-population",
+        "d-term-random-mating",
+        "d-term-no-mutation",
+        "d-term-no-selection"
+      ],
+      "commonConfusion": "Migration only changes frequencies if its genetic contribution changes allele proportions.",
+      "retrievalPrompt": "Why must the population boundary be specified?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-no-migration",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-no-mutation",
+      "term": "no mutation",
+      "categoryIds": [
+        "d-family-equilibrium-assumptions"
+      ],
+      "definition": "An equilibrium assumption that no new allele changes affect the locus over the modelled interval.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "No negates mutation, a change in DNA sequence."
+      },
+      "whatItDoes": "It excludes creation or conversion of alleles from the model.",
+      "relatedTermIds": [
+        "d-term-large-population",
+        "d-term-random-mating",
+        "d-term-no-migration",
+        "d-term-no-selection"
+      ],
+      "commonConfusion": "Mutation-free is an assumption, not a claim that real DNA never changes.",
+      "retrievalPrompt": "What part of an allele-frequency model does mutation introduce?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-no-mutation",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-no-selection",
+      "term": "no selection",
+      "categoryIds": [
+        "d-family-equilibrium-assumptions"
+      ],
+      "definition": "An equilibrium assumption that the compared genotypes do not differ in survival or reproductive contribution.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "No negates selection, differential reproductive contribution."
+      },
+      "whatItDoes": "It assumes genotype does not cause different successful contributions to the next generation.",
+      "relatedTermIds": [
+        "d-term-large-population",
+        "d-term-random-mating",
+        "d-term-no-migration",
+        "d-term-no-mutation"
+      ],
+      "commonConfusion": "Equal survival alone does not establish equal reproduction.",
+      "retrievalPrompt": "Why must reproductive success also be considered?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-no-selection",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-recessive-phenotype",
+      "term": "recessive phenotype",
+      "categoryIds": [
+        "d-family-conditional-genetic-inference"
+      ],
+      "definition": "The specified phenotype expressed by a homozygous recessive genotype in a complete-dominance model.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Phenotype names the observed trait; recessive specifies its expression relationship."
+      },
+      "whatItDoes": "Under the simple fully penetrant model it identifies recessive homozygotes.",
+      "relatedTermIds": [
+        "d-term-square-root",
+        "d-term-heterozygote",
+        "d-term-frequency-sum"
+      ],
+      "commonConfusion": "Incomplete penetrance or a different inheritance model breaks that inference.",
+      "retrievalPrompt": "What assumptions let a phenotype count estimate q squared?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-recessive-phenotype",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-solving-and-checking"
+      ]
+    },
+    {
+      "id": "d-term-square-root",
+      "term": "square root",
+      "categoryIds": [
+        "d-family-conditional-genetic-inference"
+      ],
+      "definition": "A value which, multiplied by itself, gives the original number; q is the nonnegative square root of q².",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Root names the inverse operation to squaring; take the nonnegative root for a frequency."
+      },
+      "whatItDoes": "It converts an equilibrium homozygote proportion to its allele frequency.",
+      "relatedTermIds": [
+        "d-term-recessive-phenotype",
+        "d-term-heterozygote",
+        "d-term-frequency-sum"
+      ],
+      "commonConfusion": "The method is conditional on the genetic model, not a universal operation on phenotype counts.",
+      "retrievalPrompt": "Why is the negative square root inappropriate for allele frequency?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-square-root",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-solving-and-checking"
+      ]
+    },
+    {
+      "id": "d-term-heterozygote",
+      "term": "heterozygote",
+      "categoryIds": [
+        "d-family-conditional-genetic-inference"
+      ],
+      "definition": "An individual or cell carrying two different alleles at a locus in the diploid model.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hetero- means different; the noun names an individual carrying different alleles at the locus."
+      },
+      "whatItDoes": "It contributes one copy of each allele in a two-allele count.",
+      "relatedTermIds": [
+        "d-term-recessive-phenotype",
+        "d-term-square-root",
+        "d-term-frequency-sum"
+      ],
+      "commonConfusion": "A heterozygote is not a third allele.",
+      "retrievalPrompt": "How does one heterozygote enter both allele tallies?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-heterozygote",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-frequency-sum",
+      "term": "frequency sum",
+      "categoryIds": [
+        "d-family-conditional-genetic-inference"
+      ],
+      "definition": "The frequencies of mutually exclusive categories that together cover the whole population or gene pool must add to one.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sum indicates addition; frequency identifies proportions using compatible denominators."
+      },
+      "whatItDoes": "The complete mutually exclusive allele classes sum to one.",
+      "relatedTermIds": [
+        "d-term-recessive-phenotype",
+        "d-term-square-root",
+        "d-term-heterozygote"
+      ],
+      "commonConfusion": "Allele and genotype frequencies are different partitions and should not be mixed in one sum.",
+      "retrievalPrompt": "Why does p plus q equal one only for the specified two-allele inventory?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-frequency-sum",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-observed",
+      "term": "observed",
+      "categoryIds": [
+        "d-family-population-evidence"
+      ],
+      "definition": "Actually recorded in the specified dataset, rather than predicted by a model.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The past-participle adjective identifies recorded data rather than a prediction."
+      },
+      "whatItDoes": "Observed counts provide the data against which a model is compared.",
+      "relatedTermIds": [
+        "d-term-expected",
+        "d-term-sample",
+        "d-term-equilibrium"
+      ],
+      "commonConfusion": "Observed does not mean measured without error.",
+      "retrievalPrompt": "What observation would you collect to test predicted genotype proportions?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-observed",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-expected",
+      "term": "expected",
+      "categoryIds": [
+        "d-family-population-evidence"
+      ],
+      "definition": "Predicted under a stated model and its assumptions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The adjective identifies a model-derived value rather than a guaranteed outcome."
+      },
+      "whatItDoes": "Expected frequencies provide a comparison for the actual sample.",
+      "relatedTermIds": [
+        "d-term-observed",
+        "d-term-sample",
+        "d-term-equilibrium"
+      ],
+      "commonConfusion": "A small mismatch alone does not prove selection.",
+      "retrievalPrompt": "Why can a finite sample differ from expected counts?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-expected",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-sample",
+      "term": "sample",
+      "categoryIds": [
+        "d-family-population-evidence"
+      ],
+      "definition": "A selected subset of observations used to investigate a larger population or process.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sample names a subset; sampled is the participle."
+      },
+      "whatItDoes": "It makes estimation possible without measuring every member.",
+      "relatedTermIds": [
+        "d-term-observed",
+        "d-term-expected",
+        "d-term-equilibrium"
+      ],
+      "commonConfusion": "A convenient sample may not represent the population.",
+      "retrievalPrompt": "How could sampling one family distort an allele estimate?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-sample",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-equilibrium",
+      "term": "equilibrium",
+      "categoryIds": [
+        "d-family-population-evidence"
+      ],
+      "definition": "A model state in which the relevant population quantities remain stable under specified conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A condition noun; equilibrium frequencies remain stable under the stated assumptions."
+      },
+      "whatItDoes": "It provides a null model for allele stability and genotype proportions.",
+      "relatedTermIds": [
+        "d-term-observed",
+        "d-term-expected",
+        "d-term-sample"
+      ],
+      "commonConfusion": "Equilibrium does not mean individual organisms stop changing.",
+      "retrievalPrompt": "What remains stable in Hardy–Weinberg equilibrium?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-equilibrium",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-populations-and-allele-counts"
+      ]
+    },
+    {
+      "id": "d-term-mutation",
+      "term": "mutation",
+      "categoryIds": [
+        "d-family-mutation"
+      ],
+      "definition": "A change in DNA sequence that can create a new allele; its contribution to a breeding gene pool depends on transmission through reproduction.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mutation is the change noun; mutational is the adjective."
+      },
+      "whatItDoes": "Sequence changes introduce new alleles or convert existing ones.",
+      "relatedTermIds": [
+        "d-term-variation"
+      ],
+      "commonConfusion": "Mutations do not arise because an organism needs a particular adaptation.",
+      "retrievalPrompt": "How can mutation supply variation before a new pressure appears?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-mutation",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-variation",
+      "term": "variation",
+      "categoryIds": [
+        "d-family-mutation"
+      ],
+      "definition": "Differences among organisms arising from genetic recombination, mutation, development, and environmental context.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Variation names differences; variable is the related adjective."
+      },
+      "whatItDoes": "Inherited differences provide alternative phenotypes on which selection can act.",
+      "relatedTermIds": [
+        "d-term-mutation"
+      ],
+      "commonConfusion": "Not all variation is inherited.",
+      "retrievalPrompt": "Why does selection require relevant heritable variation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-variation",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-a-model-and-its-limits"
+      ]
+    },
+    {
+      "id": "d-term-natural-selection",
+      "term": "natural selection",
+      "categoryIds": [
+        "d-family-natural-selection"
+      ],
+      "definition": "Differential reproductive contribution caused by heritable phenotypic differences in an environment.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Selection names differential success; natural distinguishes the context from selective breeding."
+      },
+      "whatItDoes": "Heritable variants associated with reproductive success become differently represented.",
+      "relatedTermIds": [
+        "d-term-relative-fitness",
+        "d-term-selection-pressure"
+      ],
+      "commonConfusion": "Individuals do not evolve a needed allele by trying.",
+      "retrievalPrompt": "How can a pre-existing resistance allele increase after treatment?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-natural-selection",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-a-model-and-its-limits"
+      ]
+    },
+    {
+      "id": "d-term-relative-fitness",
+      "term": "relative fitness",
+      "categoryIds": [
+        "d-family-natural-selection"
+      ],
+      "definition": "Relative reproductive contribution to future generations in a particular environment.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Relative makes fitness comparative; fitness here concerns reproductive contribution."
+      },
+      "whatItDoes": "Comparing successful descendants links phenotype to allele-frequency change.",
+      "relatedTermIds": [
+        "d-term-natural-selection",
+        "d-term-selection-pressure"
+      ],
+      "commonConfusion": "Physical strength is not the definition of evolutionary fitness.",
+      "retrievalPrompt": "Can a less strong organism have higher fitness in a particular environment?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-relative-fitness",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-mutation-and-selection"
+      ]
+    },
+    {
+      "id": "d-term-genetic-drift",
+      "term": "genetic drift",
+      "categoryIds": [
+        "d-family-genetic-drift"
+      ],
+      "definition": "Random allele-frequency change caused by finite sampling across generations.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Drift is a random-change metaphor; genetic identifies allele-frequency change."
+      },
+      "whatItDoes": "Finite sampling of reproducing copies shifts frequencies by chance.",
+      "relatedTermIds": [
+        "d-term-time-series"
+      ],
+      "commonConfusion": "Drift is not directional improvement.",
+      "retrievalPrompt": "Why is chance more influential in a small breeding population?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-genetic-drift",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-chance-and-population-size"
+      ]
+    },
+    {
+      "id": "d-term-bottleneck",
+      "term": "bottleneck",
+      "categoryIds": [
+        "d-family-bottleneck-and-founder-effects"
+      ],
+      "definition": "Genetic drift caused by a sharp population reduction that leaves an unrepresentative gene pool.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A narrow-neck metaphor for a sharp population reduction."
+      },
+      "whatItDoes": "The survivors carry a chance subset of earlier genetic variation.",
+      "relatedTermIds": [
+        "d-term-founder-effect"
+      ],
+      "commonConfusion": "Recovery in numbers does not automatically restore lost alleles.",
+      "retrievalPrompt": "Why can a recovered population retain reduced diversity?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-bottleneck",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-chance-and-population-size"
+      ]
+    },
+    {
+      "id": "d-term-founder-effect",
+      "term": "founder effect",
+      "categoryIds": [
+        "d-family-bottleneck-and-founder-effects"
+      ],
+      "definition": "Genetic drift when a new population begins from a small, unrepresentative group.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Founder identifies colonists; effect names the genetic consequence of their small starting sample."
+      },
+      "whatItDoes": "New populations can begin with unusual allele frequencies.",
+      "relatedTermIds": [
+        "d-term-bottleneck"
+      ],
+      "commonConfusion": "Founders need not be better adapted than the source population.",
+      "retrievalPrompt": "Why can a rare source allele become common in a new colony?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-founder-effect",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-chance-and-population-size"
+      ]
+    },
+    {
+      "id": "d-term-gene-flow",
+      "term": "gene flow",
+      "categoryIds": [
+        "d-family-gene-flow"
+      ],
+      "definition": "Transfer of alleles among populations when migrants or their gametes reproduce.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Flow is movement; gene identifies the transferred genetic contribution."
+      },
+      "whatItDoes": "Successful migrants or gametes introduce allele copies across population boundaries.",
+      "relatedTermIds": [
+        "d-term-migration"
+      ],
+      "commonConfusion": "Movement without reproduction need not contribute gene flow.",
+      "retrievalPrompt": "Why might a visiting animal produce no gene flow?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-gene-flow",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-migration",
+      "term": "migration",
+      "categoryIds": [
+        "d-family-gene-flow"
+      ],
+      "definition": "Movement into or out of a population; it produces gene flow when it changes the breeding gene pool.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Migration is movement; immigration and emigration specify direction relative to a boundary."
+      },
+      "whatItDoes": "Movement changes counts and potentially the gene pool.",
+      "relatedTermIds": [
+        "d-term-gene-flow"
+      ],
+      "commonConfusion": "The same movement is immigration for one population and emigration for another.",
+      "retrievalPrompt": "How would you classify one animal's move in the source and destination populations?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-migration",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-nonrandom-mating",
+      "term": "nonrandom mating",
+      "categoryIds": [
+        "d-family-nonrandom-mating"
+      ],
+      "definition": "Mating in which pairings are not independent of the relevant traits or genotypes; it can change genotype proportions without initially changing allele frequencies.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Non- negates random with respect to the traits or loci in question."
+      },
+      "whatItDoes": "Mate associations can change genotype proportions.",
+      "relatedTermIds": [
+        "d-term-random-mating"
+      ],
+      "commonConfusion": "A change in heterozygosity is not necessarily an immediate allele-frequency change.",
+      "retrievalPrompt": "How can mating among relatives alter homozygosity?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-nonrandom-mating",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-movement-and-mating"
+      ]
+    },
+    {
+      "id": "d-term-antibiotic-resistance",
+      "term": "antibiotic resistance",
+      "categoryIds": [
+        "d-family-resistance"
+      ],
+      "definition": "The capacity of a bacterial lineage to persist under an antibiotic exposure that inhibits susceptible lineages.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Resistance is reduced susceptibility; antibiotic identifies the agent acting on bacteria."
+      },
+      "whatItDoes": "Resistant variants can leave more descendants during treatment.",
+      "relatedTermIds": [
+        "d-term-herbicide-resistance"
+      ],
+      "commonConfusion": "A patient does not acquire the bacterial resistance genotype.",
+      "retrievalPrompt": "Which population is evolving when antibiotic resistance increases?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-antibiotic-resistance",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-resistance-and-evidence"
+      ]
+    },
+    {
+      "id": "d-term-herbicide-resistance",
+      "term": "herbicide resistance",
+      "categoryIds": [
+        "d-family-resistance"
+      ],
+      "definition": "The capacity of a plant lineage to survive a herbicide exposure that inhibits susceptible lineages.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Resistance names reduced susceptibility; herbicide identifies the weed-control agent."
+      },
+      "whatItDoes": "Resistant plant variants can reproduce after susceptible plants are removed.",
+      "relatedTermIds": [
+        "d-term-antibiotic-resistance"
+      ],
+      "commonConfusion": "The chemical need not create the particular useful mutation.",
+      "retrievalPrompt": "How could resistance exist before herbicide application?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-herbicide-resistance",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-resistance-and-evidence"
+      ]
+    },
+    {
+      "id": "d-term-selection-pressure",
+      "term": "selection pressure",
+      "categoryIds": [
+        "d-family-natural-selection"
+      ],
+      "definition": "An environmental condition associated with differences in survival or reproductive success among heritable variants.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Pressure is a causal metaphor for conditions affecting relative reproductive success."
+      },
+      "whatItDoes": "It changes which existing variants tend to contribute descendants.",
+      "relatedTermIds": [
+        "d-term-natural-selection",
+        "d-term-relative-fitness"
+      ],
+      "commonConfusion": "A pressure does not specify the mutation that will appear.",
+      "retrievalPrompt": "Why might the same trait be beneficial in one environment but costly in another?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-selection-pressure",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-mutation-and-selection"
+      ]
+    },
+    {
+      "id": "d-term-replicate",
+      "term": "replicate",
+      "categoryIds": [
+        "d-topic-mechanisms-of-change-additional-words"
+      ],
+      "definition": "An independent repetition or sample under a defined condition used to assess variation and reliability.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Replicate is a repeat noun or verb; replication here means repeated experimental units."
+      },
+      "whatItDoes": "Independent repeats reveal variation in outcomes.",
+      "relatedTermIds": [
+        "d-term-control",
+        "d-term-alternative-explanation",
+        "d-term-sexual-selection"
+      ],
+      "commonConfusion": "Repeated readings from one unit are not always independent replicates.",
+      "retrievalPrompt": "Why compare several independently treated populations?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-replicate",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-mutation-and-selection"
+      ]
+    },
+    {
+      "id": "d-term-control",
+      "term": "control",
+      "categoryIds": [
+        "d-topic-mechanisms-of-change-additional-words"
+      ],
+      "definition": "A comparison condition or regulated variable used to make an investigation interpretable.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Control names a comparison condition, not the act of forcing a desired result."
+      },
+      "whatItDoes": "A suitable comparison helps isolate the tested factor.",
+      "relatedTermIds": [
+        "d-term-replicate",
+        "d-term-alternative-explanation",
+        "d-term-sexual-selection"
+      ],
+      "commonConfusion": "A control cannot remove every possible source of bias.",
+      "retrievalPrompt": "What should differ between treatment and control populations?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-control",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-resistance-and-evidence"
+      ]
+    },
+    {
+      "id": "d-term-time-series",
+      "term": "time series",
+      "categoryIds": [
+        "d-family-genetic-drift"
+      ],
+      "definition": "Measurements of a specified quantity at multiple stated times.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Series means ordered observations; time specifies the ordering variable."
+      },
+      "whatItDoes": "Repeated measurements show trajectories rather than only endpoints.",
+      "relatedTermIds": [
+        "d-term-genetic-drift"
+      ],
+      "commonConfusion": "Successive observations are not automatically independent.",
+      "retrievalPrompt": "What can several time points show that a before-and-after pair cannot?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-time-series",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-testing-explanations"
+      ]
+    },
+    {
+      "id": "d-term-alternative-explanation",
+      "term": "alternative explanation",
+      "categoryIds": [
+        "d-topic-mechanisms-of-change-additional-words"
+      ],
+      "definition": "Another mechanism that could account for the observations and should be tested or qualified.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Alternative identifies another account of the same observation."
+      },
+      "whatItDoes": "Comparing predictions helps distinguish selection, drift and migration.",
+      "relatedTermIds": [
+        "d-term-replicate",
+        "d-term-control",
+        "d-term-sexual-selection"
+      ],
+      "commonConfusion": "A plausible account is not automatically supported by the available data.",
+      "retrievalPrompt": "What additional evidence could separate drift from selection?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-alternative-explanation",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-resistance-and-evidence"
+      ]
+    },
+    {
+      "id": "d-term-population-size",
+      "term": "population size",
+      "categoryIds": [
+        "d-family-density-and-distribution"
+      ],
+      "definition": "The number of individuals, N, inside a defined population boundary.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Size is the number of organisms, not their body dimensions."
+      },
+      "whatItDoes": "It is the starting quantity for balance and density calculations.",
+      "relatedTermIds": [
+        "d-term-area",
+        "d-term-density",
+        "d-term-distribution"
+      ],
+      "commonConfusion": "Size and density are not interchangeable without area or volume.",
+      "retrievalPrompt": "Can two populations have equal sizes but different densities?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-population-size",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-area",
+      "term": "area",
+      "categoryIds": [
+        "d-family-density-and-distribution"
+      ],
+      "definition": "The two-dimensional extent of a region, measured in square units.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Area measures a two-dimensional extent, usually with squared units."
+      },
+      "whatItDoes": "Dividing count by area gives areal density.",
+      "relatedTermIds": [
+        "d-term-population-size",
+        "d-term-density",
+        "d-term-distribution"
+      ],
+      "commonConfusion": "Area is not volume or transect length.",
+      "retrievalPrompt": "What units result from dividing 80 organisms by 20 square metres?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-area",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-allele-and-genotype-frequencies"
+      ]
+    },
+    {
+      "id": "d-term-density",
+      "term": "density",
+      "categoryIds": [
+        "d-family-density-and-distribution"
+      ],
+      "definition": "The number of individuals per unit area or volume.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Density names number per stated space; population density specifies organisms rather than mass."
+      },
+      "whatItDoes": "It standardizes counts across differently sized study areas.",
+      "relatedTermIds": [
+        "d-term-population-size",
+        "d-term-area",
+        "d-term-distribution"
+      ],
+      "commonConfusion": "Uniform average density does not prove uniform distribution.",
+      "retrievalPrompt": "Why can equal densities conceal different clustering?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-density",
+        "pilot2-instruction.json#d-topic-population-growth-size-and-density"
+      ]
+    },
+    {
+      "id": "d-term-distribution",
+      "term": "distribution",
+      "categoryIds": [
+        "d-family-density-and-distribution"
+      ],
+      "definition": "The spatial pattern of individuals, commonly described as clumped, uniform, or approximately random at a stated scale.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Distribution describes spatial arrangement; distributed is the participle."
+      },
+      "whatItDoes": "It distinguishes clumped, random and uniform patterns.",
+      "relatedTermIds": [
+        "d-term-population-size",
+        "d-term-area",
+        "d-term-density"
+      ],
+      "commonConfusion": "Distribution is not simply total number.",
+      "retrievalPrompt": "How might patchy resources create clumping?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-distribution",
+        "pilot2-instruction.json#d-topic-population-growth-size-and-density"
+      ]
+    },
+    {
+      "id": "d-term-quadrat",
+      "term": "quadrat",
+      "categoryIds": [
+        "d-family-sampling"
+      ],
+      "definition": "A defined sampling area used to count or measure organisms in a habitat.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A whole sampling-frame name; quadrats is plural."
+      },
+      "whatItDoes": "Counts in known-area samples can estimate density and abundance.",
+      "relatedTermIds": [
+        "d-term-transect",
+        "d-term-mark-recapture",
+        "d-term-representative-sample"
+      ],
+      "commonConfusion": "One conveniently placed frame may be biased.",
+      "retrievalPrompt": "How would you choose quadrat locations to reduce bias?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-quadrat",
+        "pilot2-instruction.json#d-topic-population-growth-sampling-populations"
+      ]
+    },
+    {
+      "id": "d-term-transect",
+      "term": "transect",
+      "categoryIds": [
+        "d-family-sampling"
+      ],
+      "definition": "A defined line or strip along which observations are collected across a habitat.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A whole sampling-line or belt name; transects is plural."
+      },
+      "whatItDoes": "Observations along a defined path reveal spatial change.",
+      "relatedTermIds": [
+        "d-term-quadrat",
+        "d-term-mark-recapture",
+        "d-term-representative-sample"
+      ],
+      "commonConfusion": "A line transect does not automatically sample all habitats equally.",
+      "retrievalPrompt": "Why might a shore-to-inland transect be informative?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-transect",
+        "pilot2-instruction.json#d-topic-population-growth-sampling-populations"
+      ]
+    },
+    {
+      "id": "d-term-mark-recapture",
+      "term": "mark-recapture",
+      "categoryIds": [
+        "d-family-sampling"
+      ],
+      "definition": "A sampling method that estimates population size from marked individuals later recaptured in a second sample.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The hyphen joins the two stages: marking and later recapturing."
+      },
+      "whatItDoes": "The recaptured marked fraction estimates the initial marked fraction of the population.",
+      "relatedTermIds": [
+        "d-term-quadrat",
+        "d-term-transect",
+        "d-term-representative-sample"
+      ],
+      "commonConfusion": "Marks lost or unequal capture probability can bias the estimate.",
+      "retrievalPrompt": "Why must marked individuals mix before recapture?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-mark-recapture",
+        "pilot2-instruction.json#d-topic-population-growth-sampling-populations"
+      ]
+    },
+    {
+      "id": "d-term-representative-sample",
+      "term": "representative sample",
+      "categoryIds": [
+        "d-family-sampling"
+      ],
+      "definition": "A sample selected in a way that supports inference to the intended population without known systematic bias.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Representative qualifies how well the sample reflects relevant population variation."
+      },
+      "whatItDoes": "Coverage of habitat and groups supports generalization.",
+      "relatedTermIds": [
+        "d-term-quadrat",
+        "d-term-transect",
+        "d-term-mark-recapture"
+      ],
+      "commonConfusion": "Large size alone does not guarantee representativeness.",
+      "retrievalPrompt": "How could a large roadside sample still be biased?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-representative-sample",
+        "pilot2-instruction.json#d-topic-population-growth-sampling-populations"
+      ]
+    },
+    {
+      "id": "d-term-natality",
+      "term": "natality",
+      "categoryIds": [
+        "d-family-population-balance"
+      ],
+      "definition": "Births adding individuals to a population during a stated interval.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Natality names births; natal is the birth-related adjective."
+      },
+      "whatItDoes": "Births add individuals to population balance.",
+      "relatedTermIds": [
+        "d-term-mortality",
+        "d-term-immigration",
+        "d-term-emigration",
+        "d-term-open-population"
+      ],
+      "commonConfusion": "Birth count and birth rate require different units.",
+      "retrievalPrompt": "What must you add to a birth count to report a rate?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-natality",
+        "pilot2-instruction.json#d-topic-population-growth-four-demographic-processes"
+      ]
+    },
+    {
+      "id": "d-term-mortality",
+      "term": "mortality",
+      "categoryIds": [
+        "d-family-population-balance"
+      ],
+      "definition": "Deaths removing individuals from a population during a stated interval.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mortality names deaths; mortal is the related adjective."
+      },
+      "whatItDoes": "Deaths subtract individuals from population balance.",
+      "relatedTermIds": [
+        "d-term-natality",
+        "d-term-immigration",
+        "d-term-emigration",
+        "d-term-open-population"
+      ],
+      "commonConfusion": "Mortality rate is not necessarily the lifetime chance of dying.",
+      "retrievalPrompt": "Why must a mortality rate include a time interval?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-mortality",
+        "pilot2-instruction.json#d-topic-population-growth-four-demographic-processes"
+      ]
+    },
+    {
+      "id": "d-term-immigration",
+      "term": "immigration",
+      "categoryIds": [
+        "d-family-population-balance"
+      ],
+      "definition": "Movement into a population that adds individuals to its count.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Immigration specifies inward movement relative to the population boundary."
+      },
+      "whatItDoes": "Arrivals add individuals to an open population.",
+      "relatedTermIds": [
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-emigration",
+        "d-term-open-population"
+      ],
+      "commonConfusion": "Immigration is not birth.",
+      "retrievalPrompt": "Why must arrivals be counted separately from offspring born locally?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-immigration",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-emigration",
+      "term": "emigration",
+      "categoryIds": [
+        "d-family-population-balance"
+      ],
+      "definition": "Movement out of a population that removes individuals from its count.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Emigration specifies outward movement relative to the population boundary."
+      },
+      "whatItDoes": "Departures subtract individuals even if they remain alive.",
+      "relatedTermIds": [
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-immigration",
+        "d-term-open-population"
+      ],
+      "commonConfusion": "Emigration is not mortality.",
+      "retrievalPrompt": "How could local numbers fall without deaths?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-emigration",
+        "pilot2-instruction.json#d-topic-population-growth-four-demographic-processes"
+      ]
+    },
+    {
+      "id": "d-term-open-population",
+      "term": "open population",
+      "categoryIds": [
+        "d-family-population-balance"
+      ],
+      "definition": "A population whose size or gene pool can change through immigration and emigration as well as local births/deaths.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Open modifies population to allow exchange across its boundary."
+      },
+      "whatItDoes": "Births, deaths, immigration and emigration all enter its balance.",
+      "relatedTermIds": [
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-immigration",
+        "d-term-emigration"
+      ],
+      "commonConfusion": "Open does not mean unlimited resources.",
+      "retrievalPrompt": "Which balance terms can explain a local increase?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-open-population",
+        "pilot2-instruction.json#d-topic-population-growth-four-demographic-processes"
+      ]
+    },
+    {
+      "id": "d-term-closed-population",
+      "term": "closed population",
+      "categoryIds": [
+        "d-family-population-balance"
+      ],
+      "definition": "A model population with no immigration or emigration during the stated interval.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Closed specifies the no-migration assumption for the stated interval."
+      },
+      "whatItDoes": "Only births and deaths change its size in the simple balance.",
+      "relatedTermIds": [
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-immigration",
+        "d-term-emigration"
+      ],
+      "commonConfusion": "Closed does not mean no reproduction or death.",
+      "retrievalPrompt": "When might treating a population as closed be a poor assumption?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-closed-population",
+        "pilot2-instruction.json#d-topic-population-growth-sampling-populations"
+      ]
+    },
+    {
+      "id": "d-term-growth-rate",
+      "term": "growth rate",
+      "categoryIds": [
+        "d-family-growth-rates"
+      ],
+      "definition": "Change in population size divided by elapsed time, such as individuals per day.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Rate means change per time; growth can be positive or negative."
+      },
+      "whatItDoes": "Net change divided by elapsed time gives an absolute rate.",
+      "relatedTermIds": [
+        "d-term-per-capita-growth-rate",
+        "d-term-time-interval"
+      ],
+      "commonConfusion": "A negative growth rate is decline, not an impossible value.",
+      "retrievalPrompt": "What is the rate when 100 individuals become 80 in two years?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-growth-rate",
+        "pilot2-instruction.json#d-topic-population-growth-rates-and-denominators"
+      ]
+    },
+    {
+      "id": "d-term-per-capita-growth-rate",
+      "term": "per capita growth rate",
+      "categoryIds": [
+        "d-family-growth-rates"
+      ],
+      "definition": "In this curriculum, population change divided by the initial population over a stated interval; a time-normalized rate must be labelled separately.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Per capita means per individual; rate also requires a time basis."
+      },
+      "whatItDoes": "Dividing absolute change rate by the reference size enables proportional comparisons.",
+      "relatedTermIds": [
+        "d-term-growth-rate",
+        "d-term-time-interval"
+      ],
+      "commonConfusion": "The denominator and interval must be stated; it is not the raw change count.",
+      "retrievalPrompt": "Why can a small population have a higher per-capita rate despite a smaller absolute increase?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-per-capita-growth-rate",
+        "pilot2-instruction.json#d-topic-population-growth-rates-and-denominators"
+      ]
+    },
+    {
+      "id": "d-term-time-interval",
+      "term": "time interval",
+      "categoryIds": [
+        "d-family-growth-rates"
+      ],
+      "definition": "The elapsed duration between two defined observations.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Interval is the elapsed span between endpoints, not the final date alone."
+      },
+      "whatItDoes": "It converts changes into comparable rates.",
+      "relatedTermIds": [
+        "d-term-growth-rate",
+        "d-term-per-capita-growth-rate"
+      ],
+      "commonConfusion": "Mixing monthly and yearly rates without conversion is invalid.",
+      "retrievalPrompt": "How would you compare a monthly change with a yearly change?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-time-interval",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-movement-and-mating"
+      ]
+    },
+    {
+      "id": "d-term-biotic-potential",
+      "term": "biotic potential",
+      "categoryIds": [
+        "d-family-exponential-growth"
+      ],
+      "definition": "A population's capacity to increase under favourable conditions, before specified environmental limits reduce realized growth.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Biotic refers to living organisms; potential denotes a capacity under favourable conditions."
+      },
+      "whatItDoes": "Reproductive capacity sets a possible growth tendency.",
+      "relatedTermIds": [
+        "d-term-j-curve"
+      ],
+      "commonConfusion": "Potential is not the growth actually observed under constraints.",
+      "retrievalPrompt": "Why might actual growth be far below reproductive potential?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-biotic-potential",
+        "pilot2-instruction.json#d-topic-population-growth-exponential-and-logistic-models"
+      ]
+    },
+    {
+      "id": "d-term-environmental-resistance",
+      "term": "environmental resistance",
+      "categoryIds": [
+        "d-family-logistic-growth"
+      ],
+      "definition": "The combined limiting factors and losses that reduce realized population increase.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Resistance is the limiting effect; environmental identifies its source."
+      },
+      "whatItDoes": "Resource limits and adverse conditions reduce realized growth.",
+      "relatedTermIds": [
+        "d-term-carrying-capacity",
+        "d-term-s-curve"
+      ],
+      "commonConfusion": "It is not one fixed force identical in every habitat.",
+      "retrievalPrompt": "Which conditions could reduce a population's realized growth?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-environmental-resistance",
+        "pilot2-instruction.json#d-topic-population-growth-exponential-and-logistic-models"
+      ]
+    },
+    {
+      "id": "d-term-carrying-capacity",
+      "term": "carrying capacity",
+      "categoryIds": [
+        "d-family-logistic-growth"
+      ],
+      "definition": "The population size an environment can sustain over time under stated conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Capacity means supportable level; carrying is an ecological metaphor."
+      },
+      "whatItDoes": "Resource and interaction conditions constrain long-term support.",
+      "relatedTermIds": [
+        "d-term-environmental-resistance",
+        "d-term-s-curve"
+      ],
+      "commonConfusion": "K is not permanently fixed or a rigid ceiling never exceeded.",
+      "retrievalPrompt": "How could a drought change carrying capacity?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-carrying-capacity",
+        "pilot2-instruction.json#d-topic-population-growth-exponential-and-logistic-models"
+      ]
+    },
+    {
+      "id": "d-term-j-curve",
+      "term": "J curve",
+      "categoryIds": [
+        "d-family-exponential-growth"
+      ],
+      "definition": "The increasing population-size curve associated with exponential growth under stated favourable conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "J names the plotted shape; curve refers to population size against time."
+      },
+      "whatItDoes": "An exponential model can produce an accelerating J-shaped trajectory.",
+      "relatedTermIds": [
+        "d-term-biotic-potential"
+      ],
+      "commonConfusion": "The shape alone does not prove resources are unlimited.",
+      "retrievalPrompt": "What assumptions support an exponential projection?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-j-curve",
+        "pilot2-instruction.json#d-topic-population-growth-exponential-and-logistic-models"
+      ]
+    },
+    {
+      "id": "d-term-s-curve",
+      "term": "S curve",
+      "categoryIds": [
+        "d-family-logistic-growth"
+      ],
+      "definition": "The sigmoidal population-size curve associated with a simple logistic model approaching its carrying capacity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "S names the sigmoid shape of a population-versus-time graph."
+      },
+      "whatItDoes": "Logistic growth slows as the population approaches its modelled capacity.",
+      "relatedTermIds": [
+        "d-term-environmental-resistance",
+        "d-term-carrying-capacity"
+      ],
+      "commonConfusion": "Real populations need not follow a smooth S trajectory.",
+      "retrievalPrompt": "Where is logistic growth slowing and why?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-s-curve",
+        "pilot2-instruction.json#d-topic-population-growth-exponential-and-logistic-models"
+      ]
+    },
+    {
+      "id": "d-term-density-dependence",
+      "term": "density dependence",
+      "categoryIds": [
+        "d-family-limiting-factors"
+      ],
+      "definition": "A relationship in which an effect or per-capita rate changes as population density changes.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Dependence identifies an effect that changes with density."
+      },
+      "whatItDoes": "Crowding can strengthen competition or transmission.",
+      "relatedTermIds": [
+        "d-term-density-independence"
+      ],
+      "commonConfusion": "Not every factor affecting a population is density-dependent.",
+      "retrievalPrompt": "Why can infection spread more readily as contact rates increase?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-density-dependence",
+        "pilot2-instruction.json#d-topic-population-growth-exponential-and-logistic-models"
+      ]
+    },
+    {
+      "id": "d-term-density-independence",
+      "term": "density independence",
+      "categoryIds": [
+        "d-family-limiting-factors"
+      ],
+      "definition": "Describes an effect that is not systematically related to population density over the observed range.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Independence refers to the factor's effect not depending on population density in the model."
+      },
+      "whatItDoes": "Some physical disturbances affect populations regardless of crowding.",
+      "relatedTermIds": [
+        "d-term-density-dependence"
+      ],
+      "commonConfusion": "It does not mean every individual is affected identically.",
+      "retrievalPrompt": "How can a freeze act independently of crowding?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-density-independence",
+        "pilot2-instruction.json#d-topic-population-growth-feedback-and-changing-limits"
+      ]
+    },
+    {
+      "id": "d-term-overshoot",
+      "term": "overshoot",
+      "categoryIds": [
+        "d-family-delays-and-overshoot"
+      ],
+      "definition": "A temporary rise of population size above the environment’s current carrying capacity.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Over- indicates beyond; shoot is a trajectory metaphor here."
+      },
+      "whatItDoes": "Population size can temporarily exceed supportable conditions.",
+      "relatedTermIds": [
+        "d-term-time-lag",
+        "d-term-predator-prey-lag"
+      ],
+      "commonConfusion": "Overshoot does not establish a new sustainable capacity.",
+      "retrievalPrompt": "How can delayed feedback produce overshoot?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-overshoot",
+        "pilot2-instruction.json#d-topic-population-growth-feedback-and-changing-limits"
+      ]
+    },
+    {
+      "id": "d-term-time-lag",
+      "term": "time lag",
+      "categoryIds": [
+        "d-family-delays-and-overshoot"
+      ],
+      "definition": "A delay between a change in conditions and the resulting population response.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lag means delay; time identifies its duration."
+      },
+      "whatItDoes": "Delayed responses can sustain growth after conditions begin to deteriorate.",
+      "relatedTermIds": [
+        "d-term-overshoot",
+        "d-term-predator-prey-lag"
+      ],
+      "commonConfusion": "A delayed response is not necessarily no response.",
+      "retrievalPrompt": "Why might births continue after resources fall?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-time-lag",
+        "pilot2-instruction.json#d-topic-population-growth-feedback-and-changing-limits"
+      ]
+    },
+    {
+      "id": "d-term-r-selected",
+      "term": "r-selected",
+      "categoryIds": [
+        "d-family-life-histories"
+      ],
+      "definition": "A simplified life-history tendency toward earlier reproduction and many offspring under some changing or short-lived conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "r is a model growth parameter; selected is the historical strategy label."
+      },
+      "whatItDoes": "The label summarizes traits associated with rapid reproduction under some conditions.",
+      "relatedTermIds": [
+        "d-term-k-selected",
+        "d-term-fecundity",
+        "d-term-parental-investment"
+      ],
+      "commonConfusion": "It is a continuum shorthand, not two rigid species boxes.",
+      "retrievalPrompt": "Which traits could favour rapid colonization after disturbance?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-r-selected",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-k-selected",
+      "term": "K-selected",
+      "categoryIds": [
+        "d-family-life-histories"
+      ],
+      "definition": "A simplified life-history tendency toward slower reproduction and greater investment per offspring under some crowded or stable conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "K is the carrying-capacity symbol; selected is the historical strategy label."
+      },
+      "whatItDoes": "The label summarizes traits associated with persistent competitive environments.",
+      "relatedTermIds": [
+        "d-term-r-selected",
+        "d-term-fecundity",
+        "d-term-parental-investment"
+      ],
+      "commonConfusion": "It does not mean a species always lives exactly at K.",
+      "retrievalPrompt": "Why are real life histories more varied than two labels?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-k-selected",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-fecundity",
+      "term": "fecundity",
+      "categoryIds": [
+        "d-family-life-histories"
+      ],
+      "definition": "Potential reproductive output over a stated interval, distinguished from offspring that actually survive.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Fecundity is reproductive-output capacity; fecund is the adjective."
+      },
+      "whatItDoes": "Potential offspring output contributes to life-history comparisons.",
+      "relatedTermIds": [
+        "d-term-r-selected",
+        "d-term-k-selected",
+        "d-term-parental-investment"
+      ],
+      "commonConfusion": "High egg production is not the same as high offspring survival.",
+      "retrievalPrompt": "How can high fecundity coexist with low recruitment?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-fecundity",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-parental-investment",
+      "term": "parental investment",
+      "categoryIds": [
+        "d-family-life-histories"
+      ],
+      "definition": "Resources or care directed toward offspring that can affect their survival and a parent's other reproductive opportunities.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Investment is resource allocation; parental identifies allocation by parents to offspring."
+      },
+      "whatItDoes": "Care can improve offspring survival while limiting other reproductive opportunities.",
+      "relatedTermIds": [
+        "d-term-r-selected",
+        "d-term-k-selected",
+        "d-term-fecundity"
+      ],
+      "commonConfusion": "More care per offspring does not always mean more total offspring.",
+      "retrievalPrompt": "What trade-off can occur between offspring number and care?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-parental-investment",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-predation",
+      "term": "predation",
+      "categoryIds": [
+        "d-family-ecological-relationships"
+      ],
+      "definition": "An interaction in which one organism captures and consumes another organism.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Predation is the interaction noun; predator is the consumer and prey the organism consumed."
+      },
+      "whatItDoes": "Consumption links survival and energy transfer between populations.",
+      "relatedTermIds": [
+        "d-term-producer-consumer",
+        "d-term-mutualism",
+        "d-term-commensalism",
+        "d-term-parasitism"
+      ],
+      "commonConfusion": "Predation is not identical to parasitism.",
+      "retrievalPrompt": "How could predator removal affect a prey population?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-predation",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-producer-consumer",
+      "term": "producer-consumer",
+      "categoryIds": [
+        "d-family-ecological-relationships"
+      ],
+      "definition": "A relationship in which a consumer obtains matter/energy from a producer, potentially changing both populations.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The hyphen links trophic roles: production of organic matter and its consumption."
+      },
+      "whatItDoes": "Feeding transfers matter and some chemical energy to consumers.",
+      "relatedTermIds": [
+        "d-term-predation",
+        "d-term-mutualism",
+        "d-term-commensalism",
+        "d-term-parasitism"
+      ],
+      "commonConfusion": "Consumers do not receive all producer energy.",
+      "retrievalPrompt": "Why is consumer production smaller than the energy originally fixed?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-producer-consumer",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-mutualism",
+      "term": "mutualism",
+      "categoryIds": [
+        "d-family-ecological-relationships"
+      ],
+      "definition": "An interaction in which both participants receive a net measured benefit under stated conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A whole interaction name; mutualistic is the adjective."
+      },
+      "whatItDoes": "Both partners obtain benefits in the specified context.",
+      "relatedTermIds": [
+        "d-term-predation",
+        "d-term-producer-consumer",
+        "d-term-commensalism",
+        "d-term-parasitism"
+      ],
+      "commonConfusion": "The relationship need not be equally beneficial or obligatory.",
+      "retrievalPrompt": "What evidence would show benefits to both partners?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-mutualism",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-commensalism",
+      "term": "commensalism",
+      "categoryIds": [
+        "d-family-ecological-relationships"
+      ],
+      "definition": "An interaction in which one participant benefits and no effect on the other is detected.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A whole interaction name; commensal is the associated noun or adjective."
+      },
+      "whatItDoes": "One partner benefits with no detectable effect on the other in the stated context.",
+      "relatedTermIds": [
+        "d-term-predation",
+        "d-term-producer-consumer",
+        "d-term-mutualism",
+        "d-term-parasitism"
+      ],
+      "commonConfusion": "Failure to measure an effect is not proof no effect is possible.",
+      "retrievalPrompt": "How would you test the supposedly unaffected partner?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-commensalism",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-parasitism",
+      "term": "parasitism",
+      "categoryIds": [
+        "d-family-ecological-relationships"
+      ],
+      "definition": "An interaction in which a parasite benefits while reducing host fitness.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Parasitism names the relationship; parasite names the benefiting organism."
+      },
+      "whatItDoes": "A parasite gains resources while reducing host performance.",
+      "relatedTermIds": [
+        "d-term-predation",
+        "d-term-producer-consumer",
+        "d-term-mutualism",
+        "d-term-commensalism"
+      ],
+      "commonConfusion": "A parasite does not always kill its host immediately.",
+      "retrievalPrompt": "Why can host survival be compatible with parasite harm?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-parasitism",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-intraspecific-competition",
+      "term": "intraspecific competition",
+      "categoryIds": [
+        "d-family-competition-and-defence"
+      ],
+      "definition": "Competition among members of the same species for limited resources.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Intra- means within; specific refers to species membership."
+      },
+      "whatItDoes": "Members of the same species compete for limiting resources.",
+      "relatedTermIds": [
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration",
+        "d-term-toxin"
+      ],
+      "commonConfusion": "Competition requires a limiting shared resource, not mere co-occurrence.",
+      "retrievalPrompt": "Why can similar needs intensify within-species competition?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-intraspecific-competition",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ]
+    },
+    {
+      "id": "d-term-interspecific-competition",
+      "term": "interspecific competition",
+      "categoryIds": [
+        "d-family-competition-and-defence"
+      ],
+      "definition": "Competition between members of different species for limited resources.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Inter- means between; specific identifies different species."
+      },
+      "whatItDoes": "Overlapping resource use can reduce performance of one or both species.",
+      "relatedTermIds": [
+        "d-term-intraspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration",
+        "d-term-toxin"
+      ],
+      "commonConfusion": "Different species sharing a site are not automatically competitors.",
+      "retrievalPrompt": "What evidence would establish competition rather than simple overlap?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-interspecific-competition",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ]
+    },
+    {
+      "id": "d-term-mimicry",
+      "term": "mimicry",
+      "categoryIds": [
+        "d-family-competition-and-defence"
+      ],
+      "definition": "Resemblance that affects another organism's response, such as a predator avoiding a look-alike prey.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mimicry is resemblance that changes another organism's response; mimic is the resembling organism."
+      },
+      "whatItDoes": "Resemblance can reduce attack or improve access to resources.",
+      "relatedTermIds": [
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-protective-coloration",
+        "d-term-toxin"
+      ],
+      "commonConfusion": "Not every visual similarity is a demonstrated adaptation.",
+      "retrievalPrompt": "How could predator responses support a mimicry explanation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-mimicry",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ]
+    },
+    {
+      "id": "d-term-protective-coloration",
+      "term": "protective coloration",
+      "categoryIds": [
+        "d-family-competition-and-defence"
+      ],
+      "definition": "Colour or pattern that can reduce detection or attack under particular environmental conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Coloration is appearance; protective specifies the proposed survival function."
+      },
+      "whatItDoes": "Concealment or warning signals can change predator encounters.",
+      "relatedTermIds": [
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-toxin"
+      ],
+      "commonConfusion": "Bright coloration is not always camouflage.",
+      "retrievalPrompt": "How would you distinguish concealment from warning coloration?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-protective-coloration",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ]
+    },
+    {
+      "id": "d-term-toxin",
+      "term": "toxin",
+      "categoryIds": [
+        "d-family-competition-and-defence"
+      ],
+      "definition": "A biologically produced substance that can harm another organism under specified exposure conditions.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Toxin names a biologically produced harmful substance; toxic is broader as an adjective."
+      },
+      "whatItDoes": "Chemical defences can reduce consumption or harm competitors.",
+      "relatedTermIds": [
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration"
+      ],
+      "commonConfusion": "A toxin's effect depends on dose and susceptibility.",
+      "retrievalPrompt": "Why might a defence deter one consumer but not another?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-toxin",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ]
+    },
+    {
+      "id": "d-term-behaviour",
+      "term": "behaviour",
+      "categoryIds": [
+        "d-family-competition-and-defence"
+      ],
+      "definition": "An organism's actions or responses, which can influence survival, interactions or reproduction.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Behaviour names an organism's actions; behavioural is the adjective."
+      },
+      "whatItDoes": "Actions change encounters, resource acquisition and reproductive success.",
+      "relatedTermIds": [
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration"
+      ],
+      "commonConfusion": "Behaviour can reflect both inherited tendencies and experience.",
+      "retrievalPrompt": "How could timing of activity reduce predation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-behaviour",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-competition-and-defence"
+      ]
+    },
+    {
+      "id": "d-term-predator-prey-lag",
+      "term": "predator-prey lag",
+      "categoryIds": [
+        "d-family-delays-and-overshoot"
+      ],
+      "definition": "A time difference between changes in prey abundance and a predator population's response.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Lag names a delay; predator-prey specifies the two population trajectories."
+      },
+      "whatItDoes": "Predator numbers may respond after prey availability changes.",
+      "relatedTermIds": [
+        "d-term-overshoot",
+        "d-term-time-lag"
+      ],
+      "commonConfusion": "Lagged correlation alone does not prove a simple two-species mechanism.",
+      "retrievalPrompt": "What other factors could shift the timing of predator peaks?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-predator-prey-lag",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-population-cycles"
+      ]
+    },
+    {
+      "id": "d-term-correlation",
+      "term": "correlation",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "A pattern in which variables change together; it does not by itself establish a causal mechanism.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Correlation names covariation; correlated does not mean causally linked."
+      },
+      "whatItDoes": "It identifies a pattern that may motivate a mechanism test.",
+      "relatedTermIds": [
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective",
+        "d-term-revision"
+      ],
+      "commonConfusion": "A common third factor can produce correlation.",
+      "retrievalPrompt": "What evidence beyond paired graphs would support causation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-correlation",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-mechanism",
+      "term": "mechanism",
+      "categoryIds": [
+        "d-topic-hardy-weinberg-additional-words"
+      ],
+      "definition": "The connected biological steps through which an effect occurs.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Mechanism names the sequence of causal steps, not simply a repeated pattern."
+      },
+      "whatItDoes": "It connects a changed condition to a biological outcome.",
+      "relatedTermIds": [
+        "d-term-uncertainty"
+      ],
+      "commonConfusion": "Restating the outcome does not explain how it occurs.",
+      "retrievalPrompt": "What intermediate process would you measure to test your explanation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-mechanism",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-equilibrium-assumptions"
+      ]
+    },
+    {
+      "id": "d-term-primary-succession",
+      "term": "primary succession",
+      "categoryIds": [
+        "d-family-succession"
+      ],
+      "definition": "Community development beginning where developed soil and substantial terrestrial biological legacies are absent.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Primary identifies development where established soil is absent; succession names community change."
+      },
+      "whatItDoes": "Colonization and substrate alteration enable later communities.",
+      "relatedTermIds": [
+        "d-term-secondary-succession",
+        "d-term-soil",
+        "d-term-community",
+        "d-term-climax-community"
+      ],
+      "commonConfusion": "Primary does not mean the first event a researcher happened to observe.",
+      "retrievalPrompt": "Why can soil development constrain early colonists?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-primary-succession",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance"
+      ]
+    },
+    {
+      "id": "d-term-secondary-succession",
+      "term": "secondary succession",
+      "categoryIds": [
+        "d-family-succession"
+      ],
+      "definition": "Community development after disturbance where soil or other biological legacies remain.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Secondary specifies recovery where soil or biological legacies remain."
+      },
+      "whatItDoes": "Surviving soil, seeds and organisms influence recovery.",
+      "relatedTermIds": [
+        "d-term-primary-succession",
+        "d-term-soil",
+        "d-term-community",
+        "d-term-climax-community"
+      ],
+      "commonConfusion": "Secondary succession is not necessarily a repeat of the exact former community.",
+      "retrievalPrompt": "How can retained soil accelerate some recovery processes?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-secondary-succession",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance"
+      ]
+    },
+    {
+      "id": "d-term-soil",
+      "term": "soil",
+      "categoryIds": [
+        "d-family-succession"
+      ],
+      "definition": "A developing mixture of mineral particles, organic material, organisms, air and water that supports many terrestrial communities.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Soil is a material noun for a biologically active mixture, not only rock particles."
+      },
+      "whatItDoes": "It stores water and nutrients and supports organisms.",
+      "relatedTermIds": [
+        "d-term-primary-succession",
+        "d-term-secondary-succession",
+        "d-term-community",
+        "d-term-climax-community"
+      ],
+      "commonConfusion": "Bare mineral substrate is not automatically developed soil.",
+      "retrievalPrompt": "Which components make soil important for later colonists?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-soil",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-community",
+      "term": "community",
+      "categoryIds": [
+        "d-family-succession"
+      ],
+      "definition": "Populations of different species living and interacting in an area.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Community is the multi-species assemblage noun; community-level differs from population-level."
+      },
+      "whatItDoes": "Interactions among species influence composition and succession.",
+      "relatedTermIds": [
+        "d-term-primary-succession",
+        "d-term-secondary-succession",
+        "d-term-soil",
+        "d-term-climax-community"
+      ],
+      "commonConfusion": "A community is not one species or the full abiotic ecosystem.",
+      "retrievalPrompt": "How does community composition differ from population size?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-community",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-interactions-and-their-effects"
+      ]
+    },
+    {
+      "id": "d-term-climax-community",
+      "term": "climax community",
+      "categoryIds": [
+        "d-family-succession"
+      ],
+      "definition": "A relatively persistent late-successional community under specified conditions, not an inevitable or permanently unchanging endpoint.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Climax is the historical endpoint metaphor; community names the assemblage."
+      },
+      "whatItDoes": "It describes a relatively persistent state under particular conditions.",
+      "relatedTermIds": [
+        "d-term-primary-succession",
+        "d-term-secondary-succession",
+        "d-term-soil",
+        "d-term-community"
+      ],
+      "commonConfusion": "Succession is not guaranteed to reach one permanent endpoint.",
+      "retrievalPrompt": "Why can disturbance or climate change invalidate a fixed endpoint?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-climax-community",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-succession-and-disturbance"
+      ]
+    },
+    {
+      "id": "d-term-indicator",
+      "term": "indicator",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "A measured feature used to evaluate a condition or change, with its reliability and limitations stated.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Indicator names a measured sign of a condition; it need not be its direct cause."
+      },
+      "whatItDoes": "A species or metric can help track environmental change.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-monitoring",
+        "d-term-perspective",
+        "d-term-revision"
+      ],
+      "commonConfusion": "One indicator cannot fully describe ecosystem condition.",
+      "retrievalPrompt": "What makes an indicator informative and what limits it?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-indicator",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication"
+      ]
+    },
+    {
+      "id": "d-term-monitoring",
+      "term": "monitoring",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "Repeated observation using a consistent method to detect change and evaluate a prediction or intervention.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Monitoring is repeated observation using a consistent method."
+      },
+      "whatItDoes": "It detects changes over time and supports management revision.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-perspective",
+        "d-term-revision"
+      ],
+      "commonConfusion": "A one-time survey alone is not a time trend.",
+      "retrievalPrompt": "Why preserve methods when comparing yearly counts?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-monitoring",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-uncertainty",
+      "term": "uncertainty",
+      "categoryIds": [
+        "d-topic-hardy-weinberg-additional-words"
+      ],
+      "definition": "A transparent description of limits in measurement, sampling, models, evidence, or prediction.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Un- negates certainty; the noun identifies limits in precision or inference."
+      },
+      "whatItDoes": "Acknowledging uncertainty constrains the strength of conclusions.",
+      "relatedTermIds": [
+        "d-term-mechanism"
+      ],
+      "commonConfusion": "Uncertainty does not mean all explanations are equally plausible.",
+      "retrievalPrompt": "Which uncertainty comes from sampling and which from model assumptions?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-uncertainty",
+        "pilot2-instruction.json#d-topic-hardy-weinberg-a-model-and-its-limits"
+      ]
+    },
+    {
+      "id": "d-term-perspective",
+      "term": "perspective",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "A way of evaluating an issue shaped by evidence, values, experience or responsibilities.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Perspective names a standpoint or framing of a question."
+      },
+      "whatItDoes": "Different priorities can affect which outcomes are investigated or valued.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-revision"
+      ],
+      "commonConfusion": "A value priority does not change a measured count by itself.",
+      "retrievalPrompt": "How can two stakeholders agree on evidence but prefer different actions?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-perspective",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication"
+      ]
+    },
+    {
+      "id": "d-term-revision",
+      "term": "revision",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "A reasoned change to a prediction, explanation or plan after considering evidence or feedback.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Re- indicates doing again; revision is a reasoned change to an account or plan."
+      },
+      "whatItDoes": "New evidence can justify updating predictions or management.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective"
+      ],
+      "commonConfusion": "Revision is not arbitrary alteration to protect a preferred conclusion.",
+      "retrievalPrompt": "What new result would make you revise your explanation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-revision",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-ecological-decisions-and-communication"
+      ]
+    },
+    {
+      "id": "d-term-sexual-selection",
+      "term": "sexual selection",
+      "categoryIds": [
+        "d-topic-mechanisms-of-change-additional-words"
+      ],
+      "definition": "Differences in reproductive contribution associated with success in obtaining mates or fertilizations; distinguish this from nonrandom pairing alone.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sexual qualifies selection through differences in mating or fertilization success."
+      },
+      "whatItDoes": "Traits can spread by increasing reproductive access despite survival costs.",
+      "relatedTermIds": [
+        "d-term-replicate",
+        "d-term-control",
+        "d-term-alternative-explanation"
+      ],
+      "commonConfusion": "It is not limited to male competition or conscious choice.",
+      "retrievalPrompt": "How could a conspicuous display increase reproduction but increase predation?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-sexual-selection",
+        "pilot2-instruction.json#d-topic-mechanisms-of-change-movement-and-mating"
+      ]
+    },
+    {
+      "id": "d-term-survivorship",
+      "term": "survivorship",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "The proportion of an initial group that remains alive at successive ages.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Survivorship names survival across ages; survivor names an individual remaining alive."
+      },
+      "whatItDoes": "Age-specific survival describes a life-history pattern.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective"
+      ],
+      "commonConfusion": "Survivorship is not the same as population growth.",
+      "retrievalPrompt": "How can two species have different survivorship but similar total population change?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-survivorship",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-cohort",
+      "term": "cohort",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "A group defined by a shared starting interval or event and followed through time.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "A whole grouping noun for individuals sharing a starting event or interval."
+      },
+      "whatItDoes": "Following a cohort separates age-related change from mixed-age counts.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective"
+      ],
+      "commonConfusion": "A cross-section of all ages is not a single birth cohort.",
+      "retrievalPrompt": "Why follow individuals born in the same period?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-cohort",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-type-i-survivorship",
+      "term": "Type I survivorship",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "An idealized survival pattern with relatively low early mortality and most losses later in life.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Roman I labels a curve class, not a fitness rank."
+      },
+      "whatItDoes": "Most survive early and middle life before mortality rises later.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective"
+      ],
+      "commonConfusion": "The pattern is a generalization, not immunity to early death.",
+      "retrievalPrompt": "Where does a Type I curve decline most steeply?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-type-i-survivorship",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-type-ii-survivorship",
+      "term": "Type II survivorship",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "An idealized survival pattern with approximately constant per-capita mortality risk across ages.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Roman II labels a curve class; survivorship identifies the age-survival relationship."
+      },
+      "whatItDoes": "An approximately constant mortality risk produces a steady decline on a logarithmic survivor axis.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective"
+      ],
+      "commonConfusion": "A straight line depends on the graph's axis scale.",
+      "retrievalPrompt": "Why must you inspect the vertical scale before comparing curves?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-type-ii-survivorship",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    },
+    {
+      "id": "d-term-type-iii-survivorship",
+      "term": "Type III survivorship",
+      "categoryIds": [
+        "d-topic-life-strategies-and-ecological-relationships-additional-words"
+      ],
+      "definition": "An idealized survival pattern with high early mortality and greater subsequent survival among those passing the early stages.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Roman III labels a curve class, not a third developmental stage."
+      },
+      "whatItDoes": "High early mortality leaves relatively few longer-lived survivors.",
+      "relatedTermIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective"
+      ],
+      "commonConfusion": "Producing many offspring does not ensure many survive.",
+      "retrievalPrompt": "How can high early mortality be compatible with persistent populations?",
+      "sourceRefs": [
+        "pilot2-vocabulary.json#d-term-type-iii-survivorship",
+        "pilot2-instruction.json#d-topic-life-strategies-and-ecological-relationships-life-history-strategies"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "d-family-gene-pools",
+      "label": "Gene pools",
+      "wordIds": [
+        "d-term-population",
+        "d-term-gene-pool",
+        "d-term-allele",
+        "d-term-genotype"
+      ]
+    },
+    {
+      "id": "d-family-hardy-weinberg-model",
+      "label": "Hardy–Weinberg model",
+      "wordIds": [
+        "d-term-p",
+        "d-term-q",
+        "d-term-p-squared",
+        "d-term-2pq",
+        "d-term-q-squared"
+      ]
+    },
+    {
+      "id": "d-family-equilibrium-assumptions",
+      "label": "Equilibrium assumptions",
+      "wordIds": [
+        "d-term-large-population",
+        "d-term-random-mating",
+        "d-term-no-migration",
+        "d-term-no-mutation",
+        "d-term-no-selection"
+      ]
+    },
+    {
+      "id": "d-family-conditional-genetic-inference",
+      "label": "Conditional genetic inference",
+      "wordIds": [
+        "d-term-recessive-phenotype",
+        "d-term-square-root",
+        "d-term-heterozygote",
+        "d-term-frequency-sum"
+      ]
+    },
+    {
+      "id": "d-family-population-evidence",
+      "label": "Population evidence",
+      "wordIds": [
+        "d-term-observed",
+        "d-term-expected",
+        "d-term-sample",
+        "d-term-equilibrium"
+      ]
+    },
+    {
+      "id": "d-family-mutation",
+      "label": "Mutation",
+      "wordIds": [
+        "d-term-mutation",
+        "d-term-variation"
+      ]
+    },
+    {
+      "id": "d-family-natural-selection",
+      "label": "Natural selection",
+      "wordIds": [
+        "d-term-natural-selection",
+        "d-term-relative-fitness",
+        "d-term-selection-pressure"
+      ]
+    },
+    {
+      "id": "d-family-genetic-drift",
+      "label": "Genetic drift",
+      "wordIds": [
+        "d-term-genetic-drift",
+        "d-term-time-series"
+      ]
+    },
+    {
+      "id": "d-family-bottleneck-and-founder-effects",
+      "label": "Bottleneck and founder effects",
+      "wordIds": [
+        "d-term-bottleneck",
+        "d-term-founder-effect"
+      ]
+    },
+    {
+      "id": "d-family-gene-flow",
+      "label": "Gene flow",
+      "wordIds": [
+        "d-term-gene-flow",
+        "d-term-migration"
+      ]
+    },
+    {
+      "id": "d-family-nonrandom-mating",
+      "label": "Nonrandom mating",
+      "wordIds": [
+        "d-term-nonrandom-mating",
+        "d-term-random-mating"
+      ]
+    },
+    {
+      "id": "d-family-resistance",
+      "label": "Resistance",
+      "wordIds": [
+        "d-term-antibiotic-resistance",
+        "d-term-herbicide-resistance"
+      ]
+    },
+    {
+      "id": "d-family-density-and-distribution",
+      "label": "Density and distribution",
+      "wordIds": [
+        "d-term-population-size",
+        "d-term-area",
+        "d-term-density",
+        "d-term-distribution"
+      ]
+    },
+    {
+      "id": "d-family-sampling",
+      "label": "Sampling",
+      "wordIds": [
+        "d-term-quadrat",
+        "d-term-transect",
+        "d-term-mark-recapture",
+        "d-term-representative-sample"
+      ]
+    },
+    {
+      "id": "d-family-population-balance",
+      "label": "Population balance",
+      "wordIds": [
+        "d-term-natality",
+        "d-term-mortality",
+        "d-term-immigration",
+        "d-term-emigration",
+        "d-term-open-population",
+        "d-term-closed-population"
+      ]
+    },
+    {
+      "id": "d-family-growth-rates",
+      "label": "Growth rates",
+      "wordIds": [
+        "d-term-growth-rate",
+        "d-term-per-capita-growth-rate",
+        "d-term-time-interval"
+      ]
+    },
+    {
+      "id": "d-family-exponential-growth",
+      "label": "Exponential growth",
+      "wordIds": [
+        "d-term-biotic-potential",
+        "d-term-j-curve"
+      ]
+    },
+    {
+      "id": "d-family-logistic-growth",
+      "label": "Logistic growth",
+      "wordIds": [
+        "d-term-environmental-resistance",
+        "d-term-carrying-capacity",
+        "d-term-s-curve"
+      ]
+    },
+    {
+      "id": "d-family-limiting-factors",
+      "label": "Limiting factors",
+      "wordIds": [
+        "d-term-density-dependence",
+        "d-term-density-independence"
+      ]
+    },
+    {
+      "id": "d-family-delays-and-overshoot",
+      "label": "Delays and overshoot",
+      "wordIds": [
+        "d-term-overshoot",
+        "d-term-time-lag",
+        "d-term-predator-prey-lag"
+      ]
+    },
+    {
+      "id": "d-family-life-histories",
+      "label": "Life histories",
+      "wordIds": [
+        "d-term-r-selected",
+        "d-term-k-selected",
+        "d-term-fecundity",
+        "d-term-parental-investment"
+      ]
+    },
+    {
+      "id": "d-family-ecological-relationships",
+      "label": "Ecological relationships",
+      "wordIds": [
+        "d-term-predation",
+        "d-term-producer-consumer",
+        "d-term-mutualism",
+        "d-term-commensalism",
+        "d-term-parasitism"
+      ]
+    },
+    {
+      "id": "d-family-competition-and-defence",
+      "label": "Competition and defence",
+      "wordIds": [
+        "d-term-intraspecific-competition",
+        "d-term-interspecific-competition",
+        "d-term-mimicry",
+        "d-term-protective-coloration",
+        "d-term-toxin",
+        "d-term-behaviour"
+      ]
+    },
+    {
+      "id": "d-family-succession",
+      "label": "Succession",
+      "wordIds": [
+        "d-term-primary-succession",
+        "d-term-secondary-succession",
+        "d-term-soil",
+        "d-term-community",
+        "d-term-climax-community"
+      ]
+    },
+    {
+      "id": "d-topic-mechanisms-of-change-additional-words",
+      "label": "mechanisms of change — supporting words",
+      "wordIds": [
+        "d-term-replicate",
+        "d-term-control",
+        "d-term-alternative-explanation",
+        "d-term-sexual-selection"
+      ]
+    },
+    {
+      "id": "d-topic-life-strategies-and-ecological-relationships-additional-words",
+      "label": "life strategies and ecological relationships — supporting words",
+      "wordIds": [
+        "d-term-correlation",
+        "d-term-indicator",
+        "d-term-monitoring",
+        "d-term-perspective",
+        "d-term-revision",
+        "d-term-survivorship",
+        "d-term-cohort",
+        "d-term-type-i-survivorship",
+        "d-term-type-ii-survivorship",
+        "d-term-type-iii-survivorship"
+      ]
+    },
+    {
+      "id": "d-topic-hardy-weinberg-additional-words",
+      "label": "hardy weinberg — supporting words",
+      "wordIds": [
+        "d-term-mechanism",
+        "d-term-uncertainty"
+      ]
+    }
+  ]
+}

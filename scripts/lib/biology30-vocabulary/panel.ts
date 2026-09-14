@@ -1,8 +1,13 @@
+import {renderBiologyWordDetails,type BiologyWordRecord} from './word-record.js';
 /** A view over the owning course's real Frayer controls, never a second save model. */
 export type VocabularyFamily = {id:string;label:string;meaning:string;wordAnalysis:string[];routes:string[]};
 export type VocabularyTerm = {term:string;definition?:string;familyIds:string[]};
 export type VocabularyPanelAdapter = {
   root:HTMLElement; families:VocabularyFamily[]; terms:VocabularyTerm[];
+  /** Complete, reviewed records only. Omission preserves non-migrated course behaviour. */
+  words?:BiologyWordRecord[];
+  /** Explicit existing response-record owners; no inferred first-word mapping. */
+  wordFrayers?:Record<string,string>;
   sections():Element[]; route(section:Element):string;
   unlocked(id:string):boolean; frayer(id:string):HTMLElement|null;
   choices?():HTMLElement|null; selectedFamilies?():string[]; refresh():void; status():string;
@@ -57,6 +62,16 @@ export function mountVocabularyPanel(adapter:VocabularyPanelAdapter) {
     restoreLoans();meaning.replaceChildren();const family=adapter.families.find(f=>f.id===familySelect.value);if(!family||!current)return;
     const paragraph=(text:string)=>{const p=doc.createElement('p');p.textContent=text;meaning.append(p);};
     const belongs=current.familyIds.includes(family.id);
+    const wordRecord=adapter.words?.find(w=>w.term.toLocaleLowerCase()===current!.term.toLocaleLowerCase());
+    if(adapter.words&&!wordRecord)throw Error('Missing word-owned popup record: '+current.term);
+    if(wordRecord){
+      meaning.innerHTML=renderBiologyWordDetails(wordRecord,adapter.words!,adapter.families);
+      const owner=adapter.wordFrayers?.[wordRecord.id];
+      const unlocked=Boolean(owner&&adapter.unlocked(owner));
+      get<HTMLElement>('[data-bio-locked]').textContent=!owner?'This word is available for reference. It is not a separate saved Frayer target. Existing broader-concept writing remains in Core Vocabulary.':unlocked?'This is the existing saved Frayer record. Review its stated scope before revising earlier writing.':'The word explanation is available now. Begin its associated lesson to unlock the saved Frayer.';
+      if(unlocked){loan(adapter.frayer(owner!),slot);loan(adapter.choices?.()??null,get('[data-bio-choices-slot]'));adapter.refresh();}
+      status();return;
+    }
     paragraph(belongs&&current.definition?current.definition:`${belongs?'Family-level explanation':'My chosen Frayer'} — ${family.label}: ${family.meaning}`);
     if(belongs&&current.definition)paragraph(`Concept family — ${family.label}: ${family.meaning}`);
     const heading=doc.createElement('h3');heading.textContent='Word structure';meaning.append(heading);
@@ -66,13 +81,14 @@ export function mountVocabularyPanel(adapter:VocabularyPanelAdapter) {
     status();
   }
   const close=()=>{if(dialog.open)dialog.close();};
-  const onClose=()=>{restoreLoans();doc.documentElement.style.overflow=oldOverflow;for(const item of scrolls){item.node.scrollLeft=item.x;item.node.scrollTop=item.y;}win.scrollTo(...windowScroll as [number,number]);trigger?.focus({preventScroll:true});};
+  const onClose=()=>{restoreLoans();root.dispatchEvent(new CustomEvent('biology-word-popup-close'));doc.documentElement.style.overflow=oldOverflow;for(const item of scrolls){item.node.scrollLeft=item.x;item.node.scrollTop=item.y;}win.scrollTo(...windowScroll as [number,number]);trigger?.focus({preventScroll:true});};
   const click=(event:Event)=>{
     const target=event.target instanceof Element?event.target.closest<HTMLButtonElement>('[data-bio-term]'):null;if(!target||!root.contains(target))return;
     current=terms.get(target.dataset.bioTerm!)??null;if(!current)return;trigger=target;
+    root.dispatchEvent(new CustomEvent('biology-word-popup-open'));
     const route=target.dataset.bioTermRoute!;
     familySelect.replaceChildren();for(const family of adapter.families.filter(f=>current!.familyIds.includes(f.id)).sort((a,b)=>Number(b.routes.includes(route))-Number(a.routes.includes(route)))){const option=doc.createElement('option');option.value=family.id;option.textContent=family.label;familySelect.append(option);}
-    for(const id of adapter.selectedFamilies?.()??[]){if(current.familyIds.includes(id))continue;const family=adapter.families.find(f=>f.id===id);if(family){const option=doc.createElement('option');option.value=id;option.textContent=`My chosen Frayer: ${family.label}`;familySelect.append(option);}}
+    for(const id of adapter.words?[]:adapter.selectedFamilies?.()??[]){if(current.familyIds.includes(id))continue;const family=adapter.families.find(f=>f.id===id);if(family){const option=doc.createElement('option');option.value=id;option.textContent=`My chosen Frayer: ${family.label}`;familySelect.append(option);}}
     get<HTMLElement>('[data-bio-family-label]').hidden=familySelect.options.length<2;
     get<HTMLElement>('#bio-vocabulary-title').textContent=target.textContent;
     get<HTMLDetailsElement>('[data-bio-frayer]').open=false;

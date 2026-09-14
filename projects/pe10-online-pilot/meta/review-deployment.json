@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "projectSlug": "pe10-online-pilot",
-  "status": "approved-public-review-only",
+  "status": "superseded-by-shared-cts-pe-showcase",
   "authorizedAt": "2026-09-03T19:38:11Z",
   "authorization": "Project owner explicitly authorized deployment to Firebase Hosting site nxtpe10 in this Codex conversation.",
   "hosting": {
@@ -16,8 +16,8 @@
     "workspaceTreeSha256": "9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33",
     "indexSha256": "d55a91e7f1ed99be08cadcea135c2b497adfc65728bb5eea0e6c8960f2f064d4",
     "currentLocalWorkspaceTreeSha256": "9d04aee334c8894162d99c591c673bfa6d8d136e46501be3d470de6edcc6be33",
-    "deploymentFresh": true,
-    "freshnessNote": "The public teacher-review site contains the exact canonical workspace recorded here."
+    "deploymentFresh": false,
+    "freshnessNote": "The public root now serves the shared CTS/PE selector. PE10 remains available at /courses/pe10-online-pilot/index.html; see docs/ops/cts-pe-showcase-deployment.json for the current shared receipt."
   },
   "supersededDeployment": {
     "deployedAt": "2026-09-03T19:40:51Z",
@@ -26,6 +26,7 @@
     "status": "stale-replaced-by-current-review-build"
   },
   "deployedAt": "2026-09-03T21:15:39Z",
+  "supersededBy": "docs/ops/cts-pe-showcase-deployment.json",
   "liveVerification": {
     "verifiedAt": "2026-09-03T21:15:39Z",
     "hostedIndexSha256": "d55a91e7f1ed99be08cadcea135c2b497adfc65728bb5eea0e6c8960f2f064d4",

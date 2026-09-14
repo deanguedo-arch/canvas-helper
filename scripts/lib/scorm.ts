@@ -1,4 +1,5 @@
 import { load } from "cheerio";
+import { buildScormTrackingRuntime, type ScormTrackingContract } from "./scorm-tracking.js";
 
 export type ScormVersion = "2004" | "1.2";
 
@@ -281,6 +282,7 @@ ${fileRows}
 }
 
 type BuildScormBridgeScriptOptions = {
+  tracking?: ScormTrackingContract | null;
   projectSlug: string;
   storageKeys: string[];
   version: ScormVersion;
@@ -289,6 +291,7 @@ type BuildScormBridgeScriptOptions = {
 export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   const config = {
     projectSlug: options.projectSlug,
+    tracking: options.tracking ?? null,
     version: options.version,
     storageKeys: options.storageKeys.length > 0 ? [...new Set(options.storageKeys)] : [`${options.projectSlug}::workspace-state::v1`],
     maxSuspendChars: options.version === "2004" ? 60000 : 3500
@@ -320,6 +323,9 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   let localStoragePatched = false;
   let controlHost = null;
   let lastPersistErrorMessage = "";
+  let restoreBlocked = false;
+
+${buildScormTrackingRuntime()}
 
   function logWarning(message) {
     try {
@@ -439,7 +445,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
           values[key] = value;
         }
       } catch (_error) {
-        // Ignore access issues.
+        throw new Error("Browser storage is unavailable. Keep this page open; work was not saved to Brightspace.");
       }
     }
 
@@ -447,7 +453,8 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       version: 1,
       projectSlug: config.projectSlug,
       savedAt: new Date().toISOString(),
-      values: values
+      values: values,
+      tracking: collectTracking()
     };
   }
 
@@ -470,7 +477,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
           window.localStorage.setItem(key, value);
         }
       } catch (_error) {
-        // Ignore access issues.
+        throw new Error("Browser storage is unavailable; saved work could not be restored. Reopen this activity before continuing.");
       }
     }
   }
@@ -508,13 +515,31 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   }
 
   function persistToLms(reason, exitValue) {
+    let saved = false;
+    try { saved = persistStateToLms(reason, exitValue); }
+    catch (error) { lastPersistErrorMessage = String(error.message || "Brightspace save failed. Keep this page open."); }
+    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : lastPersistErrorMessage, !saved);
+    return saved;
+  }
+
+  function persistStateToLms(reason, exitValue) {
     lastPersistErrorMessage = "";
     if (!api || !initialized || terminated) {
       lastPersistErrorMessage = "Progress could not be saved to Brightspace. Keep this tab open and try again.";
       return false;
     }
 
-    const payload = collectStateFromLocalStorage();
+    announceStatus("Saving to Brightspace…", false);
+    let payload;
+    let progress;
+    try {
+      payload = collectStateFromLocalStorage();
+      progress = completionProgress();
+    } catch (error) {
+      lastPersistErrorMessage = String(error.message || "Saved work could not be read. Keep this page open.");
+      announceStatus(lastPersistErrorMessage, true);
+      return false;
+    }
     payload.reason = reason;
     const serialized = JSON.stringify(payload);
 
@@ -526,25 +551,27 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     }
 
     if (!ensureCompletionStatus()) {
-      lastPersistErrorMessage = "Brightspace rejected the course completion state. Your last successful LMS save is still safe.";
+      lastPersistErrorMessage = "Brightspace rejected the course completion state. Keep this page open and retry saving.";
       return false;
     }
 
     if (!api.setValue("cmi.suspend_data", serialized)) {
       logWarning("Failed to write cmi.suspend_data.");
-      lastPersistErrorMessage = "Brightspace rejected the saved course data. Your last successful LMS save is still safe.";
+      lastPersistErrorMessage = "Brightspace rejected the saved course data. Keep this page open and retry saving.";
       return false;
     }
 
+    writeTracking(progress);
+
     if (exitValue && !api.setValue(statusModel.exitKey, exitValue)) {
       logWarning("Failed to write " + statusModel.exitKey + ".");
-      lastPersistErrorMessage = "Brightspace could not suspend this attempt. Your last successful LMS save is still safe.";
+      lastPersistErrorMessage = "Brightspace could not suspend this attempt. Keep this page open and retry saving.";
       return false;
     }
 
     if (!api.commit()) {
       logWarning("Failed to commit SCORM data.");
-      lastPersistErrorMessage = "Brightspace could not commit this save. Your last successful LMS save is still safe.";
+      lastPersistErrorMessage = "Brightspace could not commit this save. Keep this page open and retry saving.";
       return false;
     }
 
@@ -558,7 +585,6 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     }
 
     const saved = persistToLms("manual-save");
-    announceStatus(saved ? "Progress saved." : (lastPersistErrorMessage || "Save failed. Try again before closing."), !saved);
     return saved;
   }
 
@@ -567,14 +593,12 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       return false;
     }
 
-    const currentValue = String(api.getValue(statusModel.completionKey) || "").trim().toLowerCase();
-    if (currentValue !== statusModel.completedValue) {
-      if (!api.setValue(statusModel.completionKey, statusModel.completedValue)) {
-        logWarning("Failed to mark the SCORM attempt complete.");
-        announceStatus("Brightspace could not record completion. Save your work and try again.", true);
-        return false;
-      }
+    // Contract-driven courses must meet their required list; preserve the legacy
+    // explicit completion hook only for courses without a completion contract.
+    if (trackingContract && trackingContract.completion) {
+      try { if (completionProgress() !== 1) return false; } catch (_) { return false; }
     }
+    completionRequested = true;
 
     const saved = persistToLms("completion");
     announceStatus(
@@ -600,10 +624,16 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       return false;
     }
 
-    api.terminate();
+    if (!api.terminate()) {
+      announceStatus("Work saved, but Brightspace could not close the session. Try Save and Exit again.", true);
+      return false;
+    }
     terminated = true;
+    stopTracking();
     announceStatus("Progress saved. Close this tab or window to return to Brightspace.");
 
+    const saveButton = controlHost ? controlHost.querySelector("[data-scorm-save]") : null;
+    if (saveButton) saveButton.setAttribute("disabled", "disabled");
     const exitButton = controlHost ? controlHost.querySelector("[data-scorm-save-exit]") : null;
     if (exitButton) {
       exitButton.textContent = "Saved";
@@ -616,10 +646,15 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   }
 
   function scheduleFlush(reason) {
-    if (!api || !initialized) {
+    if (terminated) {
+      announceStatus("Session closed. Reopen this activity in Brightspace before making more changes.", true);
+      return;
+    }
+    if (!api || !initialized || terminated) {
       return;
     }
 
+    announceStatus("Changes pending save to Brightspace…", false);
     if (saveTimer) {
       window.clearTimeout(saveTimer);
     }
@@ -639,9 +674,13 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       saveTimer = null;
     }
 
-    persistToLms("terminate", "suspend");
-    api.terminate();
+    if (!persistToLms("terminate", "suspend")) return false;
+    if (!api.terminate()) {
+      announceStatus("Work saved, but Brightspace could not close the session. Try Save and Exit again.", true);
+      return false;
+    }
     terminated = true;
+    stopTracking();
   }
 
   function handleStorageEvent(event) {
@@ -677,20 +716,24 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     controlHost.style.position = "fixed";
     controlHost.style.right = "16px";
     controlHost.style.bottom = "16px";
+    controlHost.style.maxWidth = "calc(100vw - 32px)";
+    controlHost.style.boxSizing = "border-box";
     controlHost.style.zIndex = "2147483647";
     controlHost.style.display = "flex";
     controlHost.style.alignItems = "center";
     controlHost.style.gap = "12px";
     controlHost.style.padding = "12px 14px";
-    controlHost.style.borderRadius = "14px";
-    controlHost.style.background = "rgba(15, 23, 42, 0.92)";
-    controlHost.style.boxShadow = "0 16px 40px rgba(15, 23, 42, 0.28)";
-    controlHost.style.fontFamily = "Inter, Arial, sans-serif";
+    controlHost.style.flexWrap = "wrap";
+    controlHost.style.border = "1px solid #cbd5e1";
+    controlHost.style.borderRadius = "6px";
+    controlHost.style.background = "#f8fafc";
+    controlHost.style.fontFamily = "inherit";
 
     const statusNode = document.createElement("div");
     statusNode.setAttribute("data-scorm-status", "true");
-    statusNode.textContent = "Use Save and Exit before closing.";
-    statusNode.style.color = "#e2e8f0";
+    statusNode.setAttribute("role", "status");
+    statusNode.textContent = restoreBlocked ? lastPersistErrorMessage : initialized ? "Connecting save status…" : "Not connected to Brightspace. LMS saving is unavailable.";
+    statusNode.style.color = "#334155";
     statusNode.style.fontSize = "12px";
     statusNode.style.lineHeight = "1.4";
 
@@ -698,8 +741,8 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     exitButton.type = "button";
     exitButton.setAttribute("data-scorm-save-exit", "true");
     exitButton.textContent = "Save and Exit";
-    exitButton.style.border = "0";
-    exitButton.style.borderRadius = "999px";
+    exitButton.style.border = "1px solid #94a3b8";
+    exitButton.style.borderRadius = "6px";
     exitButton.style.background = "#f8fafc";
     exitButton.style.color = "#0f172a";
     exitButton.style.fontWeight = "700";
@@ -707,8 +750,17 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     exitButton.style.padding = "10px 14px";
     exitButton.style.cursor = "pointer";
     exitButton.addEventListener("click", saveAndExit);
+    if (!initialized) exitButton.setAttribute("disabled", "disabled");
+
+    const saveButton = document.createElement("button");
+    saveButton.type = "button";
+    saveButton.textContent = "Save now";
+    saveButton.setAttribute("data-scorm-save", "true");
+    saveButton.addEventListener("click", save);
+    if (!initialized) saveButton.setAttribute("disabled", "disabled");
 
     controlHost.appendChild(statusNode);
+    controlHost.appendChild(saveButton);
     controlHost.appendChild(exitButton);
     document.body.appendChild(controlHost);
   }
@@ -747,6 +799,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   }
 
   function boot() {
+    if (restoreBlocked) return false;
     api = buildApiAdapter();
     if (!api) {
       return false;
@@ -760,8 +813,21 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
     const existingSuspendData = api.getValue("cmi.suspend_data");
     const parsedState = tryParseJson(existingSuspendData);
-    if (parsedState) {
-      applyStateToLocalStorage(parsedState);
+    try {
+      if (existingSuspendData && (!parsedState || parsedState.version !== 1 || parsedState.projectSlug !== config.projectSlug || !parsedState.values || typeof parsedState.values !== "object" || Array.isArray(parsedState.values) || !Object.values(parsedState.values).every(value => typeof value === "string"))) {
+        throw new Error("Brightspace saved work could not be restored for this course. Automatic saving is stopped to protect it. Reopen the correct activity or contact your teacher.");
+      }
+      if (parsedState) {
+        applyStateToLocalStorage(parsedState);
+        restoreTracking(parsedState.tracking);
+      } else {
+        restoreTracking(null);
+      }
+    } catch (error) {
+      restoreBlocked = true;
+      initialized = false;
+      lastPersistErrorMessage = String(error.message);
+      return false;
     }
 
     ensureCompletionStatus();
@@ -775,16 +841,13 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     if (typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
       window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-ready"));
     }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", startTracking, { once: true });
+    else startTracking();
     scheduleFlush("init");
 
     window.addEventListener("beforeunload", terminateSession);
     window.addEventListener("pagehide", terminateSession);
     window.addEventListener("storage", handleStorageEvent);
-    document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "hidden") {
-        persistToLms("visibility-hidden");
-      }
-    });
 
     return true;
   }
@@ -793,9 +856,9 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
   if (!bootedImmediately) {
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", boot, { once: true });
+      document.addEventListener("DOMContentLoaded", function () { if (!boot()) installControls(); }, { once: true });
     } else {
-      window.setTimeout(boot, 0);
+      window.setTimeout(function () { if (!boot()) installControls(); }, 0);
     }
   }
 })();

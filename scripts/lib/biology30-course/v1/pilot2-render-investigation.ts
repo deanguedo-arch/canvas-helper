@@ -1,4 +1,4 @@
-import type {TopicContract} from './pilot2-contract.js';
+import type {TopicLayout} from './topic-layout.js';
 import type {TopicStateSchema} from './pilot2-state.js';
 import type {GraphWork} from './pilot2-graph-work.js';
 import {topicHtml as h,renderTopicDataset,type TopicDataset} from './pilot2-render-common.js';
@@ -6,7 +6,7 @@ import {renderTopicWritingActivity} from './pilot2-render-controls.js';
 import {renderTopicTeachingLink} from './pilot2-render-textbook.js';
 import {renderTopicFigure,type TopicFigure} from './pilot2-render-topic.js';
 export type RenderTopicInvestigation={id:string;title:string;question:string;sourceKind:string;variables:{compare:string;observe:string;holdConstant:string};dataset:TopicDataset&{habitatAreaSquareMetres?:number;separateDemographicScenario?:Record<string,number>};prediction:string;procedure:string[];expected:string;limitations:string[];coreSkillPartId:string;investigationExtensionRequired:boolean;collaborationEvidence:string;responseFields:{id:string;label:string;prompt:string;modelResponse:string;comparisonPolicy:string;attemptBeforeGuide:boolean}[];materialFiles:{path:string;sha256:string;role:string}[];suppliedCodonKey?:Record<string,string>;graphExercise?:{responseId:string;requiredForInvestigationExtension:boolean}};
-export function renderTopicInvestigation(item:RenderTopicInvestigation,contract:TopicContract,schema:TopicStateSchema,graphs:GraphWork[],materials:{sourcePath:string;figure:TopicFigure}[]) {
+export function renderTopicInvestigation(item:RenderTopicInvestigation,contract:TopicLayout,schema:TopicStateSchema,graphs:GraphWork[],materials:{sourcePath:string;figure:TopicFigure}[]) {
   if(item.investigationExtensionRequired||!schema.flags[`${item.id}-saved`]||item.responseFields.length!==4||item.responseFields.some(field=>!field.attemptBeforeGuide))throw new Error(`Investigation renderer contract drift: ${item.id}`);
   const figures=item.materialFiles.filter(file=>/\.(svg|png|jpe?g|webp)$/i.test(file.path)).map(file=>{const figure=materials.find(binding=>binding.sourcePath===file.path)?.figure;if(!figure||figure.sha256!==file.sha256)throw new Error(`Missing exact investigation material: ${file.path}`);return renderTopicFigure(figure,`-${item.id}`);}).join('');
   const scenario=item.dataset.separateDemographicScenario,scenarioLabels:Record<string,string>={initialN:'Initial population (individuals)',births:'Births (individuals)',immigration:'Immigration (individuals)',deaths:'Deaths (individuals)',emigration:'Emigration (individuals)',days:'Interval (days)'};

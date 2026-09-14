@@ -1,9 +1,10 @@
 /** Unit-scoped persistence. No DOM, filesystem, LMS globals or Unit A dependency. */
+import {biologyRuntimeStorageKey,validateBiologyRuntimeIdentity,type BiologyRuntimeIdentity} from './course-identity.js';
+import {validateWordFrayers,packWordFrayers,unpackWordFrayers,type WordFrayerSchema,type WordFrayerState} from '../../biology30-vocabulary/word-frayer-state.js';
 export const TOPIC_STATE_VERSION = 3;
 export const TOPIC_STATE_TARGET = 44_000;
 export const TOPIC_STATE_GUARD = 48_000;
-export type TopicStateSchema = {
-  unit: "B" | "C" | "D";
+export type TopicStateSchema = BiologyRuntimeIdentity & {
   responses: Record<string, { token: string; limit: number }>;
   choices: Record<string, { token: string; values: string[] }>;
   flags: Record<string, string>;
@@ -15,14 +16,17 @@ export type TopicStateSchema = {
   indexPacking?: { format: "choices-routes-v1"; sha256: string };
   routes: string[];
   families: { fixed: string[]; selectable: string[]; responseIds: Record<string, string[]> };
+  wordFrayers?:WordFrayerSchema;
 };
-export type TopicState = {
-  version: 3; unit: "B" | "C" | "D"; updatedAt: string; route: string;
+export type TopicState = BiologyRuntimeIdentity & {
+  version: 3; updatedAt: string; route: string;
   responses: Record<string, string>; choices: Record<string, string>; flags: string[]; visited: string[]; frayerChoices: string[]; vocabularyActiveId?: string;
   legacy: { original: string; source: string }[];
+  wordFrayers?:WordFrayerState;
 };
 export function emptyTopicState(schema: TopicStateSchema): TopicState {
-  return { version: 3, unit: schema.unit, updatedAt: new Date(0).toISOString(), route: schema.routes[0], responses: {}, choices: {}, flags: [], visited: [], frayerChoices: [], legacy: [] };
+  validateBiologyRuntimeIdentity(schema);
+  return { version: 3, unit: schema.unit, ...(schema.courseId?{courseId:schema.courseId}:{}), updatedAt: new Date(0).toISOString(), route: schema.routes[0], responses: {}, choices: {}, flags: [], visited: [], frayerChoices: [], legacy: [] };
 }
 function own<T>(record: Record<string, T>, key: string): T | undefined { return Object.prototype.hasOwnProperty.call(record, key) ? record[key] : undefined; }
 function uniqueStrings(values: unknown, label: string): asserts values is string[] {
@@ -32,7 +36,8 @@ function object(value: unknown, label: string): asserts value is Record<string, 
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`Invalid ${label}`);
 }
 export function validateTopicState(state: TopicState, schema: TopicStateSchema) {
-  if (state.version !== 3 || state.unit !== schema.unit) throw new Error("State version or unit does not match this course");
+  validateBiologyRuntimeIdentity(schema);
+  if (state.version !== 3 || state.unit !== schema.unit || state.courseId !== schema.courseId) throw new Error("State version or unit does not match this course");
   if (!schema.routes.includes(state.route) || typeof state.updatedAt !== "string" || !Number.isFinite(Date.parse(state.updatedAt))) throw new Error("Unknown route or invalid state time");
   object(state.responses, "responses"); object(state.choices, "choices");
   uniqueStrings(state.flags, "flags"); uniqueStrings(state.visited, "visited routes"); uniqueStrings(state.frayerChoices, "Frayer choices");
@@ -51,6 +56,11 @@ export function validateTopicState(state: TopicState, schema: TopicStateSchema) 
     if (!activeFamilies.has(family) && ids.some(id => (state.responses[id] ?? "").length > 0)) throw new Error("Written Frayer belongs to an inactive choice; preserve it before replacement");
   }
   if (!Array.isArray(state.legacy) || state.legacy.some(x => !x || typeof x.original !== "string" || typeof x.source !== "string")) throw new Error("Invalid preserved legacy payload");
+  if(state.wordFrayers!==undefined){
+    if(!schema.wordFrayers)throw Error('Word Frayers are not enabled in this profile');
+    validateWordFrayers(state.wordFrayers,schema.wordFrayers);
+    if(state.frayerChoices.length||Object.values(schema.families.responseIds).flat().some(id=>state.responses[id]?.length))throw Error('Legacy and word Frayers cannot duplicate the saved writing budget');
+  }
   return state;
 }
 function reverseTokens<T>(entries: Record<string, T>, token: (value: T) => string) {
@@ -150,20 +160,21 @@ export function encodeTopicState(state: TopicState, schema: TopicStateSchema, li
   validateTopicState(state, schema);
   reverseTokens(schema.responses, x => x.token); reverseTokens(schema.choices, x => x.token); reverseTokens(schema.flags, x => x);
   if (schema.indexPacking) checkIndexPacking(schema);
-  const packed = { v: 3, u: state.unit, t: state.updatedAt, l: state.route, ...(state.vocabularyActiveId?{a:state.vocabularyActiveId}:{}),
+  const packed = { v: 3, u: state.unit, ...(schema.courseId?{q:schema.courseId}:{}), t: state.updatedAt, l: state.route, ...(state.vocabularyActiveId?{a:state.vocabularyActiveId}:{}),
     r: packResponses(state.responses, schema),
     p: schema.indexPacking ? { v: 1, m: schema.indexPacking.sha256, b: Object.entries(schema.choices).map(([id, choice]) => Object.hasOwn(state.choices, id) ? String(choice.values.indexOf(state.choices[id])) : '-').join('') } : Object.entries(state.choices).map(([id, value]) => [schema.choices[id].token, value]),
     f: packFlags(state.flags, schema), h: schema.indexPacking ? state.visited.map(id => schema.routes.indexOf(id)) : state.visited, w: state.frayerChoices,
-    z: state.legacy.map(x => [x.source, x.original]) };
+    z: state.legacy.map(x => [x.source, x.original]),...(state.wordFrayers!==undefined?{k:packWordFrayers(state.wordFrayers,schema.wordFrayers!)}:{}) };
   const serialized = JSON.stringify(packed);
   if (serialized.length > limit) throw new Error(`Save needs ${serialized.length} characters; limit is ${limit}. Last valid state and current writing remain intact.`);
   return serialized;
 }
 export function decodeTopicState(raw: string, schema: TopicStateSchema): TopicState {
   const p: unknown = JSON.parse(raw); object(p, "saved payload");
-  const keys = new Set(["v","u","t","l","r","p","f","h","w","z","a"]);
+  validateBiologyRuntimeIdentity(schema);
+  const keys = new Set(["v","u","t","l","r","p","f","h","w","z","a",...(schema.courseId?["q"]:[]),...(schema.wordFrayers?['k']:[])]);
   if (Object.keys(p).some(k => !keys.has(k))) throw new Error("Saved payload contains unknown data; retain original for recovery");
-  if (p.v !== 3 || p.u !== schema.unit) throw new Error("Saved payload belongs to another profile or unit");
+  if (p.v !== 3 || p.u !== schema.unit || p.q !== schema.courseId) throw new Error("Saved payload belongs to another profile or unit");
   const responses = reverseTokens(schema.responses, x => x.token), choices = reverseTokens(schema.choices, x => x.token), flags = reverseTokens(schema.flags, x => x);
   function pairs(rawPairs: unknown, map: Record<string, string>) {
     if (!Array.isArray(rawPairs)) throw new Error("Invalid compact entries");
@@ -197,7 +208,20 @@ export function decodeTopicState(raw: string, schema: TopicStateSchema): TopicSt
     visited = p.h.map(i => schema.routes[i]);
   }
   if (!Array.isArray(p.z) || p.z.some(x => !Array.isArray(x) || x.length !== 2 || x.some(v => typeof v !== "string"))) throw new Error("Invalid legacy archive");
-  return validateTopicState({ version:3,unit:schema.unit,updatedAt:p.t as string,route:p.l as string,...(p.a!==undefined?{vocabularyActiveId:p.a as string}:{}),responses:Array.isArray(p.r)?pairs(p.r,responses):unpackResponses(p.r,schema),choices:decodedChoices,flags:decodedFlags,visited,frayerChoices:p.w as string[],legacy:p.z.map(x=>({source:x[0],original:x[1]})) },schema);
+  return validateTopicState({ version:3,unit:schema.unit,...(schema.courseId?{courseId:schema.courseId}:{}),updatedAt:p.t as string,route:p.l as string,...(p.a!==undefined?{vocabularyActiveId:p.a as string}:{}),responses:Array.isArray(p.r)?pairs(p.r,responses):unpackResponses(p.r,schema),choices:decodedChoices,flags:decodedFlags,visited,frayerChoices:p.w as string[],legacy:p.z.map(x=>({source:x[0],original:x[1]})),...(p.k!==undefined?{wordFrayers:unpackWordFrayers(p.k,schema.wordFrayers!)}:{}) },schema);
+}
+/** Lossless in-memory migration. The existing persistence owner backs up old bytes before saving. */
+export function migrateTopicWordFrayers(state:TopicState,schema:TopicStateSchema):TopicState{
+ validateTopicState(state,schema);if(!schema.wordFrayers||state.wordFrayers!==undefined)return state;
+ const next=structuredClone(state);next.wordFrayers=[];
+ for(const id of [...schema.families.fixed,...state.frayerChoices]){
+  const answers=schema.families.responseIds[id].map(field=>state.responses[field]??'') as [string,string,string,string];
+  const collected=state.flags.includes(id+'-collected');
+  if(answers.some(a=>a.length)||collected||state.frayerChoices.includes(id))next.wordFrayers.push({kind:'legacy',id,answers,collected});
+ }
+ for(const ids of Object.values(schema.families.responseIds))for(const id of ids)delete next.responses[id];
+ next.flags=next.flags.filter(flag=>!Object.keys(schema.families.responseIds).some(id=>flag===id+'-collected'));next.frayerChoices=[];
+ validateTopicState(next,schema);encodeTopicState(next,schema);return next;
 }
 export function replaceFrayerChoice(state: TopicState, schema: TopicStateSchema, oldId: string | null, nextId: string) {
   validateTopicState(state, schema);
@@ -223,7 +247,7 @@ export function persistTopicState(state: TopicState, schema: TopicStateSchema, l
   let serialized: string;
   try { serialized=encodeTopicState(state,schema); } catch(error) { return { accepted:false, local:"not-attempted", setValue:"not-attempted", commit:"not-attempted", error:String(error) }; }
   const outcome = { accepted:true, local:local ? "pending" : "unavailable", setValue:lms ? "pending" : "unavailable", commit:lms ? "not-attempted" : "unavailable", error:"" };
-  const key=`biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3`;
+  const key=biologyRuntimeStorageKey(schema);
   if (local) try {
     const before=local.getItem(key);
     if(before) { decodeTopicState(before,schema); local.setItem(`${key}:previous`,before); }

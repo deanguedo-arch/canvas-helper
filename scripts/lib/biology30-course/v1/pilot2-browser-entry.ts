@@ -19,7 +19,7 @@ export function bootTopicBrowser(document:Document,host:Window) {
   if(payload.schemaVersion!==1||!Array.isArray(payload.models)||!Array.isArray(payload.graphs))throw new Error('Invalid course startup data');
   validateTopicState(emptyTopicState(payload.activities.state),payload.activities.state);buildTopicActivityIndex(payload.activities);
   if(payload.activities.contract.unit!==payload.activities.state.unit)throw new Error('Mismatched unit startup data');
-  environment=captureTopicEnvironment(host,payload.activities.state.unit);
+  environment=captureTopicEnvironment(host,payload.activities.state.unit,payload.activities.state.courseId);
   course=startTopicCourse(root,panel,environment.sources,payload.activities,payload.models,payload.graphs,environment.local,environment.lms,payload.legacySchema);
   host.addEventListener('pagehide',pageHide);
   return{course,dispose(){host.removeEventListener('pagehide',pageHide);stop();}};

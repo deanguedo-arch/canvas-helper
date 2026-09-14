@@ -1,4 +1,5 @@
-import type { TopicContract } from "./pilot2-contract.js";
+import type { TopicLayout } from "./topic-layout.js";
+import {validateBiologyRuntimeIdentity} from './course-identity.js';
 import type { TopicTeaching, Instruction } from "./pilot2-instruction-audit.js";
 import type { LearningInputs } from "./pilot2-learning-audit.js";
 import { decodeGraphDraft, graphWorkText, type GraphWork } from "./pilot2-graph-work.js";
@@ -13,7 +14,7 @@ export type ActivityEntry = {
   flags: { id: string; label: string }[];
 };
 export type ActivityInputs = {
-  contract: TopicContract; state: TopicStateSchema; framing: TopicTeaching; instruction: Instruction;
+  contract: TopicLayout; state: TopicStateSchema; framing: TopicTeaching; instruction: Instruction;
   practice: LearningInputs["practice"];
   vocabulary: { conceptFamilies: { id: string; label: string }[] };
   models: { models: { id: string; title: string; predictionId: string; explanationId: string; testFlag: string; collectionFlag: string; cases: { value: string; label: string }[] }[] };
@@ -25,6 +26,8 @@ export type ActivityInputs = {
 /** One owning index for controls and collection; no second response store. */
 export function buildTopicActivityIndex(input: ActivityInputs): ActivityEntry[] {
   const { contract, state } = input, unit = contract.unit.toLowerCase();
+  validateBiologyRuntimeIdentity(contract);
+  if(contract.unit!==state.unit||contract.courseId!==state.courseId)throw Error('Activity course identity does not match saved-state schema');
   const entries: ActivityEntry[] = [];
   const add = (entry: ActivityEntry) => entries.push(entry);
   for (const topic of contract.topics) {

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "git": {
+    "branch": "codex/studio-direct-editing-v1",
+    "commit": "4e9ce787197f1a2b7eaa800ece2b96b28072108d"
+  },
+  "predecessor": {
+    "file": "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-all-word-vocabulary-final/baseline.json",
+    "sha256": "bac3ca33af3086399bc249d484e48c14054ddad138623e3f0f43506653a9d2c6"
+  },
+  "authority": "User requested individual-word vocabulary and any-eight Frayers in A Pilot2/B/C/D. A owner rebuild includes copy-collection and original exact-entry model comparisons; other A learner and protected owner trees unchanged. No release or Studio authorization.",
+  "trees": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace",
+      "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace",
+      "sha256": "030fad01484e84ffb94d3b96d4de6ec1cd0a901f7cf075502f91e8ca96cf5405"
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace",
+      "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b"
+    },
+    {
+      "path": "scripts/lib/biology30-unit-a-pilot-2",
+      "sha256": "5ea53ca6ca305c3d3c9eb2091f1a1d34bcf6e3bfdb1651ccccde2896a0869bba"
+    }
+  ],
+  "teacherAcceptance": null
+}

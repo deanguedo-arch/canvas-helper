@@ -1,0 +1,971 @@
+{
+  "schemaVersion": 1,
+  "project": "biology20-unit-a",
+  "status": "word-specific content authored; final candidate verification required",
+  "categories": [
+    {
+      "id": "a-family-systems",
+      "label": "Systems and boundaries",
+      "wordIds": [
+        "a-term-ecology",
+        "a-term-system",
+        "a-term-open-system",
+        "a-term-closed-system",
+        "a-term-isolated-system",
+        "a-term-biosphere"
+      ]
+    },
+    {
+      "id": "a-family-energy",
+      "label": "Energy transfer and conservation",
+      "wordIds": [
+        "a-term-energy",
+        "a-term-cellular-respiration",
+        "a-term-productivity"
+      ]
+    },
+    {
+      "id": "a-family-food-webs",
+      "label": "Food webs and trophic roles",
+      "wordIds": [
+        "a-term-food-web",
+        "a-term-autotroph",
+        "a-term-decomposer",
+        "a-term-producer",
+        "a-term-consumer"
+      ]
+    },
+    {
+      "id": "a-family-efficiency",
+      "label": "Trophic transfer efficiency",
+      "wordIds": [
+        "a-term-transfer-efficiency"
+      ]
+    },
+    {
+      "id": "a-family-water",
+      "label": "Water properties and cycling",
+      "wordIds": [
+        "a-term-water",
+        "a-term-hydrologic-cycle",
+        "a-term-cohesion",
+        "a-term-adhesion"
+      ]
+    },
+    {
+      "id": "a-family-matter-cycles",
+      "label": "Matter stores and biogeochemical cycles",
+      "wordIds": [
+        "a-term-carbon",
+        "a-term-nitrogen-cycle",
+        "a-term-photosynthesis",
+        "a-term-cellular-respiration",
+        "a-term-nitrogen",
+        "a-term-phosphorus",
+        "a-term-sulfur",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification",
+        "a-term-eutrophication"
+      ]
+    },
+    {
+      "id": "a-family-albedo",
+      "label": "Albedo and feedback",
+      "wordIds": [
+        "a-term-albedo",
+        "a-term-positive-feedback"
+      ]
+    },
+    {
+      "id": "a-family-producers",
+      "label": "Producer carbon and energy sources",
+      "wordIds": [
+        "a-term-autotroph",
+        "a-term-photosynthesis",
+        "a-term-chemosynthesis"
+      ]
+    },
+    {
+      "id": "a-family-pyramids",
+      "label": "Ecological pyramids",
+      "wordIds": [
+        "a-term-biomass",
+        "a-term-ecological-pyramid"
+      ]
+    },
+    {
+      "id": "a-family-gas-balance",
+      "label": "Atmospheric gas balance",
+      "wordIds": [
+        "a-term-oxygen",
+        "a-term-photosynthesis",
+        "a-term-cellular-respiration"
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "a-term-ecology",
+      "term": "Ecology",
+      "categoryIds": [
+        "a-family-systems"
+      ],
+      "definition": "The study of relationships among organisms and between organisms and their environment.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The ending -logy names a field of study. Ecology studies organisms in relation to their environment; the word names a discipline, not a single ecosystem."
+      },
+      "whatItDoes": "Ecological investigations relate distributions and interactions to conditions, using observations, comparisons and stated system boundaries.",
+      "relatedTermIds": [
+        "a-term-system",
+        "a-term-biosphere"
+      ],
+      "commonConfusion": "Ecology is a field of study, not a synonym for environmental protection.",
+      "retrievalPrompt": "How could you investigate whether shade affects where moss grows? Name one measurement and one competing explanation.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-system-boundaries",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-system",
+      "term": "system",
+      "categoryIds": [
+        "a-family-systems"
+      ],
+      "definition": "The parts selected for an investigation, separated from their surroundings by a stated boundary.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "System is the head noun: a set of interacting parts. In open system and closed system, the first word specifies what can cross the boundary."
+      },
+      "whatItDoes": "Choosing the parts and boundary lets you classify changes as internal transfers or exchanges with surroundings.",
+      "relatedTermIds": [
+        "a-term-open-system",
+        "a-term-closed-system",
+        "a-term-isolated-system"
+      ],
+      "commonConfusion": "A visible container is not the only possible boundary; the investigator must state what is included.",
+      "retrievalPrompt": "Define a pond system and give one transfer inside it and one transfer across its boundary.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-system-boundaries",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-open-system",
+      "term": "open system",
+      "categoryIds": [
+        "a-family-systems"
+      ],
+      "definition": "A system that exchanges both matter and energy with its surroundings.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Open modifies system: matter and energy can cross the chosen boundary. Open refers to exchange, not necessarily a visible opening."
+      },
+      "whatItDoes": "Matter and energy can cross the boundary, so both inputs and outputs belong in its balance.",
+      "relatedTermIds": [
+        "a-term-system",
+        "a-term-closed-system"
+      ],
+      "commonConfusion": "Open describes exchanges, not whether the system has a lid or looks exposed.",
+      "retrievalPrompt": "Why is a pond receiving sunlight and runoff an open system? Identify both kinds of exchange.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-system-boundaries",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-closed-system",
+      "term": "closed system",
+      "categoryIds": [
+        "a-family-systems"
+      ],
+      "definition": "A system that exchanges energy but approximately no matter with its surroundings over the stated interval.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Closed modifies system: matter exchange is excluded in the stated model, while energy exchange may continue."
+      },
+      "whatItDoes": "A closed-system model excludes matter crossing the boundary while allowing energy transfers such as light and heat.",
+      "relatedTermIds": [
+        "a-term-open-system",
+        "a-term-isolated-system"
+      ],
+      "commonConfusion": "Closed is not isolated. Changes of state inside a sealed jar do not necessarily move matter across its boundary.",
+      "retrievalPrompt": "Water evaporates inside a sealed illuminated jar. Does that alone make it open? Explain using the boundary.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-system-boundaries",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-isolated-system",
+      "term": "isolated system",
+      "categoryIds": [
+        "a-family-systems"
+      ],
+      "definition": "An ideal system that exchanges neither matter nor energy with its surroundings.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Isolated is a modifier meaning separated from exchange. An isolated-system model excludes both matter and energy exchange."
+      },
+      "whatItDoes": "The idealized boundary excludes energy as well as matter transfers, allowing internal changes to be studied without external exchanges.",
+      "relatedTermIds": [
+        "a-term-closed-system",
+        "a-term-energy"
+      ],
+      "commonConfusion": "Insulation does not prove perfect isolation; real containers can still transfer some energy.",
+      "retrievalPrompt": "A sealed jar receives light. Why can it be approximately closed but not isolated?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-system-boundaries",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-biosphere",
+      "term": "biosphere",
+      "categoryIds": [
+        "a-family-systems"
+      ],
+      "definition": "The regions of Earth where life occurs.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Bio- concerns life; sphere names the Earth-scale region in this compound. It is the region supporting life, not a solid biological shell."
+      },
+      "whatItDoes": "Living organisms interact with air, water and rock across the regions that support life, connecting local ecosystems through matter transfers.",
+      "relatedTermIds": [
+        "a-term-ecology",
+        "a-term-carbon",
+        "a-term-water"
+      ],
+      "commonConfusion": "Biosphere is not another name for the atmosphere; life also occurs in water and parts of the ground.",
+      "retrievalPrompt": "Give one example each of life associated with air, water and soil, then connect two through a matter transfer.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-system-boundaries",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-albedo",
+      "term": "albedo",
+      "categoryIds": [
+        "a-family-albedo"
+      ],
+      "definition": "The fraction of incoming solar radiation reflected by a surface.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Albedo is used as a whole technical noun. An albedo value is a reflected fraction; higher and lower modify that fraction, not surface temperature directly."
+      },
+      "whatItDoes": "It gives the reflected fraction by dividing reflected radiation by incoming radiation under comparable conditions.",
+      "relatedTermIds": [
+        "a-term-energy",
+        "a-term-positive-feedback"
+      ],
+      "commonConfusion": "A higher reflected fraction need not mean a greater total energy reflection when incoming amounts differ.",
+      "retrievalPrompt": "A surface reflects 240 J of 800 J received. Calculate its albedo and explain what the value means.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-energy-and-albedo",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-positive-feedback",
+      "term": "positive feedback",
+      "categoryIds": [
+        "a-family-albedo"
+      ],
+      "definition": "A response that amplifies an initial change.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Feedback names a response fed back into a process. Positive specifies reinforcement of the initiating change, not whether the result is desirable."
+      },
+      "whatItDoes": "A returning causal effect reinforces the initial change, which can drive the system farther in the same direction until other limits intervene.",
+      "relatedTermIds": [
+        "a-term-albedo",
+        "a-term-system"
+      ],
+      "commonConfusion": "Positive means amplifying, not beneficial. A correlation alone does not establish a feedback loop.",
+      "retrievalPrompt": "Explain how less reflective cover could amplify warming, naming the returning effect and one condition the explanation assumes.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-energy-and-albedo",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-autotroph",
+      "term": "autotroph",
+      "categoryIds": [
+        "a-family-food-webs",
+        "a-family-producers"
+      ],
+      "definition": "An organism that builds organic material using inorganic carbon, with an energy input.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Auto- means self. In this nutritional term, troph concerns nourishment: the organism builds organic material from inorganic carbon using an energy source."
+      },
+      "whatItDoes": "It incorporates inorganic carbon into organic material using an energy source, supplying organic matter that can enter food webs.",
+      "relatedTermIds": [
+        "a-term-producer",
+        "a-term-photosynthesis",
+        "a-term-chemosynthesis"
+      ],
+      "commonConfusion": "Autotroph does not mean an organism needs no inputs, and not all autotrophs use light.",
+      "retrievalPrompt": "Two organisms use CO₂ as a carbon source, but only one uses light. Can both be autotrophs? Explain.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-producing-organic-matter",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-photosynthesis",
+      "term": "photosynthesis",
+      "categoryIds": [
+        "a-family-matter-cycles",
+        "a-family-producers",
+        "a-family-gas-balance"
+      ],
+      "definition": "A process that uses light energy to support the production of organic material; oxygenic photosynthesis uses carbon dioxide and water and releases oxygen.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Photo- refers to light; synthesis means putting components together. The compound connects light energy with the synthesis of organic material."
+      },
+      "whatItDoes": "Light-driven reactions support organic-matter production. In the oxygenic pathway considered here, water supplies electrons and oxygen is released.",
+      "relatedTermIds": [
+        "a-term-autotroph",
+        "a-term-cellular-respiration",
+        "a-term-oxygen"
+      ],
+      "commonConfusion": "Plants also respire. Detecting photosynthesis does not show that net oxygen must rise under every condition.",
+      "retrievalPrompt": "Why can a photosynthetic organism both release and consume oxygen? Distinguish the processes.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-producing-organic-matter",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-chemosynthesis",
+      "term": "chemosynthesis",
+      "categoryIds": [
+        "a-family-producers"
+      ],
+      "definition": "Production of organic material using energy from chemical reactions rather than light; this lesson considers organisms fixing inorganic carbon.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Chemo- refers to chemical processes; synthesis means building a substance. The term contrasts chemical energy sources with light-driven synthesis."
+      },
+      "whatItDoes": "In the examples studied, energy from chemical reactions supports fixation of inorganic carbon into organic matter without light as the energy input.",
+      "relatedTermIds": [
+        "a-term-autotroph",
+        "a-term-photosynthesis",
+        "a-term-consumer"
+      ],
+      "commonConfusion": "An organism living in darkness is not necessarily chemosynthetic; it may consume organic matter made elsewhere.",
+      "retrievalPrompt": "What evidence about carbon and energy sources would distinguish a chemosynthetic producer from a consumer in darkness?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-producing-organic-matter",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-cellular-respiration",
+      "term": "cellular respiration",
+      "categoryIds": [
+        "a-family-energy",
+        "a-family-matter-cycles",
+        "a-family-gas-balance"
+      ],
+      "definition": "Cellular reactions that transfer energy available from organic molecules into usable forms, including ATP.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cellular is the adjective from cell. Respiration here names cellular energy-releasing reactions, not simply breathing with lungs."
+      },
+      "whatItDoes": "It transfers some energy available in organic molecules into ATP-linked cellular work; aerobic respiration consumes oxygen and releases carbon dioxide.",
+      "relatedTermIds": [
+        "a-term-photosynthesis",
+        "a-term-oxygen",
+        "a-term-energy"
+      ],
+      "commonConfusion": "Respiration is not the same as breathing, and it occurs in producers as well as consumers.",
+      "retrievalPrompt": "Explain why oxygen could fall in a closed model containing plants when respiration exceeds oxygen production.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-producing-organic-matter",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-energy",
+      "term": "energy",
+      "categoryIds": [
+        "a-family-energy"
+      ],
+      "definition": "A conserved physical quantity that can be transferred and transformed; ecological accounts track its inputs, outputs and storage.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Energy is the head noun in light energy, chemical energy and thermal energy. The modifier names a form or transfer context; it does not create a different conservation rule."
+      },
+      "whatItDoes": "Energy transfers and transformations support biological processes. Accounting compares inputs, outputs and changes in storage without treating energy as created or destroyed.",
+      "relatedTermIds": [
+        "a-term-albedo",
+        "a-term-transfer-efficiency",
+        "a-term-cellular-respiration"
+      ],
+      "commonConfusion": "Less energy reaching the next trophic level does not mean energy vanished; it may have left the chosen pathway as heat or other transfers.",
+      "retrievalPrompt": "A model receives 1,000 J and reflects 800 J with no transmission. Find the absorbed amount and explain why conservation holds.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-energy-and-albedo",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-food-web",
+      "term": "food web",
+      "categoryIds": [
+        "a-family-food-webs"
+      ],
+      "definition": "A representation of interconnected feeding relationships in a stated ecological system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Food identifies feeding relationships; web describes many connected pathways rather than one straight chain."
+      },
+      "whatItDoes": "It represents several linked feeding pathways; arrows from food to eater track the direction of transferred matter and chemical energy.",
+      "relatedTermIds": [
+        "a-term-producer",
+        "a-term-consumer",
+        "a-term-decomposer"
+      ],
+      "commonConfusion": "An organism can occupy different trophic positions in different chains within one web.",
+      "retrievalPrompt": "Draw plant → insect → bird and add a bird eating seeds. Explain why the bird now has more than one trophic position.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-trophic-levels-and-efficiency-feeding-roles",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-decomposer",
+      "term": "decomposer",
+      "categoryIds": [
+        "a-family-food-webs"
+      ],
+      "definition": "An organism that chemically breaks down organic matter, commonly releasing enzymes and absorbing products.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Decompose names breakdown; -er names an agent performing a process. A decomposer obtains resources by breaking down organic material."
+      },
+      "whatItDoes": "Enzymatic breakdown of dead organic material makes smaller substances available for uptake and contributes to the return of nutrients to nonliving stores.",
+      "relatedTermIds": [
+        "a-term-consumer",
+        "a-term-food-web",
+        "a-term-nitrogen-cycle"
+      ],
+      "commonConfusion": "Decomposers are not simply one final trophic level; material can reach them from several levels.",
+      "retrievalPrompt": "Why should dead material from both plants and predators connect to decomposers in a food-web model?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-trophic-levels-and-efficiency-feeding-roles",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-transfer-efficiency",
+      "term": "transfer efficiency",
+      "categoryIds": [
+        "a-family-efficiency"
+      ],
+      "definition": "The receiving trophic level's production divided by source-level production over matching boundaries, usually expressed as a percentage.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Transfer names movement between parts of a system; efficiency names the useful-output fraction relative to a specified input."
+      },
+      "whatItDoes": "The ratio compares the receiving level’s production with source-level production over matching area, time and energy units.",
+      "relatedTermIds": [
+        "a-term-energy",
+        "a-term-productivity",
+        "a-term-ecological-pyramid"
+      ],
+      "commonConfusion": "Ten percent is not universal. Production divided by ingestion is a different ratio.",
+      "retrievalPrompt": "A source produces 1,000 kJ m⁻² yr⁻¹ and the next level produces 80. Calculate transfer efficiency and identify the denominator.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-trophic-levels-and-efficiency-transfer-efficiency",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-water",
+      "term": "water",
+      "categoryIds": [
+        "a-family-water"
+      ],
+      "definition": "The substance H₂O; its polarity and hydrogen bonding contribute to properties important to living systems.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Water is the substance name; H2O is its chemical formula. The subscript 2 counts hydrogen atoms per molecule, not two kinds of water."
+      },
+      "whatItDoes": "Its molecular properties support dissolving and moving substances, temperature buffering and the cohesion and adhesion important in biological systems.",
+      "relatedTermIds": [
+        "a-term-cohesion",
+        "a-term-adhesion",
+        "a-term-hydrologic-cycle"
+      ],
+      "commonConfusion": "Cohesion and adhesion describe different interactions; neither means water moves without an energy or pressure context.",
+      "retrievalPrompt": "Explain one way water’s interactions with itself differ from its interactions with a suitable solid surface.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-water-and-the-hydrologic-cycle-water-properties",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-hydrologic-cycle",
+      "term": "hydrologic cycle",
+      "categoryIds": [
+        "a-family-water"
+      ],
+      "definition": "Transfers of water among stores through processes including evaporation, precipitation, infiltration and runoff.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Hydro- refers to water; hydrologic is an adjective. Cycle names connected transfers among reservoirs, not one water molecule following a fixed timetable."
+      },
+      "whatItDoes": "Processes move water among atmosphere, surface water, soil, organisms and other stores; a local water budget depends on the chosen boundary and interval.",
+      "relatedTermIds": [
+        "a-term-water",
+        "a-term-system"
+      ],
+      "commonConfusion": "A cycle does not imply equal local inflow and outflow during every interval.",
+      "retrievalPrompt": "A pond receives 20 units and loses 30 units of water in an interval. Explain its storage change and why the water cycle still operates.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-water-and-the-hydrologic-cycle-water-properties",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-carbon",
+      "term": "carbon",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "The chemical element present in carbon dioxide and in the organic compounds of living systems.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Carbon is an element name; C is its symbol. Carbon cycle concerns movement of carbon atoms among substances and reservoirs."
+      },
+      "whatItDoes": "Carbon atoms form part of organic compounds and also occur in inorganic stores; photosynthesis and respiration move them between compounds.",
+      "relatedTermIds": [
+        "a-term-photosynthesis",
+        "a-term-cellular-respiration"
+      ],
+      "commonConfusion": "Carbon, carbon dioxide and organic carbon compounds are not interchangeable names for the same substance.",
+      "retrievalPrompt": "Trace a carbon atom from atmospheric CO₂ into a plant and back to the atmosphere, naming two processes.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-nitrogen-cycle",
+      "term": "nitrogen cycle",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "Transfers and chemical transformations of nitrogen among organisms and nonliving stores.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Nitrogen specifies the element; cycle names its transfers and transformations. The element is conserved while its chemical form changes."
+      },
+      "whatItDoes": "Fixation, uptake and other transformations redistribute nitrogen among chemical forms and stores, affecting its availability to organisms.",
+      "relatedTermIds": [
+        "a-term-nitrogen",
+        "a-term-nitrogen-fixation",
+        "a-term-nitrification",
+        "a-term-denitrification"
+      ],
+      "commonConfusion": "Nitrogen cycling does not mean plants directly use atmospheric N₂ in the same way they take up nitrate.",
+      "retrievalPrompt": "Explain why fixation and nitrification are different steps even though both involve nitrogen.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-biomass",
+      "term": "biomass",
+      "categoryIds": [
+        "a-family-pyramids"
+      ],
+      "definition": "The mass of living material within a defined system, often measured as dry mass for ecological comparisons.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Bio- concerns living material; mass is the measured quantity. Biomass is an amount, whereas productivity includes a time interval."
+      },
+      "whatItDoes": "A standing-biomass measurement estimates living material at a specified time within a defined area or volume.",
+      "relatedTermIds": [
+        "a-term-productivity",
+        "a-term-ecological-pyramid"
+      ],
+      "commonConfusion": "A biomass stock is not a production rate; rapid turnover can support consumers despite a small standing producer stock.",
+      "retrievalPrompt": "How could a small producer biomass support a larger consumer biomass without creating energy?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-ecological-pyramids-numbers-and-biomass",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-ecological-pyramid",
+      "term": "ecological pyramid",
+      "categoryIds": [
+        "a-family-pyramids"
+      ],
+      "definition": "A comparison of trophic levels using numbers, biomass or energy production, with the quantity and units specified.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Ecological connects the representation to organism relationships; pyramid names a layered diagram. Numbers, biomass or energy specify what each layer measures."
+      },
+      "whatItDoes": "It compares specified quantities across trophic levels; the interpretation depends on whether width represents counts, standing biomass or energy production.",
+      "relatedTermIds": [
+        "a-term-biomass",
+        "a-term-productivity",
+        "a-term-transfer-efficiency"
+      ],
+      "commonConfusion": "An inverted biomass pyramid is not evidence of inverted energy production or a failure of energy conservation.",
+      "retrievalPrompt": "What units and time information would you need before interpreting a pyramid labelled “energy”?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-ecological-pyramids-numbers-and-biomass",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-oxygen",
+      "term": "oxygen",
+      "categoryIds": [
+        "a-family-gas-balance"
+      ],
+      "definition": "A chemical element; molecular oxygen, O₂, is released by oxygenic photosynthesis and used in aerobic respiration.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Oxygen is the element name; O2 specifies a molecule containing two oxygen atoms. The formula and the element name are not interchangeable quantities."
+      },
+      "whatItDoes": "Molecular oxygen participates in aerobic respiration and is released by oxygenic photosynthesis; its net amount depends on all relevant sources and sinks.",
+      "relatedTermIds": [
+        "a-term-photosynthesis",
+        "a-term-cellular-respiration"
+      ],
+      "commonConfusion": "The oxygen element occurs in many compounds; an oxygen atom in water is not a molecule of O₂.",
+      "retrievalPrompt": "Why does finding producers in a model not guarantee that its O₂ concentration will rise?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-sulfur-and-phosphorus-cycles-atmosphere-and-life",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-producer",
+      "term": "producer",
+      "categoryIds": [
+        "a-family-food-webs"
+      ],
+      "definition": "An organism that builds organic matter from inorganic carbon using a source of energy; ecological producers include photosynthetic and chemosynthetic autotrophs.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Produce names making something; -er names the agent. In ecology, producer is a nutritional role, not a claim that energy is created."
+      },
+      "whatItDoes": "It supplies newly built organic matter from inorganic carbon, introducing material into feeding pathways using an appropriate energy source.",
+      "relatedTermIds": [
+        "a-term-autotroph",
+        "a-term-chemosynthesis",
+        "a-term-food-web"
+      ],
+      "commonConfusion": "Producer does not mean only a green plant; chemosynthetic autotrophs can also serve this role.",
+      "retrievalPrompt": "Describe a producer that does not depend on light as its immediate energy source, and identify its carbon input.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-trophic-levels-and-efficiency-feeding-roles",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-consumer",
+      "term": "consumer",
+      "categoryIds": [
+        "a-family-food-webs"
+      ],
+      "definition": "An organism that obtains organic matter by feeding on other organisms or their products; its trophic position depends on the stated feeding pathway.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Consume names taking in resources; -er names the agent. The ecological noun concerns obtaining organic material from other organisms."
+      },
+      "whatItDoes": "It obtains organic matter through feeding and transfers some of that matter and energy through the food web.",
+      "relatedTermIds": [
+        "a-term-food-web",
+        "a-term-producer",
+        "a-term-decomposer"
+      ],
+      "commonConfusion": "Consumer does not identify a fixed trophic level; an omnivore’s position depends on the pathway considered.",
+      "retrievalPrompt": "An animal eats both leaves and insects. Explain its trophic position in each pathway.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-trophic-levels-and-efficiency-feeding-roles",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-nitrogen",
+      "term": "nitrogen",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "The chemical element N, present in amino acids and nucleic acids; its chemical form affects its biological availability.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Nitrogen is the element name and N its symbol. N2 names a two-atom molecule; nitrate and ammonium name different nitrogen-containing ions."
+      },
+      "whatItDoes": "Nitrogen atoms are incorporated into amino acids and nucleic acids; organisms need usable chemical forms and appropriate uptake pathways.",
+      "relatedTermIds": [
+        "a-term-nitrogen-cycle",
+        "a-term-nitrogen-fixation"
+      ],
+      "commonConfusion": "Abundant atmospheric nitrogen does not guarantee usable nitrogen for a plant.",
+      "retrievalPrompt": "Why can a plant have a limited nitrogen supply while surrounded by air containing N₂?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-phosphorus",
+      "term": "phosphorus",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "The chemical element P, present in nucleic acids, phospholipids and energy-transfer compounds; plants obtain it principally as phosphate from their surroundings.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Phosphorus is an element name, symbol P. Phosphate names an ion containing phosphorus and oxygen; the two names do not identify the same chemical form."
+      },
+      "whatItDoes": "Phosphorus-containing compounds contribute to membranes, nucleic acids and energy transfer; phosphate moves through organisms and nonliving stores.",
+      "relatedTermIds": [
+        "a-term-eutrophication",
+        "a-term-nitrogen"
+      ],
+      "commonConfusion": "Elemental phosphorus and phosphate are not the same chemical species.",
+      "retrievalPrompt": "Trace phosphate from soil into a plant and explain one biological use of its phosphorus.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-sulfur",
+      "term": "sulfur",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "The chemical element S, found in some amino acids and in nonliving stores; sulfate in soil water is an important plant source.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Sulfur is an element name, symbol S. Sulfate and sulfide name different sulfur-containing chemical forms."
+      },
+      "whatItDoes": "Sulfur is incorporated into some amino acids and moves among biological and geological stores in different chemical forms.",
+      "relatedTermIds": [
+        "a-term-nitrogen",
+        "a-term-carbon"
+      ],
+      "commonConfusion": "A sulfur-containing substance is not necessarily hydrogen sulfide, and smell cannot identify the entire sulfur cycle.",
+      "retrievalPrompt": "Why is sulfur taken up as sulfate still part of a sulfur cycle that also includes organic compounds?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-cohesion",
+      "term": "cohesion",
+      "categoryIds": [
+        "a-family-water"
+      ],
+      "definition": "Attraction among molecules of the same substance; attractions among water molecules contribute to its surface behaviour.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Cohesion belongs with cohesive: attraction among like molecules. Compare adhesion, which concerns attraction between different materials."
+      },
+      "whatItDoes": "Attractions among water molecules help maintain connected water surfaces and columns; they contribute to surface tension.",
+      "relatedTermIds": [
+        "a-term-water",
+        "a-term-adhesion"
+      ],
+      "commonConfusion": "Cohesion concerns like-with-like attraction. Attraction between water and a different surface is adhesion.",
+      "retrievalPrompt": "Water molecules attract neighbouring water molecules in a droplet. Name the interaction and contrast it with attraction to glass.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-water-and-the-hydrologic-cycle-water-properties",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-adhesion",
+      "term": "adhesion",
+      "categoryIds": [
+        "a-family-water"
+      ],
+      "definition": "Attraction between different substances, such as water and a suitable solid surface.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Adhesion belongs with adhesive: attachment between different materials. Compare cohesion among water molecules."
+      },
+      "whatItDoes": "Attraction between water and a suitable different material helps water wet surfaces and contributes, with cohesion, to capillary behaviour.",
+      "relatedTermIds": [
+        "a-term-water",
+        "a-term-cohesion"
+      ],
+      "commonConfusion": "Adhesion is not the attraction of water molecules to one another, and not every surface is equally wettable.",
+      "retrievalPrompt": "Water climbs partly along the wall of a narrow tube. Identify the interaction with the wall and distinguish it from cohesion.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-water-and-the-hydrologic-cycle-water-properties",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-nitrogen-fixation",
+      "term": "nitrogen fixation",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "Conversion of molecular nitrogen, N₂, into reduced forms that can enter biological nitrogen pathways.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Nitrogen names the element; fixation names its conversion from atmospheric N2 into biologically usable compounds, not physical fastening."
+      },
+      "whatItDoes": "It converts relatively unreactive N₂ into reduced nitrogen forms that can become available through biological pathways.",
+      "relatedTermIds": [
+        "a-term-nitrogen",
+        "a-term-nitrification"
+      ],
+      "commonConfusion": "Fixation is not the oxidation of ammonium into nitrate; that is nitrification.",
+      "retrievalPrompt": "A process starts with atmospheric N₂ and produces reduced nitrogen. Which step is this, and how does its input differ from nitrification?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-nitrification",
+      "term": "nitrification",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "Oxidation of ammonium through nitrite to nitrate; this transforms already-fixed nitrogen.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "The process noun ends in -ification. It names oxidation through ammonium, nitrite and nitrate stages; it is not another name for nitrogen fixation."
+      },
+      "whatItDoes": "Microbial oxidation changes ammonium through nitrite into nitrate, changing the form of already-fixed nitrogen.",
+      "relatedTermIds": [
+        "a-term-nitrogen-fixation",
+        "a-term-denitrification"
+      ],
+      "commonConfusion": "Nitrification does not begin with atmospheric N₂ and does not mean adding new nitrogen atoms to the system.",
+      "retrievalPrompt": "Why can conversion of ammonium to nitrate alter nitrogen availability without increasing the total number of nitrogen atoms?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-denitrification",
+      "term": "denitrification",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "Microbial reduction of nitrate or nitrite to gaseous nitrogen products under suitable conditions, commonly where oxygen is limited.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "De- marks removal or reversal in this process name. Denitrification returns nitrogen from nitrate-related forms toward gaseous forms, rather than producing nitrate."
+      },
+      "whatItDoes": "Under suitable conditions, microbial reduction can convert nitrate or nitrite into gaseous nitrogen products, moving nitrogen out of some local soil or water pools.",
+      "relatedTermIds": [
+        "a-term-nitrification",
+        "a-term-nitrogen-cycle"
+      ],
+      "commonConfusion": "Denitrification is not nitrogen fixation; the starting forms and direction of transformation differ.",
+      "retrievalPrompt": "Explain how nitrate in water could decrease through denitrification and name a condition relevant to that explanation.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-eutrophication",
+      "term": "eutrophication",
+      "categoryIds": [
+        "a-family-matter-cycles"
+      ],
+      "definition": "Nutrient enrichment that can increase production and alter aquatic conditions, including oxygen balance; effects depend on the system.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "This is a process noun ending in -ication. In this course it names nutrient enrichment and its ecological consequences; distinguish enrichment from any one resulting algal bloom."
+      },
+      "whatItDoes": "Nutrient enrichment can stimulate production; subsequent respiration and decomposition may increase oxygen demand and alter aquatic communities.",
+      "relatedTermIds": [
+        "a-term-phosphorus",
+        "a-term-decomposer",
+        "a-term-oxygen"
+      ],
+      "commonConfusion": "An algal increase alone does not quantify oxygen loss, and enrichment does not cause identical effects in every system.",
+      "retrievalPrompt": "Connect nutrient addition to a possible later oxygen decrease, naming the biological steps and one missing measurement.",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-carbon-oxygen-and-nitrogen-cycles-carbon-and-oxygen",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    },
+    {
+      "id": "a-term-productivity",
+      "term": "productivity",
+      "categoryIds": [
+        "a-family-energy"
+      ],
+      "definition": "The rate of biological production over a stated area or volume and time; it is not simply the standing amount of biomass.",
+      "structure": {
+        "status": "contextual-analysis",
+        "text": "Productive is an adjective; productivity is the corresponding measured process or rate. A time interval distinguishes production rate from standing biomass."
+      },
+      "whatItDoes": "It describes production per unit time within stated spatial boundaries, allowing rates to be compared rather than only standing stocks.",
+      "relatedTermIds": [
+        "a-term-biomass",
+        "a-term-transfer-efficiency"
+      ],
+      "commonConfusion": "Two systems with the same biomass can have different productivity because their rates of production and turnover differ.",
+      "retrievalPrompt": "What extra measurement is needed to distinguish a biomass measurement from a productivity estimate?",
+      "sourceRefs": [
+        "projects/resources/biology20-production/v1/units/a/core-teaching.json#a-topic-intro-to-ecology-energy-and-albedo",
+        "projects/resources/biology20-production/v1/units/a/vocabulary-families.json"
+      ],
+      "reviewStatus": "authored-from-existing-course; second scientific review and learner integration pending"
+    }
+  ]
+}

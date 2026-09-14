@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "status": "internal-first-topic-and-vocabulary-checks-passed; complete module not built",
+  "candidateFiles": [
+    {
+      "file": "index.html",
+      "sha256": "424da478050415a0d2cb6c77c94cba4ec8dfa6a4bed7c57eec51a97a61a59fc7"
+    },
+    {
+      "file": "proof.js",
+      "sha256": "3688388ce8ee08f57029db83fdd96dd89064f460bba4fd984071a5648eb6664b"
+    },
+    {
+      "file": "assets/fonts/HankenGrotesk-Variable.ttf",
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+    },
+    {
+      "file": "assets/fonts/WorkSans-Variable.ttf",
+      "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+    },
+    {
+      "file": "assets/system-boundaries.svg",
+      "sha256": "36085054fa549a8fc3431622e79bb1a697a1a5dc7a98a954e2c020ced7f21e66"
+    },
+    {
+      "file": "assets/albedo-budget.svg",
+      "sha256": "1b9ecc3dc6eeb6b40a8031a4a90cb1f2e45b5a752676404f2e6c7050c88d6415"
+    },
+    {
+      "file": "assets/producer-comparison-v2.png",
+      "sha256": "e0146452df77a2ef2d87bb7223c6e0b5d7677626af6f2cfa94bab21480b796a5"
+    }
+  ],
+  "maximumInternalProofCharacters": 21702,
+  "capacityScope": "First-topic responses plus six anchors and all six possible pairs of four choices, with ordinary, Unicode and escape-heavy maximum values. Not full-module capacity.",
+  "checks": [
+    "Desktop 1440 and mobile 390: shared panel/full-page edits persist in both directions and after reload.",
+    "Oversized draft remains through close/reopen; failed save does not replace previous saved writing.",
+    "Future-family meanings available immediately; future Frayers remain locked.",
+    "Panel Escape returns focus and restores lesson hash and scroll position.",
+    "Collection and model comparison operate; editing hides the previous model comparison.",
+    "All six optional-choice pairs round-trip; written choice cannot be replaced before explicit scoped clearing; unrelated writing retained.",
+    "Existing answer, figure enlargement, optional Advanced and exact return checks pass.",
+    "23 authored terms, six anchor families, four eligible choices; nine core parts and nine Advanced companions reconcile.",
+    "Current desktop/mobile panel screenshots opened and inspected."
+  ],
+  "screenshots": [
+    {
+      "path": "/tmp/biology20-vocabulary-panel-1440.png",
+      "sha256": "fbdef6115dbf726619a53031a5bdc498449239fcf40ec9e8ce3daac18184bd3d"
+    },
+    {
+      "path": "/tmp/biology20-vocabulary-panel-390.png",
+      "sha256": "a4de33f51e832ce1a17600c4459442809e119f27ac921906cde19594c9c4e065"
+    }
+  ],
+  "limits": [
+    "Internal composition proof, not a complete learner module or full session/recovery verification.",
+    "No physical mobile-keyboard, screen-reader, 200% zoom or print verification yet.",
+    "Generated figure remains conceptual and provisional; teacher comparison pending.",
+    "Full-module source/curriculum, pacing, saved-state and candidate gates remain."
+  ],
+  "tests": {
+    "focused": "/tmp/biology20-vocabulary-tests.log — 29/29",
+    "finalBrowser": "/tmp/biology20-vocabulary-final-browser.log — 2/2",
+    "sharedSmoke": "/tmp/biology20-vocabulary-smoke.log — 1/1",
+    "intake": "/tmp/biology20-vocabulary-intake.log — pass; all four Biology30 workspace trees unchanged",
+    "typecheck": "/tmp/biology20-vocabulary-types-final.log — unrelated existing diagnostics; no Biology20 or touched audit diagnostics"
+  },
+  "authoringInventory": {
+    "coreParts": 9,
+    "advancedBlocks": 9,
+    "terms": 23,
+    "conceptFamilies": 10,
+    "fixedFrayers": 6,
+    "eligibleChoices": 4,
+    "maximumSimultaneousChoices": 2
+  },
+  "teacherAcceptance": null
+}

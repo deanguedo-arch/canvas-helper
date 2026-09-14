@@ -5,6 +5,7 @@ import {build,version as esbuildVersion} from 'esbuild';
 import type {TopicInputFile} from './pilot2-inputs.js';
 
 const owner='scripts/lib/biology30-course/v1/';
+const sharedVocabulary=new Set(['panel.ts','word-record.ts','word-reader.ts','word-page-runtime.ts','word-frayer-runtime.ts','word-frayer-state.ts'].map(file=>'scripts/lib/biology30-vocabulary/'+file));
 const sha256=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
 /** Compile the actual browser entry in memory. The closure records the exact
  * bytes delivered to esbuild's loader; no learner directory is written. */
@@ -14,7 +15,7 @@ export async function bundleTopicBrowser(repoRoot:string) {
   plugins:[{name:'capture-biology-browser-closure',setup(api){api.onLoad({filter:/\.[cm]?[jt]s$/},async args=>{
    const absolute=path.resolve(args.path),relative=path.relative(root,absolute).split(path.sep).join('/');
    // The one shared A-D view is explicitly allowed and remains hash-pinned.
-   if((!relative.startsWith(owner)&&relative!=='scripts/lib/biology30-vocabulary/panel.ts')||await realpath(absolute)!==absolute)throw new Error(`Browser dependency escaped its owner: ${relative}`);
+   if((!relative.startsWith(owner)&&!sharedVocabulary.has(relative))||await realpath(absolute)!==absolute)throw new Error(`Browser dependency escaped its owner: ${relative}`);
    const contents=await readFile(absolute),hash=sha256(contents);
    if(captured.has(relative)&&captured.get(relative)!==hash)throw new Error(`Browser dependency changed during compilation: ${relative}`);
    captured.set(relative,hash);return{contents,loader:relative.endsWith('.ts')?'ts':'js',resolveDir:path.dirname(absolute)};

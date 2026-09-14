@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "git": {
+    "branch": "codex/studio-direct-editing-v1",
+    "commit": "4e9ce787197f1a2b7eaa800ece2b96b28072108d"
+  },
+  "predecessor": {
+    "file": "projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-word-frayers/baseline.json",
+    "sha256": "95041df6efc8331d97e92c46bde9611b6a275bfd9d6a48a6c5a1732f661d18c6"
+  },
+  "authority": "User explicitly requested individual-word vocabulary, reviewed word structure and any-eight saved Frayers in A Pilot2, B, C and D. A Pilot2 rebuilt by its owner; current A and its owner are re-protected before BCD builds. The two other A trees remain unchanged. No release or Studio authorization.",
+  "trees": [
+    {
+      "path": "projects/biology30-unit-a-pilot/workspace",
+      "sha256": "440ddde1014d3b9e97993e421f099e72278ce2387e4b4c8bd863ce375cb3b783"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-2/workspace",
+      "sha256": "3d0b49c05a562ee71aa73632aa4abea4959698395a6296913aa914123b88c88b"
+    },
+    {
+      "path": "projects/biology30-unit-a/workspace",
+      "sha256": "4dc1a7a0f55bf12690626a6ba9fb26b6f9bcbb96cf4211fab57ff593c805516b"
+    },
+    {
+      "path": "scripts/lib/biology30-unit-a-pilot-2",
+      "sha256": "5ea53ca6ca305c3d3c9eb2091f1a1d34bcf6e3bfdb1651ccccde2896a0869bba"
+    }
+  ],
+  "teacherAcceptance": null
+}

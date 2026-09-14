@@ -602,10 +602,28 @@ async function assertEvidenceScenarios(
   learnerCourse: EnabledLearnerCourse
 ) {
   const scenarios = resolveLearnerEvidenceScenarios(learnerCourse);
-  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2") });
+  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2" && scenario.kind !== "pilot3-local-run") });
   for (const [scenarioIndex, scenario] of scenarios.entries()) {
     const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-    if (scenario.kind === "pilot2") {
+    if (scenario.kind === "pilot3-local-run") {
+      const section=await showLearnerRoute(workspaceFrame,scenario.route);
+      const activity=section.locator(`[data-activity="${scenario.activityId}"]`);
+      await activity.locator('[data-start]').click();
+      const value=`Written evidence during project verification ${scenarioIndex}.`;
+      const fields=activity.locator('[data-writing]');
+      for(let i=0;i<await fields.count();i++){
+        await fields.nth(i).fill(value);
+        await activity.locator('[data-submit-writing]').nth(i).click();
+        await expect(activity.locator('[data-writing-status]').nth(i)).toContainText('Written response saved');
+      }
+      await activity.locator('[data-submit-run]').click();
+      await expect(activity.locator('[data-run-status]')).toContainText('Completed');
+      await reloadWorkspacePreview(page,projectSlug);
+      const collection=await showLearnerRoute(workspaceFrame,scenario.collectionRoute);
+      await expect(collection.locator('[data-history]')).toContainText(value);
+      await showLearnerRoute(workspaceFrame,scenario.route);
+      await expect(fields.first()).toHaveValue(value);
+    } else if (scenario.kind === "pilot2") {
       const section = await showLearnerRoute(workspaceFrame, scenario.route);
       const response = section.locator(`[data-pilot2-response="${scenario.responseId}"]`);
       const value = `Evidence saved during project verification ${scenarioIndex}.`;

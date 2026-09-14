@@ -1,9 +1,71 @@
 "use strict";
 (() => {
+  // scripts/lib/biology30-course/v1/course-identity.ts
+  var BIOLOGY20_MODULE_UNITS = ["A", "B", "C", "D-PART-1", "D-PART-2"];
+  function validateBiologyRuntimeIdentity(identity) {
+    if (identity.courseId === void 0) {
+      if (!["B", "C", "D"].includes(identity.unit)) throw Error("Unsupported legacy Biology30 runtime identity");
+    } else if (identity.courseId !== "biology20" || !BIOLOGY20_MODULE_UNITS.includes(identity.unit)) throw Error("Unsupported Biology course/module identity");
+    return identity;
+  }
+  function biologyRuntimeStorageBase(identity) {
+    validateBiologyRuntimeIdentity(identity);
+    return `${identity.courseId ?? "biology30"}-unit-${identity.unit.toLowerCase()}`;
+  }
+  function biologyRuntimeStorageKey(identity) {
+    const base = biologyRuntimeStorageBase(identity);
+    return `${base}:${identity.courseId ? "state:v1" : "pilot2-v3"}`;
+  }
+
+  // scripts/lib/biology30-vocabulary/word-frayer-state.ts
+  function validateWordFrayers(slots, schema) {
+    if (!/^[a-f0-9]{64}$/.test(schema.identity) || !Number.isInteger(schema.limit) || schema.limit < 1) throw Error("Invalid word Frayer schema");
+    if (new Set(schema.wordIds).size !== schema.wordIds.length || new Set(schema.legacyIds).size !== schema.legacyIds.length) throw Error("Duplicate word Frayer identity");
+    if (!Array.isArray(slots) || slots.length > 8) throw Error("Choose up to eight words");
+    const seen = /* @__PURE__ */ new Set();
+    for (const s of slots) {
+      if (!s || !["word", "legacy"].includes(s.kind) || !(s.kind === "word" ? schema.wordIds : schema.legacyIds).includes(s.id) || seen.has(s.kind + ":" + s.id)) throw Error("Unknown or duplicate Frayer owner");
+      seen.add(s.kind + ":" + s.id);
+      if (!Array.isArray(s.answers) || s.answers.length !== 4 || s.answers.some((a) => typeof a !== "string" || a.length > schema.limit)) throw Error("A Frayer response is oversized or invalid; writing was not truncated");
+      if (typeof s.collected !== "boolean" || s.kind === "word" && s.collected && !s.answers.every((a) => a.trim())) throw Error("Complete four fields before collecting");
+    }
+    return slots;
+  }
+  function chooseWord(slots, schema, id) {
+    validateWordFrayers(slots, schema);
+    if (!schema.wordIds.includes(id)) throw Error("Unknown word");
+    if (slots.some((s) => s.kind === "word" && s.id === id)) return slots;
+    if (slots.length >= 8) throw Error("All eight slots are occupied. Copy and remove a chosen Frayer before choosing another word.");
+    return [...slots, { kind: "word", id, answers: ["", "", "", ""], collected: false }];
+  }
+  function removeWordFrayer(slots, schema, kind, id, confirmed) {
+    validateWordFrayers(slots, schema);
+    const found = slots.find((s) => s.kind === kind && s.id === id);
+    if (!found) throw Error("Frayer is not selected");
+    if ((found.answers.some((a) => a.length) || found.collected) && !confirmed) throw Error("Copy your writing and explicitly confirm removal first");
+    return slots.filter((s) => s !== found);
+  }
+  function packWordFrayers(slots, schema) {
+    validateWordFrayers(slots, schema);
+    return { m: schema.identity, s: slots.map((s) => [s.kind === "word" ? schema.wordIds.indexOf(s.id) : -1 - schema.legacyIds.indexOf(s.id), s.collected ? 1 : 0, ...s.answers]) };
+  }
+  function unpackWordFrayers(raw, schema) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) throw Error("Invalid word Frayer payload");
+    const p = raw;
+    if (Object.keys(p).sort().join(",") !== "m,s" || p.m !== schema.identity || !Array.isArray(p.s)) throw Error("Word map changed; preserve the original save");
+    const slots = p.s.map((row) => {
+      if (!Array.isArray(row) || row.length !== 6 || !Number.isInteger(row[0]) || ![0, 1].includes(row[1]) || row.slice(2).some((a) => typeof a !== "string")) throw Error("Malformed word Frayer; preserve original save");
+      const kind = row[0] < 0 ? "legacy" : "word", id = kind === "word" ? schema.wordIds[row[0]] : schema.legacyIds[-1 - row[0]];
+      return { kind, id, answers: row.slice(2), collected: row[1] === 1 };
+    });
+    return validateWordFrayers(slots, schema);
+  }
+
   // scripts/lib/biology30-course/v1/pilot2-state.ts
   var TOPIC_STATE_GUARD = 48e3;
   function emptyTopicState(schema) {
-    return { version: 3, unit: schema.unit, updatedAt: (/* @__PURE__ */ new Date(0)).toISOString(), route: schema.routes[0], responses: {}, choices: {}, flags: [], visited: [], frayerChoices: [], legacy: [] };
+    validateBiologyRuntimeIdentity(schema);
+    return { version: 3, unit: schema.unit, ...schema.courseId ? { courseId: schema.courseId } : {}, updatedAt: (/* @__PURE__ */ new Date(0)).toISOString(), route: schema.routes[0], responses: {}, choices: {}, flags: [], visited: [], frayerChoices: [], legacy: [] };
   }
   function own(record2, key) {
     return Object.prototype.hasOwnProperty.call(record2, key) ? record2[key] : void 0;
@@ -15,7 +77,8 @@
     if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`Invalid ${label}`);
   }
   function validateTopicState(state, schema) {
-    if (state.version !== 3 || state.unit !== schema.unit) throw new Error("State version or unit does not match this course");
+    validateBiologyRuntimeIdentity(schema);
+    if (state.version !== 3 || state.unit !== schema.unit || state.courseId !== schema.courseId) throw new Error("State version or unit does not match this course");
     if (!schema.routes.includes(state.route) || typeof state.updatedAt !== "string" || !Number.isFinite(Date.parse(state.updatedAt))) throw new Error("Unknown route or invalid state time");
     object(state.responses, "responses");
     object(state.choices, "choices");
@@ -37,6 +100,11 @@
       if (!activeFamilies.has(family) && ids.some((id) => (state.responses[id] ?? "").length > 0)) throw new Error("Written Frayer belongs to an inactive choice; preserve it before replacement");
     }
     if (!Array.isArray(state.legacy) || state.legacy.some((x) => !x || typeof x.original !== "string" || typeof x.source !== "string")) throw new Error("Invalid preserved legacy payload");
+    if (state.wordFrayers !== void 0) {
+      if (!schema.wordFrayers) throw Error("Word Frayers are not enabled in this profile");
+      validateWordFrayers(state.wordFrayers, schema.wordFrayers);
+      if (state.frayerChoices.length || Object.values(schema.families.responseIds).flat().some((id) => state.responses[id]?.length)) throw Error("Legacy and word Frayers cannot duplicate the saved writing budget");
+    }
     return state;
   }
   function reverseTokens(entries, token) {
@@ -131,6 +199,7 @@
     const packed = {
       v: 3,
       u: state.unit,
+      ...schema.courseId ? { q: schema.courseId } : {},
       t: state.updatedAt,
       l: state.route,
       ...state.vocabularyActiveId ? { a: state.vocabularyActiveId } : {},
@@ -139,7 +208,8 @@
       f: packFlags(state.flags, schema),
       h: schema.indexPacking ? state.visited.map((id) => schema.routes.indexOf(id)) : state.visited,
       w: state.frayerChoices,
-      z: state.legacy.map((x) => [x.source, x.original])
+      z: state.legacy.map((x) => [x.source, x.original]),
+      ...state.wordFrayers !== void 0 ? { k: packWordFrayers(state.wordFrayers, schema.wordFrayers) } : {}
     };
     const serialized = JSON.stringify(packed);
     if (serialized.length > limit) throw new Error(`Save needs ${serialized.length} characters; limit is ${limit}. Last valid state and current writing remain intact.`);
@@ -148,9 +218,10 @@
   function decodeTopicState(raw, schema) {
     const p = JSON.parse(raw);
     object(p, "saved payload");
-    const keys = /* @__PURE__ */ new Set(["v", "u", "t", "l", "r", "p", "f", "h", "w", "z", "a"]);
+    validateBiologyRuntimeIdentity(schema);
+    const keys = /* @__PURE__ */ new Set(["v", "u", "t", "l", "r", "p", "f", "h", "w", "z", "a", ...schema.courseId ? ["q"] : [], ...schema.wordFrayers ? ["k"] : []]);
     if (Object.keys(p).some((k) => !keys.has(k))) throw new Error("Saved payload contains unknown data; retain original for recovery");
-    if (p.v !== 3 || p.u !== schema.unit) throw new Error("Saved payload belongs to another profile or unit");
+    if (p.v !== 3 || p.u !== schema.unit || p.q !== schema.courseId) throw new Error("Saved payload belongs to another profile or unit");
     const responses = reverseTokens(schema.responses, (x) => x.token), choices = reverseTokens(schema.choices, (x) => x.token), flags = reverseTokens(schema.flags, (x) => x);
     function pairs(rawPairs, map) {
       if (!Array.isArray(rawPairs)) throw new Error("Invalid compact entries");
@@ -185,7 +256,24 @@
       visited = p.h.map((i) => schema.routes[i]);
     }
     if (!Array.isArray(p.z) || p.z.some((x) => !Array.isArray(x) || x.length !== 2 || x.some((v) => typeof v !== "string"))) throw new Error("Invalid legacy archive");
-    return validateTopicState({ version: 3, unit: schema.unit, updatedAt: p.t, route: p.l, ...p.a !== void 0 ? { vocabularyActiveId: p.a } : {}, responses: Array.isArray(p.r) ? pairs(p.r, responses) : unpackResponses(p.r, schema), choices: decodedChoices, flags: decodedFlags, visited, frayerChoices: p.w, legacy: p.z.map((x) => ({ source: x[0], original: x[1] })) }, schema);
+    return validateTopicState({ version: 3, unit: schema.unit, ...schema.courseId ? { courseId: schema.courseId } : {}, updatedAt: p.t, route: p.l, ...p.a !== void 0 ? { vocabularyActiveId: p.a } : {}, responses: Array.isArray(p.r) ? pairs(p.r, responses) : unpackResponses(p.r, schema), choices: decodedChoices, flags: decodedFlags, visited, frayerChoices: p.w, legacy: p.z.map((x) => ({ source: x[0], original: x[1] })), ...p.k !== void 0 ? { wordFrayers: unpackWordFrayers(p.k, schema.wordFrayers) } : {} }, schema);
+  }
+  function migrateTopicWordFrayers(state, schema) {
+    validateTopicState(state, schema);
+    if (!schema.wordFrayers || state.wordFrayers !== void 0) return state;
+    const next = structuredClone(state);
+    next.wordFrayers = [];
+    for (const id of [...schema.families.fixed, ...state.frayerChoices]) {
+      const answers = schema.families.responseIds[id].map((field) => state.responses[field] ?? "");
+      const collected = state.flags.includes(id + "-collected");
+      if (answers.some((a) => a.length) || collected || state.frayerChoices.includes(id)) next.wordFrayers.push({ kind: "legacy", id, answers, collected });
+    }
+    for (const ids of Object.values(schema.families.responseIds)) for (const id of ids) delete next.responses[id];
+    next.flags = next.flags.filter((flag) => !Object.keys(schema.families.responseIds).some((id) => flag === id + "-collected"));
+    next.frayerChoices = [];
+    validateTopicState(next, schema);
+    encodeTopicState(next, schema);
+    return next;
   }
   function replaceFrayerChoice(state, schema, oldId, nextId) {
     validateTopicState(state, schema);
@@ -211,7 +299,7 @@
       return { accepted: false, local: "not-attempted", setValue: "not-attempted", commit: "not-attempted", error: String(error) };
     }
     const outcome = { accepted: true, local: local ? "pending" : "unavailable", setValue: lms ? "pending" : "unavailable", commit: lms ? "not-attempted" : "unavailable", error: "" };
-    const key = `biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3`;
+    const key = biologyRuntimeStorageKey(schema);
     if (local) try {
       const before = local.getItem(key);
       if (before) {
@@ -336,7 +424,7 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
     return data;
   }
   function readTopicRecoveryArchive(storage, schema) {
-    const prefix = `biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3:recovery`;
+    const prefix = `${biologyRuntimeStorageKey(schema)}:recovery`;
     return readArchive(storage, `${prefix}:index`).map((entry) => {
       if (!entry.key.startsWith(prefix + ":source:")) throw new Error("Recovery key outside the unit archive");
       const raw = storage.getItem(entry.key);
@@ -348,7 +436,7 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
     if (inspection.requiresChoice && !confirmed) throw new Error("Choose and confirm the recovery version first");
     const candidate = inspection.candidates.find((candidate2) => candidate2.id === candidateId);
     if (!candidate) throw new Error("Unknown recovery candidate");
-    const payload = encodeTopicState(candidate.state, schema), prefix = `biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3:recovery`, indexKey = `${prefix}:index`, originalIndex = storage.getItem(indexKey);
+    const payload = encodeTopicState(candidate.state, schema), prefix = `${biologyRuntimeStorageKey(schema)}:recovery`, indexKey = `${prefix}:index`, originalIndex = storage.getItem(indexKey);
     const archive = readTopicRecoveryArchive(storage, schema).map(({ source, label, key }) => ({ source, label, key }));
     for (const source of inspection.sources) {
       let key = "";
@@ -368,7 +456,7 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
     const archived = JSON.stringify(archive);
     storage.setItem(indexKey, archived);
     if (storage.getItem(indexKey) !== archived) throw new Error("Recovery archive index was not verified");
-    const active = `biology30-unit-${schema.unit.toLowerCase()}:pilot2-v3`;
+    const active = biologyRuntimeStorageKey(schema);
     const local = inspection.sources.find((source) => source.id === active);
     if (local && storage.getItem(active) !== local.raw) throw new Error("Local work changed while recovery was open; inspect it again");
     if (!local && storage.getItem(active) !== null) throw new Error("Local work appeared while recovery was open; inspect it again");
@@ -428,19 +516,19 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
       return api.Terminate("");
     } };
   }
-  function captureTopicSources(unit, local, lmsRaw) {
-    const base = `biology30-unit-${unit.toLowerCase()}`, key = `${base}:pilot2-v3`, sources = [];
+  function captureTopicSources(unit, local, lmsRaw, courseId) {
+    const identity = { unit, courseId }, base = biologyRuntimeStorageBase(identity), key = biologyRuntimeStorageKey(identity), sources = [];
     const add = (id, label, raw, role, legacyKind) => {
       if (raw !== null && raw !== "") sources.push({ id, label, raw, role, ...legacyKind ? { legacyKind } : {} });
     };
     if (local) {
       add(key, "This device", local.getItem(key), "current");
       add(`${key}:previous`, "Previous device save", local.getItem(`${key}:previous`), "previous");
-      for (const [suffix, label, kind] of [["state:v1", "Earlier course work", "state-v1"], ["responses", "Earlier written responses", "responses"], ["complete", "Earlier completion markers", "completions"], ["manual-evidence-notes", "Earlier notebook entries", "notes"]]) add(`${base}:${suffix}`, label, local.getItem(`${base}:${suffix}`), "legacy", kind);
+      if (!courseId) for (const [suffix, label, kind] of [["state:v1", "Earlier course work", "state-v1"], ["responses", "Earlier written responses", "responses"], ["complete", "Earlier completion markers", "completions"], ["manual-evidence-notes", "Earlier notebook entries", "notes"]]) add(`${base}:${suffix}`, label, local.getItem(`${base}:${suffix}`), "legacy", kind);
     }
     if (lmsRaw !== null && lmsRaw !== "") {
       let kind;
-      try {
+      if (!courseId) try {
         const value = JSON.parse(lmsRaw);
         if (value && typeof value === "object") {
           if (value.v === 2) kind = "compact-v2";
@@ -450,13 +538,13 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
       }
       add("lms", "Learning platform save", lmsRaw, kind ? "legacy" : "current", kind);
     }
-    const archive = local && sources.some((source) => source.role === "current") ? readTopicRecoveryArchive(local, { unit }) : [];
+    const archive = local && sources.some((source) => source.role === "current") ? readTopicRecoveryArchive(local, identity) : [];
     return sources.filter((source) => source.role !== "legacy" || !archive.some((entry) => entry.source === source.id && entry.raw === source.raw));
   }
-  function captureTopicEnvironment(host, unit) {
+  function captureTopicEnvironment(host, unit, courseId) {
     const local = host.localStorage ?? null, connection = connectTopicLms(host);
     try {
-      return { local, lms: connection.adapter, sources: captureTopicSources(unit, local, connection.raw), close: connection.close };
+      return { local, lms: connection.adapter, sources: captureTopicSources(unit, local, connection.raw, courseId), close: connection.close };
     } catch (error) {
       try {
         connection.close();
@@ -524,6 +612,11 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
           host.textContent = "You are offline. Use the illustrated walkthrough linked below.";
           continue;
         }
+        if (location.protocol === "file:" && item.hasAttribute("data-p2-source-require-http")) {
+          player?.remove();
+          host.textContent = "Embedded playback needs the local web preview or hosted course. Use Watch on YouTube below to view this PowerPoint video, or use the illustrated walkthrough.";
+          continue;
+        }
         if (player) continue;
         const id = item.dataset.p2SourceVideo;
         if (!/^[A-Za-z0-9_-]{11}$/.test(id)) throw Error("Invalid source video ID");
@@ -555,6 +648,20 @@ Seen: ${Array.isArray(row[2]) ? row[2].map((value) => name(value, definition.opt
       window.removeEventListener("offline", schedule);
       items.forEach((i) => i.querySelector("iframe")?.remove());
     } };
+  }
+
+  // scripts/lib/biology30-vocabulary/word-record.ts
+  var escape = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  function renderBiologyWordDetails(word2, words, categories = []) {
+    const section = (title, text) => `<section><h3 class="section-label">${title}</h3><p>${escape(text)}</p></section>`;
+    const labels2 = word2.categoryIds.map((id) => categories.find((c) => c.id === id)?.label).filter(Boolean).join(" · ");
+    const related = word2.relatedTermIds.map((id) => {
+      const related2 = words.find((w) => w.id === id);
+      if (!related2) throw Error("Unknown related word " + id);
+      return related2.term;
+    }).join(" · ");
+    const structure = word2.structure.parts?.length ? '<section><h3 class="section-label">Word structure</h3><dl class="word-parts">' + word2.structure.parts.map((p) => "<div><dt>" + escape(p.text) + "</dt><dd>" + escape(p.meaning) + "</dd></div>").join("") + "</dl>" + (word2.structure.caution ? '<p class="caution-line"><strong>Use with care:</strong> ' + escape(word2.structure.caution) + "</p>" : "") + "</section>" : section("Word structure", word2.structure.text);
+    return `<div data-biology-word-details="${escape(word2.id)}">${labels2 ? `<p class="eyebrow">${escape(labels2)}</p>` : ""}<h2 tabindex="-1">${escape(word2.term)}</h2>${section("Meaning", word2.definition)}${structure}${section("What it does", word2.whatItDoes)}<section class="concept-contrast"><div><h3>Related ideas</h3><p>${escape(related)}</p></div><div><h3>Common confusion</h3><p>${escape(word2.commonConfusion)}</p></div></section><section class="retrieval-mini"><h3>Retrieve the idea</h3><p>${escape(word2.retrievalPrompt)}</p></section></div>`;
   }
 
   // scripts/lib/biology30-vocabulary/panel.ts
@@ -637,6 +744,21 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         meaning.append(p);
       };
       const belongs = current.familyIds.includes(family.id);
+      const wordRecord = adapter.words?.find((w) => w.term.toLocaleLowerCase() === current.term.toLocaleLowerCase());
+      if (adapter.words && !wordRecord) throw Error("Missing word-owned popup record: " + current.term);
+      if (wordRecord) {
+        meaning.innerHTML = renderBiologyWordDetails(wordRecord, adapter.words, adapter.families);
+        const owner = adapter.wordFrayers?.[wordRecord.id];
+        const unlocked2 = Boolean(owner && adapter.unlocked(owner));
+        get("[data-bio-locked]").textContent = !owner ? "This word is available for reference. It is not a separate saved Frayer target. Existing broader-concept writing remains in Core Vocabulary." : unlocked2 ? "This is the existing saved Frayer record. Review its stated scope before revising earlier writing." : "The word explanation is available now. Begin its associated lesson to unlock the saved Frayer.";
+        if (unlocked2) {
+          loan(adapter.frayer(owner), slot);
+          loan(adapter.choices?.() ?? null, get("[data-bio-choices-slot]"));
+          adapter.refresh();
+        }
+        status();
+        return;
+      }
       paragraph(belongs && current.definition ? current.definition : `${belongs ? "Family-level explanation" : "My chosen Frayer"} — ${family.label}: ${family.meaning}`);
       if (belongs && current.definition) paragraph(`Concept family — ${family.label}: ${family.meaning}`);
       const heading = doc.createElement("h3");
@@ -657,6 +779,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     };
     const onClose = () => {
       restoreLoans();
+      root.dispatchEvent(new CustomEvent("biology-word-popup-close"));
       doc.documentElement.style.overflow = oldOverflow;
       for (const item of scrolls) {
         item.node.scrollLeft = item.x;
@@ -671,6 +794,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       current = terms.get(target.dataset.bioTerm) ?? null;
       if (!current) return;
       trigger = target;
+      root.dispatchEvent(new CustomEvent("biology-word-popup-open"));
       const route = target.dataset.bioTermRoute;
       familySelect.replaceChildren();
       for (const family of adapter.families.filter((f) => current.familyIds.includes(f.id)).sort((a, b) => Number(b.routes.includes(route)) - Number(a.routes.includes(route)))) {
@@ -679,7 +803,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         option.textContent = family.label;
         familySelect.append(option);
       }
-      for (const id of adapter.selectedFamilies?.() ?? []) {
+      for (const id of adapter.words ? [] : adapter.selectedFamilies?.() ?? []) {
         if (current.familyIds.includes(id)) continue;
         const family = adapter.families.find((f) => f.id === id);
         if (family) {
@@ -748,6 +872,258 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     } };
   }
 
+  // scripts/lib/biology30-vocabulary/word-reader.ts
+  function mountBiologyWordReader(root) {
+    const views = [...root.querySelectorAll("[data-biology-word-view]")];
+    const buttons = [...root.querySelectorAll("[data-biology-select-word]")];
+    const select = (id, focus) => {
+      const view = views.find((v) => v.dataset.biologyWordView === id);
+      if (!view) return;
+      for (const v of views) v.hidden = v !== view;
+      for (const b of buttons) b.setAttribute("aria-pressed", String(b.dataset.biologySelectWord === id));
+      if (focus) {
+        const heading = view.querySelector("h2");
+        heading?.focus({ preventScroll: true });
+        heading?.scrollIntoView({ block: "start" });
+      }
+      root.dispatchEvent(new CustomEvent("biology-word-selected", { bubbles: true, detail: { wordId: id } }));
+    };
+    const click = (event) => {
+      const button = event.target.closest("[data-biology-select-word]");
+      if (button && root.contains(button)) select(button.dataset.biologySelectWord, true);
+    };
+    root.addEventListener("click", click);
+    if (views[0]) select(views[0].dataset.biologyWordView, false);
+    return { selectWord: (id) => select(id, true), dispose: () => root.removeEventListener("click", click) };
+  }
+
+  // scripts/lib/biology30-vocabulary/word-page-runtime.ts
+  function mountTopicWordPage(root, data, unlocked, refresh, learned = () => false) {
+    const reader = root.querySelector("[data-biology-word-reader]");
+    if (!reader) return { dispose() {
+    } };
+    const doc = root.ownerDocument;
+    let selected = "", loanWord = "", suspended = false, loans = [];
+    const restore = () => {
+      for (const { node, marker } of loans) marker.replaceWith(node);
+      loans = [];
+      loanWord = "";
+    };
+    const loan = (node, slot) => {
+      if (!node) return;
+      const marker = doc.createComment("Original saved-control home");
+      node.before(marker);
+      loans.push({ node, marker });
+      slot.append(node);
+    };
+    function show() {
+      for (const button of reader.querySelectorAll("[data-biology-select-word]")) {
+        const label = button.querySelector("[data-biology-word-state]");
+        if (label) label.textContent = data.wordRoutes?.[button.dataset.biologySelectWord] && learned(data.wordRoutes[button.dataset.biologySelectWord]) ? "Learned" : "Reference available";
+      }
+      if (suspended) return;
+      if (loanWord === selected && loans.length && unlocked(data.wordFrayers[selected])) return;
+      restore();
+      const view = [...reader.querySelectorAll("[data-biology-word-view]")].find((n) => n.dataset.biologyWordView === selected);
+      if (!view) return;
+      const owner = data.wordFrayers[selected], status = view.querySelector("[data-biology-word-frayer-status]");
+      status.textContent = !owner ? "This word has a reference entry, but no separate saved Frayer is required. The module retains six anchors and two learner choices." : !unlocked(owner) ? "Begin the associated lesson to unlock this saved Frayer. The word explanation is available now." : "This is the same saved writing used in the lesson vocabulary panel.";
+      if (owner && unlocked(owner)) {
+        const slot = view.querySelector("[data-biology-word-frayer-slot]");
+        loan(root.querySelector(`[data-biology-frayer-record="${CSS.escape(owner)}"]`), slot);
+        loan(root.querySelector(".p2-family-choices"), slot);
+        loanWord = selected;
+      }
+    }
+    const select = (event) => {
+      selected = event.detail.wordId;
+      show();
+      refresh();
+    };
+    reader.addEventListener("biology-word-selected", select);
+    const controller = mountBiologyWordReader(reader);
+    const pause = () => {
+      suspended = true;
+      restore();
+    };
+    const resume = () => {
+      suspended = false;
+      show();
+    };
+    const reveal = (event) => {
+      const target = event.detail;
+      const record2 = target?.closest("[data-biology-frayer-record]")?.dataset.biologyFrayerRecord ?? target?.closest("[data-p2-family-panel]")?.dataset.p2FamilyPanel;
+      if (!record2) return;
+      const id = Object.keys(data.wordFrayers).find((id2) => data.wordFrayers[id2] === record2);
+      if (id) {
+        controller.selectWord(id);
+        const view = reader.querySelector(`[data-biology-word-view="${CSS.escape(id)}"]`);
+        const details = view?.querySelector("[data-biology-word-frayer]");
+        if (details) details.open = true;
+      }
+    };
+    root.addEventListener("biology-word-popup-open", pause);
+    root.addEventListener("biology-word-popup-close", resume);
+    root.addEventListener("pilot2-reveal-target", reveal);
+    root.addEventListener("pilot2-state-change", show);
+    return { dispose() {
+      restore();
+      controller.dispose();
+      reader.removeEventListener("biology-word-selected", select);
+      root.removeEventListener("biology-word-popup-open", pause);
+      root.removeEventListener("biology-word-popup-close", resume);
+      root.removeEventListener("pilot2-reveal-target", reveal);
+      root.removeEventListener("pilot2-state-change", show);
+    } };
+  }
+
+  // scripts/lib/biology30-vocabulary/word-frayer-runtime.ts
+  var esc = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  var labels = ["My definition in context", "Essential characteristics or mechanism", "Example or evidence", "Non-example or common confusion"];
+  function mountWordFrayerControls(root, data, schema, owner) {
+    const reader = root.querySelector("[data-biology-word-reader]"), controller = mountBiologyWordReader(reader);
+    const legacy = root.ownerDocument.createElement("section");
+    legacy.className = "collection-section";
+    legacy.dataset.wordLegacy = "";
+    reader.after(legacy);
+    const status = (message) => {
+      root.querySelectorAll("[data-word-save-status]").forEach((n) => n.textContent = message);
+    };
+    const summary = () => {
+      const slots = owner.get();
+      const progress = root.querySelector("[data-p2-vocabulary-progress]");
+      if (progress) progress.textContent = `${slots.filter((s) => s.collected).length} of 8`;
+    };
+    function render() {
+      for (const word2 of data.words) {
+        let node = root.querySelector(`[data-word-frayer="${CSS.escape(word2.id)}"]`);
+        if (!node) {
+          const view = reader.querySelector(`[data-biology-word-view="${CSS.escape(word2.id)}"]`);
+          view.querySelector("[data-biology-word-frayer]")?.remove();
+          node = root.ownerDocument.createElement("section");
+          node.className = "frayer";
+          node.dataset.wordFrayer = word2.id;
+          node.id = "word-frayer-" + word2.id;
+          view.append(node);
+        }
+        const slot = owner.get().find((s) => s.kind === "word" && s.id === word2.id);
+        node.innerHTML = `<div class="frayer-heading"><div><p class="section-label">Frayer model</p><h3>${esc(word2.term)}</h3></div></div>` + (slot ? `<div class="frayer-grid">${labels.map((label, i) => `<label>${label}<textarea rows="3" data-word-answer="${i}" aria-label="${esc(word2.term + ": " + label)}">${esc(slot.answers[i])}</textarea><small>Up to ${schema.limit} characters. Longer drafts stay visible but are not saved.</small></label>`).join("")}</div><div class="save-row"><button type="button" data-word-collect>${slot.collected ? "Remove from Process Collection" : "Add to Process Collection"}</button><button type="button" class="text-link" data-word-copy>Copy my Frayer</button></div><details><summary>Remove this word and free a slot</summary><p>This removes only this word’s four answers and collection status. Copy your writing first.</p><label><input type="checkbox" data-word-remove-confirm> I want to remove this word and its writing.</label><button type="button" data-word-remove>Remove this word</button></details>` : `<p>Choose any eight words. Choosing opens an empty Frayer; it does not fill in your answers.</p><button type="button" data-word-choose>Choose this word</button>`) + `<p data-word-save-status role="status" aria-live="polite"></p>`;
+        if (slot && word2.modelFrayer) {
+          const button = root.ownerDocument.createElement("button");
+          button.type = "button";
+          button.dataset.wordCompare = "";
+          button.textContent = "Compare with course model";
+          button.disabled = slot.answers.some((a) => !a.trim() || a.length > schema.limit);
+          const guide = root.ownerDocument.createElement("div");
+          guide.className = "course-model";
+          guide.dataset.wordModel = "";
+          guide.hidden = true;
+          guide.innerHTML = "<h4>Course model for " + esc(word2.term) + "</h4><dl>" + word2.modelFrayer.map((a, i) => "<div><dt>" + labels[i] + "</dt><dd>" + esc(a) + "</dd></div>").join("") + "</dl>";
+          node.append(button, guide);
+        }
+      }
+      const old = owner.get().filter((s) => s.kind === "legacy");
+      legacy.hidden = !old.length;
+      legacy.innerHTML = "<h2>Preserved earlier Frayers</h2><p>These retain their original category labels and writing. Each occupies one of the eight slots until you explicitly remove it. No writing has been assigned to a different word.</p>" + old.map((s) => `<article data-word-legacy-record="${esc(s.id)}"><h3>${esc(data.categories.find((c) => c.id === s.id)?.label ?? s.id)}</h3><dl>${s.answers.map((a, i) => `<div><dt>${labels[i]}</dt><dd>${esc(a)}</dd></div>`).join("")}</dl><button type="button" class="text-link" data-word-copy>Copy earlier Frayer</button><label><input type="checkbox" data-word-remove-confirm> I have kept a copy and want to remove this earlier Frayer.</label><button type="button" data-word-remove>Remove earlier Frayer and free a slot</button><p data-word-save-status role="status"></p></article>`).join("");
+      summary();
+    }
+    const transact = (next) => {
+      const before = owner.get();
+      owner.set(next);
+      const result = owner.save();
+      if (!result.saved) {
+        owner.set(before);
+        status(result.message);
+        return false;
+      }
+      render();
+      status(result.message);
+      return true;
+    };
+    const input = (event) => {
+      const field = event.target;
+      if (!field.matches("textarea[data-word-answer]")) return;
+      const id = field.closest("[data-word-frayer]").dataset.wordFrayer, slot = owner.get().find((s) => s.kind === "word" && s.id === id);
+      slot.answers[Number(field.dataset.wordAnswer)] = field.value;
+      slot.collected = false;
+      const result = owner.save();
+      status(result.message);
+      summary();
+      const collect = field.closest("[data-word-frayer]").querySelector("[data-word-collect]");
+      collect.textContent = "Add to Process Collection";
+      const compare = field.closest("[data-word-frayer]").querySelector("[data-word-compare]");
+      if (compare) {
+        compare.disabled = slot.answers.some((a) => !a.trim() || a.length > schema.limit);
+        if (compare.disabled) field.closest("[data-word-frayer]").querySelector("[data-word-model]").hidden = true;
+      }
+    };
+    const click = async (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      const node = button.closest("[data-word-frayer],[data-word-legacy-record]");
+      if (!node) return;
+      const kind = node.hasAttribute("data-word-frayer") ? "word" : "legacy", id = node.dataset.wordFrayer ?? node.dataset.wordLegacyRecord;
+      try {
+        if (button.hasAttribute("data-word-compare")) {
+          const slot2 = owner.get().find((s) => s.kind === kind && s.id === id);
+          if (slot2?.answers.every((a) => a.trim() && a.length <= schema.limit)) {
+            const guide = node.querySelector("[data-word-model]");
+            if (guide) guide.hidden = !guide.hidden;
+          }
+        }
+        if (button.hasAttribute("data-word-choose")) transact(chooseWord(owner.get(), schema, id));
+        if (button.hasAttribute("data-word-remove")) transact(removeWordFrayer(owner.get(), schema, kind, id, Boolean(node.querySelector("[data-word-remove-confirm]")?.checked)));
+        const slot = owner.get().find((s) => s.kind === kind && s.id === id);
+        if (button.hasAttribute("data-word-collect") && slot) {
+          const next = structuredClone(owner.get()), target = next.find((s) => s.kind === kind && s.id === id);
+          if (!target.collected && target.answers.some((a) => !a.trim() || a.length > schema.limit)) throw Error("Complete all four fields within their limits before collecting.");
+          target.collected = !target.collected;
+          transact(next);
+        }
+        if (button.hasAttribute("data-word-copy") && slot) {
+          const text = [node.querySelector("h3").textContent, ...slot.answers.map((a, i) => labels[i] + ": " + a)].join("\n\n");
+          try {
+            await navigator.clipboard.writeText(text);
+            status("Frayer copied.");
+          } catch {
+            let copy = node.querySelector("[data-word-copy-fallback]");
+            if (!copy) {
+              copy = root.ownerDocument.createElement("textarea");
+              copy.dataset.wordCopyFallback = "";
+              copy.readOnly = true;
+              copy.setAttribute("aria-label", "Copy of this Frayer");
+              node.append(copy);
+            }
+            copy.value = text;
+            copy.focus();
+            copy.select();
+            status("Clipboard unavailable. Copy the selected text manually before removing.");
+          }
+        }
+      } catch (error) {
+        status(String(error).replace(/^Error: /, ""));
+      }
+    };
+    const reveal = (event) => {
+      const target = event.detail;
+      const id = target?.closest("[data-word-frayer]")?.dataset.wordFrayer;
+      if (id) controller.selectWord(id);
+    };
+    root.addEventListener("input", input);
+    root.addEventListener("click", click);
+    root.addEventListener("pilot2-state-change", summary);
+    root.addEventListener("pilot2-reveal-target", reveal);
+    render();
+    return { dispose() {
+      controller.dispose();
+      root.removeEventListener("input", input);
+      root.removeEventListener("click", click);
+      root.removeEventListener("pilot2-state-change", summary);
+      root.removeEventListener("pilot2-reveal-target", reveal);
+      legacy.remove();
+    } };
+  }
+
   // scripts/lib/biology30-course/v1/pilot2-vocabulary-panel.ts
   function mountTopicVocabularyPanel(root, input, state, controls) {
     const source = input.vocabulary;
@@ -758,18 +1134,28 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       if (detail?.message) lastMessage = detail.message;
     };
     root.addEventListener("pilot2-state-change", observe);
+    const dataElement = root.querySelector("#biology-word-data");
+    const wordData = dataElement ? JSON.parse(dataElement.textContent) : void 0;
+    const unlocked = (id) => {
+      const route = root.querySelector(`[data-p2-family-panel="${CSS.escape(id)}"]`)?.dataset.p2UnlockRoute;
+      return Boolean(route && state.visited.includes(route));
+    };
+    const freelyChosen = Boolean(input.state.wordFrayers && wordData);
+    const wordPage = wordData ? freelyChosen ? mountWordFrayerControls(root, wordData, input.state.wordFrayers, { get: () => state.wordFrayers, set: (slots) => {
+      state.wordFrayers = slots;
+    }, save: () => controls.saveDraft() }) : mountTopicWordPage(root, wordData, unlocked, () => controls.refresh(), (route) => state.visited.includes(route)) : void 0;
+    const wordFamilies = wordData ? wordData.categories.map((c) => ({ id: c.id, label: c.label, meaning: "", wordAnalysis: [], routes: [...new Set(c.wordIds.map((id) => wordData.wordRoutes?.[id]).filter((r) => Boolean(r)))] })) : families;
     const panel = mountVocabularyPanel({
       root,
-      families,
-      terms: source.introducedTerms.filter((t) => source.conceptFamilies.some((f) => f.termIds.includes(t.id))).map((t) => ({ term: t.term, definition: t.definition, familyIds: source.conceptFamilies.filter((f) => f.termIds.includes(t.id)).map((f) => f.id) })),
+      families: wordFamilies,
+      words: wordData?.words,
+      wordFrayers: freelyChosen ? Object.fromEntries(wordData.words.map((w) => [w.id, w.id])) : wordData?.wordFrayers,
+      terms: wordData ? wordData.words.map((w) => ({ term: w.term, definition: w.definition, familyIds: w.categoryIds })) : source.introducedTerms.filter((t) => source.conceptFamilies.some((f) => f.termIds.includes(t.id))).map((t) => ({ term: t.term, definition: t.definition, familyIds: source.conceptFamilies.filter((f) => f.termIds.includes(t.id)).map((f) => f.id) })),
       sections: () => Array.from(root.querySelectorAll(".p2-part > .lesson-block,.p2-part > .worked-example,.p2-part > .p2-advanced,.p2-walkthrough-frame")),
       route: (section) => section.closest("[data-pilot2-topic]").dataset.pilot2Topic,
-      unlocked: (id) => {
-        const route = root.querySelector(`[data-p2-family-panel="${CSS.escape(id)}"]`)?.dataset.p2UnlockRoute;
-        return Boolean(route && state.visited.includes(route));
-      },
-      frayer: (id) => root.querySelector(`[data-p2-family-panel="${CSS.escape(id)}"] .frayer`),
-      choices: () => root.querySelector(".p2-family-choices"),
+      unlocked: freelyChosen ? () => true : unlocked,
+      frayer: (id) => freelyChosen ? root.querySelector(`[data-word-frayer="${CSS.escape(id)}"]`) : wordData ? root.querySelector(`[data-biology-frayer-record="${CSS.escape(id)}"]`) : root.querySelector(`[data-p2-family-panel="${CSS.escape(id)}"] .frayer`),
+      choices: () => freelyChosen ? null : root.querySelector(".p2-family-choices"),
       refresh: () => controls.refresh(),
       status: () => lastMessage,
       selectedFamilies: () => state.frayerChoices
@@ -787,6 +1173,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     root.addEventListener("click", choose, true);
     return { dispose() {
       panel.dispose();
+      wordPage?.dispose();
       root.removeEventListener("click", choose, true);
       root.removeEventListener("pilot2-state-change", observe);
     } };
@@ -891,6 +1278,16 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     function click(event) {
       const target = event.target instanceof Element ? event.target : null;
       if (!target) return;
+      const bookLink = target.closest("[data-p2-open-book]");
+      if (bookLink) {
+        const panel2 = root.querySelector(`#${CSS.escape(bookLink.dataset.p2OpenBook)}`), frame = panel2?.querySelector("[data-p2-book-base]"), page = Number(bookLink.dataset.p2BookPage);
+        if (!frame || !Number.isInteger(page) || page < 1) throw Error("Invalid textbook link");
+        frame.src = frame.dataset.p2BookBase + `#page=${page}&zoom=page-width`;
+        const location2 = panel2.querySelector("[data-p2-book-location]");
+        if (location2) location2.textContent = `Opened from ${bookLink.textContent?.trim()}. PDF page ${page}.`;
+        const fullScreen = panel2.querySelector(".resource-links a:not([download])");
+        if (fullScreen) fullScreen.href = frame.src;
+      }
       const bookGroup = target.closest("[data-p2-textbook-group-attempt]");
       if (bookGroup) {
         const panel2 = bookGroup.closest(".textbook-review-support"), guide = panel2.querySelector("[data-p2-textbook-group-guide]");
@@ -1205,6 +1602,8 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   // scripts/lib/biology30-course/v1/pilot2-activity-index.ts
   function buildTopicActivityIndex(input) {
     const { contract, state } = input, unit = contract.unit.toLowerCase();
+    validateBiologyRuntimeIdentity(contract);
+    if (contract.unit !== state.unit || contract.courseId !== state.courseId) throw Error("Activity course identity does not match saved-state schema");
     const entries = [];
     const add = (entry) => entries.push(entry);
     for (const topic of contract.topics) {
@@ -1703,10 +2102,16 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     };
     const result = (output) => ({ modelId: model.id, modelVersion: 1, choice, title: selected.label, ...output });
     switch (model.id) {
+      case "a-model-closed-system": {
+        const production = number2("production"), consumption = number2("consumption");
+        if (production < 0 || consumption < 0) throw new Error("Gas model rates cannot be negative");
+        const oxygenChange = production - consumption;
+        return result({ columns: ["Account", "Source", "Sink", "Net change"], rows: [["Oxygen", production, consumption, oxygenChange], ["Carbon dioxide (simplified coupling)", consumption, production, -oxygenChange]], explanation: "Net change equals source minus sink over the same interval. Reduced production can reverse the sign even while oxygen is still being produced.", limitation: "Illustrative arbitrary gas units, with equal and opposite CO₂ coupling assumed. This is not a complete chemical mechanism, a real sealed-ecosystem measurement or a guarantee of indefinite balance.", visual: "pathway-observations", values: { production, consumption, oxygenChange } });
+      }
       case "b-model-signal-pathway": {
         const keys = ["germCells", "support", "LH", "duct"];
         const observations = keys.map(text);
-        const labels = ["Developing germ cells", "Sertoli support", "LH signal", "Duct passage"];
+        const labels2 = ["Developing germ cells", "Sertoli support", "LH signal", "Duct passage"];
         const interpretation = {
           "support-defect": "Germ cells are absent with disrupted support despite a present LH signal and an open duct. Investigate support and production before attributing the finding to an obstruction.",
           "signal-defect": "Reduced germ cells accompany a reduced LH signal while support is recorded as present and the duct is open. This is consistent with an upstream signal problem; it does not uniquely identify a cause.",
@@ -1715,7 +2120,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         if (!interpretation[choice]) throw new Error("Unknown pathway case");
         return result({
           columns: ["Observation", "Reference", `Case ${text("case")}`],
-          rows: labels.map((label, i) => [label, i === 3 ? "open" : "present", observations[i]]),
+          rows: labels2.map((label, i) => [label, i === 3 ? "open" : "present", observations[i]]),
           explanation: interpretation[choice],
           limitation: "Fictional observations do not diagnose a person or establish fertility.",
           visual: "pathway-observations",
@@ -2105,7 +2510,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   }
 
   // scripts/lib/biology30-course/v1/pilot2-graph-svg.ts
-  var escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+  var escape2 = (text) => String(text).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
   var number = (value) => Number(value.toFixed(2));
   function renderBiology30GraphSvg(work, graphIndex, draft, instance = "learner") {
     validateGraphDraft(work, draft);
@@ -2130,7 +2535,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     graph.series.forEach((series, seriesIndex) => {
       const colour = colours[seriesIndex % colours.length];
       const dash = seriesIndex % 2 ? ' stroke-dasharray="9 5"' : "";
-      layers.push(`<g data-series="${escape(series.id)}"><path d="M96 ${36 + seriesIndex * 28} h38" fill="none" stroke="${colour}" stroke-width="3"${dash}/><text x="148" y="${43 + seriesIndex * 28}" font-size="20">${escape(series.label)}</text>`);
+      layers.push(`<g data-series="${escape2(series.id)}"><path d="M96 ${36 + seriesIndex * 28} h38" fill="none" stroke="${colour}" stroke-width="3"${dash}/><text x="148" y="${43 + seriesIndex * 28}" font-size="20">${escape2(series.label)}</text>`);
       let line = "", connected = false;
       drawing.p[seriesIndex].forEach((value, index) => {
         values.push({ series: series.label, x: graph.x[index], value });
@@ -2142,18 +2547,18 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         if (value > maximum) {
           connected = false;
           warnings.push(`${series.label}, ${graph.x[index]}: ${value} exceeds the selected maximum ${maximum}.`);
-          layers.push(`<text data-outside-scale="true" x="${number(x(index))}" y="98" text-anchor="middle" fill="#9d3025" font-size="18">↑ ${escape(value)}</text>`);
+          layers.push(`<text data-outside-scale="true" x="${number(x(index))}" y="98" text-anchor="middle" fill="#9d3025" font-size="18">↑ ${escape2(value)}</text>`);
           return;
         }
         const px = number(x(index)), py = number(y(value));
         if (graph.kind === "bar") {
           const barWidth = Math.min(88, (right - left) / graph.x.length * 0.55);
-          layers.push(`<rect data-point="${index}" data-value="${value}" x="${number(px - barWidth / 2)}" y="${py}" width="${barWidth}" height="${number(bottom - py)}" fill="${colour}"><title>${escape(series.label)}; ${escape(graph.x[index])}: ${value}</title></rect>`);
+          layers.push(`<rect data-point="${index}" data-value="${value}" x="${number(px - barWidth / 2)}" y="${py}" width="${barWidth}" height="${number(bottom - py)}" fill="${colour}"><title>${escape2(series.label)}; ${escape2(graph.x[index])}: ${value}</title></rect>`);
           if (value === 0) layers.push(`<circle data-zero="true" cx="${px}" cy="${bottom}" r="4" fill="${colour}"/><text x="${px}" y="${bottom - 10}" text-anchor="middle" font-size="18">0</text>`);
         } else {
           line += `${connected ? "L" : "M"}${px} ${py} `;
           connected = true;
-          const title = `<title>${escape(series.label)}; ${escape(graph.x[index])}: ${value}</title>`;
+          const title = `<title>${escape2(series.label)}; ${escape2(graph.x[index])}: ${value}</title>`;
           layers.push(seriesIndex % 2 ? `<rect data-point="${index}" data-value="${value}" x="${px - 5}" y="${py - 5}" width="10" height="10" fill="white" stroke="${colour}" stroke-width="2">${title}</rect>` : `<circle data-point="${index}" data-value="${value}" cx="${px}" cy="${py}" r="5" fill="white" stroke="${colour}" stroke-width="2">${title}</circle>`);
         }
       });
@@ -2168,10 +2573,10 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     graph.x.forEach((value, index) => {
       const px = number(x(index));
       const words = String(value).split("/");
-      grid.push(`<path d="M${px} ${bottom}v7" stroke="#344643"/><text x="${px}" y="${bottom + 30}" text-anchor="middle" font-size="18">${words.map((word2, line) => `<tspan x="${px}" dy="${line ? 22 : 0}">${escape(word2)}</tspan>`).join("")}</text>`);
+      grid.push(`<path d="M${px} ${bottom}v7" stroke="#344643"/><text x="${px}" y="${bottom + 30}" text-anchor="middle" font-size="18">${words.map((word2, line) => `<tspan x="${px}" dy="${line ? 22 : 0}">${escape2(word2)}</tspan>`).join("")}</text>`);
     });
     const titleId = `${graph.id}-${instance}-drawing-title`, descId = `${graph.id}-${instance}-drawing-description`;
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="${escape(titleId)} ${escape(descId)}"><title id="${escape(titleId)}">${escape(graph.title)}</title><desc id="${escape(descId)}">${escape(description.join(" "))}</desc><rect width="${width}" height="${height}" fill="white"/><g font-family="Arial, Helvetica, sans-serif" fill="#233531">${grid.join("")}<path d="M${left} ${top}V${bottom}H${right}" fill="none" stroke="#344643" stroke-width="2"/><text x="${(left + right) / 2}" y="524" text-anchor="middle" font-size="22">${escape(xLabel)}</text><text transform="translate(30 ${(top + bottom) / 2}) rotate(-90)" text-anchor="middle" font-size="22">${escape(yLabel)}</text>${layers.join("")}</g></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="${escape2(titleId)} ${escape2(descId)}"><title id="${escape2(titleId)}">${escape2(graph.title)}</title><desc id="${escape2(descId)}">${escape2(description.join(" "))}</desc><rect width="${width}" height="${height}" fill="white"/><g font-family="Arial, Helvetica, sans-serif" fill="#233531">${grid.join("")}<path d="M${left} ${top}V${bottom}H${right}" fill="none" stroke="#344643" stroke-width="2"/><text x="${(left + right) / 2}" y="524" text-anchor="middle" font-size="22">${escape2(xLabel)}</text><text transform="translate(30 ${(top + bottom) / 2}) rotate(-90)" text-anchor="middle" font-size="22">${escape2(yLabel)}</text>${layers.join("")}</g></svg>`;
     return {
       svg,
       values,
@@ -2507,8 +2912,8 @@ ${field.text}`).join("\n\n")}`).join("\n\n────\n\n");
         }
         const visible = (node) => !node.closest("[hidden]") && node.getClientRects().length > 0;
         const field = target.matches("input,textarea,select,button,a[href]") && visible(target) ? target : [...target.querySelectorAll("textarea,input,select"), ...target.querySelectorAll("button,a[href]")].find(visible);
-        const focus = field ?? target;
-        if (!field && !focus.hasAttribute("tabindex")) focus.tabIndex = -1;
+        const reading = target.hasAttribute("data-p2-reading-target"), focus = reading ? target : field ?? target;
+        if ((reading || !field) && !focus.hasAttribute("tabindex")) focus.tabIndex = -1;
         focus.focus();
         focus.scrollIntoView({ block: "center" });
         frame = null;
@@ -2570,6 +2975,7 @@ ${field.text}`).join("\n\n")}`).join("\n\n────\n\n");
   }
   function mountTopicSession(root, input, state, models, graphs, local, lms, legacySchema) {
     validateTopicState(state, input.state);
+    if (input.state.wordFrayers) Object.assign(state, migrateTopicWordFrayers(state, input.state));
     const index = buildTopicActivityIndex(input), cleanup = [];
     let latestSaveConfirmed = true;
     const progress = () => {
@@ -2615,7 +3021,12 @@ ${field.text}`).join("\n\n")}`).join("\n\n────\n\n");
         return { id: `recovery-archive-${position}`, title: `Preserved save: ${entry.label}`, category: "Preserved recovery versions", routeId: null, focusId: null, fields };
       }).filter((entry) => entry.fields.some((field) => field.text.trim().length > 0));
     };
-    cleanup.push(mountTopicCollection(root, index, state, input.state, graphs, legacySchema, () => [...currentUnsavedGraphWork(root, graphs, index), ...archiveWork()]).dispose);
+    const wordWork = () => {
+      if (!state.wordFrayers) return [];
+      const data = JSON.parse(root.querySelector("#biology-word-data")?.textContent ?? "{}");
+      return state.wordFrayers.filter((s) => s.answers.some((a) => a.length)).map((s) => ({ id: "word-frayer-" + s.id, title: s.kind === "word" ? data.words?.find((w) => w.id === s.id)?.term ?? s.id : "Preserved earlier Frayer: " + (data.categories?.find((c) => c.id === s.id)?.label ?? s.id), category: s.collected ? "Collected vocabulary" : "Vocabulary drafts", routeId: input.state.unit.toLowerCase() + "-core-vocabulary", focusId: s.kind === "word" ? "word-frayer-" + s.id : null, fields: s.answers.map((text, i) => ({ label: ["Definition", "Characteristics", "Example", "Non-example"][i], text })) }));
+    };
+    cleanup.push(mountTopicCollection(root, index, state, input.state, graphs, legacySchema, () => [...currentUnsavedGraphWork(root, graphs, index), ...archiveWork(), ...wordWork()]).dispose);
     cleanup.push(mountSourceVideos(root).dispose, mountTopicMedia(root).dispose, mountTopicFigureViewer(root).dispose, mountTopicReturnLinks(root, input.state.routes).dispose);
     if (root.querySelector("[data-pilot2-glossary-search]")) cleanup.push(mountTopicGlossary(root).dispose);
     const routeChanged = () => {
@@ -2735,7 +3146,7 @@ ${field.text}`).join("\n\n")}`).join("\n\n────\n\n");
       validateTopicState(emptyTopicState(payload.activities.state), payload.activities.state);
       buildTopicActivityIndex(payload.activities);
       if (payload.activities.contract.unit !== payload.activities.state.unit) throw new Error("Mismatched unit startup data");
-      environment = captureTopicEnvironment(host, payload.activities.state.unit);
+      environment = captureTopicEnvironment(host, payload.activities.state.unit, payload.activities.state.courseId);
       course = startTopicCourse(root, panel, environment.sources, payload.activities, payload.models, payload.graphs, environment.local, environment.lms, payload.legacySchema);
       host.addEventListener("pagehide", pageHide);
       return { course, dispose() {

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "profileId": "biology20-topic-sequence-v1",
+  "courseId": "biology20",
+  "moduleId": "a",
+  "slug": "biology20-unit-a",
+  "title": "Energy and Matter Exchange in the Biosphere",
+  "chapters": [
+    1,
+    2
+  ],
+  "status": "local-review-candidate",
+  "sourceManifestSha256": "44b37ea9a0d4aa6ac9de197489512624323d5dd76feae62b55d7d2b9b53266a2",
+  "topics": [
+    "a-topic-intro-to-ecology",
+    "a-topic-trophic-levels-and-efficiency",
+    "a-topic-ecological-pyramids",
+    "a-topic-water-and-the-hydrologic-cycle",
+    "a-topic-carbon-oxygen-and-nitrogen-cycles",
+    "a-topic-sulfur-and-phosphorus-cycles"
+  ],
+  "requiredRoutes": [
+    "a-topic-intro-to-ecology",
+    "a-topic-trophic-levels-and-efficiency",
+    "a-topic-ecological-pyramids",
+    "a-chapter-1-practice",
+    "a-topic-water-and-the-hydrologic-cycle",
+    "a-topic-carbon-oxygen-and-nitrogen-cycles",
+    "a-topic-sulfur-and-phosphorus-cycles",
+    "a-chapter-2-practice",
+    "a-review-seminar",
+    "a-final-practice"
+  ],
+  "delivery": "independent-online",
+  "frayer": {
+    "fixedCount": 6,
+    "choiceCount": 2
+  },
+  "storage": {
+    "namespace": "biology20-unit-a:state:v1",
+    "target": 44000,
+    "hardLimit": 48000
+  },
+  "teacherAcceptance": null,
+  "regenerateCommand": "npx tsx scripts/build-biology20-course.ts --module a",
+  "requiredMinutes": 400,
+  "optionalMinutes": 108,
+  "timingPolicy": "Online task estimates, not inferred classroom hours. Six 50-minute lessons, two 20-minute chapter practices, a 30-minute seminar and 30-minute final practice; optional 18 Advanced blocks at six minutes each, plus model/investigation time chosen by learner.",
+  "sourceNotes": "Declared delivery inventory; shared layout is derived from these routes and canonical core parts. Technical checks do not certify curriculum or physical/team performance."
+}

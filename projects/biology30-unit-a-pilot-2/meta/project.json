@@ -14,7 +14,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-09-03T18:09:41.959Z",
   "createdAt": "2026-09-03T18:09:41.959Z",
-  "updatedAt": "2026-09-08T16:12:53.462Z",
+  "updatedAt": "2026-09-09T19:35:16.604Z",
   "migrationState": "migrated",
   "projectType": "hybrid",
   "preferredWorkflows": [
@@ -94,7 +94,14 @@
     "scripts/lib/biology30-vocabulary/panel.ts",
     "scripts/lib/biology30-vocabulary/render-a.ts",
     "scripts/lib/biology30-vocabulary/a-entry.ts",
-    "scripts/lib/biology30-vocabulary/a-bridge.ts"
+    "scripts/lib/biology30-vocabulary/a-bridge.ts",
+    "projects/biology30-unit-a-pilot-2/meta/word-details.json",
+    "scripts/lib/biology30-vocabulary/a-word-page.ts",
+    "scripts/lib/biology30-vocabulary/a-word-runtime.ts",
+    "scripts/lib/biology30-vocabulary/word-record.ts",
+    "scripts/lib/biology30-vocabulary/word-reader.ts",
+    "scripts/lib/biology30-vocabulary/word-frayer-state.ts",
+    "scripts/lib/biology30-vocabulary/word-frayer-runtime.ts"
   ],
   "generatedOutputs": [
     "projects/biology30-unit-a-pilot-2/workspace/index.html"
@@ -163,6 +170,6 @@
     "importedAt": "2026-09-03T18:09:41.959Z",
     "notes": "Forked from the exact Pilot 1 workspace SHA-256 b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee; learner structure was rebuilt rather than copied into the new canonical workspace."
   },
-  "sourceOfTruthNotes": "The learner candidate is generated from authored TypeScript under scripts/lib/biology30-unit-a-pilot-2/. Workspace SHA aaf250f9b230fc9a4987bf067aaf535ceb2e1411c901887657f8a0fa49578544 is a complete online authoring candidate blocked for exact-build teacher review. See meta/final-academic-review.json. Direct Studio editing, export, deployment and B-D transfer remain disabled. The checkpoint is 2ad72ec06b104c589f91e4b5afb8d86c322bc168. In-lesson vocabulary is owned by the authored renderer and scripts/lib/biology30-vocabulary/. Frayer controls are shared by moving their single DOM instance; no additional saved responses. Hosted and packaged copies require separate refresh and are not updated by this build.",
+  "sourceOfTruthNotes": "The learner candidate is generated from authored TypeScript under scripts/lib/biology30-unit-a-pilot-2/. Workspace SHA 7b7df6f5859c3d91104cdca25e9facf121d9fb14ee061d999ac7d0598a99367a is a complete online authoring candidate blocked for exact-build teacher review. See meta/final-academic-review.json. Direct Studio editing, export, deployment and B-D transfer remain disabled. The checkpoint is 2ad72ec06b104c589f91e4b5afb8d86c322bc168. In-lesson vocabulary is owned by the authored renderer and scripts/lib/biology30-vocabulary/. Frayer controls are shared by moving their single DOM instance; no additional saved responses. Hosted and packaged copies require separate refresh and are not updated by this build.",
   "regenerateCommand": "npm run build:biology30-unit-a-pilot-2 -- --project biology30-unit-a-pilot-2 --gate final-academic-review --baseline-workspace-sha 219eb5affa6005871952fe840f52790fc187c6d8b183d6257d3694ac503131dc"
 }

@@ -1,0 +1,45 @@
+import {readFile,writeFile,mkdir,copyFile} from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {build} from 'esbuild';
+import {loadBiology20FirstTopicProof} from './lib/biology20-course/first-topic-proof.js';
+import {renderBiology20ProofShell,proofActivityIndex} from './lib/biology20-course/proof-shell.js';
+
+const repo=process.cwd(),proof=await loadBiology20FirstTopicProof(repo),out=path.join(repo,'projects/biology20-unit-a/meta/first-topic-proof');
+await mkdir(path.join(out,'assets'),{recursive:true});
+await mkdir(path.join(out,'assets/fonts'),{recursive:true});
+await mkdir(path.join(out,'assets/brand'),{recursive:true});
+await copyFile(path.join(repo,'projects/resources/biology30-unit-a-pilot/v2/assets/brand/nxt-ce-logo-white-with-ce.png'),path.join(out,'assets/brand/nxt-ce-logo-white-with-ce.png'));
+const fonts=['HankenGrotesk-Variable.ttf','WorkSans-Variable.ttf','OFL-Hanken-Grotesk.txt','OFL-Work-Sans.txt'];
+for(const font of fonts)await copyFile(path.join(repo,'projects/resources/biology30-production/v1/pilot2/presentation-assets/fonts',font),path.join(out,'assets/fonts',font));
+for(const f of proof.input.figures)await copyFile(path.join(proof.base,'figures',path.basename(f.src)),path.join(out,f.src));
+const owner=path.join(repo,'scripts/lib/biology30-course/v1');
+const code=`import {mountTopicControls} from ${JSON.stringify(owner+'/pilot2-controls-runtime.ts')};
+import {mountTopicFigureViewer} from ${JSON.stringify(owner+'/pilot2-figure-viewer.ts')};
+import {mountTopicReturnLinks} from ${JSON.stringify(owner+'/pilot2-return-links.ts')};
+import {mountTopicFrayerControls} from ${JSON.stringify(owner+'/pilot2-frayer-controls.ts')};
+import {mountTopicPresentation} from ${JSON.stringify(owner+'/pilot2-presentation-runtime.ts')};
+import {mountTopicVocabularyPanel} from ${JSON.stringify(owner+'/pilot2-vocabulary-panel.ts')};
+import {mountTopicCollection} from ${JSON.stringify(owner+'/pilot2-collection-view.ts')};
+import {emptyTopicState,decodeTopicState,persistTopicState} from ${JSON.stringify(owner+'/pilot2-state.ts')};
+const schema=${JSON.stringify(proof.input.state)},key='biology20-unit-a:internal-first-topic-proof:v1',root=document.body,status=document.querySelector('[data-pilot2-save-status]');status.id='proof-status';
+mountTopicFigureViewer(root);mountTopicReturnLinks(root,schema.routes);
+// Explicitly isolated proof storage. This is not the future module learner save.
+const storage={getItem(k){return localStorage.getItem(k.replace('biology20-unit-a:state:v1',key));},setItem(k,v){localStorage.setItem(k.replace('biology20-unit-a:state:v1',key),v);}};
+try{const raw=storage.getItem('biology20-unit-a:state:v1'),state=raw?decodeTopicState(raw,schema):emptyTopicState(schema);
+if(!raw)state.route='a-overview';
+const controls=mountTopicControls(root,state,schema,s=>{const result=persistTopicState(s,schema,storage,null);const saved=result.accepted&&result.local==='saved';const message=saved?'Saved in this internal preview only.':('Draft not saved. Keep this page open and copy your writing. '+result.error);status.textContent=message;return{saved,message};});
+mountTopicFrayerControls(root,state,schema,controls);mountTopicPresentation(root,state,schema,controls);
+mountTopicVocabularyPanel(root,${JSON.stringify({contract:proof.vocabularyLayout,vocabulary:proof.input.vocabulary})},state,controls);
+mountTopicCollection(root,${JSON.stringify(proofActivityIndex(proof))},state,schema);
+const visit=()=>{const route=location.hash.slice(1)||state.route;if(schema.routes.includes(route==='overview'?'a-overview':route))state.route=route==='overview'?'a-overview':route;if(route===${JSON.stringify(proof.design.topicId)}&&!state.visited.includes(route))state.visited.push(route);controls.saveDraft();};
+window.addEventListener('hashchange',visit);visit();
+root.querySelector('[data-pilot2-progress-count]').textContent='Development preview';root.querySelector('[data-pilot2-progress-percent]').textContent='';
+// Unbuilt lesson notices never mark future lessons visited or unlock their Frayers.
+}catch(error){status.textContent='Existing proof data could not be restored. No writes enabled: '+String(error);root.querySelectorAll('textarea,input,button').forEach(n=>n.disabled=true);}`;
+const bundle=(await build({stdin:{contents:code,resolveDir:repo,loader:'ts'},bundle:true,write:false,format:'iife',platform:'browser'})).outputFiles[0].text;
+const html=renderBiology20ProofShell(proof).replace('</body>','<script src="proof.js"></script></body>');
+await writeFile(path.join(out,'proof.js'),bundle);await writeFile(path.join(out,'index.html'),html);
+const files=await Promise.all(['index.html','proof.js','assets/brand/nxt-ce-logo-white-with-ce.png',...fonts.map(f=>'assets/fonts/'+f),...proof.input.figures.map(f=>f.src)].map(async file=>({file,sha256:createHash('sha256').update(await readFile(path.join(out,file))).digest('hex')})));
+await writeFile(path.join(out,'build.json'),JSON.stringify({status:'internal-proof-not-module',regenerateCommand:'npx tsx scripts/build-biology20-first-topic-proof.ts',files,maximumProofCharacters:proof.maximumProofCharacters,limitations:proof.limitations},null,2)+'\n');
+console.log(JSON.stringify({path:out,files:files.length,status:'internal-proof-not-module'}));

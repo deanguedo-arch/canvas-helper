@@ -1,0 +1,26 @@
+/* Scoped additions to the preserved Pilot 2 presentation. */
+.course-page[hidden],[hidden]{display:none!important}
+.content-section,.activity{padding:32px 54px;border-top:1px solid var(--border)}
+.activity>fieldset{margin:20px 0;border:0;padding:0;min-width:0}
+.question{margin:0 0 28px;padding:24px 0;border-top:1px solid var(--border)}
+.question label{display:block;margin:8px 0;font-weight:650}
+.question input[type=text],.question textarea{box-sizing:border-box;width:100%;font:inherit;padding:12px;border:1px solid var(--border);background:var(--surface,#fff);color:var(--ink);border-radius:4px}
+.question button{margin:12px 8px 0 0}.question .choice{padding:12px;border:1px solid var(--border);font-weight:400}
+.paired-writing{margin:20px 0;padding:18px;border:1px solid var(--border)}
+.paired-writing:disabled{opacity:.65}.paired-writing legend{font-weight:750}
+.p2-topic button.bio-term{font-weight:700;display:inline;min-height:0;padding:0;border:0;background:transparent;color:inherit;font-size:inherit;line-height:inherit}
+.plain-definitions>div{margin:0 0 20px}.plain-definitions dt{font-weight:750}.plain-definitions dd{margin:5px 0}
+.p2-topic figure{margin:24px 0}.p2-topic figure img{display:block;max-width:100%;max-height:600px;width:auto;height:auto;margin:auto}
+.p2-topic figcaption{padding:14px;font-size:14px;color:var(--muted);border:1px solid var(--border)}
+.p2-topic .question>img{max-width:100%;height:auto}
+.video-support{margin:24px 0;padding:22px;background:#f1f7f4;border-left:4px solid var(--teal)}
+[data-video-slot] iframe{width:100%;aspect-ratio:16/9;border:0;height:auto}
+.local-save-status{position:fixed;bottom:0;left:var(--sidebar,270px);right:0;margin:0;padding:8px 18px;background:#fff;border-top:1px solid var(--border);z-index:15;font-size:13px}
+#course-main{padding-bottom:70px}.sidebar-footer{padding:12px;position:sticky;bottom:0;background:var(--sidebar-bg,#171c19)}
+.sidebar-footer button{width:100%}.frayer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.frayer textarea{box-sizing:border-box;width:100%;font:inherit;min-height:110px}
+.history-run{padding:20px 0;border-top:1px solid var(--border)}.history-run pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}
+.save-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}.muted,small{color:var(--muted)}
+table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;border:1px solid var(--border)}caption{text-align:left;font-weight:700;margin:12px 0}
+.course-header [data-progress-label]{white-space:normal}
+@media(max-width:700px){.content-section,.activity{padding:24px 22px}.frayer-grid{grid-template-columns:1fr}.local-save-status{left:0}.paired-writing{padding:12px}}
+@media print{.sidebar,.course-header,.local-save-status,[data-download],[data-print]{display:none!important}#course-main{margin:0;padding:0}.course-page:not(#process-collection){display:none!important}#process-collection[hidden]{display:block!important}.history-run details>*{display:block!important}}

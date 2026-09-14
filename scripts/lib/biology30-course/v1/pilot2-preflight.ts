@@ -12,7 +12,7 @@ const execute=promisify(execFile);
 const digest=(bytes:Buffer)=>createHash('sha256').update(bytes).digest('hex');
 export const TOPIC_INTAKE_MANIFEST='projects/biology30-unit-a-pilot/meta/bcd-rebuild-intake-manifest.json';
 // Successor records authorized A inline vocabulary; historical baselines remain immutable.
-export const TOPIC_BASELINE='projects/resources/biology30-production/v1/pilot2/baselines/2026-09-08-inline-vocabulary/baseline.json';
+export const TOPIC_BASELINE='projects/resources/biology30-production/v1/pilot2/baselines/2026-09-09-word-vocabulary-delivery/baseline.json';
 const protectedPaths=['projects/biology30-unit-a-pilot/workspace','projects/biology30-unit-a-pilot-2/workspace','projects/biology30-unit-a/workspace','scripts/lib/biology30-unit-a-pilot-2'];
 
 /** Verify the actual input bytes against all three frozen contracts. Shared

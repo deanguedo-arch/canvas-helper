@@ -22,6 +22,7 @@ import {
   toRelativePosixPath
 } from "./shared.js";
 import type { ExportAuthoringGateOptions } from "./shared.js";
+import { resolveScormTracking } from "../scorm-tracking.js";
 
 export function resolveTrackedScormStorageKeys(
   detectedStorageKeys: string[],
@@ -70,6 +71,13 @@ export async function exportProjectToScormPackage(
   const bridgeRelativePath = "./scorm-bridge.js";
   const bridgeAbsolutePath = path.join(scormExportDir, "scorm-bridge.js");
 
+  // Reject a malformed explicit contract before replacing any previous export.
+  const contractPath = path.join(paths.workspaceDir, "scorm-tracking.json");
+  const explicitTracking = await fileExists(contractPath) ? JSON.parse(await readFile(contractPath, "utf8")) : undefined;
+  if (explicitTracking !== undefined) {
+    resolveScormTracking(await readFile(paths.workspaceEntrypoint, "utf8"), [], version, explicitTracking);
+  }
+
   await copyWorkspaceToExportDir(paths.workspaceDir, scormExportDir);
 
   if (!(await fileExists(scormEntrypointPath))) {
@@ -80,15 +88,21 @@ export async function exportProjectToScormPackage(
 
   const detectedStorageKeys = await detectStorageKeysFromWorkspace(scormExportDir, `${projectSlug}::workspace-state::v1`);
   const storageKeys = resolveTrackedScormStorageKeys(detectedStorageKeys, manifest);
+  const entrypointHtml = await readFile(scormEntrypointPath, "utf8");
+  const trackingReport = resolveScormTracking(entrypointHtml, storageKeys, version, explicitTracking);
+  if (trackingReport.contract?.completion && !storageKeys.includes(trackingReport.contract.completion.storageKey)) {
+    storageKeys.push(trackingReport.contract.completion.storageKey);
+  }
   const bridgeScript = buildScormBridgeScript({
     projectSlug,
     storageKeys,
-    version
+    version,
+    tracking: trackingReport.contract
   });
 
   await writeTextFile(bridgeAbsolutePath, bridgeScript);
 
-  const entrypointHtml = await readFile(scormEntrypointPath, "utf8");
+  await writeTextFile(path.join(scormExportDir, "scorm-tracking-report.json"), JSON.stringify(trackingReport, null, 2));
   const entrypointWithBridge = injectScormBridgeTag(entrypointHtml, bridgeRelativePath);
   await writeTextFile(scormEntrypointPath, entrypointWithBridge);
 
@@ -121,6 +135,7 @@ export async function exportProjectToScormPackage(
     fileCount: finalFiles.length,
     exportDir: scormExportDir,
     zipPath,
-    storageKeys
+    storageKeys,
+    trackingReport
   };
 }

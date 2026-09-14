@@ -48,7 +48,7 @@ test("online finalization is exact-build, preserves all prior work and supplies 
   const html=await readFile(workspacePath,"utf8"),$=loadHtml(html);
   const report=await readJson<any>("online-finalization.json");
   const before=await readFile(path.join(projectRoot,onlineBaselineDirectory,"workspace/index.html"),"utf8");
-  assert.deepEqual(report,buildOnlineFinalizationReport(before,html,report.generatedAt,42738));
+  assert.deepEqual(report,buildOnlineFinalizationReport(before,html,report.generatedAt,42383));
   assert.equal(await sha256File(path.join(projectRoot,"workspace",ONLINE_MICROSCOPY.asset)),ONLINE_MICROSCOPY.sha256);
   for(const study of ONLINE_STUDIES){
     assert.equal($(`[data-online-study="${study.id}"] [data-online-pick]`).length,study.rows.length*study.columns.length);
@@ -605,7 +605,7 @@ test("Process Collection has one complete 178-record index, exact returns, and t
   assert.equal(registry.persistence.addsLearnerStateFields, false);
   assert.equal(registry.stateSchemaVersion, 6);
   assert.equal(stateBudget.schemaVersion, 6);
-  assert.equal(stateBudget.estimatedWorstCaseCharacters, 42738);
+  assert.equal(stateBudget.estimatedWorstCaseCharacters, 42383);
   assert.equal(contract.processCollectionIndex.workspaceSha256, currentSha);
   assert.equal(contract.processCollectionIndex.teacherDecision, null);
   assert.equal(contract.advancedBridgeGateB.workspaceSha256, PROCESS_COLLECTION_BASELINE_SHA256);
@@ -659,7 +659,7 @@ test("Chapter 11 diagram work supplies saved evidence without replacing existing
   const vocab = await readJson<any>("core-vocabulary.json");
   const estimate = estimateWorstCaseState(html, vocab.fixedMilestones.map((entry: any) => entry.entryId));
   assert.equal(estimate.responseCount, 79);
-  assert.equal(estimate.characters, 42738);
+  assert.equal(estimate.characters, 42383);
   assert.ok(estimate.characters <= 44000);
   assert.equal($("[data-practice-id]").length, 86);
   assert.equal($("[data-advanced-block-id]").length, 40);
