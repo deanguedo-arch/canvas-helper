@@ -14279,3 +14279,132 @@ Pilot 2 A and B/C/D were unchanged. No deployment, export, ZIP, Chapters 12–13
 - Status at archive: Chapter 11 presentation and automatic video display passed readiness, but textbook-page links still routed learners to the full Textbook Library page.
 - Preserved boundary: Chapter 11 only; no Pilot 2, B/C/D, deployment, export, ZIP or LMS changes.
 - Superseded by: verified page mapping and a closable modal page reader that preserves the learner's current route.
+
+---
+
+# Archived handoff — Biology 30 Pilot 3 before generated Chapter 11 practice
+
+- Project: `biology30-unit-a-pilot-3`
+- Status at archive: textbook destinations, in-course reader, Pilot 2 presentation transfer, automatic videos, route-separated fixed practice and corrected A–J labeling integration were complete in Build mode; broad rollout checks remained deferred.
+- Source of truth: `projects/biology30-unit-a-pilot-3/workspace/index.html`, `workspace/styles.css`, `workspace/assets/pilot3-catalog.js`, and `scripts/lib/biology30-pilot3/runtime.ts`.
+- Preserved boundary: Chapter 11 only; no Pilot 2, B/C/D, Chapters 12–13, deployment, export, commit or LMS certification.
+- Superseded by: authored all-lesson practice bank, reusable deterministic engine, generated Flash cards/Fill in the blanks/Mixed practice, portable resume projection and corrected E/H diagram callouts.
+
+---
+
+# Archived handoff — Biology 30 Pilot 3 after generated Chapter 11 practice
+
+- Project: `biology30-unit-a-pilot-3`.
+- Status at archive: all Chapter 11 generated-practice implementation and focused browser verification were complete in the dirty `main` checkout; rollout validation remained deferred.
+- Source of truth: `projects/biology30-unit-a-pilot-3/workspace/index.html`, `workspace/assets/pilot3-practice-bank.js`, `scripts/lib/biology30-pilot3/practice-engine.ts`, and `scripts/lib/biology30-pilot3/runtime.ts`.
+- Preserved boundary: Pilot 2, B/C/D, Chapters 12–13, deployment, export, commit, and LMS certification were untouched.
+- Exact next action at archive: await the next requested Biology change.
+- Exact next file at archive: `projects/biology30-unit-a-pilot-3/meta/practice-coverage.json`.
+
+---
+
+# Archived handoff — Sports Wellness Phase 1 learner preview
+
+- Project: `sportswellness-phase-1`.
+- Status at archive: usable local review candidate complete; rollout validation and SCORM work deferred.
+- Source of truth: `projects/sportswellness-phase-1/workspace/index.html`, `styles.css`, `main.js`, `phase1-preview.js`, and `meta/learner-interaction-contract.json`.
+- Preserved boundary: the introduction and Phases 2–4 were not created; no SCORM ZIP, deployment, commit, Brightspace change or cross-device-save claim occurred.
+- Known blocker carried forward: 72 response fields can exceed the current 60,000-character SCORM suspend-data bridge limit.
+- Exact next action at archive: reload the local Phase 1 preview and continue teacher review.
+- Exact next file at archive: `projects/sportswellness-phase-1/meta/review-handoff.md`.
+
+
+---
+
+# Archived handoff — Biology 30 Pilot 3 before Chemistry 30 Unit A Pilot
+
+# Handoff
+
+- Project: `biology30-unit-a-pilot-3`
+- Task: refine the Chapter 11 learner sequence and add detailed, page-specific guidance after teacher review.
+- Status: building; revised local learner preview is usable, with rollout validation deferred.
+
+## Files changed
+
+- `projects/biology30-unit-a-pilot-3/workspace/index.html`
+- `projects/biology30-unit-a-pilot-3/workspace/styles.css`
+- `scripts/lib/biology30-pilot3/pilot3.css`
+- `projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-practice-bank.js`
+- `projects/biology30-unit-a-pilot-3/meta/project.json`
+- `projects/biology30-unit-a-pilot-3/meta/e2e-contract.json`
+- `projects/biology30-unit-a-pilot-3/meta/prompt-pack.md`
+- `projects/biology30-unit-a-pilot-3/meta/teacher-voice-integration.json`
+- `projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_pilot3_teacher_voice_change_package.zip`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+
+- Verified every file hash in the supplied package, reviewed its source/science guardrails, and preflighted all proposed changes against the current canonical HTML.
+- Applied all 601 exact copy changes and synchronized 208 fields across 82 existing vocabulary records.
+- Added compact key-term strips and closed Vocabulary help to all 14 lesson routes while leaving causal teaching visible.
+- Reorganized all 141 static word views and the Pilot 3 popup clone so Meaning, What it does and Common confusion appear before More about this word.
+- Moved two task-specific reminders beside their source questions, collapsed the refractory-period detail and polygraph application, separated the four cerebral-lobe entries, and removed repeated production wording from three captions.
+- Preserved the supplied package and recorded its review, structural decisions and focused verification.
+- Renamed Lesson 12 to “Chapter review and final check” and added a four-step learner process that distinguishes the required paired check from 22 optional textbook questions.
+- Moved the former numbered Further exploration page into a separate unnumbered Optional extension group, retitled it “Stress, experience and addiction,” and stated that students choose one topic and submit nothing unless assigned.
+- Removed Biology in practice, its source-writing activity, navigation entry and declared route from the learner course. Its retired generated-practice concepts remain in the bank only so older saved generated sets can still restore; they are no longer selectable for new sets.
+- Added 20 detailed, collapsed-by-default “How to use” guides: one on each teaching lesson (1–11), one on every Practice & Review page, and one on All My Work, Core Vocabulary, the Textbook Library and the Video Library. Each guide gives an explicit sequence, explains saving/completion, and distinguishes required checks from optional support without changing activity or state IDs.
+- Restyled those guides using the Sports Wellness Phase 1 completion-guide pattern: pale-teal field, teal left rule, compact guide label, strong title, clear disclosure chevron and separated instruction body. On Learn pages, the original side-by-side Learning goal and Before you begin strip is preserved, and the guide sits directly below that complete strip and above the textbook panel and vocabulary help. Its first step requires reading the assigned textbook pages before using the online lesson.
+
+## Why this changed
+
+- The learner pages needed a more direct teacher voice, a clear required-versus-optional workflow, and an ending sequence that did not present textbook extensions as required lessons.
+- Students also needed page-level directions detailed enough to explain the complete workflow, saving behavior and stopping point without requiring them to infer how each page works.
+
+## Verification run
+
+- Focused static check: 20 guides, zero open by default, all intended pages covered, no guides on Overview or Lessons 12–13, zero duplicate edit keys, 12 required checks and synchronized guide CSS.
+- `git diff --check` passed for the learner HTML, both stylesheets and the updated project/handoff notes.
+- Focused local browser inspection confirmed collapsed and expanded guidance on Lesson 1 and Multiple choice, plus collapsed guidance on All My Work.
+- A follow-up focused check confirmed all 11 Learn guides occur after the complete Learning goal / Before you begin strip and before the textbook panel, all begin collapsed, and all lead with the required textbook reading. Lesson 1 was rechecked after restoring the original two-column strip.
+- No full E2E, Studio lifecycle, packaging, deployment or LMS verification was run in Build mode.
+
+## Source of truth
+
+- Learner content: `projects/biology30-unit-a-pilot-3/workspace/index.html` and `workspace/styles.css`.
+- The reusable guide presentation is mirrored in `scripts/lib/biology30-pilot3/pilot3.css`; keep it synchronized with the workspace stylesheet.
+- Runtime source remains `scripts/lib/biology30-pilot3/runtime.ts`; no runtime rebuild was needed.
+- Integration evidence: `projects/biology30-unit-a-pilot-3/meta/teacher-voice-integration.json`.
+
+## Fragile areas / watchouts
+
+- Keep the 601 approved keyed replacements synchronized with the 82 embedded vocabulary records.
+- Preserve the vocabulary schema identity, all activity/question/writing IDs, 12 required-check markers and generated-practice snapshots.
+- Do not re-add `lesson-14` to navigation or new-practice selectors. Keep its two generated-practice concepts only for compatibility with older saved sessions unless a deliberate state migration is designed.
+- The static word view is canonical for Pilot 3; the live popup clones it after opening.
+
+## Next prompt should assume
+
+- The teacher-voice copy and structural presentation changes are applied in the existing dirty `main` checkout. The core Learn sequence now ends at Lesson 12, followed by one unnumbered optional extension.
+- Pilot 2, Units B–D, Chapters 12–13, exports, deployment and LMS behavior remain outside scope.
+- The new guides are intentionally absent from Overview, the already-visible Lesson 12 process, and the already-visible optional-extension directions; do not duplicate them there without a new learner need.
+- Treat the Sports Wellness completion guide as the presentation baseline for future learner-facing “How to use” disclosures, while keeping Biology-specific wording and course controls.
+
+## What still needs validation
+
+- At rollout: the project E2E suite, 320/375/768/full desktop responsive matrix, Studio Edit-map and reversible lifecycle, export integrity, and actual Brightspace behavior.
+
+## Known risks
+
+- The package was based on an older whole-file snapshot, but all 601 keyed copy targets and all vocabulary fields matched the current source exactly; future edits to those nodes should be reconciled by stable edit key, not fuzzy replacement.
+- Package-level static validation and focused browser checks are not teacher acceptance or LMS certification.
+- Any unfinished legacy `practice-connections` writing run remains stored but is no longer resumable because Biology in practice was removed; completed history remains in All My Work.
+
+## Exact next action
+
+- Await the next requested Biology 30 Pilot 3 change.
+
+## Exact next file to open
+
+`projects/biology30-unit-a-pilot-3/workspace/index.html`
+
+## Do not do next / warnings
+
+- Do not rerun retired Pilot 3 initializers or Pilot 2 builders.
+- Do not commit, export, deploy, upload to Brightspace or change release flags without a separate request.

@@ -1,0 +1,92 @@
+{
+  "id": "8d33e415-e705-4685-9d5d-8758aa90f407",
+  "slug": "sportswellness-phase-1",
+  "title": "Sports Psychology — Phase 1: The Engine",
+  "sourcePath": "projects/sportswellness-phase-1/raw/original.html",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "raw",
+    "workspace"
+  ],
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-09-14T20:50:16.421Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/sportswellness-phase-1/workspace/index.html",
+  "canonicalSources": [
+    "projects/sportswellness-phase-1/workspace/index.html",
+    "projects/sportswellness-phase-1/workspace/styles.css",
+    "projects/sportswellness-phase-1/workspace/main.js",
+    "projects/sportswellness-phase-1/workspace/phase1-preview.js",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.html",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.app.js",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-scale.js",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-theme.css",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-runtime.html",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-entry.js",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/react-shim.js",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/tailwind-input.css"
+  ],
+  "authoring": {
+    "driverId": "proposal-only-v1",
+    "familyId": "sportswellness-split-v1",
+    "qualityProfile": "sportswellness-phase1-preview-v1",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    },
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    }
+  },
+  "generatedOutputs": [
+    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game.bundle.js",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-utilities.css"
+  ],
+  "injectedComponents": [
+    {
+      "id": "phase1-performance-state-simulator-game",
+      "source": "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-runtime.html",
+      "target": "projects/sportswellness-phase-1/workspace/index.html#performance-game",
+      "status": "active",
+      "notes": "The gameplay source, scale helper, and theme are byte-for-byte copies from the legacy sportswellness workspace. A local React bundle and generated utility CSS replace the original CDN/Babel loader; learners use the game native controls."
+    }
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "sourcePath": "/Users/deanguedo/Downloads/SportsWellness_Codex_5_SCORM_Handoff.zip#SportsWellness_Codex_Handoff/reference/SportsPsychology_Phase1_SchoolDesign.html",
+    "importedAt": "2026-09-14T20:50:16.421Z"
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": false,
+      "notes": "Deferred until Phase 1 rollout validation and response-capacity policy are complete."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [
+    "projects/sportswellness-phase-1/meta/source-handoff",
+    "projects/resources/sportswellness-phase-1/reference/sportswellness-phase-1-with-learning-support.html"
+  ],
+  "sourceOfTruthNotes": "Phase 1 learner content, learning-support resources, links, captions, and prompts are owned by workspace HTML/CSS/JS. The Resources-page support index is generated at runtime by scanning canonical [data-support-resource] HTML. The legacy sportswellness project, imported raw baseline, and supplied enrichment HTML are preserved as references. The performance game keeps byte-for-byte original gameplay sources and runs them through a local loader without parent control overrides. Studio editing and exports remain disabled while this is a review candidate.",
+  "createdAt": "2026-09-14T20:50:16.421Z",
+  "updatedAt": "2026-09-15T18:27:33.943Z",
+  "regenerateCommand": "npx esbuild projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-entry.js --bundle --loader:.js=jsx --inject:projects/sportswellness-phase-1/workspace/assets/game/original/react-shim.js --format=iife --platform=browser --target=es2019 --outfile=projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game.bundle.js && npx -y tailwindcss@3.4.17 -i projects/sportswellness-phase-1/workspace/assets/game/original/tailwind-input.css -o projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-utilities.css --content projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.app.js --minify",
+  "workspaceApprovedAt": "2026-09-15T18:16:32.538Z"
+}

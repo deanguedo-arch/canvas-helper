@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "bankVersion": "2026.09.14.1",
+  "questionFamilies": {
+    "flashcards": ["recall", "reverse-retrieval", "application", "error-correction"],
+    "blanks": ["definition", "scenario", "pathway"],
+    "multiple-choice": ["recognize", "relate", "apply", "misconception", "sequence", "integrate"],
+    "mixed-practice": ["retrieval", "discrimination", "application", "odd-one-out", "misconception", "sequence", "diagram", "adaptive-review"]
+  },
+  "multipleChoice": {
+    "conceptCount": 40,
+    "variantCount": 280,
+    "coreLessonVariantCount": 252,
+    "sourceCalibration": "multiple-choice-calibration.json",
+    "requiredProgressImpact": false
+  },
+  "lessons": [
+    {"id":"lesson-01","conceptIds":["communication-pathway","sensory-motor-direction","nervous-system-purpose"],"sourceSections":["textbook pp. 367, 371"]},
+    {"id":"lesson-02","conceptIds":["neuron-parts","myelin","cell-body"],"sourceSections":["textbook p. 372"]},
+    {"id":"lesson-03","conceptIds":["reflex-arc","interneuron","reflex-purpose"],"sourceSections":["textbook pp. 370–371"]},
+    {"id":"lesson-04","conceptIds":["resting-potential","sodium-potassium-pump","selective-permeability"],"sourceSections":["textbook pp. 374–375"]},
+    {"id":"lesson-05","conceptIds":["action-potential","depolarization","refractory-period"],"sourceSections":["textbook pp. 377, 380"]},
+    {"id":"lesson-06","conceptIds":["synaptic-transmission","summation","transmitter-removal"],"sourceSections":["textbook pp. 380–382"]},
+    {"id":"lesson-07","conceptIds":["agonist","antagonist","reuptake-inhibition"],"sourceSections":["textbook pp. 371, 384"]},
+    {"id":"lesson-08","conceptIds":["somatic-autonomic","sympathetic","parasympathetic"],"sourceSections":["textbook pp. 396, 399"]},
+    {"id":"lesson-09","conceptIds":["cns-protection","gray-white-matter","spinal-cord"],"sourceSections":["textbook p. 389"]},
+    {"id":"lesson-10","conceptIds":["cerebrum","cerebellum","brain-stem"],"sourceSections":["textbook pp. 389, 392"]},
+    {"id":"lesson-11","conceptIds":["ct-mri","eeg","evidence-limits"],"sourceSections":["textbook pp. 393–395"]},
+    {"id":"lesson-12","conceptIds":["chapter-integration","structure-function","error-checking"],"sourceSections":["textbook p. 402 and cumulative Chapter 11 review"]},
+    {"id":"lesson-13","optional":true,"conceptIds":["evidence-application","model-limits"],"sourceSections":["Chapter 11 extension prompts and cumulative chapter evidence"]},
+    {"id":"lesson-14","optional":true,"conceptIds":["health-claim","applied-neuroscience"],"sourceSections":["textbook p. 400 and chapter-grounded application prompts"]}
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "project": "sportswellness-phase-1",
+  "routes": [
+    "course-guide",
+    "start",
+    "key-terms",
+    "stress-loop",
+    "performance-zone",
+    "interpreting-nerves",
+    "stress-sources",
+    "attention-coordination",
+    "regulation-tools",
+    "cues-goals",
+    "performance-lab",
+    "playbook",
+    "phase-review",
+    "checkpoint",
+    "performance-game",
+    "untimed-practice",
+    "process-collection",
+    "resources"
+  ],
+  "persistence": {
+    "storageKey": "canvas-helper:sportswellness-phase-1:state",
+    "schemaVersion": 2,
+    "browserRestore": true,
+    "explicitBackupReplacement": true,
+    "lmsRestore": false
+  },
+  "checkpoint": {
+    "questionCount": 10,
+    "contentVersion": "phase1-checkpoint-2026-09-14-r1",
+    "thresholdPercent": 70,
+    "retainedScore": "best",
+    "reporting": "local-only"
+  },
+  "game": {
+    "activityId": "phase1-performance-state-simulator-game",
+    "runtime": "preserved-original-local-loader",
+    "nativeControls": [
+      "Begin Simulation",
+      "Restart Simulation",
+      "Breathe",
+      "Activate"
+    ],
+    "originalFilesSha256": {
+      "phase1-performance-state-simulator-game.html": "3cd3582b8ba33768cae2c5e65a63b78d3521994aaae0a47d3246361b4d16e525",
+      "phase1-performance-state-simulator-game.app.js": "84faecbed7798173a50cda89ec3cc5144a41e3c403cf9c17c798384d76a93dc6",
+      "performance-game-scale.js": "0f296e9351353101127fb52b2167e0536dde617765d52c489e850f1e445da6c8",
+      "performance-game-theme.css": "40263de60b6f04c08f89cbdda67a4886e353cf27cf597738395aa92dca1c7a62"
+    },
+    "attemptPersistence": false,
+    "academicGrade": false,
+    "loader": "assets/game/original/phase1-game-runtime.html"
+  },
+  "exports": {
+    "assignmentOnly": false,
+    "fullProcess": "browser print or Save as PDF",
+    "losslessJsonBackup": false,
+    "submission": false
+  },
+  "responsiveReview": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "learningSupport": {
+    "canonicalSelector": "[data-support-resource]",
+    "topicBlockCount": 12,
+    "resourceInstanceCount": 33,
+    "videoInstanceCount": 16,
+    "readingInstanceCount": 17,
+    "resourcesIndex": "generated-from-canonical-lesson-html",
+    "youtubePlayback": "shared-lazy-data-play-video-runtime",
+    "nonYouTubePlayback": "direct-publisher-link",
+    "savedFieldsAdded": 0
+  },
+  "navigation": {
+    "model": "chronological-student-path",
+    "numberedRoutes": [
+      "start",
+      "key-terms",
+      "stress-loop",
+      "performance-zone",
+      "interpreting-nerves",
+      "stress-sources",
+      "attention-coordination",
+      "regulation-tools",
+      "cues-goals",
+      "performance-lab",
+      "playbook",
+      "phase-review"
+    ],
+    "utilityRoutes": [
+      "course-guide",
+      "checkpoint",
+      "process-collection",
+      "resources"
+    ],
+    "completionSource": "learner-controlled-reviewed-state",
+    "supportRoutesRemainDirectlyAddressable": true,
+    "mobileUsesSameInformationArchitecture": true,
+    "stageInstructionsVisible": true,
+    "stageInstructionsLocation": "dedicated course-guide route and one closed completion guide on every numbered topic",
+    "sidebarGroupsCollapsible": true,
+    "sidebarProgressBlock": false,
+    "desktopCollapsedMenuUsesAccessibleIcon": true,
+    "completionGuideRoutes": [
+      "start",
+      "key-terms",
+      "stress-loop",
+      "performance-zone",
+      "interpreting-nerves",
+      "stress-sources",
+      "attention-coordination",
+      "regulation-tools",
+      "cues-goals",
+      "performance-lab",
+      "playbook",
+      "phase-review"
+    ],
+    "completionGuideDefault": "closed",
+    "courseGuideNavigation": "direct sidebar route"
+  },
+  "performanceLab": {
+    "practiceChoices": [
+      {
+        "label": "Guided Scenario Lab",
+        "route": "performance-lab",
+        "anchor": "regulation-lab"
+      },
+      {
+        "label": "Performance Simulator",
+        "route": "performance-game"
+      },
+      {
+        "label": "Untimed Practice",
+        "route": "untimed-practice"
+      }
+    ]
+  },
+  "tools": {
+    "myWork": {
+      "route": "process-collection",
+      "behavior": "automatically displays the work collected during the phase and offers one print or Save as PDF action"
+    },
+    "myNotes": {
+      "dialog": "notebook-dialog",
+      "fieldId": "notebook-notes",
+      "entryStore": "noteEntries",
+      "entryLimit": 50,
+      "behavior": "timestamped learner note entries opened from the persistent Quick Notes button, sidebar, and numbered topic footers"
+    }
+  }
+}

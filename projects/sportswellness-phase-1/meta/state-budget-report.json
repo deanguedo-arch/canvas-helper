@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "rollout-blocker",
+  "responseFields": 72,
+  "perFieldMaximumCharacters": 5000,
+  "maximumResponseCharactersBeforeEnvelope": 360000,
+  "currentScorm2004BridgeLimitCharacters": 60000,
+  "previewPersistence": "browser-local plus lossless JSON backup",
+  "scormPersistence": "deferred",
+  "decisionRequiredBeforeExport": "Approve supported response limits or move genuinely long writing to a native Brightspace assignment after representative and worst-case state measurements.",
+  "prohibitedFallbacks": ["silent truncation", "discarding first drafts", "claiming an overflow was saved"]
+}

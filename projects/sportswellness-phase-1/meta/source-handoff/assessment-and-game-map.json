@@ -1,0 +1,183 @@
+{
+  "assignments": [
+    {
+      "module": "sportswellness-introduction",
+      "assignmentId": "a0",
+      "runtimeView": "intro",
+      "storageKey": "diag_data"
+    },
+    {
+      "module": "sportswellness-phase-1",
+      "assignmentId": "a1",
+      "runtimeView": "phase1",
+      "storageKey": "sportswellness_phase1_assignment_v2"
+    },
+    {
+      "module": "sportswellness-phase-2",
+      "assignmentId": "a2a",
+      "runtimeView": "values",
+      "storageKey": "vb_data"
+    },
+    {
+      "module": "sportswellness-phase-2",
+      "assignmentId": "a2b",
+      "runtimeView": "master",
+      "storageKey": "mb_data"
+    },
+    {
+      "module": "sportswellness-phase-3",
+      "assignmentId": "a3",
+      "runtimeView": "phase3",
+      "storageKey": "p3_data"
+    },
+    {
+      "module": "sportswellness-phase-4",
+      "assignmentId": "a4a",
+      "runtimeView": "phase4a",
+      "storageKey": "p4a_data"
+    },
+    {
+      "module": "sportswellness-phase-4",
+      "assignmentId": "a4b",
+      "runtimeView": "phase4b",
+      "storageKey": "athlete_visualization_master_v1"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "quiz-phase1-performance-state",
+      "title": "Arousal and Anxiety in Sport",
+      "phaseId": "phase-1",
+      "count": 10,
+      "questionIds": [
+        "phase1-q1",
+        "phase1-q2",
+        "phase1-q3",
+        "phase1-q4",
+        "phase1-q5",
+        "phase1-q6",
+        "phase1-q7",
+        "phase1-q8",
+        "phase1-q9",
+        "phase1-q10"
+      ],
+      "sourcePolicy": {
+        "passThresholdPercent": 70,
+        "retainedScore": "best"
+      },
+      "note": "Source policy; official grading/weights and LMS aggregation need a declared release decision."
+    },
+    {
+      "id": "quiz-phase2-integrated-discipline",
+      "title": "Integrated Discipline and Motivation Quality",
+      "phaseId": "phase-2",
+      "count": 10,
+      "questionIds": [
+        "phase2-q1",
+        "phase2-q2",
+        "phase2-q3",
+        "phase2-q4",
+        "phase2-q5",
+        "phase2-q6",
+        "phase2-q7",
+        "phase2-q8",
+        "phase2-q9",
+        "phase2-q10"
+      ],
+      "sourcePolicy": {
+        "passThresholdPercent": 70,
+        "retainedScore": "best"
+      },
+      "note": "Source policy; official grading/weights and LMS aggregation need a declared release decision."
+    },
+    {
+      "id": "quiz-phase3-focus-under-pressure",
+      "title": "Focus Under Pressure",
+      "phaseId": "phase-3",
+      "count": 12,
+      "questionIds": [
+        "phase3-q1",
+        "phase3-q2",
+        "phase3-q3",
+        "phase3-q4",
+        "phase3-q5",
+        "phase3-q6",
+        "phase3-q7",
+        "phase3-q8",
+        "phase3-q9",
+        "phase3-q10",
+        "phase3-q11",
+        "phase3-q12"
+      ],
+      "sourcePolicy": {
+        "passThresholdPercent": 70,
+        "retainedScore": "best"
+      },
+      "note": "Source policy; official grading/weights and LMS aggregation need a declared release decision."
+    },
+    {
+      "id": "quiz-phase4-winning-the-first-victory",
+      "title": "Winning the First Victory",
+      "phaseId": "phase-4",
+      "count": 12,
+      "questionIds": [
+        "phase4-q1",
+        "phase4-q2",
+        "phase4-q3",
+        "phase4-q4",
+        "phase4-q5",
+        "phase4-q6",
+        "phase4-q7",
+        "phase4-q8",
+        "phase4-q9",
+        "phase4-q10",
+        "phase4-q11",
+        "phase4-q12"
+      ],
+      "sourcePolicy": {
+        "passThresholdPercent": 70,
+        "retainedScore": "best"
+      },
+      "note": "Source policy; official grading/weights and LMS aggregation need a declared release decision."
+    }
+  ],
+  "games": [
+    {
+      "id": "phase1-performance-state-simulator-game",
+      "code": "Phase 1",
+      "title": "Phase 1 Performance State Simulator Game",
+      "eyebrow": "Performance tool",
+      "accent": "#00ff7f",
+      "body": "Arousal regulation simulator for inverted-U control, pace adaptation, and sustained execution tracking under pressure.",
+      "viewerSrc": "./performance/phase1-performance-state-simulator-game.html"
+    },
+    {
+      "id": "phase2-discipline-game",
+      "code": "Phase 2",
+      "title": "Phase 2 Architecture of Discipline Game",
+      "eyebrow": "Performance tool",
+      "accent": "#f59e0b",
+      "body": "Integrated discipline simulator for process execution, outcome-trap management, and growth-minded response under pressure.",
+      "viewerSrc": "./performance/phase2-discipline-game.html"
+    },
+    {
+      "id": "phase3-focus-game",
+      "code": "Phase 3",
+      "title": "Phase 3 Focus Game",
+      "eyebrow": "Performance tool",
+      "accent": "#10b981",
+      "body": "Inner Game simulator for attention control, cue timing, and interference management under pressure.",
+      "viewerSrc": "./performance/phase3-focus-game.html"
+    },
+    {
+      "id": "phase4-mental-filter-simulator-game",
+      "code": "Phase 4",
+      "title": "Phase 4 Mental Filter Simulator Game",
+      "eyebrow": "Performance tool",
+      "accent": "#0ea5e9",
+      "body": "Confidence-account simulator for filtering thought patterns, protecting identity, and converting evidence into durable belief.",
+      "viewerSrc": "./performance/phase4-mental-filter-simulator-game.html"
+    }
+  ],
+  "existingGamePersistence": "No localStorage/sessionStorage/postMessage hooks in reviewed game application sources; production integration required."
+}

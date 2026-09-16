@@ -1,4 +1,13 @@
 {
+  "currentCandidateStatus": "focused-learner-structure-refinement-passed-rollout-deferred",
+  "currentCandidate": {
+    "candidateSha256": "8e86b3690d0fa72f78ba6f755b09c840f49a4f72e3ba020b5ec0a81f62006e16",
+    "runtimeSha256": "3588801822e8507d9c585daccf8120addc31f049ca39a2e04fa16cbce592491f",
+    "practiceBankSha256": "22216c21942634209f9774d556018b7d869a4b4618a42f85560ae16e474ac76b",
+    "focusedChecks": "generated-practice-and-reset-browser-passed-6-of-6-plus-admin-copy-removal",
+    "rolloutChecks": "deferred"
+  },
+  "previousCandidateEvidence": {
   "passed": true,
   "candidateSha256": "5c3eb0acbd4a2e721168f16311da42e6eb7f27a947cc02174573ae171aac3b2e",
   "runtimeSha256": "a82619606e366438cc5cc0b93ca551b25e698cd56b9a9ac08af1134aeb5c8236",
@@ -19,4 +28,5 @@
     "forced IndexedDB failure and draft recovery"
   ],
   "at": "2026-09-14T15:50:29.205Z"
+  }
 }

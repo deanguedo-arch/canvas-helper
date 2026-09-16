@@ -1,101 +1,128 @@
-# Active handoff — Biology 30 Pilot 3 Chapter 11
+# Handoff
 
-- Project: biology30-unit-a-pilot-3
-- Task: verify every Chapter 11 textbook-page destination and keep learners in the unit with an in-course page reader.
-- Status: Build-mode changes complete; comprehensive Studio Edit verification is deferred and must not be claimed as passed.
-- Repository cadence: Build mode is now the default for every new Canvas Helper chat and artifact. Comprehensive tests are deferred until an explicit testing, packaging, deployment, or rollout request.
+- Project: `chemistry30-unit-a-pilot`
+- Task: create a local Chemistry 30 Unit A pilot from the completed Guided Edition and align its presentation and learner guidance with Biology 30 Pilot 3.
+- Status: deployed for teacher review; the selector now version-busts embedded course frames so Chemistry loads the matching HTML/runtime, and the live Biology/Chemistry selector paths render successfully.
 
-## Summary
+## Current follow-up: Biology 30 Pilot 3 practice startup
 
-All 106 textbook links were checked across 20 distinct PDF destinations. They correctly use the fixed Chapter 11 mapping `PDF page = printed textbook page - 359`. Lesson and question links now open the requested page in a compact, closable modal without changing the current unit route. Close/Escape restores focus, and learners can open that exact page in a new window. A cache-distinct iframe URL prevents Chrome from reusing the Textbook Library viewer's stale page position. Existing video, activity and saved-answer IDs, state namespaces and Process Collection behaviour are unchanged.
+- Status: deployed for teacher review at `https://biology30pilot.web.app/?v=20260916-1`; live Biology and Chemistry selector paths were checked after deployment.
+- Cause: two `lesson-14` concepts are retained in the practice bank solely for legacy saved-session restoration, but the validator treated them as unknown learner lessons and blocked every generated practice mode at start.
+- Fix: `scripts/lib/biology30-pilot3/practice-engine.ts` now permits only that explicit legacy restoration ID while keeping lesson 14 hidden from new practice selections; the generated `pilot3-runtime.js` bundle was rebuilt.
+- Verification: generated-practice tests passed 4/4; focused Chromium practice/reset tests passed 2/2; Biology and Chemistry workspace verification passed; live Biology multiple-choice started a saved 10-item set; live Chemistry populated after selector switching; targeted `git diff --check` passed.
+- Reset boundary: Pilot 3 exposes `Stop and reset` for unfinished practice only. Completed practice history, lesson responses, and vocabulary Frayers remain in browser storage by design; deployment does not clear them.
 
 ## Files changed
 
-- `projects/biology30-unit-a-pilot-3/workspace/index.html`
-- `projects/biology30-unit-a-pilot-3/workspace/styles.css`
-- `projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-runtime.js`
-- `scripts/lib/biology30-pilot3/pilot3.css`
-- `scripts/lib/biology30-pilot3/runtime.ts`
-- `scripts/test-biology30-pilot3.ts`
-- `projects/biology30-unit-a-pilot-3/meta/project.json`
-- `projects/biology30-unit-a-pilot-3/meta/verification.json`
-- `projects/biology30-unit-a-pilot-3/meta/readiness-boundary.json`
-- `projects/biology30-unit-a-pilot-3/meta/review-handoff.md`
+## Biology 30 practice reset follow-up — 2026-09-16
+
+- Local fix complete; not deployed. Both reset paths now use an on-page confirmation instead of native `window.confirm`, which can be suppressed in embedded previews and silently cancel reset.
+- Reset unfinished practice clears only the current unfinished run; Keep working preserves it. Completed history and activity/answer/storage IDs are unchanged.
+- Follow-up presentation fix: the activity bar wraps, the confirmation occupies its own full-width row, and its buttons use a wrapping action group with a 12px gap. Runtime bundle rebuilt and targeted diff check passed; reset-state regression was not repeated for this presentation-only edit.
+- Changed: runtime source `scripts/lib/biology30-pilot3/runtime.ts`, rebuilt `projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-runtime.js`, both Pilot 3 stylesheets, and `scripts/tests/biology30-pilot3-reset-browser.test.ts`.
+- Focused browser test passed with native confirmation suppressed: all four generated modes and Labeling, cancellation, confirmed reset, reload, completed-history preservation and unchanged progress. Broader E2E, Studio, packaging and LMS checks remain deferred.
+- Next action: refresh the local Biology preview and review the confirmation; deploy only on explicit request. Next file: `scripts/lib/biology30-pilot3/runtime.ts`.
+
+### Chemistry files
+
+- `projects/chemistry30-unit-a-pilot/workspace/index.html`
+- `projects/chemistry30-unit-a-pilot/workspace/styles.css`
+- `projects/chemistry30-unit-a-pilot/workspace/main.js`
+- `projects/chemistry30-unit-a-pilot/workspace/assets/fonts/**`
+- `projects/chemistry30-unit-a-pilot/meta/project.json`
+- `projects/chemistry30-unit-a-pilot/meta/pilot-integration.json`
+- Import-generated metadata under `projects/chemistry30-unit-a-pilot/meta/**`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+
+- Imported the user-supplied ChatGPT Guided Teaching Edition into a new blocked pilot while preserving the original HTML byte-for-byte under `raw/original.html`.
+- Added Hanken Grotesk and Work Sans from the local Biology Pilot 3 font assets and aligned lesson headers, goal strips, spacing, guide panels, review orientation, and embedded-activity directions with the established learner presentation.
+- Refined the shared course shell after visual review: the sidebar now follows Biology Pilot 3's course-name hierarchy, section rhythm, active marker, bottom Save and Exit placement, and narrow collapsed rail; the top bar now carries the live course-progress block.
+- Rebuilt the sidebar navigation hierarchy to match Biology Pilot 3 more closely: Start and Learn are the primary learner sections; Chapters 9, 10, and 11 are collapsible subsections inside Learn; Practice & Review, Tools, Process Collection, and Resources retain the same Biology-sized headings, lesson typography, spacing, and active border treatment.
+- Rebuilt the lesson surface as the same bordered white card pattern used by Biology Pilot 3. The learning-goal strip fills the card edge-to-edge without grey gutters, and closing the sidebar expands the complete card and all lesson sections from 1120px to 1380px at the reviewed desktop width.
+- Added 31 collapsed guides: 20 lesson-specific “How to complete this lesson” disclosures, four review guides, and seven guides for Practice Lab, Textbook Practice, Process Collection, Core Vocabulary, Equation Studio, Resources, and Video Library.
+- Rebuilt Core Vocabulary with Biology Pilot 3's category index and split reader. All 74 Chemistry terms retain their original meanings and common-confusion notes, and their existing four Frayer fields remain the sole saved-response owner.
+- Added an explicit Frayer save control. A learner completes all four Frayer sections and saves them together as one Vocabulary Frayers entry; existing drafts remain available and are consolidated without changing the four underlying field IDs.
+- Wired vocabulary terms throughout lesson teaching text. Each underlined term opens a right-side mini vocabulary drawer with Meaning, What it does, Common confusion, related ideas, and the same saved Frayer fields used on Core Vocabulary.
+- Added a persistent Reference sheet control beside the top bar. Its panel is non-modal, can remain open while a learner navigates or works, can be dragged by its heading, resized from its lower corner, and returned to its default position.
+- Reorganized the support navigation into collapsible Practice & Review, Tools, Process Collection, and Resources sections. Video Lessons now sits with Practice & Review; Practice Lab, Core Vocabulary, and Equation Studio sit together under Tools; All My Work sits under Process Collection.
+- Removed the selected administrative/source-provenance copy from Video Lessons while retaining every video card and playback control. The three playlist cards now use direct learner wording.
+- Replaced Textbooks & Sources with a Biology-style Textbook Library under Resources. It provides Chapter 9, 10, and 11 selectors, printed-page controls, and an embedded PDF reader without leaving the course.
+- Converted the 24 lesson/review textbook bands into 27 printed-page entry points. Each opens an in-course textbook modal at the mapped PDF page; lessons citing separated ranges expose one control for each range. Textbook Practice uses the same viewer.
+- Reorganized All My Work into collection types: Vocabulary Frayers, Written responses, Equation and textbook work, Energy diagrams, Models and simulations, Checked practice, and Interactive activities. Related fields from one Frayer, lesson, textbook question, model, or diagram now render as one entry with their data together.
+- Simplified the Process Collection action area to one learner-facing **Download your process report** button. Its guide and helper copy now describe the readable HTML report; the page-specific backup and restore controls were removed.
+- Kept the overview’s existing learner directions visible and restyled them instead of adding a duplicate guide.
+- Updated visible course identity to Chemistry 30 Unit A Pilot while preserving the runtime course/state identity required by the existing save contract.
+- Recorded source/reference hashes, preservation evidence, focused browser results, and the release boundary in `meta/pilot-integration.json`.
+
+## Why this changed
+
+- Learners needed the completed Chemistry course presented with the same clear rhythm and page-level completion guidance as Biology 30 Pilot 3 without rebuilding or altering the course’s instructional and assessment systems.
 
 ## Verification run
 
-- `npx tsx scripts/test-biology30-pilot3.ts`: passed against HTML SHA-256 `5c3eb0acbd4a2e721168f16311da42e6eb7f27a947cc02174573ae171aac3b2e` and runtime SHA-256 `a82619606e366438cc5cc0b93ca551b25e698cd56b9a9ac08af1134aeb5c8236`; all 106 textbook destinations, route preservation, reader controls/focus, videos, responsive layouts and saved-work regressions passed.
-- `npm run test:e2e:project -- --project biology30-unit-a-pilot-3`: 1/1 passed.
-- `npm run course:doctor -- --project biology30-unit-a-pilot-3`: passed.
-- `npm run test:new-course-readiness`: 10/10 passed in the full checkout.
-- Visual check: opening textbook p. 380 from Lesson 6 displayed PDF page 21 and the correct printed-page content inside the modal; the initial Chrome stale-page reuse was caught and corrected before completion.
-- Exact-head `verify:new-course-readiness`: passed in isolated snapshot `/tmp/biology30-pilot3-validation.VzOFlG` at `1671cf85d69fa759dd6703c3d01f6d255378ae67`; 179/179 learner surfaces complete, 5054 editable targets, reversible apply/reload/Undo passed.
+- `node --check projects/chemistry30-unit-a-pilot/workspace/main.js` passed.
+- Firebase Hosting deploy to `biology30pilot` completed successfully after adding the selector frame cache key `20260915-3`.
+- Live Chromium verification passed for `https://biology30pilot.web.app/?v=20260915-3#chemistry30-a-pilot` and the original `?v=20260915-2#chemistry30-a-pilot` link; the embedded Chemistry overview populated instead of remaining blank. Biology Pilot 3 also rendered after switching in the selector.
+- `git diff --check -- projects/chemistry30-unit-a-pilot` passed before the final metadata/handoff write.
+- Static source comparison passed for preserved instructional and assessment content after accounting for the added guide markup, overview style hook, requested sidebar regrouping, and teacher-requested removal of two Video Lessons administrative blocks plus three playlist wording revisions. Vocabulary, textbook-question, check, label, and milestone data are unchanged, and every original route ID remains present exactly once.
+- Inventory confirmed 32 routes, 24 milestones, 123 textbook entries, 74 vocabulary terms, 19 unit-check definitions, 11 lesson/review activity placements, one Practice Lab frame, and 24 unchanged completion requirements/controls.
+- Focused Chromium check confirmed all 31 guide routes have one closed-by-default guide, Enter opens a focused guide, a Chapter 9 required-check response survives reload, and the 390px Practice Lab has no horizontal page overflow or console errors.
+- Focused shell check at 1667px confirmed the top progress block and menu control are visible and clickable, the expanded frame/goal strip measure 1120px/1118px, and sidebar collapse produces a 78px rail with a 1380px/1378px frame/goal strip. Both states have zero horizontal overflow.
+- Focused mobile check at 390px confirmed a single-column goal strip, zero horizontal overflow, and a working 310px navigation drawer. The compact mobile header intentionally omits the progress block to preserve usable space.
+- Focused vocabulary check confirmed all 74 preserved terms appear in the category index. A Chapter 9 lesson produced 29 contextual term links; selecting `system` opened the correct drawer, and a Frayer response entered there appeared on Core Vocabulary and survived reload.
+- Isolated Frayer save check confirmed all four fields save through one button and appear as one dated Vocabulary Frayers entry. A two-field investigation response and a textbook response each rendered as one entry under their correct collection type.
+- Existing-state collection check confirmed a prior four-field vocabulary draft and four supplied profile values now render as two consolidated entries instead of eight individual rows; no stored values or IDs changed.
+- Focused Process Collection check confirmed the action area renders exactly one **Download your process report** button and no page-specific Download backup or Restore backup controls.
+- Focused reference check confirmed the panel opens non-modally at 620×760px, moves by its heading, reports `resize: both`, and stays open when navigating to another lesson.
+- At 390px, Core Vocabulary becomes one column, the vocabulary drawer fills the viewport, the Reference sheet control remains visible, and horizontal overflow remains zero.
+- Focused sidebar check confirmed all 32 route IDs remain unique, Practice & Review opens automatically on Textbook Practice, and the other support sections remain collapsed until selected.
+- Refreshed sidebar inspection confirmed six Biology-style top-level sections, three nested collapsible chapter groups, and the active Chapter 9 lesson under the expanded Learn group. The reviewed browser's Process Collection showed four supplied reaction-profile starting values, zero completed practice attempts, and zero of 24 finished lessons.
+- Focused Video Lessons source check confirmed the selected “Internet and access” and “The original video collections” blocks and their export/source wording are absent; all existing video load controls remain in the course runtime.
+- Focused textbook check confirmed Chapter 9 p. 334 opens at PDF page 3, Chapter 9’s separated pp. 336 and 351 references have separate buttons, the Chapter 11 bonds lesson exposes pp. 342 and 408 separately, and Textbook Practice opens its selected question in the same modal.
+- Textbook modal verification confirmed modal state, close-button/Escape behavior, focus return, no new-tab navigation, no browser errors, and a full-viewport 390×844 mobile presentation with zero horizontal page overflow.
+- Screenshots inspected at 1440px for Chapter 9, 1667px for the reviewed shell states, and 390px for Practice Lab and the shell.
+- No full E2E, Studio lifecycle, packaging, deployment, or Brightspace verification was run in Build mode.
 
 ## Source of truth
 
-Canonical learner content is `projects/biology30-unit-a-pilot-3/workspace/index.html`; canonical presentation is `projects/biology30-unit-a-pilot-3/workspace/styles.css` with the scoped source addition in `scripts/lib/biology30-pilot3/pilot3.css`. Runtime source remains `scripts/lib/biology30-pilot3/runtime.ts`. Do not regenerate the HTML through the retired initializer or import scripts.
+- Preserved imported baseline: `projects/chemistry30-unit-a-pilot/raw/original.html`.
+- Canonical learner review sources: `projects/chemistry30-unit-a-pilot/workspace/index.html`, `workspace/styles.css`, and `workspace/main.js`.
+- Integration and verification evidence: `projects/chemistry30-unit-a-pilot/meta/pilot-integration.json`.
 
 ## Fragile areas / watchouts
 
-Preserve every existing activity, response, vocabulary and storage ID. Keep the declared `native-details-open` learner states for lessons 1–14; removing one makes Studio readiness incomplete. The two previously flagged source videos remain unavailable/restricted, with local explanations retained.
+- `workspace/main.js` contains the imported self-contained course data and runtime. Preserve all route IDs, question/activity identifiers, `data-save`, `data-check`, `data-require`, `data-complete`, iframe placement/query values, state schema, and `chem30-unit-a-v2` identity.
+- Add future page guidance by exact route in `window.COURSE_PAGES`; do not reconstruct the course or replace the Chemistry runtime with Biology code.
+- Do not rerun import with `--force` over this pilot. The raw source and current canonical workspace now have distinct roles.
 
 ## Next prompt should assume
 
-Chapter 11 content, the requested Pilot 2 presentation transfer, automatic video display and in-course textbook reader are complete. Pilot 2 A and B/C/D remain unchanged. A review-only SCORM snapshot and ChatGPT context ZIP now exist; the current checkpoint is committed and pushed on `main` at `d7547b4b` (with the LFS consolidation checkpoint `32dc578f` as its parent). No deployment, Chapters 12–13 course change, older-course change or LMS certification occurred.
+- The usable local Chemistry 30 Unit A pilot exists in the current dirty `main` checkout and Biology Pilot 3 remains unchanged.
+- The new preview pathname creates a separate browser-local work record; the existing backup/restore controls remain the transfer mechanism.
+- Teacher guides and the interactive SCORM ZIP are reference-only provenance and were not treated as current verification.
+- Studio editing, export, deployment, and LMS readiness remain disabled or unclaimed.
 
 ## What still needs validation
 
-No required local validation remains for the current Build-mode changes or the review package. Full learner regression, comprehensive responsive coverage, Studio editability, SCORM behavior testing and target-LMS certification remain deferred until rollout.
+- At rollout: project E2E coverage, the remaining 320/375/768 responsive widths, Studio Edit-map and reversible lifecycle, export integrity, SCORM checks, and actual Brightspace save/reopen/reporting.
 
 ## Known risks
 
-Learner activity history and Frayers remain browser-local. External video availability can drift.
+- The canonical `main.js` is large because the source embeds PDFs and activity code. Future broad serialization could create unnecessary drift.
+- Browser-local save/reload passed at the new pathname, but this is not proof of cross-device saving or Brightspace persistence.
 
 ## Exact next action
 
-Await the next requested change. Do not rerun the passing Biology checks unless a future rollout candidate invalidates their evidence.
+- Await teacher review of the deployed Chemistry 30 Unit A pilot and Biology 30 Pilot 3 selector.
 
 ## Exact next file to open
 
-`projects/biology30-unit-a-pilot-3/workspace/index.html` at the Practice & Review sidebar links and `#practice`
+`projects/chemistry30-unit-a-pilot/meta/pilot-integration.json`
 
 ## Do not do next / warnings
 
-- Do not rerun broad passing suites without a new relevant change.
-- Do not deploy, create another export/ZIP, commit, regenerate, or expand beyond Chapter 11 unless requested.
-
-## Repository workflow update
-
-- Updated `AGENTS.md`, `CONTRIBUTING.md`, `docs/ops/FAST_PATHS.md`, `docs/ops/HANDOFF.md`, and `docs/workflows/codex-studio-course.md` to separate Build mode from the Rollout checkpoint.
-- No Biology, E2E, Studio, readiness, SCORM, build, export, deployment, or other test command was run for the documentation-only policy change.
-- Rollout checks remain deferred until explicitly requested; existing push/PR CI is unchanged.
-
-## Current Build-mode change
-
-- Pilot 3 sidebar now keeps its header, collapse control, and Save and Exit action visible while only the navigation list scrolls.
-- The Chapter 11 overview now teaches the nervous-system purpose in student-facing language and presents five “I can” outcomes; Pilot/source/administrative wording was removed from that overview.
-- The Lesson 8 Peripheral control chapter check is now collapsed behind a native “Open chapter check” control. Its `check-pns` activity identity, questions, response IDs, timer and history contract are unchanged.
-- The Memorization practice labeling activity now presents the supplied full A–J diagram followed by compact dropdowns for all ten letters. The original `labeling` activity ID and answer IDs A/B/C/D/J remain unchanged; new stable IDs E/F/G/H/I use the same save-state contract.
-- Practice & Review now lists Flash cards, Fill in the blanks and Labeling as three separate sidebar destinations. Their existing activity IDs, response IDs, timers, attempts and stored work are unchanged; only their course-page wrappers and routes were separated.
-- Prepared `projects/biology30-unit-a-pilot-3/meta/biology30-neural-pathway-chatgpt-pro.zip` for external ChatGPT Pro design. Its returned activity has now been integrated as recorded below; the original design-request ZIP remains as provenance.
-- Canonical presentation change: `projects/biology30-unit-a-pilot-3/workspace/styles.css`; synchronized scoped source: `scripts/lib/biology30-pilot3/pilot3.css`.
-- Full-course, responsive, E2E, Studio, readiness, and SCORM checks are deferred until rollout.
-
-## ChatGPT course-context package
-
-- Exported a review-only SCORM 2004 snapshot to `projects/biology30-unit-a-pilot-3/exports/biology30-unit-a-pilot-3-scorm-2004.zip` using the standard exporter. It contains the SCORM manifest, launch page, course presentation/runtime, local resources and SCORM bridge.
-- The exporter reports save status, active-session timing, resume and page timing as connected. Automatic completion and progress measurement are not connected, and target-LMS behavior has not been certified.
-- Created `projects/biology30-unit-a-pilot-3/meta/biology30-pilot3-chatgpt-course-context.zip` for upload to ChatGPT Pro. It contains the SCORM snapshot, five freshly captured current-course screenshots, a course-structure guide, a ready prompt, and the nested neural-pathway design brief.
-- Recreated `projects/biology30-unit-a-pilot-3/meta/biology30-neural-pathway-chatgpt-pro.zip` from its existing source handoff folder because the handoff referenced the ZIP but it was absent on disk.
-- Both the outer context ZIP and nested SCORM ZIP passed archive-integrity checks. Required SCORM files `index.html`, `styles.css`, `imsmanifest.xml`, `scorm-bridge.js`, and `assets/pilot3-runtime.js` are present.
-- No learner E2E, broad responsive, Studio, readiness or LMS test suite was run for this review package.
-
-## Neural-pathway activity integration
-
-- Integrated the returned `biology30-neural-pathway-activity.zip` into the existing Memorization practice activity. The active source image is `projects/biology30-unit-a-pilot-3/workspace/assets/source/neural-pathway-labeling.png`; the untouched returned ZIP is retained at `projects/biology30-unit-a-pilot-3/meta/injected-components/biology30-neural-pathway-activity.zip`.
-- The activity now uses the supplied 1448 × 1086 A–J pathway illustration. Ten compact dropdowns sit below the full image in two columns on wider canvases and one column on phones, so the controls do not cover the structures. The old image pop-out link remains removed.
-- Existing activity ID `labeling` and answer IDs `label-A`, `label-B`, `label-C`, `label-D`, `label-J` remain unchanged. Stable IDs `label-E` through `label-I` were added for cell body, dendrites, node of Ranvier, myelin sheath and axon. Timer, attempts, redo history, saved drafts and Process Collection behavior are preserved.
-- Added `Check all labels` through the owning runtime. It records every currently selected label as an ordinary attempt and reports the latest correct count without revealing incorrect answers.
-- A focused activity-only browser check passed all ten selections, 10/10 check-all feedback, correct A–J per-label results, reload restoration, and horizontal-overflow checks at 1440 px and 390 px. A simulated five-label in-progress save also accepted and graded new label E. Both views were visually inspected in `projects/biology30-unit-a-pilot-3/meta/integration-preview/neural-labeling-a-j-*.png`.
-- The runtime bundle was rebuilt from `scripts/lib/biology30-pilot3/runtime.ts`. No full-course E2E, exhaustive responsive, Studio/readiness, SCORM or LMS test suite was run; those checks remain deferred until rollout.
-- The earlier review-only SCORM and ChatGPT context ZIP predate this integration. They were not regenerated; refresh them only when requested or at rollout.
+- Do not commit, export, upload to Brightspace, enable Studio Edit, or change release flags without a separate request. Future deployment remains explicit and should preserve the selector frame cache-busting pattern.
+- Do not modify Biology 30 Pilot 3 while reviewing Chemistry.

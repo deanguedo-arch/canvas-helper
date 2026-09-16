@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "project": "sportswellness-phase-1",
+  "change": "Phase 1 learning resource enrichment",
+  "status": "implemented-for-local-review",
+  "sourceReference": {
+    "path": "projects/resources/sportswellness-phase-1/reference/sportswellness-phase-1-with-learning-support.html",
+    "sha256": "afb55d0867e43e4b5fe825c75e56eee4316627141ec3f1f4c1e9666ced05e17a"
+  },
+  "canonicalOwner": "projects/sportswellness-phase-1/workspace/index.html",
+  "implementation": {
+    "topicBlocks": 12,
+    "resourceInstances": 33,
+    "resourcesIndex": "runtime scan of [data-support-resource]",
+    "youtubePlayer": "existing data-play-video runtime using youtube-nocookie.com and cc_load_policy=1",
+    "nonYouTubeVideo": "direct link only",
+    "newSavedFields": 0
+  },
+  "preservation": {
+    "teachingTopics": 12,
+    "responseFields": 72,
+    "requiredAssignmentFields": 28,
+    "optionalExtensionFields": 2,
+    "formativeChecks": 15,
+    "writtenReviewQuestions": 10,
+    "labCases": 3,
+    "figures": 9
+  },
+  "linkReview": {
+    "checkedAt": "2026-09-15",
+    "method": "live publisher-page resolution"
+  },
+  "resources": [
+    {
+      "topic": "start",
+      "kind": "video",
+      "title": "How to stay calm under pressure",
+      "publisher": "TED-Ed · Noa Kageyama and Pen-Pen Chen",
+      "url": "https://ed.ted.com/lessons/how-to-avoid-choking-under-pressure-noa-kageyama-and-pen-pen-chen",
+      "resourceId": "v-calm"
+    },
+    {
+      "topic": "start",
+      "kind": "reading",
+      "title": "Sport psychologists help professional and amateur athletes",
+      "publisher": "American Psychological Association",
+      "url": "https://www.apa.org/topics/sport-rehabilitation/psychologists",
+      "resourceId": "r-sport"
+    },
+    {
+      "topic": "key-terms",
+      "kind": "video",
+      "title": "Fight Flight Freeze – Anxiety Explained for Teens",
+      "publisher": "Anxiety Canada",
+      "url": "https://www.youtube.com/watch?v=rpolpKTWrp4",
+      "resourceId": "v-anxiety"
+    },
+    {
+      "topic": "key-terms",
+      "kind": "reading",
+      "title": "What Is Stress? · Psychology 2e, 14.1",
+      "publisher": "OpenStax",
+      "url": "https://openstax.org/books/psychology-2e/pages/14-1-what-is-stress",
+      "resourceId": "r-stress"
+    },
+    {
+      "topic": "stress-loop",
+      "kind": "video",
+      "title": "It Takes One to Know One: Kevin Chapman",
+      "publisher": "TrueSport",
+      "url": "https://truesport.org/video/takes-one-know-one-chapman/",
+      "resourceId": "v-emotion"
+    },
+    {
+      "topic": "stress-loop",
+      "kind": "reading",
+      "title": "What Is Stress? · Psychology 2e, 14.1",
+      "publisher": "OpenStax",
+      "url": "https://openstax.org/books/psychology-2e/pages/14-1-what-is-stress",
+      "resourceId": "r-stress"
+    },
+    {
+      "topic": "stress-loop",
+      "kind": "reading",
+      "title": "Reframing unhelpful thoughts",
+      "publisher": "NHS · Every Mind Matters",
+      "url": "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/reframing-unhelpful-thoughts/",
+      "resourceId": "r-reframe"
+    },
+    {
+      "topic": "performance-zone",
+      "kind": "video",
+      "title": "Inverted-U theory",
+      "publisher": "Oak National Academy",
+      "url": "https://www.thenational.academy/teachers/lessons/inverted-u-theory",
+      "resourceId": "v-inverted"
+    },
+    {
+      "topic": "performance-zone",
+      "kind": "reading",
+      "title": "What Commercial Pilots can learn from Sports Psychology",
+      "publisher": "OpenLearn · The Open University · Helen Owton",
+      "url": "https://www.open.edu/openlearn/health-sports-psychology/sport-fitness/what-commercial-pilots-can-learn-sports-psychology",
+      "resourceId": "r-pst"
+    },
+    {
+      "topic": "performance-zone",
+      "kind": "video",
+      "title": "How to enter flow state",
+      "publisher": "TED-Ed",
+      "url": "https://ed.ted.com/lessons/how-to-enter-flow-state",
+      "resourceId": "v-flow"
+    },
+    {
+      "topic": "interpreting-nerves",
+      "kind": "video",
+      "title": "Amro Elgeziry on Performance Anxiety",
+      "publisher": "TrueSport",
+      "url": "https://truesport.org/video/amro-elgeziry-on-performance-anxiety/",
+      "resourceId": "v-amro"
+    },
+    {
+      "topic": "interpreting-nerves",
+      "kind": "reading",
+      "title": "Reframing unhelpful thoughts",
+      "publisher": "NHS · Every Mind Matters",
+      "url": "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/reframing-unhelpful-thoughts/",
+      "resourceId": "r-reframe"
+    },
+    {
+      "topic": "interpreting-nerves",
+      "kind": "video",
+      "title": "It Takes One to Know One: Kevin Chapman",
+      "publisher": "TrueSport",
+      "url": "https://truesport.org/video/takes-one-know-one-chapman/",
+      "resourceId": "v-emotion"
+    },
+    {
+      "topic": "stress-sources",
+      "kind": "video",
+      "title": "Kevin Chapman on Performance Anxiety",
+      "publisher": "TrueSport",
+      "url": "https://truesport.org/video/expert-series-dr-kevin-chapman-on-performance-anxiety/",
+      "resourceId": "v-pressure"
+    },
+    {
+      "topic": "stress-sources",
+      "kind": "reading",
+      "title": "3 Things to Avoid Saying When It Comes to Body Image",
+      "publisher": "TrueSport · Melissa Streno",
+      "url": "https://truesport.org/body-image/avoid-saying-body-image/",
+      "resourceId": "r-body"
+    },
+    {
+      "topic": "stress-sources",
+      "kind": "reading",
+      "title": "Reframing unhelpful thoughts",
+      "publisher": "NHS · Every Mind Matters",
+      "url": "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/reframing-unhelpful-thoughts/",
+      "resourceId": "r-reframe"
+    },
+    {
+      "topic": "attention-coordination",
+      "kind": "video",
+      "title": "Selective attention test",
+      "publisher": "Daniel Simons and Christopher Chabris",
+      "url": "https://theinvisiblegorilla.com/IGvideos.html",
+      "resourceId": "v-attention"
+    },
+    {
+      "topic": "attention-coordination",
+      "kind": "reading",
+      "title": "Failures of Awareness: The Case of Inattentional Blindness",
+      "publisher": "Noba · Daniel Simons",
+      "url": "https://nobaproject.com/modules/failures-of-awareness-the-case-of-inattentional-blindness",
+      "resourceId": "r-attention"
+    },
+    {
+      "topic": "attention-coordination",
+      "kind": "video",
+      "title": "How to stay calm under pressure",
+      "publisher": "TED-Ed · Noa Kageyama and Pen-Pen Chen",
+      "url": "https://ed.ted.com/lessons/how-to-avoid-choking-under-pressure-noa-kageyama-and-pen-pen-chen",
+      "resourceId": "v-calm"
+    },
+    {
+      "topic": "regulation-tools",
+      "kind": "video",
+      "title": "Breathe through stress",
+      "publisher": "NHS · Every Mind Matters",
+      "url": "https://www.nhs.uk/every-mind-matters/mental-health-issues/stress/",
+      "resourceId": "v-breathe"
+    },
+    {
+      "topic": "regulation-tools",
+      "kind": "reading",
+      "title": "Breathing exercises for stress",
+      "publisher": "NHS",
+      "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
+      "resourceId": "r-breathe"
+    },
+    {
+      "topic": "regulation-tools",
+      "kind": "video",
+      "title": "Practicing relaxation with Progressive Muscle Relaxation",
+      "publisher": "Hertfordshire Partnership University NHS Foundation Trust",
+      "url": "https://www.hpft-talkingtherapies.nhs.uk/resources-and-self-help/self-help-videos/practicing-relaxation-progressive-muscle-relaxation",
+      "resourceId": "v-pmr"
+    },
+    {
+      "topic": "regulation-tools",
+      "kind": "reading",
+      "title": "What Commercial Pilots can learn from Sports Psychology",
+      "publisher": "OpenLearn · The Open University · Helen Owton",
+      "url": "https://www.open.edu/openlearn/health-sports-psychology/sport-fitness/what-commercial-pilots-can-learn-sports-psychology",
+      "resourceId": "r-pst"
+    },
+    {
+      "topic": "cues-goals",
+      "kind": "video",
+      "title": "Trevon “Trey” Jenifer on Goal Setting",
+      "publisher": "TrueSport",
+      "url": "https://truesport.org/video/truesport-lesson-videos-trevon-trey-jenifer-on-goal-setting/",
+      "resourceId": "v-goals"
+    },
+    {
+      "topic": "cues-goals",
+      "kind": "reading",
+      "title": "8 Ways to Improve Your Self-Talk for Better Performance",
+      "publisher": "TrueSport · Kevin Chapman",
+      "url": "https://truesport.org/mental-wellness/8-ways-improve-self-talk/",
+      "resourceId": "r-selftalk"
+    },
+    {
+      "topic": "cues-goals",
+      "kind": "reading",
+      "title": "Principles of Effective Goal Setting",
+      "publisher": "Association for Applied Sport Psychology · Eva V. Monsma",
+      "url": "https://appliedsportpsych.org/resources/resources-for-coaches/principles-of-effective-goal-setting/",
+      "resourceId": "r-goals"
+    },
+    {
+      "topic": "performance-lab",
+      "kind": "video",
+      "title": "How to practice effectively…for just about anything",
+      "publisher": "TED-Ed · Annie Bosler and Don Greene",
+      "url": "https://ed.ted.com/lessons/how-to-practice-effectively-for-just-about-anything-annie-bosler-and-don-greene",
+      "resourceId": "v-practice"
+    },
+    {
+      "topic": "performance-lab",
+      "kind": "reading",
+      "title": "What Commercial Pilots can learn from Sports Psychology",
+      "publisher": "OpenLearn · The Open University · Helen Owton",
+      "url": "https://www.open.edu/openlearn/health-sports-psychology/sport-fitness/what-commercial-pilots-can-learn-sports-psychology",
+      "resourceId": "r-pst"
+    },
+    {
+      "topic": "playbook",
+      "kind": "video",
+      "title": "Three Things Athletes Need To Do Before Setting Goals",
+      "publisher": "TrueSport · Amanda Stanec",
+      "url": "https://truesport.org/video/amanda-stanec-3-things-goal-setting/",
+      "resourceId": "v-planning"
+    },
+    {
+      "topic": "playbook",
+      "kind": "reading",
+      "title": "Principles of Effective Goal Setting",
+      "publisher": "Association for Applied Sport Psychology · Eva V. Monsma",
+      "url": "https://appliedsportpsych.org/resources/resources-for-coaches/principles-of-effective-goal-setting/",
+      "resourceId": "r-goals"
+    },
+    {
+      "topic": "playbook",
+      "kind": "reading",
+      "title": "What Commercial Pilots can learn from Sports Psychology",
+      "publisher": "OpenLearn · The Open University · Helen Owton",
+      "url": "https://www.open.edu/openlearn/health-sports-psychology/sport-fitness/what-commercial-pilots-can-learn-sports-psychology",
+      "resourceId": "r-pst"
+    },
+    {
+      "topic": "phase-review",
+      "kind": "video",
+      "title": "Retrieval Practice",
+      "publisher": "The Learning Scientists",
+      "url": "https://www.learningscientists.org/retrieval-practice",
+      "resourceId": "v-retrieval"
+    },
+    {
+      "topic": "phase-review",
+      "kind": "reading",
+      "title": "Learn How to Study Using… Retrieval Practice",
+      "publisher": "The Learning Scientists · Megan Smith and Yana Weinstein",
+      "url": "https://www.learningscientists.org/blog/2016/6/23-1",
+      "resourceId": "r-retrieval"
+    }
+  ]
+}

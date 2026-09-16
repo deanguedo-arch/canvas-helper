@@ -1,0 +1,670 @@
+{
+  "module": {
+    "order": 1,
+    "slug": "sportswellness-phase-1",
+    "title": "Phase 1 — The Engine",
+    "sourcePhase": "phase-1",
+    "assignments": [
+      "a1"
+    ],
+    "quiz": "quiz-phase1-performance-state",
+    "game": "phase1-performance-state-simulator-game",
+    "slide": "assets/slides/01-engine.pdf",
+    "reading": "assets/readings/phase1-engine-content.pdf",
+    "contentStatus": "Import approved school-design expanded HTML as teaching baseline; integrate existing checkpoint, phase1 game and video selections.",
+    "zip": "sportswellness-phase-1-scorm-2004.zip",
+    "sourceSections": [
+      "Inside This Chapter",
+      "Chapter roadmap",
+      "Study focus",
+      "1. Foundations of Mental Fitness",
+      "2. Defining the Key Constructs",
+      "3. The Stress Process Loop",
+      "4. Theories of Arousal and Performance",
+      "5. Sources of Stress and Anxiety",
+      "6. Why Arousal Changes Performance",
+      "7. The Elite Operator Toolkit",
+      "Glossary of Key Terms"
+    ],
+    "legacyAssignmentViews": [
+      {
+        "assignmentId": "a1",
+        "runtimeView": "phase1",
+        "storageKey": "sportswellness_phase1_assignment_v2"
+      }
+    ],
+    "proposedStatePrefix": "canvas-helper:sportswellness-phase-1"
+  },
+  "role": "Observed source slice plus proposed destination; read live repo for changes since audited commit",
+  "sourceTeaching": {
+    "eyebrow": "Phase 1 lesson",
+    "heading": "Mastering the Performance State",
+    "subheading": "A Comprehensive Study Guide on Arousal, Stress, and Anxiety",
+    "summary": "",
+    "sourcePdf": "./assets/readings/phase1-engine-content.pdf",
+    "quizId": "quiz-phase1-performance-state",
+    "heroFigure": {
+      "src": "./assets/readings/phase1-figures/phase1-hero-athlete.png",
+      "alt": "Mental performance athlete silhouette with focus, control, and execution themes",
+      "caption": "Mental performance athlete visual built around focus, control, and execution."
+    },
+    "keyIdeas": [
+      "Build a clear mental model of arousal, stress, and anxiety.",
+      "See why attention and coordination change under pressure.",
+      "Learn the practical tools that move you back toward control."
+    ],
+    "sections": [
+      {
+        "title": "Inside This Chapter",
+        "paragraphs": [
+          "This guide synthesizes the core psychological principles that govern performance readiness. The central task is not to eliminate arousal or pressure, but to regulate them so that energy, attention, and execution stay aligned with the demands of the moment."
+        ]
+      },
+      {
+        "title": "Chapter roadmap",
+        "bullets": [
+          "Foundations of mental fitness and the Ideal Performance State (IPS)",
+          "How arousal, stress, and anxiety differ",
+          "The four-stage stress process loop",
+          "Major arousal-performance theories",
+          "Sources of stress and anxiety in sport",
+          "Why arousal changes coordination and attention",
+          "Regulation tools: breathing, PMR, activation, cue words, and SMART goals",
+          "Practice quiz, answer key, and glossary"
+        ]
+      },
+      {
+        "title": "Study focus",
+        "paragraphs": [
+          "Notice the repeated pattern running through the chapter: environmental demands are filtered through perception, which shapes arousal, anxiety, attention, and ultimately performance. The best tools work because they help the performer regain a sense of control."
+        ]
+      },
+      {
+        "title": "1. Foundations of Mental Fitness",
+        "paragraphs": [
+          "Mental fitness is the ability to regulate psychological and physiological states so they match the demands of sport, art, or academics. Unlike physical fitness, which emphasizes bodily capacity, mental fitness emphasizes consistency, resilience, persistence, and focus.",
+          "Elite performers often describe their best moments as entering the zone or a state of flow. In this state, attention is highly stable, action feels smooth rather than forced, and performance becomes easier to reproduce.",
+          "In practical terms, the Ideal Performance State is recognizable through three recurring markers.",
+          "Performance can drift away from the ideal state in two directions. Too little arousal produces flatness and boredom. Too much pressure can generate panic, disruption, and even choking."
+        ],
+        "bullets": [
+          "Supreme focus: total absorption in the task.",
+          "Effortless execution: performance feels automatic and fluid.",
+          "Reproducibility: the state can be reached consistently, not just by accident.",
+          "Apathy / boredom: under-arousal or too little challenge pulls the performer below the ideal state.",
+          "Panic / choking: extreme pressure and overload push performance toward collapse."
+        ],
+        "figures": [
+          {
+            "src": "./assets/readings/phase1-figures/phase1-arousal-continuum.png",
+            "alt": "Arousal continuum and middle performance zone",
+            "caption": "Figure 1. Arousal lives on a continuum. Peak performance often sits inside a controllable middle zone."
+          }
+        ]
+      },
+      {
+        "title": "2. Defining the Key Constructs",
+        "paragraphs": [
+          "Sport psychologists separate arousal, anxiety, and stress because each describes a different part of the performance picture. Keeping the terms distinct makes it easier to diagnose what is happening and select the right regulation strategy.",
+          "Anxiety has cognitive and somatic components.",
+          "State anxiety versus trait anxiety is one of the most important practical distinctions in the chapter."
+        ],
+        "bullets": [
+          "Cognitive anxiety: the cognitive component includes negative thoughts, worry, self-doubt, and fear of failure.",
+          "Somatic anxiety: the somatic component refers to perceived physiological activation such as butterflies, sweating, shaky muscles, and a racing heart.",
+          "State anxiety is the right now emotional condition of the performer.",
+          "Trait anxiety is the stable tendency to interpret objectively safe situations as threatening."
+        ],
+        "table": {
+          "headers": [
+            "Arousal",
+            "Anxiety",
+            "Stress"
+          ],
+          "rows": [
+            [
+              "A blend of physiological and psychological activation. It is the intensity level of motivation at a given moment, and it can range from sleep to frenzy.",
+              "A specifically negative emotional state marked by worry, apprehension, and perceived bodily activation.",
+              "A substantial imbalance between demands and response capability when the consequences of failure matter."
+            ],
+            [
+              "Quick distinction",
+              "State anxiety is the right now emotional condition of the performer.",
+              "Trait anxiety is the stable tendency to interpret objectively safe situations as threatening."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "3. The Stress Process Loop",
+        "paragraphs": [
+          "Stress unfolds as a cycle rather than a single event. A demand appears, the demand is interpreted, the body and mind react, and the resulting performance feeds back into the next experience.",
+          "Figure 2. Perception of demand is the pivot point in the stress process."
+        ],
+        "bullets": [
+          "Environmental demand: Stage 1 begins with an environmental demand such as a penalty kick, a difficult exam, or a public performance.",
+          "Perception of demand: Stage 2 is the evaluation of that demand. One person sees a challenge; another sees a threat.",
+          "Stress response: Stage 3 includes the stress response itself: rising arousal, state anxiety, muscle tension, and attentional changes.",
+          "Behavioral consequences: Stage 4 is the behavioral consequence, the actual performance result, which then shapes future demands."
+        ],
+        "figures": [
+          {
+            "src": "./assets/readings/phase1-figures/phase1-stress-process.png",
+            "alt": "Stress process loop diagram",
+            "caption": "Figure 2. Perception of demand is the pivot point in the stress process."
+          }
+        ],
+        "table": {
+          "headers": [
+            "Why the loop matters",
+            "Explanation"
+          ],
+          "rows": [
+            [
+              "Why the loop matters",
+              "If a performer repeatedly interprets pressure situations as threats and then performs poorly, that outcome becomes part of the next loop. The cycle can snowball unless interpretation or regulation changes."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "4. Theories of Arousal and Performance",
+        "paragraphs": [
+          "Several theories try to explain how arousal and anxiety influence performance. The key difference between them is whether they assume a universal pattern, an individual pattern, or the possibility of sudden collapse under pressure.",
+          "Jones' model adds one more important lens: anxiety is not automatically good or bad. Its impact depends on whether the athlete perceives enough control and resources to meet the challenge."
+        ],
+        "figures": [
+          {
+            "src": "./assets/readings/phase1-figures/phase1-arousal-theories.png",
+            "alt": "Comparison of arousal and performance theories",
+            "caption": "Figure 3. Major theories offer different models of how arousal relates to performance."
+          }
+        ],
+        "table": {
+          "headers": [
+            "Theory",
+            "Description",
+            "Key takeaway"
+          ],
+          "rows": [
+            [
+              "Drive Theory",
+              "A direct linear relationship between arousal and performance.",
+              "Useful historically, but too simple for most real performances."
+            ],
+            [
+              "Inverted-U",
+              "Performance rises to an optimal midpoint and then falls as arousal keeps increasing.",
+              "There is often a sweet spot rather than a more is always better rule."
+            ],
+            [
+              "IZOF",
+              "Each athlete has an individual range of state anxiety that supports best performance.",
+              "The best zone is personal, not universal."
+            ],
+            [
+              "Multidimensional Anxiety Theory",
+              "Cognitive anxiety is proposed to hurt performance while somatic anxiety follows an inverted-U pattern.",
+              "Research support is mixed, especially for the idea that worry always harms performance."
+            ],
+            [
+              "Catastrophe Phenomenon",
+              "High cognitive anxiety plus high physiological arousal can trigger a sharp drop instead of a gentle decline.",
+              "Choking can be sudden and hard to reverse."
+            ],
+            [
+              "Reversal Theory",
+              "The meaning attached to arousal changes its effect.",
+              "High activation can feel like excitement or like anxiety depending on interpretation."
+            ],
+            [
+              "Jones' model",
+              "Anxiety is not automatically good or bad.",
+              "Its impact depends on whether the athlete perceives enough control and resources to meet the challenge."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "5. Sources of Stress and Anxiety",
+        "paragraphs": [
+          "Stress can originate in the situation itself or in personal dispositions that shape how the situation is interpreted."
+        ],
+        "table": {
+          "headers": [
+            "Source type",
+            "Example",
+            "Why it matters"
+          ],
+          "rows": [
+            [
+              "Situational",
+              "Event importance",
+              "High-stakes contests, evaluations, and championships raise perceived pressure."
+            ],
+            [
+              "Situational",
+              "Uncertainty",
+              "Unknown outcomes and unclear evaluations make situations more stressful."
+            ],
+            [
+              "Personal",
+              "Trait anxiety",
+              "Highly trait-anxious people interpret more situations as threatening."
+            ],
+            [
+              "Personal",
+              "Self-esteem",
+              "Lower self-esteem is linked to higher state anxiety."
+            ],
+            [
+              "Personal",
+              "Social physique anxiety",
+              "Worry about how others evaluate one's body can elevate stress in performance and fitness settings."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "6. Why Arousal Changes Performance",
+        "paragraphs": [
+          "Arousal and state anxiety influence performance through at least two important pathways: coordination and attention.",
+          "High stress can increase soreness, fatigue, and unwanted muscle tension. Movements that are normally coordinated begin to feel tight, choppy, or overcontrolled.",
+          "At low arousal, attention is often too broad and distractible. At an optimal level, attention narrows just enough to filter out noise. At very high arousal, attention may narrow too far, creating tunnel vision.",
+          "Figure 4. Attention must narrow enough to focus, but not so much that critical cues disappear."
+        ],
+        "figures": [
+          {
+            "src": "./assets/readings/phase1-figures/phase1-attention-field-topdown.png",
+            "alt": "Attention field narrowing under arousal",
+            "caption": "Figure 4. Attention must narrow enough to focus but not so much that critical cues disappear."
+          }
+        ]
+      },
+      {
+        "title": "7. The Elite Operator Toolkit",
+        "paragraphs": [
+          "Elite athletes are not defined by the absence of stress. They stand out because they detect changes in arousal quickly and regulate them faster than less skilled performers.",
+          "Figure 5. Regulation tools are practical methods for tuning the performance state.",
+          "The more controllable the goal, the more stabilizing it becomes under pressure."
+        ],
+        "bullets": [
+          "Tool 1: Breathing. Deep rhythmic diaphragmatic breathing acts like a manual reset. Because breathing can be influenced voluntarily, it can interrupt the stress response and anchor attention in the present.",
+          "Tool 2: Activation and relaxation. Progressive Muscle Relaxation (PMR) reduces excess somatic tension by systematically tensing and releasing muscle groups. Activation strategies such as music, movement, and imagery raise arousal when energy is too low.",
+          "Tool 3: Cue words. Instructional cue words target mechanics, such as smooth or follow through, when execution is sloppy. Motivational cue words, such as explode or dig deep, lift effort when energy fades.",
+          "Tool 4: SMART goals. Goals reduce anxiety when they move attention from the uncontrollable to the controllable: outcome goals create pressure, performance goals offer partial control, and process goals give the most stability."
+        ],
+        "figures": [
+          {
+            "src": "./assets/readings/phase1-figures/phase1-regulation-tools.png",
+            "alt": "Regulation tools for tuning the performance state",
+            "caption": "Figure 5. Regulation tools are practical methods for tuning the performance state."
+          },
+          {
+            "src": "./assets/readings/phase1-figures/phase1-goal-control.png",
+            "alt": "Goal controllability figure",
+            "caption": "Figure 6. The more controllable the goal, the more stabilizing it becomes under pressure."
+          }
+        ],
+        "table": {
+          "headers": [
+            "When you notice...",
+            "Likely issue",
+            "Best first move"
+          ],
+          "rows": [
+            [
+              "Flat energy or boredom",
+              "Under-arousal",
+              "Activate with movement, rhythm, music, or imagery."
+            ],
+            [
+              "Tight muscles and racing thoughts",
+              "Over-arousal",
+              "Slow the breath and reduce somatic tension."
+            ],
+            [
+              "Sloppy mechanics",
+              "Attention is drifting",
+              "Use one instructional cue word."
+            ],
+            [
+              "Effort fading late",
+              "Intensity drop",
+              "Use a motivational cue and process goal."
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Glossary of Key Terms",
+        "paragraphs": [
+          "Core vocabulary for quick review."
+        ],
+        "glossary": [
+          [
+            "Arousal",
+            "A blend of physiological and psychological activity that reflects the intensity of motivation at a particular moment."
+          ],
+          [
+            "Anxiety",
+            "A negative emotional state characterized by nervousness, worry, and apprehension associated with bodily activation."
+          ],
+          [
+            "Catastrophe Model",
+            "A model proposing that performance can suddenly decline when high cognitive anxiety combines with high physiological arousal."
+          ],
+          [
+            "Cognitive State Anxiety",
+            "The degree to which a person experiences negative thoughts and worry in the moment."
+          ],
+          [
+            "Debilitative Anxiety",
+            "Anxiety interpreted as harmful to performance."
+          ],
+          [
+            "Facilitative Anxiety",
+            "Anxiety interpreted as helpful or energizing for performance."
+          ],
+          [
+            "Ideal Performance State (IPS)",
+            "A state of supreme focus and effortless execution often referred to as the zone."
+          ],
+          [
+            "Individualized Zones of Optimal Functioning (IZOF)",
+            "The idea that each athlete has a personal range of state anxiety linked to best performance."
+          ],
+          [
+            "Inverted-U Hypothesis",
+            "A theory stating that performance is best at a moderate level of arousal and poorer at very high or very low levels."
+          ],
+          [
+            "Mental Fitness",
+            "The ability to regulate psychological and physiological states to meet environmental demands."
+          ],
+          [
+            "Perception of Control",
+            "The degree to which a person believes they have the resources and ability to meet a challenge."
+          ],
+          [
+            "Progressive Muscle Relaxation (PMR)",
+            "A technique that reduces physical tension through systematic muscle tensing and releasing."
+          ],
+          [
+            "SMART Goals",
+            "Goals that are specific, measurable, achievable, relevant, and time-bound."
+          ],
+          [
+            "Social Physique Anxiety",
+            "Anxiety caused by the perception that others are evaluating one's body or physique."
+          ],
+          [
+            "Somatic State Anxiety",
+            "Moment-to-moment perceived physiological activation such as butterflies, sweating, or a racing heart."
+          ],
+          [
+            "Stress",
+            "A substantial imbalance between demand and response capability under conditions where the consequences matter."
+          ],
+          [
+            "Trait Anxiety",
+            "A stable disposition that makes some people more likely to perceive situations as threatening."
+          ]
+        ]
+      }
+    ]
+  },
+  "sourceAssignments": [
+    {
+      "id": "a1",
+      "code": "01",
+      "title": "The Engine",
+      "accent": "#00ff7f",
+      "body": "Regulation Engine tactical assignment focused on pressure response, arousal control, and reset habits.",
+      "eyebrow": "Regulation Engine",
+      "heroTitle": "Elite Operator Toolkit",
+      "introCopy": "Pressure creates physiological spikes. Your job is not to avoid activation, but to manage it with repeatable systems. This assignment builds a tactical routine for resetting, regulating arousal, targeting attention, and protecting confidence during competition.",
+      "steps": [
+        "Briefing",
+        "Stress Reset",
+        "Arousal",
+        "Targeting",
+        "Confidence",
+        "Review & Print"
+      ],
+      "introCards": [
+        {
+          "title": "Stress Reset",
+          "body": "Identify what your body does under pressure and define the fastest reliable reset action."
+        },
+        {
+          "title": "Arousal Control",
+          "body": "Map when you are under-activated, over-activated, or in the ideal competitive zone."
+        },
+        {
+          "title": "Targeting",
+          "body": "Choose the narrow external cue that keeps the spotlight off panic and on execution."
+        },
+        {
+          "title": "Confidence",
+          "body": "Build a fast cue-and-belief routine you can trust when performance starts to wobble."
+        }
+      ],
+      "panels": [
+        {
+          "label": "Step 01",
+          "title": "Stress Reset",
+          "copy": "Notice activation before it owns the moment. Build the first physical interrupt.",
+          "fields": [
+            {
+              "label": "What does pressure feel like in your body?",
+              "type": "textarea",
+              "placeholder": "Describe your physical reaction pattern under pressure..."
+            },
+            {
+              "label": "What is your immediate reset action?",
+              "type": "input",
+              "placeholder": "Example: one long exhale, shoulders down, eyes on target"
+            }
+          ]
+        },
+        {
+          "label": "Step 02",
+          "title": "Arousal",
+          "copy": "Map your competitive zone so you know when to raise energy and when to bring it down.",
+          "fields": [
+            {
+              "label": "When are you over-activated?",
+              "type": "textarea",
+              "placeholder": "Describe the signs that you are too hot..."
+            },
+            {
+              "label": "When are you under-activated?",
+              "type": "textarea",
+              "placeholder": "Describe the signs that you are flat or too calm..."
+            }
+          ]
+        },
+        {
+          "label": "Step 03",
+          "title": "Targeting",
+          "copy": "The spotlight must land somewhere external and controllable.",
+          "fields": [
+            {
+              "label": "Primary cue word",
+              "type": "input",
+              "placeholder": "Example: drive, smooth, attack, release"
+            },
+            {
+              "label": "Spotlight target",
+              "type": "textarea",
+              "placeholder": "State the narrow external thing you want your attention locked onto..."
+            }
+          ]
+        },
+        {
+          "label": "Step 04",
+          "title": "Confidence",
+          "copy": "Confidence needs a routine, not a hope.",
+          "fields": [
+            {
+              "label": "Confidence statement",
+              "type": "textarea",
+              "placeholder": "Write the belief statement you return to when doubt spikes..."
+            },
+            {
+              "label": "Between-play routine",
+              "type": "input",
+              "placeholder": "Example: exhale, cue word, visual lock, commit"
+            }
+          ]
+        }
+      ],
+      "summaryTitle": "Engine Master Summary",
+      "summaryCopy": "Define your reset protocol, ideal activation zone, spotlight cue, and confidence routine in one place.",
+      "summaryPlaceholder": "Summarize your complete Engine system here...",
+      "actionLabel": "Phase 1 system ready"
+    }
+  ],
+  "sourceCheckpoint": {
+    "id": "quiz-phase1-performance-state",
+    "code": "Quiz 01",
+    "title": "Arousal and Anxiety in Sport",
+    "accent": "#00ff7f",
+    "phaseId": "phase-1",
+    "body": "10 multiple-choice questions on arousal, anxiety, stress, and regulation with answer-key explanations.",
+    "questionCount": 10,
+    "sourcePdf": "./assets/readings/phase1-engine-content.pdf",
+    "questions": [
+      {
+        "id": "phase1-q1",
+        "question": "An athlete describes their pre-competition state as \"neutral energy,\" characterized by high heart rate and mental activation, yet they explicitly report an absence of worry or apprehension. Which concept is being described?",
+        "choices": [
+          "State Anxiety",
+          "Arousal",
+          "Trait Anxiety",
+          "Cognitive Stress"
+        ],
+        "answerIndex": 1,
+        "explanation": "The source defines arousal as neutral energy and a blend of physiological and psychological activation. Because the athlete does not report worry or apprehension, this is not anxiety."
+      },
+      {
+        "id": "phase1-q2",
+        "question": "Two Olympic sprinters face the same qualifying heat. Sprinter A views the event as a minor hurdle, while Sprinter B views the same event as a significant threat to their self-worth. This difference in perception is primarily driven by a difference in:",
+        "choices": [
+          "Somatic Activation",
+          "State Anxiety",
+          "Trait Anxiety",
+          "Attentional Control"
+        ],
+        "answerIndex": 2,
+        "explanation": "Trait anxiety is the stable personality disposition that makes some people more likely to interpret objectively similar demands as threatening. State anxiety is the result of that appraisal, not the underlying cause."
+      },
+      {
+        "id": "phase1-q3",
+        "question": "A professional golfer reports \"butterflies\" in their stomach, profuse sweating, and muscle tension immediately before a decisive putt. According to the Multidimensional Anxiety Theory, these are indicators of:",
+        "choices": [
+          "Somatic State Anxiety",
+          "Cognitive State Anxiety",
+          "Attentional Search Patterns",
+          "Behavioral Consequences"
+        ],
+        "answerIndex": 0,
+        "explanation": "Somatic state anxiety covers the moment-to-moment physical sensations of activation such as sweating, butterflies, and muscle tension. Cognitive state anxiety refers to worry, self-talk, and apprehensive thought."
+      },
+      {
+        "id": "phase1-q4",
+        "question": "Within the Four-Stage Stress Process, which stage is identified as the \"Pivot Point\" where a demand is appraised as either a challenge or a threat?",
+        "choices": [
+          "Environmental Demand (Stage 1)",
+          "Individual's Perception of Demand (Stage 2)",
+          "Stress Response (Stage 3)",
+          "Behavioral Consequences (Stage 4)"
+        ],
+        "answerIndex": 1,
+        "explanation": "Stage 2, Perception of Demand, is the pivot point because the athlete interprets the objective load as manageable or threatening there. That appraisal determines whether the later stress response escalates or stays controlled."
+      },
+      {
+        "id": "phase1-q5",
+        "question": "Which hypothesis postulates that an athlete's performance will increase up to an optimal midpoint of arousal, after which any further increase in arousal will cause a gradual decline in performance?",
+        "choices": [
+          "Drive Theory",
+          "Catastrophe Phenomenon",
+          "Inverted-U Hypothesis",
+          "Individualized Zones of Optimal Functioning (IZOF)"
+        ],
+        "answerIndex": 2,
+        "explanation": "The Inverted-U Hypothesis describes a curvilinear relationship where performance peaks at a moderate level of arousal and then declines as arousal keeps rising. Drive Theory is the simpler linear model that this question rules out."
+      },
+      {
+        "id": "phase1-q6",
+        "question": "Athlete X requires a very high level of state anxiety to perform at their peak, while Athlete Y performs best when state anxiety is extremely low. This phenomenon, which argues that optimal arousal is not always a midpoint, is known as:",
+        "choices": [
+          "Reversal Theory",
+          "Individualized Zones of Optimal Functioning (IZOF)",
+          "The Inverted-U Hypothesis",
+          "Drive Theory"
+        ],
+        "answerIndex": 1,
+        "explanation": "IZOF argues that athletes have different personal bandwidths for best performance. It rejects the assumption that everyone shares the same ideal midpoint of arousal."
+      },
+      {
+        "id": "phase1-q7",
+        "question": "According to the Catastrophe Model, what is the predicted outcome when an athlete experiences high cognitive state anxiety (worry) combined with physiological arousal that exceeds their optimal threshold?",
+        "choices": [
+          "A gradual, linear decline in performance.",
+          "A rapid, dramatic performance crash that is difficult to reverse.",
+          "A shift into a facilitative flow state.",
+          "A steady improvement in performance due to high drive."
+        ],
+        "answerIndex": 1,
+        "explanation": "The Catastrophe Model predicts a cliff-edge drop rather than a smooth slide when high worry and high arousal combine. Recovery is difficult and usually requires relaxation, cognitive reset, and controlled reactivation."
+      },
+      {
+        "id": "phase1-q8",
+        "question": "When an athlete becomes over-aroused and experiences tunnel vision, focusing exclusively on a narrow central task while failing to detect critical peripheral cues, they are suffering from:",
+        "choices": [
+          "Attentional Narrowing",
+          "Too Broad / Distracted focus",
+          "Internal Focus",
+          "Broad External Focus"
+        ],
+        "answerIndex": 0,
+        "explanation": "Attentional narrowing is the system fault created by high arousal. The athlete filters too aggressively and loses access to relevant peripheral information."
+      },
+      {
+        "id": "phase1-q9",
+        "question": "Why is rhythmic diaphragmatic breathing, known as Centering, classified as a manual override in the Elite Operator Toolkit?",
+        "choices": [
+          "It is the only physiological function under both voluntary and autonomic control.",
+          "It functions as a motivational cue word to increase intensity.",
+          "It serves as a cognitive restructuring technique to eliminate worry.",
+          "It is a strategy used exclusively for psyching up the nervous system."
+        ],
+        "answerIndex": 0,
+        "explanation": "Breathing is uniquely positioned under both voluntary and autonomic control, which lets the athlete directly interrupt the stress loop and send a safety signal back through the system."
+      },
+      {
+        "id": "phase1-q10",
+        "question": "According to Martens (1987), which two factors are the primary situational sources of stress in competitive environments?",
+        "choices": [
+          "Trait Anxiety and Self-Esteem",
+          "Event Importance and Uncertainty",
+          "Social Facilitation and Arousal",
+          "Motivation and Goal Specificity"
+        ],
+        "answerIndex": 1,
+        "explanation": "Martens identifies event importance and uncertainty as the two main situational stressors. Personal variables such as trait anxiety and self-esteem matter too, but they are not the situational sources asked for here."
+      }
+    ]
+  },
+  "sourceGame": {
+    "id": "phase1-performance-state-simulator-game",
+    "code": "Phase 1",
+    "title": "Phase 1 Performance State Simulator Game",
+    "eyebrow": "Performance tool",
+    "accent": "#00ff7f",
+    "body": "Arousal regulation simulator for inverted-U control, pace adaptation, and sustained execution tracking under pressure.",
+    "viewerSrc": "./performance/phase1-performance-state-simulator-game.html"
+  }
+}

@@ -18,6 +18,8 @@
     "projects/biology30-unit-a-pilot-3/workspace/index.html",
     "projects/biology30-unit-a-pilot-3/workspace/styles.css",
     "projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-catalog.js",
+    "projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-practice-bank.js",
+    "scripts/lib/biology30-pilot3/practice-engine.ts",
     "scripts/lib/biology30-pilot3/runtime.ts"
   ],
   "generatedOutputs": [
@@ -58,12 +60,27 @@
         },
         {
           "htmlPath": "index.html",
-          "route": "#lesson-check",
+          "route": "#fill-in-the-blanks",
           "stateKey": null
         },
         {
           "htmlPath": "index.html",
-          "route": "#topic-review",
+          "route": "#labeling-practice",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#multiple-choice",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#mixed-practice",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-check",
           "stateKey": null
         },
         {
@@ -84,11 +101,6 @@
         {
           "htmlPath": "index.html",
           "route": "#video-library",
-          "stateKey": null
-        },
-        {
-          "htmlPath": "index.html",
-          "route": "#sources-and-credits",
           "stateKey": null
         },
         {
@@ -863,11 +875,6 @@
         },
         {
           "htmlPath": "index.html",
-          "route": "#lesson-14",
-          "stateKey": null
-        },
-        {
-          "htmlPath": "index.html",
           "route": "#lesson-02",
           "stateKey": "native-details-open"
         },
@@ -923,11 +930,6 @@
         },
         {
           "htmlPath": "index.html",
-          "route": "#lesson-14",
-          "stateKey": "native-details-open"
-        },
-        {
-          "htmlPath": "index.html",
           "route": "#lesson-10",
           "stateKey": "native-details-open"
         }
@@ -969,12 +971,36 @@
       "id": "neural-pathway-labeling-a-j-v2",
       "source": "projects/biology30-unit-a-pilot-3/meta/injected-components/neural-pathway-labeling-a-j.png",
       "target": "projects/biology30-unit-a-pilot-3/workspace/index.html#activity-labeling",
+      "status": "archived"
+    },
+    {
+      "id": "neural-pathway-labeling-a-j-corrected-v3",
+      "source": "projects/biology30-unit-a-pilot-3/workspace/assets/source/neural-pathway-labeling-corrected.png",
+      "target": "projects/biology30-unit-a-pilot-3/workspace/index.html#activity-labeling",
+      "status": "active"
+    },
+    {
+      "id": "biology30-ch11-labeling-pack-v1",
+      "source": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_ch11_labeling_pack.zip",
+      "target": "projects/biology30-unit-a-pilot-3/workspace/index.html#labeling-practice",
+      "status": "active"
+    },
+    {
+      "id": "biology30-ch11-corrected-diagrams-v1",
+      "source": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_ch11_corrected_diagrams.zip",
+      "target": "projects/biology30-unit-a-pilot-3/workspace/index.html#labeling-practice",
+      "status": "active"
+    },
+    {
+      "id": "biology30-pilot3-teacher-voice-v1",
+      "source": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_pilot3_teacher_voice_change_package.zip",
+      "target": "projects/biology30-unit-a-pilot-3/workspace/index.html",
       "status": "active"
     }
   ],
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-09-14T18:29:52.345Z",
-  "workspaceApprovedAt": "2026-09-14T18:29:52.341Z",
-  "updatedAt": "2026-09-14T18:29:52.341Z"
+  "workspaceApprovedAt": "2026-09-16T14:39:31.809Z",
+  "updatedAt": "2026-09-16T14:39:31.809Z"
 }

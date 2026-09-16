@@ -23,41 +23,22 @@
 <body>
   <header class="library-header">
     <img class="library-logo" src="./assets/brand/next-step-logo-transparent.png" alt="">
-    <div class="library-heading"><strong>Course library</strong><span>Teacher review · five courses</span></div>
-    <div class="library-picker"><label for="course-select">Course</label><select id="course-select" aria-label="Choose a course"><option value="biology30-a">Biology 30 — Unit A (Pilot 2)</option><option value="biology30-b">Biology 30 — Unit B</option><option value="biology30-c">Biology 30 — Unit C</option><option value="biology30-d">Biology 30 — Unit D</option><option value="biology20-a">Biology 20 — Unit A</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
+    <div class="library-heading"><strong>Course library</strong><span>Teacher review · two courses</span></div>
+    <div class="library-picker"><label for="course-select">Course</label><select id="course-select" aria-label="Choose a course"><option value="biology30-a">Biology 30 — Unit A (Pilot 3)</option><option value="chemistry30-a-pilot">Chemistry 30 — Unit A (Pilot)</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
   </header>
   <p class="library-note">Teacher review builds · curriculum reconciliation, teacher approval, and Brightspace release remain separate steps.</p>
   <main>
-    <p class="intro">This is a review hub, not a learner release. Each course remains a separate source project; this page provides one shared entry point.</p>
-    <section class="course-list" aria-label="Courses" hidden>
-      <article class="course-card" data-course="biology30-a" aria-selected="true">
-        <h2>Biology 30 — Unit A</h2><p>Nervous and Endocrine Systems · Pilot 2</p><button type="button">Open Biology 30 A</button>
-      </article>
-      <article class="course-card" data-course="biology30-b" aria-selected="false">
-        <h2>Biology 30 — Unit B</h2><p>Reproduction and Development</p><button type="button">Open Biology 30 B</button>
-      </article>
-      <article class="course-card" data-course="biology30-c" aria-selected="false">
-        <h2>Biology 30 — Unit C</h2><p>Cell Division, Genetics and Molecular Biology</p><button type="button">Open Biology 30 C</button>
-      </article>
-      <article class="course-card" data-course="biology30-d" aria-selected="false">
-        <h2>Biology 30 — Unit D</h2><p>Population and Community Dynamics</p><button type="button">Open Biology 30 D</button>
-      </article>
-      <article class="course-card" data-course="biology20-a" aria-selected="false">
-        <h2>Biology 20 — Unit A</h2><p>Energy and Matter Exchange in the Biosphere</p><button type="button">Open Biology 20 A</button>
-      </article>
-    </section>
+    <p class="intro">This is a teacher-review preview. Choose a course above to open it.</p>
     <section class="viewer" aria-label="Selected course preview">
-      <div class="viewer-head"><p id="selection-label">Biology 30 — Unit A: Nervous and Endocrine Systems</p><a id="open-link" href="./biology30-a/index.html" target="_blank" rel="noopener">Open in a new tab</a></div>
-      <iframe id="course-frame" title="Selected Biology course" src="./biology30-a/index.html"></iframe>
+      <div class="viewer-head"><p id="selection-label">Biology 30 — Unit A: Nervous and Endocrine Systems</p><a id="open-link" href="./biology30-a/index.html?v=20260916-1" target="_blank" rel="noopener">Open in a new tab</a></div>
+      <iframe id="course-frame" title="Selected Biology course" src="./biology30-a/index.html?v=20260916-1"></iframe>
     </section>
   </main>
   <script>
+    const reviewVersion='20260916-1';
     const courses={
-      'biology30-a':{label:'Biology 30 — Unit A: Nervous and Endocrine Systems',src:'./biology30-a/index.html',local:'../../../biology30-unit-a-pilot-2/workspace/index.html'},
-      'biology30-b':{label:'Biology 30 — Unit B: Reproduction and Development',src:'./biology30-b/index.html',local:'../../../biology30-unit-b/workspace/index.html'},
-      'biology30-c':{label:'Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology',src:'./biology30-c/index.html',local:'../../../biology30-unit-c/workspace/index.html'},
-      'biology30-d':{label:'Biology 30 — Unit D: Population and Community Dynamics',src:'./biology30-d/index.html',local:'../../../biology30-unit-d/workspace/index.html'},
-      'biology20-a':{label:'Biology 20 — Unit A: Energy and Matter Exchange in the Biosphere',src:'./biology20-a/index.html',local:'../../../biology20-unit-a/workspace/index.html'}
+      'biology30-a':{label:'Biology 30 — Unit A: Pilot 3',src:`./biology30-a/index.html?v=${reviewVersion}`,local:'../../../biology30-unit-a-pilot-3/workspace/index.html'},
+      'chemistry30-a-pilot':{label:'Chemistry 30 — Unit A: Pilot',src:`./chemistry30-a-pilot/index.html?v=${reviewVersion}`,local:'../../../chemistry30-unit-a-pilot/workspace/index.html'}
     };
     const frame=document.querySelector('#course-frame'), label=document.querySelector('#selection-label'), link=document.querySelector('#open-link');
     function selectCourse(id){const c=courses[id];if(!c)return;const src=location.protocol==='file:'?c.local:c.src;frame.src=src;frame.title=c.label;label.textContent=c.label;link.href=src;picker.value=id;document.querySelectorAll('.course-card').forEach(card=>card.setAttribute('aria-selected',String(card.dataset.course===id)));history.replaceState(null,'','#'+id)}

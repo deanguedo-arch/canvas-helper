@@ -443,6 +443,153 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     } };
   }
 
+  // scripts/lib/biology30-pilot3/practice-engine.ts
+  var hash = (value) => {
+    let h = 2166136261;
+    for (const ch of value) {
+      h ^= ch.charCodeAt(0);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  };
+  var rng = (seed) => () => {
+    seed |= 0;
+    seed = seed + 1831565813 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+  var shuffled = (items, random) => items.map((value) => ({ value, key: random() })).sort((a, b) => a.key - b.key).map((x) => x.value);
+  var normalizePracticeAnswer = (value) => value.trim().toLocaleLowerCase().replace(/[.!?]+$/u, "").trim().replace(/\s+/g, " ");
+  function validatePracticeBank(bank) {
+    const errors = [];
+    const lessonIds = new Set(bank.lessons.map((x) => x.id)), legacyRestorationLessonIds = /* @__PURE__ */ new Set(["lesson-14"]), ids = /* @__PURE__ */ new Set();
+    if (bank.schemaVersion !== 1) errors.push("Unsupported bank schema.");
+    for (const concept of bank.concepts) {
+      if (ids.has(concept.id)) errors.push(`Duplicate concept ${concept.id}.`);
+      ids.add(concept.id);
+      if (!lessonIds.has(concept.lessonId) && !legacyRestorationLessonIds.has(concept.lessonId)) errors.push(`Unknown lesson ${concept.lessonId}.`);
+      if (!concept.sourceRefs.length) errors.push(`Missing source for ${concept.id}.`);
+      if (!concept.answers.length || !Array.isArray(concept.aliases)) errors.push(`Missing authored answers for ${concept.id}.`);
+      if (!concept.cue || !concept.explanation || concept.contrast.length < 2 || !concept.relationships.length) errors.push(`Incomplete authored support for ${concept.id}.`);
+      if (concept.sequence.length < 3) errors.push(`Sequence too short for ${concept.id}.`);
+      if (concept.mcVariants.length < 7) errors.push(`Too few MC variants for ${concept.id}.`);
+      for (const variant of concept.mcVariants) {
+        const id = `${concept.id}:mc-${variant.id}`;
+        if (ids.has(id)) errors.push(`Duplicate MC variant ${id}.`);
+        ids.add(id);
+        if (!variant.prompt || !variant.answer || ![1, 2, 3, 4].includes(variant.difficulty)) errors.push(`Malformed MC variant ${id}.`);
+      }
+    }
+    for (const lesson of bank.lessons) if (!bank.concepts.some((x) => x.lessonId === lesson.id)) errors.push(`No concepts for ${lesson.id}.`);
+    return errors;
+  }
+  function variants(concept, kind, peers, random) {
+    const distractors = shuffled(peers.filter((x) => x.id !== concept.id && x.lessonId === concept.lessonId), random).slice(0, 3);
+    const base = { conceptId: concept.id, lessonId: concept.lessonId, cue: concept.cue, explanation: `${concept.explanation} Source: ${concept.sourceRefs.join("; ")}`, sourceRefs: concept.sourceRefs };
+    const authoredMc = () => concept.mcVariants.map((variant) => {
+      const source = variant.optionSource === "terms" ? [concept.term, ...concept.relationships, ...peers.map((x) => x.term)] : variant.optionSource === "definitions" ? [concept.definition, concept.misconception, ...peers.flatMap((x) => [x.definition, x.misconception])] : variant.optionSource === "scenarios" ? [concept.scenario, ...peers.map((x) => x.scenario), ...concept.relationships] : [...concept.sequence, ...peers.flatMap((x) => x.sequence)];
+      const options2 = shuffled([...new Set([variant.answer, ...source].filter(Boolean))].slice(0, 8), random).slice(0, 4);
+      if (!options2.includes(variant.answer)) options2[options2.length - 1] = variant.answer;
+      return { ...base, id: `${concept.id}:mc-${variant.id}`, family: variant.skill, interaction: "single", skill: variant.skill, difficulty: variant.difficulty, prompt: variant.prompt, answers: [variant.answer], options: shuffled([...new Set(options2)], random) };
+    });
+    if (kind === "flashcards") return [
+      { ...base, id: `${concept.id}:card-term`, family: "recall", interaction: "flashcard", skill: "recall", prompt: concept.term, answers: [concept.definition] },
+      { ...base, id: `${concept.id}:card-definition`, family: "reverse-retrieval", interaction: "flashcard", skill: "recall", prompt: concept.definition, answers: [concept.term] },
+      { ...base, id: `${concept.id}:card-scenario`, family: "application", interaction: "flashcard", skill: "application", prompt: concept.scenario, answers: [`${concept.term} \u2014 ${concept.definition}`] },
+      { ...base, id: `${concept.id}:card-error`, family: "error-correction", interaction: "flashcard", skill: "error-correction", prompt: `Correct this idea: ${concept.misconception}`, answers: [concept.definition] }
+    ];
+    if (kind === "blanks") return [
+      { ...base, id: `${concept.id}:blank-definition`, family: "definition", interaction: "typed", skill: "recall", prompt: `The term for \u201C${concept.definition}\u201D is _____.`, answers: [...concept.answers, ...concept.aliases] },
+      { ...base, id: `${concept.id}:blank-scenario`, family: "scenario", interaction: "typed", skill: "application", prompt: `This situation illustrates _____: ${concept.scenario}`, answers: [...concept.answers, ...concept.aliases] },
+      { ...base, id: `${concept.id}:blank-sequence`, family: "pathway", interaction: "typed", skill: "sequencing", prompt: `Complete the pathway: ${concept.sequence.slice(0, -1).join(" \u2192 ")} \u2192 _____.`, answers: [concept.sequence.at(-1)] }
+    ];
+    if (kind === "multiple-choice") return authoredMc();
+    const options = shuffled([concept.term, ...distractors.map((x) => x.term)], random);
+    const sequenceOptions = shuffled(concept.sequence, random);
+    return [
+      { ...base, id: `${concept.id}:mixed-typed`, family: "retrieval", interaction: "typed", skill: "recall", prompt: `Name the concept: ${concept.definition}`, answers: [...concept.answers, ...concept.aliases] },
+      ...authoredMc().slice(0, 2),
+      { ...base, id: `${concept.id}:mixed-single`, family: "discrimination", interaction: "single", skill: "comparison", prompt: `Which concept means \u201C${concept.definition}\u201D?`, answers: [concept.term], options },
+      { ...base, id: `${concept.id}:mixed-application`, family: "application", interaction: "single", skill: "application", prompt: concept.scenario, answers: [concept.term], options },
+      { ...base, id: `${concept.id}:mixed-multiple`, family: "odd-one-out", interaction: "multiple", skill: "comparison", prompt: `Select both statements that belong with ${concept.term}.`, answers: [concept.definition, concept.scenario], options: shuffled([concept.definition, concept.scenario, ...distractors.slice(0, 2).map((x) => x.definition)], random) },
+      { ...base, id: `${concept.id}:mixed-tf`, family: "misconception", interaction: "true-false", skill: "error-correction", prompt: concept.misconception, answers: ["false"], options: ["true", "false"] },
+      { ...base, id: `${concept.id}:mixed-order`, family: "sequence", interaction: "ordering", skill: "sequencing", prompt: `Put the ${concept.term} steps in order.`, answers: concept.sequence, options: sequenceOptions },
+      ...concept.id === "neuron-parts" ? [{ ...base, id: "neuron-parts:mixed-diagram", family: "diagram", interaction: "diagram", skill: "diagram-reading", prompt: "In the corrected A\u2013J neural-pathway diagram, which letter identifies the cell body?", answers: ["E"], options: ["E", "F", "G", "H"] }] : []
+    ];
+  }
+  function generatePracticeSession(bank, kind, settings, seed, evidence = {}, avoidIds = []) {
+    const errors = validatePracticeBank(bank);
+    if (errors.length) throw Error(errors.join(" "));
+    const random = rng(seed);
+    const concepts = bank.concepts.filter((x) => settings.lessonId === "all" ? !x.lessonId.match(/lesson-1[34]/) : settings.lessonId === "foundations" ? ["lesson-01", "lesson-02", "lesson-03"].includes(x.lessonId) : x.lessonId === settings.lessonId);
+    let pool = shuffled(concepts.flatMap((c) => variants(c, kind, concepts, random)), random);
+    if (kind === "multiple-choice" && settings.difficulty && settings.difficulty !== "mixed") {
+      const levels = settings.difficulty === "foundation" ? [1] : settings.difficulty === "developing" ? [2] : [3, 4];
+      pool = pool.filter((x) => x.difficulty && levels.includes(x.difficulty));
+    }
+    const selected = [];
+    const avoided = new Set(avoidIds), ordered = [...pool.filter((x) => !avoided.has(x.id)), ...pool.filter((x) => avoided.has(x.id))];
+    let last, streak = 0;
+    const add = (item, family) => {
+      if (!item || selected.some((x) => x.id === item.id)) return false;
+      const nextStreak = item.interaction === last ? streak + 1 : 1;
+      if (kind === "mixed-practice" && nextStreak > 2) return false;
+      selected.push(family ? { ...item, family } : item);
+      last = item.interaction;
+      streak = nextStreak;
+      return true;
+    };
+    if (kind === "mixed-practice" && settings.count >= 10) {
+      const wanted = ["retrieval", "discrimination", "application", "retrieval", "sequence", "misconception", "discrimination", "application", "diagram-pathway", "adaptive-review"];
+      for (const family of wanted) {
+        let candidate;
+        if (family === "diagram-pathway") candidate = ordered.find((x) => x.family === "diagram") ?? ordered.find((x) => x.family === "sequence");
+        else if (family === "adaptive-review") {
+          const weakest = [...concepts].sort((a, b) => {
+            const ea = evidence[a.id] ?? { correct: 0, attempts: 0 }, eb = evidence[b.id] ?? { correct: 0, attempts: 0 };
+            return ea.correct / Math.max(1, ea.attempts) - eb.correct / Math.max(1, eb.attempts);
+          })[0];
+          candidate = ordered.find((x) => x.conceptId === weakest?.id);
+        } else candidate = ordered.find((x) => x.family === family);
+        add(candidate, family);
+      }
+    }
+    if (kind === "multiple-choice" && settings.lessonId === "all") {
+      for (const lesson of shuffled(bank.lessons.filter((x) => !x.optional), random).slice(0, settings.count)) add(ordered.find((x) => x.lessonId === lesson.id));
+    }
+    for (const item of ordered) {
+      if (selected.length >= settings.count) break;
+      add(item);
+    }
+    return { schemaVersion: 1, seed, bankVersion: bank.bankVersion, generatorVersion: bank.generatorVersion, kind, settings, items: selected, position: 0, attempts: [], feedback: "none", adaptations: [], startedWithEvidence: evidence };
+  }
+  function gradeGeneratedItem(item, answer2) {
+    const actual = answer2.map(normalizePracticeAnswer), expected = item.answers.map(normalizePracticeAnswer);
+    if (item.interaction === "typed") return actual.length === 1 && expected.includes(actual[0]);
+    if (item.interaction === "ordering") return actual.length === expected.length && actual.every((x, i) => x === expected[i]);
+    return actual.length === expected.length && expected.every((x) => actual.includes(x));
+  }
+  function compactResumeProjection(sessions, performance) {
+    return { schemaVersion: 1, bankVersion: Object.values(sessions)[0]?.bankVersion ?? "", sessions: Object.fromEntries(Object.entries(sessions).map(([id, s]) => [id, { seed: s.seed, kind: s.kind, settings: s.settings, items: s.items.map((x) => ({ id: x.id, options: x.options })), position: s.position, attempts: s.attempts, feedback: s.feedback, adaptations: s.adaptations }])), performance };
+  }
+  function restoreGeneratedItem(bank, kind, id, options) {
+    const conceptId = id.split(":")[0], concept = bank.concepts.find((x) => x.id === conceptId);
+    if (!concept) throw Error(`Missing authored concept ${conceptId}.`);
+    const item = variants(concept, kind, bank.concepts.filter((x) => x.lessonId === concept.lessonId), rng(hash(id))).find((x) => x.id === id);
+    if (!item) throw Error(`Missing authored variant ${id}.`);
+    return { ...item, options: options ?? item.options };
+  }
+  function renderGeneratedItem(item, index, total, attempts) {
+    const tried = attempts.filter((x) => x.itemId === item.id), locked = item.interaction === "flashcard" && tried.length > 0 || tried.some((x) => x.correct) || tried.length >= 2;
+    const choices = (item.options ?? []).map((option, i) => `<label class="practice-choice"><input data-generated-answer type="${item.interaction === "multiple" ? "checkbox" : "radio"}" name="generated-${index}" value="${escapeHtml(option)}" ${locked ? "disabled" : ""}> ${escapeHtml(option)}</label>`).join("");
+    const input = item.interaction === "typed" ? `<label for="generated-answer-${index}">Your answer</label><input id="generated-answer-${index}" data-generated-answer type="text" autocomplete="off" ${locked ? "disabled" : ""}>` : item.interaction === "ordering" ? `<ol class="practice-order" data-practice-order>${(item.options ?? []).map((x, i) => `<li><label><span>${i + 1}.</span><select data-generated-answer ${locked ? "disabled" : ""}>${(item.options ?? []).map((y) => `<option value="${escapeHtml(y)}">${escapeHtml(y)}</option>`).join("")}</select></label></li>`).join("")}</ol>` : choices;
+    const feedback = tried.length ? tried.at(-1).correct === null ? `Self-assessment recorded: ${tried.at(-1).answer[0] === "recalled" ? "recalled" : "study again"}. ${item.explanation}` : tried.at(-1).correct ? `Correct. ${item.explanation}` : tried.length === 1 ? `Not yet. Cue: ${item.cue}` : `Answer: ${item.answers.join(" \u2192 ")}. ${item.explanation}` : "";
+    const diagram = item.interaction === "diagram" ? '<img class="practice-diagram" src="assets/source/neural-pathway-labeling-corrected.png" alt="Corrected neural pathway diagram labeled A through J.">' : "";
+    return `<div class="practice-progress"><span>Question ${index + 1} of ${total}</span><progress value="${index + 1}" max="${total}"></progress></div><section class="question generated-question" data-generated-item="${escapeHtml(item.id)}"><p class="practice-kind">${escapeHtml(item.family.replaceAll("-", " "))}${item.difficulty ? ` \xB7 Level ${item.difficulty}` : ""}</p><h3>${escapeHtml(item.prompt)}</h3>${diagram}${item.interaction === "flashcard" ? `<button type="button" data-generated-reveal ${tried.length ? "hidden" : ""}>Reveal answer</button><div data-generated-reveal-panel hidden><p>${escapeHtml(item.answers.join(" \u2014 "))}</p><button type="button" data-generated-self="recalled">I recalled it</button><button type="button" data-generated-self="study-again">Study again</button></div>` : `${input}<button type="button" data-generated-check ${locked ? "disabled" : ""}>Check answer</button>`}<p data-generated-feedback role="status" aria-live="polite">${escapeHtml(feedback)}</p>${locked ? '<button type="button" data-generated-next>Next question</button>' : ""}</section>`;
+  }
+  var escapeHtml = (value) => value.replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch]);
+
   // scripts/lib/biology30-pilot3/runtime.ts
   var NS = "biology30-unit-a-pilot-3:v1";
   var $ = (s, r = document) => r.querySelector(s);
@@ -456,6 +603,8 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   var queue = Promise.resolve();
   var pending = 0;
   var catalog = window.PILOT3_CATALOG;
+  var practiceBank = window.PILOT3_PRACTICE_BANK;
+  var PROJECTION_KEY = "biology30-unit-a-pilot-3:generated-practice-resume:v1";
   var message = (s) => {
     $("[data-local-status]").textContent = s;
   };
@@ -480,9 +629,27 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     if (saved) {
       if (saved.version !== 1 || !saved.current || !Array.isArray(saved.history)) throw Error("Unrecognized save. Existing record retained.");
       state = saved;
+    } else {
+      const portable = localStorage.getItem(PROJECTION_KEY);
+      if (portable) {
+        try {
+          const parsed = JSON.parse(portable);
+          if (parsed.schemaVersion !== 1 || !parsed.sessions || parsed.bankVersion !== practiceBank.bankVersion) throw Error();
+          for (const [activity, value] of Object.entries(parsed.sessions)) {
+            if (!value.items || !Array.isArray(value.attempts)) throw Error();
+            const items = value.items.map((x) => restoreGeneratedItem(practiceBank, value.kind, x.id, x.options)), generatedSession = { schemaVersion: 1, bankVersion: parsed.bankVersion, generatorVersion: practiceBank.generatorVersion, feedback: "none", adaptations: [], startedWithEvidence: parsed.performance ?? {}, ...value, items };
+            state.current[activity] = { id: `portable-${activity}-${generatedSession.seed}`, activity, startedAt: value.startedAt ?? Date.now(), drafts: {}, attempts: generatedSession.attempts.map((a) => {
+              const item = generatedSession.items.find((i) => i.id === a.itemId);
+              return { question: a.itemId, answer: a.answer.join(" \u2192 "), correct: a.correct, at: a.at, elapsedMs: 0, prompt: item?.prompt ?? a.itemId, conceptId: item?.conceptId, skill: item?.skill, generatedItemId: a.itemId, firstTry: a.firstTry };
+            }), questionIds: generatedSession.items.map((x) => x.id), generatedSession };
+          }
+        } catch {
+          throw Error("Portable practice save is malformed or uses an unavailable bank version. It has been retained for recovery and no new session was created.");
+        }
+      }
     }
     ready = true;
-    message("Saved work opened. Local browser only; download a backup before changing devices.");
+    message("Saved work opened. Local browser only; print or save completed work as a PDF before changing devices.");
     render();
   }
   async function commit(next) {
@@ -504,10 +671,33 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         }
       };
       tx.oncomplete = () => resolve();
-      tx.onabort = () => reject(Error(conflict ? "Another tab changed this work. Download your visible drafts, then reload." : "Saving failed. Your drafts remain visible; download them before leaving."));
+      tx.onabort = () => reject(Error(conflict ? "Another tab changed this work. Copy your visible drafts, then reload." : "Saving failed. Your drafts remain visible; copy them before leaving."));
       tx.onerror = () => {
       };
     });
+  }
+  function generatedPerformance(next) {
+    const result = {};
+    for (const run of [...next.history, ...Object.values(next.current)]) for (const attempt of run.generatedSession?.attempts ?? []) {
+      const item = run.generatedSession.items.find((x) => x.id === attempt.itemId);
+      if (!item) continue;
+      const row = result[item.conceptId] ??= { correct: 0, attempts: 0 };
+      row.attempts++;
+      if (attempt.firstTry && attempt.correct) row.correct++;
+    }
+    return result;
+  }
+  function writeResumeProjection(next) {
+    const active = Object.entries(next.current).filter(([, run]) => run.generatedSession && !run.endedAt), sessions = Object.fromEntries(active.map(([id, run]) => [id, run.generatedSession]));
+    if (!active.length) {
+      localStorage.removeItem(PROJECTION_KEY);
+      return;
+    }
+    const projection = compactResumeProjection(sessions, generatedPerformance(next));
+    for (const [id, run] of active) projection.sessions[id].startedAt = run.startedAt;
+    const raw = JSON.stringify(projection), frayerRaw = localStorage.getItem(NS + ":frayers") ?? "";
+    if (raw.length + frayerRaw.length > 6e4) throw Error("Portable LMS resume exceeds the 60,000-character save budget. Local browser work remains intact.");
+    localStorage.setItem(PROJECTION_KEY, raw);
   }
   function enqueue(action) {
     pending++;
@@ -525,8 +715,14 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     edit(next);
     await commit(next);
     state = next;
-    failed = false;
-    message("Saved in this browser. Not sent to Brightspace.");
+    try {
+      writeResumeProjection(next);
+      failed = false;
+      message("Saved in this browser. LMS resume projection updated when available.");
+    } catch (e) {
+      failed = true;
+      message(String(e));
+    }
   }
   function current(section) {
     return state.current[section.dataset.activity];
@@ -574,11 +770,27 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   function render() {
     for (const section of all("[data-activity]")) {
       const run = current(section);
+      if (section.dataset.generatedPractice && (!run || run.generatedSession)) {
+        renderGeneratedSection(section, run);
+        continue;
+      }
       $("[data-start]", section).disabled = !ready || Boolean(run);
       $("[data-run-body]", section).disabled = !run || Boolean(run.endedAt);
+      const reset = section.querySelector("[data-reset-run]");
+      if (reset) reset.hidden = !run || Boolean(run.endedAt);
       $("[data-submit-run]", section).disabled = !run || Boolean(run.endedAt);
       $("[data-redo]", section).hidden = !run?.endedAt;
-      if (!run) continue;
+      if (!run) {
+        if (reset) {
+          for (const field of all("[data-writing],input[data-answer],select[data-answer]", section)) field.value = "";
+          for (const field of all("input[type=radio]", section)) field.checked = false;
+          for (const feedback of all("[data-feedback]", section)) feedback.textContent = "";
+          const summary = section.querySelector("[data-labeling-summary]");
+          if (summary) summary.textContent = `Check one letter at a time, or check all ${all("[data-question]", section).length} together.`;
+          $("[data-run-status]", section).textContent = "";
+        }
+        continue;
+      }
       for (const field of all("[data-writing],input[type=text][data-answer],select[data-answer]", section)) {
         const value = run.drafts[field.dataset.writing ?? field.id] ?? "";
         if (document.activeElement !== field) field.value = value;
@@ -612,7 +824,9 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   }
   function tick() {
     for (const section of all("[data-activity]")) {
-      const run = current(section), next = run ? duration((run.endedAt ?? Date.now()) - run.startedAt) : "Not started", output = $("[data-timer]", section);
+      const output = section.querySelector("[data-timer]");
+      if (!output) continue;
+      const run = current(section), next = run ? duration((run.endedAt ?? Date.now()) - run.startedAt) : "Not started";
       if (output.textContent !== next) output.textContent = next;
     }
   }
@@ -624,7 +838,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       return [`${s.querySelector("h2")?.textContent ?? s.dataset.activity}: best ${best.correct}/${best.total}`];
     });
     $("[data-collection-status]").textContent = `${state.history.length} completed run(s). ${summaries.join(" \xB7 ")}`;
-    $("[data-history]").innerHTML = state.history.map((r) => `<article class="history-run"><h3>${esc2(r.activity)} \xB7 ${new Date(r.startedAt).toLocaleString()}</h3><p>Elapsed ${duration(r.endedAt - r.startedAt)} \xB7 ${r.attempts.length} submitted attempts</p><details><summary>Review every submitted answer</summary>${r.attempts.map((a, i) => `<section><h4>Attempt ${i + 1}: ${esc2(a.question)}</h4><p>${esc2(a.prompt)}</p><pre>${esc2(a.answer)}</pre><p>${a.correct === null ? "Self-report or writing; not automatically graded" : a.correct ? "Correct" : "Incorrect"} \xB7 ${duration(a.elapsedMs)} since start \xB7 ${new Date(a.at).toLocaleString()}</p></section>`).join("")}</details></article>`).join("") || "<p>No completed runs yet. In-progress work is preserved separately.</p>";
+    $("[data-history]").innerHTML = state.history.map((r) => `<article class="history-run"><h3>${esc2(r.activity)} \xB7 ${new Date(r.startedAt).toLocaleString()}</h3><p>Elapsed ${duration(r.endedAt - r.startedAt)} \xB7 ${r.attempts.length} submitted attempts</p><details><summary>Review every submitted answer</summary>${r.attempts.map((a, i) => `<section><h4>Attempt ${i + 1}: ${esc2(a.question)}</h4><p>${esc2(a.prompt)}</p>${a.displayedOptions?.length ? `<p>Options shown: ${a.displayedOptions.map(esc2).join(" \xB7 ")}</p>` : ""}<pre>${esc2(a.answer)}</pre>${a.correctAnswer?.length ? `<p>Correct answer: ${a.correctAnswer.map(esc2).join(" \u2192 ")}</p>` : ""}<p>${a.correct === null ? "Self-report or writing; not automatically graded" : a.correct ? "Correct" : "Incorrect"} \xB7 ${duration(a.elapsedMs)} since start \xB7 ${new Date(a.at).toLocaleString()}</p></section>`).join("")}</details></article>`).join("") || "<p>No completed runs yet. In-progress work is preserved separately.</p>";
     $("[data-frayer-history]").innerHTML = frayers.map((f) => `<article><h3>${esc2(wordData.words.find((w) => w.id === f.id)?.term)}</h3><p>${f.collected ? "Collected" : "Draft"}</p>${f.answers.map((a) => `<p>${esc2(a)}</p>`).join("")}</article>`).join("") || "<p>No words selected yet.</p>";
   }
   document.addEventListener("input", (event) => {
@@ -642,10 +856,32 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       }
     });
   });
+  function requestPracticeReset(button) {
+    if (button.hasAttribute("data-reset-confirmed")) return true;
+    const existing = button.parentElement?.querySelector("[data-practice-reset-confirmation]");
+    if (existing) {
+      existing.querySelector("button")?.focus();
+      return false;
+    }
+    const panel = document.createElement("div");
+    panel.dataset.practiceResetConfirmation = "";
+    panel.setAttribute("role", "group");
+    panel.setAttribute("aria-label", "Confirm practice reset");
+    const action = button.hasAttribute("data-generated-reset") ? "data-generated-reset" : "data-reset-run";
+    panel.innerHTML = `<p>Clear this unfinished practice and return to the start screen? Previously completed work in All My Work will be kept.</p><div class="practice-reset-actions"><button type="button" ${action} data-reset-confirmed>Reset unfinished practice</button><button type="button" data-reset-cancel>Keep working</button></div>`;
+    button.after(panel);
+    panel.querySelector("[data-reset-cancel]").addEventListener("click", () => {
+      panel.remove();
+      button.focus();
+    });
+    panel.querySelector("button").focus();
+    return false;
+  }
   document.addEventListener("click", (event) => {
     const button = event.target.closest("button"), section = button?.closest("[data-activity]");
     if (!button || !section) return;
-    if (!button.matches("[data-start],[data-redo],[data-check],[data-check-labels],[data-self],[data-submit-writing],[data-submit-run]")) return;
+    if (!button.matches("[data-start],[data-redo],[data-reset-run],[data-check],[data-check-labels],[data-self],[data-submit-writing],[data-submit-run]")) return;
+    if (button.hasAttribute("data-reset-run") && !requestPracticeReset(button)) return;
     if (busy) return;
     busy = true;
     button.disabled = true;
@@ -655,6 +891,11 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         await change((next) => {
           const id = section.dataset.activity;
           let run = next.current[id];
+          if (button.hasAttribute("data-reset-run")) {
+            if (!run || run.endedAt) throw Error("There is no unfinished practice to reset.");
+            delete next.current[id];
+            return;
+          }
           if (button.matches("[data-start],[data-redo]")) {
             if (run && !run.endedAt) throw Error("This activity already has a running timer.");
             next.current[id] = { id: crypto.randomUUID(), activity: id, startedAt: Date.now(), drafts: {}, attempts: [], questionIds: all("[data-question]", section).map((q2) => q2.dataset.question), keys: structuredClone(catalog) };
@@ -674,7 +915,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
             for (const item of all("[data-question]", section)) {
               const qid2 = item.dataset.question, response2 = answer(item);
               if (!response2.trim()) continue;
-              const original = keys.questions.find((a) => a.id === qid2) ?? catalog.questions.find((a) => a.id === qid2), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid2) ?? [...catalog.blanks, ...catalog.labels].find((a) => a.id === qid2), correct2 = original ? response2 === original.correct : Boolean(drill) && drill.answers.some((a) => normalize(a) === normalize(response2));
+              const original = keys.questions.find((a) => a.id === qid2) ?? catalog.questions.find((a) => a.id === qid2), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid2) ?? [...catalog.blanks, ...catalog.labels].find((a) => a.id === qid2), inline = (item.dataset.answers ?? "").split("|").filter(Boolean), correct2 = inline.length ? inline.some((a) => normalize(a) === normalize(response2)) : original ? response2 === original.correct : Boolean(drill) && drill.answers.some((a) => normalize(a) === normalize(response2));
               run.attempts.push({ question: qid2, answer: response2, correct: correct2, at: Date.now(), elapsedMs: Date.now() - run.startedAt, prompt: promptText(item, false) });
               checked++;
             }
@@ -693,13 +934,14 @@ dialog.bio-vocabulary::backdrop{background:#0005}
           else {
             response = answer(q);
             if (!response.trim()) throw Error("Choose or enter an answer first.");
-            const keys = run.keys ?? catalog, original = keys.questions.find((a) => a.id === qid) ?? catalog.questions.find((a) => a.id === qid), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid) ?? [...catalog.blanks, ...catalog.labels].find((a) => a.id === qid);
-            correct = original ? response === original.correct : Boolean(drill) && drill.answers.some((a) => normalize(a) === normalize(response));
+            const keys = run.keys ?? catalog, original = keys.questions.find((a) => a.id === qid) ?? catalog.questions.find((a) => a.id === qid), drill = [...keys.blanks, ...keys.labels].find((a) => a.id === qid) ?? [...catalog.blanks, ...catalog.labels].find((a) => a.id === qid), inline = (q.dataset.answers ?? "").split("|").filter(Boolean);
+            correct = inline.length ? inline.some((a) => normalize(a) === normalize(response)) : original ? response === original.correct : Boolean(drill) && drill.answers.some((a) => normalize(a) === normalize(response));
             if (original) response = q.querySelector("[data-answer]:checked")?.closest("label")?.textContent?.trim() ?? response;
           }
           run.attempts.push({ question, answer: response, correct, at: Date.now(), elapsedMs: Date.now() - run.startedAt, prompt: promptText(q, button.matches("[data-submit-writing]")) });
         });
         succeeded = true;
+        if (button.hasAttribute("data-reset-run")) for (const panel of all("[data-practice-reset-confirmation]", section)) panel.remove();
         render();
       } finally {
         busy = false;
@@ -708,6 +950,142 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       }
     });
   });
+  function practiceOptions(select, kind) {
+    if (select.options.length) return;
+    select.add(new Option("All Chapter 11", "all", true, true));
+    if (kind === "multiple-choice") select.add(new Option("Lessons 1\u20133 foundations", "foundations"));
+    for (const lesson of practiceBank.lessons) {
+      if (kind === "multiple-choice" && lesson.optional) continue;
+      select.add(new Option(lesson.label, lesson.id));
+    }
+  }
+  function generatedSummary(run) {
+    const session = run.generatedSession, graded = session.attempts.filter((a) => a.correct !== null), first = /* @__PURE__ */ new Map();
+    for (const attempt of graded) if (!first.has(attempt.itemId)) first.set(attempt.itemId, attempt);
+    const firstCorrect = [...first.values()].filter((x) => x.correct).length, eventualCorrect = new Set(graded.filter((x) => x.correct).map((x) => x.itemId)).size, self = session.attempts.filter((x) => x.correct === null), recalled = self.filter((x) => x.answer[0] === "recalled").length;
+    const review = session.items.map((item) => {
+      const tries = session.attempts.filter((x) => x.itemId === item.id);
+      return `<article><h3>${esc2(item.prompt)}</h3><p>${esc2(item.explanation)}</p><p>${tries.length ? tries.map((x, i) => `Attempt ${i + 1}: ${esc2(x.answer.join(" \u2192 "))} \u2014 ${x.correct === null ? "self-assessment" : x.correct ? "correct" : "incorrect"}`).join("<br>") : "Not attempted"}</p></article>`;
+    }).join("");
+    return `<div class="practice-summary"><h2>Practice complete</h2>${graded.length ? `<p>First try: ${firstCorrect}/${first.size}. After retries: ${eventualCorrect}/${first.size} answered correctly.</p>` : ""}${self.length ? `<p>Flash-card self-assessments: ${recalled} recalled; ${self.length - recalled} marked study again.</p>` : ""}<div class="practice-summary-actions"><button type="button" data-generated-missed>Practice missed concepts</button><button type="button" data-generated-another>Start another set</button><button type="button" data-generated-review>Review my work</button></div><div class="practice-review" data-generated-review-panel hidden>${review}</div></div>`;
+  }
+  function renderGeneratedSection(section, run) {
+    const setup = $("[data-practice-setup]", section), host = $("[data-generated-host]", section);
+    for (const legacy of all("[data-legacy-practice]", section)) legacy.hidden = true;
+    const lesson = $("[data-practice-lesson]", setup);
+    practiceOptions(lesson, section.dataset.generatedPractice);
+    if (!run) {
+      setup.hidden = false;
+      host.replaceChildren();
+      $("[data-generated-start]", setup).disabled = !ready;
+      return;
+    }
+    setup.hidden = true;
+    const session = run.generatedSession;
+    if (run.endedAt) {
+      host.innerHTML = generatedSummary(run);
+      return;
+    }
+    const item = session.items[session.position];
+    if (!item) {
+      host.innerHTML = "<p>This set could not be restored. Its saved record has been retained in this browser.</p>";
+      return;
+    }
+    host.innerHTML = `<div class="practice-run-bar"><p><strong>Resume saved set:</strong> ${esc2(practiceBank.lessons.find((x) => x.id === session.settings.lessonId)?.label ?? "All Chapter 11 lessons")} \xB7 ${session.items.length} items</p><button type="button" class="practice-reset" data-generated-reset>Stop and reset</button></div>${renderGeneratedItem(item, session.position, session.items.length, session.attempts)}`;
+    if (session.feedback === "answer") {
+      const panel = $("[data-generated-reveal-panel]", host);
+      if (panel) panel.hidden = false;
+    }
+  }
+  function generatedAnswer(root, item) {
+    const typed = root.querySelector("input[type=text][data-generated-answer]");
+    if (typed) return [typed.value];
+    if (item.interaction === "ordering") return all("[data-generated-answer]", root).map((x) => x.value);
+    return all("[data-generated-answer]:checked", root).map((x) => x.value);
+  }
+  function startGenerated(section, missedOnly = false) {
+    return change((next) => {
+      const id = section.dataset.activity, prior = next.current[id];
+      if (prior && !prior.endedAt) throw Error("Resume the unfinished set before changing setup options.");
+      const kind = section.dataset.generatedPractice, lesson = $("[data-practice-lesson]", section)?.value || prior?.generatedSession?.settings.lessonId || "all", count = Number($("[data-practice-count]", section)?.value || prior?.generatedSession?.settings.count || 10), difficulty = $("[data-practice-difficulty]", section)?.value || prior?.generatedSession?.settings.difficulty || "mixed";
+      const evidence = generatedPerformance(next), avoid = (prior?.generatedSession?.items ?? []).map((x) => x.id), seed = crypto.getRandomValues(new Uint32Array(1))[0];
+      let session = generatePracticeSession(practiceBank, kind, { lessonId: lesson, count, difficulty }, seed, evidence, avoid);
+      if (missedOnly && prior?.generatedSession) {
+        const missed = new Set(prior.generatedSession.attempts.filter((x) => x.correct === false).map((x) => prior.generatedSession.items.find((i) => i.id === x.itemId)?.conceptId).filter(Boolean));
+        const focused = session.items.filter((x) => missed.has(x.conceptId));
+        if (focused.length) session.items = focused.slice(0, count);
+      }
+      next.current[id] = { id: crypto.randomUUID(), activity: id, startedAt: Date.now(), drafts: {}, attempts: [], questionIds: session.items.map((x) => x.id), generatedSession: session };
+    });
+  }
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-generated-start],[data-generated-reset],[data-generated-reveal],[data-generated-self],[data-generated-check],[data-generated-next],[data-generated-missed],[data-generated-another],[data-generated-review]");
+    if (!button) return;
+    const section = button.closest("[data-generated-practice]");
+    if (!section) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (button.hasAttribute("data-generated-review")) {
+      const panel = $("[data-generated-review-panel]", section);
+      panel.hidden = !panel.hidden;
+      return;
+    }
+    if (button.hasAttribute("data-generated-reset") && !requestPracticeReset(button)) return;
+    const visibleSession = current(section)?.generatedSession, visibleItem = visibleSession?.items[visibleSession.position], domInteraction = section.querySelector("[data-practice-order]") ? "ordering" : "single", submittedAnswer = button.hasAttribute("data-generated-self") ? [button.dataset.generatedSelf] : button.hasAttribute("data-generated-check") ? generatedAnswer(section, visibleItem ?? { interaction: domInteraction }) : [];
+    enqueue(async () => {
+      if (button.hasAttribute("data-generated-reset")) {
+        await change((next) => {
+          const id = section.dataset.activity, run = next.current[id];
+          if (!run || run.endedAt) throw Error("There is no unfinished practice to reset.");
+          delete next.current[id];
+        });
+        render();
+        return;
+      }
+      if (button.hasAttribute("data-generated-start") || button.hasAttribute("data-generated-another") || button.hasAttribute("data-generated-missed")) {
+        await startGenerated(section, button.hasAttribute("data-generated-missed"));
+        render();
+        return;
+      }
+      if (button.hasAttribute("data-generated-reveal")) {
+        await change((next) => {
+          next.current[section.dataset.activity].generatedSession.feedback = "answer";
+        });
+        render();
+        return;
+      }
+      await change((next) => {
+        const run = next.current[section.dataset.activity], session = run.generatedSession, item = session.items[session.position];
+        if (button.hasAttribute("data-generated-next")) {
+          if (session.position === session.items.length - 1) {
+            run.endedAt = Date.now();
+            next.history.push(structuredClone(run));
+          } else {
+            session.position++;
+            session.feedback = "none";
+          }
+          return;
+        }
+        if (visibleItem && visibleItem.id !== item.id) throw Error("The saved item changed before this answer was recorded. Review the visible item and try again.");
+        const answer2 = submittedAnswer;
+        if (!answer2.length || answer2.some((x) => !x.trim())) throw Error("Complete an answer before checking.");
+        const prior = session.attempts.filter((x) => x.itemId === item.id), correct = item.interaction === "flashcard" ? null : gradeGeneratedItem(item, answer2), attempt = { itemId: item.id, answer: answer2, correct, attemptNumber: prior.length + 1, at: Date.now(), firstTry: prior.length === 0 };
+        session.attempts.push(attempt);
+        session.feedback = correct || correct === null || prior.length >= 1 ? "answer" : "cue";
+        run.attempts.push({ question: item.id, answer: answer2.join(" \u2192 "), correct, at: Date.now(), elapsedMs: Date.now() - run.startedAt, prompt: item.prompt, conceptId: item.conceptId, skill: item.skill, difficulty: item.difficulty, generatedItemId: item.id, firstTry: attempt.firstTry, displayedOptions: item.options, correctAnswer: item.answers });
+        if (correct === false && prior.length === 1 && session.position + 3 < session.items.length) {
+          const reserve = generatePracticeSession(practiceBank, session.kind, session.settings, session.seed + session.position + 1, session.startedWithEvidence, session.items.map((x) => x.id)).items.find((x) => x.conceptId === item.conceptId && x.family !== item.family);
+          if (reserve) {
+            const at = session.position + 3, old = session.items[at];
+            session.items[at] = reserve;
+            session.adaptations.push({ triggerItemId: item.id, replacementItemId: reserve.id, at });
+            run.questionIds[at] = reserve.id;
+          }
+        }
+      });
+      render();
+    });
+  }, { capture: true });
   var wordPayload = JSON.parse($("#pilot3-words").textContent);
   var wordData = wordPayload.data;
   var wordSchema = wordPayload.schema;
@@ -761,8 +1139,19 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     if (event.target.closest("[data-bio-term]")) syncPopup();
   });
   $("[data-bio-family]").addEventListener("change", syncPopup);
+  function mountLabelingLibrary() {
+    const page = $("#labeling-practice"), select = $("[data-labeling-select]", page), cards = all("[data-labeling-card]", page);
+    const show = () => {
+      const chosen = cards.find((card) => card.id === select.value) ?? cards[0];
+      for (const card of cards) card.hidden = card !== chosen;
+      select.setAttribute("aria-controls", chosen.id);
+    };
+    select.addEventListener("change", show);
+    show();
+  }
   function showVideos(root) {
     for (const section of all("[data-video]", root)) {
+      if (section.closest("[data-video-library-item]")?.hidden) continue;
       const control = section.querySelector("[data-load-video]");
       if (control) control.hidden = true;
       const slot = $("[data-video-slot]", section);
@@ -777,6 +1166,41 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       slot.replaceChildren(frame);
     }
   }
+  function mountVideoLibrary() {
+    const page = $("#video-library"), select = $("[data-video-library-select]", page), items = all(":scope > .p2-topic > .content-section", page).filter((item) => item.querySelector("[data-video]"));
+    const groups = /* @__PURE__ */ new Map();
+    select.replaceChildren();
+    items.forEach((item, index) => {
+      item.dataset.videoLibraryItem = String(index);
+      item.hidden = index !== 0;
+      if (index === 0) item.id = "video-library-card";
+      const title = item.querySelector("h3")?.textContent?.trim() ?? `Video ${index + 1}`, lesson = item.querySelector('a[href^="#lesson-"]')?.textContent?.replace(/^Return to\s+/, "").trim() ?? "Chapter 11";
+      let group = groups.get(lesson);
+      if (!group) {
+        group = document.createElement("optgroup");
+        group.label = lesson;
+        groups.set(lesson, group);
+        select.append(group);
+      }
+      const option = document.createElement("option");
+      option.value = String(index);
+      option.textContent = title;
+      group.append(option);
+    });
+    select.addEventListener("change", () => {
+      const chosen = items[Number(select.value)] ?? items[0];
+      for (const item of items) {
+        const active = item === chosen;
+        item.hidden = !active;
+        if (!active) item.querySelector("iframe")?.remove();
+      }
+      chosen.id = "video-library-card";
+      for (const item of items) if (item !== chosen) item.removeAttribute("id");
+      showVideos(chosen);
+    });
+  }
+  mountLabelingLibrary();
+  mountVideoLibrary();
   function route() {
     let id = location.hash.slice(1) || "overview";
     if (!all(".course-page").some((p) => p.id === id)) id = "overview";
@@ -820,7 +1244,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   var linkedWord = new URLSearchParams(location.search).get("word");
   if (linkedWord && wordData.words.some((w) => w.id === linkedWord)) $(`[data-biology-select-word="${CSS.escape(linkedWord)}"]`)?.click();
   document.addEventListener("click", (event) => {
-    const target = event.target.closest("[data-book-page],[data-textbook-close],[data-load-video],[data-sidebar-toggle],[data-menu-button],[data-download],[data-print],[data-save-exit]");
+    const target = event.target.closest("[data-book-page],[data-textbook-close],[data-load-video],[data-sidebar-toggle],[data-menu-button],[data-print],[data-save-exit]");
     if (!target) return;
     if (target.hasAttribute("data-book-page")) {
       event.preventDefault();
@@ -837,22 +1261,12 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       target.setAttribute("aria-expanded", String(document.body.classList.contains("nav-open")));
     }
     if (target.hasAttribute("data-print")) window.print();
-    if (target.hasAttribute("data-download")) download();
     if (target.hasAttribute("data-save-exit")) enqueue(async () => {
-      if (failed) throw Error("Some writing has not saved. Download your collection and visible drafts before leaving.");
-      message("Saved locally. You can now close this tab; download a backup before clearing browser data.");
+      if (failed) throw Error("Some writing has not saved. Copy your visible drafts before leaving.");
+      message("Saved locally. You can now close this tab. Print or save completed work as a PDF before clearing browser data.");
       location.hash = "overview";
     });
   });
-  function download() {
-    const payload = { course: NS, exportedAt: (/* @__PURE__ */ new Date()).toISOString(), state, frayers, visibleDrafts: all("[data-writing],input[type=text][data-answer],textarea[data-word-answer]").map((f) => ({ id: f.dataset.writing ?? f.id, word: f.closest("[data-word-frayer]")?.dataset.wordFrayer, field: f.dataset.wordAnswer, value: f.value })) };
-    const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }));
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "biology30-pilot3-process-collection.json";
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1e3);
-  }
   window.addEventListener("beforeunload", (event) => {
     if (failed || busy || pending) {
       event.preventDefault();

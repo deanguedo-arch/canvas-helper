@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "project": "sportswellness-phase-1",
+  "change": "Phase 1 student navigation redesign",
+  "status": "implemented-for-local-review",
+  "canonicalFiles": [
+    "projects/sportswellness-phase-1/workspace/index.html",
+    "projects/sportswellness-phase-1/workspace/styles.css",
+    "projects/sportswellness-phase-1/workspace/main.js"
+  ],
+  "preserved": {
+    "sectionIds": true,
+    "hashRoutes": true,
+    "pageMeta": true,
+    "stateSchemaVersion": 2,
+    "storageKey": "canvas-helper:sportswellness-phase-1:state",
+    "responseFields": 72,
+    "topicProgressDenominator": 12,
+    "checkpointLogic": true,
+    "gameLogic": true
+  },
+  "navigation": {
+    "numberedOrder": [
+      "start",
+      "key-terms",
+      "stress-loop",
+      "performance-zone",
+      "interpreting-nerves",
+      "stress-sources",
+      "attention-coordination",
+      "regulation-tools",
+      "cues-goals",
+      "performance-lab",
+      "playbook",
+      "phase-review"
+    ],
+    "checkpoint": "checkpoint",
+    "myWork": "process-collection",
+    "resources": "resources",
+    "sidebarExcluded": [
+      "performance-game",
+      "untimed-practice"
+    ],
+    "continueBehavior": "removed from sidebar at learner review request",
+    "sectionGuidance": "dedicated course-guide route plus one closed How to complete this section panel on every numbered topic",
+    "completionGuideIds": [
+      "completion-guide-start",
+      "completion-guide-key-terms",
+      "completion-guide-stress-loop",
+      "completion-guide-performance-zone",
+      "completion-guide-interpreting-nerves",
+      "completion-guide-stress-sources",
+      "completion-guide-attention-coordination",
+      "completion-guide-regulation-tools",
+      "completion-guide-cues-goals",
+      "completion-guide-performance-lab",
+      "completion-guide-playbook",
+      "completion-guide-phase-review"
+    ],
+    "sidebarGuideLinks": false,
+    "groupsCollapsible": true,
+    "collapsedDesktopTrigger": "icon only with accessible label",
+    "mobileTrigger": "visible menu label with reviewed count",
+    "sidebarProgressBlock": false,
+    "courseGuideRoute": "course-guide",
+    "myNotes": "notebook-dialog",
+    "myNotesAvailability": "persistent Quick Notes button, sidebar, and every numbered topic footer"
+  },
+  "performanceLabChoices": [
+    "Guided Scenario Lab",
+    "Performance Simulator",
+    "Untimed Practice"
+  ],
+  "verification": [
+    "focused static and browser regression",
+    "desktop 1280x900 inspection",
+    "mobile 390x844 drawer inspection",
+    "Topic 10 practice chooser inspection"
+  ]
+}

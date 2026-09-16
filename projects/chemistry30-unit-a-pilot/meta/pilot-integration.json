@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "project": "chemistry30-unit-a-pilot",
+  "recordedAt": "2026-09-15T21:15:00.000Z",
+  "source": {
+    "role": "imported first-pass source",
+    "system": "ChatGPT",
+    "path": "/Users/deanguedo/Downloads/Chemistry30_UnitA_GuidedEdition.html",
+    "sha256": "f190e694904b5b584fd5c12d6ace5e8ac1d30cc7fd04c5aa46865160109cd30e",
+    "preservedCopy": "projects/chemistry30-unit-a-pilot/raw/original.html"
+  },
+  "referenceOnly": [
+    {
+      "path": "/Users/deanguedo/Downloads/Chemistry30_UnitA_GuidedEdition_TeacherGuide.md",
+      "sha256": "191f6df54d495807b7155d9324e6fdbfbef97bfc6e64597a19c35a03f55153ec",
+      "use": "Provenance and preservation constraints; statements in this document were not treated as current verification."
+    },
+    {
+      "path": "/Users/deanguedo/Downloads/Chemistry30_UnitA_InteractiveEdition_SCORM2004.zip",
+      "sha256": "4852e5776bd553ad56aede16fe02baf0e70788a4d68657cfc43002cd49d3eb0b",
+      "use": "Reference package only; not unpacked, rebuilt, or substituted for the Guided Edition."
+    }
+  ],
+  "presentation": {
+    "referenceProject": "biology30-unit-a-pilot-3",
+    "lessonGuides": 20,
+    "reviewGuides": 4,
+    "supportGuides": 7,
+    "overviewOrientationRestyled": true,
+    "biologyStyleCoreVocabulary": true,
+    "lessonVocabularyDrawer": true,
+    "movableResizableReferencePanel": true,
+    "guidesOpenByDefault": 0,
+    "localFonts": [
+      "Hanken Grotesk",
+      "Work Sans"
+    ],
+    "collapsibleSupportNavigation": true,
+    "videoLibraryLearnerCleanup": true,
+    "biologyStyleTextbookLibrary": true,
+    "inCourseTextbookViewer": true,
+    "printedPageLinks": 27,
+    "biologyStyleSidebarNavigation": true,
+    "consolidatedProcessCollection": true,
+    "frayerSaveToCollection": true,
+    "singleProcessReportAction": true
+  },
+  "preservedInventory": {
+    "routes": 32,
+    "progressMilestones": 24,
+    "textbookQuestionEntries": 123,
+    "vocabularyTerms": 74,
+    "unitCheckDefinitions": 19,
+    "lessonAndReviewActivityPlacements": 11,
+    "practiceLabFrames": 1,
+    "completionControls": 24,
+    "completionRequirements": 24,
+    "courseStateIdentity": "chem30-unit-a-v2",
+    "stateSchema": 1
+  },
+  "verification": {
+    "sourceComparison": "pass: preserved instructional and assessment content matches the imported source after accounting for pilot guides, learner-facing navigation/resource revisions, the teacher-requested Video Lessons cleanup, and the new textbook viewer labels",
+    "dataContracts": "pass: vocabulary, textbook questions, checks, labels, and milestones are byte-identical to the preserved raw source; all 32 original route IDs remain present exactly once after the requested sidebar regrouping",
+    "javascriptSyntax": "pass: node --check workspace/main.js",
+    "guideCoverage": "pass: all 31 intended routes have exactly one guide and every guide begins collapsed",
+    "keyboardDisclosure": "pass: Enter opens a focused lesson guide",
+    "localSaveReload": "pass: a Chapter 9 required-check response restored after page reload",
+    "mobileWidth390": "pass: Practice Lab guide and embedded activity rendered without horizontal page overflow",
+    "biologyShellParity": "pass: the desktop shell now uses the Biology Pilot 3 title hierarchy, top progress block, bottom sidebar action, bordered lesson frame, goal strip, and 78px collapsed rail",
+    "responsiveFrame": "pass: at 1667px the lesson frame expands from 1120px to 1380px when the sidebar closes; the goal strip expands with it and neither state overflows horizontally",
+    "mobileShell": "pass: at 390px the goal strip becomes one column, the page has no horizontal overflow, and the navigation drawer opens to 310px",
+    "vocabularyReader": "pass: all 74 preserved Chemistry terms appear in the Biology-style category index and selecting a term updates the reader",
+    "lessonTermLinks": "pass: existing lesson text is enhanced at runtime with accessible term buttons; the representative Chapter 9 lesson exposed 29 links and opened the matching side drawer",
+    "vocabularySaveContinuity": "pass: a Frayer response entered in the lesson drawer appeared in Core Vocabulary and survived reload through the existing data-save field",
+    "referencePanel": "pass: the persistent Reference sheet control opens a non-modal panel that remained open during lesson navigation, moved by its heading, and exposed CSS corner resizing",
+    "mobileVocabulary": "pass: at 390px the Core Vocabulary layout becomes one column, the term drawer fills the viewport width, and neither state overflows horizontally",
+    "browserConsole": "pass: no page or console errors in the focused browser check",
+    "sidebarNavigation": "pass: the sidebar now uses Biology Pilot 3 typography and its Start, Learn, Practice & Review, Tools, Process Collection, and Resources hierarchy; all top-level sections and the three nested chapter groups are collapsible, and the active route opens its owning groups automatically",
+    "videoLibraryLearnerCopy": "pass: the selected Internet and access and original-video-collections blocks are absent, export/source wording was removed from the three playlist cards, and existing video load controls remain",
+    "textbookPageMapping": "pass: all 21 lesson textbook bands expose their referenced range starts; separated ranges receive separate controls, producing 27 lesson/review page entry points",
+    "textbookModal": "pass: lesson and Textbook Practice controls open the embedded chapter PDF at the mapped PDF page in a modal, restore focus on close, and create no new browser tab",
+    "textbookLibrary": "pass: Resources now contains Textbook Library with three chapter selectors, printed-page input, and an embedded chapter reader",
+    "mobileTextbook": "pass: at 390px the library has zero horizontal overflow and the textbook modal fills the 390 by 844 viewport",
+    "processCollectionCurrentPreview": "observed: 4 visible records are supplied reaction-profile starting values; 0 completed practice attempts and 0 of 24 finished lessons were present in the reviewed browser record",
+    "frayerCollection": "pass: four preserved Frayer fields save through one explicit control and render as one Vocabulary Frayers entry; incomplete Frayers remain labelled as drafts",
+    "organizedProcessCollection": "pass: All My Work is grouped by Vocabulary Frayers, Written responses, Equation and textbook work, Energy diagrams, Models and simulations, Checked practice, and Interactive activities; related investigation and textbook fields rendered as one entry each in the isolated focused check",
+    "legacyCollectionConsolidation": "pass: an existing four-field vocabulary draft and four supplied profile values each rendered as one grouped entry without changing their storage IDs or values",
+    "processReportAction": "pass: Process Collection exposes one Download your process report action; the page-specific backup and restore controls and helper wording are absent"
+  },
+  "workspaceSha256": {
+    "index.html": "4f5db192f2dae5109275924eb39df3c54a88c0ddb1436d879517cada677fd615",
+    "styles.css": "0c5ffa0d5c2f912ccb581cf51bbfbcd1e1262ccf20237745b1e466e43a6a8b5a",
+    "main.js": "88ec35a6590bfdfd8fc701957bb9d03875c7a8298271ca3eec42b6de8f1323b6"
+  },
+  "releaseBoundary": {
+    "authoringStatus": "blocked",
+    "studioEditing": false,
+    "exported": false,
+    "deployed": false,
+    "brightspaceTested": false
+  }
+}

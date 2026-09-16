@@ -608,6 +608,8 @@ async function assertEvidenceScenarios(
     if (scenario.kind === "pilot3-local-run") {
       const section=await showLearnerRoute(workspaceFrame,scenario.route);
       const activity=section.locator(`[data-activity="${scenario.activityId}"]`);
+      const disclosure=activity.locator('xpath=ancestor::details[1]');
+      if(await disclosure.count()&&await disclosure.getAttribute('open')===null)await disclosure.locator(':scope > summary').click();
       await activity.locator('[data-start]').click();
       const value=`Written evidence during project verification ${scenarioIndex}.`;
       const fields=activity.locator('[data-writing]');

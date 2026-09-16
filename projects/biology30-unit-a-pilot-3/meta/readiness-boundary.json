@@ -1,5 +1,13 @@
 {
-  "status": "passed-edit-enabled",
+  "status": "stale-after-generated-practice-change",
+  "currentCandidate": {
+    "htmlSha256": "8e86b3690d0fa72f78ba6f755b09c840f49a4f72e3ba020b5ec0a81f62006e16",
+    "runtimeSha256": "3588801822e8507d9c585daccf8120addc31f049ca39a2e04fa16cbce592491f",
+    "practiceBankSha256": "22216c21942634209f9774d556018b7d869a4b4618a42f85560ae16e474ac76b",
+    "focusedPracticeTests": "passed-6-of-6-including-multiple-choice-state-and-all-practice-reset-regressions",
+    "studioReadiness": "deferred-until-rollout"
+  },
+  "previousPassedEvidence": {
   "isolatedSnapshot": "/tmp/biology30-pilot3-validation.VzOFlG",
   "snapshotCommit": "1671cf85d69fa759dd6703c3d01f6d255378ae67",
   "candidateSha256": "d01528cbce3a0d947f0f7ca1af093258d203cb104848819f7e62986f26a4ab88",
@@ -24,5 +32,7 @@
   "readinessReportDigest": "397c016edc68ebe290b6cc20723fe626baa944442016f4c4cb9108b91f982491",
   "coverageReportDigest": "45ebe0516e08fa477c8781c0dd1c838077229038423a0cabe2cc19b9af2238fd",
   "projectE2E": "passed-1-of-1",
-  "boundary": "Chapter 11 learner work and focused checks complete. All 106 linked textbook references match the printed-page offset and now open the requested PDF page in a closable in-course reader without changing the lesson route; a separate-window link remains available. All 14 destinations retain the approved lesson-entry patterns, and lesson/library videos appear automatically. Exact-head rendered coverage and the reversible Studio apply, reload and Undo lifecycle passed on 2026-09-14. Studio Edit remains enabled through active authoring status. No release or LMS certification."
+  "boundary": "The recorded exact-head Studio proof applies to the prior textbook-reader candidate, not the current generated-practice candidate. Generated practice passed its focused Build-mode batch, but exact-head rendered coverage and reversible Studio apply/reload/Undo must be rerun at rollout. No release or LMS certification.",
+  "previousBoundary": "Chapter 11 learner work and focused checks complete. All 106 linked textbook references match the printed-page offset and now open the requested PDF page in a closable in-course reader without changing the lesson route; a separate-window link remains available. All 14 destinations retain the approved lesson-entry patterns, and lesson/library videos appear automatically. Exact-head rendered coverage and the reversible Studio apply, reload and Undo lifecycle passed on 2026-09-14. Studio Edit remained enabled through active authoring status. No release or LMS certification."
+  }
 }

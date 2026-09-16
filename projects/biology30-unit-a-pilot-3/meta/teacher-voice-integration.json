@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "sourceArchive": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_pilot3_teacher_voice_change_package.zip",
+  "sourceSha256": "d1032ab670bfcb79eaab20702ae92536729cc0a5baf58ba9f60048f7e8fd47f8",
+  "appliedAt": "2026-09-15",
+  "target": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+  "evaluation": {
+    "archiveHashesVerified": true,
+    "exactSourceSnapshotMatch": false,
+    "currentSourcePreflight": "passed",
+    "textTargetsMatched": 601,
+    "vocabularyRecordsMatched": 82,
+    "vocabularyFieldsMatched": 208,
+    "copyAuditPassed": true,
+    "scienceGuardrailsReviewed": true,
+    "decision": "approved with current-repository reconciliation"
+  },
+  "preserved": {
+    "requiredChecks": 12,
+    "questionContainers": 168,
+    "frayerShells": 141,
+    "imageNodes": 38,
+    "wordSchemaIdentity": "0ed40adf1277d8ae74185811db3161eeea85acdce7ea6f004293f13f31afd5cd",
+    "bindingsAndAnswerFields": true,
+    "linksAndRuntimeScripts": true
+  },
+  "structuralTasks": {
+    "S01": "completed: compact key-term strips and closed Vocabulary help on all 14 lesson routes",
+    "S02": "completed: two refractory phases retained under a closed detail",
+    "S03": "completed: voltage and hypothesis accuracy notes shortened without changing their distinctions",
+    "S04": "completed: Meaning, What it does and Common confusion precede More about this word in all 141 static views and the Pilot 3 popup clone",
+    "S05": "completed: both task-specific reminders moved beside their source questions",
+    "S06": "preserved: required ion, ATP, calcium, vesicle, receptor, removal and summation mechanisms remain visible",
+    "S07": "completed: autonomic explanations remain adjacent and the polygraph application is collapsed",
+    "S08": "completed: brain opening terms corrected and four lobe functions separated for comparison",
+    "S09": "completed: repeated production wording removed from three learner captions; provenance retained here and in existing integration records",
+    "S10": "preserved: reasoning, privacy and optional-extension boundaries remain",
+    "S11": "completed: interface copy revised without changing generated-practice items or answers",
+    "S12": "build-mode focused verification completed; rollout, export and LMS certification deferred"
+  },
+  "focusedVerification": {
+    "duplicateDomIds": 0,
+    "duplicateEditKeys": 0,
+    "desktopWidthsChecked": [1280],
+    "mobileWidthsChecked": [390],
+    "routesChecked": ["lesson-02", "lesson-04", "lesson-05", "lesson-06", "lesson-10"],
+    "horizontalOverflow": false,
+    "vocabularyDialogAndFocusReturn": "passed",
+    "frayerSaveReload": "passed",
+    "browserPageErrors": 0
+  },
+  "deferred": [
+    "full project E2E and exhaustive responsive matrix",
+    "Studio reversible editing lifecycle",
+    "SCORM export and Brightspace validation",
+    "deployment"
+  ]
+}

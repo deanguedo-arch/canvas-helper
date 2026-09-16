@@ -1,0 +1,1265 @@
+{
+  "schemaVersion": 1,
+  "status": "audit-specification-not-runtime-contract",
+  "repo": "deanguedo-arch/canvas-helper",
+  "reviewedCommit": "d3229bb7c2313172b0c409c0ce13a157bca5516c",
+  "prototype": {
+    "file": "SportsPsychology_Phase1_SchoolDesign.html",
+    "sha256": "97b1bcddded6a825b1b6712245b758e5b4d3993d890ca968401408d1f712d459",
+    "bytes": 1196097,
+    "courseId": "sport-psychology-engine-phase1",
+    "storageKey": "sport-psychology-engine-phase1-learning-v1",
+    "version": 1
+  },
+  "counts": {
+    "topics": 12,
+    "draftFields": 72,
+    "requiredAssignmentFields": 28,
+    "formativeChecks": 15,
+    "writtenReviewQuestions": 10,
+    "scenarioLabCases": 3,
+    "teachingFigures": 9,
+    "maximumDraftCharactersBeforeOtherState": 360000
+  },
+  "routes": [
+    {
+      "id": "start",
+      "title": "Phase 1: The Engine",
+      "draftIds": [
+        "start-moment",
+        "start-question"
+      ],
+      "checkIds": [],
+      "videoIds": [],
+      "sourceTextSha256": "e2b2d15476665573699338753e16b71d4e3629366513f6a9ffaf4cc4e9ed2ef9",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "key-terms",
+      "title": "Arousal, stress & anxiety",
+      "draftIds": [
+        "terms-own"
+      ],
+      "checkIds": [
+        "check-body-inference",
+        "check-arousal",
+        "check-somatic"
+      ],
+      "videoIds": [],
+      "sourceTextSha256": "b7f7366d44f9a553741b8983735e8fd67fbabf3b8e173ecca558163038d245d3",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "stress-loop",
+      "title": "How pressure becomes a loop",
+      "draftIds": [
+        "loop-next-cycle",
+        "loop-reframe"
+      ],
+      "checkIds": [
+        "check-appraisal"
+      ],
+      "videoIds": [],
+      "sourceTextSha256": "95805688eb8dac33b3dc45b661b2b5a0cc7d3067b13e1df2ab4c574bde8b2458",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "performance-zone",
+      "title": "Finding your performance zone",
+      "draftIds": [
+        "zone-reflection"
+      ],
+      "checkIds": [
+        "check-drive-habit",
+        "check-izof"
+      ],
+      "videoIds": [],
+      "sourceTextSha256": "22cb9613d84929a2357c64877ff7788a01b9399bf8f49c0ffda8182ca9fac2fa",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "interpreting-nerves",
+      "title": "When nerves help—or hurt",
+      "draftIds": [
+        "video-nerves",
+        "nerves-control"
+      ],
+      "checkIds": [
+        "check-realistic-reframe",
+        "check-catastrophe"
+      ],
+      "videoIds": [
+        "Ih5IrYcXADo"
+      ],
+      "sourceTextSha256": "2a859d9ccc67ba2322a681ec3edc127a8e47f2249e8853db1b63b46523b8e415",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "stress-sources",
+      "title": "Where pressure comes from",
+      "draftIds": [
+        "source-case"
+      ],
+      "checkIds": [
+        "check-source-response",
+        "check-uncertainty"
+      ],
+      "videoIds": [],
+      "sourceTextSha256": "ea36f99e57789321f33455d452cc9bcc14a65c4d438fd3192f43666b9c30f106",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "attention-coordination",
+      "title": "What pressure changes",
+      "draftIds": [
+        "attention-cue"
+      ],
+      "checkIds": [
+        "check-task-focus",
+        "check-attention"
+      ],
+      "videoIds": [],
+      "sourceTextSha256": "54107064b8a673a074f282033b58fdff83aac6479213b47519031a626a853fbf",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "regulation-tools",
+      "title": "Turning energy up or down",
+      "draftIds": [
+        "tool-test-plan",
+        "tool-test-review",
+        "video-regulation",
+        "regulation-why"
+      ],
+      "checkIds": [
+        "check-regulation"
+      ],
+      "videoIds": [
+        "_Le9VIVi1xM"
+      ],
+      "sourceTextSha256": "dc8f246d1ec494d2437431de03a00c1b60a9de5e5a8bbc0200ff45fa093c4cbc",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "cues-goals",
+      "title": "Cues and controllable goals",
+      "draftIds": [
+        "goal-rewrite"
+      ],
+      "checkIds": [
+        "check-process-evidence",
+        "check-process"
+      ],
+      "videoIds": [],
+      "sourceTextSha256": "bbdea57f2715b6cc3f6509297332b8ce8cdbe7559d25d1472a9fcddbc733ae13",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "performance-lab",
+      "title": "Performance-state lab",
+      "draftIds": [
+        "lab-prediction",
+        "lab-transfer",
+        "lab-limit",
+        "lab-real-trial"
+      ],
+      "checkIds": [],
+      "videoIds": [],
+      "sourceTextSha256": "456594382aa0722d267a2e2eeda8f11e70ad639d9c0f46af27107af3b80a3f6e",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "playbook",
+      "title": "Build your Regulation Engine",
+      "draftIds": [
+        "p1_threat_trigger",
+        "p1_breath_scenario",
+        "p1_somatic_signals",
+        "p1_cognitive_signals",
+        "p1_breath_detail",
+        "p1_interrupt_signal",
+        "p1_under_zone",
+        "p1_ideal_zone",
+        "p1_over_zone",
+        "p1_relax_plan",
+        "p1_active_plan",
+        "p1_internal_dist",
+        "p1_external_dist",
+        "p1_cue_inst",
+        "p1_cue_mot",
+        "p1_tunnel_sign",
+        "p1_jam_scenario",
+        "p1_fac_help",
+        "p1_fac_hurt",
+        "p1_situational_stressors",
+        "p1_personal_stressors",
+        "p1_goal_proc",
+        "p1_goal_perf",
+        "p1_goal_out",
+        "p1_smart_final",
+        "p1_final_narrative",
+        "p1_zone_summary",
+        "p1_crash_plan",
+        "extension-trial",
+        "extension-adjustment"
+      ],
+      "checkIds": [],
+      "videoIds": [],
+      "sourceTextSha256": "303db082e8cdea322770142a8653c94297f8871367321d06f0c7580c0f3cb85c",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    },
+    {
+      "id": "phase-review",
+      "title": "Phase 1 review",
+      "draftIds": [
+        "review-1-first",
+        "review-1-revision",
+        "review-2-first",
+        "review-2-revision",
+        "review-3-first",
+        "review-3-revision",
+        "review-4-first",
+        "review-4-revision",
+        "review-5-first",
+        "review-5-revision",
+        "review-6-first",
+        "review-6-revision",
+        "review-7-first",
+        "review-7-revision",
+        "review-8-first",
+        "review-8-revision",
+        "review-9-first",
+        "review-9-revision",
+        "review-10-first",
+        "review-10-revision",
+        "phase-synthesis",
+        "phase-change"
+      ],
+      "checkIds": [],
+      "videoIds": [],
+      "sourceTextSha256": "b9500e719f264cd66f81d63ba550893fa92eeac114c465db36972c0ab1330bfa",
+      "instruction": "Preserve the teaching, examples, prompts, feedback, captions and sequencing. Any route rename needs an alias and saved-route migration."
+    }
+  ],
+  "fields": [
+    {
+      "id": "start-moment",
+      "domId": "start-moment",
+      "sourceRoute": "start",
+      "role": "practice-reflection",
+      "label": "What was the task, and what did you notice in your body or thoughts?",
+      "maxLength": 5000,
+      "destinationId": "start-moment",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "start-question",
+      "domId": "start-question",
+      "sourceRoute": "start",
+      "role": "practice-reflection",
+      "label": "What would you like to understand or handle differently?",
+      "maxLength": 5000,
+      "destinationId": "start-question",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "terms-own",
+      "domId": "terms-own",
+      "sourceRoute": "key-terms",
+      "role": "practice-reflection",
+      "label": "Explain arousal, anxiety and stress using one sporting example.",
+      "maxLength": 5000,
+      "destinationId": "terms-own",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "loop-next-cycle",
+      "domId": "loop-next-cycle",
+      "sourceRoute": "stress-loop",
+      "role": "practice-reflection",
+      "label": "A missed shot is followed by the thought, “I always fail under pressure.” How could that thought affect the next attempt?",
+      "maxLength": 5000,
+      "destinationId": "loop-next-cycle",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "loop-reframe",
+      "domId": "loop-reframe",
+      "sourceRoute": "stress-loop",
+      "role": "practice-reflection",
+      "label": "Change the interpretation without changing the demand.",
+      "maxLength": 5000,
+      "destinationId": "loop-reframe",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "zone-reflection",
+      "domId": "zone-reflection",
+      "sourceRoute": "performance-zone",
+      "role": "practice-reflection",
+      "label": "Why might “calm down” be the wrong advice for a flat, distracted athlete?",
+      "maxLength": 5000,
+      "destinationId": "zone-reflection",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "video-nerves",
+      "domId": "video-nerves",
+      "sourceRoute": "interpreting-nerves",
+      "role": "practice-reflection",
+      "label": "After watching",
+      "maxLength": 5000,
+      "destinationId": "video-nerves",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "nerves-control",
+      "domId": "nerves-control",
+      "sourceRoute": "interpreting-nerves",
+      "role": "practice-reflection",
+      "label": "Give an example of a believable, control-based reframe.",
+      "maxLength": 5000,
+      "destinationId": "nerves-control",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "source-case",
+      "domId": "source-case",
+      "sourceRoute": "stress-sources",
+      "role": "practice-reflection",
+      "label": "Describe one situational source and one personal factor in a performance example.",
+      "maxLength": 5000,
+      "destinationId": "source-case",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "attention-cue",
+      "domId": "attention-cue",
+      "sourceRoute": "attention-coordination",
+      "role": "practice-reflection",
+      "label": "What should the athlete notice next, and why?",
+      "maxLength": 5000,
+      "destinationId": "attention-cue",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "tool-test-plan",
+      "domId": "tool-test-plan",
+      "sourceRoute": "regulation-tools",
+      "role": "practice-reflection",
+      "label": "Choose one regulation tool. When would you use it, how would you use it, and what would you look for afterward?",
+      "maxLength": 5000,
+      "destinationId": "tool-test-plan",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "tool-test-review",
+      "domId": "tool-test-review",
+      "sourceRoute": "regulation-tools",
+      "role": "practice-reflection",
+      "label": "What result would make you keep, change or stop using that tool?",
+      "maxLength": 5000,
+      "destinationId": "tool-test-review",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "video-regulation",
+      "domId": "video-regulation",
+      "sourceRoute": "regulation-tools",
+      "role": "practice-reflection",
+      "label": "After watching",
+      "maxLength": 5000,
+      "destinationId": "video-regulation",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "regulation-why",
+      "domId": "regulation-why",
+      "sourceRoute": "regulation-tools",
+      "role": "practice-reflection",
+      "label": "Contrast an up-regulation plan with a down-regulation plan.",
+      "maxLength": 5000,
+      "destinationId": "regulation-why",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "goal-rewrite",
+      "domId": "goal-rewrite",
+      "sourceRoute": "cues-goals",
+      "role": "practice-reflection",
+      "label": "Rewrite “I want to perform better” as a SMART process goal.",
+      "maxLength": 5000,
+      "destinationId": "goal-rewrite",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "lab-prediction",
+      "domId": "lab-prediction",
+      "sourceRoute": "performance-lab",
+      "role": "practice-reflection",
+      "label": "Why does your chosen first move fit the signs in this round?",
+      "maxLength": 5000,
+      "destinationId": "lab-prediction",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "lab-transfer",
+      "domId": "lab-transfer",
+      "sourceRoute": "performance-lab",
+      "role": "practice-reflection",
+      "label": "Why did the appropriate tool change between rounds?",
+      "maxLength": 5000,
+      "destinationId": "lab-transfer",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "lab-limit",
+      "domId": "lab-limit",
+      "sourceRoute": "performance-lab",
+      "role": "practice-reflection",
+      "label": "What is one important limitation of this simulator?",
+      "maxLength": 5000,
+      "destinationId": "lab-limit",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "lab-real-trial",
+      "domId": "lab-real-trial",
+      "sourceRoute": "performance-lab",
+      "role": "practice-reflection",
+      "label": "Optional: record a real practice trial.",
+      "maxLength": 5000,
+      "destinationId": "lab-real-trial",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_threat_trigger",
+      "domId": "p1_threat_trigger",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Threat trigger",
+      "maxLength": 5000,
+      "destinationId": "p1_threat_trigger",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_breath_scenario",
+      "domId": "p1_breath_scenario",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Pressure scenario",
+      "maxLength": 5000,
+      "destinationId": "p1_breath_scenario",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_somatic_signals",
+      "domId": "p1_somatic_signals",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Somatic signals",
+      "maxLength": 5000,
+      "destinationId": "p1_somatic_signals",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_cognitive_signals",
+      "domId": "p1_cognitive_signals",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Cognitive signals",
+      "maxLength": 5000,
+      "destinationId": "p1_cognitive_signals",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_breath_detail",
+      "domId": "p1_breath_detail",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Centering / manual override",
+      "maxLength": 5000,
+      "destinationId": "p1_breath_detail",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_interrupt_signal",
+      "domId": "p1_interrupt_signal",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "First interrupt signal",
+      "maxLength": 5000,
+      "destinationId": "p1_interrupt_signal",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_under_zone",
+      "domId": "p1_under_zone",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Under-activated",
+      "maxLength": 5000,
+      "destinationId": "p1_under_zone",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_ideal_zone",
+      "domId": "p1_ideal_zone",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Ideal zone (IZOF)",
+      "maxLength": 5000,
+      "destinationId": "p1_ideal_zone",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_over_zone",
+      "domId": "p1_over_zone",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Over-activated",
+      "maxLength": 5000,
+      "destinationId": "p1_over_zone",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_relax_plan",
+      "domId": "p1_relax_plan",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Down-regulation plan",
+      "maxLength": 5000,
+      "destinationId": "p1_relax_plan",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_active_plan",
+      "domId": "p1_active_plan",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Up-regulation plan",
+      "maxLength": 5000,
+      "destinationId": "p1_active_plan",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_internal_dist",
+      "domId": "p1_internal_dist",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Internal distractors",
+      "maxLength": 5000,
+      "destinationId": "p1_internal_dist",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_external_dist",
+      "domId": "p1_external_dist",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "External distractors",
+      "maxLength": 5000,
+      "destinationId": "p1_external_dist",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_cue_inst",
+      "domId": "p1_cue_inst",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Instructional cue",
+      "maxLength": 5000,
+      "destinationId": "p1_cue_inst",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_cue_mot",
+      "domId": "p1_cue_mot",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Motivational cue",
+      "maxLength": 5000,
+      "destinationId": "p1_cue_mot",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_tunnel_sign",
+      "domId": "p1_tunnel_sign",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Tunnel vision warning",
+      "maxLength": 5000,
+      "destinationId": "p1_tunnel_sign",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_jam_scenario",
+      "domId": "p1_jam_scenario",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Jam scenario",
+      "maxLength": 5000,
+      "destinationId": "p1_jam_scenario",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_fac_help",
+      "domId": "p1_fac_help",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "When nerves help",
+      "maxLength": 5000,
+      "destinationId": "p1_fac_help",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_fac_hurt",
+      "domId": "p1_fac_hurt",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "When nerves hurt",
+      "maxLength": 5000,
+      "destinationId": "p1_fac_hurt",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_situational_stressors",
+      "domId": "p1_situational_stressors",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Situational stressors",
+      "maxLength": 5000,
+      "destinationId": "p1_situational_stressors",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_personal_stressors",
+      "domId": "p1_personal_stressors",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Personal stressors",
+      "maxLength": 5000,
+      "destinationId": "p1_personal_stressors",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_goal_proc",
+      "domId": "p1_goal_proc",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Process goal",
+      "maxLength": 5000,
+      "destinationId": "p1_goal_proc",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_goal_perf",
+      "domId": "p1_goal_perf",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Performance goal",
+      "maxLength": 5000,
+      "destinationId": "p1_goal_perf",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_goal_out",
+      "domId": "p1_goal_out",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Outcome goal",
+      "maxLength": 5000,
+      "destinationId": "p1_goal_out",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_smart_final",
+      "domId": "p1_smart_final",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Final SMART statement",
+      "maxLength": 5000,
+      "destinationId": "p1_smart_final",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_final_narrative",
+      "domId": "p1_final_narrative",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Operating summary",
+      "maxLength": 5000,
+      "destinationId": "p1_final_narrative",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_zone_summary",
+      "domId": "p1_zone_summary",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Zone summary",
+      "maxLength": 5000,
+      "destinationId": "p1_zone_summary",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "p1_crash_plan",
+      "domId": "p1_crash_plan",
+      "sourceRoute": "playbook",
+      "role": "assignment-required",
+      "label": "Crash-prevention plan",
+      "maxLength": 5000,
+      "destinationId": "p1_crash_plan",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "extension-trial",
+      "domId": "extension-trial",
+      "sourceRoute": "playbook",
+      "role": "assignment-extension",
+      "label": "What did you plan to try, and what actually happened?",
+      "maxLength": 5000,
+      "destinationId": "extension-trial",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "extension-adjustment",
+      "domId": "extension-adjustment",
+      "sourceRoute": "playbook",
+      "role": "assignment-extension",
+      "label": "What would you keep or change, and why?",
+      "maxLength": 5000,
+      "destinationId": "extension-adjustment",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-1-first",
+      "domId": "review-1-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-1-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-1-revision",
+      "domId": "review-1-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-1-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-2-first",
+      "domId": "review-2-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-2-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-2-revision",
+      "domId": "review-2-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-2-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-3-first",
+      "domId": "review-3-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-3-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-3-revision",
+      "domId": "review-3-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-3-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-4-first",
+      "domId": "review-4-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-4-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-4-revision",
+      "domId": "review-4-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-4-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-5-first",
+      "domId": "review-5-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-5-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-5-revision",
+      "domId": "review-5-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-5-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-6-first",
+      "domId": "review-6-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-6-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-6-revision",
+      "domId": "review-6-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-6-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-7-first",
+      "domId": "review-7-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-7-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-7-revision",
+      "domId": "review-7-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-7-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-8-first",
+      "domId": "review-8-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-8-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-8-revision",
+      "domId": "review-8-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-8-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-9-first",
+      "domId": "review-9-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-9-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-9-revision",
+      "domId": "review-9-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-9-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-10-first",
+      "domId": "review-10-first",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My first explanation",
+      "maxLength": 5000,
+      "destinationId": "review-10-first",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "review-10-revision",
+      "domId": "review-10-revision",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "My improved explanation",
+      "maxLength": 5000,
+      "destinationId": "review-10-revision",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "phase-synthesis",
+      "domId": "phase-synthesis",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "Return to your opening performance moment. Explain the state and choose a response.",
+      "maxLength": 5000,
+      "destinationId": "phase-synthesis",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "phase-change",
+      "domId": "phase-change",
+      "sourceRoute": "phase-review",
+      "role": "practice-reflection",
+      "label": "How has your thinking changed from the beginning of the phase?",
+      "maxLength": 5000,
+      "destinationId": "phase-change",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    },
+    {
+      "id": "notebook-notes",
+      "domId": "notebook-notes",
+      "sourceRoute": "notebook",
+      "role": "notebook",
+      "label": "My general notes",
+      "maxLength": 5000,
+      "destinationId": "notebook-notes",
+      "migrationRule": "Preserve ID and full text; changing length limits requires explicit recorded content decision."
+    }
+  ],
+  "formativeChecks": [
+    {
+      "id": "check-body-inference",
+      "sourceRoute": "key-terms",
+      "question": "A player is sweating after a warm-up. What can you reasonably conclude?",
+      "choices": [
+        "They must be afraid of losing.",
+        "Sweating alone does not establish anxiety; more context is needed.",
+        "Their performance will now get worse."
+      ],
+      "answerIndex": 1,
+      "feedback": "A bodily signal can have several causes. Ask about the situation and the athlete’s experience before interpreting it.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-arousal",
+      "sourceRoute": "key-terms",
+      "question": "An athlete says, “My heart is beating faster and I feel alert. I am not worried.” Which term best describes the information given?",
+      "choices": [
+        "Arousal",
+        "Cognitive anxiety",
+        "Trait anxiety"
+      ],
+      "answerIndex": 0,
+      "feedback": "Arousal describes activation. The athlete has specifically said they are not worried. A fast heartbeat alone does not establish cognitive or trait anxiety.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-somatic",
+      "sourceRoute": "key-terms",
+      "question": "An athlete says, “I feel nervous: my shoulders are tight and I have butterflies.” Which anxiety component is being described?",
+      "choices": [
+        "Cognitive state anxiety",
+        "Somatic state anxiety",
+        "A long-term personality disposition"
+      ],
+      "answerIndex": 1,
+      "feedback": "The description concerns perceived bodily sensations in this moment: the somatic component of state anxiety.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-appraisal",
+      "sourceRoute": "stress-loop",
+      "question": "Which statement belongs to Stage 2 rather than Stage 1?",
+      "choices": [
+        "The athlete is taking a penalty kick.",
+        "The athlete sees the kick as a chance to use a practised skill.",
+        "The athlete kicks the ball wide."
+      ],
+      "answerIndex": 1,
+      "feedback": "Stage 2 is the perception or appraisal of the demand. Taking the kick is the demand; the result belongs to the behavioural consequences.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-drive-habit",
+      "sourceRoute": "performance-zone",
+      "question": "A learner says, “Drive Theory means getting more excited will fix my technique.” What is missing?",
+      "choices": [
+        "More arousal guarantees that every habit improves.",
+        "A stronger dominant response can still be an incorrect response.",
+        "Practice becomes unnecessary once arousal is high."
+      ],
+      "answerIndex": 1,
+      "feedback": "The important question is which response is strongest. Extra activation does not replace skill practice or guarantee the correct technique.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-izof",
+      "sourceRoute": "performance-zone",
+      "question": "Two athletes describe different levels of state anxiety during their best performances. Which model most directly emphasizes those different personal ranges?",
+      "choices": [
+        "Drive Theory",
+        "The Inverted-U Hypothesis",
+        "IZOF"
+      ],
+      "answerIndex": 2,
+      "feedback": "IZOF emphasizes an individual best-performance range. The Inverted-U explains a rise-and-fall pattern; its drawing is not a universal target number. Drive Theory asks about the strength of the dominant response.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-realistic-reframe",
+      "sourceRoute": "interpreting-nerves",
+      "question": "A swimmer is nervous before a difficult race. Which reframe links the demand to a real resource?",
+      "choices": [
+        "I cannot lose if I think positively.",
+        "Good athletes never feel nervous.",
+        "This race is demanding. I can use my practised start and first-race cue."
+      ],
+      "answerIndex": 2,
+      "feedback": "A believable reframe accepts the challenge and names a resource or action. It does not promise a result or require all nerves to disappear.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-catastrophe",
+      "sourceRoute": "interpreting-nerves",
+      "question": "Which combination is central to the Catastrophe model?",
+      "choices": [
+        "High cognitive anxiety together with high physiological arousal",
+        "Low activation with no worry",
+        "Any increase in heart rate"
+      ],
+      "answerIndex": 0,
+      "feedback": "The model combines high cognitive anxiety with high physiological arousal. It predicts the possibility of a sharp drop, not merely a small decline as activation rises.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-source-response",
+      "sourceRoute": "stress-sources",
+      "question": "A student is nervous because the assessment instructions are unclear. What is the most direct first response?",
+      "choices": [
+        "Assume they have high trait anxiety.",
+        "Tell them to use more positive thinking and ignore the instructions.",
+        "Clarify the task and success criteria with the teacher."
+      ],
+      "answerIndex": 2,
+      "feedback": "The stated source is uncertainty about the task. Clarifying it addresses the source. A regulation tool may still be useful, but it cannot supply missing instructions.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-uncertainty",
+      "sourceRoute": "stress-sources",
+      "question": "A student says, “I am not sure what the coach will evaluate at the tryout.” Which situational source is most directly described?",
+      "choices": [
+        "Uncertainty",
+        "Trait anxiety",
+        "Social physique anxiety"
+      ],
+      "answerIndex": 0,
+      "feedback": "The statement concerns unclear evaluation. That is uncertainty in the situation, rather than evidence of a stable disposition or worry about body evaluation.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-task-focus",
+      "sourceRoute": "attention-coordination",
+      "question": "Which explanation best describes useful attention?",
+      "choices": [
+        "Always notice as many things as possible.",
+        "Always use the narrowest focus possible.",
+        "Select the information needed for the current task, and widen or narrow when the task changes."
+      ],
+      "answerIndex": 2,
+      "feedback": "Attention must fit the task. A precise aiming task and a changing team play can need different amounts of information.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-attention",
+      "sourceRoute": "attention-coordination",
+      "question": "A player watches one opponent so closely that they miss a teammate signalling for a pass. What is the best explanation from this lesson?",
+      "choices": [
+        "Every form of narrow attention improves performance.",
+        "Attention has narrowed enough to hide a relevant cue.",
+        "The player must have no arousal."
+      ],
+      "answerIndex": 1,
+      "feedback": "The important feature is the missed relevant information. Narrowing is not automatically a problem; it becomes a problem when it prevents the athlete from detecting what the task requires.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-regulation",
+      "sourceRoute": "regulation-tools",
+      "question": "An athlete feels flat, has low energy and is easily distracted. Which first move best matches the regulation toolkit?",
+      "choices": [
+        "Keep lowering activation with more relaxation.",
+        "Use appropriate movement or rhythm to raise activation.",
+        "Focus only on winning the event."
+      ],
+      "answerIndex": 1,
+      "feedback": "The described problem is under-arousal. The toolkit matches low activation with movement, rhythm, music or imagery rather than automatically choosing relaxation.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-process-evidence",
+      "sourceRoute": "cues-goals",
+      "question": "A player uses the planned routine and misses the shot. What is the most useful review?",
+      "choices": [
+        "The routine definitely failed because the shot missed.",
+        "Record the routine and result separately; review the pattern across more attempts.",
+        "The result does not matter, so no review is needed."
+      ],
+      "answerIndex": 1,
+      "feedback": "A single result does not establish cause. Check the planned action, the quality of the attempt and the outcome, then look for a pattern.",
+      "grading": "formative-only"
+    },
+    {
+      "id": "check-process",
+      "sourceRoute": "cues-goals",
+      "question": "Which statement is a process goal?",
+      "choices": [
+        "Win the match.",
+        "Record a personal-best time.",
+        "Complete my preparation routine before each attempt."
+      ],
+      "answerIndex": 2,
+      "feedback": "A process goal specifies an action. Winning is an outcome; a personal-best time is a performance standard.",
+      "grading": "formative-only"
+    }
+  ],
+  "assets": [
+    {
+      "id": "same-pressure",
+      "file": "reference/phase1-assets/same-pressure.webp",
+      "sha256": "5bf8d443f5fae0ba40600b69327709330b4078de2aabaccce4e6fcf83b327b5c",
+      "bytes": 100880,
+      "sourceRoute": "start",
+      "alt": "The same penalty shot can be seen as a threat to the player’s worth or as a difficult task supported by a practised routine. Neither interpretation guarantees the result.",
+      "caption": "ONE SITUATION, DIFFERENT MEANINGS. The task is unchanged. The example compares possible interpretations—not “strong” and “weak” kinds of athlete."
+    },
+    {
+      "id": "ideal-performance-state-map",
+      "file": "reference/phase1-assets/ideal-performance-state-map.webp",
+      "sha256": "70a914d82367b94ebb96ce1f5557b268130e0e6182898a94af83a537646d6e31",
+      "bytes": 74168,
+      "sourceRoute": "start",
+      "alt": "A chapter map linking arousal, anxiety, stress, attention, regulation tools and perceived control with the ideal performance state.",
+      "caption": "YOUR LEARNING MAP. You will learn each part before bringing the parts together in your Regulation Engine."
+    },
+    {
+      "id": "body-signals",
+      "file": "reference/phase1-assets/body-signals.webp",
+      "sha256": "8804e9644bd7d937d8c12c2fa066f59fad573d136d3f7427aa171486d0ac8c4b",
+      "bytes": 107902,
+      "sourceRoute": "key-terms",
+      "alt": "Possible pressure signals include worried thoughts, muscle tension, sweaty or shaky hands, a faster heartbeat, quicker breathing and an unsettled stomach. The athlete is fictional; these signs have more than one possible cause.",
+      "caption": "NOTICE THE PATTERN. These are possible signals, not a checklist that proves anxiety. Read the athlete’s own account and consider the situation."
+    },
+    {
+      "id": "arousal-continuum",
+      "file": "reference/phase1-assets/arousal-continuum.svg",
+      "sha256": "ac37d0b15bb937254093b735d3a1e7f6c56e8978883ed380dd8699bab0e7f823",
+      "bytes": 2310,
+      "sourceRoute": "key-terms",
+      "alt": "Arousal ranges from low activation through an ideal performance zone to high activation.",
+      "caption": "READ THE CONTINUUM. The middle zone is an introductory model. Later, IZOF explains why athletes do not all have the same best-performance range."
+    },
+    {
+      "id": "stress-process",
+      "file": "reference/phase1-assets/stress-process.svg",
+      "sha256": "a15571515d456655b12654c972def23e8fe456626485bdca767ff4c7f6580128",
+      "bytes": 6095,
+      "sourceRoute": "stress-loop",
+      "alt": "The stress loop moves from environmental demand to perception of the demand, to stress response, to behavioural consequences and back around.",
+      "caption": "THE PIVOT POINT. Appraisal is the athlete’s interpretation of the demand, not the demand itself."
+    },
+    {
+      "id": "model-comparison",
+      "file": "reference/phase1-assets/model-comparison.webp",
+      "sha256": "e55a79a9a5fd41549a203859c99995a61d99a30b49fbf9b556d99c87fb65e671",
+      "bytes": 98800,
+      "sourceRoute": "performance-zone",
+      "alt": "Four schematic models: Drive Theory strengthens the dominant response; the Inverted-U predicts a rise and fall; IZOF shows different personal state-anxiety ranges; Catastrophe allows a sharp drop when cognitive anxiety and physiological arousal are high.",
+      "caption": "COMPARE THE QUESTION EACH MODEL ASKS. These are teaching diagrams, not a graph of your own body or performance. The rising Drive line illustrates the well-practised-response case."
+    },
+    {
+      "id": "attention-field",
+      "file": "reference/phase1-assets/attention-field.webp",
+      "sha256": "aa5f0feae856ae2da6b6f8fdf5f2064dda74f61ca46e3df4717aefa5616861e4",
+      "bytes": 150466,
+      "sourceRoute": "attention-coordination",
+      "alt": "Three views of a player’s attention: too broad at low arousal, selectively focused at a useful level, and too narrow at high arousal.",
+      "caption": "FOLLOW THE INFORMATION. Selective attention is useful when it keeps relevant information available. Tunnel vision is a problem when important cues disappear."
+    },
+    {
+      "id": "regulation-toolkit",
+      "file": "reference/phase1-assets/regulation-toolkit.svg",
+      "sha256": "e9f50b3af84c7de63ec687470e26bf40826272bee72579f58a1fb25e78ab31ab",
+      "bytes": 6352,
+      "sourceRoute": "regulation-tools",
+      "alt": "The source toolkit groups breathing, activation and relaxation, cue words and SMART goals around state regulation.",
+      "caption": "YOUR REGULATION TOOLKIT. Each tool serves a different purpose. Cue words and SMART goals are developed in the next topic."
+    },
+    {
+      "id": "goal-control",
+      "file": "reference/phase1-assets/goal-control.svg",
+      "sha256": "7c71e338834951898d0c99d279a2fa8695f91ea94c75e772f1fb79389e2ff809",
+      "bytes": 82923,
+      "sourceRoute": "cues-goals",
+      "alt": "A goal ladder compares lower-control outcome goals, partly controllable performance goals and higher-control process goals.",
+      "caption": "MOVE TOWARD ACTION. Compare outcome, performance and process goals according to how directly the athlete can control them."
+    }
+  ],
+  "sourceStateSections": [
+    "drafts",
+    "reviewed",
+    "topic",
+    "question",
+    "buildStep",
+    "ratings",
+    "practice",
+    "firstChecks",
+    "revealed",
+    "appraisal",
+    "lab",
+    "updatedAt"
+  ],
+  "notes": [
+    "Snapshots and browser backups are learner-editable evidence, not tamper-proof identity verification.",
+    "The original school Save and Exit handler saves locally only.",
+    "The current SCORM bridge threshold is 60000 serialized characters; allowed prototype draft text alone totals 360000 characters."
+  ]
+}
