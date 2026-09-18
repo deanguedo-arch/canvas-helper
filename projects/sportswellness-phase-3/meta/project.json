@@ -1,0 +1,102 @@
+{
+  "id": "97be29cb-2941-45cf-9804-28825b212d5b",
+  "slug": "sportswellness-phase-3",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/sportswellness-phases2-4-working-previews-v1/sportswellness-phase-3",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness-phase-3/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness-phase-3/raw/original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-09-18T02:36:01.518Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/sportswellness-phase-3/workspace/index.html",
+  "canonicalSources": [
+    "projects/sportswellness-phase-3/workspace/index.html",
+    "projects/sportswellness-phase-3/workspace/styles.css",
+    "projects/sportswellness-phase-3/workspace/runtime.js",
+    "projects/sportswellness-phase-3/workspace/assets/game/index.html",
+    "projects/sportswellness-phase-3/workspace/assets/game/game.js",
+    "projects/sportswellness-phase-3/workspace/assets/game/bridge.js",
+    "projects/sportswellness-phase-3/workspace/assets/game/scale.js",
+    "projects/sportswellness-phase-3/workspace/assets/game/theme.css",
+    "projects/sportswellness-phase-3/workspace/assets/game/controls.css",
+    "projects/sportswellness-phase-3/workspace/assets/figures/phase3-attentional-quadrants.svg",
+    "projects/sportswellness-phase-3/workspace/assets/figures/phase3-focus-system-map.svg",
+    "projects/sportswellness-phase-3/workspace/assets/figures/phase3-inner-game-equation.svg",
+    "projects/sportswellness-phase-3/workspace/assets/figures/phase3-precompetition-blueprint.svg",
+    "projects/sportswellness-phase-3/workspace/assets/figures/phase3-reset-sequence.svg"
+  ],
+  "authoring": {
+    "driverId": "proposal-only-v1",
+    "familyId": "sportswellness-split-v1",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    },
+    "qualityProfile": "sportswellness-phase-preview-v1",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    }
+  },
+  "generatedOutputs": [
+    "projects/sportswellness-phase-3/workspace/assets/game/utilities.css",
+    "projects/sportswellness-phase-3/workspace/assets/readings/phase3-focus-reading.pdf",
+    "projects/sportswellness-phase-3/workspace/assets/game/react-local.js"
+  ],
+  "injectedComponents": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "chatgpt-pro",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/sportswellness-phases2-4-working-previews-v1/sportswellness-phase-3",
+    "importedAt": "2026-09-18T02:36:01.377Z",
+    "archivePath": "/Users/deanguedo/Downloads/SportsWellness_Phases2_4_Working_Previews_v1.zip"
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": false,
+      "notes": "Local learner preview; readiness, response capacity and Brightspace validation deferred."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [
+    "projects/sportswellness-phase-3/meta/source-review",
+    "projects/incoming/sportswellness-phases2-4-working-previews-v1",
+    "projects/sportswellness-phase-3/raw"
+  ],
+  "sourceOfTruthNotes": "Canonical teaching/questions/links/captions belong to workspace/index.html; runtime attaches behaviour. Imported first-pass content JSON and historical source are reference records. CSS synchronized to current Phase 1. PDFs/utility CSS are imported generated assets with upstream generation provenance retained; local rebuild source recovery is deferred. Blocked; no deployment or SCORM readiness.",
+  "createdAt": "2026-09-18T02:36:01.377Z",
+  "updatedAt": "2026-09-18T02:36:01.518Z",
+  "title": "Sports Psychology \u2014 Phase 3: The Focus",
+  "runtimeDependencies": [
+    {
+      "path": "workspace/assets/game/react-local.js",
+      "role": "imported local vendor runtime",
+      "upstream": "React/ReactDOM bundled by supplied build; keep shipped bytes until supported rebuild is recovered"
+    }
+  ],
+  "regeneration": {
+    "readingPdf": {
+      "upstreamTool": "projects/incoming/sportswellness-phases2-4-working-previews-v1/developer/tools/build_readings.py",
+      "status": "Tool currently targets the upstream extracted bundle. Local workspace regeneration adapter deferred; HTML remains canonical."
+    },
+    "gameUtilityCss": {
+      "status": "Imported generated CSS; upstream Tailwind build command/source contract not supplied. Preserve output and recover regeneration before readiness."
+    }
+  }
+}

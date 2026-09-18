@@ -1,0 +1,427 @@
+[
+  {
+    "id": "ch19-source-OBJ_2131329",
+    "lesson": 3,
+    "prompt": "In the two-allele model used here, A is dominant and has frequency p. What does p represent?",
+    "answer": "The fraction of allele copies that are A",
+    "options": [
+      "The fraction of allele copies that are A",
+      "The fraction of heterozygous individuals",
+      "The fraction of aa individuals",
+      "The number of chromosomes in each gamete"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "p is an allele frequency. Dominance determines a phenotype relationship, not how common an allele must be.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131329"
+  },
+  {
+    "id": "ch19-source-OBJ_2131330",
+    "lesson": 2,
+    "prompt": "What does p + q = 1 express at a two-allele locus?",
+    "answer": "The two allele frequencies exhaust all copies at that locus",
+    "options": [
+      "The two allele frequencies exhaust all copies at that locus",
+      "One allele is the inverse 1/q of the other",
+      "Every individual is heterozygous",
+      "Every gene has the same frequency"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "For two alleles, their proportions sum to one; this identity does not by itself establish Hardy–Weinberg equilibrium.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131330"
+  },
+  {
+    "id": "ch19-source-OBJ_2131331",
+    "lesson": 3,
+    "prompt": "Under Hardy–Weinberg assumptions, what does p² represent?",
+    "answer": "Expected AA genotype frequency",
+    "options": [
+      "Expected AA genotype frequency",
+      "Observed heterozygote count",
+      "Expected aa frequency",
+      "The total number of A copies"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Random combination of two A alleles has probability p × p. Observed genotype counts may differ.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131331"
+  },
+  {
+    "id": "ch19-source-OBJ_2131332",
+    "lesson": 2,
+    "prompt": "At the stated locus, what allele does every normal gamete from an aa individual receive?",
+    "answer": "a",
+    "options": [
+      "a",
+      "A",
+      "Both A and a",
+      "Neither allele"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Every gamete gets one allele from this homozygote, so the a frequency among its gametes is one; population q is a different quantity.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131332"
+  },
+  {
+    "id": "ch19-source-OBJ_2131333",
+    "lesson": 4,
+    "prompt": "Assume Hardy–Weinberg equilibrium and p = q = 0.50. What is the expected AA frequency?",
+    "answer": "0.25",
+    "options": [
+      "0.25",
+      "0",
+      "0.50",
+      "0.75"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "p² = 0.50² = 0.25.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131333"
+  },
+  {
+    "id": "ch19-source-OBJ_2131334",
+    "lesson": 4,
+    "prompt": "Assume complete dominance and Hardy–Weinberg equilibrium. Of 45,000 individuals, 20,000 have the recessive phenotype. Approximately what is q?",
+    "answer": "0.67",
+    "options": [
+      "0.67",
+      "0.44",
+      "0.33",
+      "0.89"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "q² = 20000/45000 = 0.4444; q is its square root, about 0.6667.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131334"
+  },
+  {
+    "id": "ch19-source-OBJ_2131335",
+    "lesson": 4,
+    "prompt": "To infer q from phenotype counts in an equilibrium, completely dominant model, which group directly estimates q²?",
+    "answer": "Homozygous recessive individuals",
+    "options": [
+      "Homozygous recessive individuals",
+      "All dominant-phenotype individuals",
+      "Only carriers identified by appearance",
+      "Every individual with at least one A"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "The recessive phenotype identifies aa under the stated model; the dominant phenotype combines AA and Aa.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131335"
+  },
+  {
+    "id": "ch19-source-OBJ_2131336",
+    "lesson": 4,
+    "prompt": "Under Hardy–Weinberg assumptions, p = 0.24 and q = 0.76. What is the expected heterozygote frequency to two decimals?",
+    "answer": "0.36",
+    "options": [
+      "0.36",
+      "0.18",
+      "0.24",
+      "0.76"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "2pq = 2 × 0.24 × 0.76 = 0.3648, which rounds to 0.36.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131336"
+  },
+  {
+    "id": "ch19-source-OBJ_2131337",
+    "lesson": 5,
+    "prompt": "Two samples have the same allele frequencies. What can be concluded without more information?",
+    "answer": "The sampled locus shows no measured frequency change between those samples",
+    "options": [
+      "The sampled locus shows no measured frequency change between those samples",
+      "The population must be infinitely large",
+      "All Hardy–Weinberg assumptions have been proven",
+      "Natural selection is impossible at every other locus"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Unchanged sampled frequencies do not establish every equilibrium condition or rule out change elsewhere.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131337"
+  },
+  {
+    "id": "ch19-source-OBJ_2131338",
+    "lesson": 6,
+    "prompt": "A heritable dark colour improves survival and reproductive success on newly darkened rocks. What process can increase that allele’s frequency?",
+    "answer": "Natural selection",
+    "options": [
+      "Natural selection",
+      "Only random mating",
+      "A guaranteed mutation caused by need",
+      "Hardy–Weinberg equilibrium"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Differential reproductive success associated with heritable variation can change allele frequencies.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131338"
+  },
+  {
+    "id": "ch19-source-OBJ_2131339",
+    "lesson": 4,
+    "prompt": "In a hypothetical equilibrium model, 4% of individuals have a completely recessive phenotype. What is q?",
+    "answer": "0.20",
+    "options": [
+      "0.20",
+      "0.04",
+      "0.96",
+      "0.0016"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "q is the square root of q² = 0.04, so q = 0.20.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131339"
+  },
+  {
+    "id": "ch19-source-OBJ_2131340",
+    "lesson": 4,
+    "prompt": "An illustrative equilibrium population has N = 25 and q = 0.20. What expected carrier count does the model give?",
+    "answer": "8",
+    "options": [
+      "8",
+      "1",
+      "5",
+      "16"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "p = 0.80; 2pq = 0.32; 0.32 × 25 = 8 expected carriers. A small actual population need not exactly match the model.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131340"
+  },
+  {
+    "id": "ch19-source-OBJ_2131341",
+    "lesson": 7,
+    "prompt": "Why are allele frequencies more vulnerable to random sampling changes in a very small population?",
+    "answer": "Each chance reproductive outcome is a larger fraction of the gene pool",
+    "options": [
+      "Each chance reproductive outcome is a larger fraction of the gene pool",
+      "Small populations cannot experience drift",
+      "Dominant alleles always eliminate recessive alleles",
+      "Random mating forces p and q to become equal"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Drift is a sampling effect and can be strong when few individuals contribute alleles.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131341"
+  },
+  {
+    "id": "ch19-source-OBJ_2131342",
+    "lesson": 7,
+    "prompt": "A random disaster leaves only a few survivors from a large population. Their descendants have altered allele frequencies. Which history is described?",
+    "answer": "Bottleneck effect",
+    "options": [
+      "Bottleneck effect",
+      "Founder effect in a newly colonized area",
+      "Guaranteed adaptive selection",
+      "No change in the gene pool"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "A bottleneck reduces the existing population. The survivor sample need not represent the original frequencies.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131342"
+  },
+  {
+    "id": "ch19-source-OBJ_2131343",
+    "lesson": 6,
+    "prompt": "Which mechanism directly associates a heritable trait with greater reproductive success in the current environment?",
+    "answer": "Natural selection",
+    "options": [
+      "Natural selection",
+      "Genetic drift alone",
+      "A random bottleneck alone",
+      "Random sampling alone"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Selection is nonrandom with respect to heritable differences in reproductive success; drift is chance sampling.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131343"
+  },
+  {
+    "id": "ch19-source-OBJ_2131344",
+    "lesson": 6,
+    "prompt": "What is essential for natural selection to produce heritable evolutionary change?",
+    "answer": "Heritable variation associated with differences in reproductive success",
+    "options": [
+      "Heritable variation associated with differences in reproductive success",
+      "An environment that must change every generation",
+      "Every individual deliberately changing its genes",
+      "Identical reproductive success for all genotypes"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Selection can operate in a stable environment. The source’s environment-must-change condition is not retained.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131344"
+  },
+  {
+    "id": "ch19-source-OBJ_2131345",
+    "lesson": 7,
+    "prompt": "The population that would most likely exhibit the effects of genetic drift is one with a population size of",
+    "answer": "47 individuals.",
+    "options": [
+      "47 individuals.",
+      "200 individuals.",
+      "250 individuals.",
+      "15 000 individuals."
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "All else equal, the smallest breeding population is most susceptible to chance allele-frequency changes.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131345"
+  },
+  {
+    "id": "ch19-source-OBJ_2131346",
+    "lesson": 2,
+    "prompt": "In sheep, black coat (wool) colour is recessive to white coat colour. In a flock of sheep, if the frequency of the white allele is 0.872, then the frequency of the black allele is",
+    "answer": "0.128",
+    "options": [
+      "0.112",
+      "0.128",
+      "0.256",
+      "0.872"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "With two alleles, q = 1 − p = 1 − 0.872 = 0.128; no square root is needed because p is already an allele frequency.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131346"
+  },
+  {
+    "id": "ch19-source-OBJ_2131347",
+    "lesson": 4,
+    "prompt": "Assume a hypothetical two-allele, completely dominant trait at Hardy–Weinberg equilibrium. With N = 33 and recessive frequency q² = 0.417, about how many AA individuals are expected?",
+    "answer": "4",
+    "options": [
+      "4",
+      "14",
+      "19",
+      "6"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "q ≈ 0.6458; p ≈ 0.3542; p²N ≈ 4.14. The model is not a claim that real human tongue rolling is a simple Mendelian trait.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131347"
+  },
+  {
+    "id": "ch19-source-OBJ_2131348",
+    "lesson": 4,
+    "prompt": "Assume Hardy–Weinberg equilibrium. Of 568 plants, 47 show a completely recessive phenotype. Approximately how many heterozygotes are expected?",
+    "answer": "233",
+    "options": [
+      "233",
+      "404",
+      "288",
+      "284"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "q = sqrt(47/568) ≈ 0.28766; 2q(1 − q) × 568 ≈ 232.78, rounded to 233.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131348"
+  },
+  {
+    "id": "ch19-source-OBJ_2131349",
+    "lesson": 3,
+    "prompt": "Which population description best matches two of the Hardy–Weinberg assumptions, while still requiring other conditions to be checked?",
+    "answer": "A large breeding population with no migration",
+    "options": [
+      "A large breeding population with no migration",
+      "A tiny isolated breeding population",
+      "A large population receiving many migrants",
+      "A population with strong phenotype-based mate choice"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Large size reduces drift and isolation limits migration. These two conditions alone do not prove equilibrium.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131349"
+  },
+  {
+    "id": "ch19-source-OBJ_2131350",
+    "lesson": 7,
+    "prompt": "Which record is strongest evidence for a historical bottleneck?",
+    "answer": "A formerly large population was reduced to very few survivors",
+    "options": [
+      "A formerly large population was reduced to very few survivors",
+      "A stable census with no mortality records",
+      "A single individual changed colour",
+      "A large group has equal allele frequencies"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "A documented sharp contraction establishes the demographic history; genetic consequences still depend on survivors and later events.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131350"
+  },
+  {
+    "id": "ch19-source-OBJ_2131351",
+    "lesson": 7,
+    "prompt": "A few individuals colonize an empty island while the mainland population remains. What sampling effect may alter island allele frequencies?",
+    "answer": "Founder effect",
+    "options": [
+      "Founder effect",
+      "A bottleneck necessarily affecting the entire mainland",
+      "Every allele gaining a survival advantage",
+      "No evolutionary change can occur"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "The founders sample only part of the source gene pool.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131351"
+  },
+  {
+    "id": "ch19-source-OBJ_2131354",
+    "lesson": 5,
+    "prompt": "A locus changes frequency across generations. What additional evidence helps distinguish selection from migration?",
+    "answer": "Measurements of migrants’ genetic contributions and genotype-associated reproductive success",
+    "options": [
+      "Measurements of migrants’ genetic contributions and genotype-associated reproductive success",
+      "Population density alone",
+      "A claim that mutation never happens",
+      "The dominant phenotype alone"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "A frequency change does not uniquely identify its cause; several contributions must be investigated.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131354"
+  },
+  {
+    "id": "ch19-source-OBJ_2131355",
+    "lesson": 7,
+    "prompt": "A small isolated population has no measured fitness differences among genotypes, yet frequencies fluctuate. Which mechanism is a plausible explanation?",
+    "answer": "Genetic drift",
+    "options": [
+      "Genetic drift",
+      "Immigration through a completely closed boundary",
+      "Dominance forcing evolutionary success",
+      "An organism deliberately replacing its alleles"
+    ],
+    "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+    "explanation": "Random differences in contributions can shift allele frequencies without adaptive advantages.",
+    "difficulty": "application",
+    "stimuli": [],
+    "sourceItemId": "OBJ_2131355"
+  }
+]

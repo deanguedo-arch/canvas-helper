@@ -1,0 +1,28 @@
+{
+  "projectId": "97be29cb-2941-45cf-9804-28825b212d5b",
+  "referenceId": "assets-game-source-and-license-md",
+  "generatedAt": "2026-09-18T02:36:01.392Z",
+  "chunks": [
+    {
+      "id": "original-mechanics-and-local-dependencies-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Original mechanics and local dependencies",
+        "sectionHeading": "# Original mechanics and local dependencies"
+      },
+      "text": "# Original mechanics and local dependencies\n\nGame application derived from uploaded phase3-focus-game.app.js. Core target/card motion, scoring and thresholds are retained. Input descriptions, state panels, keyboard controls, pause clock, sound and evidence lifecycle are repaired.\n\nReact and ReactDOM are extracted from the user's supplied bundled Phase 1 game, with its bundled MIT license notices retained in react-local.js. TypeScript is used only at build time; no compiler or external CDN is required at runtime. Tailwind utility CSS is compiled locally from the game source. Fonts use the installed system stack; no fonts are shipped.",
+      "titleGuess": "# Original mechanics and local dependencies",
+      "keywordHints": [
+        "game",
+        "bundled",
+        "fonts",
+        "local",
+        "react",
+        "retained",
+        "application",
+        "build"
+      ]
+    }
+  ]
+}

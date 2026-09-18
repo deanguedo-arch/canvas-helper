@@ -1,0 +1,21 @@
+# Human Ear and Organ of Corti — Answer Key
+
+- A — Pinna (auricle)
+- B — External auditory canal
+- C — Tympanic membrane (eardrum)
+- D — Malleus
+- E — Incus
+- F — Stapes
+- G — Oval window
+- H — Cochlea
+- I — Auditory nerve / cochlear nerve
+- J — Semicircular canals
+- K — Eustachian tube (auditory tube)
+- L — Scala vestibuli
+- M — Scala media (cochlear duct)
+- N — Tectorial membrane
+- O — Stereocilia (hair bundles)
+- P — Hair cells (organ of Corti)
+- Q — Basilar membrane
+- R — Scala tympani
+- S — Round window

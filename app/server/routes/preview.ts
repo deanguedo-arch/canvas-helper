@@ -262,7 +262,15 @@ async function decorateHtmlResponse(
 
   const decoration = typeof body === "string" ? decoratePreviewHtml(body) : decoratePreviewHtmlBuffer(body);
   if (!decoration) {
-    return body;
+    // Inspection is intentionally bounded for large course pages, but the
+    // read-only bridge is still required for Studio to recognize a preview.
+    // Keep UTF-16 pages byte-for-byte because converting their encoding here
+    // would make the preview less reliable than leaving it unbridged.
+    if (typeof body !== "string" && detectBomCharset(body).startsWith("utf-16")) {
+      return body;
+    }
+    const html = typeof body === "string" ? body : body.toString("utf8");
+    return Buffer.from(injectPreviewBridgeScript(html, scriptSource), "utf8");
   }
 
   let mappedHtml = decoration.html;

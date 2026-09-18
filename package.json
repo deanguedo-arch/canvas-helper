@@ -94,7 +94,7 @@
     "assessment:export": "tsx scripts/assessment-export.ts",
     "test:assessments": "tsx --test scripts/tests/assessments-engine.test.ts",
     "test:how-assessment-works": "tsx --test scripts/tests/how-assessment-works.test.ts",
-    "test:scorm": "tsx --test scripts/tests/scorm-export.test.ts scripts/tests/scorm-tracking.test.ts",
+    "test:scorm": "tsx --test scripts/tests/scorm-export.test.ts scripts/tests/scorm-tracking.test.ts scripts/tests/scorm-state-codec.test.ts scripts/tests/brightspace-photo-store.test.ts",
     "test:e2e:scorm": "playwright test -c e2e/playwright.scorm.config.ts",
     "test:apps-script": "tsx --test scripts/tests/apps-script-export.test.ts scripts/tests/apps-script-tracker-source.test.ts",
     "test:google-hosted": "tsx --test scripts/tests/google-hosted-export.test.ts",

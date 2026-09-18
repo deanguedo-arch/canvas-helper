@@ -1,0 +1,28 @@
+{
+  "projectId": "a82c39a0-d0a9-41d6-8202-903122d8cfdc",
+  "referenceId": "assets-game-source-and-license-md",
+  "generatedAt": "2026-09-18T02:35:56.607Z",
+  "chunks": [
+    {
+      "id": "original-mechanics-and-local-dependencies-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Original mechanics and local dependencies",
+        "sectionHeading": "# Original mechanics and local dependencies"
+      },
+      "text": "# Original mechanics and local dependencies\n\nGame application derived from uploaded phase2-discipline-game.app.js. Core target/card motion, scoring and thresholds are retained. Input descriptions, state panels, keyboard controls, pause clock, sound and evidence lifecycle are repaired.\n\nReact and ReactDOM are extracted from the user's supplied bundled Phase 1 game, with its bundled MIT license notices retained in react-local.js. TypeScript is used only at build time; no compiler or external CDN is required at runtime. Tailwind utility CSS is compiled locally from the game source. Fonts use the installed system stack; no fonts are shipped.",
+      "titleGuess": "# Original mechanics and local dependencies",
+      "keywordHints": [
+        "game",
+        "bundled",
+        "fonts",
+        "local",
+        "react",
+        "retained",
+        "application",
+        "build"
+      ]
+    }
+  ]
+}

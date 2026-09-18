@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "adapter": "hash-pages-v1",
+  "pageIds": [
+    "overview",
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "extension",
+    "practice",
+    "fill-in-the-blanks",
+    "multiple-choice",
+    "mixed-practice",
+    "labeling-practice",
+    "core-vocabulary",
+    "textbook-practice",
+    "process-collection",
+    "textbook-library",
+    "video-library"
+  ],
+  "defaultPageId": "overview",
+  "state": {
+    "adapter": "course-state-v1"
+  },
+  "completion": {
+    "storageKey": "biology30-chapter-12:required-completion:v1",
+    "requiredIds": [
+      "ch12-check-01",
+      "ch12-check-02",
+      "ch12-check-03",
+      "ch12-check-04",
+      "ch12-check-05",
+      "ch12-check-06",
+      "ch12-check-07",
+      "ch12-check-08",
+      "ch12-check-09"
+    ]
+  }
+}

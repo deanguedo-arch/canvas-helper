@@ -1,0 +1,102 @@
+{
+  "id": "184076f0-85b7-42f6-a8a9-39528fe6ffd4",
+  "slug": "sportswellness-phase-4",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/sportswellness-phases2-4-working-previews-v1/sportswellness-phase-4",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness-phase-4/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness-phase-4/raw/original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-09-18T02:36:02.218Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/sportswellness-phase-4/workspace/index.html",
+  "canonicalSources": [
+    "projects/sportswellness-phase-4/workspace/index.html",
+    "projects/sportswellness-phase-4/workspace/styles.css",
+    "projects/sportswellness-phase-4/workspace/runtime.js",
+    "projects/sportswellness-phase-4/workspace/assets/game/index.html",
+    "projects/sportswellness-phase-4/workspace/assets/game/game.js",
+    "projects/sportswellness-phase-4/workspace/assets/game/bridge.js",
+    "projects/sportswellness-phase-4/workspace/assets/game/scale.js",
+    "projects/sportswellness-phase-4/workspace/assets/game/theme.css",
+    "projects/sportswellness-phase-4/workspace/assets/game/controls.css",
+    "projects/sportswellness-phase-4/workspace/assets/figures/phase4-cba-routine.svg",
+    "projects/sportswellness-phase-4/workspace/assets/figures/phase4-chapter-map.svg",
+    "projects/sportswellness-phase-4/workspace/assets/figures/phase4-confidence-account.svg",
+    "projects/sportswellness-phase-4/workspace/assets/figures/phase4-flat-tire-drill.svg",
+    "projects/sportswellness-phase-4/workspace/assets/figures/phase4-mental-cinema.svg"
+  ],
+  "authoring": {
+    "driverId": "proposal-only-v1",
+    "familyId": "sportswellness-split-v1",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    },
+    "qualityProfile": "sportswellness-phase-preview-v1",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    }
+  },
+  "generatedOutputs": [
+    "projects/sportswellness-phase-4/workspace/assets/game/utilities.css",
+    "projects/sportswellness-phase-4/workspace/assets/readings/phase4-toolkit-reading.pdf",
+    "projects/sportswellness-phase-4/workspace/assets/game/react-local.js"
+  ],
+  "injectedComponents": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "chatgpt-pro",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/sportswellness-phases2-4-working-previews-v1/sportswellness-phase-4",
+    "importedAt": "2026-09-18T02:36:02.093Z",
+    "archivePath": "/Users/deanguedo/Downloads/SportsWellness_Phases2_4_Working_Previews_v1.zip"
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": false,
+      "notes": "Local learner preview; readiness, response capacity and Brightspace validation deferred."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [
+    "projects/sportswellness-phase-4/meta/source-review",
+    "projects/incoming/sportswellness-phases2-4-working-previews-v1",
+    "projects/sportswellness-phase-4/raw"
+  ],
+  "sourceOfTruthNotes": "Canonical teaching/questions/links/captions belong to workspace/index.html; runtime attaches behaviour. Imported first-pass content JSON and historical source are reference records. CSS synchronized to current Phase 1. PDFs/utility CSS are imported generated assets with upstream generation provenance retained; local rebuild source recovery is deferred. Blocked; no deployment or SCORM readiness.",
+  "createdAt": "2026-09-18T02:36:02.093Z",
+  "updatedAt": "2026-09-18T02:36:02.218Z",
+  "title": "Sports Psychology \u2014 Phase 4: The Toolkit",
+  "runtimeDependencies": [
+    {
+      "path": "workspace/assets/game/react-local.js",
+      "role": "imported local vendor runtime",
+      "upstream": "React/ReactDOM bundled by supplied build; keep shipped bytes until supported rebuild is recovered"
+    }
+  ],
+  "regeneration": {
+    "readingPdf": {
+      "upstreamTool": "projects/incoming/sportswellness-phases2-4-working-previews-v1/developer/tools/build_readings.py",
+      "status": "Tool currently targets the upstream extracted bundle. Local workspace regeneration adapter deferred; HTML remains canonical."
+    },
+    "gameUtilityCss": {
+      "status": "Imported generated CSS; upstream Tailwind build command/source contract not supplied. Preserve output and recover regeneration before readiness."
+    }
+  }
+}

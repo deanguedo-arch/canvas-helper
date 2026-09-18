@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-18T02:40:11.653Z",
+  "results": [
+    {
+      "phase": 2,
+      "passed": true,
+      "checks": [
+        "real HTTP launch",
+        "inventory and inert JSON",
+        "6000+ character restoration/final input",
+        "safe My Work",
+        "checkpoint resume/incomplete/duplicate",
+        "wrong import and confirmed replacement",
+        "note save/delete/undo",
+        "game pause/resume/HTTP and file exit persistence",
+        "wrong-window messages rejected",
+        "real print popup scoped record",
+        "desktop/phone affected view",
+        "new context native-storage restoration"
+      ]
+    },
+    {
+      "phase": 3,
+      "passed": true,
+      "checks": [
+        "real HTTP launch",
+        "inventory and inert JSON",
+        "6000+ character restoration/final input",
+        "safe My Work",
+        "checkpoint resume/incomplete/duplicate",
+        "wrong import and confirmed replacement",
+        "note save/delete/undo",
+        "game pause/resume/HTTP and file exit persistence",
+        "wrong-window messages rejected",
+        "real print popup scoped record",
+        "desktop/phone affected view",
+        "new context native-storage restoration"
+      ]
+    },
+    {
+      "phase": 4,
+      "passed": true,
+      "checks": [
+        "real HTTP launch",
+        "inventory and inert JSON",
+        "6000+ character restoration/final input",
+        "safe My Work",
+        "checkpoint resume/incomplete/duplicate",
+        "wrong import and confirmed replacement",
+        "note save/delete/undo",
+        "game pause/resume/HTTP and file exit persistence",
+        "wrong-window messages rejected",
+        "real print popup scoped record",
+        "desktop/phone affected view",
+        "new context native-storage restoration"
+      ]
+    }
+  ],
+  "deniedStorageRecoverable": true,
+  "limits": [
+    "No broad E2E/Studio/SCORM/Brightspace tests",
+    "Phone screenshots use Chromium emulation",
+    "Browser context recreation uses exported native storage, not actual browser shutdown",
+    "Print popup verified; OS print dialogue and physical PDF printing not certified"
+  ]
+}

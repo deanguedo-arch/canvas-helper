@@ -1,0 +1,68 @@
+{
+  "id": "e9f92e08-d4a5-4590-8b96-2a4f2f8a363b",
+  "slug": "biology30-chapter-14",
+  "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapter14_Exact_Template_Handoff.zip",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "raw",
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-14/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-14/raw/original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-09-18T02:35:28.515Z",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course",
+    "injection/integration"
+  ],
+  "canonicalEntry": "projects/biology30-chapter-14/workspace/index.html",
+  "canonicalSources": [
+    "projects/biology30-chapter-14/workspace/main.js",
+    "projects/biology30-chapter-14/workspace/assets",
+    "projects/biology30-chapter-14/workspace/styles.css",
+    "projects/biology30-chapter-14/meta/external-generation/authoring/course-config.json",
+    "projects/biology30-chapter-14/meta/external-generation/authoring/textbook-question-manifest.json",
+    "projects/biology30-chapter-14/meta/external-generation/scripts/content.py",
+    "projects/biology30-chapter-14/meta/external-generation/scripts/build_chapter.py",
+    "projects/biology30-chapter-14/workspace/index.html",
+    "projects/biology30-chapter-14/meta/external-generation/authoring/templates/overview-current.html"
+  ],
+  "authoring": {
+    "driverId": "proposal-only-v1",
+    "familyId": "imported-workspace-v1",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  },
+  "generatedOutputs": [
+    "projects/biology30-chapter-14/workspace/portable/Biology30_Chapter14.html"
+  ],
+  "injectedComponents": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "generator": "chatgpt-pro",
+    "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapter14_Exact_Template_Handoff.zip",
+    "sourceSha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+    "importedAt": "2026-09-18T02:36:19.422Z"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": false,
+      "notes": "Local integration candidate; deployment and LMS verification deferred."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Generated teaching HTML is owned by the delivered content.py/build_chapter.py; native runtime remains editable. Preserve exact CSS, stable identities and namespaces. Developer sources are under meta/external-generation. Portable is derived. Do not generic-reimport. workspace/index.html is the generated canonical entry; content.py/build_chapter.py remain its authoring owner.",
+  "createdAt": "2026-09-18T02:35:28.515Z",
+  "updatedAt": "2026-09-18T02:35:28.515Z",
+  "title": "Biology 30 - Chapter 14",
+  "regenerateCommand": "cd projects/biology30-chapter-14/meta/external-generation && python3 scripts/build_chapter.py && python3 scripts/patch_runtime.py && python3 scripts/assemble_portable.py"
+}

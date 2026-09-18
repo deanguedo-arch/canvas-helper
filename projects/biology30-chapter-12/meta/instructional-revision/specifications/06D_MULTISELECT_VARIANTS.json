@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "ch12-multi-retinal-routes",
+      "chapter": 12,
+      "lesson": 4,
+      "conceptId": "ch12-retinal-circuit",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select every correct statement about the simplified retina.",
+      "options": [
+        {
+          "id": "light",
+          "text": "Light passes through the ganglion-cell layer before reaching rods and cones."
+        },
+        {
+          "id": "info",
+          "text": "Neural information passes from photoreceptors through bipolar pathways toward ganglion cells."
+        },
+        {
+          "id": "nerve",
+          "text": "The optic nerve carries incoming light to the rods."
+        },
+        {
+          "id": "blind",
+          "text": "The optic disc has the highest density of cones."
+        }
+      ],
+      "answers": [
+        "light",
+        "info"
+      ],
+      "cue": "Separate the light route, information route and nerve exit.",
+      "explanation": "Light reaches photoreceptors after passing through the overlying retinal layers. Information then passes toward ganglion cells, whose axons carry neural signals in the optic nerve.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch12-multi-balance",
+      "chapter": 12,
+      "lesson": 7,
+      "conceptId": "ch12-equilibrium-integration",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select every correct contribution to balance.",
+      "options": [
+        {
+          "id": "canals",
+          "text": "Semicircular canals detect changes in head rotation."
+        },
+        {
+          "id": "proprio",
+          "text": "Proprioceptors provide information about limb position."
+        },
+        {
+          "id": "eye",
+          "text": "Visual information can help the brain maintain balance."
+        },
+        {
+          "id": "cochlea",
+          "text": "The cochlea is the main detector of straight-line acceleration."
+        }
+      ],
+      "answers": [
+        "canals",
+        "proprio",
+        "eye"
+      ],
+      "cue": "Balance combines vestibular, visual and body-position information.",
+      "explanation": "Canals contribute rotational information, proprioceptors contribute body-position information and vision adds another source. The cochlea is used for hearing.",
+      "reviewRoute": "lesson-07"
+    },
+    {
+      "id": "ch13-multi-pituitary",
+      "chapter": 13,
+      "lesson": 4,
+      "conceptId": "ch13-posterior-pituitary",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select every correct statement about pituitary routes.",
+      "options": [
+        {
+          "id": "make",
+          "text": "ADH is made in hypothalamic neurons."
+        },
+        {
+          "id": "release",
+          "text": "ADH is released into blood from the posterior pituitary."
+        },
+        {
+          "id": "anterior",
+          "text": "Anterior-pituitary cells make and release their own hormones."
+        },
+        {
+          "id": "all",
+          "text": "All pituitary hormones are made in the posterior pituitary."
+        }
+      ],
+      "answers": [
+        "make",
+        "release",
+        "anterior"
+      ],
+      "cue": "Separate production, transport and release.",
+      "explanation": "The anterior pituitary produces its own hormones. ADH is produced in the hypothalamus and transported to the posterior pituitary for storage and release.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch13-multi-fluid",
+      "chapter": 13,
+      "lesson": 11,
+      "conceptId": "ch13-aldosterone",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select every correct comparison of ADH and aldosterone.",
+      "options": [
+        {
+          "id": "adh",
+          "text": "ADH directly increases collecting-duct water permeability."
+        },
+        {
+          "id": "aldo",
+          "text": "Aldosterone increases sodium reabsorption."
+        },
+        {
+          "id": "same",
+          "text": "Both hormones have identical immediate kidney actions."
+        },
+        {
+          "id": "source",
+          "text": "Aldosterone is released by the adrenal cortex."
+        }
+      ],
+      "answers": [
+        "adh",
+        "aldo",
+        "source"
+      ],
+      "cue": "Compare the immediate kidney action and release site.",
+      "explanation": "ADH changes water permeability. Aldosterone from the adrenal cortex changes sodium and potassium handling. Their effects on body fluid overlap, but their immediate actions differ.",
+      "reviewRoute": "lesson-11"
+    }
+  ]
+}

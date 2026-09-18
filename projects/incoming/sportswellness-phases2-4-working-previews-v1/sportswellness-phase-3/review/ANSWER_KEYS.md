@@ -1,0 +1,96 @@
+# Teacher review: answers and expected evidence
+
+This is feedback-rich local practice, not a secure test. The HTML necessarily contains concept keys. Written responses are evaluated using the rubric, not automatically scored.
+
+## What attention does
+**p3-attention-processes-check-1: B.** The performer remains with the rhythm long enough to complete the phrase. The description does not measure overall capacity.
+
+**p3-attention-processes-check-2: C.** Several explanations are possible. The task, signal and performer’s account help distinguish them.
+
+**Written evidence:** State the exact action or decision.; Identify one relevant cue and one less useful distraction.; Explain why the distinction fits this moment.
+
+## Four ways to focus
+**p3-attention-quadrants-check-1: A.** The information consists of several internal options. A pause provides a setting where considering them may fit.
+
+**p3-attention-quadrants-check-2: B.** Several external cues are needed for the pass. The other choices leave important task information out.
+
+**Written evidence:** Name the task and moment.; State width and direction separately.; Use the actual information in the case to justify both.
+
+## Shift as the task changes
+**p3-attention-shifts-check-1: C.** A trigger connects the shift to an actual demand. It helps the performer know when the previous cue no longer fits.
+
+**p3-attention-shifts-check-2: A.** The duet introduces information about another performer. The plan needs to account for those cues rather than preserve an outdated sequence.
+
+**Written evidence:** Give a clear setting for each moment.; Name the information and quadrant.; Explain what signals each shift and where a step might be unnecessary.
+
+## Observe without judging yourself
+**p3-observation-self-talk-check-1: B.** They are labels used to discuss commentary and learned execution. The lesson does not identify separate anatomical systems.
+
+**p3-observation-self-talk-check-2: C.** The response acknowledges a specific error and names a next action. It avoids both denial and a global judgment.
+
+**Written evidence:** Identify the global judgment.; Keep the observed error without exaggerating it.; Choose a relevant action and explain the limit of the conclusion.
+
+## Cue words and anchors
+**p3-cues-anchors-check-1: A.** The cue directs a specific timing feature. It does not measure an internal state.
+
+**p3-cues-anchors-check-2: B.** The anchor serves a function. Another concise reminder can serve that function without turning the routine into a long instruction list.
+
+**Written evidence:** Give one instructional and one motivational example.; Select the example that fits the stated need.; Name the anchor, trigger and next action.
+
+## Prepare your attention
+**p3-prepare-attention-check-1: C.** A routine gives the performer useful actions. The result can still vary and some uncertainty may remain.
+
+**p3-prepare-attention-check-2: A.** A usable routine fits the available moment. Preserve its purpose while adjusting unnecessary steps.
+
+**Written evidence:** State the setting and available pause.; Give a labelled sequence with a purpose for each step.; Explain how the final step begins the task.
+
+## Notice, reset and return
+**p3-reset-return-check-1: A.** The plan names a specific event, an appropriate return cue and a next action. It can be practised and adapted.
+
+**p3-reset-return-check-2: B.** The problem is missing information. Clarification directly addresses it; a regulation cue does not replace instructions.
+
+**Written evidence:** Name the disruption and observable signal.; Choose a safe, proportionate response.; State the next cue and an adjustment if the first response does not help.
+
+## Practise a flexible focus plan
+**p3-flexible-focus-check-1: B.** The statement describes an action that can be checked. It does not claim a permanent trait or an unmeasured internal state.
+
+**p3-flexible-focus-check-2: C.** The review considers the task and competing explanations. It supports a targeted adjustment rather than an unsupported global conclusion.
+
+**Written evidence:** Name one changed condition and what stays the same.; State the intended focus and an observable action.; Explain a proportionate adjustment and one uncertainty.
+
+## Checkpoint
+
+**phase3-q1: A.** The task changes from explaining to responding. Selection, sustained attention and a purposeful shift work together.
+
+**phase3-q2: B.** The issue is competing jobs in a specific moment. Learning-time analysis and later feedback remain important.
+
+**phase3-q3: C.** Several relevant cues in the surroundings make this broad-external attention.
+
+**phase3-q4: D.** The selected information is one specific bodily sensation. That describes narrow-internal attention.
+
+**phase3-q5: A.** It organizes a discussion. It does not supply measured values or remove other influences on performance.
+
+**phase3-q6: B.** These are model labels, not anatomy, diagnoses or permanent learner categories.
+
+**phase3-q7: C.** A specific observation supports a next action without denying the error or making a global claim.
+
+**phase3-q8: D.** The sequence must fit the task and available time. It supports, rather than replaces, preparation.
+
+**phase3-q9: A.** Adapt the representation while preserving the purpose of the anchor.
+
+**phase3-q10: B.** Purpose and context determine the distinction. A phrase is not useful merely because it is short.
+
+**phase3-q11: C.** The aim is a task-based return, not perfect control of every thought. Real problems may need clarification or support.
+
+**phase3-q12: D.** The case identifies a rushed setup and a later attention shift that did not fit the task. The plan addresses both without claiming those facts explain every possible miss.
+
+## Written review
+
+**1.** Width concerns how much information is selected; direction concerns where it comes from. A player scanning several teammates is broad-external. A brief check of one tension signal during a pause is narrow-internal. The task determines whether either fits.
+
+**2.** Identify the purpose of the cue and choose an available alternative serving that purpose. A printed keyword may replace a slide title. Explain the next action and check whether the new anchor makes the explanation usable.
+
+**3.** Gallwey’s equation is an attributed coaching framework, not a measurement. Self 1 and Self 2 are labels for discussing commentary and learned execution. The framework does not replace skill learning, task knowledge or useful feedback.
+
+**4.** A useful revision replaces vague language with a specific task, cue, trigger or observation. For example, “focus more” can become a named scan before a pass. Explain the change and retain a limitation where the evidence does not establish a cause.
+

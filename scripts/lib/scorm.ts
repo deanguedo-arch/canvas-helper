@@ -1,4 +1,5 @@
 import { load } from "cheerio";
+import { buildScormStateCodecRuntime } from "./scorm-state-codec.js";
 import { buildScormTrackingRuntime, type ScormTrackingContract } from "./scorm-tracking.js";
 
 export type ScormVersion = "2004" | "1.2";
@@ -290,6 +291,7 @@ type BuildScormBridgeScriptOptions = {
 
 export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   const config = {
+    managedState: options.tracking?.state?.adapter === "course-state-v1",
     projectSlug: options.projectSlug,
     tracking: options.tracking ?? null,
     version: options.version,
@@ -324,6 +326,65 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   let controlHost = null;
   let lastPersistErrorMessage = "";
   let restoreBlocked = false;
+  let courseState = null;
+  let courseCompletedIds = [];
+  let courseReady = !config.managedState;
+  let courseFlush = null;
+  let courseScope = "";
+  let learnerId = "";
+  let courseError = "";
+  let preparing = null;
+
+${buildScormStateCodecRuntime()}
+
+  function connectionState() {
+    return restoreBlocked ? "blocked" : initialized && !terminated ? "connected" : api ? "unavailable" : "preview";
+  }
+  function readCourseState() {
+    if (restoreBlocked || (api && !initialized)) throw new Error(lastPersistErrorMessage || "Brightspace could not open this attempt. Existing work has been retained.");
+    return courseState === null ? null : JSON.parse(JSON.stringify(courseState));
+  }
+  function publishCourseState(value, completedIds) {
+    if (!config.managedState || !initialized || restoreBlocked || terminated) throw new Error(lastPersistErrorMessage || "Brightspace saving is unavailable.");
+    if (!Array.isArray(completedIds) || !completedIds.every(id => typeof id === "string")) throw new Error("Invalid required completion IDs.");
+    // Validate and materialize before replacing the last committed snapshot.
+    const copy = JSON.parse(JSON.stringify(value));
+    stateCodec.encode(JSON.stringify(copy));
+    courseState = copy;
+    courseCompletedIds = Array.from(new Set(completedIds));
+    courseError = "";
+    scheduleFlush("course-state");
+  }
+  function registerCourse(options) {
+    if (!config.managedState) throw new Error("This package has no course state adapter contract.");
+    courseFlush = options && options.flush;
+    if (typeof courseFlush !== "function") throw new Error("The course must provide a save flush function.");
+    courseReady = true;
+    scheduleFlush("course-ready");
+  }
+  function prepareSave() {
+    if (!courseFlush) return Promise.resolve();
+    if (!preparing) preparing = Promise.resolve().then(courseFlush).finally(function () { preparing = null; });
+    return preparing;
+  }
+  function saveAsync() {
+    return prepareSave().then(save).catch(function (error) {
+      courseError = String(error.message || error);
+      announceStatus(courseError, true);
+      return false;
+    });
+  }
+  function exposeBridge() {
+    window.__canvasHelperScorm = {
+      save: save, saveAsync: saveAsync, saveAndExit: saveAndExit, markCompleted: markCompleted,
+      connectionState: connectionState, readCourseState: readCourseState,
+      publishCourseState: publishCourseState, registerCourse: registerCourse,
+      scopeKey: function (key) { return initialized && config.managedState ? key + ":lms:" + courseScope : key; },
+      learner: function () { return learnerId; },
+      failCourseSave: function (error) { courseError = String(error.message || error); announceStatus(courseError, true); },
+      lastError: function () { return courseError || lastPersistErrorMessage; }
+    };
+  }
 
 ${buildScormTrackingRuntime()}
 
@@ -438,7 +499,7 @@ ${buildScormTrackingRuntime()}
 
   function collectStateFromLocalStorage() {
     const values = {};
-    for (const key of trackedKeySet) {
+    for (const key of config.managedState ? [] : trackedKeySet) {
       try {
         const value = window.localStorage.getItem(key);
         if (typeof value === "string" && value.length > 0) {
@@ -454,6 +515,7 @@ ${buildScormTrackingRuntime()}
       projectSlug: config.projectSlug,
       savedAt: new Date().toISOString(),
       values: values,
+      ...(config.managedState ? {scope: courseScope, learnerId: learnerId, course: {schemaVersion: 1, data: stateCodec.encode(JSON.stringify(courseState)), completedIds: courseCompletedIds}} : {}),
       tracking: collectTracking()
     };
   }
@@ -501,9 +563,10 @@ ${buildScormTrackingRuntime()}
   }
 
   function announceStatus(message, isError) {
-    if (!controlHost) {
-      return;
+    if (config.managedState && typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
+      window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-status", {detail: {message: message, error: Boolean(isError)}}));
     }
+    if (!controlHost) { return; }
 
     const statusNode = controlHost.querySelector("[data-scorm-status]");
     if (!statusNode) {
@@ -529,6 +592,10 @@ ${buildScormTrackingRuntime()}
       return false;
     }
 
+    if (config.managedState && (!courseReady || courseState === null || courseError)) {
+      lastPersistErrorMessage = courseError || "Opening saved course work…";
+      return false;
+    }
     announceStatus("Saving to Brightspace…", false);
     let payload;
     let progress;
@@ -545,7 +612,7 @@ ${buildScormTrackingRuntime()}
 
     if (serialized.length > config.maxSuspendChars) {
       logWarning("State payload exceeded suspend_data budget; skipping save.");
-      lastPersistErrorMessage = "This course has more saved work than Brightspace can accept. Your last successful LMS save is still safe. Keep this tab open and remove unneeded draft evidence before trying again.";
+      lastPersistErrorMessage = "This course has more saved work than Brightspace can accept. Your last successful LMS save is still safe. Keep this tab open and download a process report or backup; nothing has been shortened.";
       announceStatus(lastPersistErrorMessage, true);
       return false;
     }
@@ -710,6 +777,24 @@ ${buildScormTrackingRuntime()}
       return;
     }
 
+    if (config.managedState) {
+      const nativeStatus = document.querySelector("#save-status,[data-local-status]");
+      if (nativeStatus && nativeStatus.parentElement) {
+        controlHost = nativeStatus.parentElement;
+        controlHost.setAttribute("data-scorm-controls", "true");
+        nativeStatus.setAttribute("data-scorm-status", "true");
+        nativeStatus.setAttribute("role", "status");
+        nativeStatus.textContent = restoreBlocked ? lastPersistErrorMessage : initialized ? "Opening saved course work…" : "Not connected to Brightspace. LMS saving is unavailable.";
+        const retry = document.querySelector('[data-action="save"]') || document.createElement("button");
+        retry.setAttribute("data-scorm-save", "true");
+        retry.type = "button";
+        retry.textContent = "Save now";
+        if (!initialized) retry.setAttribute("disabled", "disabled");
+        retry.addEventListener("click", function (event) { event.preventDefault(); event.stopImmediatePropagation(); saveAsync(); }, true);
+        if (!retry.parentElement) controlHost.appendChild(retry);
+        return;
+      }
+    }
     controlHost = document.createElement("div");
     controlHost.setAttribute("data-scorm-controls", "true");
     controlHost.setAttribute("aria-live", "polite");
@@ -749,24 +834,24 @@ ${buildScormTrackingRuntime()}
     exitButton.style.fontSize = "12px";
     exitButton.style.padding = "10px 14px";
     exitButton.style.cursor = "pointer";
-    exitButton.addEventListener("click", saveAndExit);
+    exitButton.addEventListener("click", function () { prepareSave().then(saveAndExit).catch(function (error) { courseError = String(error.message || error); announceStatus(courseError, true); }); });
     if (!initialized) exitButton.setAttribute("disabled", "disabled");
 
     const saveButton = document.createElement("button");
     saveButton.type = "button";
     saveButton.textContent = "Save now";
     saveButton.setAttribute("data-scorm-save", "true");
-    saveButton.addEventListener("click", save);
+    saveButton.addEventListener("click", saveAsync);
     if (!initialized) saveButton.setAttribute("disabled", "disabled");
 
     controlHost.appendChild(statusNode);
     controlHost.appendChild(saveButton);
-    controlHost.appendChild(exitButton);
+    if (!config.managedState) controlHost.appendChild(exitButton);
     document.body.appendChild(controlHost);
   }
 
   function patchLocalStorage() {
-    if (localStoragePatched || typeof Storage === "undefined") {
+    if (config.managedState || localStoragePatched || typeof Storage === "undefined") {
       return;
     }
 
@@ -812,13 +897,34 @@ ${buildScormTrackingRuntime()}
     }
 
     const existingSuspendData = api.getValue("cmi.suspend_data");
-    const parsedState = tryParseJson(existingSuspendData);
+    let parsedState = tryParseJson(existingSuspendData);
     try {
+      if (config.managedState) {
+        learnerId = api.getValue(config.version === "2004" ? "cmi.learner_id" : "cmi.core.student_id");
+        if (!learnerId) throw new Error("Brightspace did not supply a learner identity. Saving is stopped to protect private work.");
+        const legacyId = config.tracking.state.legacyCourseId;
+        if (existingSuspendData && legacyId && (!parsedState || parsedState.version !== 1)) {
+          const legacy = JSON.parse(stateCodec.decode(existingSuspendData));
+          if (legacy.schema !== 1 || legacy.course !== legacyId || !legacy.fields || !legacy.done || !legacy.tools) throw new Error("This older Chemistry save does not match the course.");
+          courseState = legacy;
+          courseCompletedIds = Object.keys(legacy.done).filter(id => legacy.done[id] === true);
+          parsedState = {version: 1, projectSlug: config.projectSlug, values: {}};
+        }
+        if (parsedState && parsedState.learnerId && parsedState.learnerId !== learnerId) throw new Error("This saved work belongs to another learner.");
+        if (parsedState && !parsedState.course && !courseState && Object.keys(parsedState.values || {}).length) throw new Error("This older package save needs a course-specific migration before opening. It has not been overwritten; keep the previous package and export a backup for recovery.");
+        if (parsedState && parsedState.course) {
+          if (parsedState.course.schemaVersion !== 1 || typeof parsedState.course.data !== "string" || !Array.isArray(parsedState.course.completedIds) || !parsedState.course.completedIds.every(id => typeof id === "string")) throw new Error("The saved course snapshot is invalid.");
+          courseState = JSON.parse(stateCodec.decode(parsedState.course.data));
+          courseCompletedIds = parsedState.course.completedIds;
+        }
+        if (parsedState && parsedState.scope && !/^[a-zA-Z0-9-]{1,100}$/.test(parsedState.scope)) throw new Error("Invalid learner save scope.");
+        courseScope = parsedState && parsedState.scope || Array.from(window.crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, "0")).join("");
+      }
       if (existingSuspendData && (!parsedState || parsedState.version !== 1 || parsedState.projectSlug !== config.projectSlug || !parsedState.values || typeof parsedState.values !== "object" || Array.isArray(parsedState.values) || !Object.values(parsedState.values).every(value => typeof value === "string"))) {
         throw new Error("Brightspace saved work could not be restored for this course. Automatic saving is stopped to protect it. Reopen the correct activity or contact your teacher.");
       }
       if (parsedState) {
-        applyStateToLocalStorage(parsedState);
+        if (!config.managedState) applyStateToLocalStorage(parsedState);
         restoreTracking(parsedState.tracking);
       } else {
         restoreTracking(null);
@@ -827,17 +933,14 @@ ${buildScormTrackingRuntime()}
       restoreBlocked = true;
       initialized = false;
       lastPersistErrorMessage = String(error.message);
+      exposeBridge();
       return false;
     }
 
     ensureCompletionStatus();
     patchLocalStorage();
     installControls();
-    window.__canvasHelperScorm = {
-      save: save,
-      saveAndExit: saveAndExit,
-      markCompleted: markCompleted
-    };
+    exposeBridge();
     if (typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
       window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-ready"));
     }
@@ -852,6 +955,7 @@ ${buildScormTrackingRuntime()}
     return true;
   }
 
+  if (config.managedState) exposeBridge();
   const bootedImmediately = boot();
 
   if (!bootedImmediately) {

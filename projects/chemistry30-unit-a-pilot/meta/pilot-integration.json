@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "chemistry30-unit-a-pilot",
-  "recordedAt": "2026-09-15T21:15:00.000Z",
+  "recordedAt": "2026-09-16T17:25:52.519591+00:00",
   "source": {
     "role": "imported first-pass source",
     "system": "ChatGPT",
@@ -43,7 +43,9 @@
     "biologyStyleSidebarNavigation": true,
     "consolidatedProcessCollection": true,
     "frayerSaveToCollection": true,
-    "singleProcessReportAction": true
+    "singleProcessReportAction": true,
+    "pageBasedTextbookPractice": true,
+    "courseTitle": "Chemistry 30 \u2014 Unit A"
   },
   "preservedInventory": {
     "routes": 32,
@@ -85,12 +87,42 @@
     "frayerCollection": "pass: four preserved Frayer fields save through one explicit control and render as one Vocabulary Frayers entry; incomplete Frayers remain labelled as drafts",
     "organizedProcessCollection": "pass: All My Work is grouped by Vocabulary Frayers, Written responses, Equation and textbook work, Energy diagrams, Models and simulations, Checked practice, and Interactive activities; related investigation and textbook fields rendered as one entry each in the isolated focused check",
     "legacyCollectionConsolidation": "pass: an existing four-field vocabulary draft and four supplied profile values each rendered as one grouped entry without changing their storage IDs or values",
-    "processReportAction": "pass: Process Collection exposes one Download your process report action; the page-specific backup and restore controls and helper wording are absent"
+    "processReportAction": "pass: Process Collection exposes one Download your process report action; the page-specific backup and restore controls and helper wording are absent",
+    "pageBasedTextbookPractice": "pass: chapter question counts 41/32/31/19, page images load, desktop overflow zero, zoom 100\u2192125%, compact layout fits the actual browser width, compact page modal loads and zooms 100\u2192150%, focus returns to textbook button",
+    "textbookPracticeSaveNavigation": "pass: isolated equation and response save, Next/Previous navigation and reload retain values and Saved status; editing the response changes status to Draft",
+    "textbookPracticeInventory": "pass: all original data globals, 123 textbook question records, 32 route IDs and all other route page records match HEAD; 31 image assets cover every assigned page"
   },
   "workspaceSha256": {
-    "index.html": "4f5db192f2dae5109275924eb39df3c54a88c0ddb1436d879517cada677fd615",
-    "styles.css": "0c5ffa0d5c2f912ccb581cf51bbfbcd1e1262ccf20237745b1e466e43a6a8b5a",
-    "main.js": "88ec35a6590bfdfd8fc701957bb9d03875c7a8298271ca3eec42b6de8f1323b6"
+    "index.html": "91b6b13ee508b0e4b774d38308800d06e8ce5a3421ffe92beca40488ac27b08d",
+    "main.js": "166f59944347e28bc19b30eda29eeee9dc33dadb6c8699a22150d7a0ad7944b4",
+    "styles.css": "ce98befd4aa455e7934908d28b2581b7cdc8c572970ff6fa795a229f01042b6f",
+    "practice/chapter-10.js": "a3ee996e44401bf071f9cc4ed1ebbf7b7d63c6fef2c5b0743ca40f4963fd26bd",
+    "practice/chapter-11.js": "96e394277feb1fdbf408e77a4baa791ba72ef07b6cf51a2337a057689684ee96",
+    "practice/chapter-9.js": "6ed34d5e44b70aabe18841d9423c90bdd1c97be31e0c22728f1b027527c002d2",
+    "practice/diagrams.js": "d69e5d07304341f0a2029da34cd5e95bea7260c9cf049c806f3984ae9242e3fb",
+    "practice/engine.js": "2820eb92c1e583b9f9e5083f3521123a89cff07fadf0a1255902a2851bee714a",
+    "practice/generators.js": "6e2ce3b2b495ce67d736e0d1350a631bdcf71a614edc293f65badbf82ee61f5a",
+    "practice/ui.js": "66ef1fc477de49715318dbee1895639f5c3d48bbb1949b10983cf2546d92374e",
+    "practice/diagrams/ch10-efficiency-flow.svg": "d4b1483c5573ff70e1d98fe7195b30f30d0db690ac1eab07b88efea847522215",
+    "practice/diagrams/ch10-formation-cycle.svg": "9dfbb111a058d99367dd20767bed6bee2f8010c6d83e5eca1001b0691fe7b545",
+    "practice/diagrams/ch10-hess-cycle.svg": "40aa2b955b5e6d5833c31b4849762ad12653918211aa6c291bd0bc42e1679989",
+    "practice/diagrams/ch11-catalyst-pathway.svg": "e8317760987c89e8fb25b16015a627aca0268919c138d2fb579a241d0aadca0b",
+    "practice/diagrams/ch11-collision-theory.svg": "157a664f64499d966841feac723cf9a06621d9d8a8f797b1a80b431f209b9df4",
+    "practice/diagrams/ch11-endothermic-profile.svg": "6e5f935a55b54d2a64a3757a2a8f80eb1548a70e9cd835dad9af2a9e79cae513",
+    "practice/diagrams/ch11-potential-energy.svg": "b23db88acd9c00859b47bbc6497dd71b1d2344eb7bfea86206f344aef39c5976",
+    "practice/diagrams/ch9-calibrated-calorimeter.svg": "3415e538f82b53151522557f46472602e5b09149c1a2b75206d13dede47a8ac9",
+    "practice/diagrams/ch9-energy-transfer.svg": "2fa8d9a39e28f1d6d76be44d2650d7442e56005b04bce124c9cae5b8448e1c5a",
+    "practice/diagrams/ch9-solution-calorimeter.svg": "2d4ba75cad6ec1b368a2e0d56a5bc56bfe36621f13f263fbde76d4cb2cf59808",
+    "practice/diagrams/uploaded/chapter_13/ch13_electrolytic_cell.png": "32f3431b669bcb5e5784ac55c1d8d9d7b9d1f8b55261e8cc8a101f80c9a2f5e1",
+    "practice/diagrams/uploaded/chapter_13/ch13_salt_bridge_ion_movement.png": "3216f3919877344ebc156c441968077d98e9f47ec29ba6baf9cba161a8f3ee50",
+    "practice/diagrams/uploaded/chapter_13/ch13_electroplating_setup.png": "d297e6d354d2cf1219428c3302fb7717f39f69a4997d8c801d51cf736c51ffc9",
+    "practice/diagrams/uploaded/chapter_13/ch13_voltaic_cell_zinc_copper.png": "d3b7fbe2ef3abac55760fed9b45169d22cb89abd80de0716d17516f949ed9335",
+    "practice/diagrams/uploaded/chapter_12/ch12_oxidation_numbers_water.png": "05cd73beebbcc22916319187b4ea24bcea79af0b84c59cd19006e53c7270f6de",
+    "practice/diagrams/uploaded/chapter_12/ch12_half_reaction_representation.png": "ce2b91c050f655a13da403012070b47167dcd3d47e5a6c08c211097f29ec0911",
+    "practice/diagrams/uploaded/chapter_12/ch12_electron_transfer_ion_formation.png": "31d81670af0d997b5e45604b606d0a9b4be8fa2a1034e7bd6f965782ffdfc0bd",
+    "practice/diagrams/uploaded/chapter_11/ch11_catalyzed_vs_uncatalyzed.png": "3b9c7d5a55c2c5a298ce541b42f3bd211b3dc6914139cf2400985b3e81c6c11b",
+    "practice/diagrams/uploaded/chapter_11/ch11_collision_theory.png": "715e7204d8ffcdc0d83e0463e467d7d7d7445446bef51102aaca8521d2d66337",
+    "practice/diagrams/uploaded/chapter_11/ch11_potential_energy_diagram.png": "7f61a7aec45a973fbfc9dc05b1ed19711846e3dfd21c30ae0404a395767458dd"
   },
   "releaseBoundary": {
     "authoringStatus": "blocked",
@@ -98,5 +130,66 @@
     "exported": false,
     "deployed": false,
     "brightspaceTested": false
+  },
+  "textbookPracticePreview": {
+    "questionEntries": 123,
+    "renderedPages": 31,
+    "source": "Preserved window.UNIT_PDFS embedded chapter PDFs",
+    "generatedAssetPattern": "workspace/assets/textbook-practice-pages/page-<printed-page>.jpg",
+    "regenerateCommand": "python3 scripts/render-chemistry30-practice-pages.py",
+    "behaviour": "Page-grouped direct question selection; cropped question images above existing work; multiple captures retain continuations, diagrams and referenced context; Enlarge question with zoom; full-page image fallback.",
+    "stateCompatibility": "All existing answer/equation/diagram IDs and state codec preserved. Optional tools.bookSaved stores a small content fingerprint per explicitly saved question.",
+    "rollout": "Local Build candidate only; not redeployed or LMS-certified.",
+    "questionCrops": 137,
+    "cropManifest": "meta/textbook-question-crops.json",
+    "cropRegenerateCommand": "python3 scripts/render-chemistry30-question-crops.py",
+    "cropVerification": "All 123 question IDs have assets; contact-sheet visual inspection with manual crop corrections; browser confirmed image loading and placement above work, enlarged zoom and full-page fallback. Earlier save/reload evidence remains applicable; this crop revision adds no saved-answer contract changes."
+  },
+  "videoLibraryRefinement": {
+    "summary": "Removed lesson-link topic table; learners choose directly from preserved video cards. Guide wording points to videos below.",
+    "videoCardsPreserved": 12,
+    "rollout": "Local Build revision; broad checks and redeployment deferred.",
+    "navigation": "Video lessons moved to Resources after Textbook Library."
+  },
+  "practiceReview": {
+    "authoredPrompts": 300,
+    "calculationTemplates": 28,
+    "diagrams": 10,
+    "suppliedLabels": 71,
+    "teachingLessons": 20,
+    "routes": [
+      "practice",
+      "fill-in-the-blanks",
+      "multiple-choice",
+      "labeling-practice",
+      "calculation-practice",
+      "mixed-practice"
+    ],
+    "stateNamespace": "tools.practice; version 1",
+    "retention": "latest three completed sets per mode plus compact skill history",
+    "optional": true,
+    "metadata": [
+      "meta/practice-coverage.json",
+      "meta/practice-source-index.json",
+      "meta/practice-labeling-adapter.json",
+      "meta/practice-preservation-check.json"
+    ],
+    "rollout": "Local Build candidate only. Blocked authoring; no practice deployment, Studio certification, SCORM packaging or Brightspace proof.",
+    "verification": "10 focused tests passed; all six modes rendered; isolated draft/check/finish reload, flashcard variant retry, reset confirmation, keyboard dropdowns, enlarged SVG and grouped downloadable report checked. Ten SVGs rendered and visually inspected; 582px compact layout had no overflow.",
+    "restorationOnlyDiagrams": 7,
+    "diagramSelection": "Complete uploaded pack, original PNG images and all 71 original mappings. Chapters 12\u201313 available in Diagrams; Mixed Unit A retains Chapter 11 only."
+  },
+  "automaticSavingPresentation": {
+    "change": "Removed redundant Save & exit control from desktop sidebar/mobile header.",
+    "behaviour": "Existing automatic save after changes, on visibility change and pagehide retained; existing save status/failure messages and backup remain.",
+    "verification": "Focused HTML inspection; runtime save contracts unchanged.",
+    "rollout": "Live Brightspace verification deferred."
+  },
+  "referenceLauncherPresentation": {
+    "placement": "fixed bottom right, 14px from edge and 54px above bottom",
+    "collapsedSize": "44px",
+    "expansion": "Reference Sheet on hover or keyboard focus",
+    "sidebarButtonRemoved": true,
+    "verification": "Rendered compact width/right/bottom verified; no sidebar duplicate; panel opening checked. Course doctor remains blocked authoring eligibility only."
   }
 }

@@ -89,3 +89,5 @@ A rollout candidate is ready when:
 - avoid bundling refactors with feature work unless the refactor is necessary to preserve clarity
 - prefer wrappers and thin compatibility shims over disruptive rewrites
 - stop and document boundary pressure if the task starts to spill across unrelated domains
+
+SCORM sandbox pilots may use `npm run export:scorm -- --project <slug> --version 2004 --review-only`. Review packaging still validates source ownership and tracking contracts, but never promotes blocked projects, approves workspaces, or records release freshness. Inspect the separate review receipt and ZIP integrity. Simulated learner/photo checks do not establish organizational API permissions, live Brightspace acceptance, or Studio readiness.

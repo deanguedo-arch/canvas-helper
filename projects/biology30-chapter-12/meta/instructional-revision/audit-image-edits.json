@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-17",
+  "review": "Selected outputs visually inspected for the specific audit targets; not independent teacher approval.",
+  "records": [
+    {
+      "key": "eye",
+      "source": "/Users/deanguedo/.codex/generated_images/01a0a190-4f8c-74e1-9615-c2db6fa99328/exec-08ddc8a3-772e-4651-8916-5f38e0e88c18.png",
+      "destination": "projects/biology30-chapter-12/workspace/assets/labeling/01_Human_Eye_Anatomy_Worksheet_corrected.png",
+      "initialPrompt": "Use case: precise-object-edit. Edit target: attached Human Eye Anatomy worksheet. Scientific educational correction only, preserve the exact artwork, title, colors, size and all A-L letters and leaders except C and K. Move C's endpoint clearly onto colored iris tissue away from the black pupil boundary; keep D on black pupil. Remove K's current endpoint on the retinal depression (fovea), move K's leader endpoint to the actual optic disc at the point where retinal nerve fibers and blood vessels exit the eye into the optic nerve, near the lower-right nerve exit. Keep L on optic nerve and J on retina. Do NOT label the fovea as optic disc. All other details unchanged. No new answer labels or text.",
+      "toolMode": "built-in imagegen edit"
+    },
+    {
+      "key": "ear",
+      "source": "/Users/deanguedo/.codex/generated_images/01a0a190-4f8c-74e1-9615-c2db6fa99328/exec-2238d841-6e55-4da4-bf0d-5c87ff4d7af6.png",
+      "destination": "projects/biology30-chapter-12/workspace/assets/labeling/03_Human_Ear_and_Organ_of_Corti_corrected.png",
+      "initialPrompt": "Use case: precise-object-edit. Edit target: Human Ear and Organ of Corti worksheet. Preserve title, artwork, colors and all A-S letters. Scientific correction: remove S and its leader from the lower wall of the enlarged cochlear inset (that wall is NOT the round window). Add a clearly depicted small membrane-covered round window at the BASE of the cochlea in the MAIN ear view, below the oval window G, facing the middle ear. Put S and its leader endpoint onto that round window membrane. Keep G at oval window with stapes, not round window. Keep all inset labels L-R and anatomy unchanged, including L upper scala vestibuli, M middle cochlear duct, R lower scala tympani. H must point clearly to the coiled cochlea in the main view, not vestibular canals. Preserve all other labels/structure. Do not introduce extra answers or letters.",
+      "followupPrompt": "Precise correction only. The S round-window membrane is currently floating in the middle-ear wall, disconnected from the cochlea. Remove that floating grey membrane and its leader. Draw a small grey membrane-covered opening ON THE LOWER LEFT BASE OF THE PINK COCHLEA, just below G oval window, attached directly to cochlear base and facing the middle ear. S leader must terminate on this new membrane, not on the eustachian tube or a disconnected wall. Preserve every other A-R label and all anatomy/inset exactly.",
+      "toolMode": "built-in imagegen edit"
+    },
+    {
+      "key": "glands",
+      "source": "/Users/deanguedo/.codex/generated_images/01a0a190-4f8c-74e1-9615-c2db6fa99328/exec-92743584-76c6-4868-93f0-620bb5a8ab1d.png",
+      "destination": "projects/biology30-chapter-13/workspace/assets/labeling/05_Principal_Endocrine_Glands_corrected.png",
+      "initialPrompt": "Use case: precise-object-edit. Edit target: Principal Endocrine Glands worksheet. Preserve title, full artwork, colors, all A-I letter identities. Retarget EVERY D leader (female neck, male neck, central thyroid inset) clearly onto PINK THYROID tissue, away from yellow nodules. Leave EVERY E leader clearly on a YELLOW PARATHYROID nodule. D=thyroid, E=parathyroid. D and E must never share a yellow-nodule endpoint. Preserve all other endocrine glands and leaders exactly. No new labels or explanatory text.",
+      "toolMode": "built-in imagegen edit"
+    },
+    {
+      "key": "thyroid",
+      "source": "/Users/deanguedo/.codex/generated_images/01a0a190-4f8c-74e1-9615-c2db6fa99328/exec-148afa48-ae66-46f7-a46b-aa8b16da2058.png",
+      "destination": "projects/biology30-chapter-13/workspace/assets/labeling/08_Thyroxine_Negative_Feedback_corrected.png",
+      "initialPrompt": "Use case: precise-object-edit. Edit target: Thyroxine Negative Feedback worksheet. Preserve whole feedback sequence A-I, title, colors, arrows and box identities. Clarify anterior pituitary anatomy at C: use a simplified visibly larger glandular anterior lobe in orange/gold and smaller neural posterior lobe in pink; C's leader endpoint goes clearly INSIDE the larger orange glandular anterior lobe. Add small nearby readable labels 'Anterior' by orange lobe and 'Posterior' by pink lobe to eliminate ambiguity. TRH arrow from B must enter ANTERIOR lobe and TSH arrow to D must come from ANTERIOR lobe, not posterior. I negative feedback arrow also targets anterior lobe. All other boxes A,B,D,E,F,G,H,I and thyroid feedback mechanisms unchanged. No ACTH or aldosterone content.",
+      "followupPrompt": "Precise feedback endpoint corrections only. I red inhibitory dashed arrow currently points at pink POSTERIOR lobe. Redirect its final segment so arrowhead lands ON THE ORANGE ANTERIOR PITUITARY lobe labelled C, near its right-lower orange surface, never posterior. H upper red feedback arrowhead currently lands posterior brain tissue: redirect it to the GREEN HYPOTHALAMUS identified by A leader. Preserve all A-I labels, green forward arrows, TRH B anterior input, TSH D anterior output, lobe names, thyroid artwork, colours and layout. Red arrows terminate unmistakably on correct target tissues.",
+      "toolMode": "built-in imagegen edit"
+    },
+    {
+      "key": "adh",
+      "source": "/Users/deanguedo/.codex/generated_images/01a0a190-4f8c-74e1-9615-c2db6fa99328/exec-47c95159-295f-4c60-8761-449e513d84c2.png",
+      "destination": "projects/biology30-chapter-13/workspace/assets/labeling/07_ADH_and_Water_Balance_corrected.png",
+      "initialPrompt": "Use case: precise-object-edit. Edit target: ADH and Water Balance worksheet. Preserve overall title/style/layout and A-J letter identities. Correct blue water arrows in collecting-duct inset: water moves FROM the collecting-duct LUMEN OUT through wall toward surrounding interstitial fluid and BLOOD, not into lumen. Draw arrowheads outside the duct (left arrows point left, right arrows point right). Label central interior 'Lumen' and outside sides 'Toward blood' clearly with readable small text. G must clearly point to collecting duct wall/structure not an individual blue water droplet. Top pathway has A, B, two empty boxes, H. Add 'D' to the third box (posterior pituitary releasing ADH) and 'E' to fourth box (ADH), matching existing D posterior pituitary and E hormone letters below. Keep A,B,H,I,J boxes, neural brain diagram and purple hormone arrows unchanged. Add small readable 'ADH release' under D in third box only if space. No invented additional physiology. Preserve urine decrease/concentration loop. Water arrows must all point outward.",
+      "followupPrompt": "Precise one-label correction only: G black leader dot currently points into the central yellow lumen. Move G dot clearly onto the ORANGE LEFT WALL of the collecting duct, around x=1055 y=400 in the 1448x1086 source. Leader must identify tubule wall, not blue water, not central lumen. Keep all outward blue water arrows, labels, boxes, every other feature unchanged.",
+      "toolMode": "built-in imagegen edit"
+    }
+  ]
+}

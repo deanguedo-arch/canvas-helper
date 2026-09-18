@@ -18,14 +18,21 @@ test("Phase 1 preview preserves its source inventory and blocked boundary", asyn
   assert.equal($(".chapter-section:not([data-support-route])").length, 12);
   assert.deepEqual($(".chapter-section[data-support-route]").map((_, element) => $(element).attr("id")).get(), ["course-guide", "checkpoint", "performance-game", "untimed-practice", "process-collection", "resources"]);
   assert.equal($("[data-draft]").length, 72);
+  assert.equal($("[data-testid='phase1-activity-jump']").length, 12);
+  $("[data-testid='phase1-activity-jump']").each((_, element) => {
+    const target = $(element).attr("href")!.slice(1);
+    assert.equal($("#" + target).length, 1, `Missing activity jump target: ${target}`);
+    assert.equal($("#" + target).closest(".chapter-section").attr("id"), $(element).closest(".chapter-section").attr("id"));
+  });
+
   assert.equal(new Set($("[data-draft]").map((_, element) => $(element).attr("data-draft")).get()).size, 72);
   assert.equal($("[data-check]").length, 15);
   assert.equal($("[data-review-question]").length, 10);
   assert.equal($(".learning-support").length, 12);
   assert.deepEqual($(".learning-support").map((_, element) => $(element).attr("data-p1-topic")).get(), ["start", "key-terms", "stress-loop", "performance-zone", "interpreting-nerves", "stress-sources", "attention-coordination", "regulation-tools", "cues-goals", "performance-lab", "playbook", "phase-review"]);
-  assert.equal($("[data-support-resource]").length, 33);
-  assert.equal($("[data-support-resource][data-resource-kind='video']").length, 16);
-  assert.equal($("[data-support-resource][data-resource-kind='reading']").length, 17);
+  assert.equal($("[data-support-resource]").length, 20);
+  assert.equal($("[data-support-resource][data-resource-kind='video']").length, 10);
+  assert.equal($("[data-support-resource][data-resource-kind='reading']").length, 10);
   assert.equal($("[data-resource-id='v-flow']").attr("data-resource-topic"), "performance-zone");
   assert.equal($("[data-p1-play]").length, 0);
   $("[data-support-resource]").each((_, element) => {
@@ -69,8 +76,8 @@ test("Phase 1 preview preserves its source inventory and blocked boundary", asyn
     assert.ok($(element).find(".section-completion-body li").length >= 5);
     assert.match($(element).find(".section-completion-body > p").text(), /Expected work:/);
   });
-  assert.match(styles, /@media\(min-width:761px\)[\s\S]*?\.nav-collapsed \.school-topbar #mobile-menu-label\s*\{\s*display:\s*none/);
-  assert.match(styles, /@media\(max-width:760px\)[\s\S]*?#mobile-menu-label\{display:inline!important\}/);
+  assert.match(styles, /@media\(min-width:1024px\)[\s\S]*?\.nav-collapsed \.school-topbar #mobile-menu-label\s*\{\s*display:\s*none/);
+  assert.match(styles, /@media\(max-width:1023px\)[\s\S]*?#mobile-menu-label\{display:inline!important\}/);
   assert.equal($("#checkpoint .learning-note").length, 0);
   assert.equal($(".sidebar-review, .sidebar-storage").length, 0);
   assert.deepEqual($(".checkpoint-question").map((_, element) => $(element).attr("id")).get(), Array.from({ length: 10 }, (_, index) => `phase1-q${index + 1}`));
@@ -88,9 +95,9 @@ test("Phase 1 preview preserves its source inventory and blocked boundary", asyn
   const originalGameRoot = path.join(workspace, "assets/game/original");
   const originalHashes = {
     "phase1-performance-state-simulator-game.html": "3cd3582b8ba33768cae2c5e65a63b78d3521994aaae0a47d3246361b4d16e525",
-    "phase1-performance-state-simulator-game.app.js": "84faecbed7798173a50cda89ec3cc5144a41e3c403cf9c17c798384d76a93dc6",
+    "phase1-performance-state-simulator-game.app.js": "6dfa6b21863b9f8abaa1b74b52806b3e084e700cb2319fe2ff6d3eef0a2e3aaf",
     "performance-game-scale.js": "0f296e9351353101127fb52b2167e0536dde617765d52c489e850f1e445da6c8",
-    "performance-game-theme.css": "40263de60b6f04c08f89cbdda67a4886e353cf27cf597738395aa92dca1c7a62"
+    "performance-game-theme.css": "7d73d34e59abbd3b53a2c139a607e5f5fc79c4cf481bdbe017a1fd21aa0e23cb"
   };
   for (const [file, hash] of Object.entries(originalHashes)) {
     assert.equal(createHash("sha256").update(await readFile(path.join(originalGameRoot, file))).digest("hex"), hash);
@@ -139,7 +146,7 @@ test("Phase 1 preview restores work, deduplicates checkpoint submission, validat
     await page.locator("#school-sidebar-toggle").click();
     assert.equal(await page.locator("#chapter-navigation").isVisible(), false);
     assert.equal(await page.locator("#contents-toggle").isVisible(), true);
-    assert.match(await page.locator("#contents-toggle").getAttribute("aria-label") ?? "", /Open course navigation.*0 of 12 complete/);
+    assert.match(await page.locator("#contents-toggle").getAttribute("aria-label") ?? "", /Open course navigation.*0 of 12 topics reviewed/);
     await page.locator("#contents-toggle").click();
     assert.equal(await page.locator("#chapter-navigation").isVisible(), true);
 
@@ -169,7 +176,7 @@ test("Phase 1 preview restores work, deduplicates checkpoint submission, validat
     await page.goto(`http://127.0.0.1:${port}/index.html#performance-game`);
     await page.locator("#phase1-game-frame").waitFor();
     const game = page.frameLocator("#phase1-game-frame");
-    await game.getByRole("button", { name: "Begin Simulation" }).click({ timeout: 15_000 });
+    await game.getByRole("button", { name: "Start round" }).click({ timeout: 15_000 });
     await game.getByRole("button", { name: "Breathe" }).click();
     const target = game.locator("div.absolute.rounded-full.border-2.border-white");
     const targetPositionBefore = await target.getAttribute("style");
@@ -177,14 +184,12 @@ test("Phase 1 preview restores work, deduplicates checkpoint submission, validat
     await page.waitForTimeout(350);
     const targetPositionAfter = await target.getAttribute("style");
     assert.notEqual(targetPositionAfter, targetPositionBefore);
-    assert.equal(await game.getByText("Simulation Terminated").isVisible().catch(() => false), false);
+    assert.equal(await game.getByText("Round ended").isVisible().catch(() => false), false);
     await page.goto(`http://127.0.0.1:${port}/index.html#resources`);
-    assert.match(await page.locator("#phase1-video-host").innerText(), /video will open here/i);
+    assert.equal(await page.locator("#phase1-video-picker, #phase1-video-host").count(), 0);
+    assert.equal(await page.locator("#resources a[href$='.pdf']").count(), 0);
     assert.equal(await page.locator("#support-resource-index .resource-index-kind").count(), 2);
-    assert.equal(await page.locator("#support-resource-index .resource-index-group").count(), 14);
-    await page.locator("#phase1-video-picker").selectOption("tape-11");
-    await page.locator("#video-play").click();
-    assert.match(await page.locator("#phase1-video-host iframe").getAttribute("src") ?? "", /youtube-nocookie\.com\/embed\/_Le9VIVi1xM/);
+    assert.ok(await page.locator("#support-resource-index .resource-index-group").count() > 0);
 
     await page.goto(`http://127.0.0.1:${port}/index.html#performance-zone`);
     const support = page.locator("#support-performance-zone");

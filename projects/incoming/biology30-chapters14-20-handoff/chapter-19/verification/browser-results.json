@@ -1,0 +1,209 @@
+{
+  "environment": "Chromium, in-memory about:blank with explicit Map-backed storage test double. No true-origin persistence or LMS assertion.",
+  "tests": [
+    {
+      "name": "runtime_initialises",
+      "status": "passed",
+      "details": "10 required checks"
+    },
+    {
+      "name": "22_routes",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "all_routes_open",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "vocabulary_links_resolve",
+      "status": "passed",
+      "details": "[]"
+    },
+    {
+      "name": "blank_check_blocked",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "wrong_first_hint",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "writing_unlocks",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "editing_saved_writing_is_draft",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "required_completion_and_first_attempt",
+      "status": "passed",
+      "details": "1 of 10 checks"
+    },
+    {
+      "name": "guided_wrong_first_hint",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "guided_second_explanation",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "guided_correction_and_progress_isolation",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "vocab_drawer_opens",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "vocab_escape_closes",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "start_flash",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "options_and_items_saved_flash",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "start_blanks",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "options_and_items_saved_blanks",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "start_mc",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "options_and_items_saved_mc",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "start_mixed",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "options_and_items_saved_mixed",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "labeling_ch19-allele-counts-label",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "labeling_ch19-hw-square-label",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "labeling_ch19-hw-method-label",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "labeling_ch19-drift-label",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "labeling_ch19-geneflow-label",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "labeling_ch19-observed-expected-label",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "transfer_blank_blocked",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "transfer_first_submission_immutable",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "textbook_draft_saved",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "textbook_save",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "textbook_edit_returns_to_draft",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "textbook_image_enlarge",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "responsive_document_overflow",
+      "status": "passed",
+      "details": "[]"
+    },
+    {
+      "name": "all_my_work_has_records",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "no_broken_loaded_embedded_images",
+      "status": "passed",
+      "details": "[]"
+    },
+    {
+      "name": "state_no_embedded_image_payload",
+      "status": "passed",
+      "details": "33797 characters"
+    },
+    {
+      "name": "storage_failure_truthful",
+      "status": "passed",
+      "details": "NOT SAVED: Simulated quota failure Copy visible writing before closing this tab."
+    },
+    {
+      "name": "no_javascript_page_errors",
+      "status": "passed",
+      "details": "[]"
+    }
+  ],
+  "pageErrors": [],
+  "overflow": [],
+  "artifactSha256": "15f59193dc585b8c946ae3ded59fe62c235170f373bd0604e4d29d1b68a15d4e",
+  "runStage": "Full suite repeated after all course-content and runtime refinements"
+}

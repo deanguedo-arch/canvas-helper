@@ -1,0 +1,118 @@
+{
+  "chapter": 19,
+  "origin": "http://127.0.0.1:60834",
+  "storage": "native localStorage; persistent Chromium profile",
+  "tests": [
+    {
+      "name": "native runtime and required denominator",
+      "status": "passed",
+      "detail": 10
+    },
+    {
+      "name": "every sidebar route opens",
+      "status": "passed",
+      "detail": [
+        "overview",
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05",
+        "lesson-06",
+        "lesson-07",
+        "lesson-08",
+        "lesson-09",
+        "lesson-10",
+        "extension",
+        "practice",
+        "fill-in-the-blanks",
+        "labeling-practice",
+        "multiple-choice",
+        "mixed-practice",
+        "textbook-practice",
+        "process-collection",
+        "core-vocabulary",
+        "textbook-library",
+        "video-library"
+      ]
+    },
+    {
+      "name": "approved loaded typography and bold vocabulary",
+      "status": "passed",
+      "detail": {
+        "font": "\"Work Sans\", Arial, sans-serif",
+        "bold": 800
+      }
+    },
+    {
+      "name": "required gates, draft edit and immutable first attempt",
+      "status": "passed"
+    },
+    {
+      "name": "close browser and reopen restores native writing/history",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "name": "textbook edit draft survives reload",
+      "status": "passed"
+    },
+    {
+      "name": "original question enlargement",
+      "status": "passed"
+    },
+    {
+      "name": "four practice modes resume; reset/cancel preserve completed history",
+      "status": "passed"
+    },
+    {
+      "name": "all diagram selectors and answer maps work",
+      "status": "passed",
+      "detail": 6
+    },
+    {
+      "name": "optional work does not change required progress",
+      "status": "passed"
+    },
+    {
+      "name": "vocabulary popup and Escape",
+      "status": "passed"
+    },
+    {
+      "name": "chapter PDF reader populated",
+      "status": "passed"
+    },
+    {
+      "name": "desktop/tablet/mobile navigation and document overflow",
+      "status": "passed"
+    },
+    {
+      "name": "All My Work and print include saved writing",
+      "status": "passed"
+    },
+    {
+      "name": "two chapters on same origin remain isolated",
+      "status": "passed"
+    },
+    {
+      "name": "genuine storage event blocks stale same-chapter overwrite",
+      "status": "passed"
+    },
+    {
+      "name": "write failure preserves last native save and visible draft",
+      "status": "passed"
+    },
+    {
+      "name": "portable file offline startup and native reload saving",
+      "status": "passed"
+    },
+    {
+      "name": "no runtime errors or missing local requests",
+      "status": "passed"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "generatedAt": "2026-09-18T02:41:49.662Z",
+  "workspaceHtmlSha256": "5c72e10dde3efe2d688463c60400f65d5acde9aca05f6ec0c6012dec4dca103b"
+}

@@ -1,0 +1,1182 @@
+{
+  "schemaVersion": 1,
+  "activities": [
+    {
+      "chapter": 12,
+      "lesson": 1,
+      "route": "lesson-01",
+      "placement": {
+        "afterTeachingKey": "ch12-l01-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l01-worked",
+        "label": "Worked example",
+        "title": "From a sound to a meaning",
+        "scenario": "You hear a brief tone and recognize it as a phone notification.",
+        "steps": [
+          "The vibration is a stimulus. Hair cells in the inner ear are mechanoreceptors that respond to the resulting movement.",
+          "The sensory pathway carries information to the brain. Becoming aware of the tone is sensation.",
+          "Recognizing the tone as a notification is perception. The brain gives meaning to the information."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l01-guided-01",
+        "label": "Practise with support",
+        "title": "Follow a different sense",
+        "instruction": "Sunlight warms your skin. Complete the explanation.",
+        "items": [
+          {
+            "id": "ch12-l01-guided-q1",
+            "kind": "select",
+            "prompt": "Which receptor category detects the temperature change?",
+            "answer": "Thermoreceptors",
+            "options": [
+              "Thermoreceptors",
+              "Photoreceptors",
+              "Chemoreceptors"
+            ],
+            "hint": "Name what changes at the skin.",
+            "explanation": "Thermoreceptors detect temperature change. The light source is not the same thing as the stimulus detected in this skin example."
+          },
+          {
+            "id": "ch12-l01-guided-q2",
+            "kind": "select",
+            "prompt": "You become aware that your skin feels warm. Which term fits this conscious experience?",
+            "answer": "Sensation",
+            "options": [
+              "Sensation",
+              "Sensory reception",
+              "Accommodation"
+            ],
+            "hint": "Distinguish detection at a receptor from awareness in the brain.",
+            "explanation": "Sensation is becoming aware of the input. Reception began when the receptors detected the change."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 2,
+      "route": "lesson-02",
+      "placement": {
+        "afterTeachingKey": "ch12-l02-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l02-worked",
+        "label": "Worked example",
+        "title": "Light getting in is only one step",
+        "scenario": "An eye has a clear cornea and lens, but its photoreceptors are damaged.",
+        "steps": [
+          "The clear cornea and lens may still allow light through and focus it on the retina.",
+          "The retina contains rods and cones. Damaged receptors may not convert the light into normal signals.",
+          "Light must reach the retina, but that alone does not produce vision. The receptors and the pathway carrying their information must also work."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l02-guided-01",
+        "label": "Practise with support",
+        "title": "Complete the light route",
+        "instruction": "Use the sequence cornea → aqueous humour → pupil → lens → vitreous humour → retina.",
+        "items": [
+          {
+            "id": "ch12-l02-guided-q1",
+            "kind": "select",
+            "prompt": "Which structure changes the size of the opening in that route?",
+            "answer": "Iris",
+            "options": [
+              "Iris",
+              "Lens",
+              "Optic nerve"
+            ],
+            "hint": "The pupil is an opening within a ring of muscle.",
+            "explanation": "Iris muscles change pupil size and control how much light enters."
+          },
+          {
+            "id": "ch12-l02-guided-q2",
+            "kind": "select",
+            "prompt": "Which part contains the receptors that detect the light?",
+            "answer": "Retina",
+            "options": [
+              "Retina",
+              "Vitreous humour",
+              "Sclera"
+            ],
+            "hint": "Clear materials let light pass; receptors detect it.",
+            "explanation": "Rods and cones are in the retina. The humours transmit light and the sclera protects the eye."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 3,
+      "route": "lesson-03",
+      "placement": {
+        "afterTeachingKey": "ch12-l03-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l03-worked",
+        "label": "Worked example",
+        "title": "Looking from far away to nearby",
+        "scenario": "You stop looking at a distant clock and look down at a book.",
+        "steps": [
+          "Near vision needs stronger bending of incoming light.",
+          "The ciliary muscle contracts, reducing the pull of the suspensory ligaments.",
+          "The lens becomes rounder. Its stronger focusing effect helps form a clear image on the retina."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l03-guided-01",
+        "label": "Practise with support",
+        "title": "Now reverse the change",
+        "instruction": "You look from the book back to the distant clock.",
+        "items": [
+          {
+            "id": "ch12-l03-guided-q1",
+            "kind": "select",
+            "prompt": "The ciliary muscle relaxes. What happens to ligament tension?",
+            "answer": "It increases",
+            "options": [
+              "It increases",
+              "It decreases"
+            ],
+            "hint": "A distant object needs a flatter lens.",
+            "explanation": "Relaxation allows the suspensory ligaments to become more taut."
+          },
+          {
+            "id": "ch12-l03-guided-q2",
+            "kind": "select",
+            "prompt": "What follows the increased pull?",
+            "answer": "The lens flattens and bends light less strongly",
+            "options": [
+              "The lens flattens and bends light less strongly",
+              "The lens rounds and bends light more strongly"
+            ],
+            "hint": "Trace tension → shape → focusing effect.",
+            "explanation": "Greater ligament tension stretches the lens flatter, reducing its focusing power for distant vision."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 4,
+      "route": "lesson-04",
+      "placement": {
+        "afterTeachingKey": "ch12-l04-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l04-worked",
+        "label": "Worked example",
+        "title": "Separate incoming light from outgoing information",
+        "scenario": "Trace a simplified three-layer retina.",
+        "steps": [
+          "Incoming light passes the ganglion-cell layer, then the bipolar-cell layer, before reaching rods and cones.",
+          "Rods and cones detect the light and change their signalling. Information passes to bipolar cells and then ganglion cells.",
+          "Ganglion-cell axons form the optic nerve. This route carries neural information, not light."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l04-guided-01",
+        "label": "Practise with support",
+        "title": "Fill the two routes",
+        "instruction": "Choose the missing stage in each route.",
+        "items": [
+          {
+            "id": "ch12-l04-guided-q1",
+            "kind": "select",
+            "prompt": "Incoming light: ganglion-cell layer → ____ → rods and cones.",
+            "answer": "Bipolar-cell layer",
+            "options": [
+              "Bipolar-cell layer",
+              "Optic nerve",
+              "Sclera"
+            ],
+            "hint": "Think about the middle retinal layer.",
+            "explanation": "Light passes through the bipolar-cell layer before reaching the photoreceptors."
+          },
+          {
+            "id": "ch12-l04-guided-q2",
+            "kind": "select",
+            "prompt": "Neural information: rods and cones → bipolar cells → ____ → optic nerve.",
+            "answer": "Ganglion cells",
+            "options": [
+              "Ganglion cells",
+              "Cornea",
+              "Pigmented layer"
+            ],
+            "hint": "Which cells send their axons into the optic nerve?",
+            "explanation": "Ganglion cells receive information from the retinal circuit, and their axons form the optic nerve."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 5,
+      "route": "lesson-05",
+      "placement": {
+        "afterTeachingKey": "ch12-l05-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l05-worked",
+        "label": "Worked example",
+        "title": "Locate the first affected step",
+        "scenario": "Fluid in the middle ear reduces how well the eardrum and ossicles move.",
+        "steps": [
+          "The problem affects mechanical transmission before the receptors.",
+          "Less vibration can reach the oval window and cochlear fluid.",
+          "Hair-cell stimulation may be reduced even if the hair cells and auditory nerve are not damaged."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l05-guided-01",
+        "label": "Practise with support",
+        "title": "Movement becomes neural information",
+        "instruction": "Follow the energy through the hearing pathway.",
+        "items": [
+          {
+            "id": "ch12-l05-guided-q1",
+            "kind": "select",
+            "prompt": "Immediately after the stapes moves the oval window, what happens?",
+            "answer": "Pressure waves move through cochlear fluid",
+            "options": [
+              "Pressure waves move through cochlear fluid",
+              "Light reaches the retina",
+              "The auditory nerve carries sound waves"
+            ],
+            "hint": "The inner ear is fluid-filled.",
+            "explanation": "Oval-window movement creates fluid pressure waves in the cochlea."
+          },
+          {
+            "id": "ch12-l05-guided-q2",
+            "kind": "select",
+            "prompt": "Which event performs the sensory conversion?",
+            "answer": "Bending of hair-cell projections changes cell signalling",
+            "options": [
+              "Bending of hair-cell projections changes cell signalling",
+              "The pinna collects sound",
+              "The Eustachian tube equalizes pressure"
+            ],
+            "hint": "Choose the receptor event rather than a supporting structure.",
+            "explanation": "Hair cells transduce movement into changed electrical and chemical signalling, which affects auditory nerve fibres."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 6,
+      "route": "lesson-06",
+      "placement": {
+        "afterTeachingKey": "ch12-l06-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l06-worked",
+        "label": "Worked example",
+        "title": "Separate a louder note from a higher note",
+        "scenario": "A recorded tone becomes louder while its frequency stays constant.",
+        "steps": [
+          "Frequency has not changed, so its pitch stays approximately the same.",
+          "The larger pressure variation means the wave amplitude has increased.",
+          "The nervous system represents the stronger input through activity patterns, not taller individual action potentials."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l06-guided-01",
+        "label": "Practise with support",
+        "title": "Compare two described waves",
+        "instruction": "These are invented comparison values, not a hearing test: A has 4 cycles in 0.01 s; B has 8 cycles in 0.01 s. They have equal amplitudes.",
+        "items": [
+          {
+            "id": "ch12-l06-guided-q1",
+            "kind": "select",
+            "prompt": "Which sound has the higher pitch?",
+            "answer": "B",
+            "options": [
+              "B",
+              "A",
+              "They must have the same pitch"
+            ],
+            "hint": "Compare cycle counts over the same time.",
+            "explanation": "B has more cycles in the same interval, so its frequency and expected pitch are higher."
+          },
+          {
+            "id": "ch12-l06-guided-q2",
+            "kind": "select",
+            "prompt": "What does equal amplitude support in this simplified comparison?",
+            "answer": "Similar loudness, not identical pitch",
+            "options": [
+              "Similar loudness, not identical pitch",
+              "Identical pitch regardless of frequency",
+              "B must be twice as loud"
+            ],
+            "hint": "Amplitude and frequency describe different wave properties.",
+            "explanation": "Equal amplitudes support a similar-loudness comparison here. The cycle counts still differ, so pitch differs."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 7,
+      "route": "lesson-07",
+      "placement": {
+        "afterTeachingKey": "ch12-l07-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l07-worked",
+        "label": "Worked example",
+        "title": "Classify straight-line acceleration",
+        "scenario": "An elevator starts moving upward while a passenger keeps their head facing forward.",
+        "steps": [
+          "The described change is vertical straight-line acceleration, not head rotation.",
+          "The saccule is especially relevant. Acceleration shifts its weighted otolithic membrane relative to hair cells.",
+          "Bending the hair-cell projections changes signalling about the movement."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l07-guided-01",
+        "label": "Practise with support",
+        "title": "Compare turning with moving straight",
+        "instruction": "Use the structure that matches each kind of movement.",
+        "items": [
+          {
+            "id": "ch12-l07-guided-q1",
+            "kind": "select",
+            "prompt": "Your head starts turning to look over your shoulder. Which mechanism fits?",
+            "answer": "Fluid movement bends a cupula in a semicircular canal",
+            "options": [
+              "Fluid movement bends a cupula in a semicircular canal",
+              "A weighted membrane in the saccule detects a sound wave",
+              "The cochlea detects head rotation"
+            ],
+            "hint": "The change is rotation.",
+            "explanation": "Relative fluid movement in a semicircular canal bends the cupula and hair-cell projections."
+          },
+          {
+            "id": "ch12-l07-guided-q2",
+            "kind": "select",
+            "prompt": "A vehicle starts moving straight forward. Which structure is especially relevant?",
+            "answer": "Utricle",
+            "options": [
+              "Utricle",
+              "Cochlea",
+              "Optic disc"
+            ],
+            "hint": "Horizontal acceleration differs from a turn.",
+            "explanation": "The utricle helps detect horizontal linear acceleration through movement of its weighted otolithic membrane."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 12,
+      "lesson": 8,
+      "route": "lesson-08",
+      "placement": {
+        "afterTeachingKey": "ch12-l08-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch12-l08-worked",
+        "label": "Worked example",
+        "title": "Model a complete investigation plan",
+        "scenario": "Plan only: compare touch discrimination on a fingertip and the forearm. Do not perform the test.",
+        "steps": [
+          "Question: Does the smallest separation reported as two contacts differ between these body regions?",
+          "Prediction: The fingertip will distinguish closer contacts because its sensory representation is generally more precise.",
+          "Manipulated variable: body region. Responding variable: the smallest separation reported as two contacts, measured in millimetres.",
+          "Controls: use the same contact method, pressure, contact duration and instructions. Plan repeated trials with the same participant and more than one participant before making broad conclusions.",
+          "Safety and evidence: this is a written plan only. No physical testing or sharp objects are required. A completed data table would need real observations; a prediction is not a result."
+        ]
+      },
+      "guided": {
+        "id": "ch12-l08-guided-01",
+        "label": "Practise with support",
+        "title": "Complete part of a second plan",
+        "instruction": "A written plan compares the palm with the forearm. The question concerns the smallest separation reported as two contacts.",
+        "items": [
+          {
+            "id": "ch12-l08-guided-q1",
+            "kind": "select",
+            "prompt": "What is the manipulated variable?",
+            "answer": "Body region",
+            "options": [
+              "Body region",
+              "Smallest reported separation",
+              "Whether the prediction is correct"
+            ],
+            "hint": "Identify what the plan deliberately changes.",
+            "explanation": "The plan changes which body region is considered. The smallest reported separation is the measured response."
+          },
+          {
+            "id": "ch12-l08-guided-q2",
+            "kind": "select",
+            "prompt": "The plan changes both body region and contact pressure. What needs fixing?",
+            "answer": "Keep pressure consistent so the region comparison is fair",
+            "options": [
+              "Keep pressure consistent so the region comparison is fair",
+              "Change the pressure even more",
+              "Record the prediction as the result"
+            ],
+            "hint": "More than one changing factor makes the result harder to explain.",
+            "explanation": "Keeping pressure consistent helps isolate the effect of body region. Repeated trials can then help assess consistency."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 1,
+      "route": "lesson-01",
+      "placement": {
+        "afterTeachingKey": "ch13-l01-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l01-worked",
+        "label": "Worked example",
+        "title": "Turn a list into an explanation",
+        "scenario": "A student writes only “pancreas, insulin, blood glucose.”",
+        "steps": [
+          "Add the trigger: blood glucose rises after a meal.",
+          "Add the response: pancreatic beta cells release insulin into the blood.",
+          "Add target effects: responsive tissues increase glucose uptake and storage. Blood glucose moves back toward its usual range."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l01-guided-01",
+        "label": "Practise with support",
+        "title": "Connect the parts",
+        "instruction": "Use this supplied case: blood glucose rises; the pancreas releases insulin; responsive cells take up more glucose.",
+        "items": [
+          {
+            "id": "ch13-l01-guided-q1",
+            "kind": "select",
+            "prompt": "Which part is the trigger?",
+            "answer": "The rise in blood glucose",
+            "options": [
+              "The rise in blood glucose",
+              "Insulin entering the blood",
+              "Glucose uptake by target cells"
+            ],
+            "hint": "The trigger starts the response.",
+            "explanation": "The rise in glucose is the starting change. Hormone release and uptake are later steps."
+          },
+          {
+            "id": "ch13-l01-guided-q2",
+            "kind": "select",
+            "prompt": "Why does insulin not affect every cell in exactly the same way?",
+            "answer": "Cells differ in their receptors and responses",
+            "options": [
+              "Cells differ in their receptors and responses",
+              "Blood visits only one tissue",
+              "All hormones act only on their gland of origin"
+            ],
+            "hint": "Delivery and response are different things.",
+            "explanation": "Blood distributes insulin, but target-cell receptors and response mechanisms determine its effects."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 2,
+      "route": "lesson-02",
+      "placement": {
+        "afterTeachingKey": "ch13-l02-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l02-worked",
+        "label": "Worked example",
+        "title": "Predict where the receptor is",
+        "scenario": "A hormone is described as water soluble and unable to pass directly through the membrane’s lipid layer.",
+        "steps": [
+          "The hormone is unlikely to reach an internal receptor by passing directly through the membrane.",
+          "It can bind to a receptor at the cell surface.",
+          "The receptor passes a signal to processes inside the cell. The hormone itself need not enter."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l02-guided-01",
+        "label": "Practise with support",
+        "title": "Compare the two mechanisms",
+        "instruction": "Focus on receptor location, not simply how long a response lasts.",
+        "items": [
+          {
+            "id": "ch13-l02-guided-q1",
+            "kind": "select",
+            "prompt": "Where does a steroid hormone such as cortisol bind its receptor?",
+            "answer": "Inside the target cell",
+            "options": [
+              "Inside the target cell",
+              "Only inside a blood vessel",
+              "On every cell regardless of receptor type"
+            ],
+            "hint": "Steroids can enter target cells.",
+            "explanation": "Steroid hormones bind intracellular receptors and can influence gene expression."
+          },
+          {
+            "id": "ch13-l02-guided-q2",
+            "kind": "select",
+            "prompt": "A water-soluble hormone is present, but its surface receptor is missing. What is the likely result?",
+            "answer": "The usual response to that hormone is reduced or absent",
+            "options": [
+              "The usual response to that hormone is reduced or absent",
+              "The cell must respond more strongly",
+              "The hormone becomes a steroid"
+            ],
+            "hint": "The message must be recognized.",
+            "explanation": "Normal delivery does not replace the missing receptor needed to start the usual response."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 3,
+      "route": "lesson-03",
+      "placement": {
+        "afterTeachingKey": "ch13-l03-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l03-worked",
+        "label": "Worked example",
+        "title": "An upward response can be negative feedback",
+        "scenario": "Blood glucose falls. Glucagon helps the liver release glucose, raising blood glucose.",
+        "steps": [
+          "The starting change is a decrease in blood glucose.",
+          "The response increases blood glucose toward its usual range.",
+          "The response opposes the starting decrease. Therefore this is negative feedback."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l03-guided-01",
+        "label": "Practise with support",
+        "title": "Use the starting change",
+        "instruction": "Decide from the relationship between the stimulus and response.",
+        "items": [
+          {
+            "id": "ch13-l03-guided-q1",
+            "kind": "select",
+            "prompt": "Body temperature rises, and a response helps lower it. Which feedback fits?",
+            "answer": "Negative feedback",
+            "options": [
+              "Negative feedback",
+              "Positive feedback"
+            ],
+            "hint": "Does the response oppose or strengthen the rise?",
+            "explanation": "Lowering temperature opposes the starting rise, so the feedback is negative."
+          },
+          {
+            "id": "ch13-l03-guided-q2",
+            "kind": "select",
+            "prompt": "Cervical stretch strengthens contractions, which increase cervical stretch. Which feedback fits?",
+            "answer": "Positive feedback",
+            "options": [
+              "Positive feedback",
+              "Negative feedback"
+            ],
+            "hint": "The response adds to the original stimulus.",
+            "explanation": "More stretch produces a response that increases stretch. The loop reinforces the starting change until its endpoint."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 4,
+      "route": "lesson-04",
+      "placement": {
+        "afterTeachingKey": "ch13-l04-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l04-worked",
+        "label": "Worked example",
+        "title": "Answer the verb in the question",
+        "scenario": "Two questions ask where ADH is made and where it is released into blood.",
+        "steps": [
+          "“Made” asks where the molecule is produced: neurons in the hypothalamus.",
+          "ADH travels along axons to the posterior pituitary, where it is stored.",
+          "“Released” asks where the stored hormone enters the blood: the posterior pituitary."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l04-guided-01",
+        "label": "Practise with support",
+        "title": "Compare the two pituitary routes",
+        "instruction": "Use the route, production site and release site together.",
+        "items": [
+          {
+            "id": "ch13-l04-guided-q1",
+            "kind": "select",
+            "prompt": "Which route carries hypothalamic regulatory hormones to the anterior pituitary?",
+            "answer": "The portal blood system",
+            "options": [
+              "The portal blood system",
+              "Axons transporting stored ADH",
+              "The Eustachian tube"
+            ],
+            "hint": "The anterior pituitary receives chemical control signals through blood.",
+            "explanation": "Releasing and inhibiting hormones travel in the connecting portal blood vessels."
+          },
+          {
+            "id": "ch13-l04-guided-q2",
+            "kind": "select",
+            "prompt": "Milk is being produced, but the question concerns its release. Which hormone has that role?",
+            "answer": "Oxytocin",
+            "options": [
+              "Oxytocin",
+              "Prolactin",
+              "TSH"
+            ],
+            "hint": "Production and release are different processes.",
+            "explanation": "Oxytocin supports milk ejection. Prolactin supports milk production."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 5,
+      "route": "lesson-05",
+      "placement": {
+        "afterTeachingKey": "ch13-l05-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l05-worked",
+        "label": "Worked example",
+        "title": "Use the growth-plate condition",
+        "scenario": "Two cases describe excessive hGH. One has open growth plates and one has closed growth plates.",
+        "steps": [
+          "Open plates allow long bones to lengthen. Excess hGH can produce gigantism.",
+          "Closed plates do not allow the same growth in height. Excess hGH can enlarge bones and soft tissues in other ways, producing acromegaly.",
+          "The different outcome follows from the target tissue’s condition, not a different hormone name."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l05-guided-01",
+        "label": "Practise with support",
+        "title": "Complete the growth pathway",
+        "instruction": "Use the normal pathway before interpreting a growth problem.",
+        "items": [
+          {
+            "id": "ch13-l05-guided-q1",
+            "kind": "select",
+            "prompt": "Which organ can release growth factors in response to hGH?",
+            "answer": "Liver",
+            "options": [
+              "Liver",
+              "Posterior pituitary",
+              "Thyroid cartilage"
+            ],
+            "hint": "Separate the hGH release site from the growth-factor target.",
+            "explanation": "The anterior pituitary releases hGH. The liver can respond by releasing growth factors."
+          },
+          {
+            "id": "ch13-l05-guided-q2",
+            "kind": "select",
+            "prompt": "A case states that growth plates are closed. Which excess-hGH outcome fits?",
+            "answer": "Acromegaly",
+            "options": [
+              "Acromegaly",
+              "Gigantism through lengthening long bones",
+              "No tissue effects are possible"
+            ],
+            "hint": "Closed growth plates change how tissue can grow.",
+            "explanation": "With closed plates, bones and soft tissues can enlarge without the same increase in height."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 6,
+      "route": "lesson-06",
+      "placement": {
+        "afterTeachingKey": "ch13-l06-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l06-worked",
+        "label": "Worked example",
+        "title": "Trace water conservation",
+        "scenario": "A case describes water loss, increasingly concentrated blood and normally responsive kidneys.",
+        "steps": [
+          "Osmoreceptors in the hypothalamus detect the concentration change.",
+          "More ADH is released from the posterior pituitary. Collecting ducts become more permeable to water.",
+          "More water returns to the blood, leaving a smaller volume of more concentrated urine.",
+          "The correction reduces the original stimulus for extra ADH release."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l06-guided-01",
+        "label": "Practise with support",
+        "title": "Fill the missing links",
+        "instruction": "Keep the blood and the forming urine separate.",
+        "items": [
+          {
+            "id": "ch13-l06-guided-q1",
+            "kind": "select",
+            "prompt": "More ADH → more permeable collecting ducts → ____ water reabsorption.",
+            "answer": "Increased",
+            "options": [
+              "Increased",
+              "Decreased"
+            ],
+            "hint": "Water can cross the duct wall more easily.",
+            "explanation": "Increased permeability allows more water to return from the forming urine to the blood."
+          },
+          {
+            "id": "ch13-l06-guided-q2",
+            "kind": "select",
+            "prompt": "With more water reabsorbed, what happens to urine?",
+            "answer": "Its volume falls and it becomes more concentrated",
+            "options": [
+              "Its volume falls and it becomes more concentrated",
+              "Its volume rises and it becomes more dilute"
+            ],
+            "hint": "Less water remains in the fluid leaving the kidney.",
+            "explanation": "More water is conserved in the body, leaving less water in the urine."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 7,
+      "route": "lesson-07",
+      "placement": {
+        "afterTeachingKey": "ch13-l07-teaching-02",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l07-worked",
+        "label": "Worked example",
+        "title": "Follow feedback in a working pathway",
+        "scenario": "The thyroid, hypothalamus and pituitary are functioning. Thyroxine rises above its usual level.",
+        "steps": [
+          "Thyroxine is the final hormone in this control pathway.",
+          "Its increased feedback tends to reduce TRH release and TSH release.",
+          "Less TSH means less thyroid stimulation. This restrains further thyroxine production."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l07-guided-01",
+        "label": "Practise with support",
+        "title": "Complete the normal pathway first",
+        "instruction": "Use the sequence you just learned before considering a damaged gland.",
+        "items": [
+          {
+            "id": "ch13-l07-guided-q1",
+            "kind": "select",
+            "prompt": "Hypothalamus → TRH → anterior pituitary → ____ → thyroid.",
+            "answer": "TSH",
+            "options": [
+              "TSH",
+              "PTH",
+              "Thyroxine"
+            ],
+            "hint": "Choose the hormone released by the anterior pituitary.",
+            "explanation": "TSH is thyroid-stimulating hormone. The thyroid responds by releasing thyroxine."
+          },
+          {
+            "id": "ch13-l07-guided-q2",
+            "kind": "select",
+            "prompt": "Thyroxine falls and the hypothalamus and pituitary still function. What tends to happen to TSH?",
+            "answer": "It rises as thyroxine feedback weakens",
+            "options": [
+              "It rises as thyroxine feedback weakens",
+              "It must fall because thyroxine fell",
+              "It becomes oxytocin"
+            ],
+            "hint": "Less final hormone means less inhibition of the working control glands.",
+            "explanation": "With weaker thyroxine feedback, the pituitary can increase TSH release."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 8,
+      "route": "lesson-08",
+      "placement": {
+        "afterTeachingKey": "ch13-l08-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l08-worked",
+        "label": "Worked example",
+        "title": "Follow a decrease in blood calcium",
+        "scenario": "Blood calcium falls below its usual range.",
+        "steps": [
+          "The parathyroid glands release more PTH.",
+          "PTH promotes calcium release from bone and calcium reabsorption by the kidneys. It also supports vitamin-D activation, increasing intestinal calcium absorption.",
+          "The combined actions raise blood calcium and reduce the original stimulus."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l08-guided-01",
+        "label": "Practise with support",
+        "title": "Name the calcium movement",
+        "instruction": "Complete the mechanism rather than just choosing a hormone name.",
+        "items": [
+          {
+            "id": "ch13-l08-guided-q1",
+            "kind": "select",
+            "prompt": "Returning calcium from kidney-tubule fluid to the blood is called…",
+            "answer": "Reabsorption",
+            "options": [
+              "Reabsorption",
+              "Absorption from food",
+              "Excretion from the body"
+            ],
+            "hint": "The substance is being recovered from forming urine.",
+            "explanation": "Kidney reabsorption returns calcium to the blood, conserving it."
+          },
+          {
+            "id": "ch13-l08-guided-q2",
+            "kind": "select",
+            "prompt": "Which statement correctly compares the main directions of the two hormones?",
+            "answer": "PTH raises blood calcium; calcitonin tends to lower it",
+            "options": [
+              "PTH raises blood calcium; calcitonin tends to lower it",
+              "Both always lower blood calcium",
+              "Calcitonin raises it while PTH lowers it"
+            ],
+            "hint": "They have opposing effects.",
+            "explanation": "The opposite effects make them antagonistic hormones; their regulatory importance is not identical."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 9,
+      "route": "lesson-09",
+      "placement": {
+        "afterTeachingKey": "ch13-l09-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l09-worked",
+        "label": "Worked example",
+        "title": "Locate the neural-to-hormonal change",
+        "scenario": "A sudden threat activates sympathetic signals reaching the adrenal medulla.",
+        "steps": [
+          "The incoming signal reaches the medulla along neurons.",
+          "The medulla releases epinephrine and norepinephrine into the blood.",
+          "Target responses support rapid action, including increased heart activity and glucose availability."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l09-guided-01",
+        "label": "Practise with support",
+        "title": "Finish the rapid stress route",
+        "instruction": "Choose the next step in each part of the route.",
+        "items": [
+          {
+            "id": "ch13-l09-guided-q1",
+            "kind": "select",
+            "prompt": "Sympathetic neurons → ____ → epinephrine and norepinephrine.",
+            "answer": "Adrenal medulla",
+            "options": [
+              "Adrenal medulla",
+              "Anterior pituitary",
+              "Adrenal cortex"
+            ],
+            "hint": "The rapid route directly stimulates the inner adrenal region.",
+            "explanation": "The adrenal medulla responds to sympathetic neural stimulation."
+          },
+          {
+            "id": "ch13-l09-guided-q2",
+            "kind": "select",
+            "prompt": "Why can liver glycogen breakdown help during this response?",
+            "answer": "It makes glucose available in the blood",
+            "options": [
+              "It makes glucose available in the blood",
+              "It stores all available glucose away permanently",
+              "It turns glycogen into ADH"
+            ],
+            "hint": "Connect the change to a fuel need.",
+            "explanation": "Glucose released from liver glycogen can support the increased fuel demands of activity."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 10,
+      "route": "lesson-10",
+      "placement": {
+        "afterTeachingKey": "ch13-l10-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l10-worked",
+        "label": "Worked example",
+        "title": "Trace increased cortisol back to the control glands",
+        "scenario": "Cortisol rises while its control pathway is functioning normally.",
+        "steps": [
+          "Increased cortisol tends to reduce hypothalamic CRH release.",
+          "It also tends to reduce anterior-pituitary ACTH release.",
+          "Less ACTH reduces stimulation of further cortisol secretion. This is negative feedback."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l10-guided-01",
+        "label": "Practise with support",
+        "title": "Keep the pathway and fuel effect separate",
+        "instruction": "Use the hormone route and the liver’s role.",
+        "items": [
+          {
+            "id": "ch13-l10-guided-q1",
+            "kind": "select",
+            "prompt": "ACTH is released by the ____ and stimulates cortisol release from the ____.",
+            "answer": "Anterior pituitary; adrenal cortex",
+            "options": [
+              "Anterior pituitary; adrenal cortex",
+              "Posterior pituitary; adrenal medulla",
+              "Thyroid; pancreas"
+            ],
+            "hint": "Identify the two glands on either side of ACTH.",
+            "explanation": "The anterior pituitary releases ACTH. The adrenal cortex responds by releasing cortisol."
+          },
+          {
+            "id": "ch13-l10-guided-q2",
+            "kind": "select",
+            "prompt": "Which example describes new glucose production rather than glycogen breakdown?",
+            "answer": "The liver uses amino acids to make glucose",
+            "options": [
+              "The liver uses amino acids to make glucose",
+              "The liver releases glucose units from stored glycogen",
+              "The pancreas releases insulin"
+            ],
+            "hint": "Ask whether the glucose was already stored as glycogen.",
+            "explanation": "Making glucose from amino acids is new glucose production. Releasing stored glucose from glycogen is a different process."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 11,
+      "route": "lesson-11",
+      "placement": {
+        "afterTeachingKey": "ch13-l11-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l11-worked",
+        "label": "Worked example",
+        "title": "Link sodium retention to blood volume",
+        "scenario": "A case describes increased aldosterone and kidneys that respond normally.",
+        "steps": [
+          "Aldosterone increases sodium reabsorption and potassium secretion in the later nephron.",
+          "Conserving sodium helps conserve water when water can follow by osmosis.",
+          "Retaining salt and water can increase blood volume and help support blood pressure."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l11-guided-01",
+        "label": "Practise with support",
+        "title": "Choose the immediate kidney action",
+        "instruction": "Do not answer both situations with only “saves water.”",
+        "items": [
+          {
+            "id": "ch13-l11-guided-q1",
+            "kind": "select",
+            "prompt": "Collecting-duct water permeability increases directly. Which hormone is most relevant?",
+            "answer": "ADH",
+            "options": [
+              "ADH",
+              "Aldosterone",
+              "Cortisol"
+            ],
+            "hint": "Focus on water permeability.",
+            "explanation": "ADH directly increases collecting-duct water permeability."
+          },
+          {
+            "id": "ch13-l11-guided-q2",
+            "kind": "select",
+            "prompt": "Kidney sodium reabsorption increases. Which hormone is most relevant?",
+            "answer": "Aldosterone",
+            "options": [
+              "Aldosterone",
+              "ADH",
+              "Oxytocin"
+            ],
+            "hint": "Focus on sodium handling.",
+            "explanation": "Aldosterone increases sodium reabsorption. Water retention is connected to that salt-handling change."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    },
+    {
+      "chapter": 13,
+      "lesson": 12,
+      "route": "lesson-12",
+      "placement": {
+        "afterTeachingKey": "ch13-l12-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l12-worked",
+        "label": "Worked example",
+        "title": "Compare after a meal with between meals",
+        "scenario": "Compare a rise in blood glucose after eating with a fall between meals.",
+        "steps": [
+          "After a meal, beta cells release more insulin. Glucose uptake and storage help lower blood glucose.",
+          "Between meals, alpha cells release more glucagon. The liver releases glucose, helping raise blood glucose.",
+          "Both responses oppose their starting changes, so both use negative feedback."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l12-guided-01",
+        "label": "Practise with support",
+        "title": "Complete the two loops",
+        "instruction": "Choose the response that opposes the stated starting change.",
+        "items": [
+          {
+            "id": "ch13-l12-guided-q1",
+            "kind": "select",
+            "prompt": "Blood glucose rises → ____ → increased uptake and storage.",
+            "answer": "Beta cells release insulin",
+            "options": [
+              "Beta cells release insulin",
+              "Alpha cells release glucagon",
+              "The posterior pituitary releases ADH"
+            ],
+            "hint": "High blood glucose is the trigger.",
+            "explanation": "Insulin from beta cells promotes processes that lower the elevated blood glucose."
+          },
+          {
+            "id": "ch13-l12-guided-q2",
+            "kind": "select",
+            "prompt": "Blood glucose falls → glucagon → ____.",
+            "answer": "Liver glycogen breakdown and glucose release",
+            "options": [
+              "Liver glycogen breakdown and glucose release",
+              "Glucose is removed from blood only to make more glycogen",
+              "All glucose is trapped inside beta cells"
+            ],
+            "hint": "The response needs to raise blood glucose.",
+            "explanation": "Glucagon promotes liver glucose release, opposing the original fall."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    }
+  ]
+}

@@ -25,14 +25,19 @@
     "projects/sportswellness-phase-1/workspace/styles.css",
     "projects/sportswellness-phase-1/workspace/main.js",
     "projects/sportswellness-phase-1/workspace/phase1-preview.js",
-    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.html",
     "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.app.js",
     "projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-scale.js",
     "projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-theme.css",
     "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-runtime.html",
     "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-entry.js",
     "projects/sportswellness-phase-1/workspace/assets/game/original/react-shim.js",
-    "projects/sportswellness-phase-1/workspace/assets/game/original/tailwind-input.css"
+    "projects/sportswellness-phase-1/workspace/assets/game/original/tailwind-input.css",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/arousal-continuum.svg",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/goal-control.svg",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/stress-process.svg",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/regulation-toolkit.svg",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/performance-state-map.svg",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/attention-field.svg"
   ],
   "authoring": {
     "driverId": "proposal-only-v1",
@@ -64,7 +69,7 @@
       "source": "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-runtime.html",
       "target": "projects/sportswellness-phase-1/workspace/index.html#performance-game",
       "status": "active",
-      "notes": "The gameplay source, scale helper, and theme are byte-for-byte copies from the legacy sportswellness workspace. A local React bundle and generated utility CSS replace the original CDN/Babel loader; learners use the game native controls."
+      "notes": "Original chase mechanics and scaling retained. Canonical app source adds pause/resume/end/restart/mute, neutral cause-specific feedback and validated parent-owned attempt persistence; local React and utility CSS are generated."
     }
   ],
   "importedFirstPassOrigin": {
@@ -82,11 +87,17 @@
   "authoringStatus": "blocked",
   "referenceOnly": [
     "projects/sportswellness-phase-1/meta/source-handoff",
-    "projects/resources/sportswellness-phase-1/reference/sportswellness-phase-1-with-learning-support.html"
+    "projects/resources/sportswellness-phase-1/reference/sportswellness-phase-1-with-learning-support.html",
+    "projects/resources/sportswellness-phase-1/reference/cts-audit-2026-09-17/",
+    "projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.html",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/ideal-performance-state-map.webp",
+    "projects/sportswellness-phase-1/workspace/assets/phase1/attention-field.webp",
+    "projects/sportswellness-phase-1/workspace/assets/readings/phase1-engine-content.pdf",
+    "projects/sportswellness-phase-1/workspace/assets/slides/01-engine.pdf"
   ],
-  "sourceOfTruthNotes": "Phase 1 learner content, learning-support resources, links, captions, and prompts are owned by workspace HTML/CSS/JS. The Resources-page support index is generated at runtime by scanning canonical [data-support-resource] HTML. The legacy sportswellness project, imported raw baseline, and supplied enrichment HTML are preserved as references. The performance game keeps byte-for-byte original gameplay sources and runs them through a local loader without parent control overrides. Studio editing and exports remain disabled while this is a review candidate.",
+  "sourceOfTruthNotes": "Canonical teaching, questions, captions and resources remain in workspace/index.html. The game source preserves original chase mechanics with audited lifecycle, persistence and feedback repairs; regenerate its bundle using regenerateCommand. Unreconciled PDFs and withheld external resources remain reference material. This browser-local candidate remains blocked, with Studio and SCORM exports disabled.",
   "createdAt": "2026-09-14T20:50:16.421Z",
-  "updatedAt": "2026-09-15T18:27:33.943Z",
+  "updatedAt": "2026-09-17",
   "regenerateCommand": "npx esbuild projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game-entry.js --bundle --loader:.js=jsx --inject:projects/sportswellness-phase-1/workspace/assets/game/original/react-shim.js --format=iife --platform=browser --target=es2019 --outfile=projects/sportswellness-phase-1/workspace/assets/game/original/phase1-game.bundle.js && npx -y tailwindcss@3.4.17 -i projects/sportswellness-phase-1/workspace/assets/game/original/tailwind-input.css -o projects/sportswellness-phase-1/workspace/assets/game/original/performance-game-utilities.css --content projects/sportswellness-phase-1/workspace/assets/game/original/phase1-performance-state-simulator-game.app.js --minify",
-  "workspaceApprovedAt": "2026-09-15T18:16:32.538Z"
+  "workspaceApprovedAt": "2026-09-17T20:17:54.079Z"
 }

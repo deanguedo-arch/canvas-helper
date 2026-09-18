@@ -1,5 +1,13 @@
 # Biology 30 teacher showcase
 
+## Current four-course review selector
+
+The current `biology30pilot.web.app` deployment contains Biology Chapter 11 (Pilot 3), Chapters 12/13 and Chemistry Unit A. Its canonical selector and receipt are under `projects/biology30-unit-a-pilot-2/meta/review-selector/` and `meta/review-selector-deployment.json`. Do not deploy the older A/B/C/D command below over this selector.
+
+For a Biology-only refresh, verify the three Biology workspaces and the preserved Chemistry workspace, then run `npx tsx scripts/deploy-biology30-current-review.mjs --deploy`. This owner stages the receipt's four current course paths, refuses to publish Chemistry files that differ from live bytes, deploys only the existing Hosting site, and verifies every staged file against live SHA-256 before updating the receipt. Without `--deploy` it stages only. A changed Chemistry deployment requires separate authorization/workflow, not bypassing this guard. After deployment, check the actual browser selector routes and record them in the receipt. Canonical course content is never rebuilt by this deployment owner.
+
+## Historical A/B/C/D showcase workflow
+
 One review site: https://biology30pilot.web.app. It contains the13-lesson A Pilot2 and current B/C/D workspaces. The selector is outside each course; it is not part of future SCORM packages. This is public teacher review, not learner release or teacher acceptance.
 
 ## Update and redeploy

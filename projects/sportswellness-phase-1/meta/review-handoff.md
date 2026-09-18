@@ -1,3 +1,7 @@
+# Current review handoff
+
+The 2026-09-17 CTS audit repairs supersede the historical notes below. Open [cts-audit-repair-handoff.md](cts-audit-repair-handoff.md) for current sources, checks and rollout deferrals. The game is no longer byte-for-byte unchanged; its original chase mechanics are retained with audited lifecycle/feedback repairs. PDFs and the legacy picker are withheld; backup recovery lives in the course guide.
+
 # Phase 1 learner review
 
 Open `workspace/index.html` through Canvas Helper Studio and review the five added learner routes: Checkpoint, Performance game, Untimed alternative, Process Collection, and Resources & videos.

@@ -1,0 +1,28 @@
+{
+  "projectId": "97be29cb-2941-45cf-9804-28825b212d5b",
+  "referenceId": "review-visual-and-test-report-md",
+  "generatedAt": "2026-09-18T02:36:01.515Z",
+  "chunks": [
+    {
+      "id": "phase-3-verification-and-comparison-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Phase 3: verification and comparison",
+        "sectionHeading": "# Phase 3: verification and comparison"
+      },
+      "text": "# Phase 3: verification and comparison\n\nRead the combined BUILD_HANDOFF.md for environment and release limits. This folder uses the full unmodified stylesheet from the newest uploaded repaired Phase 1 reference, not the unavailable later local Mac workspace.\n\nThe phase completed 36 route/viewport checks (18 routes × two sizes) and 43 core interaction assertions. Shared supplemental tests cover history, menu recovery, actual local game bundles, keyboard activation, pause/resume/end/restart, interruption summaries, backup/export and version handling. All three phases also had matching available-reference geometry at seven sizes. Matching component wrapper checks cover the course guide, lessons, practice, Build, review, My Work and Notes.\n\nThese are Chromium component fixtures with emulated storage, not real browser-close persistence or Brightspace proof. The optional game frame runs the real locally bundled React and game logic. No external video is activated or certified. Live print dialogs, physical devices and assistive technology still require checks.\n\nNo original learner storage is imported automatically. See READINESS.json and curriculum-evidence-map.csv before any student or credit-release decision.",
+      "titleGuess": "# Phase 3: verification and comparison",
+      "keywordHints": [
+        "checks",
+        "game",
+        "phase",
+        "build",
+        "component",
+        "cover",
+        "local",
+        "matching"
+      ]
+    }
+  ]
+}

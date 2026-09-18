@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "sourceArchive": "/Users/deanguedo/Downloads/Chem30_Codex_Labeling_Activity_Pack.zip",
+  "sourceSha256": "3dad50af5152d620cc69fd45fedc24d05584502e964540f7a00bc6970c4e0aa2",
+  "sourceManifest": "projects/resources/chemistry30-unit-a-pilot/practice-blueprints/labeling-pack/label_answer_manifest.json",
+  "activeAssets": [
+    "ch11-potential-energy",
+    "ch11-catalyst-pathway",
+    "ch11-collision-theory",
+    "ch12-electron-transfer",
+    "ch12-oxidation-numbers-water",
+    "ch12-half-reaction",
+    "ch13-voltaic-cell",
+    "ch13-electrolytic-cell",
+    "ch13-salt-bridge",
+    "ch13-electroplating"
+  ],
+  "retainedSourceMappings": {
+    "ch11-potential-energy": {
+      "A": {
+        "answer": "Potential energy",
+        "accepted": [
+          "potential energy",
+          "potential energy axis",
+          "y-axis"
+        ]
+      },
+      "B": {
+        "answer": "Reactants",
+        "accepted": [
+          "reactants",
+          "reactant energy level"
+        ]
+      },
+      "C": {
+        "answer": "Activated complex",
+        "accepted": [
+          "activated complex",
+          "transition state"
+        ]
+      },
+      "D": {
+        "answer": "Activation energy (Ea)",
+        "accepted": [
+          "activation energy",
+          "Ea",
+          "activation energy forward"
+        ]
+      },
+      "E": {
+        "answer": "Products",
+        "accepted": [
+          "products",
+          "product energy level"
+        ]
+      },
+      "F": {
+        "answer": "Enthalpy change (\u0394H)",
+        "accepted": [
+          "enthalpy change",
+          "delta H",
+          "\u0394H",
+          "heat of reaction"
+        ]
+      },
+      "G": {
+        "answer": "Reaction progress",
+        "accepted": [
+          "reaction progress",
+          "reaction coordinate",
+          "x-axis"
+        ]
+      }
+    },
+    "ch11-catalyst-pathway": {
+      "A": {
+        "answer": "Potential energy",
+        "accepted": [
+          "potential energy",
+          "potential energy axis",
+          "y-axis"
+        ]
+      },
+      "B": {
+        "answer": "Reaction progress",
+        "accepted": [
+          "reaction progress",
+          "reaction coordinate",
+          "x-axis"
+        ]
+      },
+      "C": {
+        "answer": "Reactants",
+        "accepted": [
+          "reactants",
+          "reactant energy level"
+        ]
+      },
+      "D": {
+        "answer": "Uncatalyzed reaction pathway",
+        "accepted": [
+          "uncatalyzed pathway",
+          "uncatalyzed reaction",
+          "higher activation energy pathway"
+        ]
+      },
+      "E": {
+        "answer": "Catalyzed reaction pathway",
+        "accepted": [
+          "catalyzed pathway",
+          "catalyzed reaction",
+          "lower activation energy pathway"
+        ]
+      },
+      "F": {
+        "answer": "Activation energy without a catalyst",
+        "accepted": [
+          "uncatalyzed activation energy",
+          "activation energy without catalyst",
+          "higher activation energy"
+        ]
+      },
+      "G": {
+        "answer": "Activation energy with a catalyst",
+        "accepted": [
+          "catalyzed activation energy",
+          "activation energy with catalyst",
+          "lower activation energy"
+        ]
+      },
+      "H": {
+        "answer": "Products",
+        "accepted": [
+          "products",
+          "product energy level"
+        ]
+      }
+    },
+    "ch11-collision-theory": {
+      "A": {
+        "answer": "Reactant particle / molecule 1",
+        "accepted": [
+          "reactant molecule 1",
+          "reactant particle 1",
+          "reactant"
+        ]
+      },
+      "B": {
+        "answer": "Reactant particle / molecule 2",
+        "accepted": [
+          "reactant molecule 2",
+          "reactant particle 2",
+          "reactant"
+        ]
+      },
+      "C": {
+        "answer": "Direction of particle motion",
+        "accepted": [
+          "direction of motion",
+          "motion arrow",
+          "approach direction"
+        ]
+      },
+      "D": {
+        "answer": "Collision",
+        "accepted": [
+          "collision",
+          "collision point",
+          "particle collision"
+        ]
+      },
+      "E": {
+        "answer": "Product particle / molecule",
+        "accepted": [
+          "product",
+          "product molecule",
+          "products"
+        ]
+      },
+      "F": {
+        "answer": "Effective collision",
+        "accepted": [
+          "effective collision",
+          "successful collision"
+        ]
+      },
+      "G": {
+        "answer": "Ineffective collision",
+        "accepted": [
+          "ineffective collision",
+          "unsuccessful collision"
+        ]
+      }
+    }
+  },
+  "referenceOnlyAssets": [],
+  "corrections": [
+    "Energy profile has no misleading particle dissociation imagery.",
+    "Effective collisions change bonds with four conserved distinguishable atoms.",
+    "One unambiguous A\u2013G callout set and no correctness icons."
+  ],
+  "ownership": "SVGs and diagrams.js are canonical authored assets; source pack and keys are reference-only.",
+  "restorationOnlyAssets": [
+    "ch9-energy-transfer",
+    "ch9-solution-calorimeter",
+    "ch9-calibrated-calorimeter",
+    "ch10-hess-cycle",
+    "ch10-formation-cycle",
+    "ch10-efficiency-flow",
+    "ch11-endothermic-profile"
+  ],
+  "selectionPolicy": "All ten supplied PNG diagrams, Chapters 11\u201313, are available in Diagrams. Mixed Unit A uses supplied Chapter 11 diagrams only. Seven additional authored diagrams are restoration-only.",
+  "activeImageRole": "Original PNGs extracted unchanged from supplied ZIP; SVGs retained for historical reference."
+}

@@ -1,0 +1,2192 @@
+{
+  "chapter": 20,
+  "title": "Population Growth and Interactions",
+  "first": 702,
+  "last": 743,
+  "lessons": [
+    {
+      "title": "Populations, density and distribution",
+      "question": "What does a population count tell you, and what does it leave out?",
+      "goal": "Calculate density and distinguish abundance from spatial distribution.",
+      "prior": "A population is defined by species, place and time. A community includes interacting populations of different species.",
+      "pages": [
+        704,
+        706
+      ],
+      "slides": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "terms": [
+        {
+          "term": "population density",
+          "meaning": "The number of individuals per unit area or volume.",
+          "example": "Five hundred rabbits in 25 km² give 20 rabbits/km².",
+          "importantDistinction": "Density includes a spatial denominator; abundance is a total count.",
+          "misconception": "A population of 500 always has density 500 regardless of area.",
+          "aliases": []
+        },
+        {
+          "term": "clumped distribution",
+          "meaning": "Individuals occurring in groups rather than evenly across the area.",
+          "example": "Plants cluster where suitable soil and moisture occur.",
+          "importantDistinction": "A clumped pattern is different from high average density.",
+          "misconception": "Clumped distribution means individuals are evenly spaced.",
+          "aliases": []
+        },
+        {
+          "term": "uniform distribution",
+          "meaning": "Individuals spaced relatively evenly across a defined area.",
+          "example": "Territorial organisms can show approximately regular spacing.",
+          "importantDistinction": "Uniform describes a spatial pattern, not identical genotypes.",
+          "misconception": "Uniform distribution means all individuals occupy one cluster.",
+          "aliases": []
+        },
+        {
+          "term": "random distribution",
+          "meaning": "A spatial pattern without a strong regular or clustered arrangement at the scale considered.",
+          "example": "Plant positions are not strongly associated with one another under the stated conditions.",
+          "importantDistinction": "A random-looking pattern depends on the spatial scale and evidence.",
+          "misconception": "Random distribution means an organism has no habitat requirements.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Define the unit before measuring it",
+          [
+            "A population consists of individuals of the same species in a defined area and time. A community contains populations of different species living and interacting there. A common biological species definition uses interbreeding and fertile offspring, but not every organism or species boundary fits that simple definition.",
+            "Population size, N, is the number of individuals. Density compares that number with an area or volume: D = N/A or D = N/V. Choose the denominator that matches the environment and question."
+          ]
+        ],
+        [
+          "Keep units attached to the calculation",
+          [
+            "If 500 rabbits occupy 25 km², density is 500/25 = 20 rabbits/km². If 120 fish occupy 60 m³ of water, density is 2 fish/m³. A correct number without the spatial unit is an incomplete density answer.",
+            "The relationship can be rearranged. If density is 2.3 bears/km² over 50 km², the estimated population is N = DA = 115 bears. This assumes the density estimate applies to the stated area.",
+            "Samples and estimates have limits. A count from a particularly crowded patch should not automatically represent an entire landscape with different habitats."
+          ]
+        ],
+        [
+          "Describe the spatial pattern separately",
+          [
+            "Clumped populations occur in groups, often around resources or social groups. Uniform patterns show relatively even spacing, which can be associated with competition or territorial behaviour. Random patterns lack a strong grouping or regular spacing at the scale examined.",
+            "Two areas can have the same total population and average density but different distributions. A map is needed to distinguish their spatial patterns. Conversely, a clumped diagram does not by itself provide an exact density without the count and area.",
+            "Use the measured pattern first, then propose a mechanism. The pattern alone does not always identify one unique cause."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Use density to estimate abundance",
+        "scenario": "A survey estimates 4 individuals per hectare across 35 hectares of comparable habitat.",
+        "steps": [
+          "Given density D = 4 individuals/ha and area A = 35 ha.",
+          "Use N = DA.",
+          "N = 4 × 35 = 140 individuals.",
+          "The hectares cancel, leaving individuals.",
+          "The estimate assumes the sampled density represents the whole stated habitat."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "A population of 80 occupies 20 km². What is density?",
+          "answer": "4 individuals/km²",
+          "wrong": [
+            "1600 individuals/km²",
+            "0.25 km²"
+          ],
+          "explanation": "Divide individuals by area.",
+          "cue": "Use D = N/A and retain the units."
+        },
+        {
+          "prompt": "Which pattern describes individuals grouped around separate water sources?",
+          "answer": "Clumped",
+          "wrong": [
+            "Uniform",
+            "Necessarily random"
+          ],
+          "explanation": "Grouping around patches produces a clumped pattern.",
+          "cue": "Distinguish clusters from equal spacing."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which information is needed to calculate population density?",
+          "answer": "Number of individuals and area or volume",
+          "wrong": [
+            "Only the species name",
+            "Only the number of alleles",
+            "Only the age of the oldest individual"
+          ],
+          "explanation": "Density relates a count to space.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Two habitats have equal average density. Must their distributions match?",
+          "answer": "No; spatial patterns can differ",
+          "wrong": [
+            "Yes; density uniquely determines every position",
+            "Yes; both must be uniform",
+            "No; because density cannot be calculated"
+          ],
+          "explanation": "Average abundance per area does not specify where individuals are located.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Calculate density for 240 fish in 80 m³ and explain the unit.",
+          "model": "D = N/V = 240 fish/80 m³ = 3 fish/m³. The result gives an average number per unit volume, not a claim that exactly three fish occupy every cubic metre.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why an observed clumped pattern does not establish one unique ecological cause.",
+          "model": "Clumping can arise from patchy resources, reproduction near parents, social behaviour or other processes. The map establishes the arrangement, while additional observations are needed to distinguish the cause.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A dense sample patch is used to estimate an entire heterogeneous region. What assumption needs examination?",
+          "answer": "Whether the patch represents the region",
+          "wrong": [
+            "Whether every organism has the same genotype",
+            "Whether density has no units",
+            "Whether the population can be defined without location"
+          ],
+          "explanation": "A non-representative sample can bias the estimate.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Is abundance the same as density?",
+        "No. Abundance is a count; density divides a count by area or volume."
+      ],
+      "sequence": null,
+      "anchors": [
+        "population density",
+        "clumped distribution",
+        "uniform distribution",
+        "random distribution"
+      ],
+      "figures": {
+        "0": "ch20-distribution"
+      }
+    },
+    {
+      "title": "Births, deaths, immigration and emigration",
+      "question": "How do you account for every addition and loss in a population?",
+      "goal": "Calculate net change and final population size while distinguishing open and closed populations.",
+      "prior": "Population size is a count within defined boundaries. Crossing the boundary and reproduction can both change that count.",
+      "pages": [
+        706,
+        708
+      ],
+      "slides": [
+        38,
+        39
+      ],
+      "terms": [
+        {
+          "term": "natality",
+          "meaning": "Births adding individuals to a population during the interval considered.",
+          "example": "Forty births add forty individuals during a survey year.",
+          "importantDistinction": "A birth count over an interval is not automatically an annual rate.",
+          "misconception": "Natality describes individuals leaving the population.",
+          "aliases": []
+        },
+        {
+          "term": "mortality",
+          "meaning": "Deaths removing individuals from a population during the interval considered.",
+          "example": "Twelve deaths reduce the count during a survey year.",
+          "importantDistinction": "Deaths are losses, not emigration.",
+          "misconception": "Mortality and immigration both add individuals.",
+          "aliases": []
+        },
+        {
+          "term": "immigration",
+          "meaning": "Movement of individuals into the defined population.",
+          "example": "Animals enter and join the study population from elsewhere.",
+          "importantDistinction": "The sign depends on the defined population boundary.",
+          "misconception": "Immigration means leaving the population.",
+          "aliases": []
+        },
+        {
+          "term": "emigration",
+          "meaning": "Movement of individuals out of the defined population.",
+          "example": "Individuals leave the study area to join another population.",
+          "importantDistinction": "Movement is an addition to one population and a loss from another.",
+          "misconception": "Emigration must mean an individual has died.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Add entries and subtract exits",
+          [
+            "Over a defined interval, births and immigration add individuals. Deaths and emigration remove them. Net change is ΔN = (births + immigration) − (deaths + emigration).",
+            "The symbols n, i, m and e may be used for these totals, giving ΔN = (n + i) − (m + e). In this calculation, use counts over the same interval. If a question supplies rates, first handle their time basis consistently.",
+            "A positive ΔN means increase; a negative value means decrease. Zero means additions and losses balance, not that no individual was born, died or moved."
+          ]
+        ],
+        [
+          "Net change is not the final population",
+          [
+            "If the initial population is N₀, the final size is N₀ + ΔN. A change of +48 in an initial population of 205 gives 253, not 48. Keep the starting count and the change on separate lines.",
+            "For example, 240 births and 11 immigrants are 251 additions. If there are 195 deaths and 8 emigrants, losses total 203. Net change is 251 − 203 = +48, and 205 + 48 = 253.",
+            "Check that every event is counted once and that all events refer to the same population and time interval."
+          ]
+        ],
+        [
+          "State whether the population is open or closed",
+          [
+            "An open population exchanges individuals with other populations through immigration or emigration. A closed-population model assumes neither movement term contributes. In that model, ΔN = births − deaths.",
+            "Closed does not mean no births or deaths. It also does not mean matter and energy never cross an ecosystem boundary. Here the term concerns movement of individuals into and out of the population.",
+            "The suitability of a closed model depends on the case. A fence, island or tank may reduce movement, but the model should be stated rather than assumed merely from a name."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Track all four terms",
+        "scenario": "A population starts at 120. Over one year there are 30 births, 12 immigrants, 20 deaths and 7 emigrants.",
+        "steps": [
+          "Additions = 30 + 12 = 42.",
+          "Losses = 20 + 7 = 27.",
+          "ΔN = 42 − 27 = +15 individuals.",
+          "Final N = 120 + 15 = 135.",
+          "The calculation concerns an open population over the stated year."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which pair belongs on the addition side?",
+          "answer": "Births and immigration",
+          "wrong": [
+            "Deaths and immigration",
+            "Births and emigration"
+          ],
+          "explanation": "Births create entries and immigrants enter the population.",
+          "cue": "Trace whether the event adds or removes an individual."
+        },
+        {
+          "prompt": "Initial N is 90 and ΔN is −12. What is final N?",
+          "answer": "78",
+          "wrong": [
+            "102",
+            "−12"
+          ],
+          "explanation": "N final = 90 − 12.",
+          "cue": "A negative change is subtracted from the starting count."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "In a closed population with 25 births and 18 deaths, what is ΔN?",
+          "answer": "+7",
+          "wrong": [
+            "43",
+            "−7",
+            "25"
+          ],
+          "explanation": "With no migration, births minus deaths gives the change.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "If ΔN is zero, which statement is justified?",
+          "answer": "Total additions equal total losses",
+          "wrong": [
+            "No organisms reproduced",
+            "No organisms died",
+            "The population must be closed"
+          ],
+          "explanation": "Balanced totals can coexist with many individual events.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "An initial population of 200 has 35 births, 15 immigrants, 22 deaths and 8 emigrants over one interval. Find change and final size.",
+          "model": "Additions are 35 + 15 = 50 and losses are 22 + 8 = 30. ΔN = +20. Final size is 200 + 20 = 220. All terms are counts over the same interval.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Distinguish a closed-population model from a population with no change.",
+          "model": "Closed means no immigration or emigration in the model, so births and deaths determine change. A population can be closed and increase or decrease. Zero change means additions and losses balance, whether the population is open or closed.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A herd receives 10 immigrants but loses 10 emigrants while births equal deaths. What is the net change?",
+          "answer": "0",
+          "wrong": [
+            "+20",
+            "−20",
+            "+10"
+          ],
+          "explanation": "Both migration and reproductive terms balance, even though individuals moved.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Is net change the same number as final population size?",
+        "No. Add net change to the initial population."
+      ],
+      "sequence": null,
+      "anchors": [
+        "natality",
+        "mortality",
+        "immigration",
+        "emigration"
+      ],
+      "figures": {
+        "0": "ch20-change"
+      }
+    },
+    {
+      "title": "Growth rate and per-capita growth",
+      "question": "Why does the same numerical increase mean different things for different populations?",
+      "goal": "Calculate average growth per time and the course’s per-capita change over an interval.",
+      "prior": "Net change is final minus initial size. A rate or proportion requires an additional denominator.",
+      "pages": [
+        708,
+        710
+      ],
+      "slides": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "terms": [
+        {
+          "term": "average growth rate",
+          "meaning": "Population change divided by elapsed time.",
+          "example": "An increase of 75 individuals over six years gives 12.5 individuals/year.",
+          "importantDistinction": "Its units include time.",
+          "misconception": "Growth rate is always the final population divided by area.",
+          "aliases": []
+        },
+        {
+          "term": "per-capita change",
+          "meaning": "Population change divided by the initial population for a specified interval.",
+          "example": "An increase of 20 from 100 gives 0.20 over that interval.",
+          "importantDistinction": "The course cgr = ΔN/N₀ is an interval proportion, not automatically a per-year rate.",
+          "misconception": "ΔN/N₀ automatically has units per year for every interval.",
+          "aliases": []
+        },
+        {
+          "term": "initial population",
+          "meaning": "The population count at the start of the stated interval.",
+          "example": "N₀ = 170 is the denominator in a per-capita change calculation.",
+          "importantDistinction": "Using the final count changes the question being answered.",
+          "misconception": "Initial population always equals net change.",
+          "aliases": []
+        },
+        {
+          "term": "time interval",
+          "meaning": "The elapsed time between the starting and ending observations.",
+          "example": "From 2012 to 2018 is six years.",
+          "importantDistinction": "The time basis must remain explicit when comparing rates.",
+          "misconception": "Every pair of dates is separated by one year.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Divide by time for average growth rate",
+          [
+            "Average growth rate compares net change with elapsed time: gr = ΔN/Δt. If a population grows from 170 to 245 over six years, ΔN = 75 and gr = 75/6 = 12.5 individuals per year.",
+            "This is an average across the interval. It does not imply that exactly 12.5 individuals were added in each individual year. The actual yearly pattern could vary."
+          ]
+        ],
+        [
+          "Divide by the starting population for relative change",
+          [
+            "The course relationship cgr = ΔN/N₀ expresses per-capita change over the stated interval. For the same example, cgr = 75/170 ≈ 0.441, or a 44.1% increase over six years.",
+            "Do not label 0.441 as an annual rate. If an average per-capita change per year is explicitly requested, the interval change also needs a time denominator. That average is still different from a continuously compounded or exponential growth parameter.",
+            "Using N₀ makes the change relative to the starting population. Replacing it with the final count answers a different question."
+          ]
+        ],
+        [
+          "Compare populations using the appropriate measure",
+          [
+            "A gain of 20 individuals is a 20% increase for a starting population of 100 but only a 2% increase for a starting population of 1000. Equal numerical changes can therefore have different relative significance.",
+            "A complete calculation identifies the requested quantity, writes the relationship, substitutes values and includes the interval or units. Keep density, net change, average rate and per-capita change separate.",
+            "If the population declines, both ΔN and its rate or interval proportion are negative. A negative result is not automatically an arithmetic error."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "One dataset, three answers",
+        "scenario": "A population increases from 205 to 253 over twenty years.",
+        "steps": [
+          "Net change = 253 − 205 = 48 individuals.",
+          "Average growth rate = 48/20 = 2.4 individuals/year.",
+          "Per-capita change over the interval = 48/205 ≈ 0.234.",
+          "This is about a 23.4% increase over twenty years, not 23.4% per year.",
+          "Each answer describes a different quantity."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "A gain of 30 over five years gives which average growth rate?",
+          "answer": "6 individuals/year",
+          "wrong": [
+            "150 individuals/year",
+            "0.167 years"
+          ],
+          "explanation": "Divide change by time.",
+          "cue": "Use ΔN/Δt."
+        },
+        {
+          "prompt": "A population increases from 80 to 100. What is its interval per-capita change?",
+          "answer": "0.25",
+          "wrong": [
+            "0.20",
+            "1.25"
+          ],
+          "explanation": "ΔN = 20 and N₀ = 80, so 20/80 = 0.25.",
+          "cue": "Use the initial population as denominator."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "A population loses 15 individuals from an initial 150. What is cgr over the interval?",
+          "answer": "−0.10",
+          "wrong": [
+            "+0.10",
+            "−10",
+            "0.90"
+          ],
+          "explanation": "ΔN/N₀ = −15/150 = −0.10.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement correctly interprets cgr = 0.30 over three years?",
+          "answer": "A 30% net increase relative to the starting population over those three years",
+          "wrong": [
+            "A guaranteed 30% increase every year",
+            "A density of 0.30 individuals/km²",
+            "Exactly 0.30 births occurred"
+          ],
+          "explanation": "The interval and denominator define the interpretation.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "A population changes from 400 to 460 in four years. Calculate net change, average growth rate and per-capita interval change.",
+          "model": "ΔN = 60 individuals. Average growth rate is 60/4 = 15 individuals/year. Per-capita change is 60/400 = 0.15, a 15% increase over four years. The interval proportion is not automatically an annual compounded rate.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a numerical increase of 50 can represent different population changes.",
+          "model": "Its relative magnitude depends on the starting size and its rate depends on elapsed time. Fifty added to 100 is a 50% interval increase, while fifty added to 1000 is 5%. The same increase over one year also differs from that increase over ten years.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A student divides final N by elapsed time and calls it average growth rate. What needs correction?",
+          "answer": "Use the change in N, not final N alone",
+          "wrong": [
+            "Use area rather than time in every case",
+            "Remove units completely",
+            "Use allele frequency p as the numerator"
+          ],
+          "explanation": "A growth rate measures change over time.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does cgr = ΔN/N₀ automatically describe exponential annual growth?",
+        "No. It describes net per-capita change over the stated interval."
+      ],
+      "sequence": null,
+      "anchors": [
+        "average growth rate",
+        "per-capita change",
+        "initial population",
+        "time interval"
+      ],
+      "figures": {
+        "0": "ch20-rates"
+      }
+    },
+    {
+      "title": "Exponential and logistic growth",
+      "question": "How do resource limits change the shape of population growth?",
+      "goal": "Interpret exponential and logistic models through axes, slope and resource assumptions.",
+      "prior": "Population growth depends on reproductive contribution and losses. A graph shows a relationship over time rather than the entire mechanism.",
+      "pages": [
+        710,
+        713
+      ],
+      "slides": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "terms": [
+        {
+          "term": "exponential growth",
+          "meaning": "Growth in which a constant positive per-capita rate produces increasing numerical additions as population size rises.",
+          "example": "A simplified population doubles in each equal interval while resources remain sufficient.",
+          "importantDistinction": "It cannot continue indefinitely in a finite environment.",
+          "misconception": "Exponential growth adds the same fixed number in each equal interval.",
+          "aliases": []
+        },
+        {
+          "term": "logistic growth",
+          "meaning": "A model in which population growth slows as resource limits become important near carrying capacity.",
+          "example": "An idealized S-shaped curve levels near K.",
+          "importantDistinction": "Real populations can fluctuate rather than follow a perfectly smooth curve.",
+          "misconception": "A logistic population must have no births once it approaches K.",
+          "aliases": []
+        },
+        {
+          "term": "carrying capacity",
+          "meaning": "The population size an environment can sustain under the prevailing conditions.",
+          "example": "Available food and habitat constrain the number supported.",
+          "importantDistinction": "K can change when environmental conditions change.",
+          "misconception": "Carrying capacity is a permanent constant for a species everywhere.",
+          "aliases": [
+            "K"
+          ]
+        },
+        {
+          "term": "graph slope",
+          "meaning": "The rate of change of the vertical quantity with respect to the horizontal quantity.",
+          "example": "A steeper population-versus-time curve indicates a larger numerical growth rate.",
+          "importantDistinction": "A high population and a high growth rate are not the same graph feature.",
+          "misconception": "The highest point on a population graph always has the greatest growth rate.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Read the axes before naming the curve",
+          [
+            "On a population-size graph, the horizontal axis shows time and the vertical axis shows N. The slope describes how quickly N changes. A high point indicates many individuals, while a steep upward slope indicates rapid numerical increase.",
+            "Under an exponential model with a positive per-capita growth rate, more individuals produce more additions in each equal interval. The curve becomes increasingly steep, giving a J-like pattern. Constant proportional growth is different from adding the same fixed number each time."
+          ]
+        ],
+        [
+          "Resource limits reduce per-capita growth",
+          [
+            "A logistic model includes limits associated with carrying capacity, K. When N is small relative to K, resources permit relatively rapid increase. As population size approaches K, competition and other constraints reduce net growth. The idealized curve is S-shaped.",
+            "At K in the simplest closed model, births and deaths balance on average. Births do not necessarily stop. Individuals continue to enter and leave the population even when the net count is stable.",
+            "Some teaching graphs include an initial lag while organisms establish and reproduce. A lag is a biological feature of that example, not a requirement of every mathematical exponential or logistic curve."
+          ]
+        ],
+        [
+          "A model is not an unlimited forecast",
+          [
+            "Exponential growth cannot persist indefinitely in a finite environment. Resources, space, disease or other limits eventually matter. A population can overshoot a sustainable level and decline, but the timing and magnitude require evidence.",
+            "Real logistic-like populations can fluctuate around changing resource limits. K is not a fixed universal number attached to a species. Weather, habitat and interactions can alter the number supported.",
+            "Interpret the graph together with the stated conditions. Do not infer a particular limiting mechanism from curve shape alone."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Read size and rate separately",
+        "scenario": "An S-shaped graph is almost flat near its highest population level.",
+        "steps": [
+          "The vertical position indicates a large N.",
+          "The nearly flat slope indicates low net numerical growth.",
+          "Under the ideal logistic model, additions and losses are approximately balanced near K.",
+          "It is incorrect to call the highest N the point of fastest growth merely because it is highest."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "A population doubles each equal interval. Which model is illustrated while conditions remain suitable?",
+          "answer": "Exponential",
+          "wrong": [
+            "Constant numerical addition",
+            "A permanently declining population"
+          ],
+          "explanation": "Equal proportional growth gives increasing numerical additions.",
+          "cue": "Compare proportional versus fixed additions."
+        },
+        {
+          "prompt": "Near the plateau of an ideal logistic curve, net growth is what?",
+          "answer": "Approximately zero",
+          "wrong": [
+            "Necessarily at its maximum",
+            "Always negative infinity"
+          ],
+          "explanation": "The slope approaches zero near the plateau.",
+          "cue": "Read the slope, not just the height."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which observation best fits increasing resource limitation?",
+          "answer": "Per-capita net growth declines as N approaches K",
+          "wrong": [
+            "Every interval adds a larger fixed proportion forever",
+            "All births cease permanently",
+            "K becomes unrelated to the environment"
+          ],
+          "explanation": "Logistic growth incorporates a declining per-capita growth contribution near K.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Can carrying capacity change after habitat loss?",
+          "answer": "Yes; the resources and conditions supporting the population have changed",
+          "wrong": [
+            "No; K is fixed for all habitats",
+            "Only if chromosome number changes",
+            "No; graphs determine resources"
+          ],
+          "explanation": "K depends on the environment.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare exponential and logistic growth in terms of proportional change and resource assumptions.",
+          "model": "Exponential growth assumes conditions allowing a constant positive per-capita rate, so numerical additions increase with N. Logistic growth includes resource limits that reduce per-capita net growth near K. Neither is a guarantee that a real population follows a smooth curve indefinitely.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a population near a plateau can still have births and deaths.",
+          "model": "The plateau represents approximately zero net change, not zero individual events. Births can balance deaths, and in an open population migration also contributes. Stable N can coexist with ongoing turnover.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Two points on a population graph have equal N but different slopes. What differs?",
+          "answer": "Their numerical growth rates",
+          "wrong": [
+            "Their population sizes at those points",
+            "Their vertical-axis units necessarily",
+            "The species must be different"
+          ],
+          "explanation": "Slope reflects rate of change even when size is equal.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Is an exponential model evidence that resources will stay unlimited?",
+        "No. Its assumptions must be evaluated over the interval of interest."
+      ],
+      "sequence": null,
+      "anchors": [
+        "exponential growth",
+        "logistic growth",
+        "carrying capacity",
+        "graph slope"
+      ],
+      "figures": {
+        "0": "ch20-growth"
+      }
+    },
+    {
+      "title": "Carrying capacity and limiting factors",
+      "question": "When does the strength of a limiting effect depend on crowding?",
+      "goal": "Distinguish density-dependent and density-independent effects and explain fluctuations around resource limits.",
+      "prior": "A population can have balanced net change while births and deaths continue. K depends on current conditions.",
+      "pages": [
+        712,
+        716
+      ],
+      "slides": [
+        44,
+        45,
+        46
+      ],
+      "terms": [
+        {
+          "term": "density-dependent factor",
+          "meaning": "A factor whose per-capita effect changes with population density.",
+          "example": "Competition for a fixed food supply becomes stronger as more individuals share it.",
+          "importantDistinction": "The definition concerns dependence on density, not simply whether the factor is living.",
+          "misconception": "Every density-dependent factor has the same effect at every density.",
+          "aliases": []
+        },
+        {
+          "term": "density-independent factor",
+          "meaning": "A factor whose effect is not primarily determined by the population’s density in the stated case.",
+          "example": "A sudden freeze affects exposed organisms across both sparse and dense patches.",
+          "importantDistinction": "Real effects can interact with density and habitat; use the case evidence.",
+          "misconception": "Every density-independent event must kill exactly the same number of individuals.",
+          "aliases": []
+        },
+        {
+          "term": "environmental resistance",
+          "meaning": "The combined constraints limiting population increase.",
+          "example": "Food shortage, competition and other conditions prevent unrestricted growth.",
+          "importantDistinction": "Several constraints can operate together.",
+          "misconception": "Environmental resistance is one hormone released by all organisms.",
+          "aliases": []
+        },
+        {
+          "term": "overshoot",
+          "meaning": "Population size temporarily exceeding the level current resources can support sustainably.",
+          "example": "Delayed responses allow N to rise beyond a resource limit before declining.",
+          "importantDistinction": "The consequences depend on resource depletion and response delays.",
+          "misconception": "Overshoot guarantees a population will never recover.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Ask whether crowding changes the effect",
+          [
+            "A density-dependent factor has a per-capita effect that changes with density. When more individuals share a fixed food supply, competition can reduce growth or reproduction. Disease transmission can also become easier when contact rates rise.",
+            "A density-independent effect is not primarily set by crowding in the stated case. A severe weather event may affect organisms regardless of whether they are in a dense or sparse population. The distinction concerns the relationship with density, not merely “biotic versus abiotic.”"
+          ]
+        ],
+        [
+          "Several mechanisms can act together",
+          [
+            "A drought may reduce food availability, after which competition becomes stronger. The initial environmental event and the density-dependent response are connected but distinct parts of the explanation.",
+            "Environmental resistance is the combined effect of constraints on increase. Food, shelter, interactions, waste and physical conditions can all matter. Which factor limits a population can change over time.",
+            "A useful answer traces the factor to its effect on survival, reproduction or movement, and then to net population change."
+          ]
+        ],
+        [
+          "Why real populations fluctuate",
+          [
+            "Carrying capacity can change as resources and habitat change. Responses may also be delayed: individuals can continue reproducing for a time before food shortages reduce survival or reproduction. This can produce overshoot and decline.",
+            "A fluctuation around K is not evidence that the concept is meaningless. It shows that an idealized smooth model leaves out delays and changing conditions. Likewise, a crash does not by itself reveal which resource or interaction caused it.",
+            "Use data about resources and demographic rates to connect the population pattern with a mechanism. Do not label every decline “competition” without supporting information."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Separate the initiating event from the crowding response",
+        "scenario": "A dry year reduces plant growth. Later, herbivores in the most crowded patches have the lowest per-capita reproduction.",
+        "steps": [
+          "The dry year is an environmental change affecting resources.",
+          "The stronger reduction in crowded patches links part of the response with density.",
+          "Food competition is a plausible density-dependent mechanism if supported by resource measurements.",
+          "The explanation can include both an external event and a density-related consequence."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Crowding makes a fixed food supply less available per individual. Which type of effect is this?",
+          "answer": "Density-dependent",
+          "wrong": [
+            "Necessarily density-independent",
+            "Unrelated to population change"
+          ],
+          "explanation": "The per-individual effect changes with density.",
+          "cue": "Identify whether crowding changes resource access."
+        },
+        {
+          "prompt": "What does a change in K imply?",
+          "answer": "The conditions supporting the population changed",
+          "wrong": [
+            "The species must have gained chromosomes",
+            "Density has no role in the ecosystem"
+          ],
+          "explanation": "K depends on resources and other conditions.",
+          "cue": "Treat K as environmental, not a species-wide constant."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which is the best criterion for identifying density dependence?",
+          "answer": "Whether the per-capita effect changes with density",
+          "wrong": [
+            "Whether the factor has a scientific name",
+            "Whether the population contains animals",
+            "Whether the graph is coloured"
+          ],
+          "explanation": "The relationship with density is the defining feature.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why can overshoot occur?",
+          "answer": "Responses to changing resources can be delayed",
+          "wrong": [
+            "K must be zero",
+            "No individuals reproduce",
+            "Every population is always at perfect equilibrium"
+          ],
+          "explanation": "Demographic responses need not be instantaneous.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how one drought event can be followed by density-dependent population effects.",
+          "model": "Drought can reduce food production across the habitat. When a reduced supply is shared by different numbers of consumers, competition may be stronger per individual in crowded patches. This links an environmental event with a density-related effect on reproduction or survival.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Describe what evidence would help distinguish food limitation from disease as a cause of decline.",
+          "model": "Food availability, feeding success, body condition and reproduction could be compared with disease prevalence and mortality patterns. Suitable timing and comparisons are needed. A declining N alone does not uniquely distinguish the mechanisms.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A researcher calls every abiotic factor density-independent without examining its effects. What is the weakness?",
+          "answer": "Classification should consider how the effect depends on density in the case",
+          "wrong": [
+            "Abiotic factors cannot affect populations",
+            "All factors are automatically density-dependent",
+            "Only genetic data are relevant"
+          ],
+          "explanation": "Living versus nonliving is not a sufficient definition of density dependence.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a stable K require a perfectly constant N at every moment?",
+        "No. Population responses and resource use can fluctuate around a modelled level."
+      ],
+      "sequence": null,
+      "anchors": [
+        "density-dependent factor",
+        "density-independent factor",
+        "environmental resistance",
+        "overshoot"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Life-history strategies and biotic potential",
+      "question": "Why do species invest differently in offspring number and parental care?",
+      "goal": "Compare life-history patterns as a continuum and interpret survivorship without treating categories as rigid rules.",
+      "prior": "Energy and time are limited. Reproduction, maintenance and survival involve allocation trade-offs.",
+      "pages": [
+        713,
+        716
+      ],
+      "slides": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "terms": [
+        {
+          "term": "biotic potential",
+          "meaning": "The maximum reproductive increase possible under favourable conditions for the organism.",
+          "example": "Early maturity and frequent reproduction can contribute to high potential increase.",
+          "importantDistinction": "Realized growth can be much lower because of environmental constraints.",
+          "misconception": "Biotic potential guarantees unrestricted population growth.",
+          "aliases": []
+        },
+        {
+          "term": "life history",
+          "meaning": "A pattern of growth, survival and reproduction across an organism’s life.",
+          "example": "Age at maturity, offspring number and parental investment form part of a life history.",
+          "importantDistinction": "Traits can combine in different ways rather than fitting one rigid category.",
+          "misconception": "Every species must display only one extreme strategy.",
+          "aliases": []
+        },
+        {
+          "term": "r-associated strategy",
+          "meaning": "A teaching description of traits often associated with rapid reproduction and many offspring.",
+          "example": "Early maturity and low investment per offspring can support rapid increase when conditions allow.",
+          "importantDistinction": "This is a comparative pattern, not a guarantee of an exponential graph in every habitat.",
+          "misconception": "Every r-associated species always grows exponentially forever.",
+          "aliases": []
+        },
+        {
+          "term": "K-associated strategy",
+          "meaning": "A teaching description of traits often associated with slower reproduction and greater investment per offspring.",
+          "example": "Later maturity and fewer offspring with more parental care are common examples.",
+          "importantDistinction": "Species can combine traits from both ends of the continuum.",
+          "misconception": "Every K-associated species produces exactly one offspring and never declines.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Follow the allocation trade-off",
+          [
+            "Life history describes how organisms grow, survive and reproduce. Energy invested in producing many offspring cannot simultaneously be invested without limit in each offspring’s protection, growth and care. Age at maturity and reproductive frequency also affect population growth.",
+            "Biotic potential describes potential increase under favourable conditions. Environmental resistance means actual growth is often lower. A species capable of producing many young can still have a declining population if few survive and reproduce."
+          ]
+        ],
+        [
+          "Use r and K as comparative patterns",
+          [
+            "The r-associated end of a teaching continuum often includes early reproduction, many small offspring, short generation times and less investment in each offspring. Such traits can support rapid increase when conditions permit.",
+            "The K-associated end often includes later reproduction, fewer offspring, longer lives and more investment per offspring. These are broad comparisons, not fixed laws that predict every trait or graph for every species.",
+            "Some organisms combine features from both ends. Sea turtles, for example, produce many eggs yet can be long-lived as adults. Interpret the actual traits supplied rather than forcing every organism into a perfect category."
+          ]
+        ],
+        [
+          "Read survivorship as survival through age",
+          [
+            "A survivorship curve shows the fraction or number remaining alive as age increases. Type I patterns retain many individuals until later life; Type II shows a more nearly constant risk across ages; Type III has high early loss with greater survival among those reaching later stages.",
+            "Survivorship is not the same as offspring production or a population-growth curve. Read the axes carefully. A steep early decline on a survivorship plot indicates early mortality, not necessarily that the whole population is shrinking.",
+            "Connect survival with reproduction to explain population consequences. Many offspring can compensate for high early mortality, but neither measurement alone guarantees a particular growth rate."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Interpret a mixed strategy",
+        "scenario": "An organism produces hundreds of eggs with little care, but survivors can live and reproduce for decades.",
+        "steps": [
+          "Many eggs and low early investment resemble r-associated traits.",
+          "Long adult life resembles a trait often associated with the other end of the continuum.",
+          "The combination is not a contradiction: life histories can mix features.",
+          "Actual population growth depends on survival and reproduction, not the category label alone."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which feature commonly supports rapid potential population increase?",
+          "answer": "Early reproduction with many offspring",
+          "wrong": [
+            "Only delayed reproduction with very few offspring",
+            "No offspring production"
+          ],
+          "explanation": "Early and numerous reproduction can raise potential increase.",
+          "cue": "Consider how quickly descendants can themselves reproduce."
+        },
+        {
+          "prompt": "A survivorship curve falls sharply at young ages. What does it show?",
+          "answer": "High early mortality",
+          "wrong": [
+            "Guaranteed exponential population growth",
+            "The age of every parent"
+          ],
+          "explanation": "Its vertical decline records loss of surviving individuals.",
+          "cue": "Read age and survivors, not time and total population."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which interpretation of r/K categories is appropriate?",
+          "answer": "They describe broad patterns along a continuum",
+          "wrong": [
+            "Every species fits exactly one extreme in every trait",
+            "They replace measurements of survival",
+            "They determine an organism’s chromosome number"
+          ],
+          "explanation": "Actual life histories can combine traits.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why can a species with many offspring still decline?",
+          "answer": "Survival and reproductive recruitment can be too low",
+          "wrong": [
+            "Offspring number has no relevance to any population",
+            "Many offspring prevent all mortality",
+            "Biotic potential is always zero"
+          ],
+          "explanation": "Potential production does not equal realized recruitment.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare two life histories using maturity, offspring number and investment per offspring without calling either universally better.",
+          "model": "One may mature early, produce many young and invest less in each; another may mature later, produce fewer and invest more. Their consequences depend on environmental conditions and survival. These are allocation patterns, not universal rankings.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Distinguish a survivorship curve from a population-size curve.",
+          "model": "A survivorship curve follows remaining survival across age for a cohort or model. A population-size curve shows total N over time. High early mortality in a cohort does not by itself establish whether births and losses make the total population grow or shrink.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A species has a high potential reproductive rate, but resources are scarce. Which outcome is possible?",
+          "answer": "Realized growth is low or negative",
+          "wrong": [
+            "The population must double indefinitely",
+            "All mortality becomes impossible",
+            "Carrying capacity no longer matters"
+          ],
+          "explanation": "Environmental constraints can prevent potential increase from being realized.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Are many offspring proof that an organism is short-lived?",
+        "No. Different life-history traits can combine."
+      ],
+      "sequence": null,
+      "anchors": [
+        "biotic potential",
+        "life history",
+        "r-associated strategy",
+        "K-associated strategy"
+      ],
+      "figures": {
+        "0": "ch20-survivorship"
+      }
+    },
+    {
+      "title": "Feeding relationships and predator–prey changes",
+      "question": "How can a change in one population affect another?",
+      "goal": "Trace energy transfer and interpret predator–prey patterns without assuming correlation proves a single cause.",
+      "prior": "Communities contain interacting populations. Food availability can affect survival and reproduction.",
+      "pages": [
+        717,
+        720
+      ],
+      "slides": [
+        56,
+        57,
+        58,
+        59
+      ],
+      "terms": [
+        {
+          "term": "producer",
+          "meaning": "An organism that builds organic material from inorganic sources using an energy source.",
+          "example": "Photosynthetic organisms transform light energy into stored chemical energy.",
+          "importantDistinction": "Producers transform energy; they do not create it.",
+          "misconception": "Producers create energy from nothing.",
+          "aliases": []
+        },
+        {
+          "term": "consumer",
+          "meaning": "An organism that obtains organic material by feeding on other organisms or their products.",
+          "example": "A herbivore consumes plant material.",
+          "importantDistinction": "Consumers depend on transferred chemical energy and matter.",
+          "misconception": "Consumers obtain no energy from food.",
+          "aliases": []
+        },
+        {
+          "term": "predation",
+          "meaning": "An interaction in which one organism consumes another as prey.",
+          "example": "A predator’s food supply includes individuals from a prey population.",
+          "importantDistinction": "Predation can affect both populations but is not their only influence.",
+          "misconception": "Every predator–prey pair must show identical synchronized peaks.",
+          "aliases": []
+        },
+        {
+          "term": "time lag",
+          "meaning": "A delay between one change and a related response.",
+          "example": "A predator population may increase after prey abundance has already risen.",
+          "importantDistinction": "A lagged pattern can support a hypothesis without uniquely proving its cause.",
+          "misconception": "A delayed response means the populations cannot interact.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Transfer energy rather than creating it",
+          [
+            "Producers build organic material using energy from light or chemical sources. Photosynthetic organisms transform light energy into chemical energy stored in molecules. They do not create energy from nothing.",
+            "Consumers obtain organic material and energy through feeding. Herbivores depend on producers, and predators depend on prey. These relationships connect population processes because food availability can influence survival, growth and reproduction."
+          ]
+        ],
+        [
+          "A response can follow after a delay",
+          [
+            "When prey become more abundant, predators may have greater feeding success. Improved survival and reproduction can increase predator numbers after a delay. More predators can then contribute to increased prey mortality.",
+            "A prey decline can later reduce predator reproduction or survival. Such feedback can contribute to oscillating patterns, but real populations are also affected by resources, disease, weather, migration and other interactions.",
+            "Do not expect the peaks of both populations to occur at exactly the same time. A delay can arise because producing and raising offspring takes time."
+          ]
+        ],
+        [
+          "Use graphs as evidence, not complete explanations",
+          [
+            "Read both axes, the time interval and the scale used for each population. A graph with separate scales can make changes look visually similar even when their numerical magnitudes differ.",
+            "A repeated lagged association is consistent with a predator–prey hypothesis, but correlation alone does not establish that predation is the only cause. Additional data about feeding, mortality and resources can strengthen the explanation.",
+            "Defensive adaptations can influence predation, including camouflage, protective structures and chemical defences. Explain how a supplied trait changes detection or capture rather than memorizing a list as proof of adaptation in every case."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Read a lagged pattern",
+        "scenario": "A hypothetical prey series peaks in year 4, followed by a predator peak in year 5.",
+        "steps": [
+          "The predator peak follows the prey peak by one year in the supplied data.",
+          "Greater prey availability could support later predator survival and reproduction.",
+          "Increased predation could then contribute to prey decline.",
+          "Other environmental causes remain possible, so the graph alone does not prove a single mechanism."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "What do photosynthetic producers do with light energy?",
+          "answer": "Transform it into chemical energy",
+          "wrong": [
+            "Create energy from nothing",
+            "Destroy all energy before consumers feed"
+          ],
+          "explanation": "Energy changes form rather than being created.",
+          "cue": "Use conservation of energy."
+        },
+        {
+          "prompt": "Why might a predator peak follow a prey peak?",
+          "answer": "Reproductive responses can take time",
+          "wrong": [
+            "Predators never eat prey",
+            "Both populations must share identical genes"
+          ],
+          "explanation": "Population responses can lag behind improved food supply.",
+          "cue": "Distinguish immediate feeding from later recruitment."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which additional measurement strengthens a predator–prey explanation?",
+          "answer": "Evidence connecting prey availability with predator feeding and reproduction",
+          "wrong": [
+            "Only using matching graph colours",
+            "Only changing the time-axis title",
+            "Only finding that both are animals"
+          ],
+          "explanation": "Mechanistic measurements connect association with a process.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "A graph shows a prey decline. What is not justified without more information?",
+          "answer": "Predation is the only possible cause",
+          "wrong": [
+            "Prey numbers fell over the interval",
+            "The plotted population changed",
+            "Further causal evidence could help"
+          ],
+          "explanation": "Resources, weather and other factors can also cause decline.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain a plausible cycle linking prey abundance, predator reproduction and prey mortality.",
+          "model": "More prey can improve predator feeding and later reproductive success. Increased predators can raise prey mortality, and a later prey decline can reduce predator survival or reproduction. Delays can produce lagged changes, but other factors may also contribute.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why producer–consumer relationships do not imply creation of energy.",
+          "model": "Producers transform an external energy source into chemical energy in organic molecules. Consumers obtain some of that energy through feeding. Energy is transferred and transformed, with losses of usable energy at each step, rather than created by organisms.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A prey species’ camouflage reduces detection in one habitat. Which claim is appropriate?",
+          "answer": "It can affect predation risk in that setting",
+          "wrong": [
+            "It guarantees survival in every habitat",
+            "It makes food availability irrelevant",
+            "It proves every individual has equal fitness"
+          ],
+          "explanation": "The trait’s effect depends on the environment and interaction.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Must two linked population peaks occur simultaneously?",
+        "No. Demographic responses often involve delays."
+      ],
+      "sequence": null,
+      "anchors": [
+        "producer",
+        "consumer",
+        "predation",
+        "time lag"
+      ],
+      "figures": {
+        "0": "ch20-predator-prey"
+      }
+    },
+    {
+      "title": "Competition within and between species",
+      "question": "How does sharing a limiting resource affect population performance?",
+      "goal": "Distinguish intra- and interspecific competition and explain resource partitioning and niche overlap.",
+      "prior": "Density-dependent effects can arise when individuals share limited resources.",
+      "pages": [
+        720,
+        724
+      ],
+      "slides": [
+        59,
+        60
+      ],
+      "terms": [
+        {
+          "term": "intraspecific competition",
+          "meaning": "Competition among individuals of the same species.",
+          "example": "Two plants of one species compete for light and water.",
+          "importantDistinction": "The competitors need not fight directly.",
+          "misconception": "Intraspecific competition always occurs between different species.",
+          "aliases": []
+        },
+        {
+          "term": "interspecific competition",
+          "meaning": "Competition between individuals of different species.",
+          "example": "Two plant species draw on the same limiting soil resource.",
+          "importantDistinction": "Sharing a resource matters when access is limiting.",
+          "misconception": "Different species can never compete for the same resource.",
+          "aliases": []
+        },
+        {
+          "term": "ecological niche",
+          "meaning": "The resources, conditions and interactions associated with a species’ role and persistence.",
+          "example": "A feeding niche includes what is eaten, where and when feeding occurs.",
+          "importantDistinction": "Niche is more than a location on a map.",
+          "misconception": "A niche is simply the number of chromosomes.",
+          "aliases": []
+        },
+        {
+          "term": "resource partitioning",
+          "meaning": "Differences in resource use that reduce overlap among competitors.",
+          "example": "Bird species feed in different parts of the same tree.",
+          "importantDistinction": "Reduced overlap can support coexistence without eliminating all competition.",
+          "misconception": "Resource partitioning means all species use exactly the same resource in exactly the same way.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Competition can occur without direct contact",
+          [
+            "Competition arises when organisms use a shared resource that limits their performance. Plants may compete for water without touching each other. Animals may compete for food, shelter or mating opportunities.",
+            "Intraspecific competition occurs within one species. Interspecific competition occurs between species. Both can affect growth, survival or reproduction and therefore population size.",
+            "Simply using the same resource does not prove strong competition if that resource is abundant. Evidence that one user reduces another’s access or performance strengthens the claim."
+          ]
+        ],
+        [
+          "Niche overlap helps explain the interaction",
+          [
+            "An ecological niche includes the resources and conditions a species uses and its interactions. Habitat identifies where it lives; niche includes how it functions there.",
+            "Species with strong overlap in a limiting resource can compete. Under a simple competitive-exclusion model, complete overlap in a limiting niche can prevent indefinite stable coexistence under constant conditions. Real environments vary and often provide several resource dimensions.",
+            "Do not turn this principle into a claim that any two species in the same habitat cannot coexist."
+          ]
+        ],
+        [
+          "Partitioning changes the overlap",
+          [
+            "Resource partitioning occurs when species use different resources, locations or times. Two birds feeding in different parts of a tree may reduce overlap even though they share the same general habitat.",
+            "A study can compare performance with and without a competitor or measure resource use directly. A population increase after a competitor is removed is consistent with competition, but other changed conditions must also be considered.",
+            "Explain the limiting resource and the effect on the organisms rather than simply labelling every negative interaction “competition.” Predation and parasitism involve different mechanisms."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Classify the competitors",
+        "scenario": "Two spruce seedlings compete for light, while a spruce and a cedar compete for soil water.",
+        "steps": [
+          "The two spruce seedlings belong to the same species: intraspecific competition.",
+          "Spruce and cedar are different species: interspecific competition.",
+          "The proposed resources are light and water respectively.",
+          "Evidence of limitation is needed to determine the strength of each interaction."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Two individuals of the same species compete for nesting space. Which term applies?",
+          "answer": "Intraspecific competition",
+          "wrong": [
+            "Interspecific competition",
+            "Mutualism"
+          ],
+          "explanation": "The species identity determines intra versus inter.",
+          "cue": "Count species, not individuals."
+        },
+        {
+          "prompt": "Two bird species feed in different tree zones. What mechanism may reduce competition?",
+          "answer": "Resource partitioning",
+          "wrong": [
+            "Identical complete niche overlap",
+            "No resource use"
+          ],
+          "explanation": "Different feeding locations reduce overlap.",
+          "cue": "Identify how resource use differs."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement best distinguishes niche from habitat?",
+          "answer": "Niche includes resource use and interactions; habitat is where the organism lives",
+          "wrong": [
+            "Niche is only location and habitat is only genotype",
+            "Both mean chromosome count",
+            "A species cannot share any habitat with another"
+          ],
+          "explanation": "Niche describes more than a place.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why does shared food use not always establish strong competition?",
+          "answer": "Food may not be limiting under the measured conditions",
+          "wrong": [
+            "Competition only occurs through physical fights",
+            "Different species never share food",
+            "Only predators need food"
+          ],
+          "explanation": "Resource limitation determines whether sharing reduces performance.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare intra- and interspecific competition with one example of each.",
+          "model": "Competition within a species, such as two spruce seedlings sharing limited light, is intraspecific. Competition between species, such as spruce and cedar sharing limited water, is interspecific. Both involve a resource whose availability constrains performance.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain how resource partitioning can support coexistence without implying that competition has vanished.",
+          "model": "Species may use different foods, locations or times, reducing overlap in limiting resources. Some overlap and competition can remain. Coexistence reflects the combined environmental and interaction conditions rather than a complete absence of competition.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A species grows better after another species is removed. What is a cautious interpretation?",
+          "answer": "Competition is a supported hypothesis if other changes are controlled",
+          "wrong": [
+            "The removed species was necessarily a predator",
+            "The result proves no other factor matters",
+            "Both species must be genetically identical"
+          ],
+          "explanation": "The comparison can support competition, but controls determine its strength.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Must competitors physically fight?",
+        "No. Indirect use of shared limiting resources can produce competition."
+      ],
+      "sequence": null,
+      "anchors": [
+        "intraspecific competition",
+        "interspecific competition",
+        "ecological niche",
+        "resource partitioning"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Mutualism, commensalism and parasitism",
+      "question": "How do we classify an interaction from its effects on both partners?",
+      "goal": "Use benefit, harm and no detected effect to classify close interspecific relationships.",
+      "prior": "Interactions can change survival and reproduction. The effect on each partner must be considered separately.",
+      "pages": [
+        724,
+        727
+      ],
+      "slides": [
+        61,
+        62,
+        63
+      ],
+      "terms": [
+        {
+          "term": "symbiosis",
+          "meaning": "A close association between organisms of different species.",
+          "example": "A host and its associated organism interact over a sustained period.",
+          "importantDistinction": "Symbiosis does not always mean both partners benefit.",
+          "misconception": "Every symbiosis is automatically mutualism.",
+          "aliases": []
+        },
+        {
+          "term": "mutualism",
+          "meaning": "An interaction in which both partners benefit in the stated conditions.",
+          "example": "One partner receives food while the other receives a reproductive service.",
+          "importantDistinction": "The effects need to be evaluated for both partners.",
+          "misconception": "Mutualism means one partner benefits and the other is harmed.",
+          "aliases": []
+        },
+        {
+          "term": "commensalism",
+          "meaning": "An interaction in which one partner benefits and the other has no appreciable effect in the stated model.",
+          "example": "An epiphyte gains support while the host tree is not detectably helped or harmed.",
+          "importantDistinction": "No detected effect depends on the measures and conditions used.",
+          "misconception": "Commensalism means both partners are harmed.",
+          "aliases": []
+        },
+        {
+          "term": "parasitism",
+          "meaning": "An interaction in which a parasite benefits while harming its host.",
+          "example": "A feeding tick gains nutrients at a host’s expense.",
+          "importantDistinction": "A parasite’s benefit and the host’s cost distinguish this from mutualism.",
+          "misconception": "Parasitism gives equal benefits to parasite and host.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Score both sides of the relationship",
+          [
+            "Symbiosis describes a close association between species. The association may help both partners, help one without an appreciable effect on the other, or help one while harming the other.",
+            "Use two signs to organize the effects. Mutualism is +/+, commensalism is +/0, and parasitism is +/−. The signs describe benefits or costs in the context, not moral judgments about the organisms."
+          ]
+        ],
+        [
+          "Connect the signs with a mechanism",
+          [
+            "A mutualistic pollination case can provide food to a pollinator and transfer pollen for a plant. An epiphyte can gain physical support on a tree without taking nourishment from the tree; when no appreciable host effect is established, the model is commensalism.",
+            "A parasite obtains resources from a host and imposes a cost. A tick feeding on a host is a familiar example. Parasites need not immediately kill the host, and the severity of harm varies.",
+            "Name the resource or service and explain the effect on each partner. A label alone does not show that you understand the interaction."
+          ]
+        ],
+        [
+          "Classifications depend on the supplied evidence",
+          [
+            "A relationship can change with environmental conditions or with the level being measured. An organism described as harmless in one setting may impose a detectable cost in another.",
+            "“No effect” is especially difficult to establish absolutely. In a classroom case, use the stated absence of an appreciable effect rather than inventing an unreported benefit or harm. In research, the conclusion depends on the measurements and their sensitivity.",
+            "Keep competition, predation and the close associations considered here conceptually distinct. Several interactions can occur in the same community."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Classify from measured effects",
+        "scenario": "A hypothetical small plant gains support on a tree. The provided observations show no appreciable change in the tree’s growth or reproduction.",
+        "steps": [
+          "The small plant benefits: +.",
+          "No appreciable effect on the tree is supplied: 0.",
+          "The case fits a commensalism model under those observations.",
+          "Do not invent nutrient theft and relabel it parasitism without evidence."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which signs represent mutualism?",
+          "answer": "+/+",
+          "wrong": [
+            "+/−",
+            "+/0"
+          ],
+          "explanation": "Both partners benefit.",
+          "cue": "Evaluate each partner separately."
+        },
+        {
+          "prompt": "A parasite gains nutrients while its host loses resources. Which signs fit?",
+          "answer": "+/−",
+          "wrong": [
+            "+/+",
+            "0/0"
+          ],
+          "explanation": "The parasite benefits and the host is harmed.",
+          "cue": "Track the direction of each effect."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement is correct about symbiosis?",
+          "answer": "It can include relationships with different effects on the partners",
+          "wrong": [
+            "It always means both benefit",
+            "It only occurs within one species",
+            "It always kills both partners"
+          ],
+          "explanation": "Symbiosis is broader than mutualism.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "A case states one partner benefits and no appreciable effect on the other is detected. Which classification fits?",
+          "answer": "Commensalism",
+          "wrong": [
+            "Parasitism",
+            "Mutualism",
+            "Intraspecific competition"
+          ],
+          "explanation": "The supplied signs are +/0.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare mutualism, commensalism and parasitism using effects on both partners.",
+          "model": "Mutualism provides a benefit to both (+/+). Commensalism provides a benefit to one with no appreciable effect on the other in the stated setting (+/0). Parasitism benefits the parasite while imposing a cost on the host (+/−). Each label should be tied to a mechanism.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a relationship’s classification should follow the case evidence rather than an organism’s name alone.",
+          "model": "The same species can have different effects under different conditions or measurements. The classification depends on the benefit or cost to each partner in the supplied context. A familiar name does not replace evidence about the actual interaction.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A previously neutral association becomes costly to a host under drought. What should change in the explanation?",
+          "answer": "The effect classification should reflect the new evidence and conditions",
+          "wrong": [
+            "The organisms must have become the same species",
+            "The original observation must be impossible",
+            "All symbiosis is now mutualism"
+          ],
+          "explanation": "Interaction outcomes can be context-dependent.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a +/− label mean a parasite is morally bad?",
+        "No. It describes biological effects, not moral value."
+      ],
+      "sequence": null,
+      "anchors": [
+        "symbiosis",
+        "mutualism",
+        "commensalism",
+        "parasitism"
+      ],
+      "figures": {
+        "0": "ch20-symbiosis"
+      }
+    },
+    {
+      "title": "Primary and secondary succession",
+      "question": "How do starting conditions influence community change after disturbance?",
+      "goal": "Distinguish primary and secondary succession and explain changing community composition without assuming one inevitable endpoint.",
+      "prior": "Communities contain interacting populations. Soil, resources and existing organisms influence which species can establish.",
+      "pages": [
+        727,
+        730
+      ],
+      "slides": [
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "terms": [
+        {
+          "term": "ecological succession",
+          "meaning": "Change in community composition through time following establishment or disturbance.",
+          "example": "Plants and associated organisms change as conditions and interactions change.",
+          "importantDistinction": "Succession is not always a single fixed ladder to one permanent endpoint.",
+          "misconception": "Every site must follow exactly the same sequence of species.",
+          "aliases": []
+        },
+        {
+          "term": "primary succession",
+          "meaning": "Community development on a surface initially lacking developed soil and much biological legacy.",
+          "example": "Newly exposed rock is colonized and soil gradually develops.",
+          "importantDistinction": "The starting substrate distinguishes it from soil-retaining recovery.",
+          "misconception": "Primary succession always begins with deep intact soil.",
+          "aliases": []
+        },
+        {
+          "term": "secondary succession",
+          "meaning": "Community change after disturbance where soil and some biological legacy remain.",
+          "example": "Vegetation recovers after a disturbance that leaves soil and seed sources.",
+          "importantDistinction": "The amount of surviving soil and organisms matters more than the disturbance name alone.",
+          "misconception": "Every fire automatically removes all soil and begins primary succession.",
+          "aliases": []
+        },
+        {
+          "term": "pioneer community",
+          "meaning": "Early colonizers able to establish in the initial conditions.",
+          "example": "Tolerant organisms begin establishing on a newly exposed surface.",
+          "importantDistinction": "Later communities depend on local conditions and further disturbances.",
+          "misconception": "Pioneer species are always the largest mature trees.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Start with the substrate and biological legacy",
+          [
+            "Succession is change in community composition over time. Primary succession begins where developed soil and much biological legacy are absent, such as a newly exposed rock surface. Early colonizers must tolerate those starting conditions.",
+            "Secondary succession occurs after disturbance when soil and some organisms, seeds or other biological material remain. Those resources can support faster establishment than on bare rock, although the actual rate depends on the site.",
+            "The name of a disturbance does not settle the classification. A fire that leaves soil differs from an event that removes it. Examine the starting conditions."
+          ]
+        ],
+        [
+          "Organisms modify the conditions for later populations",
+          [
+            "Early colonizers can change a site by adding organic material, influencing soil conditions or altering light and moisture. Those changes can permit some later species and make conditions less suitable for others.",
+            "Competition, dispersal and interactions also influence which populations establish. Not every later species is simply “better” than an earlier one; it may be favoured by different conditions.",
+            "The community can become more structurally complex, but disturbance can interrupt or redirect the sequence. Local climate, available colonists and landform affect the pathway."
+          ]
+        ],
+        [
+          "Treat climax as a model, not a permanent promise",
+          [
+            "A climax community is traditionally described as a relatively stable later-stage community under prevailing conditions. That term can help compare early and later stages, but it should not imply that the ecosystem stops changing forever.",
+            "Real landscapes contain patches at different stages. Weather, fire, disease and human activities can alter conditions repeatedly. Succession therefore need not follow one universal species list or end at one inevitable permanent state.",
+            "Use the supplied evidence to explain why a community changes, rather than memorizing a sequence of names without its environmental mechanism."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Classify two disturbed sites",
+        "scenario": "Site A is exposed rock after glacial retreat. Site B loses above-ground vegetation but retains soil and a seed bank.",
+        "steps": [
+          "Site A lacks developed soil and begins a primary-succession case.",
+          "Site B retains important biological legacy and fits secondary succession.",
+          "The retained soil and seeds can support quicker establishment at B.",
+          "Actual species and timing still depend on local conditions."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which starting condition best identifies primary succession?",
+          "answer": "A surface without developed soil",
+          "wrong": [
+            "Intact soil with a seed bank",
+            "A mature canopy with no disturbance"
+          ],
+          "explanation": "The substrate and legacy distinguish the cases.",
+          "cue": "Ask what remains at the beginning."
+        },
+        {
+          "prompt": "Does a later-stage community become permanently unchanging?",
+          "answer": "No",
+          "wrong": [
+            "Yes, by definition every disturbance stops",
+            "Only because all organisms stop reproducing"
+          ],
+          "explanation": "Conditions and disturbances can continue changing communities.",
+          "cue": "Treat stability as relative to conditions and time scale."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "A disturbance leaves soil and surviving roots. Which process is most consistent?",
+          "answer": "Secondary succession",
+          "wrong": [
+            "Primary succession on bare rock",
+            "No possible community change",
+            "Gene replication only"
+          ],
+          "explanation": "Soil and biological legacy remain.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why can pioneer organisms influence later establishment?",
+          "answer": "They modify conditions such as organic matter and resource availability",
+          "wrong": [
+            "They permanently prevent all other species",
+            "They create energy from nothing",
+            "They make every habitat identical"
+          ],
+          "explanation": "Organisms can change the environment experienced by later colonists.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare primary and secondary succession using starting conditions and likely establishment constraints.",
+          "model": "Primary succession begins without developed soil and much biological legacy, so colonization and soil formation are important constraints. Secondary succession retains soil and some seeds, roots or organisms, allowing a different recovery pathway. Actual rates and species depend on local conditions.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a fixed sequence ending in a permanent climax can be an oversimplification.",
+          "model": "Dispersal, competition, climate and repeated disturbance can produce multiple pathways and changing mosaics. A later community may be relatively stable under current conditions but is not immune to future changes. The mechanism and context are more informative than one universal species list.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Two burned areas recover differently because one retained soil and the other lost most of it. What explains the difference?",
+          "answer": "Their starting resources and biological legacies differ",
+          "wrong": [
+            "Every fire must produce identical recovery",
+            "Succession depends only on the date",
+            "All pioneer organisms are the same species"
+          ],
+          "explanation": "The retained substrate and organisms influence establishment.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Is secondary succession simply the second stage of every primary succession?",
+        "No. It describes a recovery context with soil and biological legacy remaining."
+      ],
+      "sequence": null,
+      "anchors": [
+        "ecological succession",
+        "primary succession",
+        "secondary succession",
+        "pioneer community"
+      ],
+      "figures": {
+        "0": "ch20-succession"
+      }
+    },
+    {
+      "title": "Human populations and sharing the biosphere",
+      "question": "How can population evidence connect human activity with ecosystem change?",
+      "goal": "Interpret demographic and resource-use evidence while distinguishing population size, per-person use and environmental effects.",
+      "prior": "Population totals, rates, resources and species interactions describe different parts of an ecological system.",
+      "pages": [
+        731,
+        737
+      ],
+      "slides": [
+        49,
+        50,
+        56,
+        57,
+        58,
+        59,
+        60,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "terms": [
+        {
+          "term": "age structure",
+          "meaning": "The distribution of individuals among age groups in a population.",
+          "example": "A large pre-reproductive group can influence future population trajectories.",
+          "importantDistinction": "Age structure informs a projection but does not guarantee a single future.",
+          "misconception": "Two populations of equal size must have identical future births.",
+          "aliases": []
+        },
+        {
+          "term": "demographic transition",
+          "meaning": "A model describing changes in birth and death patterns associated with changing social and economic conditions.",
+          "example": "Mortality may fall before birth rates decline in a simplified transition model.",
+          "importantDistinction": "It describes patterns with variation, not an inevitable timetable for every population.",
+          "misconception": "Every country follows exactly the same demographic dates.",
+          "aliases": []
+        },
+        {
+          "term": "resource demand",
+          "meaning": "The quantity of resources used by a population under stated conditions.",
+          "example": "Total demand depends on both population size and per-person consumption.",
+          "importantDistinction": "Head count alone does not determine every environmental impact.",
+          "misconception": "All individuals and populations use exactly the same resources per person.",
+          "aliases": []
+        },
+        {
+          "term": "sustainability",
+          "meaning": "The capacity to maintain ecological and human systems over time without undermining the conditions they depend on.",
+          "example": "A resource-use plan is evaluated against renewal, waste and ecological effects.",
+          "importantDistinction": "A sustainability claim requires a specified system, time frame and evidence.",
+          "misconception": "A single short-term increase in production proves permanent sustainability.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Human populations also have demographic structure",
+          [
+            "Births, deaths and migration change human population size. Age structure matters because a population with many individuals approaching reproductive ages can have different future births from one of equal size with a different age distribution.",
+            "Demographic-transition models describe changes in birth and death patterns as conditions change. They summarize patterns rather than providing a fixed timetable that every population must follow. A projection depends on assumptions about future fertility, mortality and migration.",
+            "Historical textbook statistics describe the period in which they were collected. Do not treat an undated older figure as a current world-population measurement."
+          ]
+        ],
+        [
+          "Combine numbers with per-person use",
+          [
+            "Total resource demand depends on both the number of people and the amount used per person, along with technology and the type of resource. A smaller population with high per-person use can have greater total demand for a particular resource than a larger population with lower use.",
+            "For example, a hypothetical group of 1000 people using 3 units each demands 3000 units, while 2000 people using 1 unit each demand 2000 units. This simple accounting does not describe every environmental impact, but it shows why head count alone is insufficient.",
+            "Resource extraction, waste and land-use change can affect habitat, species interactions and population connectivity. The mechanisms and measurements must be specified for the case."
+          ]
+        ],
+        [
+          "Evaluate evidence and trade-offs without inventing certainty",
+          [
+            "An ecological evaluation identifies the proposed action, affected populations, measured outcomes and uncertainties. It can compare resource renewal with use, or habitat changes with survival and reproduction. Different measures may point to different consequences.",
+            "A sustainability claim needs a time frame. Short-term output does not by itself demonstrate that a resource or ecosystem can support the same use indefinitely. Human needs and ecological conditions should both be made explicit in a case analysis.",
+            "The course asks for biological reasoning and evidence interpretation, not a prescribed political choice. Use supplied hypothetical data and dated source records rather than inventing current demographic numbers."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Compare total resource demand",
+        "scenario": "Community A has 800 people using 4 units per person per day. Community B has 1600 people using 1.5 units each per day.",
+        "steps": [
+          "A demand = 800 × 4 = 3200 units/day.",
+          "B demand = 1600 × 1.5 = 2400 units/day.",
+          "A is smaller but has greater demand for this specified resource.",
+          "The comparison does not automatically measure every ecological impact or explain all differences."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Two populations have equal size but different age structures. Must future births match?",
+          "answer": "No",
+          "wrong": [
+            "Yes, because only N matters",
+            "Yes, because age has no demographic role"
+          ],
+          "explanation": "The number entering reproductive ages can differ.",
+          "cue": "Consider who is in the population, not only how many."
+        },
+        {
+          "prompt": "Total demand for one resource equals which simple relationship?",
+          "answer": "Population × use per person",
+          "wrong": [
+            "Population ÷ every death rate",
+            "Allele frequency × chromosome number"
+          ],
+          "explanation": "Multiplying people by units per person gives total units.",
+          "cue": "Check the dimensions."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Why must a historical population graph be dated?",
+          "answer": "Its observations refer to a particular period rather than automatically to today",
+          "wrong": [
+            "Dates make the arithmetic impossible",
+            "Historical data cannot ever be useful",
+            "All populations stop changing after publication"
+          ],
+          "explanation": "Time context is necessary for interpretation.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which evidence is needed for a long-term resource claim?",
+          "answer": "Information about use, renewal and effects over an appropriate time frame",
+          "wrong": [
+            "Only one high-production year",
+            "Only the number of graph colours",
+            "Only a species name"
+          ],
+          "explanation": "Sustained performance requires more than one short-term output.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Use a numerical example to show why population size alone does not determine demand for a specified resource.",
+          "model": "A group of 1000 using 3 units per person demands 3000 units, whereas 2000 using 1 unit demands 2000. Per-person use changes the total. The example concerns the specified resource rather than all ecological effects.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain how to evaluate a population projection without treating it as a guaranteed future.",
+          "model": "Identify the starting data, time horizon and assumptions about births, deaths, age structure and migration. Compare alternative assumptions and the evidence supporting them. A projection describes outcomes under conditions, not certainty that those conditions will persist.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A study measures lower water use but does not measure habitat or energy effects. Which conclusion is supported?",
+          "answer": "Water use fell in the measured setting; other effects remain untested",
+          "wrong": [
+            "Every environmental impact improved",
+            "Population size must have halved",
+            "Permanent sustainability is proven"
+          ],
+          "explanation": "The conclusion must match the measured outcome.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a smaller population always use less of every resource?",
+        "No. Per-person use, technology and resource type also matter."
+      ],
+      "sequence": null,
+      "anchors": [
+        "age structure",
+        "demographic transition",
+        "resource demand",
+        "sustainability"
+      ],
+      "figures": {}
+    }
+  ],
+  "final": {
+    "mc": [
+      {
+        "prompt": "A population of 360 occupies 90 km². What is density?",
+        "answer": "4 individuals/km²",
+        "wrong": [
+          "0.25 individuals/km²",
+          "32 400 individuals/km²",
+          "270 individuals/km²"
+        ],
+        "explanation": "Density is 360/90.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Births = 40, immigration = 12, deaths = 25 and emigration = 7. What is ΔN?",
+        "answer": "+20",
+        "wrong": [
+          "+52",
+          "−20",
+          "+84"
+        ],
+        "explanation": "Additions 52 minus losses 32 gives +20.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "N changes from 250 to 300 in five years. What is average growth rate?",
+        "answer": "10 individuals/year",
+        "wrong": [
+          "0.20 individuals/year",
+          "60 individuals/year",
+          "50 individuals/year"
+        ],
+        "explanation": "ΔN = 50 and Δt = 5.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Near an ideal logistic plateau, which statement is appropriate?",
+        "answer": "Net growth approaches zero while individual turnover can continue",
+        "wrong": [
+          "All births stop permanently",
+          "Population size must be zero",
+          "Resources become unlimited"
+        ],
+        "explanation": "The plateau concerns net change.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "One partner benefits and the other is harmed in a close association. Which classification fits?",
+        "answer": "Parasitism",
+        "wrong": [
+          "Mutualism",
+          "Commensalism",
+          "Uniform distribution"
+        ],
+        "explanation": "The effects are +/−.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Which condition distinguishes secondary succession from primary succession?",
+        "answer": "Soil and some biological legacy remain",
+        "wrong": [
+          "There can be no disturbance",
+          "Every species is already at a permanent climax",
+          "Population density is always zero"
+        ],
+        "explanation": "Retained substrate and organisms affect recovery.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "A population begins at 400. Over two years it has 100 births, 20 immigrants, 60 deaths and 10 emigrants. Calculate change, final size, average growth rate and interval per-capita change.",
+        "model": "ΔN = (100 + 20) − (60 + 10) = +50. Final N = 450. Average growth rate = 50/2 = 25 individuals/year. Interval cgr = 50/400 = 0.125, or 12.5% over two years, not automatically per year.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      },
+      {
+        "prompt": "Explain how resources, interactions and disturbance can change a population or community without relying only on a graph label.",
+        "model": "Resource limits affect survival and reproduction; competition, predation and symbiosis alter outcomes for interacting populations. Disturbance can change habitat, K and the biological legacy for succession. A graph shows a pattern, while measurements of mechanisms and comparable conditions support its explanation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      }
+    ]
+  },
+  "transfer": {
+    "mc": [
+      {
+        "prompt": "A population of 150 over 30 km² gains 24 net individuals. What is its new density if area stays constant?",
+        "answer": "5.8 individuals/km²",
+        "wrong": [
+          "5 individuals/km²",
+          "0.8 individuals/km²",
+          "174 individuals/km²"
+        ],
+        "explanation": "New N = 174; 174/30 = 5.8.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "N rises from 120 to 150 over three years. Which pair is correct?",
+        "answer": "10 individuals/year and 0.25 per-capita change over the interval",
+        "wrong": [
+          "30 individuals/year and 0.20 over the interval",
+          "10 individuals/year and 0.25 per year automatically",
+          "50 individuals/year and 1.25 over the interval"
+        ],
+        "explanation": "ΔN = 30; 30/3 = 10 and 30/120 = 0.25 over three years.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "After disturbance, intact soil and surviving seeds support recovery. What is the best classification?",
+        "answer": "Secondary succession",
+        "wrong": [
+          "Primary succession on bare rock",
+          "Exponential growth is guaranteed forever",
+          "No community change is possible"
+        ],
+        "explanation": "Soil and biological legacy remain.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": {
+      "prompt": "A hypothetical predator peak follows a prey peak. Explain one mechanism consistent with that pattern and one limitation of the conclusion.",
+      "model": "More prey can support improved predator feeding and later reproductive recruitment, producing a delayed predator increase. The pattern is consistent with that mechanism but does not prove it is the only cause; resources, weather, disease and other interactions could also contribute.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "extension": {
+    "title": "Conservation choices for hippos and people",
+    "question": "What evidence would make a shared-water case more informative?",
+    "sections": [
+      [
+        "A hypothetical shared-water setting",
+        [
+          "A hypothetical lake supports hippos and a human community. During a dry period, available water falls while both groups continue using the lake. The case provides no measured population trend, water-quality series or resource-use totals.",
+          "The shared resource creates a reason to investigate ecological and human needs, not proof of one particular outcome or a single preferred response."
+        ]
+      ],
+      [
+        "Build a comparison before choosing conclusions",
+        [
+          "Useful measurements could include water availability, seasonal use, habitat condition, health indicators and population responses. Comparisons across time or sites need to account for other changes.",
+          "Distinguish measured effects from proposed actions. This activity asks for an evidence plan and biological explanation, not a predetermined policy verdict or invented field observations."
+        ]
+      ]
+    ],
+    "writing": {
+      "prompt": "Identify three measurements that would help evaluate the shared-water case and explain what each would establish.",
+      "model": "Water availability over time describes the resource constraint. Use by each group helps quantify demand. Habitat or biological response measurements, such as survival, reproduction or water quality, test consequences. Together they inform the case without guaranteeing one cause or prescribing a political decision.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "overview": [
+    "Calculate density, population change, average growth and interval per-capita change.",
+    "Interpret growth models through resources, slopes and assumptions.",
+    "Explain competition, feeding and symbiotic relationships.",
+    "Use succession and human-population evidence without inventing a universal outcome."
+  ],
+  "review": {
+    "question": "Can you connect the numbers on a graph with the mechanisms in a population?",
+    "goal": "Integrate demographic arithmetic, resource limits and community interactions.",
+    "prior": "State the population, interval, units and assumptions before interpreting a result.",
+    "pages": [
+      739,
+      741
+    ],
+    "anchors": [
+      "population density",
+      "average growth rate",
+      "carrying capacity",
+      "ecological succession"
+    ],
+    "sections": [
+      [
+        "Four related calculations answer different questions",
+        [
+          "Density compares N with area or volume. Net change balances births and immigration against deaths and emigration. Average growth rate divides net change by time, while the course’s interval per-capita measure divides it by initial N.",
+          "Keep units and time bases explicit. A percentage change over several years is not automatically an annual rate, and a large population does not necessarily have a steep growth slope."
+        ]
+      ],
+      [
+        "Mechanisms connect populations and environments",
+        [
+          "Exponential and logistic models emphasize different assumptions about per-capita growth and resource limits. Density dependence, interactions and changing conditions can modify those patterns. Predator–prey correlations and competition experiments need appropriate evidence for causal interpretation.",
+          "Succession depends on substrate, biological legacy, colonization and disturbance. Human-resource cases depend on both population composition and patterns of use. The same habit applies throughout: describe the evidence, explain a mechanism and state the limits."
+        ]
+      ]
+    ],
+    "worked": {
+      "title": "Check a population report",
+      "scenario": "A report says a population grew 20% over four years and therefore grows 20% every year.",
+      "steps": [
+        "The stated percentage describes change relative to the initial size over the whole interval.",
+        "An annual rate requires additional treatment of time and a specified growth model.",
+        "Do not turn an interval proportion into a yearly exponential parameter.",
+        "Use the actual starting and final counts to check the reported arithmetic.",
+        "A numerical trend still needs ecological evidence to explain its cause."
+      ]
+    }
+  }
+}

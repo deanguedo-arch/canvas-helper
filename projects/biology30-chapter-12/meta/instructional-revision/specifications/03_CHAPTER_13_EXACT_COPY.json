@@ -1,0 +1,1183 @@
+{
+  "schemaVersion": 1,
+  "chapter": 13,
+  "purpose": "Developer-only replacement specification; do not render this wrapper or metadata to students.",
+  "patches": [
+    {
+      "key": "ch13-l01-teaching-01",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch13-l01-teaching-01\"]",
+      "expectedHeading": "Stable does not mean motionless",
+      "newHeading": "Homeostasis means keeping conditions within a useful range",
+      "paragraphs": [
+        "After a meal, blood glucose rises. During activity, your body produces more heat. Your internal conditions change throughout the day, but the body responds to keep them within ranges that support normal functioning. This regulation is called homeostasis.",
+        "When you explain homeostasis, name the condition being controlled. For example, explain that blood glucose falls toward its usual range, rather than saying only that the body “returns to normal.”"
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l01-teaching-02",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch13-l01-teaching-02\"]",
+      "expectedHeading": "Two communication systems, one coordinated body",
+      "newHeading": "Two systems help the body respond",
+      "paragraphs": [
+        "The nervous system sends signals along neurons. Its responses are often rapid and brief. The endocrine system releases chemical messengers called hormones into the blood. Its responses often last longer.",
+        "The systems work together. For example, a nervous-system signal can cause a gland to release a hormone. Some hormonal responses also begin quickly. A hormone can travel widely in the blood, but only target cells with suitable receptors can respond to that hormone."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l01-teaching-03",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch13-l01-teaching-03\"]",
+      "expectedHeading": "Glands release; receptors determine the response",
+      "newHeading": "A gland sends the message; a target cell responds",
+      "paragraphs": [
+        "An endocrine gland releases hormones that enter the blood. A target cell has a receptor that can bind a particular hormone. Binding starts a response in the cell, such as changing glucose uptake or stimulating growth.",
+        "The pancreas has both endocrine and exocrine functions. Its endocrine cells release hormones into the blood. Its exocrine cells send digestive secretions through ducts. A duct is a passage carrying a secretion to a particular location. Check which function is being described before answering a question about the pancreas."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l01-teaching-04",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch13-l01-teaching-04\"]",
+      "expectedHeading": "Use a repeatable method for every hormone",
+      "newHeading": "Learn each hormone as a connected story",
+      "paragraphs": [
+        "For every hormone, connect five things: the gland that releases it, the trigger for release, the target, the effect and the feedback. Also distinguish where a hormone is made from where it is released when those places differ.",
+        "Use the gland diagram to locate the hypothalamus and pituitary at the base of the brain, the thyroid in the neck, the small parathyroid glands behind the thyroid, the adrenal glands above the kidneys and the pancreas in the abdomen.",
+        "Knowing a name is a starting point. Being able to explain what causes its release and what it changes is the goal."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l02-teaching-01",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch13-l02-teaching-01\"]",
+      "expectedHeading": "The receptor is the point of recognition",
+      "newHeading": "Why does a hormone affect some cells but not others?",
+      "paragraphs": [
+        "A hormone must bind to a suitable receptor before it can produce its usual effect. Think of a key fitting a particular lock: the fit helps explain why the message is recognized by some cells and not others.",
+        "Binding also has to start a change inside the cell. If the receptor is missing, the cell cannot respond normally to that hormone. Sending more hormone past the cell does not replace a missing receptor."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l02-teaching-02",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch13-l02-teaching-02\"]",
+      "expectedHeading": "Water-soluble hormones: send the message across the membrane",
+      "newHeading": "Water-soluble hormones bind at the cell surface",
+      "paragraphs": [
+        "The cell membrane contains a lipid, or fatty, layer. Water-soluble hormones generally cannot pass through that layer directly. They bind to receptors on the cell surface, which pass the message to processes inside the cell.",
+        "Insulin, human growth hormone and epinephrine are examples. The hormone does not have to enter the cell to change its activity. A series of reactions inside the cell can amplify the message, meaning that a small initial signal can produce a larger response."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l02-teaching-03",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch13-l02-teaching-03\"]",
+      "expectedHeading": "Lipid-soluble hormones: act through intracellular receptors",
+      "newHeading": "Lipid-soluble hormones bind inside the cell",
+      "paragraphs": [
+        "Steroid hormones are made from cholesterol. Examples include cortisol, aldosterone and the sex hormones. They can enter target cells and bind to receptors inside them. The hormone–receptor complex can influence which genes are used and which proteins the cell makes.",
+        "Compare the receptor locations first: water-soluble hormones usually bind at the surface; steroid hormones bind inside the cell. These different mechanisms help explain differences in how responses develop.",
+        "Thyroxine is also lipid soluble and acts through receptors inside cells, but it is not a steroid. It is made from an amino-acid starting material. Chemical origin and solubility describe different properties of a hormone."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l02-teaching-04",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch13-l02-teaching-04\"]",
+      "expectedHeading": "A response needs a way to end",
+      "newHeading": "Hormone signals must also come to an end",
+      "paragraphs": [
+        "Hormones are broken down and cleared from the blood. Changes in hormone release and target-cell response also help control how long a signal lasts.",
+        "Keep two problems separate. A gland may release too little hormone, so its target receives too little signal. Alternatively, enough hormone may be present but the target may not respond properly. Later, you will use this distinction to explain different kinds of hormone imbalance."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l03-teaching-01",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch13-l03-teaching-01\"]",
+      "expectedHeading": "Negative feedback opposes the disturbance",
+      "newHeading": "Negative feedback opposes the starting change",
+      "paragraphs": [
+        "After a meal, blood glucose rises. The pancreas releases more insulin. Insulin promotes glucose uptake by responsive cells and storage, helping blood glucose fall toward its usual range. As the original rise is corrected, the stimulus for extra insulin release decreases.",
+        "This is negative feedback because the response opposes the starting change. The opposite situation can also use negative feedback: when blood glucose falls, glucagon helps the liver release glucose. The resulting rise opposes the original fall."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l03-teaching-02",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch13-l03-teaching-02\"]",
+      "expectedHeading": "Do not decide from “up” or “down” alone",
+      "newHeading": "An increase is not automatically positive feedback",
+      "paragraphs": [
+        "To identify feedback, compare the response with the starting change. When a value starts too high, a response that lowers it can be negative feedback. When a value starts too low, a response that raises it can also be negative feedback.",
+        "Use three steps: name the starting change, describe the response, and decide whether the response opposes or strengthens that change. “Positive” and “negative” do not mean helpful and harmful."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l03-teaching-03",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch13-l03-teaching-03\"]",
+      "expectedHeading": "Positive feedback reinforces the starting change",
+      "newHeading": "Positive feedback strengthens the starting change",
+      "paragraphs": [
+        "During labour, the baby pressing against the cervix stretches it. This supports the release of oxytocin. Oxytocin strengthens uterine contractions, which can push the baby more firmly against the cervix and increase the stretch.",
+        "The response strengthens the starting change, so this is positive feedback. It does not continue indefinitely: delivery changes or removes the stretch that maintains the loop. Positive feedback can help complete an event with a clear endpoint."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l03-teaching-04",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch13-l03-teaching-04\"]",
+      "expectedHeading": "A gland-to-gland pathway has several places to inspect",
+      "newHeading": "Practise the comparison before adding more glands",
+      "paragraphs": [
+        "Blood glucose rises → insulin helps lower it: the response opposes the rise, so the feedback is negative. Blood glucose falls → glucagon helps raise it: the response opposes the fall, so the feedback is also negative.",
+        "Cervical stretch increases → contractions increase the stretch: the response reinforces the change, so the feedback is positive. Identify the endpoint as well as the reinforcing steps.",
+        "For now, explain those relationships in complete sentences. First establish what a normal feedback loop does. Then you can apply the same reasoning to pathways involving several glands."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l04-teaching-01",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch13-l04-teaching-01\"]",
+      "expectedHeading": "The “master gland” is itself regulated",
+      "newHeading": "The hypothalamus helps control the pituitary",
+      "paragraphs": [
+        "The pituitary is a small gland below the hypothalamus at the base of the brain. Several pituitary hormones act on other endocrine glands, which is why the pituitary is often called the master gland. The hypothalamus helps regulate its activity.",
+        "The pituitary has two lobes: the anterior pituitary at the front and the posterior pituitary at the back. Their names sound similar, but they handle hormones differently. Learn these two routes before learning the individual hormones."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l04-teaching-02",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch13-l04-teaching-02\"]",
+      "expectedHeading": "Anterior pituitary: hypothalamic blood signals regulate gland cells",
+      "newHeading": "The anterior pituitary makes its own hormones",
+      "paragraphs": [
+        "The hypothalamus sends releasing and inhibiting hormones through a small connecting blood-vessel network called a portal system. These signals can increase or decrease hormone production and release by anterior-pituitary cells.",
+        "The anterior pituitary then releases its own hormones into the general bloodstream. These include hGH, prolactin, TSH, ACTH, FSH and LH. A tropic hormone acts on another endocrine gland. For example, TSH stimulates the thyroid, and ACTH stimulates cortisol release from the adrenal cortex.",
+        "Not every pituitary hormone has the same target. Prolactin acts on mammary glands, while hGH affects growth and metabolism, including through growth factors released by the liver."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l04-teaching-03",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch13-l04-teaching-03\"]",
+      "expectedHeading": "Posterior pituitary: neuronal transport and release",
+      "newHeading": "The posterior pituitary stores and releases hormones",
+      "paragraphs": [
+        "ADH and oxytocin are made by neurons in the hypothalamus. They travel along the neurons’ axons to nerve endings in the posterior pituitary. They are stored there and released into the blood when appropriate signals arrive.",
+        "Keep the two verbs separate: made in the hypothalamus; released from the posterior pituitary. A question asking where ADH is produced has a different answer from one asking where stored ADH enters the blood."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l04-teaching-04",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch13-l04-teaching-04\"]",
+      "expectedHeading": "Connect the hormone to a target and a job",
+      "newHeading": "Connect each hormone to a target and an effect",
+      "paragraphs": [
+        "Use the table to connect each hormone with its release site and main effect. FSH supports egg-cell development in the ovaries and sperm production in the testes. LH stimulates ovulation and sex-hormone production in the ovaries, and testosterone production in the testes.",
+        "Prolactin and oxytocin show why the effect matters. Prolactin stimulates milk production. Oxytocin stimulates milk release and uterine contractions. Making milk and releasing milk are different processes."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l05-teaching-01",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch13-l05-teaching-01\"]",
+      "expectedHeading": "Growth needs coordinated changes, not only a taller skeleton",
+      "newHeading": "Growth hormone affects growth and fuel use",
+      "paragraphs": [
+        "Human growth hormone, or hGH, is made and released by the anterior pituitary. It supports protein synthesis, cell division and growth, especially in cartilage, bone and muscle. It also helps mobilize stored fat.",
+        "Some effects occur directly in target tissues. Others occur when hGH stimulates the liver to release growth factors, which help other tissues grow. Follow the connection: anterior pituitary → hGH → liver growth factors → growth in target tissues."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l05-teaching-02",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch13-l05-teaching-02\"]",
+      "expectedHeading": "Before growth-plate closure: bone length can change",
+      "newHeading": "Open growth plates allow bones to lengthen",
+      "paragraphs": [
+        "Growth plates are regions near the ends of long bones where growth in length can occur. During childhood and adolescence, these plates are still open. Excess hGH during this period can cause excessive growth in height, called gigantism.",
+        "Too little hGH during childhood can limit growth and cause proportionate short stature, called pituitary dwarfism. Short stature alone does not establish the cause; many factors affect growth. The important link in this case is insufficient hGH while the growth plates are open."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l05-teaching-03",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch13-l05-teaching-03\"]",
+      "expectedHeading": "After closure: the same hormone meets different tissue conditions",
+      "newHeading": "Closed growth plates change the result",
+      "paragraphs": [
+        "Once the growth plates have closed, excess hGH does not produce the same increase in height. Instead, bones and soft tissues can thicken or enlarge, including in the hands, feet and face. This condition is called acromegaly.",
+        "The hormone is the same, but the condition of the target tissue differs. Before predicting the result of excess hGH, check whether the person’s growth plates are open or closed."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l05-teaching-04",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch13-l05-teaching-04\"]",
+      "expectedHeading": "Evaluate a growth claim with evidence",
+      "newHeading": "A growth problem can have more than one cause",
+      "paragraphs": [
+        "Slow growth is an observation, not the name of a missing hormone. For example, thyroid hormones also support growth and development. A case that identifies too little thyroid hormone does not automatically show a shortage of hGH.",
+        "For a complete explanation, name the hormone, identify its target and describe the stated growth-plate condition. Use the evidence in the case to predict a biological effect. Do not choose a treatment from a symptom alone."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l06-teaching-01",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch13-l06-teaching-01\"]",
+      "expectedHeading": "First identify which variable changes",
+      "newHeading": "ADH helps the kidneys conserve water",
+      "paragraphs": [
+        "Antidiuretic hormone, or ADH, is made in the hypothalamus and released from the posterior pituitary. It acts on the kidneys to increase water reabsorption.",
+        "A nephron is a working unit of the kidney. Fluid moves through its tubules and into a collecting duct before leaving as urine. Reabsorption means moving a substance from this fluid back into the blood. Water reabsorption conserves water that would otherwise leave the body in urine."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l06-teaching-02",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch13-l06-teaching-02\"]",
+      "expectedHeading": "ADH changes the kidney’s handling of water",
+      "newHeading": "Follow the response to water loss",
+      "paragraphs": [
+        "When the body loses water, the blood can become more concentrated. Osmoreceptors in the hypothalamus detect changes in this concentration. Their signals support increased ADH release from the posterior pituitary.",
+        "ADH makes kidney collecting ducts more permeable to water, meaning that water can pass through their walls more easily. More water returns to the blood. Less water remains to leave as urine, so urine volume decreases and the urine becomes more concentrated."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l06-teaching-03",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch13-l06-teaching-03\"]",
+      "expectedHeading": "Complete the negative-feedback loop",
+      "newHeading": "The response reduces the original imbalance",
+      "paragraphs": [
+        "Conserving water helps bring blood concentration back toward its usual range. This reduces the stimulus for increased ADH release. The response opposes the starting change, so it is negative feedback.",
+        "With less ADH, the collecting ducts are less permeable to water. Less water is reabsorbed, so a larger volume of more dilute urine can be produced. Keep blood concentration, water reabsorption and urine concentration separate when explaining the sequence."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l06-teaching-04",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch13-l06-teaching-04\"]",
+      "expectedHeading": "Separate a missing signal from a resistant target",
+      "newHeading": "A problem can occur in the signal or the response",
+      "paragraphs": [
+        "Diabetes insipidus involves difficulty conserving water and can cause large amounts of dilute urine. Central diabetes insipidus involves too little ADH being available. Nephrogenic diabetes insipidus involves kidneys that do not respond properly to ADH.",
+        "These problems affect different steps. Providing a signal and responding to that signal are not the same thing. Diabetes insipidus is different from diabetes mellitus, which involves blood-glucose regulation. The similar names do not mean the same hormone is involved."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l07-teaching-01",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch13-l07-teaching-01\"]",
+      "expectedHeading": "A thyroid hormone affects many tissues",
+      "newHeading": "Thyroxine helps regulate metabolic rate",
+      "paragraphs": [
+        "The thyroid is a butterfly-shaped gland in the neck, near the trachea. It releases thyroxine, also called T4. Thyroxine increases metabolic activity in many tissues, including the use of fuels in cellular respiration.",
+        "Metabolism is the set of chemical reactions occurring in the body. A higher metabolic rate generally means faster energy use and more heat production. Thyroid hormones also contribute to growth and development."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l07-teaching-02",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch13-l07-teaching-02\"]",
+      "expectedHeading": "Trace the three-level control pathway",
+      "newHeading": "Learn the normal thyroid pathway first",
+      "paragraphs": [
+        "The hypothalamus releases thyrotropin-releasing hormone, or TRH. TRH stimulates the anterior pituitary to release thyroid-stimulating hormone, or TSH. TSH travels in the blood to the thyroid and stimulates thyroxine release.",
+        "Trace the normal sequence: hypothalamus → TRH → anterior pituitary → TSH → thyroid → thyroxine → target-tissue effects. Notice that TSH and thyroxine are different hormones released by different glands.",
+        "As thyroxine rises, it reduces stimulation from the hypothalamus and anterior pituitary. TRH and TSH release tend to decrease. When thyroxine falls, that inhibition weakens, allowing stimulation to increase if those control glands are functioning."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l07-teaching-03",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch13-l07-teaching-03\"]",
+      "expectedHeading": "Iodine links a nutrient to a feedback problem",
+      "newHeading": "Iodine links hormone production to feedback",
+      "paragraphs": [
+        "The thyroid needs iodine to make thyroxine. The name T4 refers to the hormone’s four iodine atoms. Too little available iodine can limit thyroxine production.",
+        "If the thyroid cannot make enough thyroxine but the pituitary is working, reduced thyroxine feedback allows TSH to remain high. Continued TSH stimulation can enlarge the thyroid, producing a goitre. The gland is being stimulated, but it still lacks a material needed to make its hormone."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l07-teaching-04",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch13-l07-teaching-04\"]",
+      "expectedHeading": "Locate the problem before predicting a hormone pattern",
+      "newHeading": "Predict hormone levels from the location of the problem",
+      "paragraphs": [
+        "Hypothyroidism means too little thyroid hormone. It can be associated with slower metabolism, fatigue and feeling cold. Hyperthyroidism means too much thyroid hormone and can be associated with increased metabolism and heat intolerance. A case should provide the relevant evidence; symptoms alone do not establish a diagnosis.",
+        "First locate the problem. If the thyroid cannot make enough thyroxine while the pituitary still works, thyroxine is low and TSH tends to be high. If the pituitary cannot release enough TSH, the thyroid receives less stimulation and thyroxine can also be low.",
+        "Use the normal pathway and feedback to explain each prediction. “Low thyroxine always means high TSH” is not a reliable rule because it ignores which gland is affected."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l08-teaching-01",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch13-l08-teaching-01\"]",
+      "expectedHeading": "A mineral can be stored in one place and needed elsewhere",
+      "newHeading": "Blood calcium and bone calcium are connected",
+      "paragraphs": [
+        "Calcium is important in bones and teeth, but calcium in the blood also supports nerve signalling, muscle contraction and blood clotting. The amount in the blood must be regulated.",
+        "The thyroid and parathyroid glands are close together, but they are different glands. The thyroid releases calcitonin. The small parathyroid glands behind the thyroid release parathyroid hormone, or PTH."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l08-teaching-02",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch13-l08-teaching-02\"]",
+      "expectedHeading": "PTH responds to low blood calcium",
+      "newHeading": "PTH raises blood calcium",
+      "paragraphs": [
+        "When blood calcium falls, the parathyroid glands release more PTH. PTH promotes the release of calcium from bone into the blood and increases calcium reabsorption by the kidneys.",
+        "PTH also promotes activation of vitamin D in the kidneys. Active vitamin D helps the intestine absorb calcium from food. These actions raise blood calcium. As the level returns toward its usual range, the stimulus for extra PTH release decreases."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l08-teaching-03",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch13-l08-teaching-03\"]",
+      "expectedHeading": "Calcitonin acts in the opposite direction",
+      "newHeading": "Calcitonin has an opposing effect",
+      "paragraphs": [
+        "When blood calcium is high, calcitonin can help lower it by promoting calcium storage in bone and reducing calcium reabsorption by the kidneys. Less kidney reabsorption allows more calcium to leave in urine.",
+        "PTH raises blood calcium; calcitonin tends to lower it. Hormones with opposing effects are called antagonistic hormones. In adult humans, PTH has the larger role in day-to-day blood-calcium regulation."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l08-teaching-04",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch13-l08-teaching-04\"]",
+      "expectedHeading": "Finish the feedback explanation",
+      "newHeading": "Explain where the calcium moves",
+      "paragraphs": [
+        "Absorption moves calcium from food in the intestine into the body. Reabsorption returns calcium from kidney-tubule fluid to the blood. Release from bone moves stored calcium into the blood. These are different routes that can affect the same controlled variable.",
+        "In a calcium question, trace blood calcium → gland → hormone → calcium movement → change in blood calcium. Explain how that change reduces the original stimulus."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l09-teaching-01",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch13-l09-teaching-01\"]",
+      "expectedHeading": "Two adrenal regions must stay separate",
+      "newHeading": "Two adrenal regions release different hormones",
+      "paragraphs": [
+        "An adrenal gland sits on top of each kidney. Its outer region is the adrenal cortex. Its inner region is the adrenal medulla. These regions release different hormones and receive different control signals.",
+        "The medulla releases epinephrine and norepinephrine during the rapid stress response. The cortex releases steroid hormones, including cortisol and aldosterone. Being next to the kidney does not make the adrenal gland a filtering structure."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l09-teaching-02",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch13-l09-teaching-02\"]",
+      "expectedHeading": "The fast route goes through sympathetic neurons",
+      "newHeading": "A neural signal starts a hormonal response",
+      "paragraphs": [
+        "During a rapid stress response, sympathetic neurons stimulate the adrenal medulla. It releases epinephrine and norepinephrine into the blood. Follow the route: sympathetic nerve signal → adrenal medulla → hormones in blood → target-tissue responses.",
+        "This is a neuroendocrine response: it uses both neural signals and hormones. The signal reaching the medulla is neural. The chemicals released by the medulla travel through the blood as hormones."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l09-teaching-03",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch13-l09-teaching-03\"]",
+      "expectedHeading": "Connect each effect to its purpose",
+      "newHeading": "Connect the response to a need",
+      "paragraphs": [
+        "Epinephrine and norepinephrine help prepare the body for immediate action. Heart rate, breathing rate and blood delivery to working tissues can increase. Liver glycogen breakdown helps make more glucose available in the blood.",
+        "The useful explanation is not just “fight or flight.” Connect the changes to supplying oxygen and fuel for activity. Hormonal effects can continue after the brief neural signal that triggered release."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l09-teaching-04",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch13-l09-teaching-04\"]",
+      "expectedHeading": "A rapid response is not an indefinitely sustained state",
+      "newHeading": "Keep the rapid route separate from the cortisol route",
+      "paragraphs": [
+        "The adrenal medulla is directly stimulated by sympathetic neurons. ACTH is not the main signal starting this rapid medulla pathway.",
+        "The cortisol pathway uses hormone signals between the hypothalamus, anterior pituitary and adrenal cortex. You will trace that route next. Both pathways can be active during the same stressful event; they are not separate switches that must take turns."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l10-teaching-01",
+      "route": "lesson-10",
+      "selector": "[data-canvas-edit-key=\"ch13-l10-teaching-01\"]",
+      "expectedHeading": "Follow the hormone relay",
+      "newHeading": "Trace the cortisol pathway",
+      "paragraphs": [
+        "The hypothalamus releases corticotropin-releasing hormone, or CRH. CRH stimulates the anterior pituitary to release adrenocorticotropic hormone, or ACTH. ACTH travels to the adrenal cortex and stimulates cortisol release.",
+        "Follow the full sequence: hypothalamus → CRH → anterior pituitary → ACTH → adrenal cortex → cortisol. Unlike the rapid medulla route, this pathway passes a hormone message from one gland to the next. This is the hypothalamic–pituitary–adrenal, or HPA, pathway."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l10-teaching-02",
+      "route": "lesson-10",
+      "selector": "[data-canvas-edit-key=\"ch13-l10-teaching-02\"]",
+      "expectedHeading": "Cortisol changes how fuels are made available",
+      "newHeading": "Cortisol helps make fuel available",
+      "paragraphs": [
+        "Cortisol belongs to a group of steroid hormones called glucocorticoids. It can help increase glucose availability. For example, protein breakdown releases amino acids, which the liver can use to make new glucose. Making glucose from these materials is different from releasing glucose already stored as glycogen.",
+        "Cortisol also influences fat metabolism. Do not treat all fuel breakdown as the same process. The key relationship is that cortisol changes how fuels are made available and used.",
+        "Cortisol is a steroid hormone and acts through receptors inside cells. Its effects can last beyond the immediate nervous-system response."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l10-teaching-03",
+      "route": "lesson-10",
+      "selector": "[data-canvas-edit-key=\"ch13-l10-teaching-03\"]",
+      "expectedHeading": "Negative feedback restrains the pathway",
+      "newHeading": "Cortisol also reduces further stimulation",
+      "paragraphs": [
+        "As cortisol increases, it tends to reduce CRH release from the hypothalamus and ACTH release from the anterior pituitary. Less ACTH means less stimulation for further cortisol release. This is negative feedback.",
+        "When cortisol is low, this inhibition weakens. If the hypothalamus and pituitary are functioning, their stimulation can increase. As with the thyroid pathway, a damaged target gland may still fail to produce enough hormone despite the increased stimulation."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l10-teaching-04",
+      "route": "lesson-10",
+      "selector": "[data-canvas-edit-key=\"ch13-l10-teaching-04\"]",
+      "expectedHeading": "Inflammation and the limits of a stress model",
+      "newHeading": "Short-term usefulness is different from continuing excess",
+      "paragraphs": [
+        "Cortisol has anti-inflammatory effects: it can reduce inflammation. It also affects immune-system activity. Persistently excessive cortisol can interfere with normal immune function and glucose regulation.",
+        "A response that is useful during a challenge is not automatically useful at the same level all the time. Explain the stated duration and conditions in a case rather than calling cortisol simply “good” or “bad.”",
+        "Cortisol and aldosterone both come from the adrenal cortex, but they do different jobs. Cortisol helps regulate fuel availability; aldosterone helps regulate salt and water balance."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l11-teaching-01",
+      "route": "lesson-11",
+      "selector": "[data-canvas-edit-key=\"ch13-l11-teaching-01\"]",
+      "expectedHeading": "Begin with the ion, then follow the water",
+      "newHeading": "Aldosterone changes sodium handling in the kidneys",
+      "paragraphs": [
+        "Aldosterone is a steroid hormone released by the adrenal cortex. It belongs to the mineralocorticoid group, which helps regulate ions and body fluid. Aldosterone increases sodium-ion reabsorption in the later parts of the nephron and collecting duct. Sodium moves from the forming urine back toward the blood.",
+        "Retaining sodium helps the body retain water by osmosis. Water movement also depends on water permeability, including the effects of ADH. Increased salt and water retention can increase blood volume and help support blood pressure. Aldosterone also increases potassium-ion secretion into the forming urine."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l11-teaching-02",
+      "route": "lesson-11",
+      "selector": "[data-canvas-edit-key=\"ch13-l11-teaching-02\"]",
+      "expectedHeading": "Its major control differs from ACTH–cortisol control",
+      "newHeading": "A kidney signal helps control aldosterone release",
+      "paragraphs": [
+        "When blood flow or pressure reaching the kidneys falls, the kidneys can release renin. This starts a pathway that produces angiotensin II. Angiotensin II stimulates aldosterone release from the adrenal cortex.",
+        "Use this short sequence: reduced kidney blood supply → renin–angiotensin pathway → aldosterone → increased sodium reabsorption → increased salt and water retention. Increased blood potassium can also stimulate aldosterone release.",
+        "This is different from the main cortisol control route. ACTH is the main pituitary signal for cortisol; the renin–angiotensin system and potassium are the main controls to remember for aldosterone."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l11-teaching-03",
+      "route": "lesson-11",
+      "selector": "[data-canvas-edit-key=\"ch13-l11-teaching-03\"]",
+      "expectedHeading": "ADH and aldosterone can cooperate without doing the same job",
+      "newHeading": "ADH and aldosterone are not interchangeable",
+      "paragraphs": [
+        "ADH directly increases the water permeability of collecting ducts. Aldosterone increases sodium reabsorption and potassium secretion. Both can help conserve body fluid, but they do not have the same immediate kidney action.",
+        "In a question, begin with what changes at the kidney. “More water can cross the collecting-duct wall” points to ADH. “More sodium is reabsorbed” points to aldosterone. Then explain the effect on water retention and the original imbalance."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l11-teaching-04",
+      "route": "lesson-11",
+      "selector": "[data-canvas-edit-key=\"ch13-l11-teaching-04\"]",
+      "expectedHeading": "Use hormone deficiency as a structure–function question",
+      "newHeading": "A cortex problem can affect more than one variable",
+      "paragraphs": [
+        "Addison’s disease involves failure of the adrenal cortex and can reduce both cortisol and aldosterone production. Reduced cortisol can affect fuel availability. Reduced aldosterone can reduce sodium and water retention and contribute to low blood pressure.",
+        "Keep the two explanations separate even when they begin in the same gland. Identify the hormone, its usual target action and the consequence of losing that action. A problem with pituitary ACTH does not automatically remove aldosterone, because aldosterone has other main controls."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l12-teaching-01",
+      "route": "lesson-12",
+      "selector": "[data-canvas-edit-key=\"ch13-l12-teaching-01\"]",
+      "expectedHeading": "The islets sense the changing supply",
+      "newHeading": "The endocrine pancreas contains different cell types",
+      "paragraphs": [
+        "Clusters of endocrine cells in the pancreas are called pancreatic islets. Beta cells release insulin. Alpha cells release glucagon. Both hormones enter the blood, but they have opposing effects on blood glucose.",
+        "Glucose is a sugar used as fuel. Glycogen is a storage molecule made of linked glucose units, found especially in the liver and muscles. Glucagon is a hormone. Keep glucose, glycogen and glucagon separate despite their similar names."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l12-teaching-02",
+      "route": "lesson-12",
+      "selector": "[data-canvas-edit-key=\"ch13-l12-teaching-02\"]",
+      "expectedHeading": "Insulin coordinates uptake and storage",
+      "newHeading": "After a meal, insulin helps lower blood glucose",
+      "paragraphs": [
+        "A rise in blood glucose stimulates beta cells to release insulin. Insulin increases glucose uptake in responsive tissues such as muscle and fat. It also promotes glucose storage, including glycogen formation in the liver.",
+        "These effects help lower blood glucose toward its usual range. As the original rise is corrected, the stimulus for increased insulin release decreases. This is negative feedback.",
+        "Insulin does not act as a universal door for every cell. Different tissues handle glucose differently. Use the named target and action when explaining a case."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l12-teaching-03",
+      "route": "lesson-12",
+      "selector": "[data-canvas-edit-key=\"ch13-l12-teaching-03\"]",
+      "expectedHeading": "Glucagon supports the blood supply between meals",
+      "newHeading": "Between meals, glucagon helps raise blood glucose",
+      "paragraphs": [
+        "When blood glucose falls, alpha cells release more glucagon. Glucagon acts especially on the liver, promoting glycogen breakdown and glucose release into the blood. It can also support new glucose production.",
+        "The rise in blood glucose opposes the original fall, so this is also negative feedback. Insulin and glucagon are antagonistic: insulin tends to lower blood glucose, while glucagon tends to raise it.",
+        "Name the liver when explaining glucose release from glycogen into blood. Muscle glycogen mainly supports the muscle’s own fuel needs."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l12-teaching-04",
+      "route": "lesson-12",
+      "selector": "[data-canvas-edit-key=\"ch13-l12-teaching-04\"]",
+      "expectedHeading": "Diabetes: missing insulin and reduced responsiveness are different",
+      "newHeading": "Different problems can lead to high blood glucose",
+      "paragraphs": [
+        "In type 1 diabetes mellitus, immune-system damage destroys pancreatic beta cells, causing severe insulin deficiency. Type 1 can develop at different ages. In type 2 diabetes mellitus, target tissues respond less effectively to insulin, and insulin secretion may also become inadequate over time.",
+        "Both can cause high blood glucose, but the starting mechanisms differ. In a case, distinguish insufficient hormone from reduced target response rather than using age alone to identify the type. High blood glucose is called hyperglycemia; low blood glucose is called hypoglycemia.",
+        "When enough glucose enters the urine, it holds extra water in the forming urine. This increases urine volume and can contribute to thirst and dehydration. This glucose-related water loss is different from diabetes insipidus, where ADH supply or kidney response is the central problem.",
+        "With severe insulin deficiency, the body may rely heavily on fat breakdown and produce excessive ketones. This can become dangerous. The lesson uses these examples to explain mechanisms, not to recommend treatment."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        },
+        {
+          "paragraph": 3
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l13-teaching-01",
+      "route": "lesson-13",
+      "selector": "[data-canvas-edit-key=\"ch13-l13-teaching-01\"]",
+      "expectedHeading": "Build a hormone map rather than an isolated list",
+      "newHeading": "Rebuild the hormone relationships",
+      "paragraphs": [
+        "For each hormone, identify its release site, trigger, target and effect. Then explain how the response affects the original condition. Include the production site when it differs from the release site, as it does for ADH and oxytocin.",
+        "Use the normal pathway before predicting a failure. A low final hormone can mean the target gland is not working, but it can also mean the stimulating signal is missing. The location of the problem determines the prediction."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l13-teaching-02",
+      "route": "lesson-13",
+      "selector": "[data-canvas-edit-key=\"ch13-l13-teaching-02\"]",
+      "expectedHeading": "The comparisons that prevent common mistakes",
+      "newHeading": "Compare pathways, not just hormone names",
+      "paragraphs": [
+        "The rapid stress response uses sympathetic neurons and the adrenal medulla. The cortisol response uses CRH, ACTH and the adrenal cortex. ADH acts on water permeability; aldosterone acts mainly on sodium and potassium handling.",
+        "Insulin and glucagon have opposing effects on blood glucose. PTH and calcitonin have opposing effects on blood calcium. Explain one complete pathway before comparing it with the other."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch13-l13-teaching-03",
+      "route": "lesson-13",
+      "selector": "[data-canvas-edit-key=\"ch13-l13-teaching-03\"]",
+      "expectedHeading": "Interpret a case in a disciplined order",
+      "newHeading": "Use a new situation to check your understanding",
+      "paragraphs": [
+        "Try to explain a new case before opening a model answer. Identify the starting change, follow the signal to its target, and explain the result. Use the facts stated in the case rather than assuming every gland is healthy or every hormone is absent.",
+        "Your first multiple-choice answers are recorded separately from corrections. Saved writing records your explanation, but it is not automatically judged scientifically correct. Completing the activities and demonstrating independent understanding are different things.",
+        "The lessons contain the information needed for this chapter. The embedded reading and additional textbook questions are optional study support."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    }
+  ]
+}

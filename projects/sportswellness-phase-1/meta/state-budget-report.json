@@ -8,5 +8,13 @@
   "previewPersistence": "browser-local plus lossless JSON backup",
   "scormPersistence": "deferred",
   "decisionRequiredBeforeExport": "Approve supported response limits or move genuinely long writing to a native Brightspace assignment after representative and worst-case state measurements.",
-  "prohibitedFallbacks": ["silent truncation", "discarding first drafts", "claiming an overflow was saved"]
+  "prohibitedFallbacks": [
+    "silent truncation",
+    "discarding first drafts",
+    "claiming an overflow was saved"
+  ],
+  "additionalUntimedResponseFields": 3,
+  "additionalUntimedMaximumCharacters": 15000,
+  "minimumResponseCapacityBeforeEnvelopeIncludingUntimed": 375000,
+  "note": "The 72 original data-draft fields are retained. Added untimed case explanations (2) and transfer (1) increase the response-capacity mismatch; snapshots, notes and attempt envelopes add further capacity."
 }

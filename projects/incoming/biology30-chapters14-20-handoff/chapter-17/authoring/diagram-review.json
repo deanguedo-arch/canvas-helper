@@ -1,0 +1,367 @@
+[
+  {
+    "id": "ch17-punnett",
+    "title": "A single-trait cross: Aa × Aa",
+    "lesson": 3,
+    "src": "./assets/figures/ch17-punnett.svg",
+    "alt": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.",
+    "caption": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "AA",
+      "B": "Aa",
+      "C": "Aa",
+      "D": "aa"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          365,
+          370
+        ],
+        "endpoint": [
+          365,
+          370
+        ]
+      },
+      "B": {
+        "letter": [
+          635,
+          370
+        ],
+        "endpoint": [
+          635,
+          370
+        ]
+      },
+      "C": {
+        "letter": [
+          365,
+          570
+        ],
+        "endpoint": [
+          365,
+          570
+        ]
+      },
+      "D": {
+        "letter": [
+          635,
+          570
+        ],
+        "endpoint": [
+          635,
+          570
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch17-two-trait",
+    "title": "Independent assortment: follow both allele choices",
+    "lesson": 5,
+    "src": "./assets/figures/ch17-two-trait.svg",
+    "alt": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter.",
+    "caption": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "AB",
+      "B": "Ab",
+      "C": "aB",
+      "D": "ab"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          190,
+          615
+        ],
+        "endpoint": [
+          190,
+          615
+        ]
+      },
+      "B": {
+        "letter": [
+          520,
+          615
+        ],
+        "endpoint": [
+          520,
+          615
+        ]
+      },
+      "C": {
+        "letter": [
+          870,
+          615
+        ],
+        "endpoint": [
+          870,
+          615
+        ]
+      },
+      "D": {
+        "letter": [
+          1200,
+          615
+        ],
+        "endpoint": [
+          1200,
+          615
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch17-abo",
+    "title": "ABO inheritance: IAi × IBi",
+    "lesson": 7,
+    "src": "./assets/figures/ch17-abo.svg",
+    "alt": "The standard three-allele ABO model produces four possible offspring genotypes in this cross. Each letter marks one phenotype to infer from its genotype.",
+    "caption": "The standard three-allele ABO model produces four possible offspring genotypes in this cross. Each letter marks one phenotype to infer from its genotype. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "AB",
+      "B": "B",
+      "C": "A",
+      "D": "O"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          420,
+          395
+        ],
+        "endpoint": [
+          420,
+          395
+        ]
+      },
+      "B": {
+        "letter": [
+          760,
+          395
+        ],
+        "endpoint": [
+          760,
+          395
+        ]
+      },
+      "C": {
+        "letter": [
+          420,
+          615
+        ],
+        "endpoint": [
+          420,
+          615
+        ]
+      },
+      "D": {
+        "letter": [
+          760,
+          615
+        ],
+        "endpoint": [
+          760,
+          615
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch17-pedigree",
+    "title": "Pedigree: use the stated inheritance model",
+    "lesson": 10,
+    "src": "./assets/figures/ch17-pedigree.svg",
+    "alt": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa.",
+    "caption": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Aa",
+      "B": "Aa",
+      "C": "aa",
+      "D": "AA or Aa"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          420,
+          170
+        ],
+        "endpoint": [
+          510,
+          245
+        ]
+      },
+      "B": {
+        "letter": [
+          990,
+          170
+        ],
+        "endpoint": [
+          870,
+          245
+        ]
+      },
+      "C": {
+        "letter": [
+          340,
+          590
+        ],
+        "endpoint": [
+          470,
+          502
+        ]
+      },
+      "D": {
+        "letter": [
+          1070,
+          590
+        ],
+        "endpoint": [
+          910,
+          502
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch17-linkage",
+    "title": "Linked allele arrangements and gamete classes",
+    "lesson": 12,
+    "src": "./assets/figures/ch17-linkage.svg",
+    "alt": "The starting arrangement is AB/ab. Without crossing over, AB and ab are parental combinations; Ab and aB are recombinants.",
+    "caption": "The starting arrangement is AB/ab. Without crossing over, AB and ab are parental combinations; Ab and aB are recombinants. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Parental gamete",
+      "B": "Parental gamete",
+      "C": "Recombinant gamete",
+      "D": "Recombinant gamete"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          815,
+          410
+        ],
+        "endpoint": [
+          815,
+          410
+        ]
+      },
+      "B": {
+        "letter": [
+          1150,
+          410
+        ],
+        "endpoint": [
+          1150,
+          410
+        ]
+      },
+      "C": {
+        "letter": [
+          815,
+          635
+        ],
+        "endpoint": [
+          815,
+          635
+        ]
+      },
+      "D": {
+        "letter": [
+          1150,
+          635
+        ],
+        "endpoint": [
+          1150,
+          635
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch17-map",
+    "title": "A short-interval chromosome map",
+    "lesson": 13,
+    "src": "./assets/figures/ch17-map.svg",
+    "alt": "The schematic positions are 0, 8 and 20 cM. The middle locus is 8 cM from the left locus and 12 cM from the right locus; the total map interval is 20 cM.",
+    "caption": "The schematic positions are 0, 8 and 20 cM. The middle locus is 8 cM from the left locus and 12 cM from the right locus; the total map interval is 20 cM. Constructed short-interval teaching example — not physical base-pair distances.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Locus at 0 cM",
+      "B": "Locus at 8 cM",
+      "C": "Locus at 20 cM",
+      "D": "8 cM",
+      "E": "12 cM"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          170,
+          270
+        ],
+        "endpoint": [
+          170,
+          360
+        ]
+      },
+      "B": {
+        "letter": [
+          594,
+          270
+        ],
+        "endpoint": [
+          594,
+          360
+        ]
+      },
+      "C": {
+        "letter": [
+          1230,
+          270
+        ],
+        "endpoint": [
+          1230,
+          360
+        ]
+      },
+      "D": {
+        "letter": [
+          382,
+          550
+        ],
+        "endpoint": [
+          382,
+          550
+        ]
+      },
+      "E": {
+        "letter": [
+          912,
+          620
+        ],
+        "endpoint": [
+          912,
+          620
+        ]
+      }
+    }
+  }
+]

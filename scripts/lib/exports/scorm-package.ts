@@ -53,7 +53,7 @@ export function resolveScormPackageTitle(manifest: { slug: string; title?: strin
 export async function exportProjectToScormPackage(
   projectSlug: string,
   version: ScormVersion = "2004",
-  gateOptions: ExportAuthoringGateOptions = {}
+  gateOptions: ExportAuthoringGateOptions & { reviewOnly?: boolean } = {}
 ) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
@@ -63,8 +63,9 @@ export async function exportProjectToScormPackage(
 
   await runExportAuthoringPreflight(projectSlug, paths.workspaceEntrypoint, gateOptions, "export");
 
-  const exportLabel = getScormExportLabel(version);
-  const zipLabel = getScormZipLabel(version);
+  const suffix = gateOptions.reviewOnly ? "-review" : "";
+  const exportLabel = getScormExportLabel(version) + suffix;
+  const zipLabel = getScormZipLabel(version) + suffix;
   const scormExportDir = path.join(paths.exportsDir, exportLabel);
   const workspaceEntrypointRelative = toRelativePosixPath(paths.workspaceDir, paths.workspaceEntrypoint);
   const scormEntrypointPath = path.join(scormExportDir, ...workspaceEntrypointRelative.split("/"));
@@ -106,6 +107,8 @@ export async function exportProjectToScormPackage(
   const entrypointWithBridge = injectScormBridgeTag(entrypointHtml, bridgeRelativePath);
   await writeTextFile(scormEntrypointPath, entrypointWithBridge);
 
+  if (gateOptions.reviewOnly) await writeTextFile(path.join(scormExportDir, "review-only.json"), JSON.stringify({schemaVersion: 1, reviewOnly: true, projectSlug, authoringStatus: manifest.authoringStatus ?? null, liveBrightspaceVerified: false, photoAuthenticationConfigured: false}, null, 2));
+
   const packageFiles = await listFilesRecursive(scormExportDir);
   const packageFilePaths = packageFiles.map((filePath) => toRelativePosixPath(scormExportDir, filePath));
   const scormManifest = buildScormManifest({
@@ -121,13 +124,15 @@ export async function exportProjectToScormPackage(
   const finalFiles = await listFilesRecursive(scormExportDir);
   const zipPath = path.join(paths.exportsDir, `${projectSlug}-${zipLabel}.zip`);
   await createZipFromDirectory(scormExportDir, zipPath);
-  await markProjectWorkspaceApproved(projectSlug);
-  await recordCourseExportEvidence({
-    repoRoot,
-    projectSlug,
-    target: version === "1.2" ? "scorm12" : "scorm2004",
-    artifactPath: zipPath
-  });
+  if (!gateOptions.reviewOnly) {
+    await markProjectWorkspaceApproved(projectSlug);
+    await recordCourseExportEvidence({
+      repoRoot,
+      projectSlug,
+      target: version === "1.2" ? "scorm12" : "scorm2004",
+      artifactPath: zipPath
+    });
+  }
 
   return {
     projectSlug,

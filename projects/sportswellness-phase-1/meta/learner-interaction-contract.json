@@ -26,21 +26,28 @@
     "schemaVersion": 2,
     "browserRestore": true,
     "explicitBackupReplacement": true,
-    "lmsRestore": false
+    "lmsRestore": false,
+    "backupValidation": "reject invalid record shapes before replacement confirmation; invalid input leaves current state intact"
   },
   "checkpoint": {
     "questionCount": 10,
-    "contentVersion": "phase1-checkpoint-2026-09-14-r1",
+    "contentVersion": "phase1-checkpoint-2026-09-17-r2",
     "thresholdPercent": 70,
     "retainedScore": "best",
-    "reporting": "local-only"
+    "reporting": "local-only",
+    "incompleteAttempts": "rejected",
+    "previousVersions": "archived separately; never counted toward current readiness"
   },
   "game": {
     "activityId": "phase1-performance-state-simulator-game",
-    "runtime": "preserved-original-local-loader",
+    "runtime": "original-chase-mechanics-with-audited-lifecycle-and-feedback",
     "nativeControls": [
-      "Begin Simulation",
-      "Restart Simulation",
+      "Start round",
+      "Pause",
+      "Resume",
+      "End round",
+      "Restart",
+      "Mute",
       "Breathe",
       "Activate"
     ],
@@ -50,15 +57,23 @@
       "performance-game-scale.js": "0f296e9351353101127fb52b2167e0536dde617765d52c489e850f1e445da6c8",
       "performance-game-theme.css": "40263de60b6f04c08f89cbdda67a4886e353cf27cf597738395aa92dca1c7a62"
     },
-    "attemptPersistence": false,
+    "attemptPersistence": true,
     "academicGrade": false,
-    "loader": "assets/game/original/phase1-game-runtime.html"
+    "loader": "assets/game/original/phase1-game-runtime.html",
+    "messageValidation": "exact iframe source, exact normalized origin (null for file protocol), activity ID, schema version, exact payload keys, bounded values and duplicate ID rejection",
+    "baselineHashMeaning": "originalFilesSha256 describes preserved pre-audit sources, not the revised active app/theme",
+    "auditedSourceFilesSha256": {
+      "phase1-performance-state-simulator-game.app.js": "6dfa6b21863b9f8abaa1b74b52806b3e084e700cb2319fe2ff6d3eef0a2e3aaf",
+      "performance-game-theme.css": "7d73d34e59abbd3b53a2c139a607e5f5fc79c4cf481bdbe017a1fd21aa0e23cb",
+      "performance-game-scale.js": "0f296e9351353101127fb52b2167e0536dde617765d52c489e850f1e445da6c8"
+    }
   },
   "exports": {
     "assignmentOnly": false,
     "fullProcess": "browser print or Save as PDF",
-    "losslessJsonBackup": false,
-    "submission": false
+    "losslessJsonBackup": "course-guide Recovery disclosure",
+    "submission": false,
+    "printPopupBlocked": "download an escaped printable HTML record"
   },
   "responsiveReview": {
     "desktop": {
@@ -82,51 +97,28 @@
     "savedFieldsAdded": 0
   },
   "navigation": {
-    "model": "chronological-student-path",
-    "numberedRoutes": [
-      "start",
-      "key-terms",
-      "stress-loop",
-      "performance-zone",
-      "interpreting-nerves",
-      "stress-sources",
-      "attention-coordination",
-      "regulation-tools",
-      "cues-goals",
-      "performance-lab",
-      "playbook",
-      "phase-review"
-    ],
-    "utilityRoutes": [
-      "course-guide",
-      "checkpoint",
-      "process-collection",
-      "resources"
-    ],
-    "completionSource": "learner-controlled-reviewed-state",
-    "supportRoutesRemainDirectlyAddressable": true,
-    "mobileUsesSameInformationArchitecture": true,
-    "stageInstructionsVisible": true,
-    "stageInstructionsLocation": "dedicated course-guide route and one closed completion guide on every numbered topic",
-    "sidebarGroupsCollapsible": true,
-    "sidebarProgressBlock": false,
-    "desktopCollapsedMenuUsesAccessibleIcon": true,
-    "completionGuideRoutes": [
-      "start",
-      "key-terms",
-      "stress-loop",
-      "performance-zone",
-      "interpreting-nerves",
-      "stress-sources",
-      "attention-coordination",
-      "regulation-tools",
-      "cues-goals",
-      "performance-lab",
-      "playbook",
-      "phase-review"
-    ],
-    "completionGuideDefault": "closed",
-    "courseGuideNavigation": "direct sidebar route"
+    "owner": "main.js navigate",
+    "activationEvent": "phase1-route-activated",
+    "previewConsumer": "phase1-preview.js",
+    "activityJump": {
+      "testId": "phase1-activity-jump",
+      "count": 12,
+      "behavior": "visible per-topic link to primary required work; uses the existing navigate owner to open details/build steps and focus the destination",
+      "targets": {
+        "start": "start-moment",
+        "key-terms": "terms-own",
+        "stress-loop": "loop-reframe",
+        "performance-zone": "zone-reflection",
+        "interpreting-nerves": "nerves-control",
+        "stress-sources": "source-case",
+        "attention-coordination": "attention-cue",
+        "regulation-tools": "regulation-why",
+        "cues-goals": "goal-rewrite",
+        "performance-lab": "regulation-lab",
+        "playbook": "p1_threat_trigger",
+        "phase-review": "review-questions"
+      }
+    }
   },
   "performanceLab": {
     "practiceChoices": [
@@ -157,5 +149,11 @@
       "entryLimit": 50,
       "behavior": "timestamped learner note entries opened from the persistent Quick Notes button, sidebar, and numbered topic footers"
     }
+  },
+  "untimedPractice": {
+    "cases": 3,
+    "transfer": true,
+    "equivalentTo": "guided decision lab",
+    "gameRequired": false
   }
 }

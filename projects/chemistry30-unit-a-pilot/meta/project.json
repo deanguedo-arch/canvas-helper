@@ -21,8 +21,36 @@
   "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/index.html",
   "canonicalSources": [
     "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/index.html",
-    "main.js",
-    "styles.css"
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/main.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/styles.css",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/chapter-10.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/chapter-11.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/chapter-9.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/engine.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/generators.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/ui.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch10-efficiency-flow.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch10-formation-cycle.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch10-hess-cycle.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch11-catalyst-pathway.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch11-collision-theory.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch11-endothermic-profile.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch11-potential-energy.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch9-calibrated-calorimeter.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch9-energy-transfer.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/ch9-solution-calorimeter.svg",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_13/ch13_electrolytic_cell.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_13/ch13_salt_bridge_ion_movement.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_13/ch13_electroplating_setup.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_13/ch13_voltaic_cell_zinc_copper.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_12/ch12_oxidation_numbers_water.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_12/ch12_half_reaction_representation.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_12/ch12_electron_transfer_ion_formation.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_11/ch11_catalyzed_vs_uncatalyzed.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_11/ch11_collision_theory.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/chemistry30-unit-a-pilot/workspace/practice/diagrams/uploaded/chapter_11/ch11_potential_energy_diagram.png",
+    "projects/chemistry30-unit-a-pilot/workspace/scorm-tracking.json"
   ],
   "authoring": {
     "driverId": "proposal-only-v1",
@@ -33,7 +61,11 @@
       "imageAssets": false
     }
   },
-  "generatedOutputs": [],
+  "generatedOutputs": [
+    "workspace/assets/textbook-practice-pages/*.jpg",
+    "workspace/assets/textbook-question-crops/*.jpg"
+  ],
+  "regenerateCommand": "python3 scripts/render-chemistry30-practice-pages.py && python3 scripts/render-chemistry30-question-crops.py",
   "injectedComponents": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
@@ -49,8 +81,22 @@
     }
   ],
   "authoringStatus": "blocked",
-  "referenceOnly": [],
-  "sourceOfTruthNotes": "The ChatGPT-authored Guided Edition is preserved in raw/original.html. The imported workspace HTML, CSS, and JavaScript are the canonical review sources for this blocked Chemistry 30 Unit A pilot. Preserve route, assessment, activity, and state identifiers. Studio editing, export, and release remain disabled pending separate rollout verification.",
+  "referenceOnly": [
+    "projects/resources/chemistry30-unit-a-pilot/practice-blueprints/**"
+  ],
+  "sourceOfTruthNotes": "The ChatGPT-authored Guided Edition is preserved in raw/original.html. The imported workspace HTML, CSS, and JavaScript are the canonical review sources for this blocked Chemistry 30 Unit A pilot. Preserve route, assessment, activity, and state identifiers. Studio editing, export, and release remain disabled pending separate rollout verification. Optional practice is canonical Chemistry-owned code and SVGs in workspace/practice; its tools.practice version-1 namespace uses the existing save owner and codec. Practice does not award milestones. Blueprint documents and teacher keys are reference-only outside learner pages.",
   "createdAt": "2026-09-15T19:48:10.712Z",
-  "updatedAt": "2026-09-15T19:48:10.893Z"
+  "updatedAt": "2026-09-16T17:24:13.333Z",
+  "assetRegeneration": {
+    "textbookPracticePages": {
+      "command": "python3 scripts/render-chemistry30-practice-pages.py",
+      "source": "workspace/main.js: window.UNIT_PDFS and window.BOOK_QUESTIONS",
+      "role": "runtime/generated display assets"
+    },
+    "textbookQuestionCrops": {
+      "command": "python3 scripts/render-chemistry30-question-crops.py",
+      "source": "workspace/main.js: window.UNIT_PDFS; meta/textbook-question-crops.json: reviewed question boxes",
+      "role": "runtime/generated display assets"
+    }
+  }
 }

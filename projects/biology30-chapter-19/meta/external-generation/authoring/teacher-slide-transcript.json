@@ -1,0 +1,168 @@
+[
+  {
+    "slide": 1,
+    "text": "UNIT D: \nPopulation Dynamics\n\nBIOLOGY 30",
+    "links": []
+  },
+  {
+    "slide": 2,
+    "text": "Chapter 19\nPopulation Genetics",
+    "links": []
+  },
+  {
+    "slide": 3,
+    "text": "\nTOPICS\nGene Pool, Genotype vs. allele frequency\nThe Hardy-Weinberg principle\nCalculating genotype and phenotype frequency (p2 + 2pq + q2 = 1) \nCalculating allele frequency (p + q = 1)\nConditions of Hardy-Weinberg equilibrium\nGenetic drift vs. founder effect vs. bottleneck effect\nGene flow & mutations\nNatural selection vs. sexual selection\n\nTextbook pgs. 672-701",
+    "links": []
+  },
+  {
+    "slide": 4,
+    "text": "What is evolution?\nEvolution simply means change. In a biological context, evolution refers to the fact that life has changed over the course of Earth’s history and present forms of life and not the same as previous forms. \n\n\nHow do we know it has and is occurring?\nWe have a vast array of evidence from various fields that support that fact that organisms and species have changed over time. These areas include paleontology and analysis of the fossil record, biogeography, embryology, biogeography, molecular biology and genetics. Furthermore, we can look at how artificial selection is used to develop desired traits and strains of organisms. \n\nSome Background Review from Bio 20",
+    "links": []
+  },
+  {
+    "slide": 5,
+    "text": "What is out best explanation for how evolution occurs?\nThe theory of evolution by natural selection is a well-supported, widely accepted explanation of how life has and continues to change over time. In a nutshell, there is a struggle for survival, and individuals with desirable traits are more likely to survive and reproduce, therefore passing on their traits to their offspring. In turn, these desirable traits should increase in proportions over time, leading to cumulative change. \n\nSome Background Review from Bio 20\nWhat is population genetics?\nPopulation genetics is a field of biology that studies the genetic composition of biological populations, and the changes in genetic composition that result from various factors, including natural selection.\nIn this unit, we will look at what allele frequencies can tell us about whether a population and/or species is changing or evolving.",
+    "links": [
+      "http://www.youtube.com/watch?v=GhHOjC4oxh8",
+      "http://www.youtube.com/watch?v=P3GagfbA2vo"
+    ]
+  },
+  {
+    "slide": 6,
+    "text": "Some Terminology\nA gene pool is the total collection of all alleles for every gene present in a population. It represents the genetic diversity within that population, which influences its ability to adapt and evolve over time.\n",
+    "links": []
+  },
+  {
+    "slide": 7,
+    "text": "Some Terminology\nGenotype frequency is the proportion of a population with a particular genotype. Eg. frequency of bunnies that are..\nHomozygous dominant = 3/10 = 0.3\nHeterozygous = 5/10 = 0.5\nHomozygous recessive = 2/10 = 0.2\nAllele frequency is the rate of occurrence of a particular allele within a population. E.g. frequency of …\nDominant allele = 11/20 = 0.55\nRecessive allele = 9/20 = 0.45\nChanges in the allele frequency of a population are indicative of evolutionary change, and very gradual changes are referred to as microevolution.  \nNote: Frequency is always expressed as a decimal between 0 and 1",
+    "links": []
+  },
+  {
+    "slide": 8,
+    "text": "The Hardy-Weinberg Principle is a mathematical model used to study genetic variation in a population. \nIt describes a population that is NOT evolving, meaning allele and genotype frequencies remain constant from generation to generation\nThere are two key equations that we will use:\nThe Hardy-Weinberg Principle\nWhere:\np = frequency of the dominant allele (e.g., A)\nq = frequency of the recessive allele (e.g., a)\np2 = frequency of the homozygous dominant genotype (AA)\n2pq = frequency of the heterozygous genotype (Aa)\nq2 = frequency of the homozygous recessive genotype (aa)\n\n",
+    "links": []
+  },
+  {
+    "slide": 9,
+    "text": "The Hardy-Weinberg Principle\nThe Hardy-Weinberg principle allows us to study one trait at a time. Consider the simplest case, a trait that is controlled by a dominant allele, represented by p, and a recessive allele, represented by q. Since there are only two alleles, when their frequencies are added together, the sum must be 1.00, or 100 percent of the alleles.\n",
+    "links": []
+  },
+  {
+    "slide": 10,
+    "text": "The Hardy-Weinberg Principle\nLet’s suppose the frequency of the dominant allele(e.g. A) is 0.7 and the frequency of the recessive allele (eg. a) is 0.3. From this, we can calculate the frequencies of all possible genotypes. Since there are only three possible genotypes, their frequencies must also add up to one. \n\np2 = 0.7 x 0.7 = 0.49 → frequency of the homozygous dominant genotype (e.g. AA) is 0.49. (49% of individuals in the population have this genotype)\n2pq = 2 x 0.7 x 0.3 = 0.42 → frequency of the heterozygous genotype (e.g. Aa) is 0.42. (42% of individuals in the population have this genotype)\n\nq2 = 0.3 x 0.3 = 0.09 → frequency of the homozygous recessive genotype is 0.09. (9% of individuals in the population have this genotype)\n",
+    "links": []
+  },
+  {
+    "slide": 11,
+    "text": "The population is large enough that chance events will not alter allele frequencies.\nMates are chosen on a random basis.\nThere are no new mutations.\nThere is no migration.\nThere is no natural selection against any of the phenotypes. \n\n\n\nFive conditions must be met for the Hardy-Weinberg principle to apply\nIf all five conditions are met, the population is said to be in a Hardy-Weinberg Equilibrium.",
+    "links": [
+      "http://www.youtube.com/watch?v=7S4WMwesMts"
+    ]
+  },
+  {
+    "slide": 12,
+    "text": "\nCase Study The California Ground Squirrel\nIn ground-squirrels, some individuals are resistant to snake venom, while others are susceptible \nIf the venom-resistant trait is encoded by a recessive allele, then the genotype of ground squirrels with that trait is “aa”.\nIn a population of 200 squirrels, 32 are resistant to rattlesnake venom.\nWhat is the proportion of ground squirrels with each genotype? ",
+    "links": []
+  },
+  {
+    "slide": 13,
+    "text": "\nWe (almost) always start with q2\nq2 = 32/200 = 0.16 (so 16% of squirrels are ‘aa’ or homozygous recessive)\n\nIf q2 = 0.16, then q = √0.16 = 0.40 (frequency of allele a)\n\nBecause we know q, we can then determine p:\np + q = 1\np + 0.4 = 1\np = 1 – 0.4\np = 0.60\n\nSo, the frequency of the “a” allele (q)  is 0.40, and the frequency of the “A” allele (p) is 0.60\n\nRecall that p+q=1 and p2+2pq+q2=1… ",
+    "links": []
+  },
+  {
+    "slide": 14,
+    "text": "If we know p and q, we can determine the frequency of other genotypes within the population:\np2 + 2pq + q2 = 1\n(0.60)2 + 2(0.60)(0.40) + (0.40)2 = 1\n0.36 + 0.48 + 0.16 = 1\n\nSo, the frequency of the “AA” genotype is 0.36. This means that 36%, or 0.36 x 200 = 72 squirrels in the population are homozygous dominant. → Susceptible to snake venom\nThe frequency of the “Aa” genotype is 0.48. This means that 48%, or 0.48 x 200 = 96 squirrels in the population are heterozygous.→ Susceptible to snake venom\nAnd the frequency of the “aa” genotype is 0.16. This means that 16%, or 0.16 x 200 = 32 squirrels in the population are homozygous recessive.  → Resistant to snake venom",
+    "links": []
+  },
+  {
+    "slide": 15,
+    "text": "If the population is not evolving, the frequency of alleles A & a will remain constant through future generations. \nNote that this does not mean that the number of individuals with the trait must remain constant. \n\n\n\nCase Study Cont’d: The California Ground Squirrel",
+    "links": []
+  },
+  {
+    "slide": 16,
+    "text": "\nThe next generation of ground squirrels contains 800 individuals, 128 of which are resistant to rattlesnake venom. Is the population evolving? \nThe proportion of “aa” individuals within generation two, or q2, is 128/800 or 0.16. If q2=0.16, then q=√0.16 = 0.40.\nIf q=0.40, and p+q=1, then p=0.60\n\nAlthough the number of ground squirrels with the venom-resistant trait differed between generations 1 and 2, the frequency of the recessive allele did not change. Thus, the population is not evolving. \nSince the allele frequencies did not change from one generation to the next, the population is said to be at Hardy-Weinberg equilibrium, and evolution is not occurring. \n\n\n",
+    "links": []
+  },
+  {
+    "slide": 17,
+    "text": "Practice Problem #1\n\nIn a type of rabbit, brown fur is dominant to white fur. In a population of these rabbits, 25% have white fur. What are the frequencies of the brown and white alleles?\n\n\n\n\n\nAnswer:\nThe frequency of the dominant, brown allele (p) is 0.5, and the frequency of the recessive, white allele (q) is also 0.5.\n\n\n\nSolution\n\nWatch this video, if you would like to be walked through some more examples, before doing practice on your own. \n\n\n",
+    "links": [
+      "http://www.youtube.com/watch?v=xPkOAnK20kw"
+    ]
+  },
+  {
+    "slide": 18,
+    "text": "Practice Problem #2\n\nIn a population of humans, 1 in 10,000 babies is born with a rare recessive genetic disorder . What percentage of the population are carriers?\n\n\n\n\n\nAnswer:\n1.98% of the population are carriers.\n\n\n\nSolution\n",
+    "links": []
+  },
+  {
+    "slide": 19,
+    "text": "Practice Problem #3\n\nIn a population of 1500 frogs, 450 have a recessive phenotype (spotted skin). Assuming Hardy-Weinberg equilibrium, how many individuals in this population are homozygous dominant?\n\n\n\n\n\nAnswer:\nApproximately 308 individuals would be homozygous dominant.\n\n\n\nSolution\n",
+    "links": []
+  },
+  {
+    "slide": 20,
+    "text": "",
+    "links": []
+  },
+  {
+    "slide": 21,
+    "text": "Changes in allele frequencies (aka evolution) may be caused by a number of factors… \nNatural selection\nSexual selection\nGenetic drift\nBottleneck effect\nFounder effect\nGene flow\nMutations\n\nIf any of these occur, the population will not be in Hardy-Weinberg equilibrium.",
+    "links": [
+      "http://www.youtube.com/watch?v=nWfyw51DQfU"
+    ]
+  },
+  {
+    "slide": 22,
+    "text": "Natural Selection\nprocess by which organisms with traits better suited to their environment are more likely to survive and and therefore reproduce, passing those beneficial traits to the next generation. Over time, this can lead to a change in the frequency of alleles (gene variations) within a population. \nE.g. Before the Industrial Revolution, light-colored moths were common because they blended with light tree bark, avoiding predators. Pollution darkened the trees, giving dark-colored moths a survival advantage. Over time, the dark moths became more common as their allele frequency increased.",
+    "links": []
+  },
+  {
+    "slide": 23,
+    "text": "Sexual Selection (i.e. non-random mating)\nSexual selection (non-random mating) occurs when certain traits increase an individual’s chances of mating and reproducing. This can happen through:\nMate Choice: Individuals prefer mates with specific traits (e.g., colorful feathers in peacocks).\nCompetition: Individuals compete for access to mates (e.g., antlers in male deer for fighting rivals).\nThese traits may not always help survival but are favored because they boost reproductive success",
+    "links": [
+      "http://www.youtube.com/watch?v=nWfyw51DQfU",
+      "http://www.youtube.com/watch?v=SAt0Z9KJkqY"
+    ]
+  },
+  {
+    "slide": 24,
+    "text": "Genetic drift\nRefers to random changes in the frequency of alleles in a population over time. Unlike natural selection, which depends on an advantage in survival or reproduction, genetic drift happens purely by chance. It’s especially significant in small populations.\nE.g. Imagine a population of 50 beetles. A third of them are green, and the rest are brown, and the color doesn't affect survival. By random chance, more green beetles are accidentally stepped on by humans one year, so only a few green beetles reproduce. Over generations, the green allele might disappear entirely, not because brown beetles are better adapted, but just due to random fluctuations in reproduction.",
+    "links": []
+  },
+  {
+    "slide": 25,
+    "text": "Bottleneck Effect\nA type of genetic drift that occurs when a population is drastically reduced in size due to a random event, such as a natural disaster, disease, or environmental change. \nThis sudden decrease in population size results in a loss of genetic diversity, as only a small, random subset of the original population survives and passes on their genes. The surviving population may have different allele frequencies compared to the original population, and this can lead to changes in the genetic makeup of future generations. \nE.g.  In the 1800s, hunting brought the population of Northern elephant seals to the brink of extinction, with only about 20 individuals remaining. This severe bottleneck resulted in a loss of genetic diversity, and although their population has rebounded, the seals today have very low genetic variation, making them more vulnerable to diseases.",
+    "links": []
+  },
+  {
+    "slide": 26,
+    "text": "Founder Effect\nType of genetic drift where a small group of individuals breaks away from a larger population to start a new group in a different area. Because this new group is formed by just a few individuals, it doesn’t have the full range of genetic diversity of the original population. As a result, certain traits may become more common or rare in the new group by chance. \nOver time, this can lead to changes in the population's genetic makeup and may affect its ability to adapt or survive in the future.\nE.g. An example of the founder effect in animals is the Galápagos finches. When a small group of finches colonized the islands, they carried only a limited variety of genetic traits from the larger mainland population. Over time, these traits became more common in the island population, and the finches evolved differently from their mainland relatives. This limited genetic diversity due to the small founding group is a clear case of the founder effect.\n",
+    "links": []
+  },
+  {
+    "slide": 27,
+    "text": "What’s the difference?\nYou may be thinking that genetic drift, bottleneck effect and founder effect sound very similar. In fact they are similar. Bottleneck and founder effect are more ‘extreme’ versions of genetic drift, where the population is drastically reduced. \nKey Difference:\nGenetic drift refers broadly to random changes in allele frequencies within a population over time due to chance.\nThe bottleneck effect is a specific type of genetic drift that occurs when a population is drastically reduced in size (e.g., typically due to a disaster), limiting genetic diversity.\nThe founder effect is a specific type of genetic drift that occurs when a small number of individuals leave the original population to start a new one, carrying only a small portion of the original population's genetic diversity.",
+    "links": [
+      "http://www.youtube.com/watch?v=W0TM4LQmoZY"
+    ]
+  },
+  {
+    "slide": 28,
+    "text": "Gene Flow\nGene flow is the transfer of genetic material between populations, usually through migration. It introduces new alleles into a population, increasing genetic diversity and potentially altering allele frequencies. \nE.g. Gene flow occurred when European settlers and Indigenous populations in the Americas interbred. This exchange of genetic material introduced new alleles into both populations, increasing genetic diversity and shaping traits in future generations. For example, the Métis are people of mixed European and Indigenous ancestry, and one of the three recognized Indigenous peoples in Canada.",
+    "links": []
+  },
+  {
+    "slide": 29,
+    "text": "Mutations\nA mutation is a random change in an organism’s DNA that can create new alleles. If a mutation provides an advantage (e.g., resistance to disease), individuals with the mutation are more likely to survive and reproduce. Over time, this can increase the frequency of the beneficial allele in the population. Mutations, in this regard, go hand in hand with natural selection.\nE.g. Mutations are one way for bacteria to become resistant to antibiotics. Some spontaneous mutations may make the bacterium resistant to an antibiotic. If we were to treat the bacterial population with that specific antibiotic, only the resistant bacteria will be able to multiply; the antibiotic selects for them. These bacteria can now increase in numbers and the end result is a population of mainly resistant bacteria.",
+    "links": []
+  },
+  {
+    "slide": 30,
+    "text": "Human Impact\nHuman activities like habitat fragmentation can prevent gene flow between split population, ultimately leading to decreased genetic diversity.\nPollution, and overhunting can reduce population sizes, leading to significant bottlenecks that can result in lower genetic diversity. \nA reduced gene pool and lower genetic diversity makes populations more vulnerable to diseases, environmental changes and other threats. With fewer alleles in the gene pool, the population has less ability to adapt, increase the risk of extinction. \n\nWildlife crossings are key strategies to help mitigate impacts of habitat fragmentation.",
+    "links": [
+      "http://www.youtube.com/watch?v=7L_q5VPloZE"
+    ]
+  }
+]

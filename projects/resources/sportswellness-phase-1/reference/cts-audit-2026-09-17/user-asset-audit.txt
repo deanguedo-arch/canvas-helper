@@ -1,0 +1,178 @@
+## Updated verdict: the course still needs fixes before independent student release
+
+With the assets supplied, I can be more specific: **the problem is no longer simply that I could not see the images. Several of the actual assets need correction, and the simulator gives incorrect instructional feedback in a reproducible situation.**
+
+The biggest issue is **consistency across formats**. Your written lessons often make careful distinctions, but some diagrams, PDF explanations and game messages revert to stronger, more absolute claims. For example, the lesson says process goals are *usually more directly controllable*, while the goal graphic says “100% controllable.” The lesson rejects a universal activation midpoint, while the reading’s answer key describes a “shared moderate optimum.” Those differences matter when students are using these resources to figure out the correct answer.    
+
+**Keep the main course design and most of the teaching. Do not add more content yet. Fix the contradictions, readability and completion workflow.**
+
+## 1. Image audit: three to keep, five to revise, one broken
+
+These are decisions about the **actual supplied graphics**, not just their captions.
+
+| Image                                      | Decision                                    | What I would change                                                                                                                                                                 |
+| ------------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Same situation. Different meaning.**     | **Keep the content.**                       | The demand, two possible interpretations and possible responses connect clearly. Give its small explanatory text more room or move that text into the webpage.                      |
+| **Body signals under pressure**            | **Keep the content.**                       | The image appropriately distinguishes possible signals from proof of anxiety. Keep the portrait as a visual anchor, but make the surrounding explanations readable without zooming. |
+| **Four models. Four different questions.** | **Keep the content; improve presentation.** | This is the strongest comparison graphic. Present individual models as students learn them, then use this four-panel version for comparison and review.                             |
+| **Activation continuum**                   | **Replace or repair.**                      | It is currently a decorative frame around a missing image.                                                                                                                          |
+| **Goal ladder**                            | **Revise.**                                 | Remove “100% controllable,” add concrete examples and clarify what the upward arrows mean.                                                                                          |
+| **Ideal Performance State learning map**   | **Revise.**                                 | Qualify the claim that changing interpretation changes the outcome. Consider using “Performance state,” rather than “Ideal Performance State,” as the centre.                       |
+| **Attention-field comparison**             | **Revise.**                                 | Keep the comparison, but make it explicitly task-dependent. Use the same sport scene across panels so students can compare what gets noticed—not different collections of objects.  |
+| **Stress-process loop**                    | **Revise, not replace.**                    | Clarify that the central “pivot point” belongs to Stage 2. Simplify the crowded wording and make the sequence easier to follow at normal display size.                              |
+| **Elite Operator Toolkit**                 | **Revise.**                                 | Use a more accessible title, shorten the text and align the claims with the more qualified explanations in the lesson.                                                              |
+
+### The activation continuum is genuinely incomplete
+
+The file `arousal-continuum.svg` exists, but it references another file:
+
+`phase1-arousal-continuum.png`
+
+That PNG is **not in the archive**. The result is a dark panel without the teaching diagram.
+
+This is an important packaging lesson: checking that the HTML can find an SVG is not enough. You also need to check whether that SVG depends on another file. **Make this graphic self-contained.**
+
+### The four-model comparison is worth preserving
+
+This figure distinguishes arousal from the state-anxiety scale used for IZOF, includes the dominant-response qualification for Drive Theory, and states the cognitive-anxiety condition beside the Catastrophe graph. It also explicitly says these are schematic predictions, not personal measurements. That is the direction I would use for the other diagrams. 
+
+My criticism is its **display size**, not its underlying content. A student should not have to decipher four tiny graphs before understanding the first one.
+
+### The goal ladder needs a precise correction
+
+The graphic labels process goals as:
+
+> “Mechanics and form — 100% controllable.” 
+
+Your written lesson is better: it describes process goals as actions that are **usually more directly controllable than the final result**. Use that wording consistently. 
+
+For teaching, I would also give each level an example from the same situation:
+
+**Outcome:** win the volleyball match.
+**Performance:** achieve a target serving percentage.
+**Process:** use the practised preparation routine before each serve.
+
+That lets students distinguish the categories through a concrete example rather than memorize three labels.
+
+### The learning map overstates what interpretation can do
+
+Its perception-of-control box says:
+
+> “Challenge vs. threat framing changes the outcome.” 
+
+That is stronger than the opening lesson, which correctly says the player may remain nervous and the result is not guaranteed. 
+
+A better replacement is:
+
+> **“How the performer interprets the situation can influence their attention and next action.”**
+
+Also, arrows from stress and anxiety directly into **Ideal Performance State** can be read as though those inputs produce the ideal state. A centre labelled **Performance state** would make this a clearer map of influences.
+
+### The toolkit needs less “elite operator” language
+
+“Elite Operator Toolkit,” “reset the stress loop,” “sends a safety signal” and “process goals reduce anxiety” make the graphic sound more certain and technical than the surrounding lesson. 
+
+For this course, I would call it **Performance Regulation Tools** and organize it around the question students actually need to answer:
+
+> **What do I notice, what adjustment fits, and what will I do next?**
+
+That also fits the breadth of REC1050 better than an exclusively elite-athlete framing: the official course description includes sport, artistic and academic performance. ([Learn Alberta Curriculum][1])
+
+## 2. The simulator should not be released in its current form
+
+**This is the most consequential new finding.**
+
+### It can tell students the wrong reason they failed
+
+I started the simulator and deliberately left the pointer stationary. The round ended after approximately **3.4 seconds** because the cursor did not track the moving target.
+
+At the end, the game displayed **60% activation** and still labelled that state **“Ideal Performance State.”** Nevertheless, its teaching feedback said the learner’s activation had drifted outside the ideal state and caused execution to break down. The screenshot shows those statements together. 
+
+**That is not a minor wording issue. The explanation contradicts the simulation’s own state.**
+
+A correct message for that particular result would be:
+
+> “This round ended because the cursor did not stay near the target. Your activation remained inside this game’s practice band. The tracking result does not tell us whether you regulated a real performance situation well.”
+
+The game needs separate feedback for **tracking loss**, **the upper activation limit** and **the lower activation limit**.
+
+### It names a model that its mechanics do not fully represent
+
+The game’s high-activation ending is labelled **“Catastrophe Phenomenon (Panic / Cognitive Overload).”** However, the inspected application logic triggers that ending from the activation variable reaching its upper limit; it does not separately model cognitive anxiety.
+
+Your written lesson explicitly teaches that the Catastrophe model concerns the combination of **high cognitive anxiety and high physiological arousal**. 
+
+**Choose one of two approaches:** make the game represent those separate conditions, or stop presenting its activation-limit ending as a demonstration of that model. For Grade 10, I would choose the simpler approach: describe it as a **fictional activation-and-attention exercise**.
+
+### The game currently rewards survival more clearly than understanding
+
+The main end screen emphasizes **Regulation Failure**, **Simulation Terminated**, survival time and score. Meanwhile, the course’s actual learning goal is to justify a response from the signs in a situation. Those are different tasks.
+
+My recommendation is to make the **guided scenario lab the default practice**. Retain the target-tracking game only as an optional activity after its feedback is repaired.
+
+A stronger required activity would use short rounds where students identify the signs, choose a response, explain their choice and interpret what happened. The moving target can add interest, but it should not become the main obstacle to demonstrating understanding.
+
+### Navigation and evidence handling also need work
+
+In the component test, a round continued and ended after I navigated to another course topic. After an ended round, the parent course’s game-attempt record was still empty. The separately typed debrief is saved, but that is not the same as collecting the game attempt itself.
+
+Add explicit **pause/resume and stop-on-topic-exit behaviour**, and decide exactly what game evidence should appear in My Work. Do not imply that activity records are collected unless the integration actually records them.
+
+## 3. The PDFs are not ready to serve as equivalent student explanations
+
+Both PDFs are linked in Resources as ways to revisit the lesson. That makes their content part of the student learning experience—not just background material for you. 
+
+I found several specific reasons to reconcile them before release.
+
+**The reading’s answer key retains an older Inverted-U explanation.** Page 12 says it assumes a shared moderate optimum. Your revised lesson deliberately warns students not to treat the drawing as one fixed midpoint for everybody. A student using the PDF to check their answer receives a different explanation.  
+
+**Slide 10 contains a visible graph-axis error.** The state-anxiety scale reads **30, 40, 40, 50, 60**. The duplicated 40 needs correction. I would also question whether this schematic needs numerical ticks at all when the lesson is not teaching a defined measurement scale. 
+
+**Slide 14 makes breathing sound like a literal override mechanism.** It uses “the only physiological function,” “manual override switch” and a direct safety signal that intercepts the stress response. That needs reconciliation with the lesson’s more restrained explanation of a comfortable routine followed by a task cue.  
+
+**My release recommendation: temporarily remove these PDFs from the student Resources page, or revise them against the approved lesson.** Keep the originals in your development materials. Do not solve this by telling students that the sources sometimes disagree and expecting them to sort it out.
+
+## 4. Styling: keep the theme, fix the reading widths
+
+The main school-branded layout does not need another redesign. However, **fitting on the screen is not the same as being readable**.
+
+In the rendering tests, the opening infographic displayed at approximately **495 pixels wide on a desktop layout** and **334 pixels wide on a phone layout**. Its source image is 1440 pixels wide, with substantial explanatory text inside it. That leaves much of the figure’s text noticeably smaller than the lesson text beside it.
+
+The four-model diagram has a similar problem. On the phone-sized view, selecting **Enlarge** initially produced a roughly **344-pixel-wide** fit-to-screen image. Students then have to select **Actual size** and scroll around it to read the details.
+
+**Zoom should help with details; it should not be required to read the main explanation.**
+
+The tablet-sized layout was worse in one important respect. At **768 pixels wide**, the desktop sidebar remained visible, and accumulated margins reduced the toolkit figure to approximately **162 pixels wide**. The page technically fit, but the figure was not a useful normal-size reading resource.
+
+I would change the sidebar breakpoint, remove repeated margins around nested figures, and place text-heavy diagrams in wider or stacked layouts. Where possible, keep explanatory sentences as live webpage text and let the image show the relationship.
+
+### The phone simulator needs a separate layout pass
+
+The mobile game stacks its meters, controls and playfield vertically. Its introduction is inside a fixed-height, clipped playfield, and the normal full-document rendering cuts off parts of the instructions and the start button.
+
+An automated click could reach the start button by scrolling containers, so I am **not** claiming it is impossible to start. I am saying the ordinary touch-facing presentation is not clear or comfortable enough for release.
+
+Move the introduction outside the clipped arena, keep Start visible, and keep the regulation controls close to the playfield.
+
+## 5. What this changes—and what it does not
+
+**The new upload resolves most of the earlier missing-file uncertainty.** The main HTML’s direct image, logo, PDF and game references now have matching files. The continuum’s missing nested image is the remaining confirmed asset dependency problem.
+
+**The earlier workflow findings remain.** In this pass, I reconfirmed that a response could exist in the course state while My Work remained blank after normal navigation. Supplying assets does not repair the main HTML’s saving, collection, checkpoint-reset or completion logic.
+
+**The video audit is unchanged.** This archive does not supply a replacement video collection. My earlier recommendations about curating the overlapping selections, avoiding unnecessarily adult-facing support material and checking playback in the real student environment still apply. I have not newly certified every external video’s playback or captions.
+
+## My priority order
+
+1. **Fix the blank continuum and incorrect simulator feedback.** Withhold the unreconciled PDFs from the student resource route.
+2. **Repair the work-saving, My Work, checkpoint and submission workflow** identified in the first audit.
+3. **Revise the five inconsistent figures and improve the presentation of the three stronger ones.**
+4. **Fix tablet and phone layouts**, make guided practice the default, then pilot in Brightspace with student accounts.
+
+**The course is closer in its written teaching than in its supporting media and software behaviour.** The next improvement should be one consistent, dependable learning experience—not more diagrams, another visual theme or a more elaborate game.
+
+I rendered the supplied media and tested the original game logic in isolated Chromium. Browser storage was emulated for these component checks; this was not a Brightspace student-account, real-persistence or physical-phone test.
+
+[Download the asset-audit handoff with screenshots and test evidence](sandbox:/mnt/data/Phase1_Asset_Audit_Addendum.zip) · [Read the handoff as Markdown](sandbox:/mnt/data/Phase1_Asset_Audit_Addendum.md)
+
+[1]: https://curriculum.learnalberta.ca/curriculum/en/pos/CTSREC/REC1050?utm_source=chatgpt.com "Sport Psychology 1 (REC1050) - New Learn Alberta"

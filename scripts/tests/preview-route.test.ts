@@ -184,6 +184,37 @@ test("isolated HTML previews receive transient opaque nodes and the bridge witho
   }
 });
 
+test("oversized HTML previews retain the Studio bridge when inspection decoration is bounded", async () => {
+  const slug = `preview-large-bridge-${Date.now()}`;
+  const paths = getProjectPaths(slug);
+  const source = `<!doctype html><html><head><script>window.courseScript = true;</script></head><body><main>${"x".repeat(8 * 1024 * 1024)}</main></body></html>`;
+
+  await removePath(paths.root);
+  try {
+    await ensureDir(paths.workspaceDir);
+    await (await import("node:fs/promises")).writeFile(paths.workspaceEntrypoint, source, "utf8");
+    const { response, getBody } = createResponseRecorder();
+
+    const handled = await handlePreviewRoutes(
+      `/preview/workspace/${slug}/index.html`,
+      {
+        method: "GET",
+        url: `/preview/workspace/${slug}/index.html`
+      } as IncomingMessage,
+      response,
+      { bridgeScriptPath: "/_canvas-helper/preview-bridge.js" }
+    );
+
+    assert.equal(handled, true);
+    assert.match(getBody(), /_canvas-helper\/preview-bridge\.js"/);
+    assert.doesNotMatch(getBody(), /data-canvas-helper-inspect-node=/);
+    assert.ok(getBody().indexOf("data-canvas-helper-preview-bridge") < getBody().indexOf("window.courseScript"));
+    assert.equal(await (await import("node:fs/promises")).readFile(paths.workspaceEntrypoint, "utf8"), source);
+  } finally {
+    await removePath(paths.root);
+  }
+});
+
 test("preview preflight accepts static and approved-runtime course pages", async () => {
   const slug = `preview-preflight-ready-${Date.now()}`;
   const paths = getProjectPaths(slug);

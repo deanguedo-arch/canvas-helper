@@ -1,0 +1,37 @@
+{
+  "chapter": 20,
+  "sourceArchive": "/Users/deanguedo/Downloads/Biology30_Chapters15_20_Complete_Handoff.zip",
+  "sourceArchiveSha256": "a4e61cb839586bf7c21772fc4682332afc44d08c9addbcdd9853bd303cc56be7",
+  "importedAt": "2026-09-18T02:36:23.050Z",
+  "workspaceHtmlSha256": "b66e007c5b96984fac76fdefa7919a77a7c0e0b9ea30766ac66a4372b3f33b0b",
+  "portableSha256": "68aff552d1d1620610ac5167120facdf1da4d6e3360ce0f7e9f549654327768f",
+  "styleHashes": {
+    "styles.css": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+    "assets/textbook-practice.css": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+  },
+  "status": "local-integrated-verified",
+  "deferred": [
+    "deployment",
+    "Brightspace",
+    "teacher/source acceptance",
+    "Studio readiness"
+  ],
+  "refreshedAt": "2026-09-18T14:33:39.727Z",
+  "verifiedAt": "2026-09-18T02:45:19.243Z",
+  "verification": {
+    "nativeOriginGroups": 19,
+    "suppliedChecks": 72,
+    "nativeReport": "meta/local-integration-verification/real-origin-results.json",
+    "suppliedEvidenceLimit": "Delivered suites use their own substitute storage; native-origin report proves actual browser storage separately.",
+    "workspaceVerifier": "npm run verify -- --project biology30-chapter-20 --mode workspace: passed",
+    "visualInspection": "Representative desktop/mobile preview and first-page print layouts inspected; not a complete crop/science audit."
+  },
+  "reviewDeployment": {
+    "url": "https://biology30pilot.web.app/biology30-ch20/index.html",
+    "reviewOnly": true,
+    "deployedAt": "2026-09-18T02:51:57.360Z",
+    "verifiedAt": "2026-09-18T02:52:22.095Z",
+    "indexSha256": "f0a8e5489d5c051536da57104fe19179ea52f3c5c6f6df1e7a33943d713ed817",
+    "releaseStatusUnchanged": true
+  }
+}

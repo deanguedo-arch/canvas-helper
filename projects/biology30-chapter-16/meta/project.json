@@ -1,0 +1,65 @@
+{
+  "id": "be42d228-0f74-4df1-8e97-186657020ad0",
+  "slug": "biology30-chapter-16",
+  "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapters15_20_Complete_Handoff.zip",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "raw",
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-16/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-16/raw/original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-09-18T02:36:20.488Z",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course",
+    "injection/integration"
+  ],
+  "canonicalEntry": "projects/biology30-chapter-16/workspace/index.html",
+  "canonicalSources": [
+    "projects/biology30-chapter-16/workspace/main.js",
+    "projects/biology30-chapter-16/workspace/assets",
+    "projects/biology30-chapter-16/workspace/styles.css",
+    "projects/biology30-chapter-16/meta/external-generation/authoring/course-config.json",
+    "projects/biology30-chapter-16/meta/external-generation/authoring/textbook-question-manifest.json",
+    "projects/biology30-chapter-16/workspace/index.html"
+  ],
+  "authoring": {
+    "driverId": "proposal-only-v1",
+    "familyId": "imported-workspace-v1",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  },
+  "generatedOutputs": [
+    "projects/biology30-chapter-16/workspace/portable/Biology30_Chapter16.html"
+  ],
+  "injectedComponents": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "generator": "chatgpt-pro",
+    "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapters15_20_Complete_Handoff.zip",
+    "sourceSha256": "a4e61cb839586bf7c21772fc4682332afc44d08c9addbcdd9853bd303cc56be7",
+    "importedAt": "2026-09-18T02:36:20.764Z"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": false,
+      "notes": "Local integration candidate; deployment and LMS verification deferred."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Teaching markup is owned by current workspace/index.html; interaction data by meta/external-generation/authoring/course-config.json and original questions by textbook-question-manifest.json. Initial lesson-content.json is historical and must not overwrite HTML. Portable is derived. Preserve script/data types, exact CSS, IDs, native saving and optional-progress isolation. Do not generic-reimport.",
+  "createdAt": "2026-09-18T02:36:20.484Z",
+  "updatedAt": "2026-09-18T02:36:20.488Z",
+  "title": "Biology 30 - Chapter 16",
+  "regenerateCommand": "cd projects/biology30-chapter-16/meta/external-generation && python3 scripts/build.py"
+}

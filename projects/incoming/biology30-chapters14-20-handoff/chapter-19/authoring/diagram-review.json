@@ -1,0 +1,323 @@
+[
+  {
+    "id": "ch19-allele-counts",
+    "title": "Count individuals and allele copies separately",
+    "lesson": 2,
+    "src": "./assets/figures/ch19-allele-counts.svg",
+    "alt": "This constructed sample contains 3 AA, 5 Aa and 2 aa individuals. Its A frequency is 11/20 and its a frequency is 9/20.",
+    "caption": "This constructed sample contains 3 AA, 5 Aa and 2 aa individuals. Its A frequency is 11/20 and its a frequency is 9/20. Constructed diploid sample: N = 10; allele copies = 20.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "AA genotype",
+      "B": "Aa genotype",
+      "C": "aa genotype",
+      "D": "Two allele copies per individual"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          165,
+          160
+        ],
+        "endpoint": [
+          165,
+          265
+        ]
+      },
+      "B": {
+        "letter": [
+          960,
+          160
+        ],
+        "endpoint": [
+          960,
+          265
+        ]
+      },
+      "C": {
+        "letter": [
+          1225,
+          640
+        ],
+        "endpoint": [
+          1225,
+          510
+        ]
+      },
+      "D": {
+        "letter": [
+          510,
+          650
+        ],
+        "endpoint": [
+          430,
+          510
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch19-hw-square",
+    "title": "Random pairing from an allele pool",
+    "lesson": 3,
+    "src": "./assets/figures/ch19-hw-square.svg",
+    "alt": "Under Hardy–Weinberg assumptions, allele frequencies p and q combine into p², pq, qp and q²; the two heterozygous outcomes add to 2pq.",
+    "caption": "Under Hardy–Weinberg assumptions, allele frequencies p and q combine into p², pq, qp and q²; the two heterozygous outcomes add to 2pq. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "p²",
+      "B": "pq",
+      "C": "pq",
+      "D": "q²"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          440,
+          398
+        ],
+        "endpoint": [
+          440,
+          398
+        ]
+      },
+      "B": {
+        "letter": [
+          810,
+          398
+        ],
+        "endpoint": [
+          810,
+          398
+        ]
+      },
+      "C": {
+        "letter": [
+          440,
+          603
+        ],
+        "endpoint": [
+          440,
+          603
+        ]
+      },
+      "D": {
+        "letter": [
+          810,
+          603
+        ],
+        "endpoint": [
+          810,
+          603
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch19-hw-method",
+    "title": "From recessive phenotype to expected counts",
+    "lesson": 4,
+    "src": "./assets/figures/ch19-hw-method.svg",
+    "alt": "The square-root inference requires the stated complete-dominance and Hardy–Weinberg assumptions.",
+    "caption": "The square-root inference requires the stated complete-dominance and Hardy–Weinberg assumptions. Constructed example — assume Hardy–Weinberg equilibrium.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Observed aa fraction",
+      "B": "Recessive allele frequency",
+      "C": "Other allele frequency",
+      "D": "Homozygous dominant frequency",
+      "E": "Heterozygote frequency",
+      "F": "Expected carrier count"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          125,
+          196
+        ],
+        "endpoint": [
+          125,
+          196
+        ]
+      },
+      "B": {
+        "letter": [
+          575,
+          196
+        ],
+        "endpoint": [
+          575,
+          196
+        ]
+      },
+      "C": {
+        "letter": [
+          1025,
+          196
+        ],
+        "endpoint": [
+          1025,
+          196
+        ]
+      },
+      "D": {
+        "letter": [
+          125,
+          446
+        ],
+        "endpoint": [
+          125,
+          446
+        ]
+      },
+      "E": {
+        "letter": [
+          575,
+          446
+        ],
+        "endpoint": [
+          575,
+          446
+        ]
+      },
+      "F": {
+        "letter": [
+          1025,
+          446
+        ],
+        "endpoint": [
+          1025,
+          446
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch19-drift",
+    "title": "Bottleneck and founder effect: different histories",
+    "lesson": 7,
+    "src": "./assets/figures/ch19-drift.svg",
+    "alt": "A bottleneck reduces an existing population; a founder event starts a new population from a small subset while the source can remain. Dot colours represent alleles, not fitness.",
+    "caption": "A bottleneck reduces an existing population; a founder event starts a new population from a small subset while the source can remain. Dot colours represent alleles, not fitness. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Bottleneck",
+      "B": "Founder effect"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          665,
+          175
+        ],
+        "endpoint": [
+          660,
+          295
+        ]
+      },
+      "B": {
+        "letter": [
+          1060,
+          570
+        ],
+        "endpoint": [
+          830,
+          575
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch19-geneflow",
+    "title": "Combine allele pools using their contributions",
+    "lesson": 8,
+    "src": "./assets/figures/ch19-geneflow.svg",
+    "alt": "Eighty residents at p = 0.25 and twenty immigrants at p = 0.75 contribute equally per breeder. Their combined A frequency is 70/200 = 0.35.",
+    "caption": "Eighty residents at p = 0.25 and twenty immigrants at p = 0.75 contribute equally per breeder. Their combined A frequency is 70/200 = 0.35. Constructed equal-contribution model — diploid autosomal locus.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Resident contribution",
+      "B": "Immigrant contribution",
+      "C": "p = 0.35"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          190,
+          175
+        ],
+        "endpoint": [
+          350,
+          300
+        ]
+      },
+      "B": {
+        "letter": [
+          1205,
+          175
+        ],
+        "endpoint": [
+          1060,
+          300
+        ]
+      },
+      "C": {
+        "letter": [
+          1050,
+          660
+        ],
+        "endpoint": [
+          900,
+          625
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch19-observed-expected",
+    "title": "Same allele frequencies, different genotype pattern",
+    "lesson": 5,
+    "src": "./assets/figures/ch19-observed-expected.svg",
+    "alt": "Observed counts of 40 AA, 20 Aa and 40 aa give p = q = 0.50. Hardy–Weinberg predicts 25, 50 and 25; the mismatch alone does not identify its cause.",
+    "caption": "Observed counts of 40 AA, 20 Aa and 40 aa give p = q = 0.50. Hardy–Weinberg predicts 25, 50 and 25; the mismatch alone does not identify its cause. Constructed counts — observed and model-predicted values are distinct.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Heterozygote deficit",
+      "B": "Same allele frequencies"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          60,
+          470
+        ],
+        "endpoint": [
+          600,
+          470
+        ]
+      },
+      "B": {
+        "letter": [
+          800,
+          715
+        ],
+        "endpoint": [
+          710,
+          610
+        ]
+      }
+    }
+  }
+]

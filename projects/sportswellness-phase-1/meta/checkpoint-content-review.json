@@ -1,13 +1,53 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "phase1-checkpoint-2026-09-14-r1",
-  "unchangedQuestionIds": ["phase1-q1", "phase1-q3", "phase1-q5", "phase1-q7", "phase1-q10"],
+  "contentVersion": "phase1-checkpoint-2026-09-17-r2",
+  "unchangedQuestionIds": [
+    "phase1-q1",
+    "phase1-q5",
+    "phase1-q7",
+    "phase1-q10"
+  ],
   "revised": [
-    {"id":"phase1-q2","reason":"Require evidence of a recurring tendency rather than infer trait anxiety from one event.","answerIndex":2,"source":"https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/trait-state.html"},
-    {"id":"phase1-q4","reason":"Describe appraisal as an influence without guaranteeing the later response or outcome.","answerIndex":1,"sourceRoute":"stress-loop"},
-    {"id":"phase1-q6","reason":"Use state-anxiety terminology consistently when assessing the introductory IZOF model.","answerIndex":1,"source":"https://www.qualitative-research.net/index.php/fqs/article/download/747/1618?inline=1"},
-    {"id":"phase1-q8","reason":"Judge attentional narrowing against the information required by the task rather than calling narrow attention a system fault.","answerIndex":0,"sourceRoute":"attention-coordination"},
-    {"id":"phase1-q9","reason":"Assess a gentle breathing-and-centering routine without the unsupported exclusivity claim.","answerIndex":0,"source":"https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/"}
+    {
+      "id": "phase1-q2",
+      "reason": "Require evidence of a recurring tendency rather than infer trait anxiety from one event.",
+      "answerIndex": 2,
+      "source": "https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/trait-state.html"
+    },
+    {
+      "id": "phase1-q4",
+      "reason": "Describe appraisal as an influence without guaranteeing the later response or outcome.",
+      "answerIndex": 1,
+      "sourceRoute": "stress-loop"
+    },
+    {
+      "id": "phase1-q6",
+      "reason": "Use state-anxiety terminology consistently when assessing the introductory IZOF model.",
+      "answerIndex": 1,
+      "source": "https://www.qualitative-research.net/index.php/fqs/article/download/747/1618?inline=1"
+    },
+    {
+      "id": "phase1-q8",
+      "reason": "Judge attentional narrowing against the information required by the task rather than calling narrow attention a system fault.",
+      "answerIndex": 0,
+      "sourceRoute": "attention-coordination"
+    },
+    {
+      "id": "phase1-q9",
+      "reason": "Assess a gentle breathing-and-centering routine without the unsupported exclusivity claim.",
+      "answerIndex": 0,
+      "source": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/"
+    },
+    {
+      "id": "phase1-q3",
+      "previousVersion": "phase1-checkpoint-2026-09-14-r1",
+      "originalWording": "A golfer reports butterflies, sweating, and muscle tension immediately before a decisive putt. According to the model used in this course, these are indicators of:",
+      "replacementWording": "A golfer says they feel nervous immediately before a decisive putt and reports butterflies, sweating, and muscle tension as part of that nervousness. Which course term describes these bodily sensations in this anxious moment?",
+      "answerIndex": 0,
+      "reason": "Bodily signs alone do not establish anxiety. Supply explicit nervousness context.",
+      "sourceRoute": "key-terms",
+      "contentVersion": "phase1-checkpoint-2026-09-17-r2"
+    }
   ],
   "policy": {
     "thresholdPercent": 70,
@@ -15,5 +55,6 @@
     "reporting": "browser-local-practice-only",
     "legacyScoresMigrated": false
   },
-  "note": "This targeted consistency review does not claim scientific validation of every checkpoint item. Original wording remains in meta/source-handoff/sportswellness-phase-1.json."
+  "note": "This targeted consistency review does not claim scientific validation of every checkpoint item. Original wording remains in meta/source-handoff/sportswellness-phase-1.json.",
+  "previousContentVersion": "phase1-checkpoint-2026-09-14-r1"
 }

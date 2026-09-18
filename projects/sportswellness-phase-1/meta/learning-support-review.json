@@ -10,11 +10,12 @@
   "canonicalOwner": "projects/sportswellness-phase-1/workspace/index.html",
   "implementation": {
     "topicBlocks": 12,
-    "resourceInstances": 33,
+    "resourceInstances": 20,
     "resourcesIndex": "runtime scan of [data-support-resource]",
     "youtubePlayer": "existing data-play-video runtime using youtube-nocookie.com and cc_load_policy=1",
     "nonYouTubeVideo": "direct link only",
-    "newSavedFields": 0
+    "newSavedFields": 0,
+    "originalResourceInstances": 33
   },
   "preservation": {
     "teachingTopics": 12,
@@ -295,5 +296,12 @@
       "url": "https://www.learningscientists.org/blog/2016/6/23-1",
       "resourceId": "r-retrieval"
     }
-  ]
+  ],
+  "auditUpdate": {
+    "date": "2026-09-17",
+    "withheldResources": "meta/withheld-resources.json",
+    "legacyPickerRemoved": true,
+    "pdfsWithheld": true,
+    "resourceAvailability": "external playback, captions and school-network access deferred"
+  }
 }

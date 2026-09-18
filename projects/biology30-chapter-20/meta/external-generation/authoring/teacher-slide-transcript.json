@@ -1,0 +1,206 @@
+[
+  {
+    "slide": 31,
+    "text": "Chapter 20\nPopulation Growth and Interactions",
+    "links": []
+  },
+  {
+    "slide": 32,
+    "text": "\nTOPICS\nSpecies, populations & communities\nPopulation density and distribution\nChange in population size\nGrowth rate vs. per capita growth rate\nCarrying capacity\nLogistic vs. exponential growth\nR-selected vs. K-selected life strategies\nDefense mechanisms\nSymbiotic relationships (mutualism vs. commensalism vs. parasitism)\nPrimary vs. secondary succession\nPioneer vs. climax community  \nTextbook pgs. 702-741",
+    "links": []
+  },
+  {
+    "slide": 33,
+    "text": "\nAnalyzing Populations\nRecall that..\na species is a group of organisms that can interbreed and produce fertile offspring\na population is a group of organisms belonging to the same species within a defined area at the same time\nA community is a group of different species living and interacting in the same area\nPopulations may be assessed according to their size (total number of organisms) or density (number of organisms per unit area).\n",
+    "links": []
+  },
+  {
+    "slide": 34,
+    "text": "Calculating Population Density\nDp = N / A or Dp = N / V\nPopulation density is defined as the number of individual organisms in a given area (or volume for organisms exclusively living in water or air)",
+    "links": []
+  },
+  {
+    "slide": 35,
+    "text": "Practice problems\nA park has a population of 500 rabbits spread across an area of 25 square kilometers. What is the population density of rabbits per square kilometer?\n\nExample: A field with an area of 100 m2 is populated by an average of 155 gophers. What is the population density of gophers in the field?",
+    "links": []
+  },
+  {
+    "slide": 36,
+    "text": "Practice problems\nA fish tank contains 120 fish in a water volume of 60 cubic meters. What is the population density of fish per cubic meter?\n\n\n\n\n\nThe density of a population of bears is 2.3 bears/km2. If the bears are distributed over an area of 50 km2, then what is their total population size?",
+    "links": []
+  },
+  {
+    "slide": 37,
+    "text": "Patterns of Population Distribution\nPopulation distribution refers to the patterns of distribution of a population in a given area. There are three main patterns:\nClumped\nRandom\nUniform  \n\n",
+    "links": []
+  },
+  {
+    "slide": 38,
+    "text": "Change in Population Size\nFour processes influence the number of individuals in a given population:\nBirth rate or natality (n)\nImmigration (i) (moving into the population)\nDeath rate or mortality (m)\nEmigration (e) (moving out of the population)\nΔN = [n+i] - [m+e]\n\nThe change in population over time (ΔN) may be determined by subtracting the number of individuals that leave a population  (m+e) from the number of individuals that join (n+i). ",
+    "links": []
+  },
+  {
+    "slide": 39,
+    "text": "Open population: A population where individuals can move in and out through immigration and emigration, influencing population size and genetic diversity.\nE.g A herd of wildebeest in the savanna, where individuals can migrate in and out of the group, influencing the population size.\n\nClosed population: A population where there is no immigration or emigration, so changes in size depend only on births and deaths.\nA population of fish in a remote, isolated pond, where no individuals can enter or leave, and the population size is determined by births and deaths within the pond.\nOpen vs. Closed Populations",
+    "links": []
+  },
+  {
+    "slide": 40,
+    "text": "Growth Rate\nE.g. In 2012, the population of gophers in a field was 170. By 2018, the population had grown to 245.\n\nThe growth rate of this gopher population is (245-170 gophers)/6 years or 12.5 gophers/year.\ngr = ΔN / Δt\nThe rate at which a population grows can be determined by comparing the change in number of individuals over a defined period of time. \nWhere:\ngr = growth rate\nΔN = change in population size \n Δt = change in time ",
+    "links": []
+  },
+  {
+    "slide": 41,
+    "text": "Per Capita Growth Rate\nE.g. In 2012, the population of gophers in a field was 170. By 2018, the population had grown to 245.\nThe per capita growth rate of this gopher population between 2012-2018 is (245-170 gophers)/170 gophers or 0.441.\nThe rate at which a population changes per individual over a given time period. It measures the average contribution of each individual to the overall population growth.\ncgr = ΔN / N\nWhere:\ncgr = per capita growth rate\nΔN = change in population size \n N = initial population size",
+    "links": []
+  },
+  {
+    "slide": 42,
+    "text": "Practice:\nIn 1995, the population of beavers in Red Deer was determined to be 205. Red Deer covers an area of approximately 70 km2. By 2015, 195 of those beavers had died, and 240 beavers were born. 8 beavers left the area, and 11 joined. \n\nDetermine the population density of beavers in Red Deer in 1995.\n\nDetermine the change in beaver population size between 1995 and 2015.\n\nDetermine the new beaver population size in 2015.\nD = N/A = 205/70 = 2.9 gophers/km2\nΔN = [n+i] - [m+e]\nΔN  = [240+11] - [195+8] = 251-203 = +48 → population increased by 48 gophers\n\n205+48 = 253 gophers",
+    "links": []
+  },
+  {
+    "slide": 43,
+    "text": "Practice:\nIn 1995, the population of beavers in Red Deer was determined to be 205. Red Deer covers an area of approximately 70 km2. By 2015, 195 of those beavers had died, and 240 beavers were born. 8 beavers left the area, and 11 joined. \n4. Determine the growth rate of the beaver population between 1995 and 2015.\n\n5. Determine the per capita growth rate of beavers between 1995 and 2015.\n\n6. Determine the new population density of beavers in 2015.\n\ngr = ΔN / Δt\ngr = 48 gophers/20 years = 2.4 gophers/year\ncgr = ΔN / N\ngr = 48 gophers/205 gophers = 0.23\nD = N/A = 251/70 = 3.6 gophers/km2",
+    "links": []
+  },
+  {
+    "slide": 44,
+    "text": "The carrying capacity (K) of a population is the theoretical maximum number of individuals that can be supported in a given area with a limited number of resources (i.e. environmental resistance): \n\nCarrying Capacity & Growth Models\nThe pattern of population growth that results from  carrying capacity is a sigmoidal curve (S-shaped) known as a logistical growth pattern\nCauses of fluctuations include density-dependent factors (biotic factors such as competition, predation and disease) and density-independent factors (typically abiotic factors such as floods, drought)\nLag phase vs. log phase vs. stationary phase?\n\n",
+    "links": []
+  },
+  {
+    "slide": 45,
+    "text": "S-Shaped/Logistic Growth\nWe can observe three key phases during logistic growth:\nLag phase: The period of slow or no population growth as organisms adapt to their environment.\nlog/exponential phase:The period of exponential growth where the population increases rapidly due to abundant resources.\nStationary phase: The period where population growth stabilizes as resources become limited and birth rates equal death rates.",
+    "links": []
+  },
+  {
+    "slide": 46,
+    "text": "S-Shaped/Logistic Growth\nDensity-dependent limiting factors, that become stronger as the population size increases, such as competition for resources, predation, disease, and overcrowding. Typically biotic factors. \nDensity-independent limiting factors, that affect populations regardless of their size, such as natural disasters, weather events, and human activities. TYpically abiotic factors.\n\n\nFluctuations in the stationary phase are caused by changes in the limiting factors such as resources, waste buildup, and interactions like competition, which affect birth and death rates. These can be categorized as:",
+    "links": []
+  },
+  {
+    "slide": 47,
+    "text": "",
+    "links": []
+  },
+  {
+    "slide": 48,
+    "text": "\nThe pattern of population growth that results from a lack of carrying capacity (unlimited resources or low environmental resistance) is a J-shaped curve known as exponential growth.\nThere is a lag phase, and a log phase, without a stationary phase. \nThese populations often grow indefinitely, until a resource runs out at which point they crash. \n\n\n\n\nJ-Shaped/Exponential Growth",
+    "links": []
+  },
+  {
+    "slide": 49,
+    "text": "\nhttps://ed.ted.com/lessons/what-is-the-tragedy-of-the-commons-nicholas-amendolare?utm_source=TED-Ed+Subscribers&utm_campaign=cad2e3b2a8-2013_09_219_19_2013&utm_medium=email&utm_term=0_1aaccced48-cad2e3b2a8-48544029&mc_cid=cad2e3b2a8&mc_eid=19c2ac3d40 \nExtra: Human Population Growth",
+    "links": [
+      "http://www.youtube.com/watch?v=E8dkWQVFAoA",
+      "https://ed.ted.com/lessons/what-is-the-tragedy-of-the-commons-nicholas-amendolare?utm_source=TED-Ed+Subscribers&utm_campaign=cad2e3b2a8-2013_09_219_19_2013&utm_medium=email&utm_term=0_1aaccced48-cad2e3b2a8-48544029&mc_cid=cad2e3b2a8&mc_eid=19c2ac3d40"
+    ]
+  },
+  {
+    "slide": 50,
+    "text": "Biotic potential (r) is the maximum rate at which a population can grow under ideal conditions, with unlimited resources and no limiting factors like disease or predation.\nBased on the resources available and adaptations an organism has to its environment, species tend to invest energy differently, leading to two types of predictable life strategies: r-selected and K-selected.\n\n\nLife Strategies\nAs well, organisms tend to fall in one of three survivorship categories:",
+    "links": []
+  },
+  {
+    "slide": 51,
+    "text": "R-selected strategies\nGoes for quantity over quality\nshort lifespan & early reproductive age\nsmall body size\nproduce large numbers of offspring\nreproduce quickly\noften display exponential growth (J-shaped)\nHigh biotic potential\n\n\n\n\n",
+    "links": []
+  },
+  {
+    "slide": 52,
+    "text": "\nGoes for quality over quantity\nlong lifespan & late reproductive age\nlarge body size\nproduce small numbers of offspring \noften display logistic growth (S-shaped)\nreproduce less often\nlong gestation periods\nLow biotic potential\n\n\n\n\n\n\nK-selected strategies",
+    "links": []
+  },
+  {
+    "slide": 53,
+    "text": "‘Quantity over quality’\n‘Quality over quantity’",
+    "links": []
+  },
+  {
+    "slide": 54,
+    "text": "It is a Continuum\nSpecies often display traits from both r-selected and K-selected strategies depending on their environment and life history.\nFor example:\nSea turtles lay many eggs (r-selected), but only a few survive to adulthood, where they live long and reproduce multiple times (K-selected).\nThis blend allows species to adapt and survive across different ecological conditions.\nDon’t worry, on an assessment it should be fairly obvious which category the species belongs in, and there should be a best answer. ",
+    "links": []
+  },
+  {
+    "slide": 55,
+    "text": " Re-cap\nPopulation Ecology\nr and K selection",
+    "links": [
+      "http://www.youtube.com/watch?v=PQ-CQ3CQE3g",
+      "http://www.youtube.com/watch?v=Bu6ouKt9zhs"
+    ]
+  },
+  {
+    "slide": 56,
+    "text": "Interactions and relationships between species play an important role in population dynamics by affecting birth rates, death rates, migration, and resource availability, ultimately shaping the size and structure of populations over time. We will look at the following:\nproducer-consumer relationships\npredator-prey relationships\nSymbiotic relationships:\nCommensalism, mutualism and parasitism\nCompetition:\nIntraspecific and interspecific\nSpecies Interactions and Relationships",
+    "links": []
+  },
+  {
+    "slide": 57,
+    "text": "Consumer-producer relationship\ninvolves producers, like plants, creating energy through photosynthesis, which consumers, such as animals, rely on for food. \ninteraction drives energy transfer within ecosystems and supports the survival of all organisms. It establishes the base of food chains, connecting primary energy sources to higher trophic levels.",
+    "links": []
+  },
+  {
+    "slide": 58,
+    "text": "Predator-prey relationship\nOne organism, the predator, hunts and feeds on another organism, the prey\nPredator-prey relationships play a critical role in maintaining ecosystem balance, as predators regulate prey populations, preventing overgrazing or overpopulation. \nalso drives natural selection, as both predators and prey evolve adaptations to outcompete each other.",
+    "links": [
+      "http://www.youtube.com/watch?v=J15GK38OYyA"
+    ]
+  },
+  {
+    "slide": 59,
+    "text": "Species do not live and evolve in isolation. Predation and interspecific competition for resources can help shape evolutionary change in many ways, e.g.:\n\nDefense Mechanisms\n*You don’t have to memorize specific defense mechanisms. Just appreciate their existence and be able to analyze and answer questions that may describe these for you.\n            Get protection               Get big/scary                 Get fast                     Camouflage\t\tMimicry",
+    "links": [
+      "http://www.youtube.com/watch?v=d6Q8F2dShFs"
+    ]
+  },
+  {
+    "slide": 60,
+    "text": "Competition for resources (food, shelter, mates) is one of the main factors that limits population growth. \nCompetition \nCompetition may exist:\n\nwithin a species → intraspecific competition\nE.g. Two lions competing for a mate\n\nbetween different species → interspecific competition\nE.g. a cedar tree and a spruce tree competing for sunlight \n",
+    "links": []
+  },
+  {
+    "slide": 61,
+    "text": "The word symbiosis comes from the Greek language and can be broken down into two main components:\n\"Sym-\" – meaning \"together\" or \"with\". \n\"-biosis\" – meaning \"living\" or \"life\". \nThus, symbiosis essentially refers to \"living together\" or \"coexistence,\" especially in a context where two organisms of different species live in close physical proximity, often to the mutual benefit (though not always).\n Symbiotic Relationships",
+    "links": []
+  },
+  {
+    "slide": 62,
+    "text": " Three Types of Symbiotic Relationships\nMutualism (++) \nBoth organisms benefit from the relationship. \nExample: Bees and flowers. Bees get nectar, and flowers get pollinated.\nCommensalism (+0) \n One organism benefits, and the other is neither helped nor harmed. \nExample: Small plants called epiphytes and grow on large tree branches. Epiphytes depend on their hosts for structural support but do not derive nourishment from them or harm them in any way.\nParasitism (+–) \n One organism benefits at the expense of the other. \nExample: A tick feeding on a dog. The tick benefits, while the dog is harmed.",
+    "links": []
+  },
+  {
+    "slide": 63,
+    "text": "                Mutualism\t \t\tCommensalism\t\t       Parasitism \n\n\n\n\n",
+    "links": [
+      "http://www.youtube.com/watch?v=rNjPI84sApQ"
+    ]
+  },
+  {
+    "slide": 64,
+    "text": "Succession\nSuccession is the process by which ecosystems change and develop over time. \nIt involves a series of stages where different communities of organisms replace one another until a stable, mature ecosystem, known as a climax community, is established.\nTwo types: Primary Succession and Secondary Succession",
+    "links": []
+  },
+  {
+    "slide": 65,
+    "text": "Primary succession occurs in an area where no previous community existed (i..e. starting from scratch)\nTypically happens in places where the land is newly formed or exposed, such as after a volcanic eruption that creates new land, on a newly exposed area due to a receding glacier, or on bare rock where soil hasn’t formed yet. \nFirst species to colonize the area are usually pioneer species, like lichens or mosses, which can grow on bare rock and help break it down into soil. Over time, this soil becomes thick enough to support larger plants like grasses, followed by shrubs and eventually trees. As the environment develops, the ecosystem becomes more complex, with a variety of species.\nOverall slower process\nPrimary Succession",
+    "links": []
+  },
+  {
+    "slide": 66,
+    "text": "\nSecondary succession occurs in an area where previous community existed, but has been destroyed, such as by fire (i.e. starting over)\nHappens in places where soil is already present.\nProcess begins with grasses and small plants growing back, follow by shrubs, larger trees, etc. \nOverall faster process\nSecondary Succession",
+    "links": []
+  },
+  {
+    "slide": 67,
+    "text": "",
+    "links": [
+      "http://www.youtube.com/watch?v=uqEUzgVAF6g"
+    ]
+  },
+  {
+    "slide": 68,
+    "text": "Congratulations! You have gone through all the learning for Bio 30!! \n\nAlmost at the finish line!",
+    "links": []
+  }
+]

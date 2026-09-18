@@ -1270,7 +1270,7 @@ export function renderPilot2Gate1(input: RenderInput) {
   <details class="nav-group" open><summary>${icon("practice")}<span>Practice &amp; Review</span></summary><div class="nav-links">${navLink("chapter-11-practice", "Chapter 11 Practice")}<span class="nav-link" aria-disabled="true">Chapter 12 Practice</span><span class="nav-link" aria-disabled="true">Chapter 13 Practice</span><span class="nav-link" aria-disabled="true">Review Seminar</span><span class="nav-link" aria-disabled="true">Final Practice</span></div></details>
   <details class="nav-group" open><summary>${icon("collection")}<span>Process Collection</span></summary><div class="nav-links">${navLink("process-collection", "Saved work")}${navLink("core-vocabulary", "Core Vocabulary")}${navLink("model-lab", "Models and Data Lab")}</div></details>
   <details class="nav-group" open><summary>${icon("resources")}<span>Resources</span></summary><div class="nav-links">${navLink("textbook-library", "Textbook Library")}${navLink("video-library", "Video Library")}${navLink("glossary-and-data", "Glossary and Data")}${navLink("sources-and-credits", "Sources and Credits")}</div></details>
-</nav><button class="button sidebar-exit" type="button" onclick="window.dispatchEvent(new Event('beforeunload'))">Save and Exit</button></aside><button class="menu-scrim" type="button" hidden aria-label="Close course menu"></button><main class="main" id="course-main" tabindex="-1"><div class="course-frame">
+</nav></aside><button class="menu-scrim" type="button" hidden aria-label="Close course menu"></button><main class="main" id="course-main" tabindex="-1"><div class="course-frame">
 ${renderOverview(input.lessons)}
 ${renderLesson1(lessonById["lesson-01"], videos)}
 ${renderLesson3(lessonById["lesson-03"], videos)}
@@ -1283,7 +1283,7 @@ ${renderVideoLibrary(videos)}
 ${renderModelLab()}
 ${renderGlossary(input.vocabularyEntries)}
 ${renderSources()}
-</div></main><button class="button save-exit" type="button" onclick="window.dispatchEvent(new Event('beforeunload'))">Save and Exit</button><p class="toast" data-save-toast aria-live="polite"></p><dialog class="figure-dialog" data-figure-dialog><div class="dialog-head"><h2>Figure</h2><button class="button button--secondary" type="button" data-close-dialog>Close</button></div><div class="dialog-body"></div></dialog><script>${runtime()}</script></body></html>`;
+</div></main><p class="toast" data-save-toast aria-live="polite"></p><dialog class="figure-dialog" data-figure-dialog><div class="dialog-head"><h2>Figure</h2><button class="button button--secondary" type="button" data-close-dialog>Close</button></div><div class="dialog-body"></div></dialog><script>${runtime()}</script></body></html>`;
   return { html, learnerRoutes: gate1LearnerRoutes, guidedItems: guidedItems.filter((item) => ["lesson-01", "lesson-03", "lesson-13"].includes(item.lessonId ?? "")), chapter11Items };
 }
 
@@ -1345,7 +1345,7 @@ export function renderPilot2Full(input: RenderInput) {
   <details class="nav-group" open><summary>${icon("practice")}<span>Practice &amp; Review</span></summary><div class="nav-links">${navLink("chapter-11-practice", "Chapter 11 Practice")}${navLink("chapter-12-practice", "Chapter 12 Practice")}${navLink("chapter-13-practice", "Chapter 13 Practice")}${navLink("review-seminar", "Review Seminar")}${navLink("final-practice", "Final Practice")}</div></details>
   <details class="nav-group" open><summary>${icon("collection")}<span>Process Collection</span></summary><div class="nav-links">${navLink("process-collection", "Saved work")}${navLink("core-vocabulary", "Core Vocabulary")}${navLink("advanced-learning", "Advanced Learning")}${navLink("model-lab", "Models and Data Lab")}</div></details>
   <details class="nav-group" open><summary>${icon("resources")}<span>Resources</span></summary><div class="nav-links">${navLink("textbook-library", "Textbook Library")}${navLink("video-library", "Video Library")}${navLink("glossary-and-data", "Glossary and Data")}${navLink("sources-and-credits", "Sources and Credits")}</div></details>
-</nav><button class="button sidebar-exit" type="button" onclick="window.dispatchEvent(new Event('beforeunload'))">Save and Exit</button></aside><button class="menu-scrim" type="button" hidden aria-label="Close course menu"></button><main class="main" id="course-main" tabindex="-1"><div class="course-frame">
+</nav></aside><button class="menu-scrim" type="button" hidden aria-label="Close course menu"></button><main class="main" id="course-main" tabindex="-1"><div class="course-frame">
 ${renderOverview(input.lessons)}
 ${renderLesson1(lessonById["lesson-01"], videos)}
 ${remainingLesson("lesson-02")}
@@ -1373,7 +1373,7 @@ ${renderVideoLibrary(videos, fullLearnerRoutes)}
 ${renderModelLab()}
 ${renderGlossary(input.vocabularyEntries)}
 ${renderSources()}
-</div></main><button class="button save-exit" type="button" onclick="window.dispatchEvent(new Event('beforeunload'))">Save and Exit</button><p class="toast" data-save-toast aria-live="polite"></p><dialog class="figure-dialog" data-figure-dialog><div class="dialog-head"><h2>Figure</h2><button class="button button--secondary" type="button" data-close-dialog>Close</button></div><div class="dialog-body"></div></dialog><script>${runtime()}</script></body></html>`;
+</div></main><p class="toast" data-save-toast aria-live="polite"></p><dialog class="figure-dialog" data-figure-dialog><div class="dialog-head"><h2>Figure</h2><button class="button button--secondary" type="button" data-close-dialog>Close</button></div><div class="dialog-body"></div></dialog><script>${runtime()}</script></body></html>`;
   return {
     html: (input.wordData?renderAWordPage(html,input.wordData):html).replace('</body>', renderAVocabularyPanel(input.vocabularyEntries) + '</body>'),
     learnerRoutes: [...fullLearnerRoutes],

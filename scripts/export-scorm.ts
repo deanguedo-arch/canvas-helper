@@ -1,4 +1,4 @@
-import { getStringFlag, parseArgs } from "./lib/cli.js";
+import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { exportProjectToScormPackage } from "./lib/exporter.js";
 import { readDeviationAcceptanceFromCli } from "./lib/intelligence/apply/deviation-gate.js";
 import { normalizeScormVersion, type ScormVersion } from "./lib/scorm.js";
@@ -6,7 +6,7 @@ import { normalizeScormVersion, type ScormVersion } from "./lib/scorm.js";
 function resolveScormVersion(input: string | undefined): ScormVersion {
   const normalized = normalizeScormVersion(input ?? "2004");
   if (!normalized) {
-    throw new Error('Usage: npm run export:scorm -- --project <slug> [--version 2004|1.2]');
+    throw new Error('Usage: npm run export:scorm -- --project <slug> [--version 2004|1.2] [--review-only]');
   }
 
   return normalized;
@@ -17,18 +17,20 @@ async function main() {
   const projectSlug = getStringFlag(parsedArgs, "project") ?? parsedArgs.positionals[0];
   const authoringAcceptance = readDeviationAcceptanceFromCli(parsedArgs);
   if (!projectSlug) {
-    throw new Error('Usage: npm run export:scorm -- --project <slug> [--version 2004|1.2]');
+    throw new Error('Usage: npm run export:scorm -- --project <slug> [--version 2004|1.2] [--review-only]');
   }
 
   const version = resolveScormVersion(getStringFlag(parsedArgs, "version"));
   const result = await exportProjectToScormPackage(projectSlug, version, {
-    authoringAcceptance
+    authoringAcceptance,
+    reviewOnly: hasFlag(parsedArgs, "review-only")
   });
   console.log(
     `Exported "${result.projectSlug}" SCORM ${result.version} package to ${result.zipPath} ` +
       `(${result.fileCount} file(s) in ${result.exportDir}).`
   );
-  console.log(`Tracked storage keys: ${result.storageKeys.join(", ")}`);
+  if (hasFlag(parsedArgs, "review-only")) console.log("Review-only package: authoring/release status and production export approval are unchanged. Photo authentication and live LMS verification are pending.");
+  console.log(result.trackingReport.stateTransport === "course-state-v1" ? "Saved state: versioned course snapshot; unrelated browser storage is excluded." : `Tracked storage keys: ${result.storageKeys.join(", ")}`);
   console.log(`SCORM tracking (${result.trackingReport.source}): ${JSON.stringify(result.trackingReport.features)}`);
   for (const warning of result.trackingReport.warnings) console.warn(`SCORM tracking: ${warning}`);
 }

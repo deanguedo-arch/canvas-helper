@@ -67,6 +67,12 @@ test("real export packages tracking evidence and preserves the workspace and pri
     const bridge = execFileSync("unzip", ["-p", result.zipPath, "scorm-bridge.js"], { encoding: "utf8" });
     assert.match(bridge, /science-tracking/);
     assert.match(bridge, /cmi.session_time/);
+    const manifestBefore = await readFile(paths.manifestPath, "utf8");
+    const review = await exportProjectToScormPackage(slug, "2004", { reviewOnly: true });
+    assert.match(review.zipPath, /-review\.zip$/);
+    assert.equal(await readFile(paths.manifestPath, "utf8"), manifestBefore);
+    assert.equal(JSON.parse(execFileSync("unzip", ["-p", review.zipPath, "review-only.json"], {encoding: "utf8"})).reviewOnly, true);
+    execFileSync("unzip", ["-tq", review.zipPath]);
     const zipBefore = await readFile(result.zipPath);
     const reportBefore = await readFile(path.join(result.exportDir, "scorm-tracking-report.json"));
     await writeFile(path.join(paths.workspaceDir, "scorm-tracking.json"), '{"schemaVersion":99}');

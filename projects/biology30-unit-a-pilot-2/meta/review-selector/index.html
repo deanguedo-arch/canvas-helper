@@ -22,22 +22,38 @@
 </head>
 <body>
   <header class="library-header">
-    <img class="library-logo" src="./assets/brand/next-step-logo-transparent.png" alt="">
-    <div class="library-heading"><strong>Course library</strong><span>Teacher review · two courses</span></div>
-    <div class="library-picker"><label for="course-select">Course</label><select id="course-select" aria-label="Choose a course"><option value="biology30-a">Biology 30 — Unit A (Pilot 3)</option><option value="chemistry30-a-pilot">Chemistry 30 — Unit A (Pilot)</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
+    <div class="library-heading"><strong>Course library</strong><span>Teacher review · eleven courses</span></div>
+    <div class="library-picker"><label for="course-select">Course</label><select id="course-select" aria-label="Choose a course"><option value="biology30-a">Biology 30 — Unit A (Pilot 3)</option><option value="biology30-ch12">Biology 30 — Chapter 12</option><option value="biology30-ch13">Biology 30 — Chapter 13</option>
+      <option value="biology30-ch14">Biology 30 — Chapter 14</option>
+      <option value="biology30-ch15">Biology 30 — Chapter 15</option>
+      <option value="biology30-ch16">Biology 30 — Chapter 16</option>
+      <option value="biology30-ch17">Biology 30 — Chapter 17</option>
+      <option value="biology30-ch18">Biology 30 — Chapter 18</option>
+      <option value="biology30-ch19">Biology 30 — Chapter 19</option>
+      <option value="biology30-ch20">Biology 30 — Chapter 20</option>
+      <option value="chemistry30-a-pilot">Chemistry 30 — Unit A (Pilot)</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
   </header>
   <p class="library-note">Teacher review builds · curriculum reconciliation, teacher approval, and Brightspace release remain separate steps.</p>
   <main>
     <p class="intro">This is a teacher-review preview. Choose a course above to open it.</p>
     <section class="viewer" aria-label="Selected course preview">
-      <div class="viewer-head"><p id="selection-label">Biology 30 — Unit A: Nervous and Endocrine Systems</p><a id="open-link" href="./biology30-a/index.html?v=20260916-1" target="_blank" rel="noopener">Open in a new tab</a></div>
-      <iframe id="course-frame" title="Selected Biology course" src="./biology30-a/index.html?v=20260916-1"></iframe>
+      <div class="viewer-head"><p id="selection-label">Biology 30 — Unit A: Nervous and Endocrine Systems</p><a id="open-link" href="./biology30-a/index.html?v=20260917-8" target="_blank" rel="noopener">Open in a new tab</a></div>
+      <iframe id="course-frame" title="Selected Biology course" src="./biology30-a/index.html?v=20260917-8"></iframe>
     </section>
   </main>
   <script>
-    const reviewVersion='20260916-1';
+    const reviewVersion='20260917-9';
     const courses={
       'biology30-a':{label:'Biology 30 — Unit A: Pilot 3',src:`./biology30-a/index.html?v=${reviewVersion}`,local:'../../../biology30-unit-a-pilot-3/workspace/index.html'},
+      'biology30-ch12':{label:'Biology 30 — Chapter 12',src:`./biology30-ch12/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-12/workspace/index.html'},
+      'biology30-ch13':{label:'Biology 30 — Chapter 13',src:`./biology30-ch13/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-13/workspace/index.html'},
+      'biology30-ch14':{label:'Biology 30 — Chapter 14',src:`./biology30-ch14/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-14/workspace/index.html'},
+      'biology30-ch15':{label:'Biology 30 — Chapter 15',src:`./biology30-ch15/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-15/workspace/index.html'},
+      'biology30-ch16':{label:'Biology 30 — Chapter 16',src:`./biology30-ch16/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-16/workspace/index.html'},
+      'biology30-ch17':{label:'Biology 30 — Chapter 17',src:`./biology30-ch17/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-17/workspace/index.html'},
+      'biology30-ch18':{label:'Biology 30 — Chapter 18',src:`./biology30-ch18/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-18/workspace/index.html'},
+      'biology30-ch19':{label:'Biology 30 — Chapter 19',src:`./biology30-ch19/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-19/workspace/index.html'},
+      'biology30-ch20':{label:'Biology 30 — Chapter 20',src:`./biology30-ch20/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-20/workspace/index.html'},
       'chemistry30-a-pilot':{label:'Chemistry 30 — Unit A: Pilot',src:`./chemistry30-a-pilot/index.html?v=${reviewVersion}`,local:'../../../chemistry30-unit-a-pilot/workspace/index.html'}
     };
     const frame=document.querySelector('#course-frame'), label=document.querySelector('#selection-label'), link=document.querySelector('#open-link');

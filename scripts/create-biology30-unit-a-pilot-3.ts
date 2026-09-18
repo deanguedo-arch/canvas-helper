@@ -81,7 +81,7 @@ try{
  doc('.sidebar-title').text('Biology 30 — Unit A: Pilot 3');doc('.sidebar-title').attr('data-canvas-helper-course-title','');
  const nav=doc('#course-sidebar nav').empty();
  for(const [title,items] of [['Start',[['overview','Overview']]],['Learn',[['lesson-01','1. Neuron Structure']]],['Practice & Review',[['practice','Memorization practice'],['lesson-check','Lesson check'],['topic-review','Topic review']]],['Process Collection',[['process-collection','All My Work'],['core-vocabulary','Core Vocabulary']]],['Resources',[['textbook-library','Textbook Library'],['video-library','Video Library'],['sources-and-credits','Sources and Credits']]]] as [string,string[][]][]){nav.append(`<details class="nav-group" open><summary>${title}</summary><div class="nav-links">${items.map(([id,label])=>`<a class="nav-link" href="#${id}" data-page-target="${id}">${label}</a>`).join('')}</div></details>`);}
- doc('[data-save-exit],.save-exit,.sidebar-exit').remove();doc('#course-sidebar').append('<div class="sidebar-footer"><button type="button" data-save-exit>Save and Exit</button></div>');
+ doc('[data-save-exit],.save-exit,.sidebar-exit').remove();doc('#course-sidebar').append('<div class="sidebar-footer"></div>');
  doc('body').append(`<main class="main" id="course-main"><div class="course-frame">${pages.join('')}</div></main><p class="local-save-status" data-local-status role="status">Opening local saved work…</p>`);
  doc('body').append(`<script type="application/json" id="pilot3-words">${JSON.stringify({data:{...wordData,wordFrayers:{},choicePolicy:'any-eight'},schema:wordSchema}).replace(/</g,'\\u003c')}</script><script src="assets/pilot3-runtime.js"></script>`);
  // Pre-link in canonical HTML so the runtime does not replace editable lesson prose.

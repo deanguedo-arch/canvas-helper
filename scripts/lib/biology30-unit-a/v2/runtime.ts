@@ -82,7 +82,7 @@ function renderBiology30Runtime(input: {
   fullCourse: boolean;
   suspendDataSchema?: Biology30SuspendDataSchema;
 }) {
-  return `<div class="bio-global-save" data-bio-global-save aria-live="polite">Progress saves on this device.</div>${input.fullCourse ? '<button type="button" class="bio-save-exit" data-bio-save-exit>Save and Exit</button>' : ""}
+  return `<div class="bio-global-save" data-bio-global-save aria-live="polite">Progress saves on this device.</div>
 <script>
 (() => {
   "use strict";

@@ -1,0 +1,38 @@
+{
+  "milestone": "local learner preview v1",
+  "student_release_blocked": true,
+  "completed_phase_slugs": [
+    "sportswellness-phase-2",
+    "sportswellness-phase-3",
+    "sportswellness-phase-4"
+  ],
+  "deferred": [
+    "introduction module",
+    "final Performance Playbook",
+    "replacement slide decks"
+  ],
+  "unresolved": [
+    "Latest uncommitted Phase 1 reference was not supplied; exact-current comparison remains unresolved.",
+    "Real HTTP/file launch and browser-close persistence were not tested in this environment.",
+    "SCORM conversion, response-capacity handling and Brightspace submission/resume are later integration gates.",
+    "Physical phone, assistive-technology and school-network checks are not run.",
+    "External videos remain withheld pending publisher/segment/caption/playback verification.",
+    "Teacher curriculum/evidence mapping and student workload pilot remain required before credit/release claims."
+  ],
+  "test_summary": {
+    "routes": 54,
+    "viewport_route_runs": 108,
+    "route_passes": 108,
+    "interaction_checks": 185,
+    "interaction_passes": 185,
+    "available_reference_geometry_runs": 21,
+    "geometry_matches": 21,
+    "wrapper_comparisons": 36,
+    "wrapper_matches": 36,
+    "stylesheet_sha256": "b5f0822a0ec80c4d854ba8e7a97bc5234d283813ffb78a5fa9e35aba8d0c63ea",
+    "latest_local_reference_available": false,
+    "target_LMS_tested": false,
+    "real_browser_shutdown_persistence_tested": false,
+    "active_external_video_count": 0
+  }
+}

@@ -1,0 +1,650 @@
+[
+  {
+    "id": "ch19-foundation-ch19-word-population",
+    "lesson": 1,
+    "conceptId": "ch19-concept-population",
+    "prompt": "Which term matches this description? Individuals of the same species occupying a defined area during a defined time.",
+    "options": [
+      "population",
+      "gene pool",
+      "genetic variation",
+      "microevolution"
+    ],
+    "answer": "population",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Individuals of the same species occupying a defined area during a defined time. A population boundary must be stated before counting frequencies.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-gene-pool",
+    "lesson": 1,
+    "conceptId": "ch19-concept-gene-pool",
+    "prompt": "Which term matches this description? All the alleles present in the reproductive population being considered.",
+    "options": [
+      "population",
+      "gene pool",
+      "genetic variation",
+      "microevolution"
+    ],
+    "answer": "gene pool",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "All the alleles present in the reproductive population being considered. A gene pool describes a population, not only one individual’s genotype.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-genetic-variation",
+    "lesson": 1,
+    "conceptId": "ch19-concept-genetic-variation",
+    "prompt": "Which term matches this description? Differences in genetic information among individuals or lineages.",
+    "options": [
+      "population",
+      "gene pool",
+      "genetic variation",
+      "microevolution"
+    ],
+    "answer": "genetic variation",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Differences in genetic information among individuals or lineages. Not all phenotypic variation is genetic.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-microevolution",
+    "lesson": 1,
+    "conceptId": "ch19-concept-microevolution",
+    "prompt": "Which term matches this description? A change in allele frequencies in a population across generations.",
+    "options": [
+      "population",
+      "gene pool",
+      "genetic variation",
+      "microevolution"
+    ],
+    "answer": "microevolution",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A change in allele frequencies in a population across generations. A larger population can retain the same allele frequencies.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-genotype-frequency",
+    "lesson": 2,
+    "conceptId": "ch19-concept-genotype-frequency",
+    "prompt": "Which term matches this description? The proportion of individuals with a specified genotype.",
+    "options": [
+      "genotype frequency",
+      "allele frequency",
+      "heterozygote contribution",
+      "frequency sum"
+    ],
+    "answer": "genotype frequency",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The proportion of individuals with a specified genotype. Its denominator is the number of individuals sampled.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-allele-frequency",
+    "lesson": 2,
+    "conceptId": "ch19-concept-allele-frequency",
+    "prompt": "Which term matches this description? The proportion of allele copies represented by a particular allele at a locus.",
+    "options": [
+      "genotype frequency",
+      "allele frequency",
+      "heterozygote contribution",
+      "frequency sum"
+    ],
+    "answer": "allele frequency",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The proportion of allele copies represented by a particular allele at a locus. For an ordinary diploid autosomal sample, the denominator is 2N.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-heterozygote-contribution",
+    "lesson": 2,
+    "conceptId": "ch19-concept-heterozygote-contribution",
+    "prompt": "Which term matches this description? The contribution of one copy of each allele from a heterozygous individual.",
+    "options": [
+      "genotype frequency",
+      "allele frequency",
+      "heterozygote contribution",
+      "frequency sum"
+    ],
+    "answer": "heterozygote contribution",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The contribution of one copy of each allele from a heterozygous individual. Count both copies, not half an individual.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-frequency-sum",
+    "lesson": 2,
+    "conceptId": "ch19-concept-frequency-sum",
+    "prompt": "Which term matches this description? The requirement that mutually exclusive complete categories account for the whole sample.",
+    "options": [
+      "genotype frequency",
+      "allele frequency",
+      "heterozygote contribution",
+      "frequency sum"
+    ],
+    "answer": "frequency sum",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The requirement that mutually exclusive complete categories account for the whole sample. The relevant categories and denominator must be consistent.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-hardy-weinberg-equilibrium",
+    "lesson": 3,
+    "conceptId": "ch19-concept-hardy-weinberg-equilibrium",
+    "prompt": "Which term matches this description? A model in which allele frequencies remain constant and genotype frequencies follow p², 2pq and q² under stated conditions.",
+    "options": [
+      "Hardy–Weinberg equilibrium",
+      "random mating",
+      "p²",
+      "2pq"
+    ],
+    "answer": "Hardy–Weinberg equilibrium",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A model in which allele frequencies remain constant and genotype frequencies follow p², 2pq and q² under stated conditions. The model is a baseline to test, not an automatic property of every population.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-random-mating",
+    "lesson": 3,
+    "conceptId": "ch19-concept-random-mating",
+    "prompt": "Which term matches this description? Mating that is independent of the genotype being considered.",
+    "options": [
+      "Hardy–Weinberg equilibrium",
+      "random mating",
+      "p²",
+      "2pq"
+    ],
+    "answer": "random mating",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Mating that is independent of the genotype being considered. Random mating at one locus does not mean every behaviour is random.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-p",
+    "lesson": 3,
+    "conceptId": "ch19-concept-p",
+    "prompt": "Which term matches this description? The expected frequency of one homozygous genotype under a two-allele Hardy–Weinberg model.",
+    "options": [
+      "Hardy–Weinberg equilibrium",
+      "random mating",
+      "p²",
+      "2pq"
+    ],
+    "answer": "p²",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The expected frequency of one homozygous genotype under a two-allele Hardy–Weinberg model. It is an expected genotype frequency, not another allele frequency.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-2pq",
+    "lesson": 3,
+    "conceptId": "ch19-concept-2pq",
+    "prompt": "Which term matches this description? The expected heterozygote frequency under the two-allele Hardy–Weinberg model.",
+    "options": [
+      "Hardy–Weinberg equilibrium",
+      "random mating",
+      "p²",
+      "2pq"
+    ],
+    "answer": "2pq",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The expected heterozygote frequency under the two-allele Hardy–Weinberg model. The factor two counts the two ways to form a heterozygote.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-q",
+    "lesson": 4,
+    "conceptId": "ch19-concept-q",
+    "prompt": "Which term matches this description? The expected aa genotype frequency under a two-allele Hardy–Weinberg model.",
+    "options": [
+      "q²",
+      "carrier frequency",
+      "expected count",
+      "square-root step"
+    ],
+    "answer": "q²",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The expected aa genotype frequency under a two-allele Hardy–Weinberg model. A recessive phenotype fraction can be used as q² only with the appropriate model.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-carrier-frequency",
+    "lesson": 4,
+    "conceptId": "ch19-concept-carrier-frequency",
+    "prompt": "Which term matches this description? The proportion of heterozygotes carrying a recessive allele in the stated model.",
+    "options": [
+      "q²",
+      "carrier frequency",
+      "expected count",
+      "square-root step"
+    ],
+    "answer": "carrier frequency",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The proportion of heterozygotes carrying a recessive allele in the stated model. For this simple recessive model, carriers are heterozygotes, not all individuals with a.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-expected-count",
+    "lesson": 4,
+    "conceptId": "ch19-concept-expected-count",
+    "prompt": "Which term matches this description? A model-predicted number obtained by multiplying a frequency by population size.",
+    "options": [
+      "q²",
+      "carrier frequency",
+      "expected count",
+      "square-root step"
+    ],
+    "answer": "expected count",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A model-predicted number obtained by multiplying a frequency by population size. Expected counts need not be exactly realized in a finite sample.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-square-root-step",
+    "lesson": 4,
+    "conceptId": "ch19-concept-square-root-step",
+    "prompt": "Which term matches this description? Recovering q from q² when the Hardy–Weinberg assumptions apply.",
+    "options": [
+      "q²",
+      "carrier frequency",
+      "expected count",
+      "square-root step"
+    ],
+    "answer": "square-root step",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Recovering q from q² when the Hardy–Weinberg assumptions apply. Taking a square root is not the same as dividing the frequency by two.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-observed-count",
+    "lesson": 5,
+    "conceptId": "ch19-concept-observed-count",
+    "prompt": "Which term matches this description? A count actually supplied or measured in the sample.",
+    "options": [
+      "observed count",
+      "expected genotype distribution",
+      "sampling variation",
+      "model comparison"
+    ],
+    "answer": "observed count",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A count actually supplied or measured in the sample. Observed and expected values must be kept separate.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-expected-genotype-distribution",
+    "lesson": 5,
+    "conceptId": "ch19-concept-expected-genotype-distribution",
+    "prompt": "Which term matches this description? The genotype proportions predicted by the selected model.",
+    "options": [
+      "observed count",
+      "expected genotype distribution",
+      "sampling variation",
+      "model comparison"
+    ],
+    "answer": "expected genotype distribution",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The genotype proportions predicted by the selected model. A prediction can be compared with observations rather than substituted for them.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-sampling-variation",
+    "lesson": 5,
+    "conceptId": "ch19-concept-sampling-variation",
+    "prompt": "Which term matches this description? Differences that arise because a finite sample does not reproduce population proportions perfectly.",
+    "options": [
+      "observed count",
+      "expected genotype distribution",
+      "sampling variation",
+      "model comparison"
+    ],
+    "answer": "sampling variation",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Differences that arise because a finite sample does not reproduce population proportions perfectly. A small mismatch is not automatically strong evidence of a specific mechanism.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-model-comparison",
+    "lesson": 5,
+    "conceptId": "ch19-concept-model-comparison",
+    "prompt": "Which term matches this description? Evaluation of how well observations fit a model’s predictions.",
+    "options": [
+      "observed count",
+      "expected genotype distribution",
+      "sampling variation",
+      "model comparison"
+    ],
+    "answer": "model comparison",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Evaluation of how well observations fit a model’s predictions. Agreement does not prove every assumption; mismatch does not identify one cause alone.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-natural-selection",
+    "lesson": 6,
+    "conceptId": "ch19-concept-natural-selection",
+    "prompt": "Which term matches this description? Differential reproductive success associated with heritable variation in a particular environment.",
+    "options": [
+      "natural selection",
+      "relative fitness",
+      "sexual selection",
+      "non-random mating"
+    ],
+    "answer": "natural selection",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Differential reproductive success associated with heritable variation in a particular environment. The environment influences which variants contribute more descendants.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-relative-fitness",
+    "lesson": 6,
+    "conceptId": "ch19-concept-relative-fitness",
+    "prompt": "Which term matches this description? Reproductive contribution compared with other genotypes or phenotypes in the relevant setting.",
+    "options": [
+      "natural selection",
+      "relative fitness",
+      "sexual selection",
+      "non-random mating"
+    ],
+    "answer": "relative fitness",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Reproductive contribution compared with other genotypes or phenotypes in the relevant setting. Fitness is not simply physical strength or long life.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-sexual-selection",
+    "lesson": 6,
+    "conceptId": "ch19-concept-sexual-selection",
+    "prompt": "Which term matches this description? Selection associated with differences in mating success.",
+    "options": [
+      "natural selection",
+      "relative fitness",
+      "sexual selection",
+      "non-random mating"
+    ],
+    "answer": "sexual selection",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Selection associated with differences in mating success. A mating advantage can occur even when a trait has survival costs.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-non-random-mating",
+    "lesson": 6,
+    "conceptId": "ch19-concept-non-random-mating",
+    "prompt": "Which term matches this description? Mating patterns that depend on characteristics related to the genotype being studied.",
+    "options": [
+      "natural selection",
+      "relative fitness",
+      "sexual selection",
+      "non-random mating"
+    ],
+    "answer": "non-random mating",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Mating patterns that depend on characteristics related to the genotype being studied. It can alter genotype proportions without automatically changing allele frequencies by itself.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-genetic-drift",
+    "lesson": 7,
+    "conceptId": "ch19-concept-genetic-drift",
+    "prompt": "Which term matches this description? Random change in allele frequencies caused by chance sampling in finite populations.",
+    "options": [
+      "genetic drift",
+      "bottleneck effect",
+      "founder effect",
+      "allele fixation"
+    ],
+    "answer": "genetic drift",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Random change in allele frequencies caused by chance sampling in finite populations. Drift does not require the allele to affect survival or mating success.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-bottleneck-effect",
+    "lesson": 7,
+    "conceptId": "ch19-concept-bottleneck-effect",
+    "prompt": "Which term matches this description? A change in genetic composition associated with a sharp reduction in population size.",
+    "options": [
+      "genetic drift",
+      "bottleneck effect",
+      "founder effect",
+      "allele fixation"
+    ],
+    "answer": "bottleneck effect",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A change in genetic composition associated with a sharp reduction in population size. A demographic recovery does not automatically restore lost alleles.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-founder-effect",
+    "lesson": 7,
+    "conceptId": "ch19-concept-founder-effect",
+    "prompt": "Which term matches this description? A change in allele representation when a small subset establishes a new population.",
+    "options": [
+      "genetic drift",
+      "bottleneck effect",
+      "founder effect",
+      "allele fixation"
+    ],
+    "answer": "founder effect",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A change in allele representation when a small subset establishes a new population. The original large population need not be destroyed.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-allele-fixation",
+    "lesson": 7,
+    "conceptId": "ch19-concept-allele-fixation",
+    "prompt": "Which term matches this description? An allele reaching frequency 1 at the locus in the population considered.",
+    "options": [
+      "genetic drift",
+      "bottleneck effect",
+      "founder effect",
+      "allele fixation"
+    ],
+    "answer": "allele fixation",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An allele reaching frequency 1 at the locus in the population considered. Fixation describes the locus and population, not the absence of variation everywhere.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-gene-flow",
+    "lesson": 8,
+    "conceptId": "ch19-concept-gene-flow",
+    "prompt": "Which term matches this description? Transfer of alleles between populations through successful genetic contribution.",
+    "options": [
+      "gene flow",
+      "mutation input",
+      "genetic connectivity",
+      "population differentiation"
+    ],
+    "answer": "gene flow",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Transfer of alleles between populations through successful genetic contribution. Movement without reproduction does not necessarily change the next generation’s gene pool.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-mutation-input",
+    "lesson": 8,
+    "conceptId": "ch19-concept-mutation-input",
+    "prompt": "Which term matches this description? The introduction of new sequence variants through mutation.",
+    "options": [
+      "gene flow",
+      "mutation input",
+      "genetic connectivity",
+      "population differentiation"
+    ],
+    "answer": "mutation input",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The introduction of new sequence variants through mutation. Mutation is a source of new alleles; selection acts on their consequences.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-genetic-connectivity",
+    "lesson": 8,
+    "conceptId": "ch19-concept-genetic-connectivity",
+    "prompt": "Which term matches this description? The degree to which populations exchange genetic contributions.",
+    "options": [
+      "gene flow",
+      "mutation input",
+      "genetic connectivity",
+      "population differentiation"
+    ],
+    "answer": "genetic connectivity",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The degree to which populations exchange genetic contributions. Physical connection is not the same as demonstrated successful gene flow.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-population-differentiation",
+    "lesson": 8,
+    "conceptId": "ch19-concept-population-differentiation",
+    "prompt": "Which term matches this description? Differences in genetic composition among populations.",
+    "options": [
+      "gene flow",
+      "mutation input",
+      "genetic connectivity",
+      "population differentiation"
+    ],
+    "answer": "population differentiation",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Differences in genetic composition among populations. Gene flow can reduce differences, while isolation can allow them to increase.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-genetic-diversity",
+    "lesson": 9,
+    "conceptId": "ch19-concept-genetic-diversity",
+    "prompt": "Which term matches this description? The variety of genetic variants represented in a population or set of populations.",
+    "options": [
+      "genetic diversity",
+      "inbreeding",
+      "conservation evidence",
+      "adaptive potential"
+    ],
+    "answer": "genetic diversity",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The variety of genetic variants represented in a population or set of populations. A larger head count does not guarantee recovery of previously lost variants.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-inbreeding",
+    "lesson": 9,
+    "conceptId": "ch19-concept-inbreeding",
+    "prompt": "Which term matches this description? Mating between genetically related individuals.",
+    "options": [
+      "genetic diversity",
+      "inbreeding",
+      "conservation evidence",
+      "adaptive potential"
+    ],
+    "answer": "inbreeding",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Mating between genetically related individuals. It can increase homozygosity without creating harmful alleles on demand.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-conservation-evidence",
+    "lesson": 9,
+    "conceptId": "ch19-concept-conservation-evidence",
+    "prompt": "Which term matches this description? Observations used to evaluate a population’s condition and response to an action.",
+    "options": [
+      "genetic diversity",
+      "inbreeding",
+      "conservation evidence",
+      "adaptive potential"
+    ],
+    "answer": "conservation evidence",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Observations used to evaluate a population’s condition and response to an action. Several measures are needed to distinguish mechanisms and outcomes.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch19-foundation-ch19-word-adaptive-potential",
+    "lesson": 9,
+    "conceptId": "ch19-concept-adaptive-potential",
+    "prompt": "Which term matches this description? The capacity for heritable variation to support responses to changing conditions.",
+    "options": [
+      "genetic diversity",
+      "inbreeding",
+      "conservation evidence",
+      "adaptive potential"
+    ],
+    "answer": "adaptive potential",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The capacity for heritable variation to support responses to changing conditions. Genetic diversity can matter without guaranteeing survival under every change.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  }
+]

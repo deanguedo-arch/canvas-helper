@@ -1,0 +1,230 @@
+## My verdict: not yet for independent student release
+
+**I would keep the core teaching and the overall visual design. I would not give this version to students as a finished, self-directed course yet.** The biggest problems are the saved-work flow, unclear completion requirements, duplicated writing and uneven media choices—not a lack of content.
+
+I reviewed the complete HTML, inspected its dependencies and ran isolated Chromium interface tests with simulated saved-work state. I also checked accessible curriculum and publisher sources. This was **not** a Brightspace student-account test, and I have not watched every video end-to-end.
+
+| Area                   | Judgment                                                                    |
+| ---------------------- | --------------------------------------------------------------------------- |
+| Teaching explanations  | Mostly usable, with specific inconsistencies to fix                         |
+| Alberta CTS relevance  | Appropriate direction; full course-outcome coverage is not established      |
+| Image selection        | Relevant concepts, but the actual image files were not supplied             |
+| Video selection        | Several suitable choices; others need replacement, trimming or verification |
+| Styling                | Keep the theme; simplify the interaction and page structure                 |
+| Independent completion | **Not ready until the work-saving and assessment issues are fixed**         |
+
+## 1. The release blockers
+
+### The uploaded file is missing its companion assets
+
+This HTML references **nine instructional images, a school logo, two PDFs and a separate simulator document**. None of those companion files came with this upload. The references are relative paths, not images embedded inside the HTML. The lesson figures, simulator and PDF links therefore cannot function from this file alone.   
+
+**That is a limitation of the upload, not proof that your hosted course is missing them.** But it means I cannot honestly approve the visual accuracy, readability or quality of the actual illustrations.
+
+Even assuming those assets already exist in your full package, the following problems remain.
+
+### “My Work” does not reliably display the work students have completed
+
+In the isolated interface test, I entered an opening response, waited for the save, and clicked **My Tools → My Work**. The route opened, but the collected-work area was blank. Reconstructing the page with the saved state and My Work address made the response appear.
+
+The underlying problem is that ordinary lesson navigation changes the route without invoking the separate function that refreshes My Work. That refresh currently depends on other browser-navigation events.  
+
+For a student, this looks like lost work. **That is a release blocker.**
+
+My Work also does not show all the evidence from the supported practice routes. Its display omits the guided-lab attempt history and untimed written explanation, while prompting students to add an original-simulator reflection—even though they were told they could choose a different practice format. 
+
+### The checkpoint can show an answer that its scoring system treats as unanswered
+
+I reproduced this sequence using restored test state:
+
+**Choose an answer → reopen with the saved selection → select “Start a new attempt.”**
+
+The previous radio button remained visibly selected, but the stored answer collection had been cleared. Submitting then counted that visible answer as unanswered. The source restores answers as default checked attributes, then uses a form reset that preserves those defaults.  
+
+A student should never have to understand that distinction. What they see selected must be what the system scores.
+
+### The saving and recovery workflow is unfinished
+
+The course explicitly uses browser-only saving, with no SCORM calls, network saving or automatic grade submission. That is not inherently unacceptable—a manual submission workflow can work—but it must be dependable and unambiguous. 
+
+Currently, the guide tells students they can make a backup, while My Work exposes a **Print or save as PDF** button. The JavaScript contains backup/restore handlers, but the corresponding controls are absent. A PDF preserves a readable copy; it does not restore the interactive fields on another device.   
+
+**Choose the delivery model before release:** tested LMS-managed persistence, or a clearly explained browser-save/PDF-submission workflow with working recovery controls. Do not leave students discovering the limitations after completing substantial work.
+
+## 2. Teaching quality: the explanations are stronger than the assignment
+
+### What I would preserve
+
+The lessons generally explain ideas through situations students can picture. The opening hockey example separates the task from the athlete’s interpretation. Later examples distinguish unclear instructions from fear of failure, and narrow attention that helps a free throw from narrow attention that misses a teammate. These are useful teaching comparisons—not just definitions followed by questions.   
+
+The strongest instructional thread is:
+
+> **Notice what is happening → choose a response that fits → return to the task → review what happened.**
+
+Keep that central. The course also correctly resists turning every problem into “calm down,” “think positively,” or “try harder.” It allows fictional examples and makes clear that students are not assessed on revealing personal information.  
+
+The **first explanation → teaching answer → revision** sequence is also worth retaining. The implementation keeps a snapshot before the answer is revealed, rather than treating rereading as evidence of understanding. 
+
+### The assignment reintroduces language the lessons worked hard to simplify
+
+The capstone includes phrases such as “manual override,” “jam scenario,” “composed and dangerous,” and “about to go over the edge.” These sit beside otherwise clear explanations of regulation and attention. The assignment also repeatedly asks about “your” personal responses after giving students permission to use a fictional performer. 
+
+For Grade 10, I would change the prompts—not remove the concepts:
+
+| Current wording             | Clearer student-facing wording                                                             |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| Threat trigger              | What situation does your chosen performer find difficult, and what do they think it means? |
+| Centering / manual override | What short, safe reset routine would fit this situation?                                   |
+| Jam scenario                | Describe a moment when attention moved away from useful information.                       |
+| Crash-prevention plan       | What three steps would help the performer respond when they become rushed or overwhelmed?  |
+
+The rubric should use the same approach. It currently refers to tools matching the **student’s actual profile**, which does not fit the explicitly permitted fictional-case option. 
+
+### The amount of writing needs consolidation
+
+There are **28 capstone fields**, ten written review questions with separate first-answer and revision fields, plus the topic reflections. Not all writing in the course is required, but the combination creates substantial repetition.  
+
+Students revisit closely related ideas under multiple labels: trigger, pressure scenario, situational stressors, body signals, early warning, overactivation, tunnel-vision warning and final summaries.
+
+**My recommendation is to reduce repeated entry, not intellectual demand.** Keep the five rubric categories, but let students build their final plan from responses completed during the lessons. They should revise and connect their work—not repeatedly type another version of it.
+
+A possible redesign is roughly 10–12 substantial responses across the five steps. That is a design recommendation, not an Alberta requirement.
+
+### Fix two instructional inconsistencies before release
+
+**First, the breathing prompts do not fully match the lesson.** The lesson emphasizes comfortable, unforced breathing without requiring an exact count. The assignment then provides a four-count inhale/six-count exhale example and lists “sharper breathing” as an activation tool.  
+
+A counted breathing example is not automatically wrong. The issue is that students may treat the placeholder as the expected answer, despite the lesson teaching flexibility. Remove “sharper breathing” and make the assignment consistent with the gentle, comfortable approach. The linked NHS guidance likewise emphasizes not forcing the breath and makes counting optional. ([nhs.uk][1])
+
+**Second, checkpoint Question 3 is under-specified.** It gives a golfer butterflies, sweating and muscle tension, then expects “Somatic State Anxiety.” Earlier, the course explicitly teaches that bodily signs alone do not establish anxiety.  
+
+A small correction resolves it:
+
+> “A golfer says, ‘I feel nervous, and I notice butterflies and tight muscles before this putt.’ Which component of anxiety is being described?”
+
+Now the answer follows from the information provided.
+
+## 3. Image selection: appropriate purposes, visual approval still outstanding
+
+**The planned image topics are sensible.** They mostly represent relationships students need to understand, rather than decorative pictures of athletes.
+
+However, these judgments are based on the image references, captions and accompanying teaching—not the missing image pixels.
+
+| Figure or group                                | My recommendation                                                                                                                                                                                                          |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Same-pressure comparison and body signals      | Keep. Use them to distinguish the situation, interpretation and reported response—not to diagnose emotion from appearance.                                                                                                 |
+| Four-stage stress process                      | Keep as a core teaching figure. Ask students to identify where an interpretation enters the sequence and explain the next cycle.                                                                                           |
+| Activation continuum and four-model comparison | Highest priority for visual inspection. Check that axes are distinct, labels remain readable, and the drawings do not imply one universal “middle” target. Consider separate model views before the combined comparison.   |
+| Attention-field illustration                   | Keep. The important question is which task-relevant information the athlete notices or misses—not simply whether their attention is broad or narrow.                                                                       |
+| Goal hierarchy, toolkit and learning map       | Keep as reference/synthesis figures. They should help students organize a decision, not become additional material to memorize independently.                                                                              |
+
+The improvement I would make is **more purposeful interaction with the existing figures**, not more pictures.
+
+For example:
+
+> “In the stress loop, which stage changes when the athlete replaces ‘I always fail’ with a realistic task cue?”
+
+That asks students to interpret the diagram. “Study the image” does not tell you whether they understood it.
+
+## 4. Video selection: keep the strongest matches and remove the unnecessary complications
+
+The course already provides viewing purposes, cautions and local written alternatives. Keep those features. The problem is that the newer topic-based collection exists alongside an older four-video picker, and some support resources require students to navigate adult-facing material or reconcile different terminology.  
+
+### My decisions on the main selections
+
+**TED-Ed: “How to stay calm under pressure” — keep.**
+Its subject directly matches the opening problem: a familiar skill breaking down when the moment matters. Keep your reminder that “calm” is not the desired state for every task. ([TED-Ed][2]) 
+
+**Anxiety Canada: “Fight Flight Freeze—Anxiety Explained for Teens” — keep provisionally as introductory support.**
+The video identity matches the linked title. Bring students back to your distinctions among arousal, stress and anxiety afterward. I have not certified its full playback or captions in the school environment. ([YouTube][3]) 
+
+**Selective-attention demonstration — keep as an activity, not proof about anxiety.**
+The researchers’ page contains the original demonstration. Your course already makes the important distinction that missing something in this task does not show anxiety caused the miss. I would place the demonstration before the detailed explanation, with a clear instruction and short debrief. ([The Invisible Gorilla][4]) 
+
+**Oak National Academy’s Inverted-U lesson — useful content, poor destination as currently linked.**
+The selected page is a teacher-facing lesson with slides, worksheets, quizzes and teaching guidance. Its graph explanation is relevant, but students should not have to work out which parts of another course they are expected to complete. Use a student-facing route or a clearly identified video segment. ([Oak National Academy][5])
+
+**TrueSport expert interviews — use selectively, not as the default help for every learner.**
+For example, Kevin Chapman’s “It Takes One to Know One” is explicitly aimed at coaches, educators and parents. Its transcript includes useful discussion of thoughts, physical feelings and behaviour, but also a statement implying athletes should be nervous to perform well. That needs qualification alongside your more careful lesson. ([TrueSport][6])
+
+This is exactly why **a reputable publisher does not automatically make an entire video the best teaching choice for a beginner**. Select a precise excerpt or move it to extension.
+
+**The older four-video picker — hold until fully checked.**
+I could identify some linked videos, but could not confirm all four selections sufficiently for release. That is an unresolved verification issue, not proof that the links are dead. The course should use one coherent media collection rather than two overlapping systems.  ([YouTube][7])
+
+### The supporting readings need a stricter filter
+
+The OpenLearn article about commercial pilots introduces aviation context and uses **SMARTS**, rather than your SMART formulation. The AASP goal-setting article’s example table also categorizes examples differently from the distinctions you teach. Your course already warns students about these mismatches. ([The Open University][8]) ([Association for Applied Sport Psychology][9])  
+
+My judgment: **these are better as teacher background or clearly optional extension than as “another explanation” for a confused Grade 10 student.**
+
+For each retained video, show its publisher, duration or exact segment, one viewing question, and a local alternative. Avoid making the support panel another full lesson students must navigate.
+
+## 5. Styling and navigation: keep the appearance, shorten the path through it
+
+The dark sidebar, white lesson area, restrained colour palette and readable body text form a workable visual system. In the isolated tests, I found no whole-page horizontal overflow across the selected desktop, tablet and phone layouts. That does not establish full accessibility or final image layout, but it gives me no reason to recommend another visual redesign.
+
+The more important issue is **how much navigation and procedural reading sits between students and the actual task**.
+
+There is a course guide, repeated section-completion guides, learning goals, “Before you begin,” multiple collapsed activities and additional learning-support panels. Meanwhile, the within-topic shortcut navigation is hidden by the final styling.   
+
+I would make three changes:
+
+* Keep one clear course guide, then use a short, **topic-specific required-work statement**.
+* Restore a small **“Jump to the activity”** link, especially on long pages and phones.
+* Label sections consistently as **Required work**, **Practice** or **Optional support**.
+
+The current “complete the work your teacher assigns” wording leaves the standalone course’s requirements unresolved. Students should not have to infer which text boxes matter. 
+
+### Separate “reviewed,” “ready” and “submitted”
+
+The percentage currently counts only self-marked topic review boxes. That is acceptable as a reading-review indicator, but it is not evidence that the assignment, lab or checkpoint is complete. 
+
+The completion guide asks for one checkpoint attempt, while the checkpoint reports a 70% practice threshold and allows an entirely unanswered attempt to be saved. These are different definitions of finishing.  
+
+Keep a review indicator, but add a separate required-work checklist and an explicit submission step. Also add a direct **Next: Final checkpoint** link at the end of Topic 12; currently its footer only offers the previous topic and notes. 
+
+## 6. Through an Alberta CTS lens: emphasize demonstration and application
+
+I used **REC1050: Sport Psychology 1** as the benchmark identified in your file. Its published overview emphasizes mental fitness, performance and motivation, and examining and demonstrating strategies including relaxation, visualization and positive self-talk. Its high-level outcomes include analyzing activation and sport performance. ([Learn Alberta Curriculum][10])
+
+Your activation, appraisal, attention and regulation material fits that direction. However, this file explicitly places further motivation, imagery and other material in later phases. **I would not equate completing Phase 1 with completing the entire CTS credit.** The full detailed outcome mapping across phases still needs verification. 
+
+For this audience, my central assessment question would be:
+
+> **Can the student recognize what the task needs, explain a suitable mental skill, demonstrate or walk through its use, and justify an adjustment?**
+
+That is a stronger target than remembering the names of several theories or completing every available box.
+
+The current course makes real practice trials optional and allows hypothetical planning. Preserve those accessible options, but make the required demonstration of competence explicit—for example, a short teacher-observed or recorded walkthrough using a fictional case, with an adapted equivalent where needed. Do not require personal anxiety disclosure or assess whether a student successfully makes themselves calm.  
+
+### The untimed alternative needs equivalent concept coverage
+
+The guided lab covers three states: under-activated, over-activated and ready to perform. The untimed alternative covers only one tense/rushed situation. It therefore does not yet offer equivalent coverage, despite being presented as an equivalent choice.  
+
+Give the untimed route all three decision types, the same expectation to explain the choice, and a transfer reflection. Also clarify that its automatic feedback checks the selected move—not the quality of the written reasoning. 
+
+## What I would do next, in order
+
+1. **Repair the release blockers:** complete assets, My Work refresh, checkpoint reset and a supported saving/recovery workflow.
+2. **Define the required path:** exact work, equivalent practice choices, completion conditions and submission instructions.
+3. **Consolidate the writing:** preserve the rubric and reasoning, but stop asking for overlapping responses under different labels.
+4. **Finish media curation and consistency:** verify the actual images, remove unverified legacy videos, simplify support choices and align the assignment with the lesson language.
+5. **Run a small student pilot in Brightspace:** observe whether students can start, find the task, explain a new scenario, leave and resume, locate their evidence and submit without teacher rescue.
+
+**Bottom line:** the course needs a release-quality pass, not more content or another styling overhaul. Its best feature is the careful, example-based teaching. Its weakest feature is that students cannot yet depend on the completion workflow to behave as clearly as the lessons read.
+
+[Download the developer handoff and test evidence](sandbox:/mnt/data/Phase1_CTS_Audit_Handoff.zip)
+
+For the remaining image-quality and simulator checks, upload the complete ZIP with its `assets` folder.
+
+[1]: https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/ "www.nhs.uk"
+[2]: https://ed.ted.com/lessons/how-to-avoid-choking-under-pressure-noa-kageyama-and-pen-pen-chen "How to stay calm under pressure - Noa Kageyama and Pen-Pen | TED-Ed"
+[3]: https://www.youtube.com/watch?v=rpolpKTWrp4 "Fight Flight Freeze – Anxiety Explained For Teens - YouTube"
+[4]: https://theinvisiblegorilla.com/IGvideos.html "Invisible Gorilla - Videos and Trailers"
+[5]: https://www.thenational.academy/teachers/lessons/inverted-u-theory "Lesson: Inverted-U theory | Oak National Academy"
+[6]: https://truesport.org/video/takes-one-know-one-chapman/ "Expert Series: ‘It Takes One to Know One’ with Kevin Chapman"
+[7]: https://www.youtube.com/watch?v=s9goL8OeB-0 "Inverted U theory - YouTube"
+[8]: https://www.open.edu/openlearn/health-sports-psychology/sport-fitness/what-commercial-pilots-can-learn-sports-psychology "What Commercial Pilots can learn from Sports Psychology | OpenLearn - Open University"
+[9]: https://appliedsportpsych.org/resources/resources-for-coaches/principles-of-effective-goal-setting/ "Principles of Effective Goal Setting | Association for Applied Sport Psychology"
+[10]: https://curriculum.learnalberta.ca/?utm_source=chatgpt.com "Sport Psychology 1 (REC1050)"

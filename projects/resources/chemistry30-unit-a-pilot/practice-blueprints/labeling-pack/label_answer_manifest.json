@@ -1,0 +1,668 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "ch11-potential-energy",
+      "chapter": 11,
+      "title": "Potential Energy Diagram",
+      "image": "chapter_11/ch11_potential_energy_diagram.png",
+      "prompt": "Match each letter to the correct feature of the exothermic potential-energy diagram.",
+      "labels": {
+        "A": {
+          "answer": "Potential energy",
+          "accepted": [
+            "potential energy",
+            "potential energy axis",
+            "y-axis"
+          ]
+        },
+        "B": {
+          "answer": "Reactants",
+          "accepted": [
+            "reactants",
+            "reactant energy level"
+          ]
+        },
+        "C": {
+          "answer": "Activated complex",
+          "accepted": [
+            "activated complex",
+            "transition state"
+          ]
+        },
+        "D": {
+          "answer": "Activation energy (Ea)",
+          "accepted": [
+            "activation energy",
+            "Ea",
+            "activation energy forward"
+          ]
+        },
+        "E": {
+          "answer": "Products",
+          "accepted": [
+            "products",
+            "product energy level"
+          ]
+        },
+        "F": {
+          "answer": "Enthalpy change (ΔH)",
+          "accepted": [
+            "enthalpy change",
+            "delta H",
+            "ΔH",
+            "heat of reaction"
+          ]
+        },
+        "G": {
+          "answer": "Reaction progress",
+          "accepted": [
+            "reaction progress",
+            "reaction coordinate",
+            "x-axis"
+          ]
+        }
+      },
+      "notes": "Exothermic profile: products are lower in potential energy than reactants."
+    },
+    {
+      "id": "ch11-catalyst-pathway",
+      "chapter": 11,
+      "title": "Catalyzed vs. Uncatalyzed Reaction Pathway",
+      "image": "chapter_11/ch11_catalyzed_vs_uncatalyzed.png",
+      "prompt": "Match each letter to the correct feature of the catalyzed and uncatalyzed energy diagram.",
+      "labels": {
+        "A": {
+          "answer": "Potential energy",
+          "accepted": [
+            "potential energy",
+            "potential energy axis",
+            "y-axis"
+          ]
+        },
+        "B": {
+          "answer": "Reaction progress",
+          "accepted": [
+            "reaction progress",
+            "reaction coordinate",
+            "x-axis"
+          ]
+        },
+        "C": {
+          "answer": "Reactants",
+          "accepted": [
+            "reactants",
+            "reactant energy level"
+          ]
+        },
+        "D": {
+          "answer": "Uncatalyzed reaction pathway",
+          "accepted": [
+            "uncatalyzed pathway",
+            "uncatalyzed reaction",
+            "higher activation energy pathway"
+          ]
+        },
+        "E": {
+          "answer": "Catalyzed reaction pathway",
+          "accepted": [
+            "catalyzed pathway",
+            "catalyzed reaction",
+            "lower activation energy pathway"
+          ]
+        },
+        "F": {
+          "answer": "Activation energy without a catalyst",
+          "accepted": [
+            "uncatalyzed activation energy",
+            "activation energy without catalyst",
+            "higher activation energy"
+          ]
+        },
+        "G": {
+          "answer": "Activation energy with a catalyst",
+          "accepted": [
+            "catalyzed activation energy",
+            "activation energy with catalyst",
+            "lower activation energy"
+          ]
+        },
+        "H": {
+          "answer": "Products",
+          "accepted": [
+            "products",
+            "product energy level"
+          ]
+        }
+      },
+      "notes": "A catalyst lowers activation energy but does not change the energy of reactants/products or ΔH."
+    },
+    {
+      "id": "ch11-collision-theory",
+      "chapter": 11,
+      "title": "Collision Theory",
+      "image": "chapter_11/ch11_collision_theory.png",
+      "prompt": "Match each letter to the correct feature shown in the collision-theory diagram.",
+      "labels": {
+        "A": {
+          "answer": "Reactant particle / molecule 1",
+          "accepted": [
+            "reactant molecule 1",
+            "reactant particle 1",
+            "reactant"
+          ]
+        },
+        "B": {
+          "answer": "Reactant particle / molecule 2",
+          "accepted": [
+            "reactant molecule 2",
+            "reactant particle 2",
+            "reactant"
+          ]
+        },
+        "C": {
+          "answer": "Direction of particle motion",
+          "accepted": [
+            "direction of motion",
+            "motion arrow",
+            "approach direction"
+          ]
+        },
+        "D": {
+          "answer": "Collision",
+          "accepted": [
+            "collision",
+            "collision point",
+            "particle collision"
+          ]
+        },
+        "E": {
+          "answer": "Product particle / molecule",
+          "accepted": [
+            "product",
+            "product molecule",
+            "products"
+          ]
+        },
+        "F": {
+          "answer": "Effective collision",
+          "accepted": [
+            "effective collision",
+            "successful collision"
+          ]
+        },
+        "G": {
+          "answer": "Ineffective collision",
+          "accepted": [
+            "ineffective collision",
+            "unsuccessful collision"
+          ]
+        }
+      },
+      "notes": "Use this to reinforce that successful reactions require effective collisions with sufficient energy and appropriate orientation."
+    },
+    {
+      "id": "ch12-electron-transfer",
+      "chapter": 12,
+      "title": "Electron Transfer and Ion Formation",
+      "image": "chapter_12/ch12_electron_transfer_ion_formation.png",
+      "prompt": "Match each letter to the correct feature in the sodium-to-chlorine electron-transfer diagram.",
+      "labels": {
+        "A": {
+          "answer": "Sodium atom",
+          "accepted": [
+            "sodium atom",
+            "Na atom",
+            "Na"
+          ]
+        },
+        "B": {
+          "answer": "Chlorine atom",
+          "accepted": [
+            "chlorine atom",
+            "Cl atom",
+            "Cl"
+          ]
+        },
+        "C": {
+          "answer": "Transferred electron",
+          "accepted": [
+            "transferred electron",
+            "electron transfer",
+            "electron"
+          ]
+        },
+        "D": {
+          "answer": "Sodium ion (Na⁺)",
+          "accepted": [
+            "sodium ion",
+            "Na+",
+            "Na⁺",
+            "cation"
+          ]
+        },
+        "E": {
+          "answer": "Chloride ion (Cl⁻)",
+          "accepted": [
+            "chloride ion",
+            "Cl-",
+            "Cl⁻",
+            "anion"
+          ]
+        },
+        "F": {
+          "answer": "Valence electron",
+          "accepted": [
+            "valence electron",
+            "outer-shell electron"
+          ]
+        }
+      },
+      "notes": "Sodium loses an electron and is oxidized; chlorine gains an electron and is reduced."
+    },
+    {
+      "id": "ch12-oxidation-numbers-water",
+      "chapter": 12,
+      "title": "Oxidation Numbers in Water",
+      "image": "chapter_12/ch12_oxidation_numbers_water.png",
+      "prompt": "Match each letter to the correct feature in the water oxidation-number diagram.",
+      "labels": {
+        "A": {
+          "answer": "Oxygen atom",
+          "accepted": [
+            "oxygen",
+            "oxygen atom",
+            "O"
+          ]
+        },
+        "B": {
+          "answer": "Hydrogen atom",
+          "accepted": [
+            "hydrogen",
+            "hydrogen atom",
+            "H"
+          ]
+        },
+        "C": {
+          "answer": "O–H covalent bond",
+          "accepted": [
+            "O-H bond",
+            "O–H bond",
+            "covalent bond",
+            "bond"
+          ]
+        },
+        "D": {
+          "answer": "Oxygen oxidation number = −2",
+          "accepted": [
+            "-2",
+            "−2",
+            "oxygen oxidation number -2"
+          ]
+        },
+        "E": {
+          "answer": "Hydrogen oxidation number = +1",
+          "accepted": [
+            "+1",
+            "hydrogen oxidation number +1"
+          ]
+        }
+      },
+      "notes": "In ordinary H2O, oxygen is assigned −2 and each hydrogen is assigned +1."
+    },
+    {
+      "id": "ch12-half-reaction",
+      "chapter": 12,
+      "title": "Half-Reaction Representation",
+      "image": "chapter_12/ch12_half_reaction_representation.png",
+      "prompt": "Match each letter to the structural part of the half-reaction representation.",
+      "labels": {
+        "A": {
+          "answer": "Upper half-reaction",
+          "accepted": [
+            "upper half-reaction",
+            "first half-reaction"
+          ]
+        },
+        "B": {
+          "answer": "Lower half-reaction",
+          "accepted": [
+            "lower half-reaction",
+            "second half-reaction"
+          ]
+        },
+        "C": {
+          "answer": "Electrons (e⁻)",
+          "accepted": [
+            "electrons",
+            "electron",
+            "e-",
+            "e⁻"
+          ]
+        },
+        "D": {
+          "answer": "Reactant species",
+          "accepted": [
+            "reactant",
+            "reactant species",
+            "starting species"
+          ]
+        },
+        "E": {
+          "answer": "Product species",
+          "accepted": [
+            "product",
+            "product species"
+          ]
+        },
+        "F": {
+          "answer": "Reaction arrow",
+          "accepted": [
+            "reaction arrow",
+            "arrow",
+            "direction of reaction"
+          ]
+        }
+      },
+      "notes": "STRUCTURE-ONLY asset. Do not use this image to teach a specific balanced half-reaction; use it for identifying the parts of half-reaction notation."
+    },
+    {
+      "id": "ch13-voltaic-cell",
+      "chapter": 13,
+      "title": "Voltaic (Galvanic) Cell — Zn/Cu",
+      "image": "chapter_13/ch13_voltaic_cell_zinc_copper.png",
+      "prompt": "Match each letter to the correct component or process in the zinc-copper voltaic cell.",
+      "labels": {
+        "A": {
+          "answer": "Zinc electrode",
+          "accepted": [
+            "zinc electrode",
+            "Zn electrode",
+            "zinc"
+          ]
+        },
+        "B": {
+          "answer": "Copper electrode",
+          "accepted": [
+            "copper electrode",
+            "Cu electrode",
+            "copper"
+          ]
+        },
+        "C": {
+          "answer": "Salt bridge",
+          "accepted": [
+            "salt bridge"
+          ]
+        },
+        "D": {
+          "answer": "External circuit / wire",
+          "accepted": [
+            "external circuit",
+            "wire",
+            "external wire"
+          ]
+        },
+        "E": {
+          "answer": "Electron flow from Zn to Cu",
+          "accepted": [
+            "electron flow",
+            "electron flow from zinc to copper",
+            "electrons",
+            "e- flow",
+            "e⁻ flow"
+          ]
+        },
+        "F": {
+          "answer": "Anode — oxidation occurs here",
+          "accepted": [
+            "anode",
+            "oxidation site",
+            "site of oxidation"
+          ]
+        },
+        "G": {
+          "answer": "Cathode — reduction occurs here",
+          "accepted": [
+            "cathode",
+            "reduction site",
+            "site of reduction"
+          ]
+        },
+        "H": {
+          "answer": "Zinc oxidation half-cell",
+          "accepted": [
+            "zinc half-cell",
+            "oxidation half-cell",
+            "anode half-cell"
+          ]
+        },
+        "I": {
+          "answer": "Copper reduction half-cell",
+          "accepted": [
+            "copper half-cell",
+            "reduction half-cell",
+            "cathode half-cell"
+          ]
+        }
+      },
+      "notes": "For a spontaneous Zn/Cu cell, electrons travel through the external circuit from Zn (anode) to Cu (cathode)."
+    },
+    {
+      "id": "ch13-electrolytic-cell",
+      "chapter": 13,
+      "title": "Electrolytic Cell",
+      "image": "chapter_13/ch13_electrolytic_cell.png",
+      "prompt": "Match each letter to the correct part of the electrolytic-cell setup.",
+      "labels": {
+        "A": {
+          "answer": "DC power supply",
+          "accepted": [
+            "DC power supply",
+            "power supply",
+            "external power source"
+          ]
+        },
+        "B": {
+          "answer": "Negative terminal",
+          "accepted": [
+            "negative terminal",
+            "negative connection",
+            "minus terminal"
+          ]
+        },
+        "C": {
+          "answer": "Positive terminal",
+          "accepted": [
+            "positive terminal",
+            "positive connection",
+            "plus terminal"
+          ]
+        },
+        "D": {
+          "answer": "Cathode (negative electrode)",
+          "accepted": [
+            "cathode",
+            "negative electrode",
+            "reduction electrode"
+          ]
+        },
+        "E": {
+          "answer": "Anode (positive electrode)",
+          "accepted": [
+            "anode",
+            "positive electrode",
+            "oxidation electrode"
+          ]
+        },
+        "F": {
+          "answer": "Electrolyte solution",
+          "accepted": [
+            "electrolyte",
+            "electrolyte solution",
+            "ionic solution"
+          ]
+        },
+        "G": {
+          "answer": "Positive connecting lead / wire",
+          "accepted": [
+            "positive wire",
+            "positive lead",
+            "connecting wire",
+            "wire"
+          ]
+        },
+        "H": {
+          "answer": "Gas bubbles / gaseous product",
+          "accepted": [
+            "gas bubbles",
+            "gas",
+            "gaseous product"
+          ]
+        }
+      },
+      "notes": "In an electrolytic cell the external power source drives a non-spontaneous redox process. The exact gas depends on the electrolyte."
+    },
+    {
+      "id": "ch13-salt-bridge",
+      "chapter": 13,
+      "title": "Salt Bridge and Ion Movement",
+      "image": "chapter_13/ch13_salt_bridge_ion_movement.png",
+      "prompt": "Match each letter to the correct feature of the salt bridge and ion-migration diagram.",
+      "labels": {
+        "A": {
+          "answer": "Salt bridge",
+          "accepted": [
+            "salt bridge"
+          ]
+        },
+        "B": {
+          "answer": "Anode half-cell",
+          "accepted": [
+            "anode half-cell",
+            "oxidation half-cell",
+            "left half-cell"
+          ]
+        },
+        "C": {
+          "answer": "Cathode half-cell",
+          "accepted": [
+            "cathode half-cell",
+            "reduction half-cell",
+            "right half-cell"
+          ]
+        },
+        "D": {
+          "answer": "Anions migrate toward the anode",
+          "accepted": [
+            "anion migration to anode",
+            "anions to anode",
+            "negative ions to anode"
+          ]
+        },
+        "E": {
+          "answer": "Cations migrate toward the cathode",
+          "accepted": [
+            "cation migration to cathode",
+            "cations to cathode",
+            "positive ions to cathode"
+          ]
+        },
+        "F": {
+          "answer": "Anode electrolyte solution",
+          "accepted": [
+            "anode solution",
+            "anode electrolyte",
+            "left electrolyte"
+          ]
+        },
+        "G": {
+          "answer": "Cathode electrolyte solution",
+          "accepted": [
+            "cathode solution",
+            "cathode electrolyte",
+            "right electrolyte"
+          ]
+        }
+      },
+      "notes": "Ion movement through the salt bridge maintains electrical neutrality: anions toward the anode side, cations toward the cathode side."
+    },
+    {
+      "id": "ch13-electroplating",
+      "chapter": 13,
+      "title": "Electroplating Setup",
+      "image": "chapter_13/ch13_electroplating_setup.png",
+      "prompt": "Match each letter to the correct part or process in the electroplating setup.",
+      "labels": {
+        "A": {
+          "answer": "DC power supply",
+          "accepted": [
+            "DC power supply",
+            "power supply",
+            "external power source"
+          ]
+        },
+        "B": {
+          "answer": "Negative terminal",
+          "accepted": [
+            "negative terminal",
+            "minus terminal"
+          ]
+        },
+        "C": {
+          "answer": "Positive terminal",
+          "accepted": [
+            "positive terminal",
+            "plus terminal"
+          ]
+        },
+        "D": {
+          "answer": "Wire to the cathode",
+          "accepted": [
+            "cathode wire",
+            "negative lead",
+            "wire to cathode",
+            "connecting wire"
+          ]
+        },
+        "E": {
+          "answer": "Object being plated — cathode",
+          "accepted": [
+            "object being plated",
+            "cathode",
+            "spoon",
+            "negative electrode"
+          ]
+        },
+        "F": {
+          "answer": "Deposited metal coating",
+          "accepted": [
+            "metal coating",
+            "deposited metal",
+            "plated metal",
+            "coating"
+          ]
+        },
+        "G": {
+          "answer": "Metal source — anode",
+          "accepted": [
+            "metal source",
+            "anode",
+            "source metal",
+            "positive electrode"
+          ]
+        },
+        "H": {
+          "answer": "Electrolyte containing metal ions",
+          "accepted": [
+            "electrolyte",
+            "electrolyte solution",
+            "metal ion solution",
+            "solution"
+          ]
+        }
+      },
+      "notes": "The object to be plated is the cathode. Metal ions are reduced onto its surface."
+    }
+  ]
+}

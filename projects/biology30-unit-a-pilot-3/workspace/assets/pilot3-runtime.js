@@ -443,6 +443,417 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     } };
   }
 
+  // scripts/lib/biology30-chapters/brightspace-photo-store.js
+  (function(global) {
+    "use strict";
+    global.createBiologyBrightspacePhotoStore = function({ origin, orgUnitId, folderId, apiVersion, authorize, questionIds }) {
+      const url = new URL(origin), id = (x) => /^\d+$/.test(String(x));
+      if (url.protocol !== "https:" || url.username || url.password || url.pathname !== "/" || url.search || url.hash || !id(orgUnitId) || !id(folderId) || !/^1\.\d+$/.test(apiVersion) || typeof authorize !== "function" || !Array.isArray(questionIds) || !questionIds.length) throw Error("Photo syncing requires an approved Brightspace configuration.");
+      const allowed = new Set(questionIds), base = `${url.origin}/d2l/api/le/${apiVersion}/${orgUnitId}/dropbox/folders/${folderId}/submissions/`;
+      const scope = () => {
+        const sc = global.__canvasHelperScorm;
+        if (!sc || sc.connectionState() !== "connected") throw Error("Open this photo activity through Brightspace.");
+        return sc.scopeKey("biology-photos");
+      };
+      async function request(suffix, options = {}) {
+        const token = await authorize();
+        if (typeof token !== "string" || !token || /[\r\n]/.test(token)) throw Error("Brightspace photo authorization is unavailable.");
+        const r = await fetch(base + suffix, { ...options, headers: { ...options.headers, Authorization: "Bearer " + token }, credentials: "omit", redirect: "error", cache: "no-store" });
+        if (!r.ok) throw Error(r.status === 401 || r.status === 403 ? "Brightspace has not authorized this photo operation." : "Brightspace could not store or retrieve this photo. Try again.");
+        return r;
+      }
+      async function files() {
+        const rows = await (await request("mysubmissions/")).json();
+        if (!Array.isArray(rows)) throw Error("Brightspace returned an unsupported photo-submission record.");
+        return rows.flatMap((e) => (e.Submissions || []).flatMap((s) => (s.Files || []).map((f) => ({ submissionId: s.Id, fileId: f.FileId, name: f.FileName, comment: s.Comment?.Text }))));
+      }
+      function metadata(photoId, questionId) {
+        return JSON.stringify({ schemaVersion: 1, scope: scope(), photoId, questionId });
+      }
+      return {
+        enabled: (questionId) => allowed.has(questionId),
+        async put({ photoId, questionId, blob }) {
+          if (!allowed.has(questionId) || !/^[a-zA-Z0-9-]{1,100}$/.test(photoId) || !(blob instanceof Blob) || blob.type !== "image/jpeg") throw Error("This photo is outside the configured pilot.");
+          const comment = metadata(photoId, questionId), name = `biology-photo-${photoId}.jpg`;
+          let existing = (await files()).find((f) => f.name === name && f.comment === comment);
+          if (!existing) {
+            const boundary = "canvas-helper-" + crypto.randomUUID();
+            const body = new Blob([`--${boundary}\r
+Content-Type: application/json\r
+\r
+`, JSON.stringify({ Text: comment, Html: null }), `\r
+--${boundary}\r
+Content-Disposition: form-data; name=""; filename="${name}"\r
+Content-Type: image/jpeg\r
+\r
+`, blob, `\r
+--${boundary}--\r
+`], { type: `multipart/mixed; boundary=${boundary}` });
+            await request("mysubmissions/", { method: "POST", body });
+            existing = (await files()).find((f) => f.name === name && f.comment === comment);
+          }
+          if (!existing || !id(existing.submissionId) || !id(existing.fileId)) throw Error("Brightspace has not confirmed the uploaded photo. Keep this page open and retry.");
+          return { provider: "brightspace-assignment-v1", orgUnitId: String(orgUnitId), folderId: String(folderId), submissionId: String(existing.submissionId), fileId: String(existing.fileId), photoId, questionId, scope: scope() };
+        },
+        async get(reference) {
+          if (reference?.provider !== "brightspace-assignment-v1" || reference.orgUnitId !== String(orgUnitId) || reference.folderId !== String(folderId) || reference.scope !== scope() || !allowed.has(reference.questionId) || !id(reference.submissionId) || !id(reference.fileId)) throw Error("This photo does not belong to the current course attempt.");
+          const owned = (await files()).some((f) => String(f.submissionId) === reference.submissionId && String(f.fileId) === reference.fileId && f.comment === metadata(reference.photoId, reference.questionId));
+          if (!owned) throw Error("This photo is not available to the current Brightspace learner.");
+          const blob = await (await request(`${reference.submissionId}/files/${reference.fileId}`)).blob();
+          if (blob.type !== "image/jpeg") throw Error("Brightspace returned an unsupported photo file.");
+          return blob;
+        }
+      };
+    };
+  })(window);
+
+  // scripts/lib/biology30-chapters/textbook-practice.js
+  (function(global) {
+    "use strict";
+    global.mountBiologyTextbookPractice = function({ chapter, read, write }) {
+      const root = document.querySelector("[data-textbook-practice]");
+      if (!root) return;
+      const M = JSON.parse(document.querySelector("#textbook-practice-data").textContent);
+      const $2 = (s) => root.querySelector(s), esc3 = (x) => String(x ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+      let selected = M.questions[0], timer, serial = Promise.resolve(), draft = null, dirty = false, busy2 = false, photoDB, returnFocus;
+      let topic = "all";
+      const visible = () => M.questions.filter((q) => topic === "all" || (topic === "chapter-review" ? q.group === "chapter-review" : q.topics?.includes(topic)));
+      const topicMenu = $2("[data-book-topic]");
+      topicMenu.innerHTML = [{ id: "all", label: "All chapter questions" }, ...M.topics || [], { id: "chapter-review", label: "Chapter review \u2014 mixed topics" }].map((t) => `<option value="${esc3(t.id)}">${esc3(t.label)} \xB7 ${M.questions.filter((q) => t.id === "all" || (t.id === "chapter-review" ? q.group === "chapter-review" : q.topics?.includes(t.id))).length} questions</option>`).join("");
+      const message2 = (text, error = false) => {
+        const el = $2("[data-book-status]");
+        el.textContent = text;
+        el.setAttribute("role", error ? "alert" : "status");
+      };
+      const req = (r) => new Promise((resolve, reject) => {
+        r.onsuccess = () => resolve(r.result);
+        r.onerror = () => reject(r.error);
+      });
+      async function db2() {
+        if (photoDB) return photoDB;
+        const name = `biology30-chapter-${chapter}:textbook-photos:v1`, r = indexedDB.open(global.__canvasHelperScorm?.scopeKey(name) || name, 1);
+        r.onupgradeneeded = () => r.result.createObjectStore("photos");
+        photoDB = await req(r);
+        return photoDB;
+      }
+      async function putPhoto(id, blob) {
+        const d = await db2();
+        await new Promise((resolve, reject) => {
+          const tx = d.transaction("photos", "readwrite");
+          tx.objectStore("photos").put(blob, id);
+          tx.oncomplete = resolve;
+          tx.onabort = () => reject(tx.error || Error("Photo storage was interrupted."));
+          tx.onerror = () => {
+          };
+        });
+      }
+      async function deletePhoto(id) {
+        try {
+          const d = await db2();
+          await new Promise((resolve, reject) => {
+            const tx = d.transaction("photos", "readwrite");
+            tx.objectStore("photos").delete(id);
+            tx.oncomplete = resolve;
+            tx.onabort = () => reject(tx.error);
+          });
+        } catch {
+        }
+      }
+      async function photo(id) {
+        const d = await db2();
+        const value = await req(d.transaction("photos").objectStore("photos").get(id));
+        if (value) return value;
+        const reference = Object.values(read()).flatMap((r) => r.photos || []).find((p) => p.id === id)?.remote;
+        if (reference && global.biologyPhotoStore) {
+          const blob = await global.biologyPhotoStore.get(reference);
+          await putPhoto(id, blob);
+          return blob;
+        }
+        throw Error(reference ? "This photo needs the approved Brightspace photo connection." : "A saved photo is unavailable in this browser.");
+      }
+      const signature = (r) => JSON.stringify([r.text, r.photos.map((p) => p.id)]);
+      const status = (r) => !r ? "Not started" : r.savedSignature === signature(r) ? "Saved" : "Draft";
+      function picker() {
+        const sel = $2("[data-book-picker]");
+        sel.replaceChildren();
+        let group, host;
+        for (const q of visible()) {
+          const name = `${q.group.replaceAll("-", " ")} \xB7 p. ${q.page}`;
+          if (group !== name) {
+            group = name;
+            host = document.createElement("optgroup");
+            host.label = name;
+            sel.append(host);
+          }
+          const option = document.createElement("option");
+          option.value = q.id;
+          option.textContent = `Question ${q.number} \u2014 ${status(read()[q.id])}`;
+          option.selected = q.id === selected.id;
+          host.append(option);
+        }
+      }
+      function questionGrid() {
+        const host = $2("[data-book-question-grid]");
+        if (!host) return;
+        host.replaceChildren();
+        let page, row;
+        for (const q of visible()) {
+          if (page !== q.page) {
+            page = q.page;
+            const section = document.createElement("section");
+            section.className = "book-page-questions";
+            const label = document.createElement("h3");
+            label.textContent = `p. ${page}`;
+            section.append(label);
+            row = document.createElement("div");
+            section.append(row);
+            host.append(section);
+          }
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "book-question-tile";
+          button.setAttribute("aria-pressed", String(q.id === selected.id));
+          button.setAttribute("aria-label", q.label);
+          button.innerHTML = `<span>Q${esc3(q.number)}</span><small>${esc3(q.group.replaceAll("-", " "))}</small><small>${status(read()[q.id])}</small>`;
+          button.onclick = () => run(() => navigate(q));
+          row.append(button);
+        }
+      }
+      function record() {
+        return structuredClone(read()[selected.id] || { text: "", photos: [], updatedAt: 0 });
+      }
+      const urls = /* @__PURE__ */ new Set();
+      function release() {
+        for (const u of urls) URL.revokeObjectURL(u);
+        urls.clear();
+      }
+      function blobURL(blob) {
+        const url = URL.createObjectURL(blob);
+        urls.add(url);
+        return url;
+      }
+      async function thumbnails() {
+        const id = selected.id, host = $2("[data-book-photos]");
+        host.replaceChildren();
+        for (const p of draft.photos) {
+          const fig = document.createElement("figure");
+          fig.innerHTML = `<button type="button" class="book-photo-enlarge" aria-label="Enlarge ${esc3(p.name)}"><img alt="${esc3(p.name)}"></button><figcaption>${esc3(p.name)}</figcaption><div class="book-actions"><button type="button" data-remove-photo="${esc3(p.id)}">Remove photo</button></div>`;
+          host.append(fig);
+          try {
+            const blob = await photo(p.id);
+            if (selected.id !== id) return;
+            fig.querySelector("img").src = blobURL(blob);
+            fig.querySelector(".book-photo-enlarge").onclick = () => enlarge([{ src: fig.querySelector("img").src, label: p.name }]);
+          } catch (e) {
+            fig.append(document.createTextNode(e.message));
+            message2(e.message, true);
+          }
+        }
+      }
+      async function render2() {
+        release();
+        draft = record();
+        dirty = false;
+        picker();
+        $2("[data-book-title]").textContent = selected.label;
+        $2("[data-book-text]").value = draft.text;
+        $2("[data-book-question-state]").textContent = status(read()[selected.id]);
+        $2("[data-book-position]").textContent = `Question ${visible().indexOf(selected) + 1} of ${visible().length} \xB7 `;
+        $2("[data-book-fullpage]").textContent = `See full textbook page ${selected.page}`;
+        const required = [], context = [];
+        selected.crops.forEach((c, i) => {
+          const continuation = c.role === "required question continuation", visible2 = i === 0 || continuation;
+          const figure = `<figure><img src="${esc3(c.src || M.pages[c.page].src)}" alt="Original textbook page ${c.page}; ${visible2 ? "question " + selected.number : "reference context"}" loading="${visible2 ? "eager" : "lazy"}"><figcaption>${continuation ? "Continue question " + selected.number + " here" : i === 0 ? "Answer question " + selected.number + "; all lettered parts belong together" : "Full-page reference context"} \xB7 p. ${c.page}</figcaption></figure>`;
+          (visible2 ? required : context).push(figure);
+        });
+        $2("[data-book-images]").innerHTML = required.join("") + (context.length ? "<details><summary>Shared instructions, figures and full-page context</summary>" + context.join("") + "</details>" : "");
+        $2("[data-book-prev]").disabled = visible().indexOf(selected) === 0;
+        $2("[data-book-next]").disabled = visible().indexOf(selected) === visible().length - 1;
+        await thumbnails();
+        message2("Drafts autosave. Select Save question work when this response is ready. Saving does not grade your work.");
+      }
+      function run(action) {
+        serial = serial.catch(() => {
+        }).then(action).catch((e) => {
+          message2(`NOT SAVED: ${e.message} Your previous stored work is unchanged. Keep this page open and copy unsaved writing.`, true);
+          throw e;
+        });
+        serial.catch(() => {
+        });
+        return serial;
+      }
+      async function persist(saved = false) {
+        clearTimeout(timer);
+        if (!dirty && !saved) return;
+        const id = selected.id, next = structuredClone(draft);
+        next.text = $2("[data-book-text]").value;
+        next.updatedAt = Date.now();
+        if (saved) {
+          for (const p of next.photos) await photo(p.id);
+          next.savedSignature = signature(next);
+          next.savedAt = Date.now();
+        }
+        await write(id, next);
+        const currentText = $2("[data-book-text]").value;
+        draft = next;
+        dirty = currentText !== next.text;
+        if (dirty) {
+          draft.text = currentText;
+          timer = setTimeout(() => run(() => persist()), 650);
+        }
+        picker();
+        $2("[data-book-question-state]").textContent = dirty ? "Draft" : status(next);
+        message2(dirty ? "Earlier response stored; newer writing is still saving." : saved ? "Question work saved in this browser. Ungraded." : "Draft saved in this browser.");
+        await work();
+      }
+      async function flushDraft() {
+        do {
+          await persist();
+        } while (dirty);
+      }
+      async function navigate(q) {
+        if (!q || busy2) return;
+        await flushDraft();
+        selected = q;
+        await render2();
+        $2("[data-book-title]").focus();
+      }
+      $2("[data-book-text]").addEventListener("input", () => {
+        draft.text = $2("[data-book-text]").value;
+        dirty = true;
+        $2("[data-book-question-state]").textContent = "Draft";
+        message2("Unsaved changes \u2014 saving draft\u2026");
+        clearTimeout(timer);
+        timer = setTimeout(() => run(() => persist()), 650);
+      });
+      $2("[data-book-picker]").addEventListener("change", (e) => {
+        const q = M.questions.find((q2) => q2.id === e.target.value);
+        run(() => navigate(q));
+      });
+      $2("[data-book-prev]").onclick = () => run(() => navigate(visible()[visible().indexOf(selected) - 1]));
+      $2("[data-book-next]").onclick = () => run(() => navigate(visible()[visible().indexOf(selected) + 1]));
+      async function filterTopic(value) {
+        if (busy2 || !Array.from(topicMenu.options).some((o) => o.value === value)) {
+          topicMenu.value = topic;
+          return;
+        }
+        try {
+          await flushDraft();
+        } catch (e) {
+          topicMenu.value = topic;
+          throw e;
+        }
+        topic = value;
+        topicMenu.value = topic;
+        selected = visible().includes(selected) ? selected : visible()[0];
+        await render2();
+        $2("[data-book-question-grid]").scrollTop = 0;
+      }
+      topicMenu.onchange = (e) => {
+        const value = e.target.value;
+        run(() => filterTopic(value));
+      };
+      $2("[data-book-save]").onclick = () => run(() => persist(true));
+      const dialog = document.querySelector("[data-book-enlarge-dialog]");
+      function enlarge(images) {
+        returnFocus = document.activeElement;
+        dialog.querySelector("[data-book-enlarge-images]").innerHTML = images.map((p) => `<figure><img src="${esc3(p.src)}" alt="${esc3(p.label)}"><figcaption>${esc3(p.label)}</figcaption></figure>`).join("");
+        dialog.showModal();
+        dialog.querySelector("[data-book-enlarge-close]").focus();
+      }
+      dialog.querySelector("[data-book-enlarge-close]").onclick = () => dialog.close();
+      dialog.addEventListener("close", () => returnFocus?.focus());
+      $2("[data-book-enlarge]").onclick = () => enlarge(selected.crops.map((c) => ({ src: c.src || M.pages[c.page].src, label: `Original textbook p. ${c.page}, selected question ${selected.number}` })));
+      $2("[data-book-fullpage]").onclick = () => enlarge([{ src: M.pages[selected.page].src, label: `Full textbook page ${selected.page}` }]);
+      root.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-remove-photo]");
+        if (!b) return;
+        const panel = $2("[data-book-remove-confirm]");
+        panel.hidden = false;
+        panel.dataset.id = b.dataset.removePhoto;
+        panel.querySelector("p").textContent = draft.photos.find((p) => p.id === b.dataset.removePhoto)?.remote ? "Remove this photo from the course response? Your writing stays. The file already submitted to Brightspace will be retained." : "Remove this photo from this question? Your writing and other photos will remain.";
+        panel.querySelector("button").focus();
+      });
+      $2("[data-book-cancel-remove]").onclick = () => {
+        $2("[data-book-remove-confirm]").hidden = true;
+      };
+      $2("[data-book-confirm-remove]").onclick = () => run(async () => {
+        const panel = $2("[data-book-remove-confirm]"), id = panel.dataset.id;
+        await persist();
+        draft.photos = draft.photos.filter((p) => p.id !== id);
+        dirty = true;
+        await persist();
+        await deletePhoto(id);
+        panel.hidden = true;
+        await thumbnails();
+      });
+      async function work() {
+        const host = document.querySelector("[data-textbook-work]");
+        if (!host) return;
+        const records = read(), entries = M.questions.filter((q) => records[q.id]);
+        host.innerHTML = entries.map((q) => {
+          const r = records[q.id];
+          return `<article class="history-run textbook-work-entry" data-book-work-id="${esc3(q.id)}"><h3>${esc3(q.label)} \u2014 ${status(r)}</h3><p class="written-record">${esc3(r.text || "(Photo work / no written response)")}</p><div class="book-work-photos">${r.photos.map((p) => `<figure><img data-work-photo="${esc3(p.id)}" alt="${esc3(p.name)}"><figcaption>${esc3(p.name)}</figcaption></figure>`).join("")}</div></article>`;
+        }).join("") || "<p>No textbook question work yet.</p>";
+        await Promise.all(Array.from(host.querySelectorAll("[data-work-photo]")).map(async (img) => {
+          try {
+            const blob = await photo(img.dataset.workPhoto);
+            img.src = await new Promise((resolve, reject) => {
+              const r = new FileReader();
+              r.onload = () => resolve(r.result);
+              r.onerror = reject;
+              r.readAsDataURL(blob);
+            });
+          } catch (e) {
+            img.replaceWith(document.createTextNode(e.message));
+          }
+        }));
+      }
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("[data-textbook-topic],[data-textbook-group]");
+        if (!a) return;
+        e.preventDefault();
+        run(async () => {
+          await filterTopic(a.dataset.textbookTopic || "all");
+          if (a.dataset.textbookGroup) await navigate(M.questions.find((q) => q.page >= Number(a.dataset.textbookGroup)) || M.questions[0]);
+          location.hash = "textbook-practice";
+          $2("[data-book-title]").focus();
+        });
+      });
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("[data-print],[data-print-work]")) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        run(async () => {
+          await persist();
+          await work();
+          await Promise.all(Array.from(document.querySelectorAll("[data-textbook-work] img")).map((img) => img.decode().catch(() => {
+          })));
+          window.print();
+        });
+      }, true);
+      window.addEventListener("beforeprint", () => {
+        if (dirty) message2("A draft is still being saved. Use the page Print button for a complete portable record.", true);
+      });
+      window.addEventListener("beforeunload", (e) => {
+        if (dirty || busy2) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
+      global.biologyTextbookPractice = { flush: () => run(() => persist()), refresh: async () => {
+        if (draft) await thumbnails();
+        await work();
+      } };
+      const originalPicker = picker;
+      picker = function() {
+        originalPicker();
+        questionGrid();
+      };
+      render2().then(work).catch((e) => message2(e.message, true));
+    };
+  })(window);
+
   // scripts/lib/biology30-pilot3/practice-engine.ts
   var hash = (value) => {
     let h = 2166136261;
@@ -591,7 +1002,14 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   var escapeHtml = (value) => value.replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch]);
 
   // scripts/lib/biology30-pilot3/runtime.ts
-  var NS = "biology30-unit-a-pilot-3:v1";
+  var scorm = window.__canvasHelperScorm;
+  var lms = scorm && scorm.connectionState() !== "preview";
+  var initialLms = lms ? scorm.readCourseState() : null;
+  var NS = lms ? scorm.scopeKey("biology30-unit-a-pilot-3:v1") : "biology30-unit-a-pilot-3:v1";
+  if (lms) {
+    if (initialLms?.frayers) localStorage.setItem(NS + ":frayers", JSON.stringify(initialLms.frayers));
+    else localStorage.removeItem(NS + ":frayers");
+  }
   var $ = (s, r = document) => r.querySelector(s);
   var all = (s, r = document) => Array.from(r.querySelectorAll(s));
   var esc2 = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -624,9 +1042,35 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   }
   async function open() {
     const existing = typeof indexedDB.databases === "function" ? (await indexedDB.databases()).some((item) => item.name === NS) : true;
-    if (existing) await connect();
+    if (existing || lms && initialLms?.state) await connect();
     const saved = db ? await storageRequest(db.transaction("work").objectStore("work").get("state")) : null;
-    if (saved) {
+    if (lms) {
+      const restored = initialLms?.state;
+      if (restored && (restored.version !== 1 || !Number.isInteger(restored.revision) || !restored.current || !Array.isArray(restored.history))) throw Error("Unrecognized Brightspace save. Existing record retained.");
+      if (saved && restored && JSON.stringify(saved) !== JSON.stringify(restored)) {
+        const recovery = db.transaction("work", "readwrite");
+        recovery.objectStore("work").put(saved, "recovery:" + Date.now());
+        await new Promise((resolve, reject) => {
+          recovery.oncomplete = () => resolve();
+          recovery.onabort = () => reject(Error("Could not preserve the browser recovery copy."));
+        });
+        state = saved.revision > restored.revision && window.confirm("This browser has newer work that Brightspace has not saved. Continue with the browser draft? Cancel opens the Brightspace copy; the browser recovery copy is retained.") ? saved : restored;
+      } else state = restored ?? state;
+      if (db) {
+        const tx = db.transaction("work", "readwrite"), store = tx.objectStore("work"), check = store.get("state");
+        check.onsuccess = () => {
+          if (JSON.stringify(check.result ?? null) !== JSON.stringify(saved ?? null)) {
+            tx.abort();
+            return;
+          }
+          store.put(state, "state");
+        };
+        await new Promise((resolve, reject) => {
+          tx.oncomplete = () => resolve();
+          tx.onabort = () => reject(Error("The restored work could not be stored; another tab may have changed it. The prior record is retained."));
+        });
+      }
+    } else if (saved) {
       if (saved.version !== 1 || !saved.current || !Array.isArray(saved.history)) throw Error("Unrecognized save. Existing record retained.");
       state = saved;
     } else {
@@ -649,8 +1093,26 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       }
     }
     ready = true;
-    message("Saved work opened. Local browser only; print or save completed work as a PDF before changing devices.");
+    if (lms) {
+      publishLms();
+      scorm.registerCourse({ flush: async () => {
+        await window.biologyTextbookPractice?.flush();
+        await queue;
+        if (failed) throw Error("Some course work has not saved. Keep this page open.");
+        publishLms();
+      } });
+    }
+    message(lms ? "Course work opened from Brightspace. Photos remain in this browser until photo syncing is connected." : "Saved work opened. Local browser only; print or save completed work as a PDF before changing devices.");
     render();
+    window.mountBiologyTextbookPractice({ chapter: 11, read: () => state.textbookWork ?? {}, write: (id, record) => {
+      const action = queue.catch(() => {
+      }).then(() => change((next) => {
+        (next.textbookWork ??= {})[id] = record;
+      }));
+      queue = action.catch(() => {
+      });
+      return action;
+    } });
   }
   async function commit(next) {
     if (!db) await connect();
@@ -687,7 +1149,20 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     }
     return result;
   }
+  function publishLms() {
+    if (!lms) return;
+    const completed = all("[data-required-check]").map((s) => s.dataset.activity).filter((id) => state.history.some((r) => r.activity === id));
+    const raw = localStorage.getItem(NS + ":frayers");
+    scorm.publishCourseState({ state, frayers: raw ? JSON.parse(raw) : null }, completed);
+  }
+  window.addEventListener("canvas-helper:scorm-status", (event) => {
+    if (lms) message(event.detail.message);
+  });
   function writeResumeProjection(next) {
+    if (lms) {
+      publishLms();
+      return;
+    }
     const active = Object.entries(next.current).filter(([, run]) => run.generatedSession && !run.endedAt), sessions = Object.fromEntries(active.map(([id, run]) => [id, run.generatedSession]));
     if (!active.length) {
       localStorage.removeItem(PROJECTION_KEY);
@@ -703,6 +1178,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     pending++;
     queue = queue.then(action).catch((e) => {
       failed = true;
+      if (lms) scorm.failCourseSave(e);
       message(String(e));
     }).finally(() => {
       pending--;
@@ -721,6 +1197,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
       message("Saved in this browser. LMS resume projection updated when available.");
     } catch (e) {
       failed = true;
+      if (lms) scorm.failCourseSave(e);
       message(String(e));
     }
   }
@@ -766,6 +1243,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
     $("[data-progress-fraction]").textContent = `${done} / ${ids.length}`;
     $("[data-progress-percent]").textContent = percent + "%";
     $("[data-progress-fill]").style.width = percent + "%";
+    for (const el of all("[data-lesson-completion]")) el.textContent = state.history.some((r) => r.activity === el.dataset.lessonCompletion) ? "Check completed" : "Check not completed";
   }
   function render() {
     for (const section of all("[data-activity]")) {
@@ -1114,12 +1592,14 @@ dialog.bio-vocabulary::backdrop{background:#0005}
         if (payload.length > 44e3) throw Error("Vocabulary exceeds the save budget.");
         localStorage.setItem(NS + ":frayers", payload);
         frayerBaseline = payload;
-        frayerMessage = "Saved in this browser.";
+        if (lms && ready) publishLms();
+        frayerMessage = lms ? "Vocabulary stored; waiting for Brightspace confirmation." : "Saved in this browser.";
         history();
         return { saved: true, message: frayerMessage };
       } catch (e) {
         frayerMessage = String(e) + " Drafts remain visible; copy before leaving.";
         failed = true;
+        if (lms) scorm.failCourseSave(e);
         return { saved: false, message: frayerMessage };
       }
     }
@@ -1276,6 +1756,7 @@ dialog.bio-vocabulary::backdrop{background:#0005}
   setInterval(tick, 1e3);
   open().catch((e) => {
     failed = true;
+    if (lms) scorm.failCourseSave(e);
     message("Saving unavailable: " + e + ". Existing work was not changed.");
   });
 })();

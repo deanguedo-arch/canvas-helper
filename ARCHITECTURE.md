@@ -373,3 +373,9 @@ Exports now avoid implicit intelligence regeneration. Export commands copy the w
 - Keep Node as the engine and the browser as the local shell.
 - Prefer explicit modules over hidden cross-layer coupling.
 - Treat `raw/` and `exports/` as protected artifacts.
+
+### Managed Science SCORM state
+
+The optional `course-state-v1` contract routes complete native snapshots and required completion IDs through the shared bridge. `scripts/lib/scorm-state-codec.ts` owns bounded lossless compression. Native course runtimes own restoration, recovery and pending-write flushing; the bridge owns learner/attempt isolation, capacity checks and the single LMS lifecycle. Managed snapshots exclude unrelated browser storage. Chemistry migrates its original compressed format; older shared localStorage envelopes require explicit migration rather than silent replacement.
+
+`scripts/lib/biology30-chapters/brightspace-photo-store.js` owns the optional current-user assignment-file adapter. The organization supplies the approved authorization callback and pilot destination; no OAuth service or credentials are included. Textbook Practice saves compact references after upload acknowledgment. Without configuration, photos remain browser-local. `--review-only` packaging creates separate sandbox artifacts and does not approve sources or record normal release evidence.

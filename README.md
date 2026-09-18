@@ -103,7 +103,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run test:e2e:project -- --project <slug>`
 - `npm run export:brightspace -- --project <slug>`
 - `npm run export:brightspace:zip -- --project <slug>`
-- `npm run export:scorm -- --project <slug> [--version 2004|1.2]`
+- `npm run export:scorm -- --project <slug> [--version 2004|1.2] [--review-only]`
 - `npm run export:apps-script -- --project <slug>`
 - `npm run export:google-hosted -- --project <slug>`
 - `npm run deploy:google-hosted`
@@ -235,8 +235,9 @@ See [docs/workflows/english-course-factory.md](docs/workflows/english-course-fac
 
 - `export:scorm` writes a SCORM package to `projects/<slug>/exports/<slug>-scorm-<version>.zip`
 - It also writes an unpacked folder to `projects/<slug>/exports/scorm-2004/` or `projects/<slug>/exports/scorm-1-2/`
+- `--review-only` creates a separate `-review.zip` and receipt without approving the workspace, recording release freshness, or changing blocked/export flags. Use it for sandbox pilots; it is not release evidence.
 - SCORM 2004 is the recommended default for larger suspend-data payloads
-- The SCORM export injects a bridge script that syncs workspace localStorage state into `cmi.suspend_data`
+- The SCORM export injects a bridge that saves localStorage or an explicit versioned course snapshot into `cmi.suspend_data`
 - Every export includes visible LMS save status, a Save now retry, and estimated active session time. Supported hash-page courses also get resume and saved page times; recognized Next Step Social/ELA shells report their actual required-item completion and SCORM 2004 progress.
 - The exporter prints capabilities and warnings and includes `scorm-tracking-report.json` in the package. Other course builders, including Science, can provide the versioned `workspace/scorm-tracking.json` contract described in [SCORM tracking](docs/workflows/scorm-tracking.md). Missing completion wiring is reported explicitly, never inferred from visits.
 - For autosaved courses, the bridge must load before inline/local course scripts so LMS suspend data restores into `localStorage` before the course reads response state

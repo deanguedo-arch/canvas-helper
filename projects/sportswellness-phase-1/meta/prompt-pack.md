@@ -16,3 +16,7 @@ This milestone is a browser-local learner preview. Save and Exit saves in this b
 ## Deferred rollout work
 
 Resolve the response-capacity policy, then run full project E2E, Studio readiness/lifecycle proof, SCORM packaging tests, independent ZIP inspection, and target Brightspace verification.
+
+## Current CTS audit repair boundary (2026-09-17)
+
+Read `meta/cts-audit-repair-handoff.md` and `meta/learner-interaction-contract.json` before continuing. Current checkpoint is r2; earlier results remain separate. Original chase mechanics remain, with audited game lifecycle/message/feedback repairs. Twenty curated optional resource placements supersede 33; PDFs and the legacy picker are withheld. Recovery controls live in the course guide; My Work has one primary print/PDF action. Keep blocked status and defer rollout proof.

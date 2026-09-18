@@ -1,15 +1,21 @@
 import {mountWordFrayerControls} from '../biology30-vocabulary/word-frayer-runtime.js';
 import {packWordFrayers,unpackWordFrayers,type WordFrayerState} from '../biology30-vocabulary/word-frayer-state.js';
 import {mountVocabularyPanel} from '../biology30-vocabulary/panel.js';
+import '../biology30-chapters/brightspace-photo-store.js';
+import '../biology30-chapters/textbook-practice.js';
 import {compactResumeProjection,generatePracticeSession,gradeGeneratedItem,renderGeneratedItem,restoreGeneratedItem,type GeneratedSession,type PracticeAttempt,type PracticeBank,type PracticeKind} from './practice-engine.js';
 
-const NS='biology30-unit-a-pilot-3:v1';
+const scorm=(window as any).__canvasHelperScorm;
+const lms=scorm&&scorm.connectionState()!=='preview';
+const initialLms=lms?scorm.readCourseState():null;
+const NS=lms?scorm.scopeKey('biology30-unit-a-pilot-3:v1'):'biology30-unit-a-pilot-3:v1';
+if(lms){if(initialLms?.frayers)localStorage.setItem(NS+':frayers',JSON.stringify(initialLms.frayers));else localStorage.removeItem(NS+':frayers');}
 const $=<T extends HTMLElement=HTMLElement>(s:string,r:ParentNode=document)=>r.querySelector<T>(s)!;
 const all=<T extends HTMLElement=HTMLElement>(s:string,r:ParentNode=document)=>Array.from(r.querySelectorAll<T>(s));
 const esc=(s:unknown)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 type Attempt={question:string;answer:string;correct:boolean|null;at:number;elapsedMs:number;prompt:string;conceptId?:string;skill?:string;difficulty?:number;generatedItemId?:string;firstTry?:boolean;displayedOptions?:string[];correctAnswer?:string[]};
 type Run={id:string;activity:string;startedAt:number;endedAt?:number;drafts:Record<string,string>;attempts:Attempt[];questionIds?:string[];keys?:typeof catalog;generatedSession?:GeneratedSession};
-type Saved={version:1;revision:number;current:Record<string,Run>;history:Run[]};
+type Saved={version:1;revision:number;current:Record<string,Run>;history:Run[];textbookWork?:Record<string,any>};
 let state:Saved={version:1,revision:0,current:{},history:[]},db:IDBDatabase,ready=false,busy=false,failed=false;
 let queue=Promise.resolve(),pending=0;
 const catalog=(window as any).PILOT3_CATALOG;
@@ -26,11 +32,23 @@ async function connect(){
 async function open(){
  // Reading an untouched course must not create learner storage. Create it on the first action.
  const existing=typeof indexedDB.databases==='function'?(await indexedDB.databases()).some(item=>item.name===NS):true;
- if(existing)await connect();
+ if(existing||(lms&&initialLms?.state))await connect();
  const saved=db?await storageRequest(db.transaction('work').objectStore('work').get('state')):null;
- if(saved){if(saved.version!==1||!saved.current||!Array.isArray(saved.history))throw Error('Unrecognized save. Existing record retained.');state=saved;}
+ if(lms){
+  const restored=initialLms?.state;
+  if(restored&&(restored.version!==1||!Number.isInteger(restored.revision)||!restored.current||!Array.isArray(restored.history)))throw Error('Unrecognized Brightspace save. Existing record retained.');
+  if(saved&&restored&&JSON.stringify(saved)!==JSON.stringify(restored)){
+   const recovery=db.transaction('work','readwrite');recovery.objectStore('work').put(saved,'recovery:'+Date.now());
+   await new Promise<void>((resolve,reject)=>{recovery.oncomplete=()=>resolve();recovery.onabort=()=>reject(Error('Could not preserve the browser recovery copy.'));});
+   state=saved.revision>restored.revision&&window.confirm('This browser has newer work that Brightspace has not saved. Continue with the browser draft? Cancel opens the Brightspace copy; the browser recovery copy is retained.')?saved:restored;
+  }else state=restored??state;
+  if(db){const tx=db.transaction('work','readwrite'),store=tx.objectStore('work'),check=store.get('state');check.onsuccess=()=>{if(JSON.stringify(check.result??null)!==JSON.stringify(saved??null)){tx.abort();return;}store.put(state,'state');};await new Promise<void>((resolve,reject)=>{tx.oncomplete=()=>resolve();tx.onabort=()=>reject(Error('The restored work could not be stored; another tab may have changed it. The prior record is retained.'));});}
+ }else if(saved){if(saved.version!==1||!saved.current||!Array.isArray(saved.history))throw Error('Unrecognized save. Existing record retained.');state=saved;}
  else{const portable=localStorage.getItem(PROJECTION_KEY);if(portable){try{const parsed=JSON.parse(portable);if(parsed.schemaVersion!==1||!parsed.sessions||parsed.bankVersion!==practiceBank.bankVersion)throw Error();for(const [activity,value] of Object.entries<any>(parsed.sessions)){if(!value.items||!Array.isArray(value.attempts))throw Error();const items=value.items.map((x:any)=>restoreGeneratedItem(practiceBank,value.kind,x.id,x.options)),generatedSession={schemaVersion:1,bankVersion:parsed.bankVersion,generatorVersion:practiceBank.generatorVersion,feedback:'none',adaptations:[],startedWithEvidence:parsed.performance??{},...value,items} as GeneratedSession;state.current[activity]={id:`portable-${activity}-${generatedSession.seed}`,activity,startedAt:value.startedAt??Date.now(),drafts:{},attempts:generatedSession.attempts.map(a=>{const item=generatedSession.items.find(i=>i.id===a.itemId)!;return{question:a.itemId,answer:a.answer.join(' → '),correct:a.correct,at:a.at,elapsedMs:0,prompt:item?.prompt??a.itemId,conceptId:item?.conceptId,skill:item?.skill,generatedItemId:a.itemId,firstTry:a.firstTry};}),questionIds:generatedSession.items.map(x=>x.id),generatedSession};}}catch{throw Error('Portable practice save is malformed or uses an unavailable bank version. It has been retained for recovery and no new session was created.');}}}
- ready=true;message('Saved work opened. Local browser only; print or save completed work as a PDF before changing devices.');render();
+ ready=true;
+ if(lms){publishLms();scorm.registerCourse({flush:async()=>{await (window as any).biologyTextbookPractice?.flush();await queue;if(failed)throw Error('Some course work has not saved. Keep this page open.');publishLms();}});}
+ message(lms?'Course work opened from Brightspace. Photos remain in this browser until photo syncing is connected.':'Saved work opened. Local browser only; print or save completed work as a PDF before changing devices.');render();
+ (window as any).mountBiologyTextbookPractice({chapter:11,read:()=>state.textbookWork??{},write:(id:string,record:any)=>{const action=queue.catch(()=>{}).then(()=>change(next=>{(next.textbookWork??={})[id]=record;}));queue=action.catch(()=>{});return action;}});
 }
 async function commit(next:Saved){
  if(!db)await connect();
@@ -41,7 +59,15 @@ async function commit(next:Saved){
  });
 }
 function generatedPerformance(next:Saved){const result:Record<string,{correct:number;attempts:number}>={};for(const run of [...next.history,...Object.values(next.current)])for(const attempt of run.generatedSession?.attempts??[]){const item=run.generatedSession!.items.find(x=>x.id===attempt.itemId);if(!item)continue;const row=result[item.conceptId]??={correct:0,attempts:0};row.attempts++;if(attempt.firstTry&&attempt.correct)row.correct++;}return result;}
+function publishLms(){
+ if(!lms)return;
+ const completed=all<HTMLElement>('[data-required-check]').map(s=>s.dataset.activity!).filter(id=>state.history.some(r=>r.activity===id));
+ const raw=localStorage.getItem(NS+':frayers');
+ scorm.publishCourseState({state,frayers:raw?JSON.parse(raw):null},completed);
+}
+window.addEventListener('canvas-helper:scorm-status',(event:any)=>{if(lms)message(event.detail.message);});
 function writeResumeProjection(next:Saved){
+ if(lms){publishLms();return;}
  const active=Object.entries(next.current).filter(([,run])=>run.generatedSession&&!run.endedAt),sessions=Object.fromEntries(active.map(([id,run])=>[id,run.generatedSession!]));
  if(!active.length){localStorage.removeItem(PROJECTION_KEY);return;}
  const projection:any=compactResumeProjection(sessions,generatedPerformance(next));for(const [id,run] of active)projection.sessions[id].startedAt=run.startedAt;
@@ -49,10 +75,10 @@ function writeResumeProjection(next:Saved){
  if(raw.length+frayerRaw.length>60000)throw Error('Portable LMS resume exceeds the 60,000-character save budget. Local browser work remains intact.');
  localStorage.setItem(PROJECTION_KEY,raw);
 }
-function enqueue(action:()=>Promise<void>){pending++;queue=queue.then(action).catch(e=>{failed=true;message(String(e));}).finally(()=>{pending--;});return queue;}
+function enqueue(action:()=>Promise<void>){pending++;queue=queue.then(action).catch(e=>{failed=true;if(lms)scorm.failCourseSave(e);message(String(e));}).finally(()=>{pending--;});return queue;}
 async function change(edit:(next:Saved)=>void){
  if(!ready)throw Error('Local saving is unavailable. Do not start until storage opens.');
- const next=structuredClone(state);edit(next);await commit(next);state=next;try{writeResumeProjection(next);failed=false;message('Saved in this browser. LMS resume projection updated when available.');}catch(e){failed=true;message(String(e));}
+ const next=structuredClone(state);edit(next);await commit(next);state=next;try{writeResumeProjection(next);failed=false;message('Saved in this browser. LMS resume projection updated when available.');}catch(e){failed=true;if(lms)scorm.failCourseSave(e);message(String(e));}
 }
 function current(section:HTMLElement){return state.current[section.dataset.activity!];}
 type AnswerField=HTMLInputElement|HTMLSelectElement;
@@ -75,7 +101,7 @@ function complete(run:Run,section:HTMLElement){
   return attempted(run,id).length>0;
  });
 }
-function progress(){const sections=all('[data-required-check]'),ids=sections.length?sections.map(s=>s.dataset.activity!):['lesson-check'];const done=ids.filter(id=>state.history.some(r=>r.activity===id)).length,percent=Math.round(done/ids.length*100);$('[data-progress-count]').textContent=`${done} of ${ids.length} chapter checks`;$('[data-progress-fraction]').textContent=`${done} / ${ids.length}`;$('[data-progress-percent]').textContent=percent+'%';$('[data-progress-fill]').style.width=percent+'%';}
+function progress(){const sections=all('[data-required-check]'),ids=sections.length?sections.map(s=>s.dataset.activity!):['lesson-check'];const done=ids.filter(id=>state.history.some(r=>r.activity===id)).length,percent=Math.round(done/ids.length*100);$('[data-progress-count]').textContent=`${done} of ${ids.length} chapter checks`;$('[data-progress-fraction]').textContent=`${done} / ${ids.length}`;$('[data-progress-percent]').textContent=percent+'%';$('[data-progress-fill]').style.width=percent+'%';for(const el of all<HTMLElement>('[data-lesson-completion]'))el.textContent=state.history.some(r=>r.activity===el.dataset.lessonCompletion)?'Check completed':'Check not completed';}
 function render(){
  for(const section of all('[data-activity]')){
   const run=current(section);
@@ -211,8 +237,8 @@ let frayers:WordFrayerState=[],frayerError=false,frayerMessage='Saved in this br
 try{const raw=localStorage.getItem(NS+':frayers');frayerBaseline=raw;if(raw)frayers=unpackWordFrayers(JSON.parse(raw),wordSchema);}catch{frayerError=true;message('Existing vocabulary save could not be read. It has not been overwritten.');}
 mountWordFrayerControls(document.body,wordData,wordSchema,{
  get:()=>frayers,set:slots=>{frayers=slots;},save:()=>{
-  try{if(frayerError)throw Error('Existing vocabulary data needs recovery before saving.');if(localStorage.getItem(NS+':frayers')!==frayerBaseline)throw Error('Another tab changed these Frayers. Copy your drafts before reloading.');const payload=JSON.stringify(packWordFrayers(frayers,wordSchema));if(payload.length>44000)throw Error('Vocabulary exceeds the save budget.');localStorage.setItem(NS+':frayers',payload);frayerBaseline=payload;frayerMessage='Saved in this browser.';history();return{saved:true,message:frayerMessage};}
-  catch(e){frayerMessage=String(e)+' Drafts remain visible; copy before leaving.';failed=true;return{saved:false,message:frayerMessage};}
+  try{if(frayerError)throw Error('Existing vocabulary data needs recovery before saving.');if(localStorage.getItem(NS+':frayers')!==frayerBaseline)throw Error('Another tab changed these Frayers. Copy your drafts before reloading.');const payload=JSON.stringify(packWordFrayers(frayers,wordSchema));if(payload.length>44000)throw Error('Vocabulary exceeds the save budget.');localStorage.setItem(NS+':frayers',payload);frayerBaseline=payload;if(lms&&ready)publishLms();frayerMessage=lms?'Vocabulary stored; waiting for Brightspace confirmation.':'Saved in this browser.';history();return{saved:true,message:frayerMessage};}
+  catch(e){frayerMessage=String(e)+' Drafts remain visible; copy before leaving.';failed=true;if(lms)scorm.failCourseSave(e);return{saved:false,message:frayerMessage};}
  }
 });
 mountVocabularyPanel({root:document.body,families:wordData.categories.map((c:any)=>({id:c.id,label:c.label,meaning:'',wordAnalysis:[],routes:['lesson-01']})),terms:wordData.words.map((w:any)=>({term:w.term,definition:w.definition,familyIds:w.categoryIds})),words:wordData.words,wordFrayers:Object.fromEntries(wordData.words.map((w:any)=>[w.id,w.id])),sections:()=>[],route:()=> 'lesson-01',unlocked:()=>true,frayer:id=>$(`[data-word-frayer="${CSS.escape(id)}"]`),refresh:()=>{},status:()=>frayerMessage});
@@ -244,4 +270,4 @@ document.addEventListener('click',event=>{
  if(target.hasAttribute('data-save-exit'))enqueue(async()=>{if(failed)throw Error('Some writing has not saved. Copy your visible drafts before leaving.');message('Saved locally. You can now close this tab. Print or save completed work as a PDF before clearing browser data.');location.hash='overview';});
 });
 window.addEventListener('beforeunload',event=>{if(failed||busy||pending){event.preventDefault();event.returnValue='';}});
-setInterval(tick,1000);open().catch(e=>{failed=true;message('Saving unavailable: '+e+'. Existing work was not changed.');});
+setInterval(tick,1000);open().catch(e=>{failed=true;if(lms)scorm.failCourseSave(e);message('Saving unavailable: '+e+'. Existing work was not changed.');});

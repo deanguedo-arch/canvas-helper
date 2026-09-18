@@ -1,0 +1,455 @@
+[
+  {
+    "id": "ch18-dna",
+    "title": "Complementarity and antiparallel direction",
+    "lesson": 2,
+    "src": "./assets/figures/ch18-dna.svg",
+    "alt": "An upper 5′-ATGC-3′ strand aligns with a lower 3′-TACG-5′ strand. The bases pair A–T and G–C, while strand directions oppose each other.",
+    "caption": "An upper 5′-ATGC-3′ strand aligns with a lower 3′-TACG-5′ strand. The bases pair A–T and G–C, while strand directions oppose each other. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Sugar–phosphate backbone",
+      "B": "Complementary base pair",
+      "C": "3′ end",
+      "D": "3′ end"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          350,
+          165
+        ],
+        "endpoint": [
+          480,
+          270
+        ]
+      },
+      "B": {
+        "letter": [
+          700,
+          640
+        ],
+        "endpoint": [
+          800,
+          395
+        ]
+      },
+      "C": {
+        "letter": [
+          1200,
+          170
+        ],
+        "endpoint": [
+          1270,
+          270
+        ]
+      },
+      "D": {
+        "letter": [
+          180,
+          655
+        ],
+        "endpoint": [
+          140,
+          535
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch18-replication",
+    "title": "Replication products: semiconservative",
+    "lesson": 3,
+    "src": "./assets/figures/ch18-replication.svg",
+    "alt": "Each daughter double-stranded molecule contains one old strand and one new strand. The diagram follows strand identity rather than chromosome number.",
+    "caption": "Each daughter double-stranded molecule contains one old strand and one new strand. The diagram follows strand identity rather than chromosome number. Blue = parental strand · orange = newly synthesized strand.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Parental strand",
+      "B": "New strand",
+      "C": "Parental strand",
+      "D": "New strand"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          795,
+          175
+        ],
+        "endpoint": [
+          915,
+          245
+        ]
+      },
+      "B": {
+        "letter": [
+          1180,
+          375
+        ],
+        "endpoint": [
+          1080,
+          305
+        ]
+      },
+      "C": {
+        "letter": [
+          795,
+          425
+        ],
+        "endpoint": [
+          915,
+          495
+        ]
+      },
+      "D": {
+        "letter": [
+          1180,
+          625
+        ],
+        "endpoint": [
+          1080,
+          555
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch18-transcription",
+    "title": "Coding DNA, template DNA and mRNA",
+    "lesson": 5,
+    "src": "./assets/figures/ch18-transcription.svg",
+    "alt": "RNA polymerase reads the template 3′ to 5′ to produce complementary RNA 5′ to 3′. Coding DNA matches the message apart from T versus U.",
+    "caption": "RNA polymerase reads the template 3′ to 5′ to produce complementary RNA 5′ to 3′. Coding DNA matches the message apart from T versus U. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Coding DNA strand",
+      "B": "Template DNA strand",
+      "C": "Transcription",
+      "D": "mRNA"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          155,
+          230
+        ],
+        "endpoint": [
+          350,
+          230
+        ]
+      },
+      "B": {
+        "letter": [
+          155,
+          370
+        ],
+        "endpoint": [
+          350,
+          370
+        ]
+      },
+      "C": {
+        "letter": [
+          1040,
+          495
+        ],
+        "endpoint": [
+          845,
+          495
+        ]
+      },
+      "D": {
+        "letter": [
+          155,
+          615
+        ],
+        "endpoint": [
+          350,
+          615
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch18-translation",
+    "title": "Read the message in codons",
+    "lesson": 6,
+    "src": "./assets/figures/ch18-translation.svg",
+    "alt": "A ribosome reads mRNA 5′ to 3′. A paired tRNA anticodon supplies its amino acid; the stop codon terminates rather than adding an amino acid.",
+    "caption": "A ribosome reads mRNA 5′ to 3′. A paired tRNA anticodon supplies its amino acid; the stop codon terminates rather than adding an amino acid. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "mRNA codon",
+      "B": "tRNA anticodon",
+      "C": "Amino acid",
+      "D": "Stop codon",
+      "E": "Ribosome"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          390,
+          590
+        ],
+        "endpoint": [
+          480,
+          490
+        ]
+      },
+      "B": {
+        "letter": [
+          1010,
+          315
+        ],
+        "endpoint": [
+          760,
+          342
+        ]
+      },
+      "C": {
+        "letter": [
+          925,
+          175
+        ],
+        "endpoint": [
+          720,
+          215
+        ]
+      },
+      "D": {
+        "letter": [
+          990,
+          630
+        ],
+        "endpoint": [
+          1080,
+          490
+        ]
+      },
+      "E": {
+        "letter": [
+          500,
+          245
+        ],
+        "endpoint": [
+          602,
+          400
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch18-gel",
+    "title": "DNA gel: read direction, size and patterns",
+    "lesson": 11,
+    "src": "./assets/figures/ch18-gel.svg",
+    "alt": "Fragments move from the negative loading end toward the positive end. The ladder has known sizes; smaller fragments appear farther from the wells.",
+    "caption": "Fragments move from the negative loading end toward the positive end. The ladder has known sizes; smaller fragments appear farther from the wells. Constructed band pattern — not a laboratory result.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Loading wells",
+      "B": "Larger fragments",
+      "C": "Smaller fragments",
+      "D": "DNA migration toward positive electrode"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          1170,
+          235
+        ],
+        "endpoint": [
+          960,
+          241
+        ]
+      },
+      "B": {
+        "letter": [
+          1180,
+          335
+        ],
+        "endpoint": [
+          430,
+          320
+        ]
+      },
+      "C": {
+        "letter": [
+          1180,
+          650
+        ],
+        "endpoint": [
+          430,
+          630
+        ]
+      },
+      "D": {
+        "letter": [
+          82,
+          455
+        ],
+        "endpoint": [
+          160,
+          455
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch18-recombinant",
+    "title": "Recombinant DNA: different jobs in the pathway",
+    "lesson": 10,
+    "src": "./assets/figures/ch18-recombinant.svg",
+    "alt": "Cutting, joining, carrying, expressing and testing are distinct steps. This is a conceptual overview, not an experimental protocol.",
+    "caption": "Cutting, joining, carrying, expressing and testing are distinct steps. This is a conceptual overview, not an experimental protocol. Schematic — arrows show the specified causal sequence.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Restriction enzyme",
+      "B": "Compatible ends",
+      "C": "DNA ligase",
+      "D": "Vector",
+      "E": "Host expression",
+      "F": "Function testing"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          125,
+          196
+        ],
+        "endpoint": [
+          125,
+          196
+        ]
+      },
+      "B": {
+        "letter": [
+          575,
+          196
+        ],
+        "endpoint": [
+          575,
+          196
+        ]
+      },
+      "C": {
+        "letter": [
+          1025,
+          196
+        ],
+        "endpoint": [
+          1025,
+          196
+        ]
+      },
+      "D": {
+        "letter": [
+          125,
+          446
+        ],
+        "endpoint": [
+          125,
+          446
+        ]
+      },
+      "E": {
+        "letter": [
+          575,
+          446
+        ],
+        "endpoint": [
+          575,
+          446
+        ]
+      },
+      "F": {
+        "letter": [
+          1025,
+          446
+        ],
+        "endpoint": [
+          1025,
+          446
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch18-source-griffith",
+    "title": "Evidence from bacterial transformation",
+    "lesson": 1,
+    "src": "./assets/figures/ch18-source-griffith.png",
+    "alt": "Compare the separate controls with the mixture of living non-virulent bacteria and heat-killed virulent bacteria. Griffith showed a heritable transformation but did not identify DNA by this result alone.",
+    "caption": "Compare the separate controls with the mixture of living non-virulent bacteria and heat-killed virulent bacteria. Griffith showed a heritable transformation but did not identify DNA by this result alone. Inquiry into Biology, Chapter 18, p. 625.",
+    "source": "Provided textbook Chapter 18, p. 625",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "9dd4dd138b676f9fed9971e054ea6f24b6453143e2d05abcc81dbc04c27e6bae",
+    "printedPage": 625,
+    "pdfPage": 4,
+    "cropCoordinates": [
+      66,
+      41,
+      568,
+      464
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch18-source-replication-fork",
+    "title": "A replication fork",
+    "lesson": 3,
+    "src": "./assets/figures/ch18-source-replication-fork.png",
+    "alt": "Both new DNA strands grow 5′ to 3′. Relative to fork movement, one strand is continuous and the other is built in fragments. Primase supplies primers; ligase seals backbone joins.",
+    "caption": "Both new DNA strands grow 5′ to 3′. Relative to fork movement, one strand is continuous and the other is built in fragments. Primase supplies primers; ligase seals backbone joins. Inquiry into Biology, Chapter 18, p. 633.",
+    "source": "Provided textbook Chapter 18, p. 633",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "9dd4dd138b676f9fed9971e054ea6f24b6453143e2d05abcc81dbc04c27e6bae",
+    "printedPage": 633,
+    "pdfPage": 12,
+    "cropCoordinates": [
+      66,
+      40,
+      568,
+      281
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch18-source-translation",
+    "title": "Early steps in translation",
+    "lesson": 6,
+    "src": "./assets/figures/ch18-source-translation.png",
+    "alt": "An mRNA codon pairs with a complementary tRNA anticodon. The ribosome joins amino acids into a polypeptide; the sequence is read in the mRNA 5′ to 3′ direction.",
+    "caption": "An mRNA codon pairs with a complementary tRNA anticodon. The ribosome joins amino acids into a polypeptide; the sequence is read in the mRNA 5′ to 3′ direction. Inquiry into Biology, Chapter 18, p. 640.",
+    "source": "Provided textbook Chapter 18, p. 640",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "9dd4dd138b676f9fed9971e054ea6f24b6453143e2d05abcc81dbc04c27e6bae",
+    "printedPage": 640,
+    "pdfPage": 19,
+    "cropCoordinates": [
+      40,
+      43,
+      552,
+      272
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  }
+]

@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: sportswellness-phase-1
-- Generated: 2026-09-15T18:16:32.501Z
+- Generated: 2026-09-17T20:17:54.034Z
 - Pass: yes
 - Deviations: 2
 - Accepted deviations: 0
@@ -19,6 +19,6 @@
 - Severity: warn
 - Surface: export
 - Location: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness-phase-1/workspace/index.html
-- Why: Detected 708 paragraph blocks but max allowed is 5.
-- Evidence: <p> count = 708
+- Why: Detected 725 paragraph blocks but max allowed is 5.
+- Evidence: <p> count = 725
 

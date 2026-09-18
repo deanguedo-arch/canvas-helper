@@ -2,7 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./specs",
-  testMatch: "scorm-tracking.spec.ts",
+  testMatch: ["scorm-tracking.spec.ts", "science-scorm.spec.ts"],
   outputDir: "../test-results/scorm",
   timeout: 30_000,
   workers: 1,

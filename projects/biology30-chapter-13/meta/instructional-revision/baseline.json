@@ -1,0 +1,1465 @@
+{
+  "at": "2026-09-17T17:05:35.574Z",
+  "chapter": 13,
+  "bankVersion": "2026.09.16-ch13.1",
+  "routes": [
+    {
+      "id": "overview",
+      "title": "Hormonal Regulation of Homeostasis"
+    },
+    {
+      "id": "lesson-01",
+      "title": "Homeostasis and endocrine communication"
+    },
+    {
+      "id": "lesson-02",
+      "title": "Hormones and their target cells"
+    },
+    {
+      "id": "lesson-03",
+      "title": "Feedback and regulation"
+    },
+    {
+      "id": "lesson-04",
+      "title": "The hypothalamus and pituitary"
+    },
+    {
+      "id": "lesson-05",
+      "title": "Growth regulation"
+    },
+    {
+      "id": "lesson-06",
+      "title": "ADH and water balance"
+    },
+    {
+      "id": "lesson-07",
+      "title": "Thyroid hormones and metabolism"
+    },
+    {
+      "id": "lesson-08",
+      "title": "Calcium regulation: PTH and calcitonin"
+    },
+    {
+      "id": "lesson-09",
+      "title": "The rapid stress response"
+    },
+    {
+      "id": "lesson-10",
+      "title": "Cortisol and longer-lasting stress responses"
+    },
+    {
+      "id": "lesson-11",
+      "title": "Aldosterone, sodium and water"
+    },
+    {
+      "id": "lesson-12",
+      "title": "Insulin, glucagon and blood glucose"
+    },
+    {
+      "id": "lesson-13",
+      "title": "Integrated chapter review and final check"
+    },
+    {
+      "id": "extension",
+      "title": "Light, sleep timing and endocrine evidence"
+    },
+    {
+      "id": "practice",
+      "title": "Flash cards"
+    },
+    {
+      "id": "fill-in-the-blanks",
+      "title": "Fill in the blanks"
+    },
+    {
+      "id": "multiple-choice",
+      "title": "Multiple choice"
+    },
+    {
+      "id": "mixed-practice",
+      "title": "Mixed practice"
+    },
+    {
+      "id": "labeling-practice",
+      "title": "Labeling"
+    },
+    {
+      "id": "core-vocabulary",
+      "title": "Core Vocabulary"
+    },
+    {
+      "id": "textbook-practice",
+      "title": "Textbook Practice"
+    },
+    {
+      "id": "process-collection",
+      "title": "All My Work"
+    },
+    {
+      "id": "textbook-library",
+      "title": "Textbook Library"
+    },
+    {
+      "id": "video-library",
+      "title": "Video Library"
+    }
+  ],
+  "checks": [
+    {
+      "id": "ch13-check-01",
+      "route": "lesson-01",
+      "title": "Homeostasis and endocrine communication",
+      "mc": [
+        {
+          "prompt": "Which description best captures homeostasis?",
+          "options": [
+            "Every internal variable stays exactly constant",
+            "The body stops responding to change",
+            "Only the nervous system controls internal conditions",
+            "Ongoing adjustments keep internal conditions within suitable ranges"
+          ],
+          "answer": "Ongoing adjustments keep internal conditions within suitable ranges",
+          "explanation": "Homeostasis is dynamic regulation, not complete absence of variation.",
+          "cue": "Look for regulated ranges rather than a frozen value.",
+          "difficulty": "foundation",
+          "id": "ch13-l01-check-mc-1"
+        },
+        {
+          "prompt": "What distinguishes the endocrine action of the pancreas from its exocrine action?",
+          "options": [
+            "Hormones enter the blood rather than a digestive duct",
+            "Exocrine cells release all hormones into blood",
+            "Both actions send insulin to the small intestine",
+            "Only its endocrine cells make proteins"
+          ],
+          "answer": "Hormones enter the blood rather than a digestive duct",
+          "explanation": "Endocrine and exocrine describe different routes of secretion.",
+          "cue": "Compare the delivery route.",
+          "difficulty": "application",
+          "id": "ch13-l01-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare nervous and endocrine communication using message type, delivery route and target specificity.",
+          "model": "Nervous communication uses electrical changes along neurons and chemical signals at junctions in defined pathways. Endocrine communication uses hormones in blood. Responsive target cells need appropriate receptors; wide hormone distribution does not mean a universal response.",
+          "criteria": [
+            "Message types",
+            "Delivery routes",
+            "Target specificity"
+          ],
+          "id": "ch13-l01-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Choose an internal variable and explain why homeostasis does not mean that it never changes.",
+          "model": "Blood glucose can rise after a meal. Responses such as insulin secretion and glucose storage then bring it back toward a suitable range. Variation and active correction are part of homeostasis.",
+          "criteria": [
+            "Named variable",
+            "A change",
+            "An opposing regulatory response"
+          ],
+          "id": "ch13-l01-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-02",
+      "route": "lesson-02",
+      "title": "Hormones and their target cells",
+      "mc": [
+        {
+          "prompt": "A hormone cannot readily cross the lipid bilayer. What is the most likely signalling route?",
+          "options": [
+            "Moving through the optic nerve",
+            "Entering the nucleus without a receptor",
+            "Binding a membrane receptor that activates internal signalling",
+            "Becoming a steroid after binding blood"
+          ],
+          "answer": "Binding a membrane receptor that activates internal signalling",
+          "explanation": "Cell-surface receptors allow external signals to change internal activity.",
+          "cue": "Match receptor location to membrane permeability.",
+          "difficulty": "application",
+          "id": "ch13-l02-check-mc-1"
+        },
+        {
+          "prompt": "Which statement correctly describes cortisol?",
+          "options": [
+            "It is a digestive enzyme",
+            "It is a steroid hormone with intracellular receptor action",
+            "It is a photopigment",
+            "It is the receptor for insulin"
+          ],
+          "answer": "It is a steroid hormone with intracellular receptor action",
+          "explanation": "Cortisol is produced from cholesterol and belongs to the steroid group.",
+          "cue": "Identify the chemical class.",
+          "difficulty": "foundation",
+          "id": "ch13-l02-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare water-soluble and steroid-hormone signalling. Include receptor location and how an internal response begins.",
+          "model": "Water-soluble hormones generally bind membrane receptors and trigger internal signalling. Steroid hormones can enter cells and bind intracellular receptors, influencing gene expression and protein production. Both require suitable target-cell machinery.",
+          "criteria": [
+            "Membrane receptor pathway",
+            "Intracellular pathway",
+            "Binding connected to response"
+          ],
+          "id": "ch13-l02-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "A hormone is present at a normal concentration, but a target cell cannot respond. Give one mechanism that could explain this and distinguish it from hormone underproduction.",
+          "model": "A defective or absent receptor could prevent the cell from recognizing or signalling the hormone. This differs from a gland releasing too little hormone, where the receiving machinery may still work.",
+          "criteria": [
+            "Plausible response defect",
+            "Normal concentration acknowledged",
+            "Production and response distinguished"
+          ],
+          "id": "ch13-l02-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-03",
+      "route": "lesson-03",
+      "title": "Feedback and regulation",
+      "mc": [
+        {
+          "prompt": "Blood glucose falls, then glucagon-supported processes raise it. Which classification fits?",
+          "options": [
+            "Positive feedback because glucose rises",
+            "Negative feedback",
+            "No regulation because a hormone is involved",
+            "Positive feedback because the response is useful"
+          ],
+          "answer": "Negative feedback",
+          "explanation": "The return effect opposes the original fall.",
+          "cue": "Compare the response with the starting disturbance.",
+          "difficulty": "application",
+          "id": "ch13-l03-check-mc-1"
+        },
+        {
+          "prompt": "Which feature distinguishes the labour example from ordinary negative feedback?",
+          "options": [
+            "Contractions reinforce the stretch that supports further oxytocin release",
+            "The uterus makes TSH",
+            "Oxytocin is never released into blood",
+            "The response immediately eliminates the stimulus at every step"
+          ],
+          "answer": "Contractions reinforce the stretch that supports further oxytocin release",
+          "explanation": "The loop reinforces itself until an endpoint changes the conditions.",
+          "cue": "Look for reinforcement, not simply a hormone increase.",
+          "difficulty": "application",
+          "id": "ch13-l03-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain negative feedback using a named variable that first falls. Identify the response and why it is negative feedback.",
+          "model": "If blood glucose falls, glucagon secretion rises and promotes glucose release from the liver. Blood glucose rises, opposing the original decrease and reducing the drive for the response.",
+          "criteria": [
+            "Original decrease",
+            "Named opposing response",
+            "Feedback direction explained"
+          ],
+          "id": "ch13-l03-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain the positive-feedback labour example and state what prevents it from continuing indefinitely.",
+          "model": "Cervical stretch promotes oxytocin release, which strengthens contractions and can increase stretch. Delivery changes or removes the stretch stimulus, interrupting the reinforcing loop.",
+          "criteria": [
+            "Stretch and hormone",
+            "Reinforced contraction/stretch",
+            "Endpoint stated"
+          ],
+          "id": "ch13-l03-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-04",
+      "route": "lesson-04",
+      "title": "The hypothalamus and pituitary",
+      "mc": [
+        {
+          "prompt": "Which pairing correctly describes ADH?",
+          "options": [
+            "Made in pancreatic beta cells; released from liver",
+            "Made in posterior pituitary; released from thyroid",
+            "Made in hypothalamus; released from posterior pituitary",
+            "Made in adrenal medulla; released from kidneys"
+          ],
+          "answer": "Made in hypothalamus; released from posterior pituitary",
+          "explanation": "Production and release occur in different parts of the hypothalamic–posterior-pituitary pathway.",
+          "cue": "Pay attention to made versus released.",
+          "difficulty": "foundation",
+          "id": "ch13-l04-check-mc-1"
+        },
+        {
+          "prompt": "Which hormone pair correctly distinguishes milk production from milk ejection?",
+          "options": [
+            "Oxytocin / prolactin",
+            "Prolactin / oxytocin",
+            "Glucagon / insulin",
+            "TSH / ACTH"
+          ],
+          "answer": "Prolactin / oxytocin",
+          "explanation": "Prolactin supports synthesis of milk; oxytocin supports its ejection.",
+          "cue": "Do not treat production and release as synonyms.",
+          "difficulty": "foundation",
+          "id": "ch13-l04-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare the anterior and posterior pituitary using control route, hormone production and one example hormone from each.",
+          "model": "Hypothalamic regulatory hormones reach anterior-pituitary cells through portal blood; those cells make hormones such as TSH. ADH is made in hypothalamic neurons, transported along axons and released from the posterior pituitary.",
+          "criteria": [
+            "Two control routes",
+            "Production versus release",
+            "Correct examples"
+          ],
+          "id": "ch13-l04-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "A student says oxytocin and prolactin are interchangeable because both relate to milk. Explain the error.",
+          "model": "Prolactin from the anterior pituitary supports milk production. Oxytocin made in the hypothalamus and released posteriorly supports milk ejection. The related target does not mean identical functions.",
+          "criteria": [
+            "Production versus ejection",
+            "Correct hormone identity",
+            "Release sites or mechanism distinguished"
+          ],
+          "id": "ch13-l04-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-05",
+      "route": "lesson-05",
+      "title": "Growth regulation",
+      "mc": [
+        {
+          "prompt": "Which condition makes gigantism possible in the standard hGH model?",
+          "options": [
+            "Excess ADH after growth-plate closure",
+            "Excess hGH before growth-plate closure",
+            "No liver cells",
+            "Absence of all bone tissue"
+          ],
+          "answer": "Excess hGH before growth-plate closure",
+          "explanation": "Open growth plates permit excessive linear bone growth.",
+          "cue": "Focus on target-tissue status.",
+          "difficulty": "application",
+          "id": "ch13-l05-check-mc-1"
+        },
+        {
+          "prompt": "Which relationship describes an indirect effect of hGH?",
+          "options": [
+            "hGH is stored as glycogen",
+            "hGH blocks every target receptor",
+            "hGH stimulates liver growth-factor release that supports tissue growth",
+            "hGH becomes calcium in bone"
+          ],
+          "answer": "hGH stimulates liver growth-factor release that supports tissue growth",
+          "explanation": "Growth factors mediate important effects of hGH.",
+          "cue": "Identify an intermediate signal.",
+          "difficulty": "application",
+          "id": "ch13-l05-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how excess hGH can produce gigantism in one case and acromegaly in another.",
+          "model": "Before growth plates close, excess hGH supports excessive linear bone growth and gigantism. After closure, bone and soft tissue enlarge without the same height increase, producing acromegaly.",
+          "criteria": [
+            "Same hormone",
+            "Growth-plate condition",
+            "Different outcomes"
+          ],
+          "id": "ch13-l05-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Describe a direct and an indirect part of the hGH pathway in general terms.",
+          "model": "hGH can alter metabolism directly in responsive tissues. It also stimulates liver growth-factor production, and these factors support growth in bone, cartilage and muscle.",
+          "criteria": [
+            "Direct target effect",
+            "Liver intermediate",
+            "Growth-factor consequence"
+          ],
+          "id": "ch13-l05-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-06",
+      "route": "lesson-06",
+      "title": "ADH and water balance",
+      "mc": [
+        {
+          "prompt": "With normally responsive kidneys, increased ADH should produce…",
+          "options": [
+            "Increased insulin synthesis in the kidney",
+            "No change in water permeability",
+            "More urine with a lower concentration",
+            "Less urine with a higher concentration"
+          ],
+          "answer": "Less urine with a higher concentration",
+          "explanation": "Increased water reabsorption leaves less water in the urine.",
+          "cue": "Follow where water moves.",
+          "difficulty": "application",
+          "id": "ch13-l06-check-mc-1"
+        },
+        {
+          "prompt": "What distinguishes nephrogenic from central diabetes insipidus in this lesson?",
+          "options": [
+            "Both always mean absent posterior pituitary tissue",
+            "The retina makes ADH in nephrogenic cases",
+            "High glucose is required only in nephrogenic cases",
+            "Impaired kidney response rather than inadequate ADH availability"
+          ],
+          "answer": "Impaired kidney response rather than inadequate ADH availability",
+          "explanation": "A missing hormone and a resistant target are different mechanisms.",
+          "cue": "Distinguish signal supply from target response.",
+          "difficulty": "application",
+          "id": "ch13-l06-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace the response to overly concentrated body fluids from detector to urine effect and feedback.",
+          "model": "Hypothalamic osmoreceptors detect increased concentration. More ADH is released from the posterior pituitary, increasing collecting-duct water permeability. More water is reabsorbed, urine volume falls and urine becomes more concentrated. Correction of body-fluid concentration reduces the stimulus.",
+          "criteria": [
+            "Detector and release site",
+            "Kidney permeability/reabsorption",
+            "Urine changes",
+            "Return effect"
+          ],
+          "id": "ch13-l06-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why replacing a hormone could help a deficiency case but not fully solve a target-resistance case. Use ADH as the example.",
+          "model": "If ADH is deficient, replacing the signal can allow responsive kidneys to conserve water. If the kidneys are resistant, the signal may already be present but the target response is impaired, so replacement alone may not restore regulation.",
+          "criteria": [
+            "Two mechanisms distinguished",
+            "Appropriate target",
+            "No universal treatment claim"
+          ],
+          "id": "ch13-l06-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-07",
+      "route": "lesson-07",
+      "title": "Thyroid hormones and metabolism",
+      "mc": [
+        {
+          "prompt": "Primary thyroid failure occurs while pituitary control remains intact. Which pattern is expected?",
+          "options": [
+            "Normal thyroid hormone in every case",
+            "High thyroid hormone and low TSH",
+            "Low thyroid hormone and no possible TSH rise",
+            "Low thyroid hormone and high TSH"
+          ],
+          "answer": "Low thyroid hormone and high TSH",
+          "explanation": "Low output reduces feedback inhibition, allowing TSH to rise.",
+          "cue": "Use the word primary and the intact-pituitary condition.",
+          "difficulty": "application",
+          "id": "ch13-l07-check-mc-1"
+        },
+        {
+          "prompt": "Why can inadequate iodine contribute to goitre?",
+          "options": [
+            "The pancreas moves into the neck",
+            "Low thyroid output allows persistent TSH stimulation",
+            "Low TSH always makes the thyroid expand",
+            "Iodine directly becomes the whole pituitary"
+          ],
+          "answer": "Low thyroid output allows persistent TSH stimulation",
+          "explanation": "Limited synthesis and reduced feedback can sustain gland stimulation.",
+          "cue": "Connect nutrient supply to the feedback loop.",
+          "difficulty": "application",
+          "id": "ch13-l07-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace the TRH–TSH–thyroid-hormone pathway and explain its negative feedback.",
+          "model": "TRH from the hypothalamus stimulates anterior-pituitary TSH, which stimulates thyroid-hormone secretion. Increased thyroid hormone inhibits upstream hypothalamic and pituitary stimulation. A fall reduces inhibition when the pathway is intact.",
+          "criteria": [
+            "Three sources/signals",
+            "Forward stimulation",
+            "Feedback direction"
+          ],
+          "id": "ch13-l07-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Compare low thyroid hormone due to primary thyroid failure with low thyroid hormone due to pituitary failure. State the TSH distinction and your assumptions.",
+          "model": "With primary thyroid failure and intact pituitary response, TSH should rise because feedback is reduced. With pituitary failure, TSH may remain low or inappropriate for the low thyroid hormone. The same low final hormone can therefore have different causes.",
+          "criteria": [
+            "Failure location",
+            "Correct TSH predictions",
+            "Assumptions explicit"
+          ],
+          "id": "ch13-l07-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-08",
+      "route": "lesson-08",
+      "title": "Calcium regulation: PTH and calcitonin",
+      "mc": [
+        {
+          "prompt": "Low blood calcium most directly stimulates which response?",
+          "options": [
+            "Increased PTH release",
+            "Increased TSH as the only controller",
+            "Reduced kidney calcium reabsorption",
+            "Increased insulin as the main calcium hormone"
+          ],
+          "answer": "Increased PTH release",
+          "explanation": "Parathyroid hormone acts to raise low blood calcium.",
+          "cue": "Name the gland that senses this variable.",
+          "difficulty": "foundation",
+          "id": "ch13-l08-check-mc-1"
+        },
+        {
+          "prompt": "How does PTH indirectly increase intestinal calcium absorption?",
+          "options": [
+            "By promoting activation of vitamin D",
+            "By turning insulin into calcium",
+            "By eliminating every kidney tubule",
+            "By closing the auditory canal"
+          ],
+          "answer": "By promoting activation of vitamin D",
+          "explanation": "Active vitamin D supports absorption from the intestine.",
+          "cue": "Look for an intermediate signal.",
+          "difficulty": "application",
+          "id": "ch13-l08-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace the response to low blood calcium. Include PTH’s source and effects involving bone, kidney and intestine.",
+          "model": "Parathyroid glands release PTH. It promotes mobilization of calcium from bone, increases kidney calcium reabsorption and supports vitamin D activation, indirectly increasing intestinal absorption. Rising blood calcium reduces the stimulus for release.",
+          "criteria": [
+            "Gland/trigger",
+            "Bone and kidney effects",
+            "Indirect intestinal effect",
+            "Negative feedback"
+          ],
+          "id": "ch13-l08-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain how PTH and calcitonin are antagonistic without describing them as identical systems with reversed arrows.",
+          "model": "PTH raises blood calcium, while calcitonin can lower it. Their overall effects oppose one another, but PTH is more important in adult human regulation and their detailed targets and control are not perfect mirror images.",
+          "criteria": [
+            "Opposing effects",
+            "Blood compartment named",
+            "Physiological qualification"
+          ],
+          "id": "ch13-l08-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-09",
+      "route": "lesson-09",
+      "title": "The rapid stress response",
+      "mc": [
+        {
+          "prompt": "Which route correctly describes rapid adrenal hormone release?",
+          "options": [
+            "Insulin → retina → epinephrine",
+            "ADH → kidney → epinephrine",
+            "TSH → thyroid → epinephrine",
+            "Sympathetic neurons → adrenal medulla → epinephrine"
+          ],
+          "answer": "Sympathetic neurons → adrenal medulla → epinephrine",
+          "explanation": "The medulla is directly stimulated by sympathetic input.",
+          "cue": "Look for the neural-to-endocrine connection.",
+          "difficulty": "foundation",
+          "id": "ch13-l09-check-mc-1"
+        },
+        {
+          "prompt": "Why does liver glycogen breakdown support an acute stress response?",
+          "options": [
+            "It converts glucose into light",
+            "It lowers every tissue’s energy needs to zero",
+            "It permanently closes the airways",
+            "It makes glucose available to the blood"
+          ],
+          "answer": "It makes glucose available to the blood",
+          "explanation": "Glucose availability helps meet increased fuel demands.",
+          "cue": "Connect the storage form to the available fuel.",
+          "difficulty": "application",
+          "id": "ch13-l09-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace the rapid adrenal stress pathway and explain two effects in terms of immediate action.",
+          "model": "Sympathetic neurons stimulate the adrenal medulla, which releases epinephrine and norepinephrine. Increased cardiac activity supports transport; liver glycogen breakdown increases circulating glucose for fuel.",
+          "criteria": [
+            "Neural trigger",
+            "Medulla/hormones",
+            "Two effects with purposes"
+          ],
+          "id": "ch13-l09-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Compare the adrenal medulla with the adrenal cortex without yet listing every cortical hormone.",
+          "model": "The medulla is the inner region and responds directly to sympathetic neural input, releasing catecholamine hormones. The cortex is outer glandular tissue producing steroid hormones through other control pathways.",
+          "criteria": [
+            "Anatomical regions",
+            "Different control",
+            "Different hormone classes"
+          ],
+          "id": "ch13-l09-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-10",
+      "route": "lesson-10",
+      "title": "Cortisol and longer-lasting stress responses",
+      "mc": [
+        {
+          "prompt": "Which sequence correctly follows cortisol regulation?",
+          "options": [
+            "Hypothalamic CRH → pituitary ACTH → adrenal-cortex cortisol",
+            "Thyroid TSH → adrenal-medulla cortisol",
+            "Pituitary ADH → pancreas insulin → cortisol",
+            "Cochlea → posterior pituitary → glucagon"
+          ],
+          "answer": "Hypothalamic CRH → pituitary ACTH → adrenal-cortex cortisol",
+          "explanation": "Each hormone has a defined source and target in the cortisol axis.",
+          "cue": "Locate the anterior-pituitary step.",
+          "difficulty": "foundation",
+          "id": "ch13-l10-check-mc-1"
+        },
+        {
+          "prompt": "If cortisol rises in an intact feedback pathway, what tends to happen upstream?",
+          "options": [
+            "Both must rise without limit",
+            "CRH and ACTH stimulation decrease",
+            "The cortex becomes the medulla",
+            "ADH becomes TSH"
+          ],
+          "answer": "CRH and ACTH stimulation decrease",
+          "explanation": "Cortisol restrains its upstream controllers by negative feedback.",
+          "cue": "Follow the inhibitory return arrows.",
+          "difficulty": "application",
+          "id": "ch13-l10-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare the rapid adrenal-medulla pathway with the cortisol pathway. Include the signal route and final hormones.",
+          "model": "The medulla receives direct sympathetic neural input and releases epinephrine/norepinephrine. The cortisol pathway uses hypothalamic CRH, anterior-pituitary ACTH and adrenal-cortex cortisol, with cortisol feeding back on upstream control.",
+          "criteria": [
+            "Direct neural medulla route",
+            "Three-level cortisol route",
+            "Correct final hormones/regions"
+          ],
+          "id": "ch13-l10-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain how cortisol can support glucose availability and how feedback limits its own release.",
+          "model": "Cortisol supports metabolic processes that make fuel substrates available and promote liver glucose production. Increasing cortisol reduces CRH and ACTH stimulation in an intact pathway, restraining further release.",
+          "criteria": [
+            "Metabolic action without direct fat-to-glucose shortcut",
+            "Feedback hormone",
+            "Upstream inhibition"
+          ],
+          "id": "ch13-l10-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-11",
+      "route": "lesson-11",
+      "title": "Aldosterone, sodium and water",
+      "mc": [
+        {
+          "prompt": "What is aldosterone’s major direct kidney action in this course?",
+          "options": [
+            "Make ADH in the collecting duct",
+            "Convert calcium into insulin",
+            "Increase sodium reabsorption and potassium secretion",
+            "Reduce all sodium reabsorption"
+          ],
+          "answer": "Increase sodium reabsorption and potassium secretion",
+          "explanation": "Aldosterone changes ion transport in distal kidney regions.",
+          "cue": "Identify the ion-handling mechanism.",
+          "difficulty": "application",
+          "id": "ch13-l11-check-mc-1"
+        },
+        {
+          "prompt": "Which signals are emphasized in aldosterone’s main regulation?",
+          "options": [
+            "Only TSH",
+            "Only insulin from the posterior pituitary",
+            "Only retinal light",
+            "Angiotensin II and blood potassium"
+          ],
+          "answer": "Angiotensin II and blood potassium",
+          "explanation": "Aldosterone does not simply share cortisol’s primary control pathway.",
+          "cue": "Separate two cortical hormones.",
+          "difficulty": "application",
+          "id": "ch13-l11-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace how aldosterone can support blood pressure. Include its source, kidney action and the connection between sodium and water.",
+          "model": "Aldosterone from the adrenal cortex increases kidney sodium reabsorption. Retaining sodium supports water retention and extracellular fluid volume, helping maintain blood volume and pressure.",
+          "criteria": [
+            "Cortex source",
+            "Sodium reabsorption",
+            "Water/volume/pressure chain"
+          ],
+          "id": "ch13-l11-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Compare ADH with aldosterone and explain why putting them both under “saves water” is incomplete.",
+          "model": "ADH is made in the hypothalamus and released posteriorly; it increases kidney water permeability. Aldosterone comes from the cortex and increases sodium reabsorption. Both can conserve volume, but sources, immediate targets and primary regulation differ.",
+          "criteria": [
+            "Different sources",
+            "Different immediate kidney actions",
+            "Shared consequence without equivalence"
+          ],
+          "id": "ch13-l11-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-12",
+      "route": "lesson-12",
+      "title": "Insulin, glucagon and blood glucose",
+      "mc": [
+        {
+          "prompt": "Which pairing correctly matches pancreatic cells to hormones?",
+          "options": [
+            "Alpha cells — ADH; beta cells — cortisol",
+            "Both cell types — thyroxine only",
+            "Beta cells — glucagon; alpha cells — insulin",
+            "Beta cells — insulin; alpha cells — glucagon"
+          ],
+          "answer": "Beta cells — insulin; alpha cells — glucagon",
+          "explanation": "Cell identity and hormone role must stay linked.",
+          "cue": "Remember each cell’s regulated-glucose direction.",
+          "difficulty": "foundation",
+          "id": "ch13-l12-check-mc-1"
+        },
+        {
+          "prompt": "Between meals, glucagon helps maintain blood glucose mainly by…",
+          "options": [
+            "Blocking every form of liver glucose release",
+            "Turning the thyroid into a pancreas",
+            "Promoting liver glycogen breakdown and glucose production",
+            "Moving glucose into the lens as the main storage site"
+          ],
+          "answer": "Promoting liver glycogen breakdown and glucose production",
+          "explanation": "The liver supplies glucose to circulation.",
+          "cue": "Distinguish glycogen, glucose and glucagon.",
+          "difficulty": "application",
+          "id": "ch13-l12-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare the response after a meal with the response between meals. Include alpha/beta cells, insulin/glucagon, liver action and feedback.",
+          "model": "After a meal, higher glucose stimulates beta-cell insulin, supporting uptake and storage and reducing glucose output. Between meals, falling glucose supports alpha-cell glucagon, promoting liver glycogen breakdown and glucose production. Each response opposes the initiating change.",
+          "criteria": [
+            "Correct cells and hormones",
+            "Meal response",
+            "Between-meal liver response",
+            "Negative feedback in both"
+          ],
+          "id": "ch13-l12-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Compare diabetes mellitus with diabetes insipidus using their hormone mechanism rather than their shared symptoms.",
+          "model": "Diabetes mellitus involves inadequate insulin production/action and elevated glucose; glucose in the urine can increase water loss. Diabetes insipidus involves impaired water conservation, often from ADH deficiency or resistance, producing excessive dilute urine without requiring high glucose.",
+          "criteria": [
+            "Insulin/glucose mechanism",
+            "ADH/water mechanism",
+            "Shared symptoms do not imply same cause"
+          ],
+          "id": "ch13-l12-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-13",
+      "route": "lesson-13",
+      "title": "Integrated chapter review and final check",
+      "mc": [
+        {
+          "prompt": "Which production/release pair is correct?",
+          "options": [
+            "TSH: thyroid / adrenal medulla",
+            "Insulin: liver / posterior pituitary",
+            "Cortisol: hypothalamus / pancreas",
+            "ADH: hypothalamus / posterior pituitary"
+          ],
+          "answer": "ADH: hypothalamus / posterior pituitary",
+          "explanation": "Production and release are separate parts of the ADH pathway.",
+          "cue": "Read both verbs.",
+          "difficulty": "foundation",
+          "id": "ch13-l13-check-mc-1"
+        },
+        {
+          "prompt": "Which observation best fits primary thyroid underproduction with intact control?",
+          "options": [
+            "Low T4 with elevated TSH",
+            "High T4 with low TSH proves pituitary failure",
+            "Only insulin changes",
+            "Low T4 always requires low TSH"
+          ],
+          "answer": "Low T4 with elevated TSH",
+          "explanation": "Low thyroid output reduces feedback inhibition of TSH secretion.",
+          "cue": "Use the stated location of failure.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-2"
+        },
+        {
+          "prompt": "Which response directly follows sympathetic stimulation of the adrenal medulla?",
+          "options": [
+            "Cortisol production in the cochlea",
+            "Insulin through ACTH",
+            "Aldosterone through TSH",
+            "Epinephrine and norepinephrine release"
+          ],
+          "answer": "Epinephrine and norepinephrine release",
+          "explanation": "The medulla links sympathetic neural signals with catecholamine hormone release.",
+          "cue": "Separate medulla from cortex.",
+          "difficulty": "foundation",
+          "id": "ch13-l13-check-mc-3"
+        },
+        {
+          "prompt": "A normally responsive kidney receives more ADH. Which urine change is expected?",
+          "options": [
+            "No possible change in water handling",
+            "Higher glucose production in the lens",
+            "Lower volume and higher concentration",
+            "Higher volume and lower concentration"
+          ],
+          "answer": "Lower volume and higher concentration",
+          "explanation": "More water is reabsorbed from the tubule.",
+          "cue": "Follow water back to blood.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-4"
+        },
+        {
+          "prompt": "Which explanation of low blood calcium is appropriate?",
+          "options": [
+            "Insulin is always the main correction",
+            "Calcitonin is the only response that raises calcium",
+            "The pituitary must convert glucose into calcium",
+            "Increased PTH helps conserve and mobilize calcium"
+          ],
+          "answer": "Increased PTH helps conserve and mobilize calcium",
+          "explanation": "PTH supports bone mobilization, kidney conservation and indirect intestinal absorption.",
+          "cue": "Identify the controlled ion.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-5"
+        },
+        {
+          "prompt": "Which statement about diabetes is most defensible?",
+          "options": [
+            "Type 1 occurs only in children",
+            "Diabetes insipidus always requires high glucose",
+            "Type 2 means no insulin is ever present",
+            "Insulin deficiency and insulin resistance can both impair glucose regulation"
+          ],
+          "answer": "Insulin deficiency and insulin resistance can both impair glucose regulation",
+          "explanation": "Mechanism is more informative than a rigid age or symptom rule.",
+          "cue": "Distinguish signal supply and response.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-6"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare three responses: water loss, a carbohydrate-containing meal and an immediate threat. For each, name a relevant trigger, hormone source, target, effect and control relationship.",
+          "model": "Water loss/concentration change can increase posterior-pituitary ADH, changing kidney water permeability and conserving water. A meal can increase pancreatic beta-cell insulin, supporting tissue uptake and liver storage to lower glucose. Immediate threat can activate sympathetic neurons and adrenal-medulla catecholamines, supporting rapid fuel and cardiovascular responses.",
+          "criteria": [
+            "Three appropriate pathways",
+            "Accurate hormone sources and targets",
+            "Mechanisms, not just names",
+            "Control relationships distinguished"
+          ],
+          "id": "ch13-l13-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Correct this explanation: “ACTH controls every adrenal hormone; all hormones act on every cell; and low thyroxine always means high TSH.” Include the conditions that make your corrections necessary.",
+          "model": "ACTH chiefly supports cortisol secretion; aldosterone is mainly controlled by angiotensin II and potassium, while the medulla receives sympathetic input. Targets require suitable receptors. Low thyroxine produces high TSH in primary thyroid failure only when the pituitary can respond; upstream failure can produce a different pattern.",
+          "criteria": [
+            "Adrenal pathways separated",
+            "Receptor specificity",
+            "Primary versus upstream failure",
+            "Assumptions stated"
+          ],
+          "id": "ch13-l13-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "wordIds": [
+    "ch13-word-homeostasis",
+    "ch13-word-endocrine-gland",
+    "ch13-word-hormone",
+    "ch13-word-target-cell",
+    "ch13-word-exocrine-gland",
+    "ch13-word-receptor-protein",
+    "ch13-word-water-soluble-hormone",
+    "ch13-word-lipid-soluble-hormone",
+    "ch13-word-steroid-hormone",
+    "ch13-word-signal-amplification",
+    "ch13-word-negative-feedback",
+    "ch13-word-positive-feedback",
+    "ch13-word-regulated-variable",
+    "ch13-word-tropic-hormone",
+    "ch13-word-feedback-inhibition",
+    "ch13-word-hypothalamus",
+    "ch13-word-anterior-pituitary",
+    "ch13-word-posterior-pituitary",
+    "ch13-word-portal-system",
+    "ch13-word-prolactin",
+    "ch13-word-oxytocin",
+    "ch13-word-fsh",
+    "ch13-word-lh",
+    "ch13-word-human-growth-hormone",
+    "ch13-word-growth-factor",
+    "ch13-word-growth-plate",
+    "ch13-word-gigantism",
+    "ch13-word-acromegaly",
+    "ch13-word-antidiuretic-hormone",
+    "ch13-word-osmoreceptor",
+    "ch13-word-reabsorption",
+    "ch13-word-collecting-duct",
+    "ch13-word-diabetes-insipidus",
+    "ch13-word-thyroxine",
+    "ch13-word-thyroid-stimulating-hormone",
+    "ch13-word-trh",
+    "ch13-word-hypothyroidism",
+    "ch13-word-hyperthyroidism",
+    "ch13-word-goitre",
+    "ch13-word-parathyroid-hormone",
+    "ch13-word-calcitonin",
+    "ch13-word-antagonistic-hormones",
+    "ch13-word-blood-calcium",
+    "ch13-word-adrenal-gland",
+    "ch13-word-adrenal-medulla",
+    "ch13-word-epinephrine",
+    "ch13-word-norepinephrine",
+    "ch13-word-fight-or-flight-response",
+    "ch13-word-adrenal-cortex",
+    "ch13-word-acth",
+    "ch13-word-cortisol",
+    "ch13-word-glucocorticoid",
+    "ch13-word-crh",
+    "ch13-word-aldosterone",
+    "ch13-word-mineralocorticoid",
+    "ch13-word-sodium-reabsorption",
+    "ch13-word-blood-volume",
+    "ch13-word-angiotensin-ii",
+    "ch13-word-pancreatic-islet",
+    "ch13-word-insulin",
+    "ch13-word-glucagon",
+    "ch13-word-glycogen",
+    "ch13-word-beta-cell",
+    "ch13-word-alpha-cell",
+    "ch13-word-diabetes-mellitus",
+    "ch13-word-insulin-resistance",
+    "ch13-word-hyperglycemia",
+    "ch13-word-hypoglycemia"
+  ],
+  "conceptIds": [
+    "ch13-homeostasis",
+    "ch13-nervous-endocrine",
+    "ch13-endocrine-gland",
+    "ch13-hormone",
+    "ch13-target-cell",
+    "ch13-receptor-specificity",
+    "ch13-water-soluble",
+    "ch13-lipid-soluble",
+    "ch13-signal-amplification",
+    "ch13-negative-feedback",
+    "ch13-positive-feedback",
+    "ch13-tropic-hormone",
+    "ch13-antagonistic-hormones",
+    "ch13-hypothalamus",
+    "ch13-anterior-pituitary",
+    "ch13-posterior-pituitary",
+    "ch13-portal-system",
+    "ch13-TSH",
+    "ch13-ACTH",
+    "ch13-prolactin",
+    "ch13-FSH-LH",
+    "ch13-oxytocin",
+    "ch13-hGH",
+    "ch13-growth-factors",
+    "ch13-gigantism",
+    "ch13-pituitary-dwarfism",
+    "ch13-acromegaly",
+    "ch13-ADH",
+    "ch13-osmoreceptors",
+    "ch13-ADH-kidney",
+    "ch13-diabetes-insipidus",
+    "ch13-ADH-feedback",
+    "ch13-thyroid",
+    "ch13-thyroxine",
+    "ch13-TSH-feedback",
+    "ch13-hypothyroidism",
+    "ch13-hyperthyroidism",
+    "ch13-iodine-goitre",
+    "ch13-calcitonin",
+    "ch13-PTH",
+    "ch13-parathyroid",
+    "ch13-calcium-antagonism",
+    "ch13-adrenal-glands",
+    "ch13-adrenal-medulla",
+    "ch13-epinephrine",
+    "ch13-fight-flight",
+    "ch13-neuroendocrine-stress",
+    "ch13-adrenal-cortex",
+    "ch13-cortisol",
+    "ch13-HPA-axis",
+    "ch13-cortisol-feedback",
+    "ch13-chronic-stress",
+    "ch13-aldosterone",
+    "ch13-sodium-water",
+    "ch13-Addison",
+    "ch13-pancreatic-islets",
+    "ch13-insulin",
+    "ch13-glucagon",
+    "ch13-glycogen",
+    "ch13-blood-glucose-loop",
+    "ch13-type1-diabetes",
+    "ch13-type2-diabetes",
+    "ch13-diabetes-symptoms",
+    "ch13-integrated-regulation",
+    "ch13-hormone-table",
+    "ch13-feedback-prediction",
+    "ch13-endocrine-error"
+  ],
+  "media": [
+    {
+      "id": "eWHH9je2zG4",
+      "title": "Endocrine system overview",
+      "lesson": 1,
+      "slide": 3,
+      "purpose": "Identify how hormone transport differs from a neural pathway.",
+      "fallback": "Hormones enter blood and affect cells with suitable receptors. A hormone reaching a tissue does not guarantee a response."
+    },
+    {
+      "id": "cDGmsR2ZILE",
+      "title": "Thyroid regulation",
+      "lesson": 7,
+      "slide": 28,
+      "purpose": "Name the three glands or regions and the feedback signal.",
+      "fallback": "The hypothalamus stimulates the anterior pituitary, which releases TSH. Thyroid hormone feeds back to reduce upstream stimulation."
+    },
+    {
+      "id": "y9Bdi4dnSlg",
+      "title": "Blood glucose regulation",
+      "lesson": 12,
+      "slide": 34,
+      "purpose": "Explain why insulin and glucagon are an antagonistic pair.",
+      "fallback": "Insulin promotes glucose uptake and storage. Glucagon stimulates the liver to release glucose when blood glucose is low."
+    },
+    {
+      "id": "XfyGv-xwjlI",
+      "title": "Diabetes and insulin",
+      "lesson": 12,
+      "slide": 37,
+      "purpose": "Distinguish inadequate insulin production from a reduced response to insulin.",
+      "fallback": "Type 1 involves loss of insulin-producing beta cells. Type 2 involves insulin resistance and may also involve insufficient insulin production. These are simplified learning models, not diagnoses."
+    },
+    {
+      "id": "HKHuQYVcxG4",
+      "title": "Adrenal hormone pathways",
+      "lesson": 9,
+      "slide": 40,
+      "purpose": "Identify which pathway uses sympathetic neurons and which uses ACTH.",
+      "fallback": "Sympathetic stimulation reaches the adrenal medulla directly. The hypothalamus–pituitary pathway uses ACTH to stimulate adrenal cortisol secretion."
+    },
+    {
+      "id": "8IUZjCSkbrc",
+      "title": "Stress and the body — source video 1",
+      "lesson": 10,
+      "slide": 41,
+      "purpose": "Follow the cortisol pathway and identify where feedback acts.",
+      "fallback": "CRH stimulates ACTH release; ACTH stimulates the adrenal cortex; cortisol feeds back on the hypothalamus and pituitary."
+    },
+    {
+      "id": "v-t1Z5-oPtU",
+      "title": "Stress and the body — source video 2",
+      "lesson": 10,
+      "slide": 41,
+      "purpose": "Distinguish a useful response from a claim about prolonged exposure.",
+      "fallback": "Cortisol supports fuel availability and has anti-inflammatory effects. A prolonged pattern is not equivalent to a brief stress response."
+    },
+    {
+      "id": "BYaR-JgbjCs",
+      "title": "Putting endocrine regulation together — source video 1",
+      "lesson": 13,
+      "slide": 42,
+      "purpose": "For each example, name the trigger, hormone, target and effect.",
+      "fallback": "A complete explanation connects a change in an internal variable with a gland, messenger, responding tissue and feedback effect."
+    },
+    {
+      "id": "QHkGG4TimvQ",
+      "title": "Putting endocrine regulation together — source video 2",
+      "lesson": 13,
+      "slide": 42,
+      "purpose": "Check that production, storage and release are not treated as the same action.",
+      "fallback": "ADH is produced in the hypothalamus and released from the posterior pituitary. The kidneys are its target, not its source."
+    },
+    {
+      "id": "SCV_m91mN-Q",
+      "title": "Chapter review companion — source video 1",
+      "lesson": 13,
+      "slide": 43,
+      "purpose": "Pause to sketch the regulation pathway before checking the lesson.",
+      "fallback": "Review gland–hormone–target relationships, then explain how the response changes the original stimulus."
+    },
+    {
+      "id": "lgqbs5a6Guw",
+      "title": "Chapter review companion — source video 2",
+      "lesson": 13,
+      "slide": 43,
+      "purpose": "Compare hormone pairs by their effects on a named variable.",
+      "fallback": "Insulin and glucagon act in opposite directions on blood glucose. PTH and calcitonin have contrasting effects on blood calcium."
+    },
+    {
+      "id": "k_QhDbUd654",
+      "title": "Chapter review companion — source video 3",
+      "lesson": 13,
+      "slide": 43,
+      "purpose": "Distinguish the adrenal cortex from the adrenal medulla.",
+      "fallback": "The medulla releases epinephrine and norepinephrine; the cortex produces cortisol and aldosterone. Their control pathways differ."
+    },
+    {
+      "id": "GYQyWYHt_vk",
+      "title": "Chapter review companion — source video 4",
+      "lesson": 13,
+      "slide": 43,
+      "purpose": "Predict what changes downstream when one part of a feedback loop fails.",
+      "fallback": "Start with the stated defect and follow its consequences. High TSH with low thyroxine is consistent with a thyroid response problem when upstream control is intact."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "ch13-reviewed-package-5",
+      "title": "Principal Endocrine Glands",
+      "lesson": 1,
+      "src": "./assets/labeling/05_Principal_Endocrine_Glands.png",
+      "alt": "Lettered schematic: Principal Endocrine Glands",
+      "answers": {
+        "A": "Pineal gland",
+        "B": "Hypothalamus",
+        "C": "Pituitary gland",
+        "D": "Thyroid gland",
+        "E": "Parathyroid glands",
+        "F": "Adrenal glands",
+        "G": "Pancreas",
+        "H": "Ovary",
+        "I": "Testes"
+      },
+      "options": [
+        "Pineal gland",
+        "Hypothalamus",
+        "Pituitary gland",
+        "Thyroid gland",
+        "Parathyroid glands",
+        "Adrenal glands",
+        "Pancreas",
+        "Ovary",
+        "Testes"
+      ],
+      "source": "Supplied Biology30_Labeling_Package_with_Answers.zip; textbook comparison documented in metadata",
+      "sha256": "c7438cf421b6edbb900b2ab0e26ce67ab5f17fc7e24af857e4b399a3665ec40b"
+    },
+    {
+      "id": "ch13-reviewed-package-6",
+      "title": "Hypothalamus and pituitary pathways",
+      "lesson": 4,
+      "src": "./assets/labeling/06_Hypothalamus_and_Pituitary_Pathways.png",
+      "alt": "Lettered schematic: Hypothalamus and pituitary pathways",
+      "answers": {
+        "A": "Hypothalamus",
+        "B": "Releasing hormones (hypothalamic releasing hormones)",
+        "C": "Hypophyseal portal system",
+        "D": "Anterior pituitary",
+        "E": "Posterior pituitary",
+        "F": "Neurosecretory cells / hypothalamic neurons",
+        "G": "TSH (thyroid-stimulating hormone)",
+        "H": "ACTH (adrenocorticotropic hormone)",
+        "I": "GH / hGH (growth hormone)",
+        "J": "Prolactin (PRL)",
+        "K": "FSH (follicle-stimulating hormone)",
+        "L": "LH (luteinizing hormone)",
+        "M": "ADH (antidiuretic hormone)",
+        "N": "Oxytocin",
+        "O": "Thyroid gland",
+        "P": "Adrenal cortex",
+        "Q": "Bones and muscles",
+        "R": "Mammary glands",
+        "S": "Ovaries and testes",
+        "T": "Ovaries and testes",
+        "U": "Kidneys",
+        "V": "Uterus",
+        "W": "Mammary glands"
+      },
+      "options": [
+        "Hypothalamus",
+        "Releasing hormones (hypothalamic releasing hormones)",
+        "Hypophyseal portal system",
+        "Anterior pituitary",
+        "Posterior pituitary",
+        "Neurosecretory cells / hypothalamic neurons",
+        "TSH (thyroid-stimulating hormone)",
+        "ACTH (adrenocorticotropic hormone)",
+        "GH / hGH (growth hormone)",
+        "Prolactin (PRL)",
+        "FSH (follicle-stimulating hormone)",
+        "LH (luteinizing hormone)",
+        "ADH (antidiuretic hormone)",
+        "Oxytocin",
+        "Thyroid gland",
+        "Adrenal cortex",
+        "Bones and muscles",
+        "Mammary glands",
+        "Ovaries and testes",
+        "Kidneys",
+        "Uterus"
+      ],
+      "reviewNote": "ADH and oxytocin are produced in hypothalamic neurons and released from the posterior pituitary. ACTH targets the adrenal cortex. The anterior pituitary produces its own hormones.",
+      "source": "Supplied Biology30_Labeling_Package_with_Answers.zip; textbook comparison documented in metadata",
+      "sha256": "b15647bdfd4de931e7d38975601382573e0e74826083c7eddf9f5064ced97ae9"
+    },
+    {
+      "id": "ch13-reviewed-package-7",
+      "title": "ADH and Water Balance",
+      "lesson": 6,
+      "src": "./assets/labeling/07_ADH_and_Water_Balance.png",
+      "alt": "Lettered schematic: ADH and Water Balance",
+      "answers": {
+        "A": "Increased blood solute concentration / dehydration (high blood osmolarity)",
+        "B": "Osmoreceptors in the hypothalamus",
+        "C": "Hypothalamus",
+        "D": "Posterior pituitary",
+        "E": "ADH (antidiuretic hormone)",
+        "F": "Kidney",
+        "G": "Collecting duct / nephron tubule",
+        "H": "Increased water reabsorption",
+        "I": "Small volume of concentrated urine",
+        "J": "Homeostasis restored / blood water balance restored"
+      },
+      "options": [
+        "Increased blood solute concentration / dehydration (high blood osmolarity)",
+        "Osmoreceptors in the hypothalamus",
+        "Hypothalamus",
+        "Posterior pituitary",
+        "ADH (antidiuretic hormone)",
+        "Kidney",
+        "Collecting duct / nephron tubule",
+        "Increased water reabsorption",
+        "Small volume of concentrated urine",
+        "Homeostasis restored / blood water balance restored"
+      ],
+      "source": "Supplied Biology30_Labeling_Package_with_Answers.zip; textbook comparison documented in metadata",
+      "sha256": "30270cde439e846cc3ed4d75ce2f59248fab2e6211ea002d50726e977d4d2ff9"
+    },
+    {
+      "id": "ch13-reviewed-package-8",
+      "title": "Thyroxine Negative Feedback",
+      "lesson": 7,
+      "src": "./assets/labeling/08_Thyroxine_Negative_Feedback.png",
+      "alt": "Lettered schematic: Thyroxine Negative Feedback",
+      "answers": {
+        "A": "Hypothalamus",
+        "B": "TRH (thyrotropin-releasing hormone)",
+        "C": "Anterior pituitary",
+        "D": "TSH (thyroid-stimulating hormone)",
+        "E": "Thyroid gland",
+        "F": "Thyroxine (T4)",
+        "G": "Increased metabolic activity / increased metabolic rate",
+        "H": "Negative feedback on the hypothalamus",
+        "I": "Negative feedback on the anterior pituitary"
+      },
+      "options": [
+        "Hypothalamus",
+        "TRH (thyrotropin-releasing hormone)",
+        "Anterior pituitary",
+        "TSH (thyroid-stimulating hormone)",
+        "Thyroid gland",
+        "Thyroxine (T4)",
+        "Increased metabolic activity / increased metabolic rate",
+        "Negative feedback on the hypothalamus",
+        "Negative feedback on the anterior pituitary"
+      ],
+      "source": "Supplied Biology30_Labeling_Package_with_Answers.zip; textbook comparison documented in metadata",
+      "sha256": "117b22cc107617bb16310fcbb72e67dfabe8a61c6f2fff9cacad31d5283fea6f"
+    },
+    {
+      "id": "ch13-reviewed-package-9",
+      "title": "Stress Responses: Fast and Longer-Term",
+      "lesson": 10,
+      "src": "./assets/labeling/09_Stress_Responses_Fast_and_Longer_Term.png",
+      "alt": "Lettered schematic: Stress Responses: Fast and Longer-Term",
+      "answers": {
+        "A": "Hypothalamus",
+        "B": "Sympathetic nervous system / sympathetic nerve impulse",
+        "C": "Adrenal medulla",
+        "D": "Epinephrine and norepinephrine",
+        "E": "Hypothalamus",
+        "F": "CRH (corticotropin-releasing hormone)",
+        "G": "Anterior pituitary",
+        "H": "ACTH (adrenocorticotropic hormone)",
+        "I": "Adrenal cortex",
+        "J": "Aldosterone",
+        "K": "Cortisol"
+      },
+      "options": [
+        "Hypothalamus",
+        "Sympathetic nervous system / sympathetic nerve impulse",
+        "Adrenal medulla",
+        "Epinephrine and norepinephrine",
+        "CRH (corticotropin-releasing hormone)",
+        "Anterior pituitary",
+        "ACTH (adrenocorticotropic hormone)",
+        "Adrenal cortex",
+        "Aldosterone",
+        "Cortisol"
+      ],
+      "source": "Supplied Biology30_Labeling_Package_with_Answers.zip; textbook comparison documented in metadata",
+      "sha256": "4d9c599e7c838c048e17f2fe32b2d6210c7c2a1be864aeb3b998755789f1f287"
+    },
+    {
+      "id": "ch13-reviewed-package-10",
+      "title": "Insulin and glucagon feedback",
+      "lesson": 12,
+      "src": "./assets/labeling/10_Insulin_and_Glucagon_Feedback.png",
+      "alt": "Lettered schematic: Insulin and glucagon feedback",
+      "answers": {
+        "A": "High blood glucose",
+        "B": "Pancreas",
+        "C": "Beta cells (islets of Langerhans)",
+        "D": "Insulin",
+        "E": "Muscle cells",
+        "F": "Adipose tissue (fat cells)",
+        "G": "Liver",
+        "H": "Low blood glucose",
+        "I": "Pancreas",
+        "J": "Alpha cells (islets of Langerhans)",
+        "K": "Glucagon",
+        "L": "Liver",
+        "M": "Blood glucose returns toward a workable range"
+      },
+      "options": [
+        "High blood glucose",
+        "Pancreas",
+        "Beta cells (islets of Langerhans)",
+        "Insulin",
+        "Muscle cells",
+        "Adipose tissue (fat cells)",
+        "Liver",
+        "Low blood glucose",
+        "Alpha cells (islets of Langerhans)",
+        "Glucagon",
+        "Blood glucose returns toward a workable range"
+      ],
+      "reviewNote": "Insulin promotes glucose uptake in muscle and adipose tissue and storage in the liver; glucagon promotes liver glucose release. Both pathways move blood glucose back toward a workable range.",
+      "source": "Supplied Biology30_Labeling_Package_with_Answers.zip; textbook comparison documented in metadata",
+      "sha256": "887a1d4dc90b83ba4822e0e64411d1f011548a0ca283df055f790894448f70fb"
+    }
+  ],
+  "figures": [
+    {
+      "id": "endocrine-source",
+      "srcHash": "3b0d8ddf906c3310479aea4969e022eb6fc02c3813e97ba238b61518e4c97b0a"
+    },
+    {
+      "id": "hormone-action",
+      "srcHash": "e6a0c507a6ef9417800cf40ed5c6d70b8e0678c7aee81521c830122c3333338d"
+    },
+    {
+      "id": "feedback",
+      "srcHash": "ee1787a601113258475586eb3aaab4723ebf587966b9c952961ed85b2d931ac0"
+    },
+    {
+      "id": "pituitary-source",
+      "srcHash": "5509c209d56730b9dafe61e100c888477f133b5e6e29beb850991528e03e13ee"
+    },
+    {
+      "id": "growth",
+      "srcHash": "60c0c80f2b31c5ad8d2dea169c5905531d044138e2c365d82f43aec0a7ecbf6f"
+    },
+    {
+      "id": "adh",
+      "srcHash": "47d6739937ffafcdea61f4bff3ece04c1b0509ae23e328a3a6047b5591d5aaca"
+    },
+    {
+      "id": "thyroid",
+      "srcHash": "9f5a11554261e9c4bcfb5a2b32121e029698a244c77ff2953c7ee0a1ac0eb42d"
+    },
+    {
+      "id": "calcium",
+      "srcHash": "a58901920140dd9ed67e5af0503c880eaa6cdfeaae06d4f5f88f424c7ba41eea"
+    },
+    {
+      "id": "adrenal-source",
+      "srcHash": "0d2ae24531e0d424f15a213717a1d524130063c8dc09d84bbe6717c09533c0f1"
+    },
+    {
+      "id": "stress-fast",
+      "srcHash": "eb0d32a6f8d18074eb0b379338e0bfd48aa440a5bf70954987a7035c99b4afdc"
+    },
+    {
+      "id": "cortisol",
+      "srcHash": "623af1fa85a7d5a4cbd22e3c00c6dc9e13dcf90ef8daebae59a9ec983cfc7d31"
+    },
+    {
+      "id": "aldosterone",
+      "srcHash": "45df21ed85700c6ad908a85116ae12cb52b6f37575bbc20be0544103bbb6b10b"
+    },
+    {
+      "id": "glucose",
+      "srcHash": "15bcfb262fbf63a0f7f4632c1595ed7687e139f7de3af2e7404c18a77141ffa4"
+    }
+  ],
+  "storageNamespace": "biology30-chapter-13:html:v1",
+  "bridge": "existing course-state-v1 / scopeKey / revision conflict protection"
+}

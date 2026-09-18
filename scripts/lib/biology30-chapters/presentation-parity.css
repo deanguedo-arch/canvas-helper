@@ -1,0 +1,88 @@
+/* Adapt the standalone runtime's alternate markup to the accepted Chapter 11 UI. */
+.topbar.course-topbar .top-progress-shell{width:min(340px,34vw);right:24px;font-size:12px}
+.sidebar .sidebar-title{font:800 24px/1.08 "Hanken Grotesk",sans-serif!important}
+.sidebar .nav-links{padding:0 0 12px 34px}
+.sidebar .nav-link{padding:7px 6px;font-size:13px;line-height:1.35}
+.sidebar .nav-number{width:auto;color:inherit;margin-right:4px}
+.sidebar .sidebar-footer{padding:12px;border:0}
+.sidebar .sidebar-footer p{margin:8px 0 0}
+.main>.course-frame{width:min(1120px,calc(100vw - 340px));min-height:0}
+.p2-topic .page-header{padding:42px 54px 34px}
+.p2-topic .page-header h1{max-width:880px;font:800 clamp(34px,4.4vw,50px)/1.02 "Hanken Grotesk",sans-serif;letter-spacing:-.035em}
+.page-header .lesson-question{font-size:19px;line-height:1.5;margin:14px 0 0}
+.page-header .goal-strip{margin:28px -54px 0}
+.page-header .goal-strip>div,.page-header .goal-strip>div:first-child,.page-header .goal-strip>div:last-child{padding:20px 54px}
+.goal-strip .section-label{font-size:12px}
+.goal-strip p{font-size:inherit;line-height:inherit}
+.page-header>.page-guide{margin:24px 0 32px!important}
+.page-header>.page-guide>summary{min-height:72px;padding:17px 56px 17px 20px!important;font-size:14px;line-height:1.5}
+.course-page:not([id^="lesson-"]) .page-header>.page-guide>summary strong::before{content:"Page guide"}
+.page-guide .guide-body{padding:0 24px 24px}
+.guide-body ol{display:grid;gap:10px;max-width:78ch;margin:18px 0;padding-left:24px}
+.guide-body li{padding-left:4px}
+.page-header .textbook-band{margin:24px 0 0;padding:14px 16px}
+.textbook-band p{font-size:inherit}
+.terms-line{font-size:inherit;line-height:inherit;margin:30px 0 0}
+.vocab-help{margin:20px 0 0}
+.vocab-help>summary{font-size:inherit}
+.vocab-help dd{font-size:inherit}
+.content-section p{font-size:inherit;line-height:inherit;max-width:72ch}
+.content-section h3{font:750 20px/1.25 "Hanken Grotesk",sans-serif}
+.content-section .science-figure{margin:24px 0;border-radius:0}
+.science-figure img{padding:0;max-height:none;object-fit:initial}
+.science-figure figcaption{font-size:14px;line-height:inherit}
+.figure-toolbar{font-size:inherit}
+.activity-disclosure>summary,.activity-disclosure.optional-disclosure>summary{padding:14px 54px;font-size:inherit;font-weight:800;min-height:64px;background:#fbfcfa;color:var(--green)}
+.activity h2{font:760 27px/1.2 "Hanken Grotesk",sans-serif}
+.check-question{padding:24px 0;border:0;border-top:1px solid var(--border);border-radius:0}
+.check-question h3{font:750 22px/1.35 "Hanken Grotesk",sans-serif}
+.choice-row{font-size:inherit;line-height:inherit}
+.practice-container{padding:32px 54px}
+.practice-setup{font-size:inherit;gap:16px}
+.practice-setup label{font-size:inherit}
+.practice-setup select{padding:9px 10px;border-radius:4px;min-height:44px}
+.practice-run-bar{font-size:inherit;gap:16px;border:0;padding:0;margin-bottom:18px}
+.practice-question{padding:0;border:0;border-radius:0}
+.practice-question h3{font:750 22px/1.35 "Hanken Grotesk",sans-serif}
+.reset-confirmation{padding:16px 0;margin:0;background:transparent;border:0;border-block:1px solid var(--border)}
+.reset-confirmation .actions{gap:12px}
+.actions button{margin:0}
+#course-main button:not(.bio-term):not(.text-link){padding:9px 15px;line-height:inherit}
+.local-save-status{padding:8px 18px;background:#fff;border-color:var(--border);color:var(--ink);font-size:13px}
+.video-copy p,.video-visual .concept-summary p,.work-history p,.work-history li,.work-frayers p,.work-notes p{font-size:inherit;line-height:inherit}
+@media(max-width:980px){
+  .topbar .brand-logo{width:112px;margin-left:0}
+  .topbar.course-topbar .top-progress-shell{width:min(340px,34vw)}
+  .main>.course-frame{width:min(100%,calc(100vw - 285px))}
+  .sidebar,.sidebar-collapsed .sidebar{width:238px!important;transform:none;bottom:0}
+  .main,.sidebar-collapsed .main{margin-left:238px!important;padding:92px 30px 88px}
+  .topbar .menu-button{display:none!important}
+  .local-save-status,.sidebar-collapsed .local-save-status{left:238px}
+  .page-header .goal-strip{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .topbar .brand-logo{position:absolute;left:74px;top:12px;width:85px;margin:0;transform:none}
+  .topbar .menu-button{display:block!important}
+  .topbar.course-topbar .top-progress-shell{right:12px;width:min(210px,calc(100vw - 180px))}
+  .main,.sidebar-collapsed .main{margin-left:0!important;padding:78px 0 74px}
+  .main>.course-frame{width:100%;border:0;border-radius:0}
+  .sidebar,.sidebar-collapsed .sidebar{width:min(310px,86vw)!important;transform:translateX(-100%)}
+  .nav-open .sidebar{transform:none}
+  .p2-topic .page-header{padding:42px 22px 34px}
+  .page-header .goal-strip{margin-left:-22px;margin-right:-22px}
+  .page-header .goal-strip>div,.page-header .goal-strip>div:first-child,.page-header .goal-strip>div:last-child{padding:20px 22px!important}
+  .practice-container{padding:24px 22px}
+  .local-save-status,.sidebar-collapsed .local-save-status{left:0}
+  .activity-disclosure>summary,.activity-disclosure.optional-disclosure>summary{padding:14px 22px}
+  .video-library-card{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .page-header>.page-guide{margin:20px 0 28px!important}
+  .page-header>.page-guide>summary{padding:15px 48px 15px 16px!important}
+  .page-guide .guide-body{padding:0 17px 20px}
+}
+@media print{
+  .main>.course-frame{width:100%!important}
+  .p2-topic .page-header{padding:0 0 15pt!important}
+  .local-save-status{display:none!important}
+}

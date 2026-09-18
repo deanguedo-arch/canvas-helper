@@ -585,6 +585,11 @@ async function buildWorkspaceFromHtml(
 
   const inlineScripts = $("script:not([src])")
     .toArray()
+    .filter((node) => {
+      const type = (node.attribs?.type ?? "").trim().toLowerCase().split(";", 1)[0];
+      // Data blocks and import maps belong in HTML, not in executable bundles.
+      return !type || type === "module" || /^(?:text|application)\/(?:javascript|ecmascript|x-javascript|babel)$/.test(type);
+    })
     .map((node) => {
       const element = $(node);
       const content = element.html() ?? "";

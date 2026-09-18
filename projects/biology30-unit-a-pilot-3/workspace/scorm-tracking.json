@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "adapter": "hash-pages-v1",
+  "pageIds": [
+    "overview",
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13",
+    "practice",
+    "fill-in-the-blanks",
+    "multiple-choice",
+    "mixed-practice",
+    "labeling-practice",
+    "lesson-check",
+    "textbook-practice",
+    "process-collection",
+    "core-vocabulary",
+    "textbook-library",
+    "video-library"
+  ],
+  "defaultPageId": "overview",
+  "state": {
+    "adapter": "course-state-v1"
+  },
+  "completion": {
+    "storageKey": "biology30-unit-a-pilot-3:required-completion:v1",
+    "requiredIds": [
+      "practice-overview",
+      "practice-neuron-structure",
+      "practice-reflexes",
+      "check-resting-potential",
+      "check-action-potentials",
+      "check-synapses",
+      "check-drugs",
+      "check-pns",
+      "check-cns",
+      "check-brain",
+      "check-brain-investigation",
+      "check-chapter-review-section"
+    ]
+  }
+}

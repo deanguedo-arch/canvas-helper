@@ -1,0 +1,2769 @@
+{
+  "chapter": 17,
+  "title": "Patterns and Processes in Inheritance",
+  "first": 584,
+  "last": 621,
+  "lessons": [
+    {
+      "title": "Genes, alleles, genotype and phenotype",
+      "question": "How can the same gene be associated with different traits?",
+      "goal": "Distinguish a gene from an allele, genotype from phenotype, and homozygous from heterozygous combinations.",
+      "prior": "Homologous chromosomes carry corresponding genes but may carry different alleles. Gametes contribute one allele at each autosomal locus in the simple diploid model.",
+      "pages": [
+        586,
+        587
+      ],
+      "slides": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "terms": [
+        {
+          "term": "gene",
+          "meaning": "A DNA sequence that contributes to a functional product or inherited characteristic.",
+          "example": "A DNA region influences a pigment-producing process.",
+          "importantDistinction": "A gene and a particular version of that gene are different concepts.",
+          "misconception": "A gene is always an entire chromosome.",
+          "aliases": []
+        },
+        {
+          "term": "allele",
+          "meaning": "An alternative version of a gene.",
+          "example": "Two versions at the same locus are represented as B and b.",
+          "importantDistinction": "A diploid individual usually carries two alleles at an autosomal locus, even when more exist in the population.",
+          "misconception": "Each allele is a different chromosome set.",
+          "aliases": []
+        },
+        {
+          "term": "genotype",
+          "meaning": "The allele combination an organism carries at the locus or loci being considered.",
+          "example": "A model organism is Bb for a pigment gene.",
+          "importantDistinction": "Genotype records the allele combination, not just the appearance.",
+          "misconception": "Genotype means only visible appearance.",
+          "aliases": []
+        },
+        {
+          "term": "phenotype",
+          "meaning": "An observable or measurable characteristic resulting from genotype and its biological context.",
+          "example": "A model organism produces dark pigment.",
+          "importantDistinction": "Phenotypes can include physiological or behavioural traits, not only colour.",
+          "misconception": "Phenotype is always a pair of letters.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Start with a defined genetic model",
+          [
+            "A gene is a DNA sequence associated with a functional product or characteristic. Alternative versions are alleles. In a diploid autosomal model, an individual inherits one allele from each parent and therefore has two alleles at the locus being studied.",
+            "The genotype is the allele combination, such as BB, Bb or bb. The phenotype is the observed or measured characteristic, such as dark or pale pigment. A phenotype can also be an enzyme activity or another physiological property, not only a visible feature."
+          ]
+        ],
+        [
+          "Dominance describes the heterozygote",
+          [
+            "Suppose a stated model says B gives dark pigment and is completely dominant to b. BB and Bb individuals have the dark phenotype, while bb individuals have the pale phenotype. The same phenotype can therefore correspond to more than one genotype.",
+            "Homozygous means the two alleles are the same, as in BB or bb. Heterozygous means they differ, as in Bb. A dominant allele is expressed in the heterozygote under the stated complete-dominance model. Dominant does not mean most common, healthiest or strongest.",
+            "Use the inheritance model supplied. Many traits involve multiple genes, environmental influences or allele relationships other than complete dominance. Do not assume that human eye colour can be accurately predicted by a single B/b model."
+          ]
+        ],
+        [
+          "Notation keeps the reasoning visible",
+          [
+            "Define letters before solving a problem. Use the same letter for alleles of one gene and a different letter for a different gene. A capital and lowercase letter are convenient for a complete-dominance model; other models use different notation.",
+            "A useful first question is whether the phenotype determines a unique genotype. A recessive phenotype in a simple fully expressed model identifies bb. A dominant phenotype alone leaves BB or Bb possible. Keeping that uncertainty visible prevents an incorrect cross from the start."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Infer what the phenotype does and does not tell you",
+        "scenario": "In a fictional beetle model, dark shell B is completely dominant to pale shell b. One beetle is dark and another is pale.",
+        "steps": [
+          "The pale beetle must be bb under this model.",
+          "The dark beetle may be BB or Bb.",
+          "Write B_ for the unresolved dark genotype rather than silently choosing BB.",
+          "Additional parent or offspring information may resolve the missing allele."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "An individual has two different alleles at a locus. Which term applies?",
+          "answer": "Heterozygous",
+          "wrong": [
+            "Homozygous",
+            "Haploid"
+          ],
+          "explanation": "Different alleles make the genotype heterozygous.",
+          "cue": "Compare allele identity, not phenotype."
+        },
+        {
+          "prompt": "Under complete dominance, a dominant phenotype alone allows which genotypes?",
+          "answer": "BB or Bb",
+          "wrong": [
+            "bb only",
+            "BB only"
+          ],
+          "explanation": "Both BB and Bb express the dominant phenotype in the stated model.",
+          "cue": "Ask whether the recessive allele could be present but masked."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement correctly distinguishes genotype and phenotype?",
+          "answer": "Genotype is the allele combination; phenotype is the measured characteristic",
+          "wrong": [
+            "Genotype is always colour; phenotype is always DNA sequence",
+            "Both mean chromosome number only",
+            "Phenotype excludes all physiological traits"
+          ],
+          "explanation": "Allele combinations and expressed characteristics are different levels of description.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "A recessive allele is rare in one population and common in another. Is this inconsistent with recessiveness?",
+          "answer": "No; dominance does not determine allele frequency",
+          "wrong": [
+            "Yes; recessive alleles must always be rare",
+            "Yes; frequency changes turn it into a chromosome",
+            "No; because dominant alleles never affect phenotype"
+          ],
+          "explanation": "Dominance concerns the heterozygote, not how common an allele is.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Use a complete-dominance example to show why one phenotype can have two possible genotypes.",
+          "model": "If B is completely dominant to b, both BB and Bb can produce the dominant phenotype. A dominant appearance therefore does not distinguish those genotypes. Only bb produces the recessive phenotype in the stated simple model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why genetic notation and an explicit inheritance model should be established before drawing a Punnett square.",
+          "model": "The notation identifies which alleles belong to each gene, and the model determines how genotype relates to phenotype. Without these definitions, a correct-looking square may represent the wrong parental genotypes or assign phenotypes incorrectly.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A model organism has genotype Aa but its phenotype is not provided. What additional information is essential?",
+          "answer": "The relationship between the alleles and the trait",
+          "wrong": [
+            "Only the organism’s total mass",
+            "A rule that A must always be common",
+            "The number of letters in the gene name"
+          ],
+          "explanation": "Genotype-to-phenotype interpretation requires the inheritance model.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Is an allele a synonym for an entire chromosome?",
+        "No. An allele is a version of a gene, which occupies a locus on a chromosome."
+      ],
+      "sequence": null,
+      "anchors": [
+        "gene",
+        "allele",
+        "genotype",
+        "phenotype"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Mendel’s experiments and segregation",
+      "question": "How can a trait disappear in one generation and reappear in the next?",
+      "goal": "Use P, F1 and F2 crosses to explain segregation of alleles without blending or loss of a recessive allele.",
+      "prior": "A heterozygote carries two different alleles. Under complete dominance, only one corresponding phenotype is apparent.",
+      "pages": [
+        587,
+        590
+      ],
+      "slides": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "terms": [
+        {
+          "term": "law of segregation",
+          "meaning": "The separation of the two alleles at a locus into different gametes.",
+          "example": "A heterozygous Rr parent produces R and r gametes in the simple model.",
+          "importantDistinction": "The parent has both alleles, but an individual gamete receives one.",
+          "misconception": "Every gamete receives both R and r.",
+          "aliases": []
+        },
+        {
+          "term": "true-breeding",
+          "meaning": "Producing offspring with the same trait when bred within the line under the stated conditions.",
+          "example": "A homozygous pea line repeatedly produces the same flower phenotype.",
+          "importantDistinction": "In Mendel’s simple models, true-breeding lines are homozygous for the studied trait.",
+          "misconception": "True-breeding always means heterozygous.",
+          "aliases": []
+        },
+        {
+          "term": "F1 generation",
+          "meaning": "The first offspring generation from a specified parental cross.",
+          "example": "RR crossed with rr produces a first generation of Rr offspring.",
+          "importantDistinction": "F1 names a relationship to a cross, not a universal genotype.",
+          "misconception": "Every F1 individual in every cross is homozygous.",
+          "aliases": []
+        },
+        {
+          "term": "F2 generation",
+          "meaning": "The generation produced from the F1 in the specified breeding design.",
+          "example": "Two F1 heterozygotes are crossed to examine the next generation.",
+          "importantDistinction": "Its ratios depend on the parental genotypes and assumptions.",
+          "misconception": "Every F2 cross must yield exactly three offspring of one type and one of another.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Follow the alleles across generations",
+          [
+            "Mendel studied traits in pea plants and used controlled crosses between lines with contrasting forms. In a simple example, let R represent round seeds and r wrinkled seeds, with complete dominance of R. A true-breeding RR line crossed with rr produces Rr offspring in the F1 generation.",
+            "Every F1 individual can have the round phenotype while still carrying the r allele. The recessive allele has not disappeared or blended into a weaker version. It remains part of the genotype."
+          ]
+        ],
+        [
+          "Segregation explains reappearance",
+          [
+            "An Rr individual forms gametes containing R or r. The alleles segregate as homologous chromosomes separate during meiosis. In the simple model, each allele has a one-half chance of entering a gamete.",
+            "When two Rr individuals produce the F2 generation, gametes can combine as RR, Rr, rR or rr. Rr and rR name the same heterozygous genotype. The expected genotype ratio is 1 RR : 2 Rr : 1 rr. With complete dominance, the expected phenotype ratio is 3 round : 1 wrinkled.",
+            "The wrinkled phenotype reappears because an offspring can receive r from both parents. No new r mutation is required to explain that result."
+          ]
+        ],
+        [
+          "Expected ratios are probabilities",
+          [
+            "A 3:1 expected ratio is not a promise that every group of four offspring contains exactly three round and one wrinkled. Each offspring is another event. Chance variation is especially noticeable in small samples.",
+            "Mendel's repeated patterns supported a particulate model of inheritance: inherited units remain distinguishable rather than permanently blending. Later chromosome and DNA evidence connected those units with cellular mechanisms.",
+            "When interpreting a cross, identify the parental genotypes, gamete possibilities and allele combinations before applying the phenotype rule. A remembered ratio should be the result of that reasoning, not a substitute for it."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Recover a hidden allele",
+        "scenario": "A true-breeding dark plant is crossed with a true-breeding pale plant. All F1 plants are dark; some F2 offspring are pale.",
+        "steps": [
+          "Under complete dominance, use DD for the true-breeding dark parent and dd for pale.",
+          "The F1 genotype is Dd. The d allele remains present despite the dark phenotype.",
+          "F1 parents can each contribute d in a gamete.",
+          "An F2 dd offspring expresses pale, explaining reappearance without blending or a new mutation."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "What gametes are expected from Aa in the simple segregation model?",
+          "answer": "A and a",
+          "wrong": [
+            "Aa only",
+            "AA and aa"
+          ],
+          "explanation": "Each gamete gets one allele of the pair.",
+          "cue": "A gamete is haploid at this locus."
+        },
+        {
+          "prompt": "What genotype ratio is expected from Aa × Aa?",
+          "answer": "1 AA : 2 Aa : 1 aa",
+          "wrong": [
+            "3 AA : 1 aa",
+            "All Aa"
+          ],
+          "explanation": "Four equally likely gamete combinations group into three genotypes.",
+          "cue": "Combine A/A, A/a, a/A and a/a."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+          "answer": "Each heterozygous parent can contribute the recessive allele",
+          "wrong": [
+            "The recessive allele is always recreated by mutation",
+            "Dominant alleles vanish after one generation",
+            "Gametes carry both parental alleles together at every locus"
+          ],
+          "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+          "answer": "No; small samples can differ from expected ratios",
+          "wrong": [
+            "Yes; every short run must exactly match the expected ratio",
+            "Yes; meiosis makes only one type of gamete after the first birth",
+            "No; because alleles are not inherited"
+          ],
+          "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain Mendel’s F1 and F2 pattern using alleles rather than blending.",
+          "model": "A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+          "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "RR × rr produces which F1 genotype under the stated model?",
+          "answer": "All Rr",
+          "wrong": [
+            "All RR",
+            "Half RR and half rr",
+            "One-quarter rr"
+          ],
+          "explanation": "The first parent contributes only R, and the second only r.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a recessive allele have to be visible to remain inherited?",
+        "No. A heterozygote can carry an allele whose recessive phenotype is not expressed."
+      ],
+      "sequence": [
+        "Define the parental genotypes",
+        "List one-allele gametes from each parent",
+        "Combine gametes at fertilization",
+        "Group offspring genotypes",
+        "Apply the stated phenotype relationship"
+      ],
+      "anchors": [
+        "law of segregation",
+        "true-breeding",
+        "F1 generation",
+        "F2 generation"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Single-trait crosses and probability",
+      "question": "How do you turn parental genotypes into an offspring prediction?",
+      "goal": "Construct and interpret a monohybrid Punnett square, distinguish genotype and phenotype probabilities, and state the denominator.",
+      "prior": "Aa forms A and a gametes under ordinary segregation. Expected ratios describe probabilities, not fixed family sequences.",
+      "pages": [
+        589,
+        591
+      ],
+      "slides": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "terms": [
+        {
+          "term": "Punnett square",
+          "meaning": "A table combining possible parental gametes to organize offspring genotypes.",
+          "example": "Rows list one parent’s gametes and columns the other’s.",
+          "importantDistinction": "Each cell represents a possible combination, not a separate guaranteed offspring.",
+          "misconception": "Each Punnett-square box is one child that must be born.",
+          "aliases": []
+        },
+        {
+          "term": "monohybrid cross",
+          "meaning": "A cross between individuals heterozygous for one studied gene.",
+          "example": "Aa × Aa is used to examine segregation of one locus.",
+          "importantDistinction": "A single-trait cross is not always heterozygote × heterozygote.",
+          "misconception": "Every single-trait cross is Aa × Aa.",
+          "aliases": []
+        },
+        {
+          "term": "probability",
+          "meaning": "The expected proportion of an outcome under specified conditions.",
+          "example": "One of four equally likely combinations is homozygous recessive.",
+          "importantDistinction": "Use the group asked about as the denominator.",
+          "misconception": "Probability is a guarantee of the next outcome.",
+          "aliases": []
+        },
+        {
+          "term": "expected number",
+          "meaning": "The predicted count obtained by multiplying a probability by the sample size.",
+          "example": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+          "importantDistinction": "An expected count need not equal an observed count.",
+          "misconception": "Expected and observed counts must always be identical.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Write gametes, not whole parental genotypes, on the edges",
+          [
+            "A Punnett square organizes combinations of gametes. For Aa × aa, the first parent produces A or a gametes; the second produces only a. Place those gametes on the edges and combine one from each parent in each cell.",
+            "The resulting possibilities are Aa and aa in equal proportions. With complete dominance, half are expected to have the dominant phenotype and half the recessive phenotype. The square shows why the 1:1 ratio applies; a 3:1 ratio would be the wrong shortcut for this cross."
+          ]
+        ],
+        [
+          "Count the outcome that was actually asked for",
+          [
+            "For Aa × Aa, the four equally likely combinations are AA, Aa, aA and aa. Grouping the two heterozygous combinations gives probabilities of 1/4 AA, 1/2 Aa and 1/4 aa. The dominant phenotype has probability 3/4 under complete dominance.",
+            "Genotype probability and phenotype probability therefore can differ. “Heterozygous” refers to two of the four combinations, while “dominant phenotype” includes three. Mark the requested group before choosing your numerator.",
+            "When converting to an expected number, multiply by the total. If 80 offspring each have a 1/4 chance of aa, the expected number is 80 × 0.25 = 20. The result is an expectation, not a promise."
+          ]
+        ],
+        [
+          "Independent offspring do not compensate for earlier outcomes",
+          [
+            "In the simple model, one offspring's genotype does not force the next offspring to be different. If two Aa parents have several dominant-phenotype offspring, the modeled probability for the next offspring is still 1/4 recessive.",
+            "For specified independent events, multiply probabilities. Two recessive offspring in a row from Aa × Aa have probability 1/4 × 1/4 = 1/16. Do not confuse this ordered event with “at least one recessive among two,” which asks for a different set of outcomes.",
+            "State assumptions such as complete dominance and ordinary segregation. They determine which genotype combinations count toward a phenotype."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Predict a phenotype and an expected count",
+        "scenario": "In a stated complete-dominance model, Tt is crossed with tt. Predict the fraction and expected number of recessive offspring among 60.",
+        "steps": [
+          "Tt produces T and t gametes; tt produces t gametes.",
+          "The equally likely combinations are Tt and tt.",
+          "The recessive phenotype is tt, probability 1/2.",
+          "Expected number = 60 × 1/2 = 30.",
+          "Check: the other expected 30 have the dominant phenotype; observed counts can vary."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "For Bb × Bb, what fraction is heterozygous?",
+          "answer": "1/2",
+          "wrong": [
+            "3/4",
+            "1/4"
+          ],
+          "explanation": "Bb and bB are two of four equally likely combinations.",
+          "cue": "Count genotypes, not all dominant phenotypes."
+        },
+        {
+          "prompt": "For Aa × aa, what is the expected number of aa offspring among 100?",
+          "answer": "50",
+          "wrong": [
+            "25",
+            "75"
+          ],
+          "explanation": "Probability aa = 1/2; 100 × 1/2 = 50.",
+          "cue": "Use the actual parental cross before applying a ratio."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Under complete dominance, AA × Aa can produce which phenotypes?",
+          "answer": "Only the dominant phenotype",
+          "wrong": [
+            "Only the recessive phenotype",
+            "A fixed 1:1 dominant-to-recessive ratio",
+            "A fixed 3:1 dominant-to-recessive ratio"
+          ],
+          "explanation": "Every offspring receives A from the homozygous parent.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Aa × Aa has already produced three aa offspring. What is the probability that the next is aa in the independent model?",
+          "answer": "1/4",
+          "wrong": [
+            "0",
+            "1",
+            "3/4"
+          ],
+          "explanation": "Previous independent outcomes do not alter the next gamete-combination probabilities.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Show how to obtain genotype and phenotype probabilities for Bb × bb when B is completely dominant.",
+          "model": "The heterozygote produces B or b gametes and bb produces b. The combinations are Bb and bb, each with probability 1/2. Therefore the expected genotype ratio is 1:1 and the expected dominant-to-recessive phenotype ratio is also 1:1.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a predicted count of 25 recessive offspring among 100 is not a guarantee.",
+          "model": "The count is an expectation from a 1/4 probability multiplied by 100. Individual gamete combinations are chance events, so the observed count can differ. The model predicts a distribution of possibilities rather than an exact scheduled sequence.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "For Aa × Aa, what is the probability of two specified successive aa offspring?",
+          "answer": "1/16",
+          "wrong": [
+            "1/2",
+            "1/4",
+            "3/4"
+          ],
+          "explanation": "Multiply the independent probabilities: 1/4 × 1/4 = 1/16.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Why should the square’s edges contain A or a rather than Aa?",
+        "The edges represent gametes, which carry one allele at the studied locus."
+      ],
+      "sequence": null,
+      "anchors": [
+        "Punnett square",
+        "monohybrid cross",
+        "probability",
+        "expected number"
+      ],
+      "figures": {
+        "0": "ch17-punnett"
+      }
+    },
+    {
+      "title": "Test crosses and unknown genotypes",
+      "question": "What can offspring reveal about a parent with a dominant phenotype?",
+      "goal": "Use a homozygous recessive tester to distinguish possible parental genotypes and explain uncertainty from small samples.",
+      "prior": "A dominant phenotype can be AA or Aa. An aa offspring must receive a from both parents.",
+      "pages": [
+        590,
+        591
+      ],
+      "slides": [
+        33,
+        34,
+        35
+      ],
+      "terms": [
+        {
+          "term": "test cross",
+          "meaning": "A cross with a homozygous recessive individual used to investigate an unknown genotype.",
+          "example": "A dark B_ individual is crossed with a pale bb tester.",
+          "importantDistinction": "One recessive offspring can be informative; all dominant offspring in a small sample need not prove homozygosity.",
+          "misconception": "Any four dominant offspring prove the unknown parent is homozygous.",
+          "aliases": []
+        },
+        {
+          "term": "homozygous",
+          "meaning": "Having two identical alleles at a locus.",
+          "example": "An individual is AA or aa rather than Aa.",
+          "importantDistinction": "Homozygous can be dominant or recessive.",
+          "misconception": "Homozygous always means dominant.",
+          "aliases": []
+        },
+        {
+          "term": "heterozygous",
+          "meaning": "Having two different alleles at a locus.",
+          "example": "An individual has one dominant and one recessive allele in a simple model.",
+          "importantDistinction": "A heterozygote can share a phenotype with a homozygous dominant individual.",
+          "misconception": "Heterozygous means having one chromosome in the entire cell.",
+          "aliases": []
+        },
+        {
+          "term": "sampling variation",
+          "meaning": "Differences between observed sample outcomes and their expected proportions due to chance.",
+          "example": "A small set of offspring contains no recessive individual even though each had a one-half chance.",
+          "importantDistinction": "A small sample may not distinguish two models decisively.",
+          "misconception": "Every difference from an expected ratio proves a new inheritance law.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Choose a tester with a known contribution",
+          [
+            "An individual with a dominant phenotype may be AA or Aa. Crossing it with aa creates a useful test because the recessive tester can contribute only a. The phenotype of the offspring then provides evidence about the unknown parent's contribution.",
+            "If the unknown parent is AA, every offspring is expected to be Aa and show the dominant phenotype. If the unknown parent is Aa, the expected offspring are half Aa and half aa. A recessive offspring therefore demonstrates that the unknown parent contributed a, under the stated simple model."
+          ]
+        ],
+        [
+          "Positive evidence and absence of evidence differ",
+          [
+            "One aa offspring from B_ × bb means the dominant-phenotype parent must carry the recessive allele, assuming the model, parentage and observations are correct. It is heterozygous.",
+            "By contrast, several dominant offspring do not logically prove the parent is homozygous. An Aa parent can, by chance, produce a run of A-bearing gametes. For four independent offspring in an Aa × aa cross, the probability that all show the dominant phenotype is (1/2)⁴ = 1/16.",
+            "More offspring with no recessive phenotype generally strengthen the homozygous interpretation, but finite samples still require cautious wording. Say what the evidence supports and what remains possible."
+          ]
+        ],
+        [
+          "Use family information before calculating",
+          [
+            "Additional parent or offspring information can resolve an unknown genotype. A dominant-phenotype individual with an aa parent must have received a from that parent, so it must be Aa. You do not need another test cross to establish that conclusion within the model.",
+            "Start with the most informative constraints. Write the alleles that must be present, preserve unknowns where necessary, and only then calculate the next cross. Guessing an unresolved genotype can make every later arithmetic step misleading."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "A recessive offspring resolves the unknown",
+        "scenario": "A black fictional mouse, B_, is crossed with a brown bb mouse. One offspring is brown.",
+        "steps": [
+          "The brown offspring is bb.",
+          "The known tester supplied one b.",
+          "The unknown black parent supplied the other b, so it carries b.",
+          "Its black phenotype also requires B in the complete-dominance model.",
+          "The unknown parent is Bb."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which tester is useful for distinguishing TT from Tt?",
+          "answer": "tt",
+          "wrong": [
+            "TT",
+            "An individual with unresolved T_ genotype"
+          ],
+          "explanation": "The recessive tester has a known allele contribution.",
+          "cue": "Choose a tester that contributes only the recessive allele."
+        },
+        {
+          "prompt": "An unknown dominant parent crossed with aa produces one aa offspring. What is the unknown genotype?",
+          "answer": "Aa",
+          "wrong": [
+            "AA",
+            "aa despite its dominant phenotype"
+          ],
+          "explanation": "The parent must contribute a while also carrying A for its phenotype.",
+          "cue": "Combine phenotype evidence with the offspring’s required allele."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Five dominant offspring appear in a test cross. What is the most careful conclusion?",
+          "answer": "Homozygosity is supported, but heterozygosity is not logically excluded",
+          "wrong": [
+            "The parent is certainly AA",
+            "The recessive allele has mutated into A in every cell",
+            "Segregation cannot operate"
+          ],
+          "explanation": "A finite run of dominant offspring can occur by chance from a heterozygote.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "A dominant-phenotype individual has an aa parent. Under the simple model, its genotype is:",
+          "answer": "Aa",
+          "wrong": [
+            "AA",
+            "aa",
+            "Impossible to constrain at all"
+          ],
+          "explanation": "The aa parent must supply a; the dominant phenotype requires A from the other parent.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why a recessive tester makes an unknown dominant genotype easier to investigate.",
+          "model": "The homozygous recessive tester contributes only the recessive allele. Offspring outcomes therefore reveal whether the unknown parent can contribute a recessive allele. A recessive offspring identifies the unknown dominant parent as heterozygous within the model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Calculate the probability that an Aa × aa cross produces four dominant-phenotype offspring in succession, and explain its relevance.",
+          "model": "Each offspring has probability 1/2 of the dominant phenotype. Four specified independent outcomes have probability (1/2)⁴ = 1/16. Thus an all-dominant sample of four can occur even when the unknown parent is heterozygous.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A test cross of G_ × gg produces 12 dominant and 8 recessive offspring. Which genotype is established for the unknown parent in the stated model?",
+          "answer": "Gg",
+          "wrong": [
+            "GG",
+            "gg",
+            "No genotype can be inferred because the ratio is not exactly 1:1"
+          ],
+          "explanation": "The presence of recessive offspring establishes that the unknown parent can supply g; exact sample balance is unnecessary.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a small departure from 1:1 automatically disprove a heterozygous test cross?",
+        "No. Sampling variation can change the observed counts."
+      ],
+      "sequence": null,
+      "anchors": [
+        "test cross",
+        "homozygous",
+        "heterozygous",
+        "sampling variation"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Two-trait crosses and independent assortment",
+      "question": "How do two single-gene predictions combine?",
+      "goal": "List valid gametes for two loci, use a Punnett square or product rule, and identify the assumption of independent assortment.",
+      "prior": "Each gamete receives one allele at each studied locus. Independent probabilities can be multiplied.",
+      "pages": [
+        591,
+        593
+      ],
+      "slides": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "terms": [
+        {
+          "term": "dihybrid cross",
+          "meaning": "A cross between individuals heterozygous at two studied loci.",
+          "example": "AaBb × AaBb is used to examine two traits under stated assumptions.",
+          "importantDistinction": "The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment.",
+          "misconception": "Every two-trait cross yields 9:3:3:1.",
+          "aliases": []
+        },
+        {
+          "term": "independent assortment",
+          "meaning": "Independent segregation of alleles at different loci when the chromosome arrangement permits it.",
+          "example": "An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+          "importantDistinction": "Linked genes can depart from this equal-combination prediction.",
+          "misconception": "All genes always assort independently regardless of location.",
+          "aliases": []
+        },
+        {
+          "term": "product rule",
+          "meaning": "Multiplication of probabilities for specified independent events.",
+          "example": "Probability of aa and bb is calculated as P(aa) × P(bb) when the loci assort independently.",
+          "importantDistinction": "Check independence before multiplying separate trait probabilities.",
+          "misconception": "Probabilities of two required independent events are always added.",
+          "aliases": []
+        },
+        {
+          "term": "gamete combination",
+          "meaning": "The set of one allele from each studied locus carried by a gamete.",
+          "example": "An AaBb parent can produce an Ab gamete in an independent model.",
+          "importantDistinction": "A gamete does not receive both A and a at the same autosomal locus in this model.",
+          "misconception": "Aa is a valid normal two-locus gamete from AaBb.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Find possible gametes before drawing boxes",
+          [
+            "For AaBb with independent assortment, choose one allele from the A/a pair and one from the B/b pair. The possible gametes are AB, Ab, aB and ab, each with probability 1/4. An Aabb parent has only Ab and ab as distinct possibilities.",
+            "Do not place Aa or Bb on a gamete edge. Those are two alleles of one locus, not one allele from each of two loci. A correctly sized square follows from the distinct gametes, not from a rule that every two-trait cross needs sixteen boxes."
+          ]
+        ],
+        [
+          "Solve separate loci when independence is stated",
+          [
+            "For AaBb × AaBb, the A locus gives a 3/4 dominant-phenotype probability and 1/4 recessive probability. The B locus gives the same. If the loci assort independently, the probability of both dominant phenotypes is 3/4 × 3/4 = 9/16.",
+            "The other phenotype combinations are 3/16, 3/16 and 1/16, producing the familiar 9:3:3:1 expectation. This ratio is specific to the stated heterozygote cross and allele relationships.",
+            "For a different cross, recompute. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong."
+          ]
+        ],
+        [
+          "Make the assumption part of the answer",
+          [
+            "Genes close together on the same chromosome can be linked. Their gamete combinations may not occur equally, so the simple product calculation can fail. Later lessons will use offspring data to test this.",
+            "For now, state when independent assortment is assumed. Check that the probabilities of all mutually exclusive phenotype categories add to one. When calculating an expected count, multiply the appropriate probability by the total number of offspring.",
+            "Both the square and product method are tools for organizing the same biological possibilities. Choose the clearer method, but show enough steps that the allele contributions can be checked."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Solve a two-locus cross without unnecessary boxes",
+        "scenario": "In an independent complete-dominance model, RrTt × rrTt produces offspring. Find the probability of red, short offspring: R_tt.",
+        "steps": [
+          "At the colour locus, Rr × rr gives P(R_) = 1/2.",
+          "At the height locus, Tt × Tt gives P(tt) = 1/4.",
+          "Both conditions are required, so multiply: 1/2 × 1/4 = 1/8.",
+          "For 80 offspring the expected count is 80 × 1/8 = 10.",
+          "The result relies on independence of the two loci."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which gametes can Aabb produce?",
+          "answer": "Ab and ab",
+          "wrong": [
+            "AB and ab",
+            "Aa and bb"
+          ],
+          "explanation": "Choose one allele from each locus: B is absent and b is always present.",
+          "cue": "List the A choice and the B-locus choice separately."
+        },
+        {
+          "prompt": "For independent AaBb × aabb, what is P(aabb)?",
+          "answer": "1/4",
+          "wrong": [
+            "1/16",
+            "3/4"
+          ],
+          "explanation": "P(aa) = 1/2 and P(bb) = 1/2; multiply to obtain 1/4.",
+          "cue": "Do not apply the heterozygote × heterozygote ratio to a test cross."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+          "answer": "The loci assort independently under the model",
+          "wrong": [
+            "The two genes must be identical",
+            "Every parent must be homozygous",
+            "Each offspring compensates for the previous one"
+          ],
+          "explanation": "Independence allows the product rule for locus outcomes.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+          "answer": "3/16",
+          "wrong": [
+            "9/16",
+            "1/16",
+            "1/4"
+          ],
+          "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.",
+          "model": "RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.",
+          "model": "At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+          "answer": "1/8",
+          "wrong": [
+            "1/16",
+            "3/8",
+            "1/2"
+          ],
+          "explanation": "P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does “two traits” automatically mean 9:3:3:1?",
+        "No. Parental genotypes, dominance relationships and linkage determine the prediction."
+      ],
+      "sequence": null,
+      "anchors": [
+        "dihybrid cross",
+        "independent assortment",
+        "product rule",
+        "gamete combination"
+      ],
+      "figures": {
+        "0": "ch17-two-trait"
+      }
+    },
+    {
+      "title": "Incomplete dominance and codominance",
+      "question": "How can a heterozygote differ from either homozygote?",
+      "goal": "Compare incomplete dominance and codominance while preserving ordinary allele segregation.",
+      "prior": "An inheritance model determines the phenotype of a heterozygote; segregation still gives each gamete one allele.",
+      "pages": [
+        594,
+        598
+      ],
+      "slides": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "terms": [
+        {
+          "term": "incomplete dominance",
+          "meaning": "An allele relationship in which the heterozygote has an intermediate phenotype.",
+          "example": "Red and white flower alleles produce pink flowers in the specified heterozygote model.",
+          "importantDistinction": "An intermediate phenotype does not mean the alleles permanently blend.",
+          "misconception": "Incomplete dominance permanently blends the alleles into a new allele.",
+          "aliases": []
+        },
+        {
+          "term": "codominance",
+          "meaning": "An allele relationship in which both allele-associated products or traits are expressed in a heterozygote.",
+          "example": "A roan coat contains both red and white hairs in the model.",
+          "importantDistinction": "Codominance is not limited to separate patches of cells; both products can be present in the same cells.",
+          "misconception": "Codominance always means an intermediate blended phenotype.",
+          "aliases": []
+        },
+        {
+          "term": "heterozygote phenotype",
+          "meaning": "The characteristic expressed when two different alleles occur together.",
+          "example": "R1R2 may be pink in one model but red-and-white in another.",
+          "importantDistinction": "The same notation does not establish the inheritance relationship without its definition.",
+          "misconception": "Every heterozygote has the dominant homozygote phenotype.",
+          "aliases": []
+        },
+        {
+          "term": "phenotypic ratio",
+          "meaning": "The expected relative proportions of expressed trait categories.",
+          "example": "An incomplete-dominance heterozygote cross gives three distinguishable phenotype categories.",
+          "importantDistinction": "Phenotype ratios can change even when genotype segregation is unchanged.",
+          "misconception": "Every heterozygote cross has a 3:1 phenotype ratio.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "The alleles still segregate",
+          [
+            "Under incomplete dominance, the heterozygote has an intermediate phenotype. In a stated flower model, R1R1 is red, R2R2 is white and R1R2 is pink. The alleles remain R1 and R2; they have not permanently fused into a pink allele.",
+            "Crossing two pink R1R2 plants gives R1R1, R1R2, R2R1 and R2R2 combinations. Grouped genotypes occur in a 1:2:1 ratio. Because all three genotypes have distinguishable phenotypes, the phenotype ratio is also 1 red : 2 pink : 1 white."
+          ]
+        ],
+        [
+          "Both expressed is different from intermediate",
+          [
+            "In codominance, both allele-associated products or characteristics are expressed in the heterozygote. In a roan cattle model, red and white hairs are both present rather than becoming uniformly pink hair. In ABO blood groups, both A and B antigens can be expressed on red blood cells.",
+            "Do not define codominance only as different cells expressing different alleles. The essential idea is detectable expression of both allele contributions. The way that expression appears depends on the trait.",
+            "Use superscripts or clear allele labels such as R1 and R2 when neither allele is treated as completely dominant. Define the notation before interpreting the cross."
+          ]
+        ],
+        [
+          "Change the phenotype rule, not the whole inheritance process",
+          [
+            "Punnett-square construction works the same way: list one allele per gamete, combine the possibilities, then use the specified genotype-to-phenotype rule. The difference from complete dominance lies in the heterozygote's phenotype.",
+            "A 1:2:1 genotype ratio can therefore produce either a 3:1 phenotype ratio under complete dominance or a 1:2:1 phenotype ratio when the three genotypes are distinguishable. The ratio alone must be read alongside the model.",
+            "Avoid calling one relationship “stronger” or “more advanced.” These are descriptions of expression, not rankings of alleles."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Compare the same genotype cross under two models",
+        "scenario": "R1R2 × R1R2 is used in one incomplete-dominance flower model and one codominant coat-colour model.",
+        "steps": [
+          "The genotype probabilities are 1/4 R1R1, 1/2 R1R2 and 1/4 R2R2 in both.",
+          "In incomplete dominance, the heterozygote is intermediate, such as pink.",
+          "In codominance, both contributions are expressed, such as red and white hairs.",
+          "The allele-segregation calculation stays the same; the interpretation of R1R2 changes."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "In an incomplete-dominance model, pink R1R2 × white R2R2 gives what fraction pink?",
+          "answer": "1/2",
+          "wrong": [
+            "1/4",
+            "All"
+          ],
+          "explanation": "The first parent contributes R1 or R2; the second only R2.",
+          "cue": "Write the two distinct combinations."
+        },
+        {
+          "prompt": "Which observation best illustrates codominance in the stated coat model?",
+          "answer": "Both red and white hairs",
+          "wrong": [
+            "Every hair is intermediate pink",
+            "Only the recessive trait appears"
+          ],
+          "explanation": "Both contributions are distinguishable rather than intermediate.",
+          "cue": "Separate “both present” from “between the two.”"
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Why can white flowers reappear after crossing two pink incomplete-dominance heterozygotes?",
+          "answer": "The white-associated alleles remain distinct and can combine in a homozygote",
+          "wrong": [
+            "The pink allele must mutate back every generation",
+            "Segregation does not occur",
+            "All offspring are identical clones"
+          ],
+          "explanation": "The alleles were not permanently blended.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement correctly compares genotype and phenotype ratios for an R1R2 × R1R2 incomplete-dominance cross?",
+          "answer": "Both are 1:2:1 when all three phenotypes are distinct",
+          "wrong": [
+            "Genotypes are always 3:1",
+            "Phenotypes must be 9:3:3:1",
+            "Only one genotype can form"
+          ],
+          "explanation": "The heterozygote forms a separate phenotype category.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Distinguish incomplete dominance from codominance with an explicitly defined example.",
+          "model": "Incomplete dominance produces an intermediate heterozygote phenotype, such as pink R1R2 flowers between red and white homozygotes. Codominance expresses both contributions, such as a roan coat with red and white hairs. In both models, the alleles remain distinct and segregate.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a 1:2:1 genotype ratio does not always lead to a 3:1 phenotype ratio.",
+          "model": "A 3:1 phenotype ratio requires complete dominance, which groups the heterozygote with one homozygote. If the heterozygote is distinguishable, as in incomplete dominance or the specified codominance model, there are three phenotype categories in a 1:2:1 ratio.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A red R1R1 plant crosses with pink R1R2 under incomplete dominance. What is the probability of white R2R2 offspring?",
+          "answer": "0",
+          "wrong": [
+            "1/4",
+            "1/2",
+            "1"
+          ],
+          "explanation": "The R1R1 parent cannot contribute R2, so no offspring can receive two R2 alleles.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Do incomplete dominance and codominance cancel Mendel’s segregation rule?",
+        "No. They change how allele combinations are expressed, not the one-allele contribution of each gamete."
+      ],
+      "sequence": null,
+      "anchors": [
+        "incomplete dominance",
+        "codominance",
+        "heterozygote phenotype",
+        "phenotypic ratio"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Multiple alleles and ABO blood groups",
+      "question": "How can a population have three alleles when one person has two?",
+      "goal": "Use the ABO model to distinguish population allele diversity from individual genotype and solve blood-group crosses.",
+      "prior": "Codominance allows both allele contributions to be expressed. A diploid individual usually has two alleles at one autosomal locus.",
+      "pages": [
+        596,
+        598
+      ],
+      "slides": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "terms": [
+        {
+          "term": "multiple alleles",
+          "meaning": "More than two allele versions of one gene present in a population.",
+          "example": "The simplified ABO model includes IA, IB and i.",
+          "importantDistinction": "An individual still usually carries only two alleles at that autosomal locus.",
+          "misconception": "Multiple alleles means every person carries three ABO alleles.",
+          "aliases": []
+        },
+        {
+          "term": "ABO blood group",
+          "meaning": "A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes.",
+          "example": "IAIB expresses both A and B antigen types.",
+          "importantDistinction": "The classroom model omits rare variants and is not a transfusion decision tool.",
+          "misconception": "ABO group alone is enough for every clinical transfusion decision.",
+          "aliases": []
+        },
+        {
+          "term": "codominant alleles",
+          "meaning": "Alleles whose contributions are both expressed in the heterozygote.",
+          "example": "IA and IB are both expressed in the IAIB genotype.",
+          "importantDistinction": "Both are dominant over i in the simplified ABO model.",
+          "misconception": "IA must completely mask IB.",
+          "aliases": []
+        },
+        {
+          "term": "carrier",
+          "meaning": "An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model.",
+          "example": "A heterozygote passes a recessive allele to offspring while showing the dominant phenotype.",
+          "importantDistinction": "Use carrier only when the inheritance model and trait make the meaning appropriate.",
+          "misconception": "Every person with a dominant disease allele is an unaffected carrier.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Population diversity is not individual copy number",
+          [
+            "A population can contain many versions of a gene. Each diploid individual still usually inherits two alleles at an autosomal locus, one from each parent. Multiple alleles refers to the range of versions in the population, not three or more copies in every individual.",
+            "The simplified ABO model uses IA, IB and i. IA contributes A antigen expression; IB contributes B antigen expression; i does not produce either A or B antigen in this model. IA and IB are codominant, and each is dominant over i."
+          ]
+        ],
+        [
+          "Connect each phenotype to possible genotypes",
+          [
+            "Type A can be IAIA or IAi. Type B can be IBIB or IBi. Type AB is IAIB, and type O is ii in the standard model. The phenotypes A and B leave genotype uncertainty unless additional family information is available.",
+            "An individual with type B and a type O parent must have inherited i from that parent. Therefore the type B individual's genotype is IBi. This is the same constraint reasoning used in a test cross.",
+            "Use clear notation. IAIB represents two alleles of one gene, not four separate genes. In plain text, write IA and IB consistently and keep the allele pairs grouped."
+          ]
+        ],
+        [
+          "Calculate from the actual cross",
+          [
+            "For IAi × IBi, possible offspring genotypes are IAIB, IAi, IBi and ii, each with probability 1/4. The four ABO phenotypes are therefore each possible with probability 1/4 in this specific cross.",
+            "A different cross gives different predictions. IAIA × IBi produces IAIB and IAi, each with probability 1/2; no ii offspring is possible because the first parent cannot contribute i.",
+            "These models teach inheritance and probability. Real blood typing includes additional factors and rare variants. Do not use a classroom square as a clinical transfusion rule or as definitive proof of family relationships."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Use family information before the square",
+        "scenario": "A type B parent has a type O father. This parent has a child with a type AB partner. Find the probability of type O.",
+        "steps": [
+          "The type O father is ii and supplies i, so the type B parent is IBi.",
+          "The AB partner is IAIB and can supply IA or IB, but not i.",
+          "An O child would require ii.",
+          "Because one parent cannot supply i, the probability is 0 in the simplified model."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "What genotype corresponds to type AB?",
+          "answer": "IAIB",
+          "wrong": [
+            "IAi",
+            "IBi"
+          ],
+          "explanation": "Both antigen-associated alleles are present and expressed.",
+          "cue": "AB represents codominant expression, not a recessive allele."
+        },
+        {
+          "prompt": "For IAi × ii, what fraction is type O?",
+          "answer": "1/2",
+          "wrong": [
+            "1/4",
+            "0"
+          ],
+          "explanation": "The combinations are IAi and ii equally.",
+          "cue": "The ii parent always supplies i."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement correctly describes multiple alleles?",
+          "answer": "A population can have more than two alleles while an individual carries two",
+          "wrong": [
+            "Every individual must carry every population allele",
+            "Each allele belongs to a different chromosome type",
+            "Multiple alleles abolish segregation"
+          ],
+          "explanation": "Population diversity and diploid allele count are separate.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "For IAi × IBi, what is the probability of type AB?",
+          "answer": "1/4",
+          "wrong": [
+            "1/2",
+            "3/4",
+            "0"
+          ],
+          "explanation": "Only the IA × IB combination gives IAIB among four equally likely combinations.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "List the ABO genotypes in the simplified model and explain the dominance relationships.",
+          "model": "Type A is IAIA or IAi, type B is IBIB or IBi, type AB is IAIB, and type O is ii. IA and IB are codominant with one another and each is dominant over i.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "A type A individual has a type O parent and a type O partner. Determine the possible offspring groups and show the reasoning.",
+          "model": "The type O parent supplied i, so the type A individual is IAi. The partner is ii. IAi × ii produces IAi and ii with equal probability, giving expected type A and type O offspring in a 1:1 ratio.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A type AB parent and a type O parent have a child. Which groups are possible in the standard model?",
+          "answer": "A or B",
+          "wrong": [
+            "AB or O",
+            "O only",
+            "All four equally"
+          ],
+          "explanation": "IAIB × ii produces IAi or IBi, not IAIB or ii.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does type A reveal whether the individual is IAIA or IAi?",
+        "Not by itself. Family information or other evidence may be needed."
+      ],
+      "sequence": null,
+      "anchors": [
+        "multiple alleles",
+        "ABO blood group",
+        "codominant alleles",
+        "carrier"
+      ],
+      "figures": {
+        "0": "ch17-abo"
+      }
+    },
+    {
+      "title": "Sex-linked inheritance",
+      "question": "Why does “an affected son” differ from “an affected child”?",
+      "goal": "Use a typical XX/XY model to solve X-linked crosses and distinguish conditional from joint probabilities.",
+      "prior": "The denominator must match the group asked about. Each gamete contributes one sex chromosome in the typical model.",
+      "pages": [
+        601,
+        605
+      ],
+      "slides": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "terms": [
+        {
+          "term": "X-linked",
+          "meaning": "Located on the X chromosome.",
+          "example": "An allele is represented as Xb rather than as an autosomal b alone.",
+          "importantDistinction": "An XY individual has only one allele at many X-linked loci.",
+          "misconception": "X-linked alleles are normally passed on the Y chromosome.",
+          "aliases": []
+        },
+        {
+          "term": "hemizygous",
+          "meaning": "Having only one copy of a gene in the relevant chromosome context.",
+          "example": "A typical XY individual has one copy of many X-linked genes.",
+          "importantDistinction": "Hemizygous is not the same as homozygous.",
+          "misconception": "An XY individual is homozygous at every X-linked locus.",
+          "aliases": []
+        },
+        {
+          "term": "conditional probability",
+          "meaning": "Probability calculated within a stated subgroup or condition.",
+          "example": "The question asks what fraction of sons are affected, not what fraction of all children are affected sons.",
+          "importantDistinction": "Changing the denominator can change the numerical answer.",
+          "misconception": "Among sons and among all children always give the same probability.",
+          "aliases": []
+        },
+        {
+          "term": "X-linked recessive",
+          "meaning": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual.",
+          "example": "A carrier XX parent can have an affected XY offspring.",
+          "importantDistinction": "An affected father does not transmit his X to sons in the typical XX/XY model.",
+          "misconception": "Affected fathers pass their X-linked allele to every son.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Keep alleles attached to their chromosomes",
+          [
+            "Use X superscripts or clear plain-text forms such as XB and Xb. In a typical XX/XY model, an XX parent contributes an X to every offspring; an XY parent contributes X or Y. Many X-linked loci have no corresponding allele on Y.",
+            "For a simple X-linked recessive condition, XbY expresses the condition because there is no second X-linked allele to mask it. XBXb can be an unaffected carrier under the stated complete-expression assumptions, while XbXb is affected. These are inheritance models, not a complete account of every variation in sex development or gene expression."
+          ]
+        ],
+        [
+          "Use the cross to find the correct denominator",
+          [
+            "Consider XBXb × XBY. The four equally likely combinations are XBXB, XBXb, XBY and XbY. One of four children is expected to be affected. Among sons only, one of two is expected to be affected.",
+            "The probability of “a son who is affected” is 1/4 among all children. The probability that “the next son is affected” is 1/2 conditional on being a son. The wording changes the denominator, not the biological cross.",
+            "An affected father passes his X chromosome to daughters and his Y to sons in this model. Father-to-son transmission therefore is not expected for an X-linked allele through that direct chromosome path."
+          ]
+        ],
+        [
+          "Separate recessive and dominant X-linked models",
+          [
+            "For a simple fully penetrant X-linked dominant trait, an affected father with an unaffected partner passes his affected X to every daughter and to no son. An affected heterozygous mother can pass the allele to either sons or daughters.",
+            "These patterns are useful evidence, but a small family may not contain every possible outcome. Later pedigree lessons will require testing candidate explanations against the whole family rather than treating one clue as proof.",
+            "Always define allele meaning, parental genotypes and the subgroup asked about before calculating."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Answer two similar-looking questions",
+        "scenario": "A carrier XAXa mother and unaffected XAY father have children in a simple X-linked recessive model.",
+        "steps": [
+          "List the four equally likely combinations: XAXA, XAXa, XAY and XaY.",
+          "Affected child: XaY is one of four, so probability = 1/4.",
+          "Affected among sons: XaY is one of two son outcomes, so probability = 1/2.",
+          "A son who is affected among all children: probability remains 1/4.",
+          "Write the denominator in words to show which question you answered."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "For XAXa × XAY, what fraction of daughters is affected?",
+          "answer": "0",
+          "wrong": [
+            "1/4",
+            "1/2"
+          ],
+          "explanation": "Every daughter receives XA from the father in this recessive model.",
+          "cue": "Restrict the denominator to the daughter combinations."
+        },
+        {
+          "prompt": "Which sex chromosome does a father transmit to a son in the typical model?",
+          "answer": "Y",
+          "wrong": [
+            "His X",
+            "Both X and Y"
+          ],
+          "explanation": "A son receives the paternal Y and a maternal X.",
+          "cue": "Trace the direct chromosome contribution."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "For XaXa × XAY in a recessive model, what fraction of sons is affected?",
+          "answer": "1",
+          "wrong": [
+            "1/2",
+            "1/4",
+            "0"
+          ],
+          "explanation": "Every son receives Xa from the mother and Y from the father.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "For XAXa × XAY, what is the probability of the next child being an affected son?",
+          "answer": "1/4",
+          "wrong": [
+            "1/2",
+            "1",
+            "0"
+          ],
+          "explanation": "Only XaY is both a son and affected among the four equal combinations.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain the difference between “probability an offspring is an affected son” and “probability a son is affected.” Use a carrier mother and unaffected father.",
+          "model": "For XAXa × XAY, one of four total offspring combinations is an affected son, so the joint probability is 1/4. Among the two son combinations, one is affected, giving a conditional probability of 1/2. The denominator differs.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why an affected father does not directly pass an X-linked allele to his sons in the typical XX/XY model.",
+          "model": "Sons receive the father’s Y chromosome, not his X. The paternal X goes to daughters. Therefore direct father-to-son transmission does not occur through an X-linked locus in this model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A father has a fully penetrant X-linked dominant trait and the mother is unaffected. What is expected for daughters?",
+          "answer": "All inherit the affected paternal X",
+          "wrong": [
+            "None inherit the paternal X",
+            "Exactly half inherit the father’s Y",
+            "All are unaffected carriers"
+          ],
+          "explanation": "Every daughter receives the father’s X in the typical model.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Why should an X-linked cross retain X and Y in the notation?",
+        "They show which allele is carried on which chromosome and make sex-specific probabilities traceable."
+      ],
+      "sequence": null,
+      "anchors": [
+        "X-linked",
+        "hemizygous",
+        "conditional probability",
+        "X-linked recessive"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Polygenic traits and environmental influences",
+      "question": "Why do many traits vary continuously instead of falling into two groups?",
+      "goal": "Explain polygenic and environmental contributions, and distinguish genotype, gene expression and measured phenotype.",
+      "prior": "Single-locus squares are simplified models. A phenotype need not be controlled by only one gene.",
+      "pages": [
+        606,
+        609
+      ],
+      "slides": [
+        77,
+        78,
+        93,
+        94
+      ],
+      "terms": [
+        {
+          "term": "polygenic inheritance",
+          "meaning": "Inheritance in which multiple genes contribute to a trait.",
+          "example": "Several gene regions contribute to variation in height.",
+          "importantDistinction": "Polygenic does not mean many alleles at only one locus.",
+          "misconception": "Polygenic inheritance and multiple alleles are identical terms.",
+          "aliases": []
+        },
+        {
+          "term": "continuous variation",
+          "meaning": "A range of phenotype values without only a few sharply separated categories.",
+          "example": "A class has a range of measured heights rather than only tall and short genotypes.",
+          "importantDistinction": "Continuous measurements can reflect both genetic and environmental contributions.",
+          "misconception": "Continuous variation means genes have no influence.",
+          "aliases": []
+        },
+        {
+          "term": "environmental influence",
+          "meaning": "An effect of conditions such as nutrition or temperature on phenotype.",
+          "example": "Plants with similar genotypes grow to different sizes under different resource conditions.",
+          "importantDistinction": "An environmental effect does not necessarily change the inherited DNA sequence.",
+          "misconception": "Every environmental effect on phenotype is a DNA mutation.",
+          "aliases": []
+        },
+        {
+          "term": "gene expression",
+          "meaning": "Use of genetic information to produce functional products in cells.",
+          "example": "Cells make different proteins under different developmental or environmental conditions.",
+          "importantDistinction": "Expression can change without changing the allele sequence.",
+          "misconception": "Possessing an allele guarantees identical expression in every cell and condition.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Several genes can contribute to one measurement",
+          [
+            "A polygenic trait is influenced by multiple genes. Different allele combinations across these loci can produce a range of outcomes. Human height and many aspects of pigmentation are examples of traits that are not adequately represented by one complete-dominance pair.",
+            "Continuous variation describes measurements spread over a range. It does not require every possible value, nor does it prove that environment is the only influence. Many gene combinations and environmental conditions can together generate a broad distribution."
+          ]
+        ],
+        [
+          "The environment affects expression and development",
+          [
+            "Nutrition, temperature and other conditions can influence a phenotype. Plants with similar genotypes may reach different heights under different light or nutrient conditions. The measured difference does not automatically establish a difference in DNA sequence.",
+            "Gene expression describes which genetic information is used and how much product is made. Cells with the same inherited genome can have different functions because they express different sets of genes. Environmental or developmental signals can change expression.",
+            "Some regulatory changes involve chemical modifications associated with DNA or chromatin. These are often discussed as epigenetic changes. Do not treat every such change as a mutation or assume it is always inherited through many generations."
+          ]
+        ],
+        [
+          "Ask what the evidence separates",
+          [
+            "If two groups differ in both genotype and environment, a phenotype difference cannot be assigned to either factor alone without additional evidence. Controlled comparisons hold relevant conditions constant or use designs that help separate contributions.",
+            "A genetic association can indicate a relationship without determining an individual outcome with certainty. Many traits and conditions involve multiple factors. The existence of a risk-associated allele is not equivalent to an inevitable phenotype.",
+            "For a course answer, name the proposed contributions, identify what was measured and explain the limit. Avoid forcing a complex trait into a single-gene square just because that calculation is familiar."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Interpret an environmental comparison",
+        "scenario": "Genetically similar cuttings are grown under high or low light, with other measured conditions kept similar. Their average growth differs.",
+        "steps": [
+          "The genetic similarity reduces one source of variation.",
+          "The light condition differs systematically, so it is a plausible contributor.",
+          "The result concerns growth under those conditions; it does not prove a new allele appeared.",
+          "Check replication and other controlled conditions before making a stronger causal claim."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Many loci contribute to a measured characteristic. Which term fits?",
+          "answer": "Polygenic inheritance",
+          "wrong": [
+            "Multiple alleles at one locus only",
+            "A single test cross"
+          ],
+          "explanation": "Polygenic refers to contributions from multiple genes.",
+          "cue": "Count contributing loci, not versions of one gene."
+        },
+        {
+          "prompt": "Two cells share a genome but produce different proteins. Which explanation is relevant?",
+          "answer": "Different gene expression",
+          "wrong": [
+            "Every chromosome must be different",
+            "One cell has no genotype"
+          ],
+          "explanation": "Cells can use different genetic information without having unrelated genomes.",
+          "cue": "Separate possession of DNA from use of DNA."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which distinction is correct?",
+          "answer": "Multiple alleles concern one locus; polygenic inheritance involves multiple loci",
+          "wrong": [
+            "Both terms always mean three chromosome sets",
+            "Polygenic traits exclude environmental effects",
+            "Multiple alleles occur only in haploid organisms"
+          ],
+          "explanation": "Allele diversity within a locus differs from the number of loci contributing to a trait.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Two populations differ in both resources and allele frequencies. What can a phenotype difference alone establish?",
+          "answer": "A difference exists, but its separate causes need more evidence",
+          "wrong": [
+            "The cause must be entirely genetic",
+            "The cause must be entirely environmental",
+            "A single dominant allele explains every individual"
+          ],
+          "explanation": "Confounded differences do not isolate one cause.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how a trait can show continuous variation rather than a simple 3:1 pattern.",
+          "model": "Multiple genes can contribute different effects, and environmental conditions can influence expression and development. Many combinations produce a range of measurements. A single complete-dominance Punnett square is therefore not an adequate model for every trait.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Distinguish a change in gene expression from a change in DNA sequence.",
+          "model": "A gene-expression change affects how genetic information is used or how much product is produced. The allele sequence can remain unchanged. A mutation changes the DNA sequence itself. Either can influence phenotype, but they are not the same process.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A temperature change alters a model organism’s pigment production without changing its DNA sequence. What is the best conclusion?",
+          "answer": "Phenotype changed through a non-sequence environmental effect",
+          "wrong": [
+            "A mutation must have occurred",
+            "The organism has no genes for pigment",
+            "Its chromosome number must have doubled"
+          ],
+          "explanation": "Phenotype can change through expression or biochemical conditions without sequence change.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Should a risk-associated genotype always be treated as a guaranteed outcome?",
+        "No. Penetrance, environment and other genetic factors can influence the outcome."
+      ],
+      "sequence": null,
+      "anchors": [
+        "polygenic inheritance",
+        "continuous variation",
+        "environmental influence",
+        "gene expression"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Reading autosomal pedigrees",
+      "question": "How do family relationships constrain possible genotypes?",
+      "goal": "Read pedigree symbols and generations, infer autosomal genotypes under a stated model, and preserve unresolved alternatives.",
+      "prior": "An affected phenotype means different genotypes in dominant and recessive models. Define the model before assigning letters.",
+      "pages": [
+        610,
+        614
+      ],
+      "slides": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        87,
+        88,
+        89,
+        90
+      ],
+      "terms": [
+        {
+          "term": "pedigree",
+          "meaning": "A diagram tracing a specified trait through family relationships across generations.",
+          "example": "Symbols connected by parent–offspring lines show which relatives express a trait.",
+          "importantDistinction": "A pedigree is evidence to test a model, not proof that one clue is always decisive.",
+          "misconception": "One affected symbol proves the inheritance mode.",
+          "aliases": []
+        },
+        {
+          "term": "autosomal recessive",
+          "meaning": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+          "example": "Two unaffected Aa parents can have an affected aa child.",
+          "importantDistinction": "Unaffected individuals can be AA or Aa.",
+          "misconception": "All unaffected individuals must be AA.",
+          "aliases": []
+        },
+        {
+          "term": "autosomal dominant",
+          "meaning": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+          "example": "An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+          "importantDistinction": "Affected individuals can be DD or Dd unless other evidence resolves the genotype.",
+          "misconception": "Every affected dominant individual must be DD.",
+          "aliases": []
+        },
+        {
+          "term": "generation",
+          "meaning": "A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+          "example": "I, II and III distinguish successive levels in a pedigree.",
+          "importantDistinction": "Individual numbers identify people within a generation.",
+          "misconception": "The Roman numeral gives the person’s chromosome count.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Read the diagram before solving it",
+          [
+            "A pedigree uses symbols and connecting lines to represent family relationships and a specified trait. Conventional squares and circles often represent male and female individuals in the model; shading indicates expression of the trait. A key should explain any additional symbols.",
+            "Roman numerals identify generations and ordinary numbers identify individuals within a generation. A label such as II-3 refers to the third numbered individual in generation II. Follow the parent–offspring line carefully; neighbouring symbols are not automatically siblings or partners."
+          ]
+        ],
+        [
+          "Use required allele contributions",
+          [
+            "For an autosomal recessive model, affected individuals are aa. Two unaffected parents with an affected child must each contribute a. If both are unaffected, each is therefore Aa under the simple fully penetrant model.",
+            "For an autosomal dominant model, unaffected individuals are dd. An affected parent with an unaffected child must be able to contribute d, so that affected parent is Dd rather than DD. The child's genotype constrains the parent's possible alleles.",
+            "These deductions use the stated model, accurate relationships and complete expression. New mutations, reduced penetrance or other complexities can change the interpretation; do not add them silently to a simple problem."
+          ]
+        ],
+        [
+          "Leave uncertainty where it belongs",
+          [
+            "An unaffected sibling of an aa child from Aa × Aa can be AA or Aa. Excluding aa leaves three equally likely genotype combinations: AA, Aa and aA. Therefore the probability that an unaffected sibling is a carrier is 2/3, not 1/2, under this cross.",
+            "Do not assign AA simply because a person is unshaded. Write the allowed alternatives unless other evidence resolves them. The distinction between “must be” and “could be” is important.",
+            "A pedigree can make some genotypes certain within a model while leaving others unresolved. A good explanation identifies the relative whose allele contribution provides the evidence."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Infer both parents from a recessive child",
+        "scenario": "Two unaffected parents have an affected child in a fully penetrant autosomal recessive model.",
+        "steps": [
+          "The affected child is aa and needs a from each parent.",
+          "Each unaffected parent must also carry A.",
+          "Therefore both parents are Aa.",
+          "An unaffected sibling may be AA or Aa; do not automatically mark that sibling as a carrier.",
+          "Conditional on being unaffected, the carrier probability is 2/3 for this parental cross."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "In an autosomal recessive model, an affected individual has which genotype?",
+          "answer": "aa",
+          "wrong": [
+            "AA",
+            "Aa"
+          ],
+          "explanation": "Two recessive alleles are required in this simple model.",
+          "cue": "Define affected before reading the shading."
+        },
+        {
+          "prompt": "An affected dominant parent has an unaffected dd child. What must that parent be?",
+          "answer": "Dd",
+          "wrong": [
+            "DD",
+            "dd"
+          ],
+          "explanation": "The parent must contribute d but also carry D to be affected.",
+          "cue": "Use the child’s required allele contribution."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "For Aa × Aa, what is the carrier probability among unaffected offspring?",
+          "answer": "2/3",
+          "wrong": [
+            "1/2",
+            "1/4",
+            "1"
+          ],
+          "explanation": "Removing aa leaves AA, Aa and aA; two of three are carriers.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why should an unaffected person not automatically be labelled AA in a recessive pedigree?",
+          "answer": "They may be a heterozygous carrier",
+          "wrong": [
+            "All unaffected people are aa",
+            "Shading identifies chromosome number only",
+            "Recessive alleles cannot be transmitted"
+          ],
+          "explanation": "Both AA and Aa can be unaffected under the model.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how an affected recessive child can constrain both unaffected parents’ genotypes.",
+          "model": "The child is aa and receives a from each parent. Because each parent is unaffected under the complete-penetrance recessive model, each must also have A. Thus both parents are Aa.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Distinguish a genotype that must be present from one that remains possible, using an unaffected sibling in Aa × Aa.",
+          "model": "An affected sibling must be aa. An unaffected sibling cannot be aa but may be AA or Aa. Without additional information, the specific genotype is unresolved; the conditional carrier probability is 2/3.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?",
+          "answer": "Dd × Dd",
+          "wrong": [
+            "DD × DD",
+            "DD × Dd",
+            "dd × dd"
+          ],
+          "explanation": "Each parent must be able to contribute d, making the child dd possible.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "What does II-3 mean in a conventional pedigree?",
+        "Individual 3 in generation II, not three chromosomes in the second cell."
+      ],
+      "sequence": null,
+      "anchors": [
+        "pedigree",
+        "autosomal recessive",
+        "autosomal dominant",
+        "generation"
+      ],
+      "figures": {
+        "0": "ch17-pedigree"
+      }
+    },
+    {
+      "title": "Sex-linked pedigrees and testing a model",
+      "question": "How can you test an inheritance explanation against an entire family?",
+      "goal": "Use chromosome transmission to evaluate X-linked models and distinguish consistency from proof in small pedigrees.",
+      "prior": "In the typical XX/XY model, fathers pass X to daughters and Y to sons. A small family may not show every possible outcome.",
+      "pages": [
+        613,
+        617
+      ],
+      "slides": [
+        84,
+        85,
+        86,
+        91,
+        92
+      ],
+      "terms": [
+        {
+          "term": "X-linked dominant",
+          "meaning": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+          "example": "An affected father transmits his affected X to all daughters in the typical model.",
+          "importantDistinction": "No direct paternal X is transmitted to a son.",
+          "misconception": "An affected father must pass his X-linked dominant allele to all sons.",
+          "aliases": []
+        },
+        {
+          "term": "penetrance",
+          "meaning": "The proportion of individuals with a genotype who express the associated phenotype.",
+          "example": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+          "importantDistinction": "Incomplete penetrance can make patterns less straightforward than classroom models.",
+          "misconception": "Penetrance is the number of chromosomes in a gamete.",
+          "aliases": []
+        },
+        {
+          "term": "candidate model",
+          "meaning": "A possible inheritance explanation tested against the observed relationships and traits.",
+          "example": "An X-linked recessive hypothesis is checked for contradictions in every branch.",
+          "importantDistinction": "A model consistent with a small family need not be the only possible explanation.",
+          "misconception": "One matching clue proves a model uniquely.",
+          "aliases": []
+        },
+        {
+          "term": "obligate carrier",
+          "meaning": "An individual who must carry a recessive allele under the stated pedigree model.",
+          "example": "An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+          "importantDistinction": "The conclusion depends on the model and relationship information.",
+          "misconception": "Every unaffected female in an X-linked pedigree is automatically a carrier.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Trace the chromosome, not only the shading pattern",
+          [
+            "For X-linked inheritance, follow which parent supplies X to each offspring. Sons receive their X from their mother in the typical XX/XY model. Daughters receive one X from each parent. Fathers do not directly pass an X-linked allele to sons.",
+            "In a fully penetrant X-linked recessive model, an affected son has XbY. His Xb came from his mother. An unaffected mother must therefore be XBXb under the ordinary no-new-mutation assumptions. An affected daughter needs Xb from both parents, which constrains the father's genotype."
+          ]
+        ],
+        [
+          "Compare dominant and recessive X-linked patterns",
+          [
+            "An affected father in an X-linked dominant model passes the affected X to every daughter. With an unaffected mother, sons receive the father's Y and the mother's unaffected X, so they are unaffected under that model.",
+            "For X-linked recessive inheritance, an affected father with a homozygous unaffected mother has carrier daughters and unaffected sons. The same chromosome route produces a different expressed pattern because the heterozygote phenotype differs.",
+            "More affected males can be a clue to an X-linked recessive model, but sex counts alone are not decisive. A small autosomal family can also show an uneven distribution by chance."
+          ]
+        ],
+        [
+          "Look for contradictions and retain limits",
+          [
+            "A strong pedigree analysis tests every informative relationship. A model may fit one branch but fail elsewhere. Use “consistent with” when the evidence supports a model without uniquely proving it.",
+            "State assumptions: complete penetrance, ordinary chromosome transmission, accurate parentage and no newly arising mutations unless specified. These simplify the question and make deductions possible. Real clinical pedigrees can require more evidence.",
+            "When calculating the risk to a future child, establish the relevant parents' genotypes first and read the requested subgroup. The pedigree does not remove the distinction between probability among sons and probability among all children."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Test a proposed X-linked recessive model",
+        "scenario": "A fully expressed recessive trait appears in a daughter whose father is unaffected. Assume ordinary XX/XY transmission and no new mutation.",
+        "steps": [
+          "An affected daughter would need XbXb in this model.",
+          "Her father must supply one of those Xb chromosomes.",
+          "An unaffected father is XBY and cannot supply Xb under the assumptions.",
+          "The proposed model is inconsistent with this relationship; another explanation or changed assumptions would be needed."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "In a simple X-linked dominant model, an affected father and unaffected mother have what expected daughter pattern?",
+          "answer": "All daughters affected",
+          "wrong": [
+            "All daughters unaffected",
+            "All daughters inherit paternal Y"
+          ],
+          "explanation": "Every daughter inherits the father’s affected X.",
+          "cue": "Trace the paternal chromosome given to a daughter."
+        },
+        {
+          "prompt": "Only males happen to be affected in a small pedigree. Does this alone prove X-linkage?",
+          "answer": "No",
+          "wrong": [
+            "Yes, in every possible case",
+            "Only if there are exactly three males"
+          ],
+          "explanation": "Small autosomal families can also have an uneven sex distribution by chance.",
+          "cue": "A clue is not necessarily a contradiction test."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which relationship contradicts a simple fully penetrant X-linked dominant model with an affected father?",
+          "answer": "An unaffected daughter under the stated ordinary transmission assumptions",
+          "wrong": [
+            "An affected daughter",
+            "An unaffected son with an unaffected mother",
+            "No sons in the family"
+          ],
+          "explanation": "Every daughter should inherit the affected paternal X under the model.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "An unaffected mother has an affected son in a simple X-linked recessive model with no new mutation. What is inferred?",
+          "answer": "She is a carrier",
+          "wrong": [
+            "She must have no X chromosome",
+            "The son inherited the allele on his father’s Y",
+            "Every daughter must also be affected"
+          ],
+          "explanation": "She supplied the son’s affected X but has an unaffected phenotype, so a second unaffected allele is present.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why a pedigree analysis should use chromosome transmission as well as the number of affected males and females.",
+          "model": "The transmission route can create required or impossible allele contributions under a model. Unequal sex counts alone can occur by chance in a small family. Checking every parent–offspring relationship provides stronger evidence than relying on one superficial pattern.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Compare daughters of an affected father and homozygous unaffected mother in X-linked dominant and X-linked recessive models.",
+          "model": "Every daughter receives the affected paternal X. In a dominant model they express the trait. In a recessive model they also receive an unaffected maternal X and are typically unaffected carriers under the simple assumptions. The chromosome route is the same, but expression differs.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A small pedigree fits both an autosomal and an X-linked model. What is the appropriate conclusion?",
+          "answer": "More information is needed to distinguish the models",
+          "wrong": [
+            "Choose X-linked because it sounds more specific",
+            "Both models are proven simultaneously",
+            "Ignore all phenotype observations"
+          ],
+          "explanation": "Consistency with limited evidence is not unique proof.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Why should a question state penetrance assumptions?",
+        "Reduced expression in some genotypes can change the apparent pedigree pattern."
+      ],
+      "sequence": null,
+      "anchors": [
+        "X-linked dominant",
+        "penetrance",
+        "candidate model",
+        "obligate carrier"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Linked genes and recombinant offspring",
+      "question": "Why do some two-trait crosses depart from independent assortment?",
+      "goal": "Identify linked allele arrangements, parental and recombinant combinations, and use a test cross to interpret gamete frequencies.",
+      "prior": "Independent AaBb gametes are expected in equal proportions. Crossing over can exchange segments between homologues.",
+      "pages": [
+        599,
+        601
+      ],
+      "slides": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "terms": [
+        {
+          "term": "linked genes",
+          "meaning": "Genes on the same chromosome that may be inherited together, especially when close.",
+          "example": "AB is carried on one homologue and ab on the other.",
+          "importantDistinction": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+          "misconception": "Any genes on the same chromosome can never recombine.",
+          "aliases": []
+        },
+        {
+          "term": "parental combination",
+          "meaning": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+          "example": "For AB/ab, the combinations AB and ab are parental.",
+          "importantDistinction": "Parental depends on the specified phase, not always capital letters together.",
+          "misconception": "AB is always parental in every heterozygote.",
+          "aliases": []
+        },
+        {
+          "term": "recombinant combination",
+          "meaning": "An allele combination different from the parent’s original arrangement for the loci considered.",
+          "example": "For AB/ab, crossing over can generate Ab and aB.",
+          "importantDistinction": "Recombinant does not necessarily mean a new allele was created.",
+          "misconception": "A recombinant always contains a novel mutation.",
+          "aliases": []
+        },
+        {
+          "term": "linkage phase",
+          "meaning": "The arrangement of alleles across the two homologous chromosomes.",
+          "example": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+          "importantDistinction": "The compact genotype AaBb alone does not specify phase.",
+          "misconception": "AaBb always means AB and ab are together on the homologues.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "A genotype can hide chromosome arrangement",
+          [
+            "AaBb tells you which alleles are present but not how they are arranged on the homologues. AB/ab places A with B on one chromosome and a with b on the other. Ab/aB places A with b and a with B. This arrangement is called linkage phase.",
+            "The original combinations are parental. Crossing over between the loci can generate recombinant combinations. Which combinations count as parental therefore depends on the starting arrangement, not simply whether the letters are both uppercase."
+          ]
+        ],
+        [
+          "A test cross can reveal gamete combinations",
+          [
+            "Cross a heterozygote with aabb. The tester contributes only ab, so the offspring's phenotype or genotype can reveal the heterozygote's gamete contribution. Under independent assortment, the four combinations are expected in equal proportions.",
+            "If the heterozygote has AB/ab and the genes are linked, AB and ab gametes often occur more frequently than Ab and aB. The corresponding parental offspring classes are larger, and the recombinant classes smaller.",
+            "Read the actual counts, not just the presence of four categories. Linked genes can produce all four combinations if crossing over occurs, but the proportions can differ from 1:1:1:1."
+          ]
+        ],
+        [
+          "Linkage is about probability, not an absolute lock",
+          [
+            "Closer genes are less likely to be separated by crossing over between them. Genes farther apart may show more recombination. Multiple crossovers can complicate the relationship between observed recombinant frequency and physical distance.",
+            "A small sample can depart from equal counts by chance, so a slight imbalance alone is not conclusive proof of linkage. Large, consistent differences provide stronger evidence under the stated model.",
+            "Keep the explanation at the correct level: crossing over changes combinations within chromosomes, and offspring counts can provide evidence about those gamete combinations."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Identify parental and recombinant classes",
+        "scenario": "An AB/ab heterozygote is crossed with ab/ab. Offspring reveal 42 AB, 40 ab, 9 Ab and 9 aB gamete contributions.",
+        "steps": [
+          "The stated parental phase is AB/ab, so AB and ab are parental.",
+          "Ab and aB are recombinant combinations.",
+          "There are 82 parental and 18 recombinant observations among 100.",
+          "The excess parental classes is consistent with linkage in this model.",
+          "The counts do not mean only 18 cells underwent any crossing over anywhere; they concern the two loci being scored."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "For Ab/aB, which gametes are parental?",
+          "answer": "Ab and aB",
+          "wrong": [
+            "AB and ab",
+            "AA and bb"
+          ],
+          "explanation": "Parental combinations match the stated chromosome phase.",
+          "cue": "Read the slash-separated homologues first."
+        },
+        {
+          "prompt": "Why is aabb useful as the tester?",
+          "answer": "Its gamete contribution is fixed as ab",
+          "wrong": [
+            "It contributes all four gamete types equally",
+            "It prevents all meiosis"
+          ],
+          "explanation": "A fixed tester makes the heterozygote’s contribution traceable.",
+          "cue": "Separate the two parents’ gamete contributions."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement about linked genes is correct?",
+          "answer": "Crossing over can produce recombinant combinations",
+          "wrong": [
+            "They can never separate under any condition",
+            "They always produce exactly 1:1:1:1",
+            "They are necessarily two alleles of one gene"
+          ],
+          "explanation": "Physical association can be broken by exchange between loci.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "What information is missing from the genotype AaBb when analysing linked loci?",
+          "answer": "Which alleles share each homologue",
+          "wrong": [
+            "Whether there are two studied loci",
+            "Whether A and a are both present",
+            "Whether B and b are both present"
+          ],
+          "explanation": "AaBb does not distinguish AB/ab from Ab/aB phase.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how a two-locus test cross can provide evidence about linkage.",
+          "model": "A homozygous recessive tester contributes a fixed allele combination. Offspring classes reveal the heterozygote’s gamete combinations. An excess of parental combinations over recombinants can support linkage, while equal combinations are expected under independent assortment, subject to sampling and model assumptions.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "For Ab/aB, identify parental and recombinant combinations and explain why capital-letter grouping is not a valid shortcut.",
+          "model": "Parental combinations are Ab and aB because those occur on the original homologues. Recombinants are AB and ab. Parental status depends on phase rather than uppercase versus lowercase notation.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A linked-gene test cross produces all four phenotype classes, but two parental classes dominate. Does the presence of four classes rule out linkage?",
+          "answer": "No; crossing over can produce the smaller recombinant classes",
+          "wrong": [
+            "Yes; linkage permits only two classes in all cases",
+            "Yes; every recombinant is a different species",
+            "No; because the tester contributes no DNA"
+          ],
+          "explanation": "Linkage changes frequencies and does not necessarily eliminate recombination.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "What should you establish before counting recombinant offspring?",
+        "The parental chromosome arrangement or evidence identifying the parental classes."
+      ],
+      "sequence": null,
+      "anchors": [
+        "linked genes",
+        "parental combination",
+        "recombinant combination",
+        "linkage phase"
+      ],
+      "figures": {
+        "0": "ch17-linkage"
+      }
+    },
+    {
+      "title": "Recombination frequency and chromosome maps",
+      "question": "How can offspring counts estimate relative gene positions?",
+      "goal": "Calculate recombination frequency, construct simple maps and distinguish map distance from a universal physical base-pair distance.",
+      "prior": "Parental and recombinant classes depend on phase. Count both reciprocal recombinant classes.",
+      "pages": [
+        599,
+        601
+      ],
+      "slides": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "terms": [
+        {
+          "term": "recombination frequency",
+          "meaning": "The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+          "example": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+          "importantDistinction": "Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+          "misconception": "Only the smallest recombinant class belongs in the numerator.",
+          "aliases": []
+        },
+        {
+          "term": "map unit",
+          "meaning": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+          "example": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+          "importantDistinction": "A map unit is not a universal fixed number of base pairs.",
+          "misconception": "One map unit always equals exactly one million base pairs.",
+          "aliases": [
+            "centimorgan",
+            "cM"
+          ]
+        },
+        {
+          "term": "linkage map",
+          "meaning": "A map of relative gene order and distances estimated from recombination data.",
+          "example": "Genes A, B and C are placed along a line with measured intervals.",
+          "importantDistinction": "A genetic map is not a direct microscopic measurement of DNA length.",
+          "misconception": "A linkage map is a photograph of the chromosome.",
+          "aliases": []
+        },
+        {
+          "term": "double crossover",
+          "meaning": "Two exchange events within a chromosome region.",
+          "example": "Two exchanges can restore the original outside-marker arrangement.",
+          "importantDistinction": "Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+          "misconception": "Two-locus recombination frequency increases without limit above 50%.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Calculate the fraction carefully",
+          [
+            "Recombination frequency equals recombinant observations divided by total scored observations, multiplied by 100%. In a test cross, add both reciprocal recombinant classes. Do not divide only by the parental classes or by one quarter of the offspring.",
+            "For 84 parental class 1, 76 parental class 2, 22 recombinant class 1 and 18 recombinant class 2, the total is 200. Recombinants total 40. Frequency = 40/200 × 100% = 20%.",
+            "In a simple short-interval model, this suggests approximately 20 map units between the loci. The result is a relative genetic distance estimate, not an exact physical measurement."
+          ]
+        ],
+        [
+          "Use three distances to infer order",
+          [
+            "Suppose A–B is 6 map units, B–C is 14 and A–C is 20 in a simple additive map. Since 6 + 14 = 20, B lies between A and C. Either A—6—B—14—C or its reversed orientation expresses the same relative order.",
+            "Two distances alone may leave more than one order possible. Place the genes tentatively and ask what additional comparison would distinguish the alternatives. Do not invent a third distance merely to finish the drawing."
+          ]
+        ],
+        [
+          "Understand the limits of two-locus data",
+          [
+            "Observed recombination frequency approaches 50% for independently assorting loci or sufficiently separated loci. It does not provide an unbounded direct ruler. Multiple crossovers can restore parental outside-marker combinations, so some exchange events are not detected by scoring only two loci.",
+            "A chromosome map can span more than 50 map units when shorter intervals are combined, even though a two-locus recombination fraction does not rise above the independent limit in the standard model. These are different quantities.",
+            "The connection between centimorgans and base pairs varies across regions and organisms. Report the calculated genetic distance and assumptions, rather than converting every map unit into one fixed DNA length."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Calculate frequency and check the denominator",
+        "scenario": "A test cross gives parental counts 90 and 86 and recombinant counts 12 and 12.",
+        "steps": [
+          "Total offspring = 90 + 86 + 12 + 12 = 200.",
+          "Recombinants = 12 + 12 = 24.",
+          "Frequency = 24/200 = 0.12 = 12%.",
+          "Short-interval map estimate: about 12 cM.",
+          "Reasonableness check: recombinant classes are less common than parental classes, and 12% is below 50%."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "A test cross has 30 recombinants among 250 offspring. What is the frequency?",
+          "answer": "12%",
+          "wrong": [
+            "30%",
+            "0.12%"
+          ],
+          "explanation": "30/250 = 0.12, which is 12%.",
+          "cue": "Distinguish a fraction from its percentage."
+        },
+        {
+          "prompt": "A–B = 5, B–C = 9 and A–C = 14. Which gene is in the middle?",
+          "answer": "B",
+          "wrong": [
+            "A",
+            "C"
+          ],
+          "explanation": "The two shorter distances add to the longest: 5 + 9 = 14.",
+          "cue": "Try adding the intervals on each side of a proposed middle gene."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Counts are 150 and 130 parental, 10 and 10 recombinant. What is the recombination frequency?",
+          "answer": "6.67% approximately",
+          "wrong": [
+            "7.14% approximately",
+            "3.33% approximately",
+            "20%"
+          ],
+          "explanation": "Recombinants = 20; total = 300; 20/300 × 100 ≈ 6.67%.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why can a two-locus estimate underestimate a long map distance?",
+          "answer": "Multiple crossovers may restore parental outside-marker combinations",
+          "wrong": [
+            "Chromosomes cannot contain more than two genes",
+            "All recombinants die by definition",
+            "Map units are always exact physical millimetres"
+          ],
+          "explanation": "Some exchanges are hidden when only two outside loci are scored.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Show the calculation for 16 and 24 recombinant offspring with 90 and 70 parental offspring. Include an interpretation.",
+          "model": "Total = 16 + 24 + 90 + 70 = 200. Recombinants = 40. Frequency = 40/200 × 100% = 20%, suggesting about 20 map units in a simple short-interval model. It is an estimate based on the scored loci.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a map unit is not a universal physical DNA length and why two-locus frequencies have limits.",
+          "model": "Map units reflect recombination probability. Recombination varies across chromosome regions and organisms, so no fixed base-pair conversion applies universally. Multiple crossovers can be undetected, and two-locus recombinant frequency approaches the independent limit of 50%.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Only A–B = 8 cM and B–C = 12 cM are known. What should you say about the order?",
+          "answer": "More than one order may fit; an A–C comparison can help",
+          "wrong": [
+            "B is certainly in the middle in every case",
+            "A–C must be 20 without any assumptions",
+            "The chromosome must be circular"
+          ],
+          "explanation": "Two pairwise distances may not uniquely determine which gene lies between the others.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a reported two-locus frequency above 50% automatically define a longer map distance?",
+        "No. Recheck parental-class assignment, counts and model assumptions; the standard two-locus limit is 50%."
+      ],
+      "sequence": null,
+      "anchors": [
+        "recombination frequency",
+        "map unit",
+        "linkage map",
+        "double crossover"
+      ],
+      "figures": {
+        "0": "ch17-map"
+      }
+    },
+    {
+      "title": "Genetic testing, counselling and decisions",
+      "question": "What can genetic information tell a person—and what can it leave uncertain?",
+      "goal": "Distinguish a genetic test result from a guaranteed phenotype, and identify consent, uncertainty and privacy considerations.",
+      "prior": "Genotype does not determine every complex phenotype on its own. Pedigree conclusions rely on assumptions and available evidence.",
+      "pages": [
+        610,
+        617
+      ],
+      "slides": [
+        93,
+        94
+      ],
+      "terms": [
+        {
+          "term": "genetic testing",
+          "meaning": "Analysis of genetic material or related markers to investigate particular variants or conditions.",
+          "example": "A test checks for a specified DNA variant.",
+          "importantDistinction": "A test’s scope determines what a negative or positive result can establish.",
+          "misconception": "A negative test rules out every genetic condition.",
+          "aliases": []
+        },
+        {
+          "term": "genetic counselling",
+          "meaning": "A process helping people understand genetic information, inheritance and possible implications for their choices.",
+          "example": "A professional explains a result, its uncertainty and relevant family context.",
+          "importantDistinction": "Counselling supports informed decisions rather than dictating one choice for every family.",
+          "misconception": "Genetic counselling guarantees a particular future phenotype.",
+          "aliases": []
+        },
+        {
+          "term": "informed consent",
+          "meaning": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+          "example": "A participant considers how a genetic sample and results will be used before agreeing.",
+          "importantDistinction": "Consent involves more than the physical act of giving a sample.",
+          "misconception": "Providing a sample means agreeing to every future use automatically.",
+          "aliases": []
+        },
+        {
+          "term": "genetic risk",
+          "meaning": "A probability or increased likelihood associated with genetic information in a specified context.",
+          "example": "A variant is associated with increased probability of a condition without making it inevitable.",
+          "importantDistinction": "Risk is not the same as certainty.",
+          "misconception": "A risk-associated allele always causes the condition in every carrier.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Read the scope of the test",
+          [
+            "A genetic test investigates particular variants, regions or markers. A result must be interpreted within that scope. A negative result for one variant does not rule out every genetic cause of a trait or condition.",
+            "Some results are strongly predictive under a clear inheritance model. Others indicate an increased probability or remain uncertain. Penetrance, other genes, environment and the quality of the evidence can influence what a result means for an individual."
+          ]
+        ],
+        [
+          "Information can affect more than one person",
+          [
+            "A result can have implications for relatives because family members share some genetic information. A person may wish to know a result, decline it or discuss its meaning before deciding how to use it. Genetic counselling helps explain inheritance, limitations and possible implications.",
+            "Consent should address what is tested, what results may be returned and how samples or data may be used. Privacy and access to information are relevant concerns. This chapter examines those issues without giving legal advice or assuming one personal choice is appropriate for everyone.",
+            "A scientific explanation should separate observed data, estimated risk and value-based decisions. An association does not itself prescribe how a person should act."
+          ]
+        ],
+        [
+          "Evaluate a claim using evidence and uncertainty",
+          [
+            "Suppose a hypothetical test reports a variant associated with a higher risk of a condition. Ask which population was studied, how large the increase is, what other factors matter and whether the result has been validated for the proposed use.",
+            "A claim that one result predicts every future feature of a person's health goes beyond the evidence. Conversely, uncertainty does not mean the information has no value. The useful task is to identify what the result can support and what additional evidence or counselling is needed.",
+            "Classroom case studies should not require students to reveal their own family history or test information. Use the supplied fictional scenarios for analysis."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Interpret a limited negative result",
+        "scenario": "A fictional test detects none of three specified variants associated with one condition.",
+        "steps": [
+          "The result establishes that those tested variants were not detected under the test’s conditions.",
+          "It does not rule out every untested variant, every different genetic condition or every environmental cause.",
+          "Interpretation requires the test’s scope and limitations.",
+          "A personal decision should be informed by appropriate counselling rather than a blanket classroom rule."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "A variant raises estimated risk. Does that always mean the condition is inevitable?",
+          "answer": "No",
+          "wrong": [
+            "Yes in every person",
+            "Only if the variant has a short name"
+          ],
+          "explanation": "Risk is a probability, not necessarily certainty.",
+          "cue": "Separate association or probability from a guaranteed outcome."
+        },
+        {
+          "prompt": "What is a central purpose of genetic counselling?",
+          "answer": "Helping people understand evidence and options",
+          "wrong": [
+            "Making the same decision for every family",
+            "Guaranteeing all offspring are unaffected"
+          ],
+          "explanation": "Counselling supports informed understanding and choices.",
+          "cue": "Focus on informed agency rather than a prescribed verdict."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Why must a negative genetic test be interpreted within its scope?",
+          "answer": "Untested variants or causes may still exist",
+          "wrong": [
+            "Negative always means no DNA is present",
+            "Tests cannot ever provide useful evidence",
+            "All conditions have one identical allele"
+          ],
+          "explanation": "The test answers specific questions, not every possible genetic question.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which question is relevant to informed consent for a genetic study?",
+          "answer": "How samples and results may be used and shared",
+          "wrong": [
+            "Only whether the collection tube is coloured",
+            "Whether every participant will have the same phenotype",
+            "Whether the test can replace all medical history"
+          ],
+          "explanation": "Understanding uses, risks and options matters before agreement.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Distinguish a positive risk-associated test result from a guaranteed phenotype.",
+          "model": "A result may identify a variant associated with increased probability, but expression can depend on penetrance, other genetic factors and environment. The test’s validation and scope determine how strongly it predicts an outcome. Increased risk is not automatically certainty.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Identify two issues a participant should understand before consenting to a genetic study and explain why.",
+          "model": "The participant should understand what is tested and what results may mean, including uncertainty. They should also understand how samples and data may be stored, used or shared, because genetic information can have personal and family implications. Consent supports an informed choice.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A company claims a small marker panel precisely predicts every future disease. What is the main scientific concern?",
+          "answer": "The claim exceeds the scope and predictive evidence of the test",
+          "wrong": [
+            "A marker panel can never detect any variant",
+            "Every disease is completely independent of genes",
+            "Privacy is the only issue and evidence does not matter"
+          ],
+          "explanation": "A broad deterministic claim requires far more evidence than a limited panel provides.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Must a classroom genetic case ask for students’ own family histories?",
+        "No. Fictional cases can teach the reasoning without requiring personal disclosure."
+      ],
+      "sequence": null,
+      "anchors": [
+        "genetic testing",
+        "genetic counselling",
+        "informed consent",
+        "genetic risk"
+      ],
+      "figures": {}
+    }
+  ],
+  "final": {
+    "mc": [
+      {
+        "prompt": "For complete-dominance Aa × aa, which genotype distribution is expected?",
+        "answer": "1 Aa : 1 aa",
+        "wrong": [
+          "1 AA : 2 Aa : 1 aa",
+          "All Aa",
+          "3 AA : 1 aa"
+        ],
+        "explanation": "The heterozygote contributes A or a and the tester only a.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "For independent AaBb × AaBb, what is P(aabb)?",
+        "answer": "1/16",
+        "wrong": [
+          "1/4",
+          "3/16",
+          "9/16"
+        ],
+        "explanation": "Multiply P(aa) = 1/4 and P(bb) = 1/4.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Which ABO cross can produce all four standard blood groups?",
+        "answer": "IAi × IBi",
+        "wrong": [
+          "IAIA × ii",
+          "IAIB × ii",
+          "ii × ii"
+        ],
+        "explanation": "The four equal combinations are IAIB, IAi, IBi and ii.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "For carrier XAXa × unaffected XAY in a recessive model, what fraction of sons is affected?",
+        "answer": "1/2",
+        "wrong": [
+          "1/4",
+          "0",
+          "1"
+        ],
+        "explanation": "Among the two son combinations, one is XaY.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "An AB/ab test cross produces 36 AB, 34 ab, 15 Ab and 15 aB offspring contributions. What is recombination frequency?",
+        "answer": "30%",
+        "wrong": [
+          "15%",
+          "70%",
+          "42.9%"
+        ],
+        "explanation": "Recombinants total 30 of 100.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Which conclusion is appropriate when a small pedigree fits two inheritance models?",
+        "answer": "More evidence is needed to distinguish them",
+        "wrong": [
+          "One must be chosen as proven from a single clue",
+          "Both models are biologically identical",
+          "The pedigree contains no useful information"
+        ],
+        "explanation": "Compatibility with limited observations is not unique proof.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Describe a method for solving an unfamiliar inheritance problem from phenotype information to a justified probability.",
+        "model": "Define alleles and the inheritance model. Infer parental genotypes using phenotype and family evidence, preserving unresolved alternatives. List gametes, combine them by an appropriate square or independent product rule, identify the requested subgroup and calculate with the correct denominator. Interpret the result as an expectation and state assumptions.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      },
+      {
+        "prompt": "Explain how linkage can change a two-trait test-cross prediction and how the result can be used for a map estimate.",
+        "model": "Under independence a heterozygote test cross can yield four equal classes. Linked loci can produce more parental than recombinant combinations. Identify phase, sum both recombinant classes, divide by all scored offspring and multiply by 100%. For short intervals this approximates map distance, with limitations from multiple crossovers and sampling.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      }
+    ]
+  },
+  "transfer": {
+    "mc": [
+      {
+        "prompt": "A dominant-phenotype organism with an aa parent is crossed with aa. What is the expected recessive fraction?",
+        "answer": "1/2",
+        "wrong": [
+          "0",
+          "1/4",
+          "1"
+        ],
+        "explanation": "The organism must be Aa because its aa parent supplied a; Aa × aa gives 1/2 aa.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "For XbXb × XBY in a recessive model, what is the probability that the next child is both a son and affected?",
+        "answer": "1/2",
+        "wrong": [
+          "1",
+          "1/4",
+          "0"
+        ],
+        "explanation": "All sons are affected, and sons account for half of all offspring combinations in the model.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A linkage test gives parental counts 180 and 170 and recombinant counts 25 and 25. What is the short-interval estimate?",
+        "answer": "12.5 cM",
+        "wrong": [
+          "6.25 cM",
+          "14.3 cM",
+          "50 cM"
+        ],
+        "explanation": "Recombinants = 50, total = 400; 50/400 × 100 = 12.5%.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": {
+      "prompt": "Two unaffected parents have an affected child in a stated fully penetrant autosomal recessive model. Explain the parents’ genotypes and the probability an unaffected sibling is a carrier.",
+      "model": "Both parents must be Aa because each supplied a while remaining unaffected. Aa × Aa gives AA, Aa, aA and aa. Conditional on being unaffected, aa is excluded, leaving three possibilities, two of which are carriers. The probability is 2/3 under the model.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "extension": {
+    "title": "Biobanks and genetic information",
+    "question": "What does a shared genetic database need to make a finding meaningful?",
+    "sections": [
+      [
+        "Shared data can support research",
+        [
+          "A biobank stores biological samples and associated information for research. Comparing many samples can help investigate relationships between variants, environments and phenotypes.",
+          "Consider a hypothetical study that finds a variant more often in one group than another. The groups also differ in age and sampling location. The association is a starting point, not proof that the variant alone causes the phenotype."
+        ]
+      ],
+      [
+        "Evaluate evidence and participation",
+        [
+          "Researchers need to consider sampling, confounding variables, validation and how results generalize. Participants also need clear information about consent, data use, access and possible family implications.",
+          "The case asks you to distinguish scientific interpretation from decisions about participation. No personal sample, family history or disclosure is required."
+        ]
+      ]
+    ],
+    "writing": {
+      "prompt": "Identify one scientific limitation of the hypothetical association and one issue relevant to informed participation.",
+      "model": "The groups differ in age and location, so the association may be affected by confounding or population structure and requires further validation. Participants should understand how samples and information will be used or shared and what choices they retain. Neither issue is resolved by merely collecting more DNA.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "overview": [
+    "Translate genes and alleles into genotype and phenotype predictions.",
+    "Solve single-trait, two-trait, ABO and sex-linked probability problems.",
+    "Use pedigrees as evidence while preserving uncertainty.",
+    "Interpret linkage data and genetic testing claims with appropriate limits."
+  ],
+  "review": {
+    "question": "Can you choose the right inheritance model and justify the calculation?",
+    "goal": "Combine model selection, genotype inference, probability and evidence limits in new cases.",
+    "prior": "Define the model and denominator before using a memorized ratio.",
+    "pages": [
+      619,
+      621
+    ],
+    "anchors": [
+      "genotype",
+      "probability",
+      "pedigree",
+      "recombination frequency"
+    ],
+    "sections": [
+      [
+        "One method, several inheritance models",
+        [
+          "Begin with the gene or genes, the allele relationships and parental genotypes. Segregation determines the allele contribution of gametes; the phenotype model determines which offspring combinations express the trait. Complete dominance, incomplete dominance, codominance and X-linkage change how outcomes are interpreted.",
+          "A two-locus product calculation requires independence. A linked model instead uses phase and recombinant frequencies. A pedigree adds constraints from relatives but may leave more than one genotype or inheritance model possible."
+        ]
+      ],
+      [
+        "Show the denominator and the limit",
+        [
+          "Probability among all children differs from probability among sons or among unaffected siblings. Count the requested subgroup explicitly. Multiply independent required events, and convert a probability to an expected count only after establishing the correct cross.",
+          "Expected ratios are not guarantees for small samples. Genetic associations are not always deterministic predictions. A complete answer gives both the result and the conditions under which it follows."
+        ]
+      ]
+    ],
+    "worked": {
+      "title": "Compare probability and linkage evidence",
+      "scenario": "A two-locus test cross has four phenotype classes but parental classes are much larger. A student applies 1:1:1:1 without examining the counts.",
+      "steps": [
+        "The 1:1:1:1 prediction assumes independent assortment.",
+        "Identify the parental chromosome arrangement and classify both recombinant groups.",
+        "Compare observed counts with the independent expectation, considering sampling.",
+        "Calculate recombination frequency from both recombinant groups over the whole sample.",
+        "Use a justified model rather than forcing every cross into a memorized ratio."
+      ]
+    }
+  }
+}

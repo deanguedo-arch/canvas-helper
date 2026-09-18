@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: biology30-unit-a-pilot-3
-- Generated: 2026-09-16T14:39:30.767Z
+- Generated: 2026-09-17T19:03:17.191Z
 - Pass: yes
 - Deviations: 2
 - Accepted deviations: 0
@@ -19,6 +19,6 @@
 - Severity: warn
 - Surface: export
 - Location: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/workspace/index.html
-- Why: Detected 2369 paragraph blocks but max allowed is 5.
-- Evidence: <p> count = 2369
+- Why: Detected 2411 paragraph blocks but max allowed is 5.
+- Evidence: <p> count = 2411
 

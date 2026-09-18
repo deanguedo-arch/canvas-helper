@@ -1,0 +1,40 @@
+{
+  "chapter": 14,
+  "sources": [
+    {
+      "path": "workspace/assets/textbook/chapter-14.pdf",
+      "sha256": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea",
+      "bytes": 1135646,
+      "role": "Textbook: chapter content, original figures/questions; printed 476–505."
+    },
+    {
+      "path": "authoring/source-inputs/Unit B Chapter 14 Notes.pptx",
+      "sha256": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+      "bytes": 5729234,
+      "role": "35-slide teacher deck: emphasis, terminology, examples and explanatory level."
+    },
+    {
+      "path": "authoring/source-assessment-catalogue.json",
+      "sha256": "a540df55f7499962d24430effe2d986a881a656aca2d8ea9cc6fdfb339d2adc6",
+      "bytes": 341095,
+      "role": "191 physical item records from the actual supplied Unit B quiz/test/review XMLs, including answer information; developer only."
+    },
+    {
+      "path": "authoring/daily-plan-reference.txt",
+      "sha256": "b8b72f83c74be35d6754b78b9fb2640fa36a1f516edd8f3cc154dfc41443c962",
+      "bytes": 1288,
+      "role": "Transcribed Chapter 14 daily-plan rows, days 24–29; pacing history, not required student workflow."
+    }
+  ],
+  "referenceSnapshot": "Biology30_Chapters_11_12_13_Post_Audit_v8.zip",
+  "sourceArchive": "UnitB.zip, nested D2LExport_156587_26-27 _ S1 _ Biology 30 _ Per 1(A) _ Sec 10_202691736.zip",
+  "quizXmls": [
+    "quiz_d2l_59226.xml",
+    "quiz_d2l_59227.xml",
+    "quiz_d2l_59228.xml",
+    "quiz_d2l_59237.xml"
+  ],
+  "physicalItems": 191,
+  "duplicateHandling": "Each physical item retains its original source identity. Identical whole-course files were deduplicated during the preceding preflight; physical quiz items were not assumed identical merely because exports were duplicates.",
+  "reservedScope": "The uploaded Chapter 15–20 decks remain future chapter inputs and were not authored into this Chapter 14 package."
+}

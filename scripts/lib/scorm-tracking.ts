@@ -6,6 +6,8 @@ export type ScormTrackingContract = {
   adapter: "hash-pages-v1";
   pageIds: string[];
   defaultPageId: string;
+  pageContainerId?: string;
+  state?: { adapter: "course-state-v1"; legacyCourseId?: string };
   completion?: {
     storageKey: string;
     requiredIds: string[];
@@ -26,6 +28,7 @@ export type ScormTrackingReport = {
     completion: boolean;
     progressMeasure: boolean;
   };
+  stateTransport: "localStorage" | "course-state-v1";
   warnings: string[];
 };
 
@@ -48,10 +51,16 @@ export function resolveScormTracking(html: string, storageKeys: string[], versio
     if (!value || value.schemaVersion !== 1 || value.adapter !== "hash-pages-v1") throw new Error("Unsupported SCORM tracking contract.");
     const pageIds = ids(value.pageIds, "pageIds");
     if (!safeId(value.defaultPageId) || !pageIds.includes(value.defaultPageId)) throw new Error("SCORM tracking defaultPageId must be a declared page.");
-    for (const id of pageIds) {
+    if (value.pageContainerId !== undefined) {
+      if (!value.state || !safeId(value.pageContainerId) || $("[id]").filter((_index, node) => $(node).attr("id") === value.pageContainerId).length !== 1) throw new Error("SCORM dynamic routes require a unique page container and course state adapter.");
+    } else for (const id of pageIds) {
       if ($("[id]").filter((_index, node) => $(node).attr("id") === id).length !== 1) throw new Error(`SCORM tracking page is missing or duplicated: ${id}`);
     }
-    contract = { schemaVersion: 1, adapter: "hash-pages-v1", pageIds, defaultPageId: value.defaultPageId };
+    contract = { schemaVersion: 1, adapter: "hash-pages-v1", pageIds, defaultPageId: value.defaultPageId, ...(value.pageContainerId ? { pageContainerId: value.pageContainerId } : {}) };
+    if (value.state) {
+      if (value.state.adapter !== "course-state-v1" || (value.state.legacyCourseId !== undefined && !safeId(value.state.legacyCourseId))) throw new Error("Invalid SCORM course state adapter.");
+      contract.state = { adapter: "course-state-v1", legacyCourseId: value.state.legacyCourseId };
+    }
     if (value.completion) {
       const completion = value.completion;
       if (typeof completion.storageKey !== "string" || !completion.storageKey.trim() || completion.storageKey.length > 500) throw new Error("Invalid SCORM completion storageKey.");
@@ -89,7 +98,7 @@ export function resolveScormTracking(html: string, storageKeys: string[], versio
   if (!contract?.completion) warnings.push("Automatic completion and progress are unconnected. Declare the course's actual required completion IDs; visits are not completion.");
   if (version === "1.2") warnings.push("SCORM 1.2 has no separate progress measure and a small save budget. Prefer SCORM 2004 for written work.");
   warnings.push("Page times are saved inside the package state, not published as native Brightspace page reports. Verify LMS displays before release.");
-  return { schemaVersion: 1, source, contract, features: { saveStatus: true, activeSessionTime: true, resume: !!contract, pageTime: !!contract, completion: !!contract?.completion, progressMeasure: !!contract?.completion && version === "2004" }, warnings };
+  return { schemaVersion: 1, source, contract, stateTransport: contract?.state ? "course-state-v1" : "localStorage", features: { saveStatus: true, activeSessionTime: true, resume: !!contract, pageTime: !!contract, completion: !!contract?.completion, progressMeasure: !!contract?.completion && version === "2004" }, warnings };
 }
 
 /** Included inside the bridge closure so it shares the SCORM session lifecycle. */
@@ -147,6 +156,10 @@ export function buildScormTrackingRuntime() {
   function completionProgress() {
     const completion = trackingContract && trackingContract.completion;
     if (!completion) return null;
+    if (config.managedState) {
+      const done = new Set(courseCompletedIds);
+      return completion.requiredIds.filter(id => done.has(id)).length / completion.requiredIds.length;
+    }
     const raw = window.localStorage.getItem(completion.storageKey);
     let value = raw === null ? [] : tryParseJson(raw);
     if (raw === null) value = [];

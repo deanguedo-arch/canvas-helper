@@ -1,0 +1,101 @@
+{
+  "environment": "Chromium about:blank, Map-backed storage double; not real-origin persistence or LMS testing.",
+  "tests": [
+    {
+      "name": "mixed_set_has_varied_kinds",
+      "status": "passed",
+      "details": "['blank', 'diagram', 'flash', 'mc', 'multi-select', 'order']"
+    },
+    {
+      "name": "mixed_set_finishes_to_history",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "retry_preserves_completed_history",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "retry_uses_other_flash_family",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "reset_cancel_preserves_run",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "reset_only_unfinished_run",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "stored_item_order_restored",
+      "status": "passed",
+      "details": "Reloaded into a new in-memory document with the saved storage payload; not a file-origin reload."
+    },
+    {
+      "name": "frayer_initial_fields_empty",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "frayer_collection",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "frayer_edit_returns_to_draft",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "frayer_eight_word_limit",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "extension_model_initially_locked",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "extension_model_after_saved_attempt",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "split_pdf_page_mapping",
+      "status": "passed",
+      "details": "Chapter 18: PDF page 22 of 46"
+    },
+    {
+      "name": "required_check_schema",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "optional_work_progress_isolated",
+      "status": "passed",
+      "details": ""
+    },
+    {
+      "name": "print_output_created",
+      "status": "passed",
+      "details": "Chromium print rendering; not operating-system print/save dialog."
+    },
+    {
+      "name": "revision_conflict_blocks_overwrite",
+      "status": "passed",
+      "details": "NOT SAVED: Another tab changed this chapter. Copy visible unsaved writing, then reload. Copy visible writing before closing this tab."
+    },
+    {
+      "name": "no_extra_page_errors",
+      "status": "passed",
+      "details": "[]"
+    }
+  ],
+  "errors": []
+}
