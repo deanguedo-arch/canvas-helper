@@ -1,3 +1,4 @@
+import { buildScormActionsRuntime } from "./scorm-actions.js";
 import { load } from "cheerio";
 
 /** Canonical optional workspace/scorm-tracking.json. No executable selectors or code. */
@@ -8,6 +9,7 @@ export type ScormTrackingContract = {
   defaultPageId: string;
   pageContainerId?: string;
   state?: { adapter: "course-state-v1"; legacyCourseId?: string };
+  actions?: { schemaVersion: 1; evidenceStorageKey?: string };
   completion?: {
     storageKey: string;
     requiredIds: string[];
@@ -28,6 +30,7 @@ export type ScormTrackingReport = {
     completion: boolean;
     progressMeasure: boolean;
   };
+  actionReporting: "ungraded-scorm-2004" | "disabled";
   stateTransport: "localStorage" | "course-state-v1";
   warnings: string[];
 };
@@ -60,6 +63,10 @@ export function resolveScormTracking(html: string, storageKeys: string[], versio
     if (value.state) {
       if (value.state.adapter !== "course-state-v1" || (value.state.legacyCourseId !== undefined && !safeId(value.state.legacyCourseId))) throw new Error("Invalid SCORM course state adapter.");
       contract.state = { adapter: "course-state-v1", legacyCourseId: value.state.legacyCourseId };
+    }
+    if (value.actions) {
+      if (value.actions.schemaVersion !== 1 || (value.actions.evidenceStorageKey !== undefined && (typeof value.actions.evidenceStorageKey !== "string" || !value.actions.evidenceStorageKey.trim() || value.actions.evidenceStorageKey.length > 500))) throw new Error("Invalid SCORM action reporting contract.");
+      contract.actions = { schemaVersion: 1, ...(value.actions.evidenceStorageKey ? { evidenceStorageKey: value.actions.evidenceStorageKey } : {}) };
     }
     if (value.completion) {
       const completion = value.completion;
@@ -97,8 +104,9 @@ export function resolveScormTracking(html: string, storageKeys: string[], versio
   if (!contract) warnings.push("Resume and page timing are unconnected. Add workspace/scorm-tracking.json for a hash-routed course.");
   if (!contract?.completion) warnings.push("Automatic completion and progress are unconnected. Declare the course's actual required completion IDs; visits are not completion.");
   if (version === "1.2") warnings.push("SCORM 1.2 has no separate progress measure and a small save budget. Prefer SCORM 2004 for written work.");
-  warnings.push("Page times are saved inside the package state, not published as native Brightspace page reports. Verify LMS displays before release.");
-  return { schemaVersion: 1, source, contract, stateTransport: contract?.state ? "course-state-v1" : "localStorage", features: { saveStatus: true, activeSessionTime: true, resume: !!contract, pageTime: !!contract, completion: !!contract?.completion, progressMeasure: !!contract?.completion && version === "2004" }, warnings };
+  if (contract?.actions && version === "1.2") warnings.push("Ungraded action reporting requires SCORM 2004; it is disabled in 1.2 exports.");
+  warnings.push(contract?.actions && version === "2004" ? "Active page times and action summaries are sent as ungraded SCORM interactions. Verify Brightspace report displays before release." : "Page times are saved inside the package state, not published as native Brightspace page reports. Verify LMS displays before release.");
+  return { schemaVersion: 1, source, contract, actionReporting: contract?.actions && version === "2004" ? "ungraded-scorm-2004" : "disabled", stateTransport: contract?.state ? "course-state-v1" : "localStorage", features: { saveStatus: true, activeSessionTime: true, resume: !!contract, pageTime: !!contract, completion: !!contract?.completion, progressMeasure: !!contract?.completion && version === "2004" }, warnings };
 }
 
 /** Included inside the bridge closure so it shares the SCORM session lifecycle. */
@@ -109,12 +117,16 @@ export function buildScormTrackingRuntime() {
   let sessionMs = 0;
   let previousMs = 0;
   const pageMs = Object.create(null);
+  const visiblePageMs = Object.create(null);
+  let visibleSessionMs = 0;
+  let previousVisibleMs = 0;
   let lastTick = Date.now();
   let lastActivity = lastTick;
   let wasVisible = document.visibilityState !== "hidden";
   let trackingTimer = null;
   let completionRequested = false;
 
+  ${buildScormActionsRuntime()}
   function validPage(id) { return trackingContract && trackingContract.pageIds.includes(id); }
   function currentPage() {
     if (!trackingContract) return "";
@@ -125,6 +137,10 @@ export function buildScormTrackingRuntime() {
   function tickTime() {
     const now = Date.now();
     const delta = Math.max(0, Math.min(now, lastActivity + 300000) - lastTick);
+    if (actionsEnabled() && !terminated && wasVisible && now - lastTick <= 30000) {
+      visibleSessionMs += now - lastTick;
+      if (validPage(bookmark)) visiblePageMs[bookmark] = (visiblePageMs[bookmark] || 0) + now - lastTick;
+    }
     // A delayed callback after sleep/background throttling is not evidence of use.
     if (!terminated && wasVisible && now - lastTick <= 30000) {
       sessionMs += delta;
@@ -136,6 +152,13 @@ export function buildScormTrackingRuntime() {
   function restoreTracking(state) {
     if (state && state.schemaVersion === 1) {
       if (Number.isSafeInteger(state.activeMs) && state.activeMs >= 0) previousMs = state.activeMs;
+      if (actionsEnabled()) {
+        previousVisibleMs = Number.isSafeInteger(state.visibleMs) && state.visibleMs >= 0 ? state.visibleMs : previousMs;
+        for (const id of trackingContract.pageIds) {
+          const value = state.visiblePageMs && state.visiblePageMs[id];
+          visiblePageMs[id] = Number.isSafeInteger(value) && value >= 0 ? value : state.pageMs && state.pageMs[id] || 0;
+        }
+      }
       if (trackingContract && state.pageMs && typeof state.pageMs === "object") {
         for (const id of trackingContract.pageIds) {
           const value = state.pageMs[id];
@@ -151,7 +174,7 @@ export function buildScormTrackingRuntime() {
   }
   function collectTracking() {
     tickTime();
-    return { schemaVersion: 1, bookmark: bookmark, activeMs: previousMs + sessionMs, pageMs: pageMs };
+    return { schemaVersion: 1, bookmark: bookmark, activeMs: previousMs + sessionMs, pageMs: pageMs, ...(actionsEnabled() ? {visibleMs:previousVisibleMs + visibleSessionMs,visiblePageMs:visiblePageMs} : {}) };
   }
   function completionProgress() {
     const completion = trackingContract && trackingContract.completion;
@@ -183,6 +206,13 @@ export function buildScormTrackingRuntime() {
       writes.push([statusModel.completionKey, statusModel.completedValue]);
     }
     for (const pair of writes) if (!api.setValue(pair[0], pair[1])) throw new Error("Brightspace rejected " + pair[0] + ". Keep this page open and retry saving.");
+    actionReportsWritten = false;
+    actionReportWarning = "";
+    try { writeActionReports(); actionReportsWritten = true; }
+    catch (error) {
+      actionReportWarning = " Detailed activity reporting is unavailable; your work and session time were saved.";
+      logWarning(String(error.message || error));
+    }
   }
   function startTracking() {
     if (trackingTimer || terminated) return;
@@ -201,6 +231,7 @@ export function buildScormTrackingRuntime() {
       if (wasVisible) lastActivity = Date.now();
       if (!terminated) persistToLms("visibility-change");
     });
+    startActionTracking();
     trackingTimer = window.setInterval(function () { persistToLms("heartbeat"); }, 15000);
   }
   function stopTracking() {

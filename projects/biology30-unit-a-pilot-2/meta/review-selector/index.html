@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Biology Course Review</title>
+  <title>Course Review Library</title>
   <style>
     :root{color-scheme:light;--ink:#17211d;--muted:#56645c;--canvas:#f3f5f0;--surface:#fff;--line:#ccd5cc;--green:#2f6339;--green-dark:#21462a;--teal:#176b6a}
     *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
@@ -18,11 +18,12 @@
     .viewer-head a{color:var(--teal);font-weight:700}.viewer iframe{display:block;width:100%;height:min(78vh,900px);min-height:620px;border:0;background:#fff}
     .library-header{display:flex;align-items:center;gap:18px;min-height:68px;padding:8px clamp(18px,5vw,64px);background:#151a18;color:#fff}.library-logo{display:none}.library-heading{min-width:220px}.library-heading strong{display:block;font-size:16px;line-height:1.1}.library-heading span{display:block;margin-top:5px;color:#cbd7cc;font-size:13px}.library-picker{display:flex;align-items:center;gap:18px;margin-left:auto}.library-picker label{font-size:13px}.library-picker select{width:min(420px,42vw);height:42px;padding:0 12px;border:1px solid #c8d0c8;border-radius:3px;background:#fff;color:#17211d;font-size:15px}.library-picker button{height:42px;padding:0 14px;border:1px solid #c8d0c8;border-radius:3px;background:#fff;color:#17211d;cursor:pointer}.library-note,.intro,.course-list{display:none}main{max-width:none;padding:0}.viewer{border:0}.viewer-head{padding:12px clamp(18px,5vw,64px)}
     @media(max-width:700px){.library-header{flex-wrap:wrap}.library-picker{width:100%;margin-left:0}.library-picker select{flex:1;width:auto}.library-picker label{display:none}.viewer iframe{min-height:560px}.viewer-head{align-items:flex-start;flex-direction:column}}
+    .library-picker{min-width:0}.library-picker select{min-width:0;max-width:100%}.library-picker button{flex-shrink:0}@media(max-width:700px){.library-picker{gap:10px}}
   </style>
 </head>
 <body>
   <header class="library-header">
-    <div class="library-heading"><strong>Course library</strong><span>Teacher review · eleven courses</span></div>
+    <div class="library-heading"><strong>Course library</strong><span>Teacher review · twelve courses</span></div>
     <div class="library-picker"><label for="course-select">Course</label><select id="course-select" aria-label="Choose a course"><option value="biology30-a">Biology 30 — Unit A (Pilot 3)</option><option value="biology30-ch12">Biology 30 — Chapter 12</option><option value="biology30-ch13">Biology 30 — Chapter 13</option>
       <option value="biology30-ch14">Biology 30 — Chapter 14</option>
       <option value="biology30-ch15">Biology 30 — Chapter 15</option>
@@ -31,7 +32,7 @@
       <option value="biology30-ch18">Biology 30 — Chapter 18</option>
       <option value="biology30-ch19">Biology 30 — Chapter 19</option>
       <option value="biology30-ch20">Biology 30 — Chapter 20</option>
-      <option value="chemistry30-a-pilot">Chemistry 30 — Unit A (Pilot)</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
+      <option value="chemistry30-a-pilot">Chemistry 30 — Unit A (Pilot)</option><option value="social30-1-issue1">Social 30-1 — Related Issue 1 (Option Two)</option></select><button id="copy-review-link" type="button">Copy review link</button></div>
   </header>
   <p class="library-note">Teacher review builds · curriculum reconciliation, teacher approval, and Brightspace release remain separate steps.</p>
   <main>
@@ -42,7 +43,7 @@
     </section>
   </main>
   <script>
-    const reviewVersion='20260917-9';
+    const reviewVersion='20260918-social1-2';
     const courses={
       'biology30-a':{label:'Biology 30 — Unit A: Pilot 3',src:`./biology30-a/index.html?v=${reviewVersion}`,local:'../../../biology30-unit-a-pilot-3/workspace/index.html'},
       'biology30-ch12':{label:'Biology 30 — Chapter 12',src:`./biology30-ch12/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-12/workspace/index.html'},
@@ -54,6 +55,7 @@
       'biology30-ch18':{label:'Biology 30 — Chapter 18',src:`./biology30-ch18/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-18/workspace/index.html'},
       'biology30-ch19':{label:'Biology 30 — Chapter 19',src:`./biology30-ch19/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-19/workspace/index.html'},
       'biology30-ch20':{label:'Biology 30 — Chapter 20',src:`./biology30-ch20/index.html?v=${reviewVersion}`,local:'../../../biology30-chapter-20/workspace/index.html'},
+      'social30-1-issue1':{label:'Social 30-1 — Related Issue 1: Option Two',src:`./social30-1-issue1/index.html?v=${reviewVersion}`,local:'../../../social30-1-related-issue-1-option-2/workspace/index.html'},
       'chemistry30-a-pilot':{label:'Chemistry 30 — Unit A: Pilot',src:`./chemistry30-a-pilot/index.html?v=${reviewVersion}`,local:'../../../chemistry30-unit-a-pilot/workspace/index.html'}
     };
     const frame=document.querySelector('#course-frame'), label=document.querySelector('#selection-label'), link=document.querySelector('#open-link');

@@ -1,10 +1,10 @@
 # Biology 30 teacher showcase
 
-## Current four-course review selector
+## Current shared review selector
 
-The current `biology30pilot.web.app` deployment contains Biology Chapter 11 (Pilot 3), Chapters 12/13 and Chemistry Unit A. Its canonical selector and receipt are under `projects/biology30-unit-a-pilot-2/meta/review-selector/` and `meta/review-selector-deployment.json`. Do not deploy the older A/B/C/D command below over this selector.
+The current `biology30pilot.web.app` review selector includes Biology Chapters 11–20, Chemistry Unit A, and Social 30-1 Related Issue 1 Option Two. Its canonical selector and receipt are under `projects/biology30-unit-a-pilot-2/meta/review-selector/` and `meta/review-selector-deployment.json`. Do not deploy the older A/B/C/D command below over this selector.
 
-For a Biology-only refresh, verify the three Biology workspaces and the preserved Chemistry workspace, then run `npx tsx scripts/deploy-biology30-current-review.mjs --deploy`. This owner stages the receipt's four current course paths, refuses to publish Chemistry files that differ from live bytes, deploys only the existing Hosting site, and verifies every staged file against live SHA-256 before updating the receipt. Without `--deploy` it stages only. A changed Chemistry deployment requires separate authorization/workflow, not bypassing this guard. After deployment, check the actual browser selector routes and record them in the receipt. Canonical course content is never rebuilt by this deployment owner.
+For a Biology-only refresh, verify the three Biology workspaces and the preserved Chemistry workspace, then run `npx tsx scripts/deploy-biology30-current-review.mjs --deploy`. This owner stages the receipt's current course paths, refuses to publish existing Biology/Chemistry files that differ from the verified receipt and checks preserved core science paths against live bytes, deploys only the existing Hosting site, and verifies every staged file against live SHA-256 before updating the receipt. Without `--deploy` it stages only. A changed Chemistry deployment requires separate authorization/workflow, not bypassing this guard. After deployment, check the actual browser selector routes and record them in the receipt. Canonical course content is never rebuilt by this deployment owner.
 
 ## Historical A/B/C/D showcase workflow
 
@@ -40,3 +40,5 @@ npx tsx --test scripts/tests/biology30-showcase.test.ts
 ```
 
 Covers legacy A links, all four units' response persistence, unit switching, reload, browser Back, fresh direct links, narrow layout and staging restrictions. Hosting integration does not certify external-video playback or a real Brightspace SCORM round-trip. Last local/live browser evidence: `projects/resources/biology30-production/v1/pilot2/verification/2026-09-08-showcase/`.
+
+Social Issue 1 is hosted at `/social30-1-issue1/index.html`. The current deployment owner adds it to the shared selector and retains hash-verified live science files when their local workspaces differ from the deployed receipt. Those retained bytes are staged only; local science work is not overwritten. The Social project contract uses the `legacy-social` evidence scenario to check its real response fields, manual Evidence Bank entries, reload, duplicate prevention and removal independence; it does not require the shared Evidence Bank API.

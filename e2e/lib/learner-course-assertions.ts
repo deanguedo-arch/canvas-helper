@@ -602,10 +602,27 @@ async function assertEvidenceScenarios(
   learnerCourse: EnabledLearnerCourse
 ) {
   const scenarios = resolveLearnerEvidenceScenarios(learnerCourse);
-  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2" && scenario.kind !== "pilot3-local-run") });
+  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2" && scenario.kind !== "pilot3-local-run" && scenario.kind !== "legacy-social") });
   for (const [scenarioIndex, scenario] of scenarios.entries()) {
     const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-    if (scenario.kind === "pilot3-local-run") {
+    if (scenario.kind === "legacy-social") {
+      const value=`Social evidence during project verification ${scenarioIndex}.`;
+      const section=await showLearnerRoute(workspaceFrame,scenario.route);
+      const response=section.locator(`[data-response-id="${scenario.responseId}"]`);
+      await response.fill(value);
+      await section.locator(scenario.saveSelector).click();
+      await section.locator(scenario.saveSelector).click();
+      await expect(response).toHaveValue(value);
+      await reloadWorkspacePreview(page,projectSlug);
+      const collection=await showLearnerRoute(workspaceFrame,scenario.collectionRoute);
+      const remove=collection.locator(`[data-remove-evidence-note="${scenario.collectionId}"]`);
+      await expect(remove).toHaveCount(1);
+      await expect(remove.locator('xpath=ancestor::article[1]')).toContainText(value);
+      await remove.click();
+      await expect(remove).toHaveCount(0);
+      const restored=await showLearnerRoute(workspaceFrame,scenario.route);
+      await expect(restored.locator(`[data-response-id="${scenario.responseId}"]`)).toHaveValue(value);
+    } else if (scenario.kind === "pilot3-local-run") {
       const section=await showLearnerRoute(workspaceFrame,scenario.route);
       const activity=section.locator(`[data-activity="${scenario.activityId}"]`);
       const disclosure=activity.locator('xpath=ancestor::details[1]');

@@ -81,3 +81,14 @@ test("real export packages tracking evidence and preserves the workspace and pri
     assert.deepEqual(await readFile(path.join(result.exportDir, "scorm-tracking-report.json")), reportBefore);
   } finally { await cleanupProjectFixture(slug); }
 });
+
+
+test("ungraded action reporting is explicit, versioned and limited to SCORM 2004", () => {
+  const contract = { schemaVersion: 1, adapter: "hash-pages-v1", pageIds: ["overview", "lesson-1"], defaultPageId: "overview", actions: { schemaVersion: 1, evidenceStorageKey: "unit:evidence" } };
+  assert.equal(resolveScormTracking(html, [], "2004", contract).actionReporting, "ungraded-scorm-2004");
+  assert.equal(resolveScormTracking(html, [], "1.2", contract).actionReporting, "disabled");
+  assert.equal(resolveScormTracking(html, [], "2004").actionReporting, "disabled");
+  for (const actions of [{schemaVersion:2},{schemaVersion:1,evidenceStorageKey:42},{schemaVersion:1,evidenceStorageKey:" "}]) {
+    assert.throws(() => resolveScormTracking(html, [], "2004", {...contract,actions}), /action reporting/);
+  }
+});

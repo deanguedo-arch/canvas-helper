@@ -1,0 +1,22 @@
+{
+  "package": "/Users/deanguedo/Downloads/Social-20-1-Issue-1-Option-2-SCORM-2004-v4.zip",
+  "bytes": 447120509,
+  "sha256": "8f7e973dfad9cef1b15ba3bd888f1980ce2ac151e8d4543ead4203ac6e6afec7",
+  "checks": [
+    {
+      "slug": "social20-1-related-issue-1-option-2",
+      "zip": "projects/social20-1-related-issue-1-option-2/exports/social20-1-related-issue-1-option-2-scorm-2004.zip",
+      "e2e": "passed",
+      "entry": "Social 20-1/Social-20-1-Issue-1-Option-2-SCORM-2004.zip",
+      "bytes": 447120509,
+      "sha256": "8f7e973dfad9cef1b15ba3bd888f1980ce2ac151e8d4543ead4203ac6e6afec7",
+      "zipIntegrity": "passed",
+      "manifestFiles": "passed",
+      "analytics": "ungraded-scorm-2004"
+    }
+  ],
+  "fix": "Whole-second SCORM timestamps plus automatic saving: successful status hidden, manual exit omitted, required save failure retry remains visible.",
+  "actualBrightspaceCorrectionVerified": false,
+  "focusedSaveReopenTest": "passed",
+  "liveEvidence": "Existing v2 log rejected cmi.interactions.0.timestamp at three decimal places. No live learner work modified."
+}

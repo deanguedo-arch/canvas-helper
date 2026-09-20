@@ -41,7 +41,7 @@ test("validateProjectContract rejects empty deep contracts when required", async
   const contract = await loadFixture("invalid-empty-deep.json");
   assert.throws(
     () => validateProjectContract(contract, "invalid-empty-deep.json", { requireDeepTargets: true }),
-    /deep contract has no modulePassTargets or visibilityChecks/
+    /deep contract has no modulePassTargets, visibilityChecks, or enabled learnerCourse routes/
   );
 });
 
@@ -60,4 +60,11 @@ test("assertNonEmptyCertificationTargets throws on empty targets", () => {
 
 test("assertTextChanged throws when text does not change", () => {
   assert.throws(() => assertTextChanged("Indicator", "same", "same"), /stayed the same/);
+});
+
+test("legacy Social evidence uses actual controls and requires its save selector", async () => {
+  const raw=JSON.parse(await readFile(path.join(process.cwd(),"projects/social30-1-related-issue-1-option-2/meta/e2e-contract.json"),"utf8"));
+  assert.doesNotThrow(()=>validateProjectContract(raw,"social-legacy.json"));
+  delete raw.learnerCourse.evidenceScenario.saveSelector;
+  assert.throws(()=>validateProjectContract(raw,"missing-social-save.json"),/Invalid e2e contract/);
 });

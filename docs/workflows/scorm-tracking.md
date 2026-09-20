@@ -10,7 +10,7 @@ The shared exporter adds tracking to the export copy. It does not rebuild lesson
 - Active session time is sent as `cmi.session_time` (2004) or `cmi.core.session_time` (1.2). Each write is the cumulative duration of the current session; Brightspace owns `total_time`. Restored historical totals are not resent as a new session.
 - A 15-second heartbeat commits progress and time. Hidden tabs pause timing. Five minutes without pointer, keyboard, input, or scroll activity stops accrual until activity returns. A callback delayed more than 30 seconds does not count its gap, avoiding laptop-sleep inflation. These are estimates, not proof of attention; quiet reading beyond the idle window and activity within child frames can be undercounted.
 - Supported hash-page courses bookmark a stable page ID and restore it before course scripts run. An explicit launch hash takes precedence. Unknown/stale bookmarks fall back to the course's default page.
-- Page time and historical active time are saved inside `cmi.suspend_data`. They are not transmitted as artificial quiz interactions and do not automatically appear as teacher-visible Brightspace page reports.
+- Page time and historical active time are saved inside `cmi.suspend_data`. By default they do not appear as teacher-visible Brightspace page rows. Explicit ungraded action reporting can also publish page-time summaries as SCORM interactions; it does not create grades or quiz questions.
 - Required-item completion uses the same underlying IDs as the content. SCORM 2004 receives `cmi.progress_measure` and `cmi.completion_status`; SCORM 1.2 receives lesson status only. No grades or pass/fail scores are manufactured. Completion of one package does not mark other Brightspace activities complete.
 
 ## Existing Social and ELA shells
@@ -77,3 +77,24 @@ The shared photo factory is bundled into Chapter 11 and copied by the textbook i
 The adapter uploads JPEG bytes, verifies acknowledgment through current-user submissions, saves only scoped references, and verifies current-user ownership again before retrieval. Removing a photo removes the course reference; Brightspace retains the submitted file. OAuth registration, current-user file permissions, CORS and fresh-device sign-on must be confirmed in the actual organization. These packages ship without that configuration, so their photos remain browser-local. Mock API tests establish component wiring only.
 
 `--review-only` creates separate review ZIPs with `review-only.json`, skips workspace approval and release-freshness recording, and leaves authoring/export eligibility unchanged. It is for sandbox testing before course-specific readiness gates and live LMS acceptance.
+
+## Optional ungraded action reporting (SCORM 2004)
+
+Add `"actions": {"schemaVersion": 1, "evidenceStorageKey": "<existing evidence store>"}` to the hash-page contract. Omit it to preserve the default behavior; SCORM 1.2 reports it as disabled. `scripts/lib/scorm-actions.ts` owns collection and interaction writing, and the package report declares `actionReporting`.
+
+The Social Option Two contracts opt in. Stable `cmi.interactions` rows summarize page access, answer-edit bursts, actual changed lesson completion, actual changed Evidence Bank collections/removals, vocabulary access, textbook page requests, practice selection/save requests, topic/source filters, support-section openings, resource links, media selection and native audio/video play/pause/end events. Counts continue by reading the LMS's existing rows. First/latest timestamps are retained; this is an aggregate report, not a chronological click log. New activity updates the same row. Answer text and search queries are not copied into analytics; normal learner saves continue to carry answers separately.
+
+Page-time rows include active seconds, foreground-visible seconds and the difference attributable to the active idle cutoff. Foreground time continues during quiet reading beyond five minutes, while active time keeps the existing idle policy. Hidden tabs and long sleep/throttling gaps are excluded from both measures. The row latency represents accumulated active page time; the response summary also includes visible/idle seconds. All rows use type `other`, result `neutral` and weight zero. No score, success status or optional-work completion gates are created. Rows live in native LMS interactions rather than inflating the answer suspend-data payload.
+
+External iframe videos/PDFs do not expose reliable playback, inner-page scrolling or reading completion. Access/request events describe exactly that. Native player events report play/pause/end, not proof of attention or full viewing. Brightspace report rendering and export visibility must be verified in a real organization before claiming availability to teachers. Optional interaction-write rejection keeps affected rows pending for retry and logs the rejected field plus available LMS diagnostics. It does not block the required answer, resume, completion or session-time save and exit. The learner sees that detailed reporting is unavailable after a successful save. Required-state write or commit failures still prevent exit.
+
+Focused real-page integration check (no Social upload ZIPs):
+
+```bash
+node_modules/.bin/tsx scripts/tests/social-option2-scorm.mts
+```
+
+Shared bridge changes still require the SCORM unit/browser regression checks above. The focused run uses isolated simulated LMS contexts and must not be described as live Brightspace acceptance.
+
+## Automatic save controls
+A canonical course body can opt into `data-scorm-save-mode="automatic"`. Existing debounced storage saves, heartbeat, navigation/visibility saves and unload termination continue. Successful status messages stay hidden and the manual Save and Exit control is omitted so learners do not end an attempt while browsing. Required-state failures show the save status and Save now retry; a successful retry hides them. Optional action-report failures remain logged and do not create a learner warning in this mode. All 12 Social Option Two courses now opt in after the teacher confirmed the Social 20-1 Issue 1 pilot works. Biology and Chemistry retain their existing settings.

@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: social20-1-related-issue-4-option-2
-- Generated: 2026-07-06T20:46:54.663Z
+- Generated: 2026-09-18T20:09:21.429Z
 - Pass: yes
 - Deviations: 2
 - Accepted deviations: 0
@@ -19,6 +19,6 @@
 - Severity: warn
 - Surface: export
 - Location: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-4-option-2/workspace/index.html
-- Why: Detected 646 paragraph blocks but max allowed is 5.
-- Evidence: <p> count = 646
+- Why: Detected 947 paragraph blocks but max allowed is 5.
+- Evidence: <p> count = 947
 

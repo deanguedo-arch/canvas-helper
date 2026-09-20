@@ -1,0 +1,13 @@
+/* Size the embed from content, never from its own viewport height. */
+html, body, body.performance-game-theme #root, #root > div, #root > div > div { min-height: 0 !important; }
+#root > div { padding: 0 !important; }
+@media (max-width: 767px) {
+  #root [class~="h-[52vh]"] { height: 420px; max-height: none; }
+}
+/* Keep the entire board visible at the embed's actual width. */
+#root [class~="min-h-[420px]"] {
+  min-height: clamp(420px, 60vw, 650px) !important;
+  height: clamp(420px, 60vw, 650px);
+  flex: none;
+}
+#root [class~="min-h-[420px]"]:has(.course-game-message) { height: auto; }

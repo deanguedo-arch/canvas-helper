@@ -25,22 +25,29 @@
     "enabled": true,
     "routes": [
       "overview",
-      "lessons",
       "lesson-1-u1identity-u1-introduction",
       "issue-inquiry",
       "evidence-bank",
-      "resources"
+      "resources",
+      "core-vocabulary",
+      "library",
+      "study-guide",
+      "source-analysis",
+      "position-builder",
+      "film-room",
+      "textbook-practice"
     ],
     "hintRoutes": [],
     "printRoutes": [
       "evidence-bank"
     ],
     "evidenceScenario": {
-      "kind": "individual",
-      "route": "evidence-bank",
-      "captureId": "social30-1-related-issue-1-option-2:evidence-notebook",
-      "contributionId": "social30-1-related-issue-1-option-2:evidence:notebook",
-      "responseId": "social30-1-related-issue-1-option-2:evidence:detail"
+      "kind": "legacy-social",
+      "route": "position-builder",
+      "responseId": "social30-1-related-issue-1-option-2:position:claim",
+      "collectionRoute": "evidence-bank",
+      "collectionId": "student-tool-position-builder",
+      "saveSelector": "[data-tool-collect=\"position-builder\"]"
     },
     "resourceChecks": [],
     "mobile": {
@@ -50,7 +57,9 @@
         "overview",
         "lesson-1-u1identity-u1-introduction",
         "evidence-bank",
-        "resources"
+        "resources",
+        "core-vocabulary",
+        "library"
       ]
     }
   }

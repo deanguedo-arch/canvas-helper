@@ -16,15 +16,20 @@ const hash=b=>createHash('sha256').update(b).digest('hex');
 async function copy(source,relative){const stat=await fs.lstat(source);if(stat.isSymbolicLink())throw Error('Refusing symlink '+source);if(stat.isDirectory()){for(const name of (await fs.readdir(source)).sort())if(!name.startsWith('.'))await copy(path.join(source,name),relative+'/'+name);return;}if(!stat.isFile())throw Error('Not a regular file '+source);const data=await fs.readFile(source),dest=path.join(stage,'public',relative);await fs.mkdir(path.dirname(dest),{recursive:true});await fs.writeFile(dest,data);files[relative]=hash(data);sources[relative]=source;}
 const courses=[...receipt.courses];
 for(let ch=14;ch<=20;ch++)if(!courses.some(c=>c.id===`biology30-ch${ch}`))courses.splice(courses.findIndex(c=>c.id==='chemistry30-a-pilot'),0,{id:`biology30-ch${ch}`,projectSlug:`biology30-chapter-${ch}`,title:`Biology 30 — Chapter ${ch}`,deployedPath:`biology30-ch${ch}/index.html`});
+if(!courses.some(c=>c.id==='social30-1-issue1'))courses.push({id:'social30-1-issue1',projectSlug:'social30-1-related-issue-1-option-2',title:'Social 30-1 — Related Issue 1: Option Two',deployedPath:'social30-1-issue1/index.html'});
 for(const c of courses)await copy(path.join(repo,'projects',c.projectSlug,'workspace'),c.id);
 await copy(path.join(repo,receipt.selector.source),'index.html');
+// Retain verified deployed science pages when local work belongs to another task.
+for(const [name,value] of Object.entries(files)){if(!/^(biology30-|chemistry30-)/.test(name)||receipt.files?.[name]===value)continue;const expected=receipt.files?.[name];if(!expected)throw Error('Unverified science addition '+name);const response=await fetch(`${receipt.hosting.url}/${name}?preserve=${expected.slice(0,12)}`,{signal:AbortSignal.timeout(60000)});const bytes=new Uint8Array(await response.arrayBuffer());if(!response.ok||hash(bytes)!==expected)throw Error('Cannot preserve verified live science bytes '+name);await fs.writeFile(path.join(stage,'public',name),bytes);files[name]=expected;delete sources[name];}
+
 for(const [name,source]of Object.entries(sources))if(hash(await fs.readFile(source))!==files[name])throw Error('Source changed during staging '+source);
 const release={schemaVersion:1,createdAt:new Date().toISOString(),purpose:'teacher-review-only',files};
 await fs.writeFile(path.join(stage,'public/release.json'),JSON.stringify(release,null,2)+'\n');
 await fs.writeFile(path.join(stage,'firebase.json'),JSON.stringify({hosting:{site:'biology30pilot',public:'public',ignore:['firebase.json','**/.*'],headers:[{source:'**',headers:[{key:'Cache-Control',value:'no-cache, max-age=0, must-revalidate'}]}]}},null,2));
 console.log(JSON.stringify({stage,fileCount:Object.keys(files).length}));
 if(process.argv.includes('--deploy')){
- // New chapters only: refuse to silently publish changes to existing courses.
+ // Social addition: preserve every previously verified Biology/Chemistry byte.
+ for(const [name,value] of Object.entries(files))if(/^(biology30-|chemistry30-)/.test(name)&&receipt.files?.[name]!==value)throw Error('Existing science course differs from deployed receipt: '+name);
  await verifyLive({files:Object.fromEntries(Object.entries(files).filter(([name])=>/^(biology30-a|biology30-ch12|biology30-ch13|chemistry30-a-pilot)\//.test(name)))});
  await new Promise((resolve,reject)=>{const child=spawn(process.execPath,[path.join(repo,'node_modules/firebase-tools/lib/bin/firebase.js'),'deploy','--project','calm-module-one','--config',path.join(stage,'firebase.json'),'--only','hosting','--non-interactive'],{cwd:stage,stdio:'inherit'});child.once('error',reject);child.once('exit',code=>code===0?resolve():reject(Error('Firebase deploy exited '+code)));});
  const reusable=receipt.verification?.allFilesMatch===true;
@@ -32,7 +37,7 @@ if(process.argv.includes('--deploy')){
  const checked=await verifyLive({files:changed});
  const verification={...checked,fileCount:Object.keys(files).length,allFilesMatch:true,reusedVerifiedFileCount:Object.keys(files).length-Object.keys(changed).length,reusedVerificationAt:reusable?receipt.deployedAt:null};
  receipt.deployedAt=new Date().toISOString();receipt.files=files;receipt.courses=courses;
- receipt.purpose='Shared teacher-review selector for Biology 30 Chapters 11–20 and Chemistry 30 Unit A Pilot.';
+ receipt.purpose='Shared teacher-review selector for Biology 30 Chapters 11–20, Chemistry 30 Unit A Pilot and Social 30-1 Related Issue 1 Option Two.';
  for(const c of receipt.courses)c.indexSha256=files[c.deployedPath];
  receipt.selector.indexSha256=files['index.html'];receipt.selector.reviewVersion=/const reviewVersion='([^']+)'/.exec(await fs.readFile(sources['index.html'],'utf8'))[1];
  receipt.verification={...verification,browserRoutes:[],chemistryPreserved:true,existingBiologyPreserved:true};

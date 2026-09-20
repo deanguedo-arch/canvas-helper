@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-18",
+  "version": "2004",
+  "checks": [
+    {
+      "slug": "social20-1-related-issue-1-option-2",
+      "requiredLessons": 23,
+      "stores": [
+        "canvas-helper:social20-1-related-issue-1-option-2:complete",
+        "canvas-helper:social20-1-related-issue-1-option-2:responses",
+        "canvas-helper:social20-1-related-issue-1-option-2:manual-evidence-notes"
+      ],
+      "features": {
+        "saveStatus": true,
+        "activeSessionTime": true,
+        "resume": true,
+        "pageTime": true,
+        "completion": true,
+        "progressMeasure": true
+      },
+      "actionReporting": "passed: stable ungraded rows, cumulative counts, per-page time, no answer text",
+      "simulatedLms": "passed",
+      "liveBrightspaceVerified": false
+    }
+  ],
+  "uploadZipsCreated": false,
+  "liveBrightspaceVerified": false,
+  "deferred": [
+    "Actual generated ZIP asset/manifest verification",
+    "Brightspace pilot: attempt restoration, completion and timing displays",
+    "Broader course E2E and Studio lifecycle"
+  ]
+}

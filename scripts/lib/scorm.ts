@@ -467,6 +467,10 @@ ${buildScormTrackingRuntime()}
         setValue: function (key, value) {
           return toSuccess(handle.SetValue(key, value));
         },
+        diagnostic: function () {
+          const code = typeof handle.GetLastError === "function" ? handle.GetLastError() : "unknown";
+          return String(code) + (typeof handle.GetDiagnostic === "function" ? " " + handle.GetDiagnostic(code) : "");
+        },
         commit: function () {
           return toSuccess(handle.Commit(""));
         }
@@ -562,11 +566,13 @@ ${buildScormTrackingRuntime()}
     return true;
   }
 
+  function automaticControls() { return document.body && document.body.getAttribute && document.body.getAttribute("data-scorm-save-mode") === "automatic"; }
   function announceStatus(message, isError) {
     if (config.managedState && typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
       window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-status", {detail: {message: message, error: Boolean(isError)}}));
     }
     if (!controlHost) { return; }
+    if (automaticControls()) controlHost.style.display = isError ? "flex" : "none";
 
     const statusNode = controlHost.querySelector("[data-scorm-status]");
     if (!statusNode) {
@@ -581,7 +587,7 @@ ${buildScormTrackingRuntime()}
     let saved = false;
     try { saved = persistStateToLms(reason, exitValue); }
     catch (error) { lastPersistErrorMessage = String(error.message || "Brightspace save failed. Keep this page open."); }
-    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : lastPersistErrorMessage, !saved);
+    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + actionReportWarning : lastPersistErrorMessage, !saved);
     return saved;
   }
 
@@ -641,6 +647,7 @@ ${buildScormTrackingRuntime()}
       lastPersistErrorMessage = "Brightspace could not commit this save. Keep this page open and retry saving.";
       return false;
     }
+    commitActionReports();
 
     return true;
   }
@@ -697,7 +704,7 @@ ${buildScormTrackingRuntime()}
     }
     terminated = true;
     stopTracking();
-    announceStatus("Progress saved. Close this tab or window to return to Brightspace.");
+    announceStatus("Progress saved. Close this tab or window to return to Brightspace." + actionReportWarning);
 
     const saveButton = controlHost ? controlHost.querySelector("[data-scorm-save]") : null;
     if (saveButton) saveButton.setAttribute("disabled", "disabled");
@@ -846,8 +853,9 @@ ${buildScormTrackingRuntime()}
 
     controlHost.appendChild(statusNode);
     controlHost.appendChild(saveButton);
-    if (!config.managedState) controlHost.appendChild(exitButton);
+    if (!config.managedState && !automaticControls()) controlHost.appendChild(exitButton);
     document.body.appendChild(controlHost);
+    if (automaticControls() && initialized && !restoreBlocked) controlHost.style.display = "none";
   }
 
   function patchLocalStorage() {

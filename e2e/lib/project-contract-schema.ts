@@ -128,6 +128,7 @@ const LearnerIndividualEvidenceScenarioSchema = z
   .strict();
 
 const LearnerEvidenceScenarioSchema = z.union([
+  z.object({kind:z.literal("legacy-social"),route:LearnerRouteId,responseId:LearnerStorageId,collectionRoute:LearnerRouteId,collectionId:LearnerStorageId,saveSelector:NonEmptyString}).strict(),
   z.object({kind:z.literal("pilot3-local-run"),route:LearnerRouteId,activityId:LearnerStorageId,collectionRoute:LearnerRouteId}).strict(),
   LearnerCollectionEvidenceScenarioSchema,
   LearnerIndividualEvidenceScenarioSchema,
@@ -290,7 +291,7 @@ export function validateProjectContract(
       ...learnerCourse.hintRoutes,
       ...learnerCourse.printRoutes,
       ...evidenceScenarios.map((scenario) => scenario.route),
-      ...evidenceScenarios.flatMap((scenario) => scenario.kind === "pilot2" ? [scenario.collectionRoute] : []),
+      ...evidenceScenarios.flatMap((scenario) => scenario.kind === "pilot2" || scenario.kind === "legacy-social" ? [scenario.collectionRoute] : []),
       ...learnerCourse.resourceChecks.map((check) => check.route),
       ...learnerCourse.mobile.routes,
       ...(learnerCourse.knownMissingHooks || []).map((gap) => gap.route)

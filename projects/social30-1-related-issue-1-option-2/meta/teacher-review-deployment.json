@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "purpose": "teacher-review-only",
+  "learnerRelease": false,
+  "deployedAt": "2026-09-18T16:53:17.872Z",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "biology30pilot",
+    "url": "https://biology30pilot.web.app"
+  },
+  "selectorUrl": "https://biology30pilot.web.app/#social30-1-issue1",
+  "courseUrl": "https://biology30pilot.web.app/social30-1-issue1/index.html",
+  "reviewVersion": "20260918-social1-2",
+  "indexSha256": "44a0fd32408dbdf1526a1c6c7da6d0a9a95fa7f26d9d55d78034a38c4d0a56ef",
+  "sharedReceipt": "projects/biology30-unit-a-pilot-2/meta/review-selector-deployment.json",
+  "verification": {
+    "doctor": "passed legacy-snapshot-v1",
+    "workspaceAssets": "passed; existing external Material Symbols font dependency remains",
+    "projectE2E": "passed",
+    "e2eHarness": "8 passed",
+    "focusedSavedWorkReaderAndVocabulary": "passed",
+    "textbookEvidence": "passed",
+    "studentToolsEvidence": "passed",
+    "liveBrowser": "passed selector, saving/collection/reload, textbook practice/reader, vocabulary, science switching and phone overflow",
+    "allPublishedFileHashesMatch": true,
+    "scienceFilesPreserved": 1651,
+    "postPublishVerificationRetry": "Final selector verification retried after CDN propagation; hash then matched. No extra course edits were published."
+  },
+  "deferred": [
+    "comprehensive Studio Edit/Apply/reload/Undo lifecycle",
+    "SCORM packaging and suspend-data capacity",
+    "actual Brightspace save/resume/completion",
+    "physical-device and comprehensive accessibility coverage",
+    "teacher acceptance"
+  ]
+}

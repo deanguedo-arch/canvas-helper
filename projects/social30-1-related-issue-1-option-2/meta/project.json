@@ -11,7 +11,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-23T15:31:53.176Z",
-  "updatedAt": "2026-08-27T15:38:52.113Z",
+  "updatedAt": "2026-09-18T20:09:36.369Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -19,7 +19,12 @@
   ],
   "canonicalEntry": "projects/social30-1-related-issue-1-option-2/workspace/index.html",
   "canonicalSources": [
-    "projects/social30-1-related-issue-1-option-2/workspace/index.html"
+    "projects/social30-1-related-issue-1-option-2/workspace/index.html",
+    "projects/social30-1-related-issue-1-option-2/workspace/social-visual.css",
+    "projects/social30-1-related-issue-1-option-2/workspace/social-lesson-tools.js",
+    "projects/social30-1-related-issue-1-option-2/workspace/social-textbook-practice.js",
+    "projects/social30-1-related-issue-1-option-2/workspace/social-tools-evidence.js",
+    "projects/social30-1-related-issue-1-option-2/workspace/scorm-tracking.json"
   ],
   "generatedOutputs": [],
   "authoring": {
@@ -39,11 +44,6 @@
           "htmlPath": "index.html",
           "route": "#overview",
           "stateKey": null
-        },
-        {
-          "htmlPath": "index.html",
-          "route": "#lessons",
-          "stateKey": "native-details-open"
         },
         {
           "htmlPath": "index.html",
@@ -199,6 +199,16 @@
           "htmlPath": "index.html",
           "route": "#resources",
           "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#textbook-practice",
+          "stateKey": null
         }
       ]
     }
@@ -226,7 +236,7 @@
     "/Users/deanguedo/Downloads/D2LExport_156476_ONLINE_202681940.zip",
     "projects/social30-1-related-issue-1-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The workspace is the preserved SCORM 2004 learner snapshot recovered from D2LExport_156476_ONLINE_202681940.zip. The prior Social factory rebuild is quarantined; do not run its builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "The workspace is the preserved SCORM 2004 learner snapshot recovered from D2LExport_156476_ONLINE_202681940.zip. The prior Social factory rebuild is quarantined; do not run its builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable. Issue 1 visual and lesson-support pass: canonical HTML definitions/guides/Frayer fields, scoped CSS and behavior; lesson-support.json records provenance and textbook page mappings. Legacy builder remains quarantined.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 1 (Option Two)",
     "issueQuestion": "To what extent should ideology be the foundation of identity?",
@@ -240,5 +250,30 @@
   "injectedComponents": [],
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-08-19T18:26:55.348Z"
+  "learningUpdatedAt": "2026-08-19T18:26:55.348Z",
+  "scormIntegration": {
+    "version": "2004",
+    "owner": "scripts/lib/exports/scorm-package.ts",
+    "trackingContract": "projects/social30-1-related-issue-1-option-2/workspace/scorm-tracking.json",
+    "stateTransport": "existing localStorage stores; no migration",
+    "features": [
+      "LMS save status",
+      "Save now",
+      "Save and Exit",
+      "answers and Evidence Bank restoration",
+      "page resume",
+      "required-lesson progress and completion",
+      "active session and page timing",
+      "failed-save retry",
+      "oversize-save protection",
+      "Ungraded action counts and timestamps",
+      "Foreground-visible and idle page-time summaries"
+    ],
+    "packagingStatus": "not packaged",
+    "liveBrightspaceVerified": false,
+    "notes": "Shared exporter creates the current scorm-bridge.js and injects it before lesson initialization. Retain original completion/response/evidence IDs. Optional tools and textbook practice do not count toward completion.",
+    "actionReporting": "opt-in ungraded SCORM 2004 interactions; counts and first/latest timestamps",
+    "timeReporting": "active session time plus per-page active/foreground-visible/idle summaries"
+  },
+  "workspaceApprovedAt": "2026-09-18T20:09:36.369Z"
 }

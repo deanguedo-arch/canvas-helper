@@ -1,0 +1,65 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "social10-1-related-issue-4-option-2",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lesson-01",
+      "issue-inquiry",
+      "evidence-bank",
+      "resources",
+      "core-vocabulary",
+      "library",
+      "study-guide",
+      "source-analysis",
+      "position-builder",
+      "film-room",
+      "textbook-practice"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "evidence-bank"
+    ],
+    "evidenceScenario": {
+      "kind": "legacy-social",
+      "route": "position-builder",
+      "responseId": "social10-1-related-issue-4-option-2:position:claim",
+      "collectionRoute": "evidence-bank",
+      "collectionId": "student-tool-position-builder",
+      "saveSelector": "[data-tool-collect=\"position-builder\"]"
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-01",
+        "evidence-bank",
+        "core-vocabulary",
+        "textbook-practice"
+      ]
+    }
+  }
+}
