@@ -1,0 +1,486 @@
+{
+  "pack": "math10c-factorization-reference-v1",
+  "subject": "factoring",
+  "cases": [
+    {
+      "id": "FACT-GCF-01",
+      "category": "gcf",
+      "prompt": "Factor completely over the integers: 6x^2 + 9x",
+      "variable": "x",
+      "polynomial": [
+        6,
+        9,
+        0
+      ],
+      "expected": {
+        "content": 3,
+        "factors": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "3x(2x + 3)",
+        "(3x)(2x + 3)"
+      ],
+      "misconception": "Factoring out only x and leaving 3x(2x + 9), missing the numeric GCF of 3.",
+      "derivation": "GCF of 6x^2 and 9x is 3x; 6x^2 + 9x = 3x(2x + 3). Check: 3x(2x + 3) = 6x^2 + 9x.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-GCF-NEG-02",
+      "category": "gcf",
+      "prompt": "Factor completely over the integers: -4x^2 - 8x",
+      "variable": "x",
+      "polynomial": [
+        -4,
+        -8,
+        0
+      ],
+      "expected": {
+        "content": -4,
+        "factors": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "-4x(x + 2)",
+        "(-4x)(x + 2)"
+      ],
+      "misconception": "Factoring out +4x instead of -4x, giving 4x(-x - 2); equivalent in value but not the canonical negative-leading-term form.",
+      "derivation": "Both terms share -4x with a negative leading term: -4x^2 - 8x = -4x(x + 2). Check: -4x(x + 2) = -4x^2 - 8x.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-DOS-03",
+      "category": "difference-of-squares",
+      "prompt": "Factor completely over the integers: x^2 - 49",
+      "variable": "x",
+      "polynomial": [
+        1,
+        0,
+        -49
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            1,
+            -7
+          ],
+          [
+            1,
+            7
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(x - 7)(x + 7)",
+        "(x + 7)(x - 7)"
+      ],
+      "misconception": "Writing (x - 7)^2, confusing difference of squares with a perfect-square trinomial.",
+      "derivation": "Both terms are squares: x^2 - 49 = (x)^2 - (7)^2 = (x - 7)(x + 7). Check: (x - 7)(x + 7) = x^2 - 49.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-DOS-04",
+      "category": "difference-of-squares",
+      "prompt": "Factor completely over the integers: 9x^2 - 25",
+      "variable": "x",
+      "polynomial": [
+        9,
+        0,
+        -25
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            3,
+            -5
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(3x - 5)(3x + 5)",
+        "(3x + 5)(3x - 5)"
+      ],
+      "misconception": "Writing (3x - 5)^2, or trying (9x - 5)(x + 5), which expands to 9x^2 + 40x - 25.",
+      "derivation": "9x^2 = (3x)^2 and 25 = 5^2, so 9x^2 - 25 = (3x - 5)(3x + 5). Check: (3x - 5)(3x + 5) = 9x^2 - 25.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-MONIC-05",
+      "category": "monic-trinomial",
+      "prompt": "Factor completely over the integers: x^2 + 5x + 6",
+      "variable": "x",
+      "polynomial": [
+        1,
+        5,
+        6
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(x + 2)(x + 3)",
+        "(x + 3)(x + 2)"
+      ],
+      "misconception": "Choosing 1 and 6 (sum 7, not 5) and answering (x + 1)(x + 6).",
+      "derivation": "Need integers with product 6 and sum 5: 2 and 3. So x^2 + 5x + 6 = (x + 2)(x + 3). Check: (x + 2)(x + 3) = x^2 + 5x + 6.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-MONIC-06",
+      "category": "monic-trinomial",
+      "prompt": "Factor completely over the integers: x^2 - 3x - 10",
+      "variable": "x",
+      "polynomial": [
+        1,
+        -3,
+        -10
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            1,
+            -5
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(x - 5)(x + 2)",
+        "(x + 2)(x - 5)"
+      ],
+      "misconception": "Using +5 and -2 (sum +3) and answering (x + 5)(x - 2), flipping the sign of the middle term.",
+      "derivation": "Need integers with product -10 and sum -3: -5 and 2. So x^2 - 3x - 10 = (x - 5)(x + 2). Check: (x - 5)(x + 2) = x^2 - 3x - 10.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-NONMONIC-07",
+      "category": "non-monic-trinomial",
+      "prompt": "Factor completely over the integers: 2x^2 + 7x + 3",
+      "variable": "x",
+      "polynomial": [
+        2,
+        7,
+        3
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(2x + 1)(x + 3)",
+        "(x + 3)(2x + 1)"
+      ],
+      "misconception": "Answering (2x + 3)(x + 1), which expands to 2x^2 + 5x + 3 with the wrong middle term.",
+      "derivation": "ac = 6; integers with product 6 and sum 7 are 1 and 6. Split: 2x^2 + x + 6x + 3 = x(2x + 1) + 3(2x + 1) = (2x + 1)(x + 3). Check: (2x + 1)(x + 3) = 2x^2 + 7x + 3.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-NONMONIC-08",
+      "category": "non-monic-trinomial",
+      "prompt": "Factor completely over the integers: 3x^2 - 10x + 8",
+      "variable": "x",
+      "polynomial": [
+        3,
+        -10,
+        8
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            3,
+            -4
+          ],
+          [
+            1,
+            -2
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(3x - 4)(x - 2)",
+        "(x - 2)(3x - 4)"
+      ],
+      "misconception": "Answering (3x - 8)(x - 1), which expands to 3x^2 - 11x + 8 with the wrong middle term.",
+      "derivation": "ac = 24; integers with product 24 and sum -10 are -4 and -6. Split: 3x^2 - 4x - 6x + 8 = x(3x - 4) - 2(3x - 4) = (3x - 4)(x - 2). Check: (3x - 4)(x - 2) = 3x^2 - 10x + 8.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-PSQ-09",
+      "category": "perfect-square-trinomial",
+      "prompt": "Factor completely over the integers: x^2 + 6x + 9",
+      "variable": "x",
+      "polynomial": [
+        1,
+        6,
+        9
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(x + 3)^2",
+        "(x + 3)(x + 3)"
+      ],
+      "misconception": "Answering (x + 9)(x - 3) or similar pairs with product 9 but sum 6 ignored.",
+      "derivation": "First and last terms are squares (x and 3) and 2(x)(3) = 6x matches the middle term, so x^2 + 6x + 9 = (x + 3)^2. Check: (x + 3)(x + 3) = x^2 + 6x + 9.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-PSQ-10",
+      "category": "perfect-square-trinomial",
+      "prompt": "Factor completely over the integers: 4x^2 - 12x + 9",
+      "variable": "x",
+      "polynomial": [
+        4,
+        -12,
+        9
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -3
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(2x - 3)^2",
+        "(2x - 3)(2x - 3)"
+      ],
+      "misconception": "Answering (2x + 3)^2, missing that the middle term is negative.",
+      "derivation": "First and last terms are squares (2x and 3) and 2(2x)(-3) = -12x matches, so 4x^2 - 12x + 9 = (2x - 3)^2. Check: (2x - 3)(2x - 3) = 4x^2 - 12x + 9.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-MULTI-11",
+      "category": "multi-step",
+      "prompt": "Factor completely over the integers: 2x^3 - 8x^2 + 8x",
+      "variable": "x",
+      "polynomial": [
+        2,
+        -8,
+        8,
+        0
+      ],
+      "expected": {
+        "content": 2,
+        "factors": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -2
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "2x(x - 2)^2",
+        "2x(x - 2)(x - 2)"
+      ],
+      "misconception": "Stopping after the GCF step at 2x(x^2 - 4x + 4) without factoring the remaining perfect-square trinomial.",
+      "derivation": "First remove the GCF 2x: 2x(x^2 - 4x + 4). Then x^2 - 4x + 4 = (x - 2)^2 since 2(x)(-2) = -4x. So 2x^3 - 8x^2 + 8x = 2x(x - 2)^2. Check: 2x(x - 2)(x - 2) = 2x^3 - 8x^2 + 8x.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-MULTI-12",
+      "category": "multi-step",
+      "prompt": "Factor completely over the integers: 3x^2 - 12",
+      "variable": "x",
+      "polynomial": [
+        3,
+        0,
+        -12
+      ],
+      "expected": {
+        "content": 3,
+        "factors": [
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "3(x - 2)(x + 2)",
+        "3(x + 2)(x - 2)"
+      ],
+      "misconception": "Factoring as (3x - 6)(x + 2) without removing the GCF first, or stopping at 3(x^2 - 4).",
+      "derivation": "First remove the GCF 3: 3(x^2 - 4). Then x^2 - 4 = (x - 2)(x + 2). So 3x^2 - 12 = 3(x - 2)(x + 2). Check: 3(x - 2)(x + 2) = 3x^2 - 12.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-PRIME-13",
+      "category": "prime-over-integers",
+      "prompt": "Determine whether x^2 + x + 1 factors over the integers.",
+      "variable": "x",
+      "polynomial": [
+        1,
+        1,
+        1
+      ],
+      "expected": {
+        "prime_over_integers": true,
+        "prime_argument": {
+          "kind": "quadratic-discriminant",
+          "discriminant": -3
+        }
+      },
+      "equivalent_forms": [
+        "prime over the integers",
+        "irreducible over the integers (quadratic with negative discriminant)"
+      ],
+      "misconception": "Claiming (x + 1)(x + 1) = x^2 + x + 1, when it expands to x^2 + 2x + 1.",
+      "derivation": "For x^2 + x + 1, the discriminant is 1^2 - 4(1)(1) = -3, which is negative, so there are no real (hence no integer) linear factors. Prime over the integers.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    },
+    {
+      "id": "FACT-REPEAT-14",
+      "category": "repeated-factor",
+      "prompt": "Factor completely over the integers: x^3 - 3x^2 + 3x - 1",
+      "variable": "x",
+      "polynomial": [
+        1,
+        -3,
+        3,
+        -1
+      ],
+      "expected": {
+        "content": 1,
+        "factors": [
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      },
+      "equivalent_forms": [
+        "(x - 1)^3",
+        "(x - 1)(x - 1)(x - 1)"
+      ],
+      "misconception": "Grouping as x^2(x - 3) + 3(x - 1) and stopping, missing the repeated root x = 1 of multiplicity 3.",
+      "derivation": "x = 1 is a root (1 - 3 + 3 - 1 = 0); dividing out (x - 1) repeatedly gives (x - 1)^3. Check: (x - 1)(x - 1)(x - 1) = x^3 - 3x^2 + 3x - 1.",
+      "domain": {
+        "coefficients": "integers",
+        "factor_over": "integers"
+      }
+    }
+  ]
+}

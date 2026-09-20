@@ -1,5 +1,49 @@
 # Archived Handoffs
 
+## Archived 2026-09-20 — Social Option Two family packaging and Git checkpoint
+
+# Handoff
+
+- Project: all 12 Social 10-1, 20-1 and 30-1 Related Issues 1–4, Option Two.
+- Task: Apply the accepted automatic-save pilot and deliver a combined SCORM download.
+- Status: all 12 production packages and combined download built and archive-verified. On 2026-09-19, the teacher explicitly authorized committing and pushing the current repository checkpoint so the online Git repository is current for ChatGPT review. This does not authorize LMS upload or deployment.
+- Download: /Users/deanguedo/Downloads/Social-Option-Two-SCORM-2004-2026-09-18-v5.zip (2,693,970,093 bytes; 12 inner upload ZIPs).
+
+### What changed / why
+The teacher confirmed the Social 20 Issue 1 pilot works and explicitly requested all Social courses packaged with it. All 12 canonical bodies now opt into data-scorm-save-mode="automatic". Successful status banners stay hidden; the manual Save and Exit control is omitted. Debounced edit saves, heartbeat, navigation/visibility saves and unload termination remain active. Required save failures expose Save now retry and hide after recovery. Native interaction timestamps use whole-second UTC precision to correct the actual Brightspace error 406 seen on three-digit milliseconds. Optional reporting failures remain logged/retryable and do not block learner saves.
+
+### Files changed
+- Eleven sibling projects/<slug>/workspace/index.html body attributes; Social 20 Issue 1 already opted in.
+- scripts/tests/social-option2-scorm.mts: automatic-mode save/reopen and failure/retry coverage now applies to every opted-in course.
+- docs/workflows/scorm-tracking.md: accepted family opt-in.
+- All 12 generated exports/scorm-2004 trees and individual upload ZIPs.
+- projects/social30-1-related-issue-1-option-2/meta/option-two-scorm-integration.json and option-two-scorm-release.json.
+- Per-course meta/visual-layer-handoff.md and operational active/archive handoffs.
+
+### Verification run
+All 12 current real-Social-HTML simulated-LMS checks passed: retained legacy answers/Evidence Bank/new vocabulary notes, required completion, resume, timing, strict whole-second interaction timestamps, automatic edit saves, reopen, no early termination, hidden successful status, and visible failed-commit retry/recovery. All 12 production export gates passed. Final ZIP CRCs, manifest-file presence, binary assets versus LFS pointers, local resource references, automatic-save opt-ins and current bridge checks passed, followed by combined archive CRC and SHA-256. Prior project E2E contracts all passed during initial packaging; shared exporter/tracking unit checks 26 passed during the pilot. Passing unrelated suites were not repeated.
+
+### Source of truth
+Legacy-snapshot-v1 canonical workspace HTML and scoped support/tracking contracts remain owners. scripts/lib/scorm-actions.ts, scorm-tracking.ts and scorm.ts own shared bridge behavior; scripts/lib/exports/scorm-package.ts owns injection/manifests. No quarantined builder ran. Branch codex/social-ela-updates; restore checkpoint commit 280aaf12249982ffab1a63172d519b39f2d4c171 remains the pre-update recovery point. The current checkpoint is committed and pushed on this branch under the teacher's 2026-09-19 authorization.
+
+### Fragile areas / watchouts
+Preserve all route/response/completion/storage IDs and shared canonical Frayer controls. Optional analytics are neutral/ungraded; external media access is not proof of watching. macOS zip omits UTF-8 flags for inherited non-ASCII names; archive headers are normalized without changing compressed contents, then CRC/manifest checks verify them. Recheck encoding on future exports. Large inherited course asset bundles remain intact. No Biology/Chemistry setting changes.
+
+### Known risks / what still needs validation
+The teacher reported the Social 20 Issue 1 pilot works; the agent did not independently certify all LMS reports or sibling attempts. Actual sibling upload/reopen/report checks and comprehensive Studio lifecycle remain deferred. Some Social 10 source materials are unavailable; lessons and download resource notes identify them. Earlier teacher-review deployment is unchanged.
+
+### Next prompt should assume
+The user authorizes family packaging with the accepted automatic mode and, on 2026-09-19, explicitly authorized committing and pushing the current repository checkpoint for online review. No LMS uploads or deployment are authorized. Prior v2 family and v4 single-course packages are superseded by the new family download.
+
+### Exact next action
+Extract the combined download and upload individual inner ZIPs to Brightspace; verify normal saved work and reports before broad assignment.
+
+### Exact next file to open
+projects/social30-1-related-issue-1-option-2/meta/option-two-scorm-release.json
+
+### Do not do next / warnings
+Do not upload the outer download ZIP as a SCORM activity. Do not run quarantined Social builders or publish unrelated changes.
+
 ## Archived 2026-09-17 — previous shared-selector deployment
 
 ## Current deployment: shared Biology/Chemistry review selector — 2026-09-17
@@ -15439,3 +15483,81 @@ projects/social20-1-related-issue-1-option-2/meta/scorm-troubleshooting-release.
 
 ## Do not do next / warnings
 Do not upload the outer ZIP as a SCORM activity. Do not run quarantined Social builders, redeploy siblings or commit unrelated dirty work without authorization.
+
+## Archived 2026-09-20 — Muse delegation operator tooling
+
+# Handoff
+
+- Project: repo-wide Canvas Helper operator tooling.
+- Task: Add safe Codex-to-Muse delegation so bounded implementation can use the user's Muse subscription.
+- Status: local Build-mode implementation complete and focused checks passed; changes are uncommitted.
+
+## Files changed
+- `.agents/skills/muse-delegate/SKILL.md`
+- `.agents/skills/muse-delegate/references/task-contract.md`
+- `.agents/skills/muse-delegate/scripts/control.py`
+- `.agents/skills/muse-delegate/scripts/launch.py`
+- `.agents/skills/muse-delegate/scripts/report.py`
+- `.agents/skills/muse-delegate/scripts/usage.py`
+- `.agents/skills/muse-delegate/scripts/test_launcher.py`
+- `AGENTS.md`
+- `ARCHITECTURE.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+- Added an automatically discoverable repo-local skill that routes substantial, well-bounded implementation and test work to the local Muse CLI while Codex retains planning, source ownership, review, integration, and final claims.
+- Added a launcher that records the starting commit, rejects dirty changes overlapping the delegated allowlist, creates a detached worktree, keeps the Muse sandbox enabled, stores ignored JSONL evidence, and fails the handoff when changed paths escape the allowlist.
+- Added a persistent ignored on/off switch plus a `MUSE_DELEGATION=off` environment override. The launcher refuses to start while either switch is disabled, and re-enabling does not require reinstalling the skill. Confirmed usage-limit failures open a five-hour automatic cooldown that expires without manual intervention; ordinary failures do not trip it.
+- Added an ignored five-hour usage-window ledger. Each delegated prompt records its provider-call count and input, cached-input, output, and reasoning tokens; a confirmed quota wall closes the window with elapsed time and totals. Controller status shows the active window and latest quota wall. The automatic cooldown now matches the published five-hour subscription window.
+- Imported the completed SCORM Muse session as the first observed window sample: 1 delegated prompt, 58 provider calls, 5,550,879 input tokens (5,332,521 cached), and 50,090 output tokens. No quota wall has been observed yet.
+- Live-tested a second read-only SCORM audit prompt. It completed without hitting the quota wall and added 4 provider calls, 148,491 input tokens (116,548 cached), and 2,014 output tokens. The active observed window now totals 2 prompts, 62 provider calls, 5,699,370 input tokens (5,449,069 cached), and 52,104 output tokens.
+- Corrected live usage capture after the quick run proved that `muse exec --json` may omit provider-usage events. The launcher now captures the session id, creates a redacted offline session export after completion, and uses its totals while retaining stream parsing as a fallback.
+- Added a retained-worktree reporter and focused tests for allowlist matching, a successful allowed edit, scope-violation rejection, and report verification.
+- Recorded the user's ongoing Muse-delegation preference in `AGENTS.md` and documented the local operator boundary in `ARCHITECTURE.md`.
+
+## Why this changed
+- The user wants appropriate implementation work shifted to their Muse subscription while continuing to run and supervise the overall task in Codex.
+
+## Verification run
+- `python3 .agents/skills/muse-delegate/scripts/test_launcher.py -v`: 7 passed, including usage accumulation, five-hour rollover on launch and status, quota-wall closure, manual disable/refuse/re-enable, and automatic cooldown/expiry behavior.
+- `python3 -m py_compile ...`: controller, launcher, reporter, and tests compiled.
+- Skill Creator `quick_validate.py`: `Skill is valid!` using an ephemeral `/tmp` PyYAML dependency; no user Python packages were installed.
+- Launcher and reporter `--help`: passed; controller status and `MUSE_DELEGATION=off` override produced the expected enabled/disabled states.
+- `git diff --check`: passed before the handoff update and must be repeated before integration.
+
+## Source of truth
+- `.agents/skills/muse-delegate/SKILL.md` owns the delegation workflow.
+- `.agents/skills/muse-delegate/scripts/launch.py` owns isolation, execution, evidence capture, and path enforcement.
+- `AGENTS.md` owns the persistent repo preference and authorization boundaries.
+
+## Fragile areas / watchouts
+- Muse CLI flags and JSONL event shapes may change with future Muse versions. The launcher treats unknown JSON events as transcript-only and depends only on `run.terminal.completed` for the optional final report.
+- Muse exposes no quota-status command in the installed CLI, so availability cannot be checked before a run. Automatic cooldown starts only after a failed error/terminal/provider event contains a specific usage- or quota-exhaustion signal. The usage ledger sees launcher-managed runs only; separate terminal sessions remain outside its totals unless imported from a session export.
+- Retained worktrees intentionally accumulate until reviewed or manually removed.
+- Dirty changes outside the delegated allowlist are excluded from Muse's detached worktree; Codex must ensure they are not hidden dependencies.
+
+## Next prompt should assume
+- The user has authorized routine delegation of suitable bounded Canvas Helper implementation to Muse to reduce Codex usage.
+- The user regularly exhausts their weekly Codex allowance, so Canvas Helper now defaults to Muse-first economy mode for bounded reconnaissance, implementation, test iteration, and mechanical documentation. Codex should not shadow healthy runs or duplicate Muse's implementation loop.
+- Delegation alone does not authorize applying, committing, pushing, packaging, deploying, or publishing Muse output.
+- The previously tested Muse executable is available locally; `MUSE_BIN` remains the explicit fallback.
+
+## What still needs validation
+- The new wrapper has not spent another real Muse run. Its orchestration was tested with a fake Muse process; the immediately preceding SCORM task independently proved the same real Muse `exec --json` and existing-worktree CLI combination.
+- Full repository typecheck, Studio build, and broad E2E are deferred because this Build-mode change does not alter learner or Studio runtime behavior.
+
+## Known risks
+- A future Muse CLI breaking change could require launcher argument or event parsing updates.
+- The skill reduces Codex implementation work but Codex still uses context for task decomposition, monitoring, review, and integration.
+
+## Exact next action
+Use `$muse-delegate` automatically on the next substantial bounded implementation task, then inspect its retained worktree and independently rerun the affected checks before integration.
+
+## Exact next file to open
+`.agents/skills/muse-delegate/SKILL.md`
+
+## Do not do next / warnings
+- Do not integrate a scope-violating run.
+- Do not treat Muse's final report as independent verification.
+- Do not commit, push, package, deploy, or publish delegated output without authorization from the active task.

@@ -316,6 +316,16 @@ Read-discipline, surgical-default, and mode-overlay rules must be interpreted in
 - When subagent mode is active, keep the surgical-default rules on for the rest of the task unless the user changes the scope.
 - Do not keep asking whether to apply subagent rules after subagent mode is confirmed.
 
+## Muse Delegation
+
+- The user regularly exhausts their weekly Codex allowance and wants Canvas Helper to operate in Muse-first economy mode. Use `.agents/skills/muse-delegate/SKILL.md` for bounded repository reconnaissance, implementation, test iteration, and mechanical documentation when exact allowed paths and objective checks can be stated.
+- Codex retains task decomposition, source-of-truth decisions, integration, independent verification, and final claims. Do not delegate ambiguous teacher judgment, release decisions, or work that depends on uncommitted changes inside the delegated boundary.
+- Every Muse run must use the skill launcher, a detached worktree at a recorded commit, and an explicit path allowlist. Treat Muse output as an untrusted patch until Codex reviews the complete diff and reruns the affected checks.
+- Keep delegation economical: batch related work into one contract, do not shadow or repeatedly poll a healthy Muse run, inspect its completed diff once, and run one focused verification batch. Expand Codex review only for demonstrated risk, drift, or failure.
+- Delegation does not authorize applying, committing, pushing, packaging, deploying, or publishing the result. Preserve those authorization boundaries from the active task.
+- If the user asks to stop Muse delegation, run the skill's `control.py disable` command and continue suitable work in Codex. A confirmed Muse usage-limit failure closes the tracked five-hour usage window and opens an automatic five-hour circuit breaker; generic failures do not. Do not retry during a manual disable or active cooldown. Manual state persists until the user re-enables it; automatic state expires at its recorded time.
+- Every delegated run must contribute its prompt, provider-call, and token totals to the ignored `.runtime/muse-delegate/usage-windows.json` ledger. When a quota wall occurs, report the totals and elapsed time from the first tracked prompt in that observed window. State clearly that direct Muse sessions outside the launcher are not included.
+
 ## Intelligence Rules
 
 - Collection and application are governed by the explicit learner mode and policy flags.
