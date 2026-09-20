@@ -2,7 +2,7 @@
 
 - Project: Math 10C generated-course preparation in Canvas Helper.
 - Task: Build an Astra-plan-based pre-generation audit harness for the future ChatGPT candidate, using Muse for bounded implementation.
-- Status: local Build-mode implementation complete and focused checks passed; no candidate course has been imported, changed, packaged, deployed, committed, or pushed.
+- Status: local Build-mode pre-generation tooling complete and focused checks passed; the Math 10C private review pack was generated under ignored runtime storage. No candidate course has been imported, changed, packaged, or deployed.
 
 ## Summary
 
@@ -14,6 +14,8 @@
 - Added a reviewer-owned reference pack with 14 factoring cases and a smaller seven-case right-triangle trigonometry contrast, plus a narrow standard-library verifier. A second Muse run created the first pass; Codex reviewed all five files, independently recalculated all 21 cases, fixed malformed-input, impossible-triangle, and nonprimitive-prime handling, then integrated the result.
 - Added a privacy-conscious source registry for all six unique D2L Math exports plus the planning, audit, duplicate, and generated-candidate files. A third Muse run built the first pass. Codex corrected per-archive inspection budgets, real D2L QTI metadata parsing, embedded quiz-question coverage, original-ID relationship resolution, archive safety failures, and complete asset metadata before running all real sources.
 - The verified private runtime registry contains 662 HTML records, 3,912 question records, 168 assessment relations, and 9,114 asset records. All 2,954 item references resolve; no prompt, choice, answer, response value, feedback body, or source binary was emitted.
+- Added a private Math 10C question-and-image review-pack generator. A fourth Muse run produced the bounded four-file implementation; Codex reviewed it, fixed missing-presentation fallback, decision-schema preservation, stale-image cleanup, and encoded HTML/MathML leakage, then ran it against the real sources.
+- The ignored private review pack contains 164 matched questions (150 factoring, 14 right-triangle trigonometry) and 200 validated raster images. All questions retained visible choices, all selected records matched exact presentation hashes, and the stricter real-output audit found no raw embedded markup or hash mismatch. Human assessment, rights, learner-use, accessibility, and alt-text decisions remain blank.
 
 ## Files changed
 
@@ -34,6 +36,10 @@
 - `tasks/math-source-registry/README.md`
 - `tasks/math-source-registry/PREGENERATION_WORK_MAP.md`
 - `tasks/math-source-registry/VERIFIED_SOURCE_SUMMARY.md`
+- `scripts/build-math-source-review-pack.py`
+- `scripts/test-build-math-source-review-pack.py`
+- `tasks/math-source-review-pack/README.md`
+- `tasks/math-source-review-pack/REVIEW_CONTRACT.json`
 - `.agents/skills/muse-delegate/SKILL.md`
 - `.agents/skills/muse-delegate/scripts/launch.py`
 - `.agents/skills/muse-delegate/scripts/test_launcher.py`
@@ -56,6 +62,10 @@
 - `python3 scripts/test-build-math-source-registry.py`: 13 passed after Codex review fixes.
 - Full private-source registry run: 17/17 expected files hash-validated; six unique authoritative course exports scanned; output privacy self-audit passed; 2,954/2,954 assessment references resolved; no unsafe paths, duplicate archive members, case collisions, or unreadable archives.
 - Muse run `20260920T204435Z-math-family-source-registry-9339cdcf`: completed at the same base commit; five changed files all within the allowlist; retained-worktree diff check passed.
+- Muse run `20260920T213443Z-math10c-private-review-pack-8996dab9`: completed at base commit `b3febcf9d29d0559f6ee9248fe70a9c476b32858`; four changed files all within the allowlist; retained-worktree diff check passed.
+- `python3 scripts/test-build-math-source-review-pack.py`: 122 passed after Codex review fixes.
+- Real private review-pack run: 164/164 selected questions emitted, 200 images copied under the configured cap, output privacy/security self-audit passed, and an independent Codex check confirmed presentation presence, topic scope, plain-text queues, raster filenames, and image content hashes.
+- Local rendered-page inspection confirmed the static review page loads its question provenance, visible prompts/choices, and validated images. The inspection caught and removed non-visible D2L presentation settings from prompt text before the final run.
 
 ## Muse usage evidence
 
@@ -65,6 +75,7 @@
 - The new active Muse window contains 1 delegated prompt, 13 provider calls, 504,862 input tokens (463,677 cached), and 19,947 output tokens. No quota wall has been observed.
 - Codex usage was sampled immediately before and after the complete reference-fixture cycle: 29% before and 30% after, an observed increase of 1 weekly percentage point. This included contract design, monitoring, full review, corrections, independent math recalculation, integration, and focused verification. The meter is rounded and account-wide, so this is not exact per-task billing. The ignored observation record is `.runtime/muse-delegate/codex-usage-observations.json`.
 - The complete Math-family registry cycle moved Codex from 30% to 31%, another observed increase of 1 weekly percentage point. Muse supplied 19 provider calls, 1,156,174 input tokens (1,088,227 cached), and 33,942 output tokens. The current Muse window totals two prompts and 32 provider calls with no quota wall.
+- The complete private review-pack cycle moved Codex from 31% to 31%, an observed change of 0 weekly percentage points. Muse supplied 43 provider calls, 3,623,010 input tokens (3,504,251 cached), and 48,610 output tokens. The current five-hour Muse window totals 3 prompts, 75 provider calls, 5,284,046 input tokens (5,056,155 cached), and 102,499 output tokens, with no quota wall. The Codex percentage is rounded and account-wide, so 0 displayed points does not mean zero underlying usage.
 
 ## Known risks / follow-up
 
@@ -74,6 +85,7 @@
 - The reference fixtures validate a deliberately narrow representation and are audit samples, not curriculum certification or a general learner-answer checker.
 - All source-registry question roles remain unclassified. A practice bank cannot be created until a human separates formative candidates from formal/restricted assessments.
 - All 9,114 source assets remain rights-unreviewed and unapproved for learner use. Two large archives reached the optional asset-content inspection limit after their manifests, questions, quizzes, and HTML were processed; 270 asset records therefore retain path/size/CRC but not a content SHA-256 or dimensions.
+- The review pack reached its conservative 200-image cap; 168 additional image references were recorded as skipped. Nothing in the pack is approved for reuse, learner delivery, accessibility, or assessment use until a human completes the decision files.
 - Broad Studio, course, SCORM, and LMS checks are deferred until a candidate exists and the user requests the rollout checkpoint.
 
 ## Source of truth
@@ -83,6 +95,7 @@
 - `tasks/math10c-preflight/AUDIT_REPORT_TEMPLATE.md` owns the human audit structure and separate verdicts.
 - `tasks/math-source-registry/SOURCE_INPUTS.json` owns the filename, role, size, hash, course, and source-variant registry for the available Math family.
 - `.runtime/math-source-registry-v1/` holds the reproducible private metadata indexes; `tasks/math-source-registry/VERIFIED_SOURCE_SUMMARY.md` is the sanitized durable summary.
+- `scripts/build-math-source-review-pack.py` owns deterministic private review-pack construction; `tasks/math-source-review-pack/REVIEW_CONTRACT.json` owns its review boundary. `.runtime/math-source-review-pack-v1/` holds private question text, image copies, blank decision templates, and the static review page and must remain ignored.
 - The future imported candidate must declare its own canonical editable entry and sources before integration.
 
 ## Fragile areas / what might drift
@@ -101,7 +114,7 @@
 
 ## Exact next action
 
-When the ChatGPT candidate arrives, run the candidate scanner and compare it with the private source registry. Before then, the next safe Muse task is a private review-pack builder for human classification of factoring/trig questions and rights/accessibility review of images; that task should begin only from a committed or otherwise clean registry base.
+Review `.runtime/math-source-review-pack-v1/index.html`, then record question decisions in `question-decisions.json` and image decisions in `image-decisions.json`. When the ChatGPT candidate arrives, run the candidate scanner and compare it with the private source registry and reviewed evidence.
 
 ```bash
 python3 scripts/audit-math10c-candidate.py <candidate-zip-or-directory> \
@@ -111,4 +124,4 @@ python3 scripts/audit-math10c-candidate.py <candidate-zip-or-directory> \
 
 ## Exact next file to open
 
-`tasks/math-source-registry/VERIFIED_SOURCE_SUMMARY.md`
+`.runtime/math-source-review-pack-v1/index.html`

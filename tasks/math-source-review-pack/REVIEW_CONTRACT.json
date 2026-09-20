@@ -1,0 +1,74 @@
+{
+  "contractVersion": 1,
+  "tool": "build-math-source-review-pack",
+  "status": "private-runtime-only",
+  "topics": [
+    "factoring",
+    "right-triangle-trigonometry"
+  ],
+  "questionDecisionEnum": [
+    "formative_candidate",
+    "formal_or_restricted",
+    "adaptable",
+    "unsuitable"
+  ],
+  "questionDecisionInitial": null,
+  "questionNotesInitial": "",
+  "imageDecisionFields": {
+    "rightsDecision": null,
+    "learnerUseDecision": null,
+    "accessibilityDecision": null,
+    "altText": ""
+  },
+  "permittedImageTypes": [
+    {
+      "extension": ".png",
+      "magic": "89504E470D0A1A0A",
+      "mime": "image/png"
+    },
+    {
+      "extension": ".jpg",
+      "magic": "FFD8FF",
+      "mime": "image/jpeg"
+    },
+    {
+      "extension": ".jpeg",
+      "magic": "FFD8FF",
+      "mime": "image/jpeg"
+    },
+    {
+      "extension": ".gif",
+      "magic": "GIF87a|GIF89a",
+      "mime": "image/gif"
+    }
+  ],
+  "forbiddenPayloadClasses": [
+    "correct-response-values",
+    "answer-keys",
+    "response-processing",
+    "scoring-logic",
+    "solution-bodies",
+    "feedback-bodies",
+    "raw-source-html",
+    "raw-source-xml",
+    "absolute-source-paths",
+    "executable-markup",
+    "external-resources",
+    "non-raster-media"
+  ],
+  "outputFiles": [
+    "question-review-queue.ndjson",
+    "question-decisions.json",
+    "image-review-queue.ndjson",
+    "image-decisions.json",
+    "review-pack-summary.json",
+    "index.html",
+    "images/<sha256>.<ext>"
+  ],
+  "runtime": {
+    "privateOnly": true,
+    "humanReviewRequired": true,
+    "grantsReusePermission": false,
+    "approvesLearnerUse": false
+  }
+}
