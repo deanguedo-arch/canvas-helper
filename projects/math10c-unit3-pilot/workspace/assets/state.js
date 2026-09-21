@@ -2,7 +2,8 @@
    v2 always decodes through the frozen v0.4 catalog, never current display order. */
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./catalog-registry.js'),require('./state-v2-decoder.js'));else root.MathState=factory(root.MathCatalogs,root.MathStateV2Decoder);})(globalThis,function(Registry,Legacy){
 'use strict';
-const VERSION='unit3-state-3',ENGINE='unit3-algebra-2|unit3-contracts-2.1|bounded-factors-v1';
+const VERSION='unit3-state-3',ENGINE='unit3-algebra-2|unit3-contracts-2.2|bounded-factors-v1';
+const PREVIOUS_ENGINE='unit3-algebra-2|unit3-contracts-2.1|bounded-factors-v1';
 const POLICY=Object.freeze({raw:160,recordReason:120,lessonReason:160,note:240,trigReason:160,trigRaw:80,active:6,recent:2,selected:4,attemptDetails:4,applicationCharacters:40000});
 const APP_LIMIT=POLICY.applicationCharacters,STATUS=['correct','incorrect','equivalent','intermediate','ungraded'];
 const LESSONS=['3.1','3.2','3.3','3.4','3.5','3.6','3.7','3.8'];
@@ -12,7 +13,7 @@ const clone=x=>JSON.parse(JSON.stringify(x));
 function fail(m='Saved work failed validation. The original has not been replaced.'){throw Error(m);}
 const dict=x=>x&&typeof x==='object'&&!Array.isArray(x);
 const nat=(x,max=Number.MAX_SAFE_INTEGER)=>Number.isSafeInteger(x)&&x>=0&&x<=max;
-const engines=new Set([ENGINE,'unit3-algebra-1|unit3-contracts-2.0|bounded-factors-v1']);
+const engines=new Set([ENGINE,PREVIOUS_ENGINE,'unit3-algebra-1|unit3-contracts-2.0|bounded-factors-v1']);
 function catalog(id){const c=Registry.catalogs[id];if(!c)fail('Unknown saved catalog '+String(id)+'. Recover the original bytes; do not start an empty attempt.');return c;}
 function provenance(p){if(!dict(p)||!engines.has(p.engine)||!Registry.catalogs[p.catalog]||!validText(p.content,80)||!validText(p.kind,40))fail('Unknown result provenance. Original work is retained for recovery.');if(p.detail!==undefined&&!validText(p.detail,1200))fail();return p;}
 function oldProvenance(){return{engine:Legacy.ENGINE,catalog:'unit3-catalog-v04',content:catalog('unit3-catalog-v04').contentVersion,kind:'legacy-global-version;not-regraded'};}
@@ -30,7 +31,7 @@ function encode(state){const c=catalog(Registry.current),ids=c.ids,index=new Map
 function decode(raw,{questions,pages,version}={}){
  let o;try{o=typeof raw==='string'?JSON.parse(raw):clone(raw);}catch{fail('Unreadable saved JSON. Preserve the original file for recovery.');}
  if(o?.format===Legacy.VERSION){const c=catalog('unit3-catalog-v04');if(o.engine!==c.engine||o.v!==c.contentVersion)fail('Unknown historical engine/content version.');const old=Legacy.decode(o,{questions:c.questions,pages,version:c.contentVersion});const migrated=annotateLegacy(old);migrated.v=version||catalog(Registry.current).contentVersion;return decode(encode(migrated),{questions,pages,version:migrated.v});}
- if(!dict(o)||o.format!==VERSION||o.engine!==ENGINE)fail('Unknown state schema or engine. Preserve both saved versions for recovery.');
+ if(!dict(o)||o.format!==VERSION||![ENGINE,PREVIOUS_ENGINE].includes(o.engine))fail('Unknown state schema or engine. Preserve both saved versions for recovery.');
  const allowedKeys=new Set('v rev route active pos recent pins selectedTopic runMode runSeed counts trig reasons paper done notes summary skills legacySummary summaryRevision format engine catalog seen exposure r firsts drafts strings provenances'.split(' '));
  if(Object.keys(o).some(k=>!allowedKeys.has(k)))fail('Unknown state fields require an explicit migration. Nothing has been discarded.');
  const c=catalog(o.catalog),ids=c.ids,known=id=>Object.hasOwn(c.questions,id),fixed=id=>known(id)&&/^[gcei]\d+$/.test(id);

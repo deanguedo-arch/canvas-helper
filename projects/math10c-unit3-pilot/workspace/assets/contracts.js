@@ -1,7 +1,7 @@
 /* Explicit checking contracts. Original M01-M30 are specifications, never rewritten here. */
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./algebra.js'));else root.MathContracts=factory(root.UnitMath);})(typeof globalThis!=='undefined'?globalThis:this,function(M){
 'use strict';
-const VERSION='unit3-contracts-2.1';
+const VERSION='unit3-contracts-2.2';
 const PROFILES=Object.freeze({
  'core-quadratic-v1':{variables:['x'],degree:2,power:2,nodes:64,depth:8},
  'unit-polynomial-v1':{variables:['x','y','a','b','m','n','p','q'],degree:6,power:6,nodes:96,depth:10},
@@ -12,11 +12,26 @@ function structured(raw,q){const fields=String(raw).split('|');if(fields.length!
  const [a,b]=fields.map(Number);if(![a,b].every(Number.isSafeInteger)||Math.max(Math.abs(a),Math.abs(b))>10000)return{status:'unsupported',detail:'Keep the numbers within the stated question range.'};
  if(q.contract==='integer-root-bracket-v1'){const n=q.radicand,k=q.rootPower;if(!Number.isSafeInteger(n)||![2,3].includes(k))throw Error('Invalid authored bracket contract.');return{status:b===a+1&&a>=0&&a**k<n&&n<b**k?'correct':'incorrect',detail:'Compare the neighbouring perfect powers with the given number. The lower integer must be one less than the upper integer.'};}
  return{status:a+b===q.sum&&a*b===q.product?'correct':'incorrect',detail:'Both relationships must fit: the pair adds to the middle coefficient and multiplies to the constant.'};}
+function splitEquality(raw,q,profile){
+ const text=String(raw);
+ if(typeof raw!=='string'||text.length>160)return{status:'unsupported',detail:'Use at most 160 characters, or keep a longer method in your written work.'};
+ const sides=text.split('=');
+ if(sides.length!==2)return{status:'unsupported',detail:'Record a single equality with one equals sign and an expression on each side.'};
+ try{
+  const left=M.parse(sides[0]),right=M.parse(sides[1]);
+  validateTree(left.ast,profile);validateTree(right.ast,profile);
+  if(Object.keys(left.p).some(k=>k.length>profile.degree)||Object.keys(right.p).some(k=>k.length>profile.degree))throw Error('That degree is outside this question’s checking contract.');
+  const want=M.parse(q.answer);
+  if(!M.eq(left.p,want.p)||!M.eq(right.p,want.p))return{status:'incorrect',detail:'Expand or recompute each side and compare every term with the question. Both sides must match the target polynomial.'};
+  return{status:'intermediate',detail:'Both sides match the target polynomial. This is a valid recorded step, not the final factorization.'};
+ }catch(e){return{status:e.status||'unsupported',detail:e.message};}
+}
 function check(raw,q){if(['integer-root-bracket-v1','factor-pair-v1'].includes(q.contract))return structured(raw,q);
  const id=q.contract||(['numeric','prime'].includes(q.mode)?'whole-number-v1':'unit-polynomial-v1'),profile=PROFILES[id];
  if(!profile)return{status:'unsupported',detail:'This mathematical family has no approved checker here. Keep your method for teacher review.'};
  if(q.mode==='choice')return M.check(raw,q);
- try{const r=M.parse(raw);validateTree(r.ast,profile);if(Object.keys(r.p).some(k=>k.length>profile.degree))throw Error('That degree is outside this question’s checking contract.');return M.check(raw,q);}catch(e){return{status:e.status||'unsupported',detail:e.message};}
+ if(q.mode==='split'&&String(raw).includes('='))return splitEquality(raw,q,profile);
+ try{const r=M.parse(raw);validateTree(r.ast,profile);if(Object.keys(r.p).some(k=>k.length>profile.degree))throw Error('That degree is outside this question’s checking contract.');const result=M.check(raw,q);if(q.mode==='split'&&result.status==='intermediate')return{...result,detail:'Your middle-term split is correct for this step. It preserves the polynomial and gives the product needed for grouping.'};return result;}catch(e){return{status:e.status||'unsupported',detail:e.message};}
 }
 function trig(raw,{kind='angle',opposite=6,adjacent=12,angle=30,hypotenuse=10,places=1}={}){
  const m=String(raw).trim().match(/^([+-]?(?:\d+(?:\.\d*)?|\.\d+))\s*(degrees?|deg|°|radians?|rad|m|cm)?$/i);

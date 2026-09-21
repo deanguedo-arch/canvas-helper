@@ -80,13 +80,70 @@ test("source ZIP hash matches and raw baseline is byte-identical to the ZIP", ()
   ]) {
     assert.ok(readFileSync(raw).equals(zipEntry(entry)), `${raw} differs from the ZIP`);
   }
-  for (const name of ["state.js", "contracts.js", "save-controller.js", "unit-data.js", "state-v2-decoder.js", "algebra.js"]) {
+  for (const name of ["save-controller.js", "unit-data.js", "state-v2-decoder.js", "algebra.js"]) {
     const disk = readFileSync(`${SLUG}/workspace/assets/${name}`);
     assert.ok(
       disk.equals(zipEntry(`Math10C_Repair_Candidate_v0.5/workspace/assets/${name}`)),
       `shared runtime asset ${name} was modified`,
     );
   }
+});
+
+test("checker and state are intentional canonical refinements with compatible provenance", () => {
+  assert.equal(Contracts.VERSION, "unit3-contracts-2.2");
+  assert.equal(MathState.ENGINE, "unit3-algebra-2|unit3-contracts-2.2|bounded-factors-v1");
+  for (const name of ["contracts.js", "state.js"]) {
+    const disk = readFileSync(`${SLUG}/workspace/assets/${name}`);
+    assert.ok(
+      !disk.equals(zipEntry(`Math10C_Repair_Candidate_v0.5/workspace/assets/${name}`)),
+      `${name} must differ from the ZIP: the checker refinement is intentional`,
+    );
+  }
+  assert.ok(!readFileSync(`${SLUG}/workspace/assets/contracts.js`, "utf8").includes("eval("), "checker must not use eval");
+});
+
+test("state decoder keeps pre-refinement work readable while new attempts use checker 2.2", () => {
+  const previousEngine = "unit3-algebra-2|unit3-contracts-2.1|bounded-factors-v1";
+  const current = MathState.catalog("unit3-catalog-v05");
+  const blank = {
+    v: current.contentVersion,
+    rev: 0,
+    route: "u3-overview",
+    r: {},
+    active: [],
+    pos: 0,
+    recent: [],
+    pins: [],
+    selectedTopic: "mixed",
+    runMode: "learn",
+    runSeed: 0,
+    firsts: {},
+    drafts: {},
+    counts: {},
+    trig: {},
+    reasons: {},
+    paper: {},
+    done: [],
+    notes: {},
+    exposed: [],
+    seen: [],
+    summary: { attempts: 0, correct: 0, supported: 0 },
+    skills: {},
+    legacySummary: { attempts: 0, correct: 0, supported: 0 },
+    summaryRevision: 0,
+  };
+  const packed = MathState.encode(blank);
+  packed.engine = previousEngine;
+  packed.provenances.push({
+    engine: previousEngine,
+    catalog: "unit3-catalog-v05",
+    content: current.contentVersion,
+    kind: "checked",
+    detail: "retained pre-refinement attempt",
+  });
+  const decoded = MathState.decode(packed, { pages: Pilot.ACTIVE_ROUTES, version: current.contentVersion });
+  assert.equal(decoded.route, "u3-overview");
+  assert.equal(MathState.resultProvenance({ contentVersion: current.contentVersion }).engine, MathState.ENGINE);
 });
 
 test("active route contract and SCORM tracking agree on seven routes and two IDs", () => {
@@ -374,4 +431,54 @@ test("retained content keeps unique stable edit keys", () => {
   ]) {
     assert.ok(keys.includes(key), `lost edit key: ${key}`);
   }
+});
+
+test("split-mode equality chains record a supported intermediate attempt", () => {
+  const split = { mode: "split", answer: "x^2+7*x+12", contract: "core-quadratic-v1" };
+  // 1. The exact learner chain is supported, intermediate, and never correct.
+  const exact = Contracts.check("x(x + 3) + 4(x + 3) = (x + 3)(x + 4)", split);
+  assert.equal(exact.status, "intermediate");
+  assert.notEqual(exact.status, "correct");
+  assert.notEqual(exact.status, "unsupported");
+  assert.ok(typeof exact.detail === "string" && exact.detail.length > 0);
+  // 2. Whitespace and implicit multiplication do not change the verdict.
+  const spaced = Contracts.check("  x^2 + 3x + 4x + 12 = (x+3)(x+4)  ", split);
+  assert.equal(spaced.status, "intermediate");
+  // 3. A side that misses the authored target is incorrect.
+  assert.equal(Contracts.check("x(x + 3) + 4(x + 3) = (x + 3)(x + 5)", split).status, "incorrect");
+  assert.equal(Contracts.check("x^2+3*x+4*x+13 = (x+3)(x+4)", split).status, "incorrect");
+  // 4. Empty sides and multiple equals signs are never accepted.
+  for (const raw of ["x^2+7x+12 = ", " = (x+3)(x+4)", "x^2+7x+12 = (x+3)(x+4) = x^2+7x+12"]) {
+    const result = Contracts.check(raw, split);
+    assert.ok(["input", "unsupported"].includes(result.status), `${raw} was accepted as ${result.status}`);
+    assert.notEqual(result.status, "intermediate");
+    assert.notEqual(result.status, "correct");
+  }
+  // 5. Equality stays unsupported outside split mode.
+  const factor = { mode: "factor", answer: "(x-4)(x+3)", contract: "core-quadratic-v1" };
+  const expand = { mode: "expand", answer: "x^2+9*x+20", contract: "core-quadratic-v1" };
+  assert.equal(Contracts.check("x^2+7x+12 = (x+3)(x+4)", factor).status, "unsupported");
+  assert.equal(Contracts.check("x^2+9x+20 = (x+4)(x+5)", expand).status, "unsupported");
+  // 6. Ordinary split-expression checking is unchanged.
+  const requestedSplit = Contracts.check("x^2+3*x+4*x+12", split);
+  assert.equal(requestedSplit.status, "intermediate");
+  assert.match(requestedSplit.detail, /correct for this step/i);
+  assert.equal(Contracts.check("x^2+3*x+4*x+13", split).status, "incorrect");
+  assert.equal(Contracts.check("(x+3)(x+4)", split).status, "ungraded");
+  // 7. The whole submitted chain stays within the existing entry bound.
+  const overlong = `${"1+".repeat(80)}1=(x+3)(x+4)`;
+  assert.ok(overlong.length > 160, "overlong fixture must exceed the entry bound");
+  assert.equal(Contracts.check(overlong, split).status, "unsupported");
+  // Bounded per-side failures keep their existing input/unsupported style.
+  assert.equal(Contracts.check("x^2+7x+12 = 1/2", split).status, "unsupported");
+  assert.equal(Contracts.check("x^2+7x+12 = y+1", split).status, "unsupported");
+  assert.equal(Contracts.check("x^7 = x^7", split).status, "unsupported");
+});
+
+test("a newly checked supported response immediately replaces stale history metadata", () => {
+  assert.ok(course.includes("intermediate:'Correct for this step'"));
+  assert.ok(
+    course.includes("showFeedback(task,result);if(!['input','unsupported'].includes(result.status))draftFeedback(task,r);"),
+    "supported results must refresh their checked-response feedback and history immediately",
+  );
 });
