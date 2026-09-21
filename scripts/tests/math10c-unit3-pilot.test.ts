@@ -17,27 +17,27 @@ const ZIP_SHA256 = "0d0597c864e8a705690c6ecaeb16f553073f79e30dd022afa791f467dd09
 
 // The workspace math assets are browser-first UMD scripts; execute the real
 // sources with a minimal CommonJS shim instead of the ESM interop loader.
-function loadAsset(absPath) {
+function loadAsset(absPath: string): any {
   const code = readFileSync(absPath, "utf8");
-  const module = { exports: {} };
-  const localRequire = (request) => {
+  const module: { exports: any } = { exports: {} };
+  const localRequire = (request: string): any => {
     const resolved = request.endsWith(".js") ? request : `${request}.js`;
     return loadAsset(new URL(resolved, `file://${absPath}`).pathname);
   };
   new Function("module", "exports", "require", code)(module, module.exports, localRequire);
   return module.exports;
 }
-const asset = (name) => loadAsset(new URL(`../../${SLUG}/workspace/assets/${name}`, import.meta.url).pathname);
+const asset = (name: string): any => loadAsset(new URL(`../../${SLUG}/workspace/assets/${name}`, import.meta.url).pathname);
 
 const Pilot = asset("pilot-slice.js");
 const Contracts = asset("contracts.js");
 const MathState = asset("state.js");
 
-const read = (rel) => readFileSync(rel, "utf8");
-const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
-const zipEntry = (name) => execFileSync("unzip", ["-p", ZIP, name]);
-const hrefs = (html) => [...html.matchAll(/href="#(u3-[a-z0-9-]+)"/g)].map((m) => m[1]);
-const pageSegment = (html, id) => {
+const read = (rel: string) => readFileSync(rel, "utf8");
+const sha256 = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
+const zipEntry = (name: string) => execFileSync("unzip", ["-p", ZIP, name]);
+const hrefs = (html: string) => [...html.matchAll(/href="#(u3-[a-z0-9-]+)"/g)].map((m) => m[1]);
+const pageSegment = (html: string, id: string) => {
   const start = html.indexOf(`id="${id}"`);
   assert.notEqual(start, -1, `missing page ${id}`);
   let next = html.length;
