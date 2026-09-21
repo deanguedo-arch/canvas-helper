@@ -1,0 +1,2 @@
+Current executable regressions: tests/repair/run_repair_suite.py. Native-origin and MathLive scripts are separate environment gates and may return BLOCKED. Original M01–M30 and tests/reference codec remain unchanged. Historical tests are retained under historical/tests. No test command installs or publishes the course.
+

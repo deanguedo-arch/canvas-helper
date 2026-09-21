@@ -1,0 +1,114 @@
+[
+  {
+    "id": "g351",
+    "lesson": "3.5",
+    "mode": "pair",
+    "prompt": "Complete the pair: the two integers add to 9 and multiply to 20.",
+    "answer": "4|5",
+    "expression": "x^2+9x+20",
+    "contract": "factor-pair-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "sum": 9,
+    "product": 20
+  },
+  {
+    "id": "g352",
+    "lesson": "3.5",
+    "mode": "split",
+    "prompt": "Write the complete expression with the middle term split for grouping.",
+    "answer": "x^2+9x+20",
+    "expression": "x^2+9x+20",
+    "contract": "core-quadratic-v1",
+    "contentVersion": "math10c-unit3-2.1-repair"
+  },
+  {
+    "id": "g353",
+    "lesson": "3.5",
+    "mode": "pair",
+    "prompt": "Choose two integers that support factoring this trinomial.",
+    "answer": "3|7",
+    "expression": "x^2+10x+21",
+    "contract": "factor-pair-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "sum": 10,
+    "product": 21
+  },
+  {
+    "id": "g354",
+    "lesson": "3.5",
+    "mode": "factor",
+    "prompt": "Now write the complete factorization.",
+    "answer": "(x+3)(x+7)",
+    "expression": "x^2+10x+21",
+    "contract": "core-quadratic-v1",
+    "contentVersion": "math10c-unit3-2.1-repair"
+  },
+  {
+    "id": "g321",
+    "lesson": "3.2",
+    "mode": "bracket",
+    "prompt": "Between which consecutive whole numbers does the square root of 58 lie?",
+    "answer": "7|8",
+    "expression": "√58",
+    "contract": "integer-root-bracket-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "radicand": 58,
+    "rootPower": 2
+  },
+  {
+    "id": "g322",
+    "lesson": "3.2",
+    "mode": "bracket",
+    "prompt": "Between which consecutive whole numbers does the cube root of 100 lie?",
+    "answer": "4|5",
+    "expression": "∛100",
+    "contract": "integer-root-bracket-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "radicand": 100,
+    "rootPower": 3
+  },
+  {
+    "id": "e301",
+    "lesson": "3.3",
+    "mode": "choice",
+    "prompt": "A student writes 1) −2(x − 4) = −2x − 8; 2) evaluates this at x = 1 as −10. Which numbered equality is the first incorrect one?",
+    "answer": "1",
+    "expression": "-2(x-4)",
+    "contract": "unit-polynomial-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "category": "error"
+  },
+  {
+    "id": "e302",
+    "lesson": "3.5",
+    "mode": "choice",
+    "prompt": "A student writes 1) x² + 8x + 15 = x² + 3x + 5x + 15; 2) = x(x + 3) + 5(x + 3); 3) = (x + 5)(x − 3). Which step first changes the value?",
+    "answer": "3",
+    "expression": "x^2+8x+15",
+    "contract": "unit-polynomial-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "category": "error"
+  },
+  {
+    "id": "e303",
+    "lesson": "3.8",
+    "mode": "choice",
+    "prompt": "A student writes 1) (x − 4)² = (x − 4)(x − 4); 2) = x² − 16. Which step first changes the value?",
+    "answer": "2",
+    "expression": "(x-4)^2",
+    "contract": "unit-polynomial-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "category": "error"
+  },
+  {
+    "id": "e304",
+    "lesson": "3.7",
+    "mode": "choice",
+    "prompt": "A student writes 1) 3x(2x + 5) = 6x² + 15x; 2) = 21x³. Which step is first incorrect?",
+    "answer": "2",
+    "expression": "3x(2x+5)",
+    "contract": "unit-polynomial-v1",
+    "contentVersion": "math10c-unit3-2.1-repair",
+    "category": "error"
+  }
+]

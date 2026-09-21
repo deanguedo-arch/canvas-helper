@@ -1,0 +1,42 @@
+{
+  "recordedBaseline": "d0b4cf731dd180cebee908915772e90687d40215",
+  "repositoryApplied": false,
+  "isolatedReferenceDryRun": "passed",
+  "isolatedPatchReconstruction": "passed",
+  "fullRepositoryTests": "not_run",
+  "Studio": "not_run",
+  "CI": "not_run",
+  "patchSha256": "dca943019a8b33f83da168be4d2eee4862a2a12ff5b795f83c824681390eb966",
+  "files": [
+    {
+      "path": "docs/workflows/scorm-save-receipts.md",
+      "baseSha256": null,
+      "proposedSha256": "253cd645b6a3e932d3af9db91f928b7f3c581efa3fb29e90fa04bb45522090c7",
+      "status": "unapplied-to-repository"
+    },
+    {
+      "path": "scripts/lib/scorm-state-codec.ts",
+      "baseSha256": "1cfb8b81a40a72de7c6ec1a18e0ae893fff0b5edc849a5a855550f9f0d159deb",
+      "proposedSha256": "c4c795863910e6cc853ee5b616f70072143081d4133d0b27a740f601a0c471f3",
+      "status": "unapplied-to-repository"
+    },
+    {
+      "path": "scripts/lib/scorm.ts",
+      "baseSha256": "cf43abc4622f4e89b00104cf51058668d0c9e5eaf25570a0713b4b379f9e36fd",
+      "proposedSha256": "a729b8f4a01c287624e8a5d2f9c6c41f6143b4ce6591509dc21c8e545d032dba",
+      "status": "unapplied-to-repository"
+    },
+    {
+      "path": "scripts/tests/scorm-export.test.ts",
+      "baseSha256": "48e76f068547f669187329fb60fb01deed2d78f076efe45b4f92d288eb68ed85",
+      "proposedSha256": "5b1f2bbdcc571b025ed81adc4a7ce90f180d14b88d5dafcc8d44197d4842cf14",
+      "status": "unapplied-to-repository"
+    },
+    {
+      "path": "scripts/tests/scorm-state-codec.test.ts",
+      "baseSha256": "cc0abea20c7179fe436a2257170ff74a0c4ca340a38993a22bd54059e83fed30",
+      "proposedSha256": "b630cfd4a75c6fd5646f26e1bddbcc6111cf733e0f36736d070a716d78d7cae6",
+      "status": "unapplied-to-repository"
+    }
+  ]
+}

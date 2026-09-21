@@ -1,0 +1,388 @@
+{
+  "command": "python tests/repair/worked_identity_oracles.py",
+  "cases": [
+    "MATH-11"
+  ],
+  "environment": {
+    "sympy": "1.14.0"
+  },
+  "limitations": "Equality/transform checks only; no semantic teaching, domain, diagram or classroom acceptance. Definitions and factor listings explicitly excluded.",
+  "results": [
+    {
+      "id": "worked-1-1-1",
+      "example": "Write a number as prime building blocks",
+      "sourceText": "180 = 18  ·  10",
+      "result": "passed"
+    },
+    {
+      "id": "worked-1-2-1",
+      "example": "Write a number as prime building blocks",
+      "sourceText": "180 = 2  ·  3  ·  3  ·  2  ·  5",
+      "result": "passed"
+    },
+    {
+      "id": "worked-1-3-1",
+      "example": "Write a number as prime building blocks",
+      "sourceText": "180 = 2^(2)  ·  3^(2)  ·  5",
+      "result": "passed"
+    },
+    {
+      "id": "worked-2-1-1",
+      "example": "Choose the shared part—or enough for both",
+      "sourceText": "48 = 2^(4)  ·  3",
+      "result": "passed"
+    },
+    {
+      "id": "worked-2-1-2",
+      "example": "Choose the shared part—or enough for both",
+      "sourceText": "60 = 2^(2)  ·  3  ·  5",
+      "result": "passed"
+    },
+    {
+      "id": "worked-2-2-1",
+      "example": "Choose the shared part—or enough for both",
+      "sourceText": "GCF = 2^(2)  ·  3 = 12",
+      "result": "passed"
+    },
+    {
+      "id": "worked-2-3-1",
+      "example": "Choose the shared part—or enough for both",
+      "sourceText": "LCM = 2^(4)  ·  3  ·  5 = 240",
+      "result": "passed"
+    },
+    {
+      "id": "worked-3-1-1",
+      "example": "Pair the prime factors for a square root",
+      "sourceText": "900 = 2^(2)  ·  3^(2)  ·  5^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-3-2-1",
+      "example": "Pair the prime factors for a square root",
+      "sourceText": "30  ·  30 = (2  ·  3  ·  5)(2  ·  3  ·  5)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-3-3-1",
+      "example": "Pair the prime factors for a square root",
+      "sourceText": "30^(2) = 900",
+      "result": "passed"
+    },
+    {
+      "id": "worked-4-2-1",
+      "example": "Use a root to find a dimension",
+      "sourceText": "1728 = 2^(6)  ·  3^(3)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-4-3-1",
+      "example": "Use a root to find a dimension",
+      "sourceText": "s = 2  ·  2  ·  3 = 12",
+      "result": "passed"
+    },
+    {
+      "id": "worked-5-2-1",
+      "example": "Remove the whole common factor",
+      "sourceText": "18x^(2) ÷ 6x = 3x",
+      "result": "passed"
+    },
+    {
+      "id": "worked-5-2-2",
+      "example": "Remove the whole common factor",
+      "sourceText": "30x ÷ 6x = 5",
+      "result": "passed"
+    },
+    {
+      "id": "worked-5-3-1",
+      "example": "Remove the whole common factor",
+      "sourceText": "18x^(2) + 30x = 6x(3x + 5)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-6-2-1",
+      "example": "Keep signs and both variables",
+      "sourceText": "−18x^(2) · y − 12x · y^(2) = −6xy(3x + 2y)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-6-3-1",
+      "example": "Keep signs and both variables",
+      "sourceText": "(−6xy)(3x) + (−6xy)(2y)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-7-1-1",
+      "example": "Read the factors from the rectangle",
+      "sourceText": "15 = 1  ·  15 = 3  ·  5",
+      "result": "passed"
+    },
+    {
+      "id": "worked-7-2-1",
+      "example": "Read the factors from the rectangle",
+      "sourceText": "3x + 5x = 8x",
+      "result": "passed"
+    },
+    {
+      "id": "worked-7-3-1",
+      "example": "Read the factors from the rectangle",
+      "sourceText": "x^(2) + 8x + 15 = (x + 3)(x + 5)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-8-2-1",
+      "example": "Build a positive factor pair",
+      "sourceText": "3 + 8 = 11",
+      "result": "passed"
+    },
+    {
+      "id": "worked-8-3-1",
+      "example": "Build a positive factor pair",
+      "sourceText": "x^(2) + 11x + 24 = (x + 3)(x + 8)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-9-1-1",
+      "example": "Factor a trinomial with opposite signs",
+      "sourceText": "(−7)(5) = −35",
+      "result": "passed"
+    },
+    {
+      "id": "worked-9-2-1",
+      "example": "Factor a trinomial with opposite signs",
+      "sourceText": "−7 + 5 = −2",
+      "result": "passed"
+    },
+    {
+      "id": "worked-9-3-1",
+      "example": "Factor a trinomial with opposite signs",
+      "sourceText": "x^(2) − 2x − 35 = (x − 7)(x + 5)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-10-1-1",
+      "example": "Do not stop after taking out the GCF",
+      "sourceText": "3x^(2) + 21x + 36 = 3(x^(2) + 7x + 12)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-10-2-1",
+      "example": "Do not stop after taking out the GCF",
+      "sourceText": "x^(2) + 7x + 12 = (x + 3)(x + 4)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-10-3-1",
+      "example": "Do not stop after taking out the GCF",
+      "sourceText": "3x^(2) + 21x + 36 = 3(x + 3)(x + 4)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-11-1-1",
+      "example": "Decompose, group, and remove a binomial factor",
+      "sourceText": "a  ·  c = 6  ·  6 = 36",
+      "result": "passed"
+    },
+    {
+      "id": "worked-11-2-1",
+      "example": "Decompose, group, and remove a binomial factor",
+      "sourceText": "6x^(2) + 9x + 4x + 6",
+      "result": "passed"
+    },
+    {
+      "id": "worked-11-3-1",
+      "example": "Decompose, group, and remove a binomial factor",
+      "sourceText": "3x(2x + 3) + 2(2x + 3)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-11-4-1",
+      "example": "Decompose, group, and remove a binomial factor",
+      "sourceText": "(3x + 2)(2x + 3)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-12-1-1",
+      "example": "Group correctly when one group is negative",
+      "sourceText": "−4 + 3 = −1",
+      "result": "passed"
+    },
+    {
+      "id": "worked-12-1-2",
+      "example": "Group correctly when one group is negative",
+      "sourceText": "(−4)(3) = −12",
+      "result": "passed"
+    },
+    {
+      "id": "worked-12-2-1",
+      "example": "Group correctly when one group is negative",
+      "sourceText": "6x^(2) − 4x + 3x − 2 = 2x(3x − 2) + 1(3x − 2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-12-3-1",
+      "example": "Group correctly when one group is negative",
+      "sourceText": "6x^(2) − x − 2 = (2x + 1)(3x − 2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-13-1-1",
+      "example": "Multiply a binomial by a trinomial",
+      "sourceText": "x(x^(2) + 3x − 4) + 2(x^(2) + 3x − 4)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-13-2-1",
+      "example": "Multiply a binomial by a trinomial",
+      "sourceText": "x^(3) + 3x^(2) − 4x + 2x^(2) + 6x − 8",
+      "result": "passed"
+    },
+    {
+      "id": "worked-13-3-1",
+      "example": "Multiply a binomial by a trinomial",
+      "sourceText": "x^(3) + 5x^(2) + 2x − 8",
+      "result": "passed"
+    },
+    {
+      "id": "worked-14-1-1",
+      "example": "Multiply with two variables",
+      "sourceText": "2x(x − 4y) + 3y(x − 4y)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-14-2-1",
+      "example": "Multiply with two variables",
+      "sourceText": "2x^(2) − 8xy + 3xy − 12y^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-14-3-1",
+      "example": "Multiply with two variables",
+      "sourceText": "2x^(2) − 5xy − 12y^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-15-1-1",
+      "example": "Apply a polynomial product to volume",
+      "sourceText": "V = (x^(2) + 2x + 3)(x + 1)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-15-2-1",
+      "example": "Apply a polynomial product to volume",
+      "sourceText": "V = x^(3) + 2x^(2) + 3x + x^(2) + 2x + 3",
+      "result": "passed"
+    },
+    {
+      "id": "worked-15-3-1",
+      "example": "Apply a polynomial product to volume",
+      "sourceText": "V = x^(3) + 3x^(2) + 5x + 3",
+      "result": "passed"
+    },
+    {
+      "id": "worked-16-1-1",
+      "example": "Check the middle term of a perfect square",
+      "sourceText": "4x^(2) = (2x)^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-16-1-2",
+      "example": "Check the middle term of a perfect square",
+      "sourceText": "25 = 5^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-16-2-1",
+      "example": "Check the middle term of a perfect square",
+      "sourceText": "2(2x)(5) = 20x",
+      "result": "passed"
+    },
+    {
+      "id": "worked-16-3-1",
+      "example": "Check the middle term of a perfect square",
+      "sourceText": "4x^(2) + 20x + 25 = (2x + 5)^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-17-1-1",
+      "example": "Factor a difference of squares",
+      "sourceText": "49x^(2) = (7x)^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-17-1-2",
+      "example": "Factor a difference of squares",
+      "sourceText": "36y^(2) = (6y)^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-17-2-1",
+      "example": "Factor a difference of squares",
+      "sourceText": "49x^(2) − 36y^(2) = (7x − 6y)(7x + 6y)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-17-3-1",
+      "example": "Factor a difference of squares",
+      "sourceText": "49x^(2) + 42xy − 42xy − 36y^(2)",
+      "result": "passed"
+    },
+    {
+      "id": "worked-18-1-1",
+      "example": "Continue when a factor is still factorable",
+      "sourceText": "3x^(4) − 48 = 3(x^(4) − 16)",
+      "result": "passed"
+    }
+  ],
+  "excluded": [
+    {
+      "workedExample": 4,
+      "text": "V = s^(3)",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 5,
+      "text": "GCF = 6x",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 6,
+      "text": "GCF = 6xy",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 8,
+      "text": "1  ·  24",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 8,
+      "text": "2  ·  12",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 8,
+      "text": "3  ·  8",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 8,
+      "text": "4  ·  6",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 11,
+      "text": "b = 13",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 18,
+      "text": "3(x^(2) − 4)(x^(2) + 4)",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    },
+    {
+      "workedExample": 18,
+      "text": "3(x − 2)(x + 2)(x^(2) + 4)",
+      "reason": "Definition, single numeric value or factor-pair listing; not claimed as an equality test"
+    }
+  ]
+}

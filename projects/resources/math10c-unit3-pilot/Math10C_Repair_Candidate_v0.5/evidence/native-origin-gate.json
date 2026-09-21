@@ -1,0 +1,11 @@
+{
+  "command": "python tests/repair/native_origin_recheck.py",
+  "cases": [
+    "SAVE-10",
+    "SAVE-11",
+    "ACCESS-01"
+  ],
+  "environment": "native localStorage and navigator.locks, same-origin Chromium tabs; no SCORM tenant",
+  "result": "blocked",
+  "detail": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:43275/workspace/index.html\nCall log:\n  - navigating to \"http://127.0.0.1:43275/workspace/index.html\", waiting until \"domcontentloaded\"\n"
+}

@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-19",
+  "reviewStage": "Astra Pass 2 and ChatGPT Pro reconciliation complete; planning candidate v0.3",
+  "repositoryHead": "280aaf12249982ffab1a63172d519b39f2d4c171",
+  "sourceWorkingTreeDirty": true,
+  "classifications": [
+    "EXISTING",
+    "ADAPT",
+    "BUILD",
+    "DEFER",
+    "REJECT",
+    "UNKNOWN"
+  ],
+  "note": "EXISTING is bounded source evidence, not proof that the entire Math requirement already works. Blocking applies only to the affected stage/capability. BUILD identifies missing capability and does not automatically authorize its construction.",
+  "requirements": [
+    {
+      "id": "MATH-01",
+      "requirement": "Preserve source-grounded learning sequence",
+      "classification": "ADAPT",
+      "evidence": [
+        "pass1/Math_Engine_Master_Plan_Pass1.pdf",
+        "working/SOURCE_SPOTCHECK.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Attractive interaction could replace existing explanatory strengths.",
+      "recommendedAlternative": "Retain complete teaching sequence, relationship/error reasoning, later mixed check, printable core teaching and a fast independent route. Support activities are optional and preserve return to the original draft.",
+      "ownerBoundary": "content",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Retain complete teaching sequence, relationship/error reasoning, later mixed check, printable core teaching and a fast independent route. Support activities are optional and preserve return to the original draft.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-02",
+      "requirement": "New pilot creation and teacher ownership",
+      "classification": "EXISTING",
+      "evidence": [
+        "docs/workflows/codex-studio-course.md:19-46",
+        "scripts/lib/codex-course.ts:371-434",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Copying a legacy course bypasses the supported authoring contract.",
+      "recommendedAlternative": "Use course:create for the new Direct pilot after U06. Scaffold availability does not prove teacher ownership or readiness of this pilot.",
+      "ownerBoundary": "authoring",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Use course:create for the new Direct pilot after U06. Scaffold availability does not prove teacher ownership or readiness of this pilot.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-03",
+      "requirement": "Routine HTML and durable teacher edits",
+      "classification": "ADAPT",
+      "evidence": [
+        "docs/workflows/codex-studio-course.md:37-46,97-99",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "A JSON renderer or rebuild can erase teacher edits.",
+      "recommendedAlternative": "Canonical routine HTML includes hints, feedback and links. Name generated-family ownership and demonstrate correction/withdrawal with retained work and an alternative route; mathematical changes invalidate affected checking evidence.",
+      "ownerBoundary": "authoring",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Canonical routine HTML includes hints, feedback and links. Name generated-family ownership and demonstrate correction/withdrawal with retained work and an alternative route; mathematical changes invalidate affected checking evidence.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-04",
+      "requirement": "Generated math family and adapter",
+      "classification": "DEFER",
+      "evidence": [
+        "docs/workflows/codex-studio-course.md:97-99",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Factory/override infrastructure is premature for one pilot.",
+      "recommendedAlternative": "Defer a generated-family adapter/factory. Retain teacher control through demonstrated existing authoring/availability mechanisms; block an affected generated activity if that control is missing.",
+      "ownerBoundary": "authoring",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": false,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Defer a generated-family adapter/factory. Retain teacher control through demonstrated existing authoring/availability mechanisms; block an affected generated activity if that control is missing.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-05",
+      "requirement": "UTF-16 and archive safety",
+      "classification": "ADAPT",
+      "evidence": [
+        "scripts/lib/science-comparison.ts:197-236",
+        "scripts/lib/references.ts:69-89",
+        "working/SOURCE_SPOTCHECK.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "UTF-8-only reading loses mathematical content.",
+      "recommendedAlternative": "Preserve byte-aware decoding and archive/path safety for selected source inspection; no new intake CLI or general importer is required for the authored milestone.",
+      "ownerBoundary": "source-intake",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Preserve byte-aware decoding and archive/path safety for selected source inspection; no new intake CLI or general importer is required for the authored milestone.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-06",
+      "requirement": "Module description and resource relationships",
+      "classification": "ADAPT",
+      "evidence": [
+        "scripts/lib/biology30-unit-a/source.ts:59-123",
+        "scripts/lib/d2l-course-map.ts:95-120",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Generic map omits teaching instructions and visibility context.",
+      "recommendedAlternative": "Preserve module context, instructions and private provenance for selected examples; do not broaden the milestone into six-course conversion.",
+      "ownerBoundary": "source-intake",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Preserve module context, instructions and private provenance for selected examples; do not broaden the milestone into six-course conversion.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-07",
+      "requirement": "Generic quiz answer fallback as Math authority",
+      "classification": "REJECT",
+      "evidence": [
+        "scripts/lib/course-shell-content-parsers.ts:85-108,119-147",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Unresolved answers can become option zero; image math can be flattened.",
+      "recommendedAlternative": "Reject unresolved-key-to-option-zero fallback as Math authority; uncertain keys remain unresolved and outside the authored checker.",
+      "ownerBoundary": "source-intake",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Reject unresolved-key-to-option-zero fallback as Math authority; uncertain keys remain unresolved and outside the authored checker.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-08",
+      "requirement": "Complete bank-plus-inline reference index",
+      "classification": "BUILD",
+      "evidence": [
+        "scripts/lib/biology30-unit-a/source.ts:173-220,257-271",
+        "pass1/02_EVIDENCE_AUDIT.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "A bank-only index can report false breakage or lose scoring relations.",
+      "recommendedAlternative": "Keep the resolver need when bank import is authorized; defer its implementation from the initial authored lesson and complete pilot, which use selected provenance and authored families.",
+      "ownerBoundary": "source-intake",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": false,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Keep the resolver need when bank import is authorized; defer its implementation from the initial authored lesson and complete pilot, which use selected provenance and authored families.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-09",
+      "requirement": "Scanned equations and mathematical images",
+      "classification": "ADAPT",
+      "evidence": [
+        "scripts/lib/pdf-text.ts:347-376",
+        "working/SOURCE_SPOTCHECK.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Empty extracted text can conceal instruction; existing alt text is insufficient.",
+      "recommendedAlternative": "Visually check selected mathematical notation and provide accessible equivalents. Source copying still requires U02.",
+      "ownerBoundary": "content",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Visually check selected mathematical notation and provide accessible equivalents. Source copying still requires U02.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-10",
+      "requirement": "Deterministic generated practice",
+      "classification": "ADAPT",
+      "evidence": [
+        "scripts/lib/biology30-pilot3/practice-engine.ts:1-9,56-69",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Biology IDs/policies and regeneration behavior cannot be copied blindly.",
+      "recommendedAlternative": "Use constructive bounded generation, frozen parameters and versions. A fresh independent check must be a different mathematical instance; compaction cannot erase reveal/exposure markers.",
+      "ownerBoundary": "practice",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Use constructive bounded generation, frozen parameters and versions. A fresh independent check must be a different mathematical instance; compaction cannot erase reveal/exposure markers.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-11",
+      "requirement": "Factoring mathematical and form checking",
+      "classification": "BUILD",
+      "evidence": [
+        "scripts/lib/biology30-pilot3/practice-engine.ts:67",
+        "pass1/answer_contract_tests.json:M01-M08",
+        "CHATGPT_PRO_RECONCILIATION.md",
+        "working/CHECKER_CONTRACT_ADVISORY.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "String matching or sampling can reject valid algebra or accept incomplete form.",
+      "recommendedAlternative": "Exact degree-two coefficients and separately bounded factored-form inspection; normalize harmless signs/scalars without silently extracting an absorbed GCF. Positive monic first; signed and common-integer-factor families remain full-pilot obligations. No variable GCF or power 0.",
+      "ownerBoundary": "checking",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Exact degree-two coefficients and separately bounded factored-form inspection; normalize harmless signs/scalars without silently extracting an absorbed GCF. Positive monic first; signed and common-integer-factor families remain full-pilot obligations. No variable GCF or power 0.",
+      "planningStatus": "reconciled; no implementation or acceptance proof",
+      "derivedChecksStatus": "NOT RUN; original fixtures remain immutable"
+    },
+    {
+      "id": "MATH-12",
+      "requirement": "Intermediate and alternative reasoning",
+      "classification": "BUILD",
+      "evidence": [
+        "pass1/answer_contract_tests.json:M09-M10",
+        "CHATGPT_PRO_RECONCILIATION.md",
+        "working/CHECKER_CONTRACT_ADVISORY.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "General step-grading promise exceeds evidence and necessary scope.",
+      "recommendedAlternative": "Preserve the M09 literal response through a documented/tested binding; a sum-correct/product-wrong split is equivalent but not yet ready for grouping. Retain relationship and error/repair explanations separately; alternate work remains ungraded and does not block continuation.",
+      "ownerBoundary": "checking",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Preserve the M09 literal response through a documented/tested binding; a sum-correct/product-wrong split is equivalent but not yet ready for grouping. Retain relationship and error/repair explanations separately; alternate work remains ungraded and does not block continuation.",
+      "planningStatus": "reconciled; no implementation or acceptance proof",
+      "derivedChecksStatus": "NOT RUN; original fixtures remain immutable"
+    },
+    {
+      "id": "MATH-13",
+      "requirement": "Visual notation entry",
+      "classification": "ADAPT",
+      "evidence": [
+        "working/MATH_INPUT_NOTES.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Editor output, CSP, fonts and assistive technology may not work in actual delivery.",
+      "recommendedAlternative": "MathLive is a candidate local enhancement. Native entry must be usable with labelled grouping/exponent help and preserved drafts across modes. Actual compatibility and accessibility remain unproved; failed enhancement criteria remain explicit.",
+      "ownerBoundary": "input",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "MathLive is a candidate local enhancement. Native entry must be usable with labelled grouping/exponent help and preserved drafts across modes. Actual compatibility and accessibility remain unproved; failed enhancement criteria remain explicit.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-14",
+      "requirement": "General CAS/universal symbolic grading",
+      "classification": "DEFER",
+      "evidence": [
+        "working/MATH_INPUT_NOTES.md",
+        "pass1/answer_contract_tests.json:M17-M30",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Domains, requested forms and undetermined/sampled equivalence are not handled by one truthy comparison.",
+      "recommendedAlternative": "Defer general CAS/universal grading and M17-M30 support. Keep separately named unsupported-family guards and learner work/review routes; guard passes cannot turn future mathematical fixtures green.",
+      "ownerBoundary": "checking",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": false,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Defer general CAS/universal grading and M17-M30 support. Keep separately named unsupported-family guards and learner work/review routes; guard passes cannot turn future mathematical fixtures green.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-15",
+      "requirement": "Trigonometry contrast",
+      "classification": "BUILD",
+      "evidence": [
+        "pass1/answer_contract_tests.json:M11-M13",
+        "working/SOURCE_SPOTCHECK.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Algebra-only infrastructure could hide graph/diagram/unit weaknesses.",
+      "recommendedAlternative": "Keep trig in the complete pilot, after the initial monic milestone. Capture side/ratio relation before revealing it; separate value/unit/precision, preserve M12, and classify well-formed impossible values as mathematical/domain inconsistency.",
+      "ownerBoundary": "content",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Keep trig in the complete pilot, after the initial monic milestone. Capture side/ratio relation before revealing it; separate value/unit/precision, preserve M12, and classify well-formed impossible values as mathematical/domain inconsistency.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-16",
+      "requirement": "Support versus independent evidence",
+      "classification": "BUILD",
+      "evidence": [
+        "pass1/answer_contract_tests.json:M14",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Copied revealed answers may be misreported as independence.",
+      "recommendedAlternative": "Persist support before each submission without retroactively relabelling earlier attempts. Later responses after reveal remain supported. Input accessibility help does not automatically count as mathematical help; report without in-course mathematical support rather than claiming no external help.",
+      "ownerBoundary": "practice",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Persist support before each submission without retroactively relabelling earlier attempts. Later responses after reveal remain supported. Input accessibility help does not automatically count as mathematical help; report without in-course mathematical support rather than claiming no external help.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-17",
+      "requirement": "One managed LMS session owner",
+      "classification": "EXISTING",
+      "evidence": [
+        "scripts/lib/scorm.ts:292-385",
+        "scripts/lib/biology30-pilot3/runtime.ts:37-76",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "A second owner can conflict with restoration, commit and termination.",
+      "recommendedAlternative": "Use committed course-state-v1 and existing integration hooks with one LMS owner. Current code inspection is not proof of Math launch/resume or live tenant behavior.",
+      "ownerBoundary": "state",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Use committed course-state-v1 and existing integration hooks with one LMS owner. Current code inspection is not proof of Math launch/resume or live tenant behavior.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-18",
+      "requirement": "Bounded state and safe migration",
+      "classification": "BUILD",
+      "evidence": [
+        "scripts/lib/scorm.ts:294-299,619-623,906-945",
+        "scripts/lib/scorm-state-codec.ts:4-19",
+        "pass1/answer_contract_tests.json:M15-M16",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Unlimited histories exceed the envelope; regeneration or upgrades can erase work.",
+      "recommendedAlternative": "Measure candidate six-active/six-recent/four-selected deduplicated retention. Keep first plus latest three submissions and total count, one bounded reasoning field per retained instance, frozen problem data and durable support/exposure summaries. Unlimited attempts remain allowed; no routine archive/reset, silent truncation or eviction of unfinished/selected work.",
+      "ownerBoundary": "state",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Measure candidate six-active/six-recent/four-selected deduplicated retention. Keep first plus latest three submissions and total count, one bounded reasoning field per retained instance, frozen problem data and durable support/exposure summaries. Unlimited attempts remain allowed; no routine archive/reset, silent truncation or eviction of unfinished/selected work.",
+      "planningStatus": "reconciled; no implementation or acceptance proof",
+      "capacityStatus": "UNMEASURED candidate: provisional 40000-character application ceiling and inspected 60000-character bridge ceiling are separate checks; escaping, overhead, high-entropy text and recovery must be measured."
+    },
+    {
+      "id": "MATH-19",
+      "requirement": "Quiet autosave and honest recovery UI",
+      "classification": "ADAPT",
+      "evidence": [
+        "scripts/lib/scorm.ts",
+        "docs/ops/ACTIVE_HANDOFF.md:3-32",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Current automatic mode is uncommitted and may be absent from a fresh checkout.",
+      "recommendedAlternative": "Default to committed managed-state capability. Dirty automatic-mode controls and optional action reporting are not mandatory pilot dependencies; any adoption requires an explicitly approved reproducible predecessor. Demonstrate truthful save/failure/recovery behavior without a second saver.",
+      "ownerBoundary": "state",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false,
+        "qualification": "Absence of dirty automatic-mode controls does not block the committed-state milestone. Demonstrated truthful saving/recovery is still required for learner release."
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Default to committed managed-state capability. Dirty automatic-mode controls and optional action reporting are not mandatory pilot dependencies; any adoption requires an explicitly approved reproducible predecessor. Demonstrate truthful save/failure/recovery behavior without a second saver.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-20",
+      "requirement": "Native teacher reporting of math reasoning",
+      "classification": "UNKNOWN",
+      "evidence": [
+        "scripts/lib/scorm-actions.ts:73-91",
+        "working/AUTHORITY_AND_REPORTING.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Suspend data and neutral action counters are not automatically teacher-readable mathematical reports.",
+      "recommendedAlternative": "Native reasoning reporting remains UNKNOWN and optional. Its absence does not block learner release when the actual school-approved alternative evidence/submission route is demonstrated. Do not label report generation or assignment-link opening as submitted.",
+      "ownerBoundary": "reporting",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": false,
+        "reviewCompletion": false,
+        "qualification": "Native reporting alone is nonblocking only when a demonstrated approved alternative submission route satisfies U03/U04. Native-report claims remain blocked until tenant proof."
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Native reasoning reporting remains UNKNOWN and optional. Its absence does not block learner release when the actual school-approved alternative evidence/submission route is demonstrated. Do not label report generation or assignment-link opening as submitted.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-21",
+      "requirement": "Formal grades and secure assessments",
+      "classification": "EXISTING",
+      "evidence": [
+        "pass1/02_EVIDENCE_AUDIT.md",
+        "working/AUTHORITY_AND_REPORTING.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Client formative answers are visible; no validated Math gradebook API is established.",
+      "recommendedAlternative": "Keep formal grades and secure assessment in approved LMS/school workflows. One learner-previewed milestone report uses only accepted formats and does not duplicate paper work or write grades.",
+      "ownerBoundary": "assessment",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Keep formal grades and secure assessment in approved LMS/school workflows. One learner-previewed milestone report uses only accepted formats and does not duplicate paper work or write grades.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-22",
+      "requirement": "Cross-course mastery analytics",
+      "classification": "DEFER",
+      "evidence": [
+        "pass1/Math_Engine_Master_Plan_Pass1.pdf",
+        "working/AUTHORITY_AND_REPORTING.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "No approved persistent cross-course data route exists.",
+      "recommendedAlternative": "Defer cross-course analytics; use package-local selected evidence, compact non-mastery summaries and teacher judgment.",
+      "ownerBoundary": "reporting",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": false,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Defer cross-course analytics; use package-local selected evidence, compact non-mastery summaries and teacher judgment.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-23",
+      "requirement": "Package granularity",
+      "classification": "ADAPT",
+      "evidence": [
+        "scripts/lib/exports/scorm-package.ts",
+        "working/SOURCE_SPOTCHECK.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Archive size does not prove future SCO size or tenant feasibility.",
+      "recommendedAlternative": "Provisional single bounded SCORM 2004 pilot SCO subject to tenant confirmation and actual asset/state measurements. No packaging is authorized; do not silently fall back to a smaller state-budget standard.",
+      "ownerBoundary": "delivery",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Provisional single bounded SCORM 2004 pilot SCO subject to tenant confirmation and actual asset/state measurements. No packaging is authorized; do not silently fall back to a smaller state-budget standard.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-24",
+      "requirement": "Current authority and source permissions",
+      "classification": "UNKNOWN",
+      "evidence": [
+        "working/AUTHORITY_AND_REPORTING.md",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Historical exports do not establish current outcomes, exam rules or redistribution rights.",
+      "recommendedAlternative": "Keep authority, source permissions and actual school routes as external UNKNOWN gates. Original-content local prototyping requires U06 but need not await broad curriculum acceptance.",
+      "ownerBoundary": "authority",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Keep authority, source permissions and actual school routes as external UNKNOWN gates. Original-content local prototyping requires U06 but need not await broad curriculum acceptance.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-25",
+      "requirement": "Accessibility and learner effectiveness",
+      "classification": "UNKNOWN",
+      "evidence": [
+        "working/MATH_INPUT_NOTES.md",
+        "pass1/Math_Engine_Master_Plan_Pass1.pdf",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Library features and AI learner simulation are not observed usability or learning gains.",
+      "recommendedAlternative": "Keep UNKNOWN. Demonstrate keyboard/mobile/assistive-tech input, repair, help, diagram access and report submission, including 320-CSS-pixel reflow. Confirm institutional targets and stage separately authorized learner observation; do not confuse hypothetical walkthroughs with effectiveness evidence.",
+      "ownerBoundary": "acceptance",
+      "blocking": {
+        "implementationOfAffectedCapability": false,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "AMEND",
+      "finalDecision": "Keep UNKNOWN. Demonstrate keyboard/mobile/assistive-tech input, repair, help, diagram access and report submission, including 320-CSS-pixel reflow. Confirm institutional targets and stage separately authorized learner observation; do not confuse hypothetical walkthroughs with effectiveness evidence.",
+      "planningStatus": "reconciled; no implementation or acceptance proof"
+    },
+    {
+      "id": "MATH-26",
+      "requirement": "Full-course implementation and rollout now",
+      "classification": "REJECT",
+      "evidence": [
+        "pass1/Codex_Astra_Pass2_Prompt.md",
+        "DECISION_LOG.md:U06",
+        "CHATGPT_PRO_RECONCILIATION.md"
+      ],
+      "evidenceLevel": "source_inspection_or_documented_proposal; no pilot execution or live LMS proof",
+      "risk": "Model agreement could be mistaken for owner authorization.",
+      "recommendedAlternative": "Planning and reconciliation are complete; course/code implementation remains unauthorized. The next possible action is an explicitly approved positive-monic end-to-end milestone, with separate packaging, tenant, learner-observation and release authorizations.",
+      "ownerBoundary": "authorization",
+      "blocking": {
+        "implementationOfAffectedCapability": true,
+        "learnerReleaseIfUnresolved": true,
+        "reviewCompletion": false
+      },
+      "proDisposition": "ACCEPT",
+      "finalDecision": "Planning and reconciliation are complete; course/code implementation remains unauthorized. The next possible action is an explicitly approved positive-monic end-to-end milestone, with separate packaging, tenant, learner-observation and release authorizations.",
+      "planningStatus": "reconciled; no implementation or acceptance proof",
+      "planningComplete": true,
+      "implementationAuthorized": false,
+      "nextAuthorizedState": "Await U06; no course/code implementation included in this planning completion."
+    }
+  ],
+  "planVersion": "0.3",
+  "planningComplete": true,
+  "implementationAuthorized": false,
+  "validationExecution": "NOT RUN; no Math checker, course, Studio or live LMS tests executed",
+  "reconciliationEvidence": "CHATGPT_PRO_RECONCILIATION.md",
+  "repositoryObservationLimit": "Recorded HEAD and dirty state are Astra observations from 2026-09-19; Pro did not inspect the checkout or private baseline/rendered evidence.",
+  "supersededWorkingNoteProposals": [
+    "variable-GCF pilot support",
+    "input power-0 support",
+    "mandatory adoption of dirty automatic-mode controls or action reporting",
+    "archive/reset as a condition of continued practice"
+  ],
+  "nextMilestone": {
+    "status": "proposed_only_requires_U06",
+    "scope": "one complete local positive-monic lesson",
+    "originalFixtureObligations": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M09",
+      "M10",
+      "M14",
+      "M15",
+      "M16"
+    ],
+    "laterFullPilotObligations": [
+      "M06",
+      "M07",
+      "M08",
+      "M11",
+      "M12",
+      "M13"
+    ],
+    "deferredFutureMathematics": [
+      "M17",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24",
+      "M25",
+      "M26",
+      "M27",
+      "M28",
+      "M29",
+      "M30"
+    ],
+    "allExecutionStatus": "not_run"
+  }
+}

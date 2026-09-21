@@ -1,0 +1,133 @@
+{
+  "environment": {
+    "node": "v22.16.0",
+    "type": "isolated source modules; no repository runner"
+  },
+  "command": "node tests/repair/core_regressions.cjs",
+  "results": [
+    {
+      "id": "literal-zero-presentations",
+      "cases": [
+        "MATH-01"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "sign-order-repeated",
+      "cases": [
+        "MATH-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "form-and-middle-cue",
+      "cases": [
+        "MATH-03",
+        "MATH-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "literal-and-zero-middle-split",
+      "cases": [
+        "MATH-05",
+        "MATH-06"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "intermediate-degree-not-cancellation",
+      "cases": [
+        "MATH-07"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "parser-bounds",
+      "cases": [
+        "MATH-08"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "generator-arguments",
+      "cases": [
+        "MATH-09"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "constructive-exhaustion",
+      "cases": [
+        "MATH-10"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "core-generated-independent-integer-oracle",
+      "cases": [
+        "MATH-11"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "original-fixtures-immutable",
+      "cases": [
+        "MATH-12"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "old-catalog-sentinel-after-insertion",
+      "cases": [
+        "STATE-01"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "migration-complete-provenance-and-roundtrip",
+      "cases": [
+        "STATE-02",
+        "STATE-07"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "unknown-data-recovery-not-new-course",
+      "cases": [
+        "STATE-03"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "migration-and-summary-idempotent",
+      "cases": [
+        "STATE-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "mixed-strata-and-exhaustion",
+      "cases": [
+        "LEARNING-03",
+        "LEARNING-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "faded-and-root-contracts",
+      "cases": [
+        "LEARNING-01",
+        "LEARNING-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "trig-unit-precision-domain",
+      "cases": [
+        "TRIG-04"
+      ],
+      "result": "passed"
+    }
+  ]
+}

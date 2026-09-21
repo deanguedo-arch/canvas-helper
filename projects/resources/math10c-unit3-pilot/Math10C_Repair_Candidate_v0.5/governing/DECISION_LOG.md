@@ -1,0 +1,53 @@
+# Math planning decision log
+
+Version 0.3, reconciled planning candidate, 2026-09-19. Astra's technical review and ChatGPT Pro's instructional counter-review are complete. These decisions authorize no course/code implementation, testing rollout, packaging or learner release. Pro's full response is preserved in `CHATGPT_PRO_RECONCILIATION.md`.
+
+| ID | Final decision | Pro disposition / remaining limit |
+|---|---|---|
+| D01 | Preserve representation, attempt, feedback, repair, independent evidence and meaningful reasoning. Add a later mixed check using fresh mathematical instances, printable core teaching and selected work, and a direct check route for prepared learners. Support is optional and can be exited. | AMEND accepted. No learner outcomes observed; later mixed practice is a full-pilot obligation, not an automatic scheduling service. |
+| D02 | Newly authored Direct pilot via course:create; the six-course source corpus supplies evidence, not a disguised migration. | ACCEPT. Existing scaffold support does not prove the pilot's ownership/editability. |
+| D03 | Keep routine explanations, example directions, hints, feedback, help links and submission instructions in canonical editable HTML. Name generated-family ownership and the supported way to withdraw a faulty activity; preserve past work and supply a reviewed alternative/help route. | AMEND accepted. Demonstrate edit → reload/rebuild → Undo → withdrawal → learner alternative. Changes to mathematical rules or coefficients invalidate affected checking evidence. No new admin platform. |
+| D04 | Reuse course-state-v1 and its one LMS session owner. Candidate history: six active instances, six recent completed unpinned records, four protected selections, deduplicated; first submission plus latest three and total count per retained instance, one bounded reasoning field per instance, compact summaries and durable exposure/support markers. | AMEND accepted. Allocation is unmeasured. History limits never limit attempts or require archive/reset. Protect unfinished/selected work; measure actual application and full bridge envelopes. No silent truncation or claim of unlimited history. |
+| D05 | Default to committed managed-state capability. Record a reproducible baseline and relevant versions before implementation. Dirty automatic-mode controls and optional action reporting are optional predecessor work, adopted only by explicit approval and a reproducible integration. | AMEND accepted. Do not silently copy, reset, adopt or commit dirty Social/Sports changes; those changes are not mandatory pilot dependencies. |
+| D06 | Use exact bounded polynomial comparison and a separate requested-form judgment. Preserve M09's literal expression through a deterministic documented binding; pair coefficient work with relationship and error/repair reasoning. | AMEND accepted. Slots alone do not exercise the original response or prove reasoning. Sum-correct/product-wrong splits preserve equivalence but do not meet the monic grouping checkpoint. See separately named unrun checks in the checker advisory. |
+| D07 | The complete pilot includes positive monic, signed monic and common-integer-factor families; GCF follows monic proof. Variable GCF and general non-monic factoring remain deferred. Input powers are 1 and 2. | AMEND accepted. Earlier variable-GCF/power-0 suggestions in working notes are superseded. M06/M07 remain required for full-pilot acceptance. |
+| D08 | MathLive is a local candidate enhancement, subject to a bounded compatibility spike. Native input must independently provide labelled notation help, repair and preserved drafts without consuming mathematical attempts. | AMEND accepted. Demonstrate keyboard/mobile/assistive-tech flows, 320-CSS-pixel reflow, focus and usable on-screen-keyboard layout. Editor failure leaves visual-input acceptance unresolved; a fallback does not automatically certify it. |
+| D09 | Trig separates side identification, relation/setup, value, requested units and precision; collect the learner's relation before revealing it. M12 remains a consistent approximation in the wrong requested unit. | AMEND accepted. A parseable negative length or nonacute angle is mathematical/domain inconsistency, not syntax failure. Actual diagram and numerical checks remain unrun. |
+| D10 | Preserve M17–M30 as future mathematical specifications. Pilot unsupported-family guards are separate obligations, with retained work and review routes. | ACCEPT. Guard success can never count as passing a future mathematical fixture. |
+| D11 | Provisionally deliver one small pilot SCO, targeting SCORM 2004 subject to tenant confirmation; choose later unit/module boundaries from actual artifact measurements. | ACCEPT. No packaging occurred; do not silently substitute a smaller state-budget target. |
+| D12 | One meaningful learner-previewed evidence handoff through a school-approved assignment route, with accepted copy/print/download formats and no duplicate paper transcription. | AMEND accepted. A download is not a submission. Native reasoning reporting remains UNKNOWN and optional when an approved alternative route is demonstrated. No grade writer or repeated export chores. |
+| D13 | Reject unresolved-key-to-first-option fallback, string/sampling-based algebra verdicts, JSON-only routine lessons and dual LMS save owners. | ACCEPT. Rejections remain bounded source/mathematical decisions, not implementation proof. |
+| D14 | Defer universal CAS/tutor, arbitrary written-step grading, handwriting recognition and cross-course analytics. Keep bounded checkpoints, authored help, paper/typed reasoning and teacher review. | ACCEPT. Alternate-method learners can continue without reproducing the preferred method. |
+
+## Candidate milestones and fixture integrity
+
+The smallest next request, requiring U06, is one complete local **positive-monic lesson**, including teaching, checkpoint, faded practice, error/repair, fresh independent evidence, help/report, printable work and resume. Its original fixture obligations are **M01–M05, M09–M10 and M14–M16**.
+
+The complete pilot additionally requires signed/common-integer factoring and trigonometry: **M06–M08 and M11–M13**, later mixed practice and the remaining staged acceptance evidence. An early monic milestone must not be labelled the full pilot.
+
+All original M01–M30 source records remain byte-for-byte unchanged with `implemented=false`, `passed=null` and `not_run`. Executable bindings and results belong in separate files. M09 must ingest or deterministically bind the literal `x^2+3x+4x+12`; preloading slots 3 and 4 alone is insufficient. M10 and M13–M16 require real scenario bindings before execution.
+
+`working/CHECKER_CONTRACT_ADVISORY.md` adds bounded Astra clarifications for signs, scalar placement, repeated factors and equivalent but non-facilitating splits. Its derived checks remain NOT RUN and do not replace originals. Under an explicit whole-GCF instruction, `(2x+4)(x+3)` is equivalent but incomplete, never false mathematics. A split of 2x+5x preserves the middle term but does not satisfy the grouping goal. These checks add no universal symbolic capability.
+
+## Decisions that remain external gates
+
+| ID | Needed evidence / owner | Blocks |
+|---|---|---|
+| U01 | Teacher confirms current 10C outcome mapping, pilot learning intent and learning-tool policy | Production content freeze/curriculum claims; not a separately authorized original-content local prototype |
+| U02 | Owner confirms permitted redistribution of selected copied/adapted source materials | Redistribution of those assets; use original material where unresolved |
+| U03 | School supplies actual assignment/help routes, required evidence, accepted formats, completion rules, accommodations and limited-history/report approval | Learner-facing submission claims and release without a working handoff |
+| U04 | Actual tenant/student/teacher evidence for SCORM version, persistence, attempts, replacement, learner separation and report fields | LMS-readiness claims; native reasoning reports are optional if the approved alternative works |
+| U05 | Confirm device/assistive-tech targets, demonstrate actual input/help/report flow, then observe varied learners under separate authorization | Accessibility acceptance and broader effectiveness claims; not a circular bar to a controlled authorized observation |
+| U06 | Dean approves the bounded implementation request after reconciliation | All course/code implementation; the current task completes planning only |
+
+No model agreement resolves these owner/tenant gates. No invented grade weighting, calculator list, tenant permission, student identity or consent record fills them. Current authority findings remain dated: calculator guidance is 2026–27, the linked Math 30-1 bulletin is 2025–26, and the old program URL redirects to LearnAlberta.
+
+## Review provenance and limits
+
+Pass 1 PDF, Markdown, audit and pilot supplied the planning evidence. Pro recovered the original README and M01–M30 file; locally transferred files matched Pro's reported manifest hashes. Codex did not independently download/hash the entire Pass 1 ZIP. The source fixture SHA-256 remains `b59def072b94e8a208cb2fef5418b0898620d96a1966fba3c89fbbfcf4431cb5`.
+
+Pro reported that the submitted Pass 2 ZIP and all 15 manifest files matched their supplied hashes, and independently compared its fixture copy with the original. Integrity checks are not checker tests. The private `working/repo-baseline.json` and rendered-source evidence were deliberately absent from that review package; Pro therefore accepted repository HEAD/dirty-state facts only as Astra's dated observations, not its own live verification.
+
+Local source and representative teaching material were inspected. No Math implementation, dependency installation, course tests, SCORM package, Studio lifecycle, live LMS attempt or teacher/learner acceptance occurred. Exact selected-history capacity and input accessibility remain unproved. Working research notes are retained as provenance; this v0.3 reconciliation supersedes their variable-GCF, power-0, mandatory-dirty-dependency and archive/reset proposals.
+
+Planning is complete. The exact next action is Dean's bounded implementation decision; the next document is `NEXT_IMPLEMENTATION_REQUEST.md`. Source request evidence is `pass1/Codex_Astra_Pass2_Prompt.md`.

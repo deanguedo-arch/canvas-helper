@@ -1,0 +1,64 @@
+{
+  "recordedAt": "2026-09-20T15:06:53.865445+00:00",
+  "sourceSha256": {
+    "workspace/scorm-tracking.json": "41327850e7f29e3a410434bf6ee747996365084e94350322389441e2ccfc4183",
+    "workspace/index.html": "d65668e10e39a74c518b1fff4168094b6c3b4c1601cd03fd9077f933246b10d1",
+    "workspace/course.js": "3ccbca8e834d485cf45221d7eecb935f493ba6822d29530faa69aecf30f62b48",
+    "workspace/styles.css": "5cdba3f185b8d854d6127bb50477cc1e7a5a5f0cbd3d9d7edd9f951baae48b70",
+    "workspace/assets/contracts.js": "99acdeb5d0cc06e1b3664b792a6ca7e7f8f9622a9897d7abed9e3ae81cb29e9d",
+    "workspace/assets/state-v2-decoder.js": "7c6a9e70142b6b19d50654da7f432505aa7bbb4f2ac804cec92758dccb5fe5f9",
+    "workspace/assets/state.js": "dff9526d86b1d62ad5422dda70f030280d116f858184bce2b001bbcd0c0da524",
+    "workspace/assets/algebra.js": "f8d5383f7ffc852857a7e98da8b840afb4e9334bd54c3c63c8125bba33309b87",
+    "workspace/assets/unit-data.js": "b7749c576457c8047f5664eba005b879a7e33458ff65c40c0b29aec4bfbdd53f",
+    "workspace/assets/input-enhancement.js": "12d2aa0166ef46cbf81e33b13da1522908e0941b7b6043ce7fead0166db0f971",
+    "workspace/assets/catalog-v05.json": "7d8ad13dcfb5295131b09b1f5634a11f7f7d4b6a22704dae1a46a347ba204fdd",
+    "workspace/assets/catalog-v04.json": "834bd5c70248c53e2e65d46ba3a42162133261fa996bbf9dfc94b8551006f09d",
+    "workspace/assets/catalog-registry.js": "1f78901936aa72aaddd9719f3f0334d40707a5b95e71cd85fc951dcbb2735a31",
+    "workspace/assets/nextstep.png": "9101c01de773a1ce3fd3f50418110737baaa4924dc041d96110cee8d697a49e3",
+    "workspace/assets/save-controller.js": "0dd17e70bec46702506290575bb9f64c755ba2b91240eb509be04e8eb16d1459",
+    "shared-repository/proposed/AGENTS.md": "77699c89e7347579b69c82a53b2b61fa19c1f0dcd5f7fbf4b58387f85a9e0525",
+    "shared-repository/proposed/package.json": "fa0538f03f69b64519172520f8e0925b10b80aac6f5da7c0a76e156bb80f8b7e",
+    "shared-repository/proposed/scripts/lib/scorm-state-codec.ts": "c4c795863910e6cc853ee5b616f70072143081d4133d0b27a740f601a0c471f3",
+    "shared-repository/proposed/scripts/lib/scorm.ts": "a729b8f4a01c287624e8a5d2f9c6c41f6143b4ce6591509dc21c8e545d032dba",
+    "shared-repository/proposed/scripts/lib/scorm-actions.ts": "779ac6a9b6530f2a82e549e1e4f4ef02cc8987bebbcc1bc60ebbae8ebddeb208",
+    "shared-repository/proposed/scripts/lib/scorm-tracking.ts": "dcfbbee74730dc5649dab7e8093428b458a00afa197105ed4e94621cf07856fe",
+    "shared-repository/proposed/scripts/tests/scorm-state-codec.test.ts": "b630cfd4a75c6fd5646f26e1bddbcc6111cf733e0f36736d070a716d78d7cae6",
+    "shared-repository/proposed/scripts/tests/scorm-export.test.ts": "5b1f2bbdcc571b025ed81adc4a7ce90f180d14b88d5dafcc8d44197d4842cf14",
+    "shared-repository/proposed/docs/workflows/scorm-save-receipts.md": "253cd645b6a3e932d3af9db91f928b7f3c581efa3fb29e90fa04bb45522090c7",
+    "shared-repository/proposed/docs/workflows/codex-studio-course.md": "47a79a38d454275b585468e9702b952c383b1fbf0b3a9fb9305fb9ecbc7313db"
+  },
+  "startCommand": 10,
+  "commands": [
+    {
+      "command": "/opt/pyvenv/bin/python tests/repair/additional_browser_cases.py",
+      "exitCode": 0,
+      "result": "passed",
+      "log": "evidence/repair-run-10.log"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python tests/repair/edge_browser_cases.py",
+      "exitCode": 0,
+      "result": "passed",
+      "log": "evidence/repair-run-11.log"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python tests/repair/measure_capacity.py",
+      "exitCode": 0,
+      "result": "passed",
+      "log": "evidence/repair-run-12.log"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python tests/assemble.py",
+      "exitCode": 0,
+      "result": "passed",
+      "log": "evidence/repair-run-13.log"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python tests/repair/prepare_shared_patch.py",
+      "exitCode": 0,
+      "result": "passed",
+      "log": "evidence/repair-run-14.log"
+    }
+  ],
+  "warning": "Individual passing commands do not establish all acceptance cases. Capacity commands succeed when they correctly MEASURE failures; see fit flags. Native origin, MathLive, full repository, Studio, CI, LMS and AT gates excluded, not passed."
+}

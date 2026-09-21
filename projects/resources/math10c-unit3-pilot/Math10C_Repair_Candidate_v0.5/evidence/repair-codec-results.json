@@ -1,0 +1,67 @@
+{
+  "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+  "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure",
+  "results": [
+    {
+      "id": "wire-size-and-lossless-ascii",
+      "cases": [
+        "CODEC-01",
+        "CODEC-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "wire-size-and-lossless-bmp",
+      "cases": [
+        "CODEC-01",
+        "CODEC-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "wire-size-and-lossless-supplementary",
+      "cases": [
+        "CODEC-01",
+        "CODEC-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "wire-size-and-lossless-escaped",
+      "cases": [
+        "CODEC-01",
+        "CODEC-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "wire-size-and-lossless-repeated",
+      "cases": [
+        "CODEC-01",
+        "CODEC-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "combining-emoji-quotes-lossless",
+      "cases": [
+        "CODEC-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "historical-raw-packed",
+      "cases": [
+        "CODEC-03"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "codec-corruption-and-limits",
+      "cases": [
+        "CODEC-04"
+      ],
+      "result": "passed"
+    }
+  ]
+}

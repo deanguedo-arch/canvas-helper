@@ -1,0 +1,4368 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Executed repair ledger for v0.5; statuses are bounded by the evidence, not prefilled from the brief.",
+  "created": "2026-09-20",
+  "baselineRepositoryHead": "d0b4cf731dd180cebee908915772e90687d40215",
+  "baselineCandidateSha256": "d5623a216332fce329c9cedc801b04688898df76616320d198b1bdb339fadd08",
+  "allowedResults": [
+    "not_run",
+    "pass",
+    "fail",
+    "blocked",
+    "partially_verified",
+    "intentionally_deferred"
+  ],
+  "countIsNotAConfidencePercentage": true,
+  "cases": [
+    {
+      "id": "SAVE-01",
+      "stage": "source-and-emitted-bridge",
+      "case": "Real bridge control installation",
+      "acceptance": "The actual emitted bridge installs on the real DOM; text and retry nodes survive; exactly one managed retry handler; permanent guidance remains visible.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "native-save-controls-survive",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-02",
+      "stage": "source-and-emitted-bridge",
+      "case": "Local write fails then heartbeat runs",
+      "acceptance": "Fail local preservation, invoke real old-payload heartbeat, retain current draft and dirty/error state; no false current-work receipt, text or hidden warning.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "quota-heartbeat-retry",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-03",
+      "stage": "source-and-emitted-bridge",
+      "case": "Serialization/capacity/conflict failure latches",
+      "acceptance": "Every failure calls failCourseSave and registered flush rejects until the current revision is safely recoverable and eligible.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/controller_regressions.cjs",
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-controller-results.json",
+        "evidence/repair-browser-results.json",
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-controller-results.json",
+          "testId": "validation-failure-keeps-original-and-last-confirmed",
+          "result": "passed",
+          "command": "node tests/repair/controller_regressions.cjs",
+          "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation"
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "quota-heartbeat-retry",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "oversized-import-preserves-both-and-last-save",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-04",
+      "stage": "source-and-emitted-bridge",
+      "case": "Stale acknowledgement",
+      "acceptance": "Publish A, edit B, commit A: B stays dirty and the final rendered text/visibility does not claim B is saved.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "reentrant-stale-receipt",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-05",
+      "stage": "source-and-emitted-bridge",
+      "case": "Exact acknowledgement",
+      "acceptance": "Current publication and revision match successful payload commit: only then may current work become clean.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "quota-heartbeat-retry",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "reentrant-stale-receipt",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-06",
+      "stage": "source-and-emitted-bridge",
+      "case": "SetValue and Commit rejection",
+      "acceptance": "Each false return withholds success; local current and last confirmed snapshots remain recoverable; staged LMS writes are distinguished from committed data.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "rejected-setvalue-and-commit",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-07",
+      "stage": "source-and-emitted-bridge",
+      "case": "Retry current state",
+      "acceptance": "Retry preserves and publishes the current eligible revision; only its matching commit receipt clears the error/dirty state.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "native-save-controls-survive",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-08",
+      "stage": "source-and-emitted-bridge",
+      "case": "Completion tuple identity",
+      "acceptance": "Receipt identifies the exact state plus completed IDs serialized; reentrant publication cannot substitute a later token.",
+      "result": "pass",
+      "command": [
+        "NODE_PATH=$(npm root -g) node tests/repair/run_shared_test_bodies.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/shared-added-tests.tap",
+        "tests/repair/run_shared_test_bodies.cjs"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-09",
+      "stage": "source-and-emitted-bridge",
+      "case": "Initial empty-tab race",
+      "acceptance": "Two tabs capture null; controlled interleaving cannot silently replace work. Null transitions are real conflicts.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "initial-null-race",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-10",
+      "stage": "source-and-emitted-bridge",
+      "case": "Session writer exclusion",
+      "acceptance": "Exclusive session-held lock precedes editing/publishing; second tab cannot write or have an old heartbeat overwrite the LMS.",
+      "result": "partially_verified",
+      "command": [
+        "node tests/repair/controller_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-controller-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Native Web Locks and same-origin browser execution were attempted but blocked by host URL policy. Mutual exclusion/transfer passed only with explicit cooperative lock doubles."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-controller-results.json",
+          "testId": "two-controller-ownership-transfer",
+          "result": "passed",
+          "command": "node tests/repair/controller_regressions.cjs",
+          "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation"
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "second-writer-denied",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "explicit-release-blocks-heartbeat",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "SAVE-11",
+      "stage": "source-and-emitted-bridge",
+      "case": "Ownership transfer and external changes",
+      "acceptance": "Old owner stops publishing before release; new owner rereads/reconciles; external deletion/corruption preserved and surfaced; no automatic steal.",
+      "result": "partially_verified",
+      "command": [
+        "node tests/repair/controller_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-controller-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Controlled transfer/conflict preservation passed. Actual same-origin Web Lock transfer and cross-device/tenant concurrency remain unverified."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-controller-results.json",
+          "testId": "two-controller-ownership-transfer",
+          "result": "passed",
+          "command": "node tests/repair/controller_regressions.cjs",
+          "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation"
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "external-conflict-preserves-both",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "explicit-release-blocks-heartbeat",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "SAVE-12",
+      "stage": "source-and-emitted-bridge",
+      "case": "No usable lock",
+      "acceptance": "Explicit read-only or per-tab local recovery mode; no automatic canonical/LMS replacement; storage failure never claims durable local preservation.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/controller_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-controller-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-controller-results.json",
+          "testId": "no-lock-means-no-canonical-write",
+          "result": "passed",
+          "command": "node tests/repair/controller_regressions.cjs",
+          "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation"
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "web-lock-unavailable",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "SAVE-13",
+      "stage": "source-and-emitted-bridge",
+      "case": "Legacy consumer and unavailable capability",
+      "acceptance": "Existing bridge callers keep Boolean/API behavior and opted-in automatic controls; new candidate does not infer revision-aware save from old message strings.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/additional_browser_cases.py",
+        "python tests/repair/edge_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-additional-browser-results.json",
+        "evidence/repair-edge-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "New and legacy Boolean API/automatic-control cases passed in emitted-bridge DOM harness. Actual Social course and full repository regressions not run."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/save-controller.js; workspace/course.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "open/acquire/localPreserve/publish/accept/flush/releaseOwnership/choose; announceStatus/persistStateToLms/installControls",
+      "executableCases": [
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "missing-receipt-capability-never-saved",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        },
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "legacy-2004-boolean-and-automatic-controls",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        },
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "legacy-12-boolean-and-automatic-controls",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "STATE-01",
+      "stage": "source",
+      "case": "Frozen v2 catalog migration",
+      "acceptance": "Old indexed authored/generated references and exposure bits decode against exact v0.4 order, including a sentinel after the authored catalog boundary.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "old-catalog-sentinel-after-insertion",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "STATE-02",
+      "stage": "source",
+      "case": "Historical evidence provenance",
+      "acceptance": "Raw responses, parameters, first/correction, original statuses and version provenance survive without regrading; unrecoverable legacy trig chronology is labelled uncertain.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "migration-complete-provenance-and-roundtrip",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "STATE-03",
+      "stage": "source",
+      "case": "Unknown/corrupt restoration",
+      "acceptance": "Invalid schema/catalog/engine or malformed bytes enter recovery; no empty reset or overwrite.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "node tests/repair/controller_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/repair-controller-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "unknown-data-recovery-not-new-course",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/repair-controller-results.json",
+          "testId": "validation-failure-keeps-original-and-last-confirmed",
+          "result": "passed",
+          "command": "node tests/repair/controller_regressions.cjs",
+          "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "STATE-04",
+      "stage": "source",
+      "case": "Idempotent migration and rollup",
+      "acceptance": "Repeated migration/compaction/reload does not duplicate attempts, exposure or per-skill counters; unavailable legacy detail is not invented.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "migration-and-summary-idempotent",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "attempts-not-capped",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "STATE-05",
+      "stage": "source",
+      "case": "Unlimited attempts, bounded retained rows",
+      "acceptance": "Fifth and later attempts remain possible; first plus latest three and total count remain correct.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "attempts-not-capped",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "STATE-06",
+      "stage": "source",
+      "case": "Protected and active work",
+      "acceptance": "Pin/unpin/replacement and tier deduplication preserve selected evidence, current unfinished drafts, checkpoint and support metadata without silent truncation.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Explicit pin/unpin/cancel/replacement and current tiers passed in the controlled DOM. Full capacity fit is not established (CAP-04)."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "selected-and-active-survive-unrelated-navigation",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "explicit-selected-replacement-preserves-detail",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "STATE-07",
+      "stage": "source",
+      "case": "Complete roundtrip",
+      "acceptance": "Every state field including trig, notes, reasons, counts, completion and exposure survives validated roundtrip.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/state-v2-decoder.js; workspace/assets/catalog-registry.js; workspace/course.js",
+      "functionOrSurface": "decode/annotateLegacy/encode/recordSummary; rec/compact/togglePin",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "migration-complete-provenance-and-roundtrip",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "actual-wire-resume-retains-unchecked-and-provenance",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CODEC-01",
+      "stage": "repository-focused",
+      "case": "Representation comparison",
+      "acceptance": "Selected course.data has the smaller JSON-string contribution including escaping; deterministic raw tie.",
+      "result": "pass",
+      "command": [
+        "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-codec-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "shared-repository/proposed/scripts/lib/scorm-state-codec.ts; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "encode/decode; collectState/persistStateToLms",
+      "executableCases": [
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-ascii",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-bmp",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-supplementary",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-escaped",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-repeated",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CODEC-02",
+      "stage": "repository-focused",
+      "case": "Unicode/high entropy/escaping",
+      "acceptance": "ASCII, CJK, combining marks, emoji, quotes, backslashes and newlines roundtrip exactly; byte count is not confused with serialized-character count.",
+      "result": "pass",
+      "command": [
+        "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-codec-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "shared-repository/proposed/scripts/lib/scorm-state-codec.ts; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "encode/decode; collectState/persistStateToLms",
+      "executableCases": [
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-ascii",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-bmp",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-supplementary",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-escaped",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "wire-size-and-lossless-repeated",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        },
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "combining-emoji-quotes-lossless",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CODEC-03",
+      "stage": "repository-focused",
+      "case": "Historical raw and packed compatibility",
+      "acceptance": "Existing raw JSON and CH10LZ1 snapshots decode unchanged; no unnecessary format migration.",
+      "result": "pass",
+      "command": [
+        "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-codec-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "shared-repository/proposed/scripts/lib/scorm-state-codec.ts; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "encode/decode; collectState/persistStateToLms",
+      "executableCases": [
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "historical-raw-packed",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CODEC-04",
+      "stage": "repository-focused",
+      "case": "Corruption/decode bounds",
+      "acceptance": "Integrity failure, malformed/truncated payload and oversized encode/decode are rejected without truncation.",
+      "result": "pass",
+      "command": [
+        "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-codec-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "shared-repository/proposed/scripts/lib/scorm-state-codec.ts; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "encode/decode; collectState/persistStateToLms",
+      "executableCases": [
+        {
+          "file": "evidence/repair-codec-results.json",
+          "testId": "codec-corruption-and-limits",
+          "result": "passed",
+          "command": "NODE_PATH=$(npm root -g) node tests/repair/codec_regressions.cjs",
+          "environment": "Actual baseline/proposed shared codec builder; isolated TypeScript type-erasure"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CODEC-05",
+      "stage": "repository-focused",
+      "case": "Actual full-envelope limit",
+      "acceptance": "The emitted bridge checks the final real envelope and refuses oversize before suspend-data replacement; changing codec choice does not remove guard.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/edge_browser_cases.py",
+        "python tests/repair/measure_capacity.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-edge-browser-results.json",
+        "evidence/actual-bridge-capacity.json",
+        "evidence/tracking-framing-stress.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "shared-repository/proposed/scripts/lib/scorm-state-codec.ts; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "encode/decode; collectState/persistStateToLms",
+      "executableCases": [
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "actual-bridge-full-tracking-framing",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CAP-01",
+      "stage": "measurement-and-owner-decision",
+      "case": "Full field saturation",
+      "acceptance": "Measure actual envelope including metadata/tracking, all retained tiers, anchored checks, drafts, trig, exposure and counters.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/edge_browser_cases.py",
+        "python tests/repair/measure_capacity.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-edge-browser-results.json",
+        "evidence/actual-bridge-capacity.json",
+        "evidence/tracking-framing-stress.json"
+      ],
+      "remainingLimitations": [
+        "Actual full emitted envelopes measured, including long framing and 22 timing rows. Witnesses are not a universal tenant/metadata bound."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/save-controller.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "POLICY/checkCapacity/validate/preserveFailure; final serialized-length guard",
+      "executableCases": [
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "actual-bridge-full-tracking-framing",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "CAP-02",
+      "stage": "measurement-and-owner-decision",
+      "case": "UI-reachable long session",
+      "acceptance": "Construct and document a browser-reachable saturated history with varied submitted expressions and writing; distinguish decoder-only adversarial witnesses.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/ui_capacity_print.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/ui-session-capacity.json",
+        "tests/repair/ui_capacity_print.py"
+      ],
+      "remainingLimitations": [
+        "194 mathematical submissions through actual source input/click events were measured. The browser used explicit storage/lock/API doubles; not a native-origin or learner trial."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/save-controller.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "POLICY/checkCapacity/validate/preserveFailure; final serialized-length guard",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "CAP-03",
+      "stage": "measurement-and-owner-decision",
+      "case": "Text/escaping matrix",
+      "acceptance": "Measure raw, packed and selected full-envelope lengths and headroom across text distributions, not just repetitive examples.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/measure_capacity.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/actual-bridge-capacity.json"
+      ],
+      "remainingLimitations": [
+        "Raw/packed/selected full-envelope lengths measured for all supplied distributions; no universal proof from examples."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/save-controller.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "POLICY/checkCapacity/validate/preserveFailure; final serialized-length guard",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "CAP-04",
+      "stage": "measurement-and-owner-decision",
+      "case": "Tier transitions and migration overhead",
+      "acceptance": "Pin/unpin, formerly long selected text, later attempts, counters, catalog versions and migrations remain within the proposed bound without shortening work.",
+      "result": "fail",
+      "command": [
+        "python tests/repair/measure_capacity.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/actual-bridge-capacity.json",
+        "tests/repair/fixtures/capacity/adversarial-metadata.json"
+      ],
+      "remainingLimitations": [
+        "Current limits do not have a capacity-fit proof. Decoder-admitted full-state ASCII/BMP witnesses exceed 40,000 application characters; adversarial metadata exceeds the actual 60,000-character bridge envelope. Oversize rejection preserves work; this is not fit acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/save-controller.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "POLICY/checkCapacity/validate/preserveFailure; final serialized-length guard",
+      "executableCases": [],
+      "verification": "failed"
+    },
+    {
+      "id": "CAP-05",
+      "stage": "measurement-and-owner-decision",
+      "case": "Overflow recovery",
+      "acceptance": "Current work remains accessible; last confirmed snapshot retained; truthful pending/local-only status; no normal export/reset requirement.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/controller_regressions.cjs",
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-controller-results.json",
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/save-controller.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "POLICY/checkCapacity/validate/preserveFailure; final serialized-length guard",
+      "executableCases": [
+        {
+          "file": "evidence/repair-controller-results.json",
+          "testId": "capacity-failure-holds-current-and-prior",
+          "result": "passed",
+          "command": "node tests/repair/controller_regressions.cjs",
+          "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation"
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "oversized-import-preserves-both-and-last-save",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "CAP-06",
+      "stage": "measurement-and-owner-decision",
+      "case": "Policy decision",
+      "acceptance": "Measured options, upper-bound assumptions and headroom support an explicit owner decision; existing limits and data remain until that choice.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/measure_capacity.py; capacity decision prepared, no policy applied"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CAPACITY_DECISION.md"
+      ],
+      "remainingLimitations": [
+        "Measured decision supplied; no policy approved or implemented. Current field/history ceilings unchanged."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/state.js; workspace/assets/save-controller.js; shared-repository/proposed/scripts/lib/scorm.ts",
+      "functionOrSurface": "POLICY/checkCapacity/validate/preserveFailure; final serialized-length guard",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "FEEDBACK-01",
+      "stage": "source-browser",
+      "case": "Correct answer edited to wrong draft",
+      "acceptance": "For c35 change checked (x+3)(x-4) to unchecked (x+99)(x-4); correctness badge disappears immediately and after navigation/reload.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/edge_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-edge-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js",
+      "functionOrSurface": "submitTask/draftFeedback/syncInputs/textReport",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "draft-invalidates-old-feedback",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "exact-c35-unchecked-after-success",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "FEEDBACK-02",
+      "stage": "source-browser",
+      "case": "Historical result context",
+      "acceptance": "Historical feedback uses its original raw response, frozen problem and version; no recalculation from current input.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js",
+      "functionOrSurface": "submitTask/draftFeedback/syncInputs/textReport",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "draft-invalidates-old-feedback",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "actual-wire-resume-retains-unchecked-and-provenance",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "FEEDBACK-03",
+      "stage": "source-browser",
+      "case": "Input repair retention",
+      "acceptance": "Malformed notation stays literal and repairable, with no conceptual-error claim or mathematical attempt.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js",
+      "functionOrSurface": "submitTask/draftFeedback/syncInputs/textReport",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "unreadable-input-preserved",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "FEEDBACK-04",
+      "stage": "source-browser",
+      "case": "Report draft distinction",
+      "acceptance": "Report distinguishes historical checked responses from the current unchecked draft and announces them consistently.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js",
+      "functionOrSurface": "submitTask/draftFeedback/syncInputs/textReport",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "draft-invalidates-old-feedback",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "revealed-answer-supported-and-paper-route",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-01",
+      "stage": "source-independent-oracle",
+      "case": "Neutral wrappers",
+      "acceptance": "0+((x+3)(x+4))^1 and (x+3)(x+4)-0 accepted as requested factoring form for x^2+7x+12.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "literal-zero-presentations",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-02",
+      "stage": "source-independent-oracle",
+      "case": "Signs, order, repetition",
+      "acceptance": "Reviewed harmless sign/group/unit/reordered/repeated factor forms accepted without arbitrary cancellation.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "sign-order-repeated",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-03",
+      "stage": "source-independent-oracle",
+      "case": "Equivalence versus completion",
+      "acceptance": "Expanded target stays equivalent/unfinished; absorbed GCF (2x+4)(x+3) stays equivalent/incomplete for the explicit whole-GCF task.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "form-and-middle-cue",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-04",
+      "stage": "source-independent-oracle",
+      "case": "Specific wrong-middle feedback",
+      "acceptance": "(x+2)(x+6) produces middle coefficient 8, with justified sum cue rather than an invented misconception.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "form-and-middle-cue",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-05",
+      "stage": "source-independent-oracle",
+      "case": "Literal M09",
+      "acceptance": "x^2+3x+4x+12 is actually consumed and retained through the intermediate contract; final-answer contract classifies it unfinished.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "literal-and-zero-middle-split",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-06",
+      "stage": "source-independent-oracle",
+      "case": "Zero split",
+      "acceptance": "x^2+0x+7x+12 is equivalent but not a useful product-12 split; zero term preserved in structural analysis.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "literal-and-zero-middle-split",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-07",
+      "stage": "source-independent-oracle",
+      "case": "Intermediate core degree",
+      "acceptance": "Cubic intermediate terms cancelled in the final result remain outside core-quadratic-v1; broader unit profile unchanged.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "intermediate-degree-not-cancellation",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-08",
+      "stage": "source-independent-oracle",
+      "case": "Parser trust and boundaries",
+      "acceptance": "Length/node/depth/exponent/variable/integer limits and malformed/adversarial inputs have precise outcomes without code evaluation.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "parser-bounds",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-09",
+      "stage": "source-independent-oracle",
+      "case": "Generator argument validation",
+      "acceptance": "Invalid family/seed/avoid/count rejected; count zero empty; negative/fractional/nonfinite/oversized counts cannot produce accidental runs.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "generator-arguments",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-10",
+      "stage": "source-independent-oracle",
+      "case": "Bounded generation and exhaustion",
+      "acceptance": "Seeded runs reproducible, parameters frozen, signatures distinct as required, exhaustion explicit and preserves existing work.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "constructive-exhaustion",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-11",
+      "stage": "source-independent-oracle",
+      "case": "Independent answer verification",
+      "acceptance": "Retained and added authored keys/worked identities/parameter cases checked with an independent oracle, not self-grading only.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "python tests/repair/independent_oracles.py",
+        "python tests/repair/worked_identity_oracles.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/independent-authored-oracles.json",
+        "evidence/worked-identity-oracles.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "core-generated-independent-integer-oracle",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g31",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c31",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g32",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c32",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g33",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c33",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g34",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c34",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g35",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c35",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g36",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c36",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g37",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c37",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g38",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "c38",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "e35",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "e38",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p31-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p32-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p33-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p34-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p35-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p36-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p37-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-0",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-1",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-2",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-3",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-4",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-5",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-6",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-7",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-8",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-9",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-10",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "p38-11",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i31",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i32",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i33",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i34",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i35",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i36",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i37",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "i38",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g351",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g352",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g353",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g354",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g321",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "g322",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "e301",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "e302",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "e303",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/independent-authored-oracles.json",
+          "testId": "e304",
+          "result": "passed",
+          "command": "python tests/repair/independent_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-1-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-1-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-1-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-2-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-2-1-2",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-2-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-2-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-3-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-3-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-3-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-4-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-4-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-5-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-5-2-2",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-5-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-6-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-6-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-7-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-7-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-7-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-8-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-8-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-9-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-9-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-9-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-10-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-10-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-10-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-11-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-11-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-11-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-11-4-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-12-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-12-1-2",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-12-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-12-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-13-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-13-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-13-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-14-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-14-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-14-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-15-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-15-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-15-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-16-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-16-1-2",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-16-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-16-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-17-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-17-1-2",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-17-2-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-17-3-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        },
+        {
+          "file": "evidence/worked-identity-oracles.json",
+          "testId": "worked-18-1-1",
+          "result": "passed",
+          "command": "python tests/repair/worked_identity_oracles.py",
+          "environment": {
+            "sympy": "1.14.0"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "MATH-12",
+      "stage": "source-independent-oracle",
+      "case": "Historical fixture integrity",
+      "acceptance": "Original M01-M30 bytes/hash unchanged; future guards not presented as implemented M17-M30 mathematics.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/assets/algebra.js; workspace/assets/contracts.js; tests/original_M01_M30.json",
+      "functionOrSurface": "parse/poly/form validation/check/validateTree/generate",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "original-fixtures-immutable",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "LEARNING-01",
+      "stage": "source-and-content-review",
+      "case": "Faded sequence",
+      "acceptance": "Complete example -> partial x^2+9x+20 -> reduced x^2+10x+21 -> genuinely fresh independent task; no answer leakage.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/assets/unit-data.js; workspace/assets/contracts.js; workspace/course.js",
+      "functionOrSurface": "g351\u2013g354/g321\u2013g322/e301\u2013e304; selectMixed/startSet/expose/markSeen",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "faded-and-root-contracts",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "root-and-faded-source-interaction",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "LEARNING-02",
+      "stage": "source-and-content-review",
+      "case": "Exposure across representations",
+      "acceptance": "Seen worked/faded/revealed mathematical signatures cannot become fresh simply through a new seed/reordered representation.",
+      "result": "partially_verified",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "tests/repair/core_regressions.cjs",
+        "workspace/course.js"
+      ],
+      "remainingLimitations": [
+        "Signature exclusion, constructive exhaustion and browser selection are tested. Complete physical-scroll exposure across all browsers remains a re-audit target."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/assets/unit-data.js; workspace/assets/contracts.js; workspace/course.js",
+      "functionOrSurface": "g351\u2013g354/g321\u2013g322/e301\u2013e304; selectMixed/startSet/expose/markSeen",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "LEARNING-03",
+      "stage": "source-and-content-review",
+      "case": "Fresh mixed coverage",
+      "acceptance": "Six-question eligible sets include expansion, factoring and error interpretation with reviewed balanced remaining items.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/assets/unit-data.js; workspace/assets/contracts.js; workspace/course.js",
+      "functionOrSurface": "g351\u2013g354/g321\u2013g322/e301\u2013e304; selectMixed/startSet/expose/markSeen",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "mixed-strata-and-exhaustion",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "mixed-independent-strata",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "LEARNING-04",
+      "stage": "source-and-content-review",
+      "case": "Mixed category exhaustion",
+      "acceptance": "Required category exhaustion is explicit and retains current work; supported practice/teacher route remains available.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/assets/unit-data.js; workspace/assets/contracts.js; workspace/course.js",
+      "functionOrSurface": "g351\u2013g354/g321\u2013g322/e301\u2013e304; selectMixed/startSet/expose/markSeen",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "mixed-strata-and-exhaustion",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "LEARNING-05",
+      "stage": "source-and-content-review",
+      "case": "Root estimation elicited",
+      "acceptance": "Learner supplies correct bounds for non-perfect square/cube roots via an explicit bounded contract; reasoning reviewed separately.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs",
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json",
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/assets/unit-data.js; workspace/assets/contracts.js; workspace/course.js",
+      "functionOrSurface": "g351\u2013g354/g321\u2013g322/e301\u2013e304; selectMixed/startSet/expose/markSeen",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "faded-and-root-contracts",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        },
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "root-and-faded-source-interaction",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "LEARNING-06",
+      "stage": "source-and-content-review",
+      "case": "Preserved unit and learner routes",
+      "acceptance": "Eight lessons/checkpoints, prepared route, optional prerequisite repair, alternate-method route, two error analyses and two transfer opportunities remain.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-additional-browser-results.json",
+        "evidence/source-preservation.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/assets/unit-data.js; workspace/assets/contracts.js; workspace/course.js",
+      "functionOrSurface": "g351\u2013g354/g321\u2013g322/e301\u2013e304; selectMixed/startSet/expose/markSeen",
+      "executableCases": [
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "revealed-answer-supported-and-paper-route",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "TRIG-01",
+      "stage": "source-and-content-review",
+      "case": "Support before first attempt",
+      "acceptance": "Wrong length/setup attempt retains pre-feedback mask; only subsequent attempts gain feedback support.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/assets/contracts.js; workspace/assets/state.js",
+      "functionOrSurface": "retainTrig/trig handlers; trig/validateTrig",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "trig-feedback-after-submission",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "TRIG-02",
+      "stage": "source-and-content-review",
+      "case": "Setup-only versus numeric attempt",
+      "acceptance": "Wrong ratio plus empty numeric field does not fabricate an incorrect numeric submission; setup evidence separately retained.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/assets/contracts.js; workspace/assets/state.js",
+      "functionOrSurface": "retainTrig/trig handlers; trig/validateTrig",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "trig-setup-chronology-and-report",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "TRIG-03",
+      "stage": "source-and-content-review",
+      "case": "Sides under rotation",
+      "acceptance": "Opposite, adjacent and hypotenuse each elicited under rotation; alternatives give context without revealing the asked identity.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/assets/contracts.js; workspace/assets/state.js",
+      "functionOrSurface": "retainTrig/trig handlers; trig/validateTrig",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "trig-setup-chronology-and-report",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "TRIG-04",
+      "stage": "source-and-content-review",
+      "case": "Value/unit/precision/domain",
+      "acceptance": "Correct number, requested degree conversion, precision, missing units and impossible domain values receive distinct supported judgments.",
+      "result": "pass",
+      "command": [
+        "node tests/repair/core_regressions.cjs"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-core-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/assets/contracts.js; workspace/assets/state.js",
+      "functionOrSurface": "retainTrig/trig handlers; trig/validateTrig",
+      "executableCases": [
+        {
+          "file": "evidence/repair-core-results.json",
+          "testId": "trig-unit-precision-domain",
+          "result": "passed",
+          "command": "node tests/repair/core_regressions.cjs",
+          "environment": {
+            "node": "v22.16.0",
+            "type": "isolated source modules; no repository runner"
+          }
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "TRIG-05",
+      "stage": "source-and-content-review",
+      "case": "Restore/provenance",
+      "acceptance": "Trig draft/results/setup/support and legacy uncertainty survive migration and restore without retroactive support edits.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/assets/contracts.js; workspace/assets/state.js",
+      "functionOrSurface": "retainTrig/trig handlers; trig/validateTrig",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "trig-setup-chronology-and-report",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "actual-wire-resume-retains-unchecked-and-provenance",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "ACCESS-01",
+      "stage": "browser-and-human",
+      "case": "Closed mobile keyboard menu",
+      "acceptance": "Closed sidebar contributes no offscreen focusable targets; genuine 320-CSS-pixel dimensions recorded.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/edge_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-edge-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/styles.css; workspace/course.js; workspace/assets/input-enhancement.js",
+      "functionOrSurface": "visibleMenuItems/setMenuState/keydown; native fields/labels/optional enhance",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "mobile-menu-focus-and-resize",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "menu-wrap-scrim-route-reference",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "ACCESS-02",
+      "stage": "browser-and-human",
+      "case": "Open/close menu focus",
+      "acceptance": "Focus entry, wrap, Shift+Tab, Escape, scrim and route close work with visible focus and appropriate return.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/edge_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-edge-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/styles.css; workspace/course.js; workspace/assets/input-enhancement.js",
+      "functionOrSurface": "visibleMenuItems/setMenuState/keydown; native fields/labels/optional enhance",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "mobile-menu-focus-and-resize",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "menu-wrap-scrim-route-reference",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "ACCESS-03",
+      "stage": "browser-and-human",
+      "case": "Resize and nested focus",
+      "acceptance": "Desktop/mobile changes release/apply inert safely; no focused hidden node or competing dialog trap.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/browser_regressions.py",
+        "python tests/repair/edge_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json",
+        "evidence/repair-edge-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Focused resize/reference/menu interactions passed. Physical on-screen keyboard and all nested assistive-technology paths remain unverified."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/styles.css; workspace/course.js; workspace/assets/input-enhancement.js",
+      "functionOrSurface": "visibleMenuItems/setMenuState/keydown; native fields/labels/optional enhance",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "mobile-menu-focus-and-resize",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        },
+        {
+          "file": "evidence/repair-edge-browser-results.json",
+          "testId": "menu-wrap-scrim-route-reference",
+          "result": "passed",
+          "command": "python tests/repair/edge_browser_cases.py",
+          "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression."
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "ACCESS-04",
+      "stage": "browser-and-human",
+      "case": "Native input completeness",
+      "acceptance": "All essential tasks and repair/help/report routes remain keyboard-usable without enhanced math input.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Native malformed-entry repair, structured fields, keyboard menu and report paths have controlled checks. Complete real-device help/submission is not established."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/styles.css; workspace/course.js; workspace/assets/input-enhancement.js",
+      "functionOrSurface": "visibleMenuItems/setMenuState/keydown; native fields/labels/optional enhance",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "unreadable-input-preserved",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "ACCESS-05",
+      "stage": "browser-and-human",
+      "case": "MathLive spike",
+      "acceptance": "Pinned local candidate tested with fonts/iframe keyboard/draft-preserving switches/same checker and no forbidden remote dependencies; incomplete remains explicitly unverified.",
+      "result": "blocked",
+      "command": [
+        "python tests/repair/mathlive_local_spike.py (blocked before real-library execution)"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/mathlive-spike-gate.json"
+      ],
+      "remainingLimitations": [
+        "Real pinned MathLive dependency unavailable; executable spike supplied but preflight blocked. Adapter stays disabled; no mock counted as library acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/styles.css; workspace/course.js; workspace/assets/input-enhancement.js",
+      "functionOrSurface": "visibleMenuItems/setMenuState/keydown; native fields/labels/optional enhance",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "ACCESS-06",
+      "stage": "browser-and-human",
+      "case": "Actual AT/mobile",
+      "acceptance": "VoiceOver/Safari, NVDA/Chrome and target device keyboard/zoom tested by appropriate operator; automation alone does not pass this case.",
+      "result": "blocked",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CONFIDENCE.md"
+      ],
+      "remainingLimitations": [
+        "VoiceOver/Safari, NVDA/Chrome and physical target-device keyboard/zoom not run."
+      ],
+      "namespace": "repair",
+      "source": "workspace/index.html; workspace/styles.css; workspace/course.js; workspace/assets/input-enhancement.js",
+      "functionOrSurface": "visibleMenuItems/setMenuState/keydown; native fields/labels/optional enhance",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "REPORT-01",
+      "stage": "source-and-human-route",
+      "case": "Capacity labels",
+      "acceptance": "Labels and accepted maxima derive from one chosen policy; interim 160-character lesson acceptance is described truthfully.",
+      "result": "pass",
+      "command": [
+        "source-preservation comparison against original input; existing maxlength values checked"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/source-preservation.json",
+        "workspace/assets/state.js"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/styles.css; workspace/assets/state.js",
+      "functionOrSurface": "textReport/renderWork/printMode/POLICY",
+      "executableCases": [],
+      "verification": "verified"
+    },
+    {
+      "id": "REPORT-02",
+      "stage": "source-and-human-route",
+      "case": "Evidence report",
+      "acceptance": "Problem/givens, first/correction/current draft, history window, support-before, versions, reasoning and review status remain intelligible.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/browser_regressions.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/styles.css; workspace/assets/state.js",
+      "functionOrSurface": "textReport/renderWork/printMode/POLICY",
+      "executableCases": [
+        {
+          "file": "evidence/repair-browser-results.json",
+          "testId": "trig-setup-chronology-and-report",
+          "result": "passed",
+          "command": "python tests/repair/browser_regressions.py",
+          "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy."
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "REPORT-03",
+      "stage": "source-and-human-route",
+      "case": "Real print output",
+      "acceptance": "Actual rendered print/PDF inspected for teaching and report clipping/equations/page breaks; print invocation alone insufficient.",
+      "result": "pass",
+      "command": [
+        "python tests/repair/ui_capacity_print.py; PyMuPDF page render and visual inspection"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/print-layout-evidence.json",
+        "evidence/process-report-print.pdf",
+        "evidence/lesson35-print.pdf"
+      ],
+      "remainingLimitations": [
+        "Verified for the named local cases and supplied source only; not production, learner-effectiveness or universal-input acceptance."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/styles.css; workspace/assets/state.js",
+      "functionOrSurface": "textReport/renderWork/printMode/POLICY",
+      "executableCases": [],
+      "verification": "verified"
+    },
+    {
+      "id": "REPORT-04",
+      "stage": "source-and-human-route",
+      "case": "Real handoff semantics",
+      "acceptance": "Copy/download/link opening never labelled submitted; approved actual assignment/help routes separately configured and exercised.",
+      "result": "partially_verified",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "workspace/assets/unit-data.js",
+        "workspace/course.js"
+      ],
+      "remainingLimitations": [
+        "Local copy/download/print is not labelled submitted, and missing destinations remain explicit. No actual assignment/help endpoint has been configured or exercised."
+      ],
+      "namespace": "repair",
+      "source": "workspace/course.js; workspace/styles.css; workspace/assets/state.js",
+      "functionOrSurface": "textReport/renderWork/printMode/POLICY",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "REPO-01",
+      "stage": "integration-rollout",
+      "case": "Safe scoped integration",
+      "acceptance": "Preflight and current source hashes checked; course:create and canonical/generated ownership honored; unrelated dirty work preserved.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/prepare_shared_patch.py; installer --apply source refusal inspection"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "integration/install-into-canvas-helper.mjs",
+        "evidence/shared-patch-verification.json"
+      ],
+      "remainingLimitations": [
+        "Unsafe --apply path disabled; no live checkout available. Patch dry-run/reconstruction used a disposable reference mirror, not course:create or a live installation."
+      ],
+      "namespace": "repair",
+      "source": "integration/install-into-canvas-helper.mjs; shared-repository/canvas-helper-save-receipts-and-codec.patch",
+      "functionOrSurface": "read-only preflight; no production application",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "REPO-02",
+      "stage": "integration-rollout",
+      "case": "Focused shared regressions",
+      "acceptance": "Actual canonical shared bridge/codec tests plus DOM/receipt checks pass; no production claim from modified reference copies.",
+      "result": "partially_verified",
+      "command": [
+        "NODE_PATH=$(npm root -g) node tests/repair/run_shared_test_bodies.cjs",
+        "python tests/repair/prepare_shared_patch.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/shared-added-tests.tap",
+        "evidence/shared-patch-verification.json"
+      ],
+      "remainingLimitations": [
+        "Actual shared-source builders and added test bodies ran in isolation, plus emitted DOM tests. Full repository command, typecheck and CI are not run."
+      ],
+      "namespace": "repair",
+      "source": "integration/install-into-canvas-helper.mjs; shared-repository/canvas-helper-save-receipts-and-codec.patch",
+      "functionOrSurface": "read-only preflight; no production application",
+      "executableCases": [],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "REPO-03",
+      "stage": "integration-rollout",
+      "case": "Routine Studio lifecycle",
+      "acceptance": "Real Edit -> draft -> apply -> reload -> Undo passes without intervening external mutations and restores exactly.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "integration/install-into-canvas-helper.mjs; shared-repository/canvas-helper-save-receipts-and-codec.patch",
+      "functionOrSurface": "read-only preflight; no production application",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "REPO-04",
+      "stage": "integration-rollout",
+      "case": "Rebuild survival and family withdrawal",
+      "acceptance": "Separate canonical hint edit survives behavior rebuild; supported fresh restoration after drift; withdrawn family preserves work and offers alternative without completion.",
+      "result": "partially_verified",
+      "command": [
+        "python tests/repair/additional_browser_cases.py"
+      ],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "evidence/repair-additional-browser-results.json"
+      ],
+      "remainingLimitations": [
+        "Canonical hint getter and withdrawal retention are demonstrated locally. Actual Studio edits, behavior rebuild and supported restoration after drift are not run."
+      ],
+      "namespace": "repair",
+      "source": "integration/install-into-canvas-helper.mjs; shared-repository/canvas-helper-save-receipts-and-codec.patch",
+      "functionOrSurface": "read-only preflight; no production application",
+      "executableCases": [
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "withdrawal-preserves-work-and-completion",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        },
+        {
+          "file": "evidence/repair-additional-browser-results.json",
+          "testId": "canonical-hint-is-live-source",
+          "result": "passed",
+          "command": "python tests/repair/additional_browser_cases.py",
+          "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant"
+        }
+      ],
+      "verification": "partially_verified"
+    },
+    {
+      "id": "REPO-05",
+      "stage": "integration-rollout",
+      "case": "Candidate rollout gates",
+      "acceptance": "Doctor/workspace/editability/readiness/project E2E and relevant actual-head CI evidence correspond to the frozen candidate; no flags-only activation.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "integration/install-into-canvas-helper.mjs; shared-repository/canvas-helper-save-receipts-and-codec.patch",
+      "functionOrSurface": "read-only preflight; no production application",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "LMS-01",
+      "stage": "authorized-real-tenant",
+      "case": "Actual artifact",
+      "acceptance": "Authorized SCORM 2004 exporter output inspected/hashed; no claim from standalone HTML or a reference ZIP.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "workspace/scorm-tracking.json; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "contract declaration only; tenant gate not run",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "LMS-02",
+      "stage": "authorized-real-tenant",
+      "case": "Lifecycle persistence",
+      "acceptance": "Actual launch/autosave/interruption/close/resume/device change verified with legitimate test accounts.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "workspace/scorm-tracking.json; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "contract declaration only; tenant gate not run",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "LMS-03",
+      "stage": "authorized-real-tenant",
+      "case": "Attempts and isolation",
+      "acceptance": "New attempt/replacement/learner separation and relevant concurrent-device semantics verified in the tenant.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "workspace/scorm-tracking.json; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "contract declaration only; tenant gate not run",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "LMS-04",
+      "stage": "authorized-real-tenant",
+      "case": "Failure and capacity",
+      "acceptance": "Actual target handles rejected saves and measured capacity boundary truthfully; no unsupported rollback or cross-device guarantee.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "workspace/scorm-tracking.json; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "contract declaration only; tenant gate not run",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "LMS-05",
+      "stage": "authorized-real-tenant",
+      "case": "Teacher evidence route",
+      "acceptance": "Teacher can obtain intended evidence via approved assignment/help workflow on target devices; optional native reporting distinguished.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "workspace/scorm-tracking.json; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "contract declaration only; tenant gate not run",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "HUMAN-01",
+      "stage": "owner-and-controlled-pilot",
+      "case": "Curriculum/source/tool decisions",
+      "acceptance": "Current outcome mapping, redistribution permissions, actual routes and learning-tool policies confirmed by the relevant owner.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "governing/RECONCILED_MASTER_PLAN.md; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "owner and independent-review gates",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "HUMAN-02",
+      "stage": "owner-and-controlled-pilot",
+      "case": "Independent re-audit",
+      "acceptance": "Repaired artifact independently checked against requirements before accepting builder summary claims.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "governing/RECONCILED_MASTER_PLAN.md; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "owner and independent-review gates",
+      "executableCases": [],
+      "verification": "unverified"
+    },
+    {
+      "id": "HUMAN-03",
+      "stage": "owner-and-controlled-pilot",
+      "case": "Controlled observation",
+      "acceptance": "Separately authorized varied learner/accessibility observations and teacher review inform release; code tests do not claim learning effectiveness.",
+      "result": "not_run",
+      "command": [],
+      "environment": "No full Canvas Helper checkout. Isolated actual source modules / real Chromium DOM with explicit storage, lock and LMS doubles as identified. Native-origin attempts blocked; repository/Studio/CI/LMS/AT unrun.",
+      "candidateSha256": "39a94356c549a62742a8aeb2c728cff828a4b15d0119f1b251c1e56fc813d585",
+      "evidence": [
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "remainingLimitations": [
+        "Separate authorized repository/Studio/CI/tenant/human gate; no such execution occurred."
+      ],
+      "namespace": "repair",
+      "source": "governing/RECONCILED_MASTER_PLAN.md; docs/CODEX_HANDOFF.md",
+      "functionOrSurface": "owner and independent-review gates",
+      "executableCases": [],
+      "verification": "unverified"
+    }
+  ],
+  "candidateHashMeaning": "candidateSha256 identifies regenerated standalone HTML, not the outer ZIP",
+  "candidateSourceTreeSha256": "b9d793e2a352cdcd00a0d4dd0fa1cc17cfb35d0bf96492daeba9fe2b500f1275"
+}

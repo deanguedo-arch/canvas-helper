@@ -1,0 +1,279 @@
+{
+  "version": "unit-scope-v0.4",
+  "basis": "Original reconciled v0.3 plus the user-authorized full-unit expansion",
+  "note": "Complete accounting is not 100% acceptance. No unmet gate is removed or changed to pass.",
+  "requirements": [
+    {
+      "id": "MATH-01",
+      "requirement": "Preserve source-grounded learning sequence",
+      "status": "implemented_locally",
+      "disposition": "Eight lessons, explanation/repair, printable teaching, mixed checks and fast route retained.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-02",
+      "requirement": "New pilot creation and teacher ownership",
+      "status": "integration_open",
+      "disposition": "Real scaffold source inspected; guarded helper supplied, actual course:create not executed.",
+      "evidence": "CODEX_HANDOFF.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-03",
+      "requirement": "Routine HTML and durable teacher edits",
+      "status": "partial_local_evidence",
+      "disposition": "Canonical support wording and source withdrawal work; actual teacher Studio controls/lifecycle unproved.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-04",
+      "requirement": "Generated math family and adapter",
+      "status": "deferred_by_plan",
+      "disposition": "No full Math factory or generated-lesson adapter created.",
+      "evidence": "RECONCILIATION_v0.4.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-05",
+      "requirement": "UTF-16 and archive safety",
+      "status": "preserved_reference_no_new_intake",
+      "disposition": "Prior selected-source audit retained; this pass did not reimport raw course archives.",
+      "evidence": "reference/PRIOR_UNIT_SOURCE_AND_SCOPE.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-06",
+      "requirement": "Module description and resource relationships",
+      "status": "preserved_reference",
+      "disposition": "Eight-section source organization retained; original course instructions are not claimed fully converted.",
+      "evidence": "reference/PRIOR_UNIT_SOURCE_AND_SCOPE.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-07",
+      "requirement": "Generic quiz answer fallback as Math authority",
+      "status": "rejected_path_absent",
+      "disposition": "No source quiz option-zero fallback used as answer authority.",
+      "evidence": "contract-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-08",
+      "requirement": "Complete bank-plus-inline reference index",
+      "status": "deferred_by_plan",
+      "disposition": "No bank/inline importer built for this authored unit.",
+      "evidence": "RECONCILIATION_v0.4.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-09",
+      "requirement": "Scanned equations and mathematical images",
+      "status": "partial_local_evidence",
+      "disposition": "Authored mathematical diagrams/text retained; complete mathematical/source accessibility audit not performed.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-10",
+      "requirement": "Deterministic generated practice",
+      "status": "implemented_locally",
+      "disposition": "Authored bank plus explicit deterministic generated families, mathematical deduplication and exposure-aware checks.",
+      "evidence": "contract-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-11",
+      "requirement": "Factoring mathematical and form checking",
+      "status": "implemented_with_scope_amendment",
+      "disposition": "Core quadratic profile preserved; larger named unit profiles cover authorized scope without universal grading.",
+      "evidence": "contract-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-12",
+      "requirement": "Intermediate and alternative reasoning",
+      "status": "implemented_locally",
+      "disposition": "Literal intermediate input, valid alternate method retention, relationship/error explanation and repair.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-13",
+      "requirement": "Visual notation entry",
+      "status": "partial_native_only",
+      "disposition": "Native controls active; real pinned MathLive integration/acquisition and acceptance remain open.",
+      "evidence": "CODEX_HANDOFF.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-14",
+      "requirement": "General CAS/universal symbolic grading",
+      "status": "deferred_by_plan",
+      "disposition": "Original M17\u2013M30 untouched; separately named unsupported guards are not future-family mathematical passes.",
+      "evidence": "contract-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-15",
+      "requirement": "Trigonometry contrast",
+      "status": "implemented_locally",
+      "disposition": "Optional triangle contrast with stable labels, setup, angle/length, units and reasoning.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-16",
+      "requirement": "Support versus independent evidence",
+      "status": "implemented_locally",
+      "disposition": "Support before each submission, independent seen/exposed filter, no retrospective relabelling.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-17",
+      "requirement": "One managed LMS session owner",
+      "status": "partial_contract_double_only",
+      "disposition": "Uses shared-owner hooks; actual production bridge/exporter not executed.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-18",
+      "requirement": "Bounded state and safe migration",
+      "status": "partial_measured_witnesses",
+      "disposition": "Compact unit retention and fail-closed recovery; three stress witnesses fit, exhaustive/actual bridge capacity proof remains.",
+      "evidence": "capacity-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-19",
+      "requirement": "Quiet autosave and honest recovery UI",
+      "status": "partial_contract_double_only",
+      "disposition": "Pending versus acknowledged saves, failure/retry, conflicts and previous-version recovery exercised with doubles.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-20",
+      "requirement": "Native teacher reporting of math reasoning",
+      "status": "external_tenant_gate",
+      "disposition": "No claim that native SCORM reports expose reasoning.",
+      "evidence": "CODEX_HANDOFF.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-21",
+      "requirement": "Formal grades and secure assessments",
+      "status": "partial_local_evidence",
+      "disposition": "Report preview/copy/print/download; real approved destination/formats remain unconfigured.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-22",
+      "requirement": "Cross-course mastery analytics",
+      "status": "deferred_by_plan",
+      "disposition": "No gradebook writer, cross-course learner-data service or mastery dashboard added.",
+      "evidence": "RECONCILIATION_v0.4.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-23",
+      "requirement": "Package granularity",
+      "status": "packaging_open",
+      "disposition": "Tracking contract supplied, no SCORM ZIP or package/replacement acceptance.",
+      "evidence": "CODEX_HANDOFF.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-24",
+      "requirement": "Current authority and source permissions",
+      "status": "external_owner_gate",
+      "disposition": "Teacher outcome/assessment/source-use confirmation not manufactured.",
+      "evidence": "RECONCILIATION_v0.4.md",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-25",
+      "requirement": "Accessibility and learner effectiveness",
+      "status": "partial_controlled_browser",
+      "disposition": "Six hypothetical journeys and narrow reflow/focus checked; real AT/devices/learner observation remain.",
+      "evidence": "preview-results.json",
+      "actual_tenant_accepted": false
+    },
+    {
+      "id": "MATH-26",
+      "requirement": "Full-course implementation and rollout now",
+      "status": "build_authorized_release_not_authorized",
+      "disposition": "Latest user request authorizes this reconciliation/build, not release.",
+      "evidence": "RECONCILIATION_v0.4.md",
+      "actual_tenant_accepted": false
+    }
+  ],
+  "decision_links": {
+    "D01": [
+      "MATH-01",
+      "MATH-10",
+      "MATH-12",
+      "MATH-16",
+      "MATH-25"
+    ],
+    "D02": [
+      "MATH-02"
+    ],
+    "D03": [
+      "MATH-03",
+      "MATH-04"
+    ],
+    "D04": [
+      "MATH-17",
+      "MATH-18"
+    ],
+    "D05": [
+      "MATH-19"
+    ],
+    "D06": [
+      "MATH-11",
+      "MATH-12"
+    ],
+    "D07": [
+      "MATH-11"
+    ],
+    "D08": [
+      "MATH-13",
+      "MATH-25"
+    ],
+    "D09": [
+      "MATH-15"
+    ],
+    "D10": [
+      "MATH-14"
+    ],
+    "D11": [
+      "MATH-23"
+    ],
+    "D12": [
+      "MATH-20",
+      "MATH-21",
+      "MATH-22"
+    ],
+    "D13": [
+      "MATH-07",
+      "MATH-11",
+      "MATH-17"
+    ],
+    "D14": [
+      "MATH-04",
+      "MATH-14",
+      "MATH-22"
+    ]
+  },
+  "originalFixtures": {
+    "count": 30,
+    "sha256": "b59def072b94e8a208cb2fef5418b0898620d96a1966fba3c89fbbfcf4431cb5",
+    "executionMetadata": "unchanged: implemented=false, passed=null, not_run",
+    "futureExpectations": "M17\u2013M30 remain deferred; unsupported guards separate"
+  }
+}

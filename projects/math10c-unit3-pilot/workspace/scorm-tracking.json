@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "adapter": "hash-pages-v1",
+  "pageIds": [
+    "u3-overview",
+    "u3-ready",
+    "u3-31",
+    "u3-32",
+    "u3-33",
+    "u3-34",
+    "u3-35",
+    "u3-36",
+    "u3-37",
+    "u3-38",
+    "u3-practice",
+    "u3-mixed",
+    "u3-errors",
+    "u3-review",
+    "u3-reference",
+    "u3-number-lab",
+    "u3-expansion-lab",
+    "u3-vocab",
+    "u3-work",
+    "u3-resources",
+    "u3-support-library",
+    "u3-transfer"
+  ],
+  "defaultPageId": "u3-overview",
+  "state": {
+    "adapter": "course-state-v1"
+  },
+  "completion": {
+    "storageKey": "math10c-unit3-pilot:completion",
+    "path": [
+      "completedIds"
+    ],
+    "requiredIds": [
+      "u3-check-31",
+      "u3-check-32",
+      "u3-check-33",
+      "u3-check-34",
+      "u3-check-35",
+      "u3-check-36",
+      "u3-check-37",
+      "u3-check-38"
+    ]
+  }
+}

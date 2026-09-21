@@ -1,0 +1,269 @@
+diff --git a/docs/workflows/scorm-save-receipts.md b/docs/workflows/scorm-save-receipts.md
+new file mode 100644
+--- /dev/null
++++ b/docs/workflows/scorm-save-receipts.md
+@@ -0,0 +1,13 @@
++# Managed course save receipts (additive API)
++
++Candidate change against d0b4cf731dd180cebee908915772e90687d40215; not installed by this bundle.
++
++The shared bridge remains the only owner of LMS initialization, SetValue, Commit and termination. `publishCourseState(snapshot, completedIds)` now returns an opaque session-local identity for an immutable cloned snapshot/completion tuple. Unchanged tuples reuse the current identity. Existing callers may ignore the return; `save()` and `saveAsync()` retain Boolean results.
++
++`capabilities.courseSaveReceiptV1 === true` advertises this contract. A `canvas-helper:scorm-status` success event has `phase: "saved"` and `coursePublicationId` only after the captured tuple was committed successfully. Default status DOM is rendered before dispatch. A new publication during reentrant API callbacks does not replace the captured receipt. Completion progress uses the same captured tuple.
++
++Course listeners must compare receipt identity, current exact snapshot, completion IDs and local edit revision before clearing dirty state. A generic status string is never an acknowledgement. Failed local validation/storage must call `failCourseSave` so heartbeat cannot falsely acknowledge an earlier snapshot. Managed initialization defers completion writes until an authorized course save. A newer pending publication prevents managed exit from claiming that all work was saved.
++
++No learner answer is copied into event payloads. The Math course separately requires an exclusive Web Lock before editing/publication and preserves conflicting recovery branches. A caller without the new capability is local-only/unconfirmed, not automatically upgraded to saved.
++
++Run `npx tsx --test scripts/tests/scorm-state-codec.test.ts scripts/tests/scorm-export.test.ts` after separately authorized integration. The accompanying repair source has an isolated emitted-bridge and actual-DOM test harness; it is not a substitute for full repository CI, Studio lifecycle, native tab-lock or tenant testing.
+diff --git a/scripts/lib/scorm-state-codec.ts b/scripts/lib/scorm-state-codec.ts
+--- a/scripts/lib/scorm-state-codec.ts
++++ b/scripts/lib/scorm-state-codec.ts
+@@ -10,7 +10,7 @@
+   for(let c=possible.length-1;c>=0;c--){const candidate=possible[c],distance=pos-candidate;if(distance>4095)break;let n=0;while(n<18&&pos+n<a.length&&a[candidate+n]===a[pos+n])n++;if(n>=3&&n>length){length=n;offset=distance;if(n===18)break;}}
+   if(length>=3){flags|=1<<bit;const token=(offset<<4)|(length-3);output.push(token>>8,token&255);for(let j=0;j<length;j++)add(pos+j);pos+=length;}else{output.push(a[pos]);add(pos);pos++;}
+  }output[flagAt]=flags;}
+- let bin='';for(let i=0;i<output.length;i+=8192)bin+=String.fromCharCode(...output.slice(i,i+8192));const packed=PREFIX+a.length+'|'+hash(a)+'|'+btoa(bin);return packed.length<a.length?packed:s;
++ let bin='';for(let i=0;i<output.length;i+=8192)bin+=String.fromCharCode(...output.slice(i,i+8192));const packed=PREFIX+a.length+'|'+hash(a)+'|'+btoa(bin);return JSON.stringify(packed).length<JSON.stringify(s).length?packed:s;
+ }
+ function decode(s){if(!s.startsWith(PREFIX))return s;const parts=s.split('|');if(parts.length!==4||!/^\d+$/.test(parts[1])||! /^[0-9a-f]+$/.test(parts[2]))throw Error('Invalid saved-state header.');const expected=Number(parts[1]);if(expected>LIMIT)throw Error('Saved state exceeds the decode limit.');const input=Uint8Array.from(atob(parts[3]),c=>c.charCodeAt(0)),out=new Uint8Array(expected);let p=0,q=0;
+  while(p<input.length&&q<expected){const flags=input[p++];for(let bit=0;bit<8&&p<input.length&&q<expected;bit++){
+diff --git a/scripts/lib/scorm.ts b/scripts/lib/scorm.ts
+--- a/scripts/lib/scorm.ts
++++ b/scripts/lib/scorm.ts
+@@ -333,6 +333,11 @@
+   let courseScope = "";
+   let learnerId = "";
+   let courseError = "";
++  // Opaque, session-local receipts; no learner content is sent in status events.
++  let publicationSequence = 0;
++  const publicationSession = config.managedState ? Array.from(window.crypto.getRandomValues(new Uint8Array(12)), b => b.toString(16).padStart(2, "0")).join("") : "";
++  let coursePublication = null;
++  let committedPublicationId = null;
+   let preparing = null;
+ 
+ ${buildScormStateCodecRuntime()}
+@@ -350,10 +355,16 @@
+     // Validate and materialize before replacing the last committed snapshot.
+     const copy = JSON.parse(JSON.stringify(value));
+     stateCodec.encode(JSON.stringify(copy));
++    const ids = Array.from(new Set(completedIds));
++    const identity = JSON.stringify([copy, ids]);
++    if (!coursePublication || coursePublication.identity !== identity) {
++      coursePublication = { id: publicationSession + ":" + (++publicationSequence), identity, state: copy, completedIds: ids };
++    }
+     courseState = copy;
+-    courseCompletedIds = Array.from(new Set(completedIds));
++    courseCompletedIds = ids;
+     courseError = "";
+     scheduleFlush("course-state");
++    return coursePublication.id;
+   }
+   function registerCourse(options) {
+     if (!config.managedState) throw new Error("This package has no course state adapter contract.");
+@@ -379,6 +390,7 @@
+       save: save, saveAsync: saveAsync, saveAndExit: saveAndExit, markCompleted: markCompleted,
+       connectionState: connectionState, readCourseState: readCourseState,
+       publishCourseState: publishCourseState, registerCourse: registerCourse,
++      capabilities: Object.freeze({courseSaveReceiptV1: true}),
+       scopeKey: function (key) { return initialized && config.managedState ? key + ":lms:" + courseScope : key; },
+       learner: function () { return learnerId; },
+       failCourseSave: function (error) { courseError = String(error.message || error); announceStatus(courseError, true); },
+@@ -501,7 +513,7 @@
+     };
+   }
+ 
+-  function collectStateFromLocalStorage() {
++  function collectStateFromLocalStorage(publication) {
+     const values = {};
+     for (const key of config.managedState ? [] : trackedKeySet) {
+       try {
+@@ -519,7 +531,7 @@
+       projectSlug: config.projectSlug,
+       savedAt: new Date().toISOString(),
+       values: values,
+-      ...(config.managedState ? {scope: courseScope, learnerId: learnerId, course: {schemaVersion: 1, data: stateCodec.encode(JSON.stringify(courseState)), completedIds: courseCompletedIds}} : {}),
++      ...(config.managedState ? {scope: courseScope, learnerId: learnerId, course: {schemaVersion: 1, data: stateCodec.encode(JSON.stringify(publication ? publication.state : courseState)), completedIds: publication ? publication.completedIds : courseCompletedIds}} : {}),
+       tracking: collectTracking()
+     };
+   }
+@@ -567,31 +579,36 @@
+   }
+ 
+   function automaticControls() { return document.body && document.body.getAttribute && document.body.getAttribute("data-scorm-save-mode") === "automatic"; }
+-  function announceStatus(message, isError) {
++  function announceStatus(message, isError, receipt) {
++    // Render first. A consumer may then accurately display pending/error state
++    // when this receipt describes an older publication rather than its draft.
++    if (controlHost) {
++      if (automaticControls()) controlHost.style.display = isError ? "flex" : "none";
++      const statusNode = controlHost.querySelector("[data-scorm-status]");
++      if (statusNode) {
++        statusNode.textContent = message;
++        statusNode.style.color = isError ? "#b91c1c" : "#334155";
++      }
++    }
+     if (config.managedState && typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
+-      window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-status", {detail: {message: message, error: Boolean(isError)}}));
+-    }
+-    if (!controlHost) { return; }
+-    if (automaticControls()) controlHost.style.display = isError ? "flex" : "none";
+-
+-    const statusNode = controlHost.querySelector("[data-scorm-status]");
+-    if (!statusNode) {
+-      return;
+-    }
+-
+-    statusNode.textContent = message;
+-    statusNode.style.color = isError ? "#b91c1c" : "#334155";
++      const detail = {message: message, error: Boolean(isError)};
++      if (!isError && receipt) { detail.phase = "saved"; detail.coursePublicationId = receipt; }
++      window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-status", {detail}));
++    }
+   }
+ 
+   function persistToLms(reason, exitValue) {
+     let saved = false;
+-    try { saved = persistStateToLms(reason, exitValue); }
++    // Per-invocation receipt is bound to the serialized tuple. Reentrant API
++    // callbacks cannot substitute a later global publication ID.
++    const receipt = {id: null};
++    try { saved = persistStateToLms(reason, exitValue, receipt); }
+     catch (error) { lastPersistErrorMessage = String(error.message || "Brightspace save failed. Keep this page open."); }
+-    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + actionReportWarning : lastPersistErrorMessage, !saved);
++    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + actionReportWarning : lastPersistErrorMessage, !saved, saved ? receipt.id : null);
+     return saved;
+   }
+ 
+-  function persistStateToLms(reason, exitValue) {
++  function persistStateToLms(reason, exitValue, receipt) {
+     lastPersistErrorMessage = "";
+     if (!api || !initialized || terminated) {
+       lastPersistErrorMessage = "Progress could not be saved to Brightspace. Keep this tab open and try again.";
+@@ -602,12 +619,18 @@
+       lastPersistErrorMessage = courseError || "Opening saved course work…";
+       return false;
+     }
++    const publication = coursePublication;
+     announceStatus("Saving to Brightspace…", false);
++    if (config.managedState && courseError) { lastPersistErrorMessage = courseError; return false; }
+     let payload;
+     let progress;
+     try {
+-      payload = collectStateFromLocalStorage();
+-      progress = completionProgress();
++      payload = collectStateFromLocalStorage(publication);
++      if (config.managedState && publication && trackingContract && trackingContract.completion) {
++        const required = trackingContract.completion.requiredIds;
++        const capturedDone = new Set(publication.completedIds);
++        progress = required.filter(id => capturedDone.has(id)).length / required.length;
++      } else progress = completionProgress();
+     } catch (error) {
+       lastPersistErrorMessage = String(error.message || "Saved work could not be read. Keep this page open.");
+       announceStatus(lastPersistErrorMessage, true);
+@@ -648,7 +671,7 @@
+       return false;
+     }
+     commitActionReports();
+-
++    if (config.managedState && publication) { committedPublicationId = publication.id; if (receipt) receipt.id = publication.id; }
+     return true;
+   }
+ 
+@@ -698,6 +721,10 @@
+       return false;
+     }
+ 
++    if (config.managedState && (courseError || coursePublication && coursePublication.id !== committedPublicationId)) {
++      announceStatus("Newer course work is not confirmed. Keep this page open and retry before closing.", true);
++      return false;
++    }
+     if (!api.terminate()) {
+       announceStatus("Work saved, but Brightspace could not close the session. Try Save and Exit again.", true);
+       return false;
+@@ -749,6 +776,10 @@
+     }
+ 
+     if (!persistToLms("terminate", "suspend")) return false;
++    if (config.managedState && (courseError || coursePublication && coursePublication.id !== committedPublicationId)) {
++      announceStatus("Newer course work is not confirmed. Keep this page open and retry before closing.", true);
++      return false;
++    }
+     if (!api.terminate()) {
+       announceStatus("Work saved, but Brightspace could not close the session. Try Save and Exit again.", true);
+       return false;
+@@ -945,7 +976,8 @@
+       return false;
+     }
+ 
+-    ensureCompletionStatus();
++    // Managed completion is written only through a course-authorized save.
++    if (!config.managedState) ensureCompletionStatus();
+     patchLocalStorage();
+     installControls();
+     exposeBridge();
+diff --git a/scripts/tests/scorm-export.test.ts b/scripts/tests/scorm-export.test.ts
+--- a/scripts/tests/scorm-export.test.ts
++++ b/scripts/tests/scorm-export.test.ts
+@@ -495,3 +495,38 @@
+   assert.match(status?.textContent ?? "", /more saved work than Brightspace can accept/);
+   assert.equal(status?.style.color, "#b91c1c");
+ });
++
++// Isolated wire/receipt tests. This VM does not establish browser DOM behaviour.
++// The repair bundle also includes a real-Chromium-DOM integration regression.
++function receiptHarness() {
++ const receipts: any[]=[]; const staged: Record<string,string>={'cmi.learner_id':'test-learner'};
++ let committed: Record<string,string>={...staged};let reject=false;let onSet: ((key:string,value:string)=>void)|null=null;
++ const listeners: Record<string,Function[]>={};
++ const document:any={body:null,readyState:'loading',visibilityState:'visible',getElementById:()=>({}),querySelector:()=>null,querySelectorAll:()=>[],addEventListener:()=>{}};
++ const win:any={crypto:{getRandomValues:(a:Uint8Array)=>{for(let i=0;i<a.length;i++)a[i]=i+1;return a;}},location:{hash:'#one'},opener:null,
++  localStorage:{getItem:()=>null,setItem:()=>{}},setTimeout:()=>1,clearTimeout:()=>{},setInterval:()=>1,clearInterval:()=>{},
++  addEventListener:(name:string,fn:Function)=>(listeners[name]??=[]).push(fn),
++  dispatchEvent:(event:any)=>{if(event.type==='canvas-helper:scorm-status')receipts.push(event.detail);for(const f of listeners[event.type]||[])f(event);return true;},
++  CustomEvent:class{type:string;detail:any;constructor(type:string,init:any={}){this.type=type;this.detail=init.detail;}}};win.parent=win;
++ win.API_1484_11={Initialize:()=> 'true',Terminate:()=> 'true',GetValue:(k:string)=>staged[k]||'',SetValue:(k:string,v:string)=>{staged[k]=v;onSet?.(k,v);return 'true';},Commit:()=>{if(reject)return'false';committed={...staged};return'true';}};
++ vm.runInNewContext(buildScormBridgeScript({projectSlug:'receipt-test',storageKeys:[],version:'2004',tracking:{schemaVersion:1,adapter:'hash-pages-v1',pageIds:['one'],defaultPageId:'one',state:{adapter:'course-state-v1'},completion:{storageKey:'x',requiredIds:['done']}}}),{window:win,document,console,TextEncoder,TextDecoder,btoa,atob,Uint8Array,JSON,Date,Set,Map});
++ const bridge=win.__canvasHelperScorm;bridge.registerCourse({flush:()=>{}});
++ return{bridge,receipts,staged,committed:()=>committed,reject:(v:boolean)=>reject=v,onSet:(fn:((k:string,v:string)=>void)|null)=>onSet=fn};
++}
++test('managed publication receipt names the exact committed state/completion tuple',()=>{
++ const h=receiptHarness(),a=h.bridge.publishCourseState({draft:'A'},[]);
++ assert.equal(typeof a,'string');assert.equal(h.bridge.capabilities.courseSaveReceiptV1,true);
++ assert.equal(h.bridge.publishCourseState({draft:'A'},[]),a);
++ let b='';h.onSet((key)=>{if(key==='cmi.suspend_data'){h.onSet(null);b=h.bridge.publishCourseState({draft:'B'},['done']);}});
++ assert.equal(h.bridge.save(),true);assert.notEqual(a,b);
++ const receipt=h.receipts.filter(r=>r.phase==='saved').at(-1);assert.equal(receipt.coursePublicationId,a);
++ const envelope=JSON.parse(h.committed()['cmi.suspend_data']);assert.deepEqual(envelope.course.completedIds,[]);
++ assert.equal(h.bridge.save(),true);assert.equal(h.receipts.filter(r=>r.phase==='saved').at(-1).coursePublicationId,b);
++ assert.deepEqual(JSON.parse(h.committed()['cmi.suspend_data']).course.completedIds,['done']);
++});
++test('failed commit issues no successful receipt; boolean save API remains compatible',()=>{
++ const h=receiptHarness();h.bridge.publishCourseState({draft:'old'},[]);assert.equal(h.bridge.save(),true);const before=h.committed()['cmi.suspend_data'];const count=h.receipts.filter(r=>r.phase==='saved').length;
++ h.bridge.publishCourseState({draft:'new'},[]);h.reject(true);assert.equal(h.bridge.save(),false);
++ assert.equal(h.receipts.filter(r=>r.phase==='saved').length,count);assert.equal(h.committed()['cmi.suspend_data'],before);
++ h.reject(false);assert.equal(h.bridge.save(),true);
++});
+diff --git a/scripts/tests/scorm-state-codec.test.ts b/scripts/tests/scorm-state-codec.test.ts
+--- a/scripts/tests/scorm-state-codec.test.ts
++++ b/scripts/tests/scorm-state-codec.test.ts
+@@ -14,3 +14,19 @@
+  assert.throws(()=>codec.decode('CH10LZ1|1000001|0|AA=='),/decode limit/);
+  assert.throws(()=>codec.decode('CH10LZ1|bad|0|AA=='),/header/);
+ });
++
++// Wire-size selection is measured in the actual JSON field, not UTF-8 source bytes.
++test('codec selects the shorter serialized JSON field for Unicode and escaping',()=>{
++ const runtime=buildScormStateCodecRuntime();
++ const force=runtime.replace('return JSON.stringify(packed).length<JSON.stringify(s).length?packed:s;','return packed;');
++ assert.notEqual(force,runtime,'Update this diagnostic when the codec selection expression changes.');
++ const packedOnly=vm.runInNewContext(force+'\nstateCodec;',{TextEncoder,TextDecoder,btoa,atob});
++ let seed=91;const next=()=>seed=(Math.imul(seed,1664525)+1013904223)>>>0;
++ const samples=[Array.from({length:5000},()=>String.fromCharCode(0x4e00+next()%18000)).join(''),
++   Array.from({length:2000},()=>String.fromCodePoint(0x1f300+next()%768)).join(''),
++   '"\\\n'.repeat(1500),'abc'.repeat(4000)];
++ for(const sample of samples){const raw=JSON.stringify({writing:sample}),packed=packedOnly.encode(raw),chosen=codec.encode(raw);
++  assert.equal(chosen,JSON.stringify(packed).length<JSON.stringify(raw).length?packed:raw);
++  assert.equal(codec.decode(chosen),raw);assert.equal(codec.decode(packed),raw);assert.equal(codec.decode(raw),raw);
++ }
++});

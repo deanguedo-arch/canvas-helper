@@ -1,0 +1,44 @@
+{
+  "command": "python tests/repair/edge_browser_cases.py",
+  "environment": "Real Chromium DOM, actual emitted bridge, controlled storage/locks/LMS. Legacy source tests do not substitute for actual Social course regression.",
+  "results": [
+    {
+      "id": "exact-c35-unchecked-after-success",
+      "cases": [
+        "FEEDBACK-01"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "menu-wrap-scrim-route-reference",
+      "cases": [
+        "ACCESS-01",
+        "ACCESS-02",
+        "ACCESS-03"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "actual-bridge-full-tracking-framing",
+      "cases": [
+        "CAP-01",
+        "CODEC-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "legacy-2004-boolean-and-automatic-controls",
+      "cases": [
+        "SAVE-13"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "legacy-12-boolean-and-automatic-controls",
+      "cases": [
+        "SAVE-13"
+      ],
+      "result": "passed"
+    }
+  ]
+}

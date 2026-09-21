@@ -1,0 +1,36 @@
+{
+  "command": "node tests/repair/controller_regressions.cjs",
+  "environment": "Actual course save controller; explicit cooperative LockManager/storage double, NOT native Web Lock validation",
+  "results": [
+    {
+      "id": "two-controller-ownership-transfer",
+      "cases": [
+        "SAVE-10",
+        "SAVE-11"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "validation-failure-keeps-original-and-last-confirmed",
+      "cases": [
+        "SAVE-03",
+        "STATE-03"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "capacity-failure-holds-current-and-prior",
+      "cases": [
+        "CAP-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "no-lock-means-no-canonical-write",
+      "cases": [
+        "SAVE-12"
+      ],
+      "result": "passed"
+    }
+  ]
+}

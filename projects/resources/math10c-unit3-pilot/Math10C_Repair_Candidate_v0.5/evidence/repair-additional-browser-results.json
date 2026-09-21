@@ -1,0 +1,66 @@
+{
+  "command": "python tests/repair/additional_browser_cases.py",
+  "environment": "Actual DOM and emitted bridge; controlled storage/locks/API, not live repository or tenant",
+  "results": [
+    {
+      "id": "actual-wire-resume-retains-unchecked-and-provenance",
+      "cases": [
+        "STATE-07",
+        "FEEDBACK-02",
+        "TRIG-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "oversized-import-preserves-both-and-last-save",
+      "cases": [
+        "SAVE-03",
+        "CAP-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "missing-receipt-capability-never-saved",
+      "cases": [
+        "SAVE-13"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "selected-and-active-survive-unrelated-navigation",
+      "cases": [
+        "STATE-06"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "explicit-selected-replacement-preserves-detail",
+      "cases": [
+        "STATE-06"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "withdrawal-preserves-work-and-completion",
+      "cases": [
+        "REPO-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "canonical-hint-is-live-source",
+      "cases": [
+        "REPO-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "revealed-answer-supported-and-paper-route",
+      "cases": [
+        "FEEDBACK-04",
+        "LEARNING-06"
+      ],
+      "result": "passed"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "command": "MATHLIVE_DIST=/absolute/local/mathlive python tests/repair/mathlive_local_spike.py",
+  "cases": [
+    "ACCESS-05"
+  ],
+  "result": "blocked",
+  "requiredVersion": "0.110.0",
+  "dependencyBundled": false,
+  "detail": "MATHLIVE_DIST is not supplied; the real pinned dependency is absent. No acquisition or mock substitution was performed by this test."
+}

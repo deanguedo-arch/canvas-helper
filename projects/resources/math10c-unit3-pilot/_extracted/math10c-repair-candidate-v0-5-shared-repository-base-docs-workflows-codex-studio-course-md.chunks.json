@@ -1,0 +1,133 @@
+{
+  "projectId": "d7f57256-1962-4aa3-8a04-8d7f18d6f575",
+  "referenceId": "math10c-repair-candidate-v0-5-shared-repository-base-docs-workflows-codex-studio-course-md",
+  "generatedAt": "2026-09-21T02:12:35.181Z",
+  "chunks": [
+    {
+      "id": "codex-to-studio-course-workflow-1-create-the-project-contract-first-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Codex-to-Studio Course Workflow ## 1. Create the project contract first",
+        "sectionHeading": "# Codex-to-Studio Course Workflow ## 1. Create the project contract first"
+      },
+      "text": "# Codex-to-Studio Course Workflow\n\nUse this workflow for a net-new learner course authored from scratch in Codex. The outcome is a canonical course that opens in Studio immediately and keeps routine teacher changes directly editable.\n\nThe teacher does not have to choose this workflow, know `FAST_PATHS.md`, or run these commands. “Make me a course” is enough: Codex selects this contract automatically for a from-scratch course and uses the owning English/Social workflow when that family is explicitly requested.\n\nDo not use it to ingest an existing Brightspace course or to create an English/Social factory unit. Those workflows have separate source ownership and rebuild contracts.\n\n## 1. Create the project contract first\n\n```bash\nnpm run course:create -- \\\n  --slug <slug> \\\n  --title \"<course title>\" \\\n  --course-code \"<course code>\" \\\n  --summary \"<one-sentence learner-facing summary>\"\n```\n\nThe command refuses unsafe slugs and existing projects. It stages the complete project, validates its manifest and authoring doctor, then atomically promotes:",
+      "titleGuess": "# Codex-to-Studio Course Workflow ## 1. Create the project contract first",
+      "keywordHints": [
+        "workflow",
+        "codex",
+        "create",
+        "code",
+        "contract",
+        "english",
+        "existing",
+        "learner"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "- `projects/<slug>/workspace/index.html` — canonical learner page\n- `projects/<slug>/workspace/styles.css` — canonical presentation source\n- `projects/<slug>/workspace/course.js` — canonical progressive-enhancement runtime with its generated practice control explicitly marked Annotation only\n- `projects/<slug>/raw/**` — immutable starting baseline/reference\n- `projects/<slug>/meta/project.json` — `codex-studio-direct-v1` ownership contract\n- `projects/<slug>/meta/prompt-pack.md` — course-specific continuation rules\n\nIf Studio is running, the promoted course appears automatically in its picker.\n\nThe manifest also declares the versioned `studio-routine-content-v1` editability profile. That marker is an obligation, not a flag that grants editing: the exact-head gate must still measure the finished rendered course and complete a reversible public-route lifecycle.\n\nAfter the scaffold succeeds, continue in Build mode. Complete requested authoring changes and the affected preview without rerunning course-wide validation after each prompt. Maintain the editability contract in the source, but defer its comprehensive proof until the teacher explicitly requests testing, packaging, deployment, or rollout.\n\n## 2. Author for both learners and teachers\n\nDevelop the actual course only in its canonical workspace and declared assets. Preserve these conditions:",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "projects",
+        "slug",
+        "canonical",
+        "workspace",
+        "studio",
+        "complete",
+        "contract",
+        "editability"
+      ]
+    },
+    {
+      "id": "section-3-part-3-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "Section 3 (Part 3)",
+        "sectionHeading": "Section 3"
+      },
+      "text": "- Visible text, ordinary links, and normal image elements that teachers should change stay in HTML.\n- JavaScript attaches interactions instead of replacing routine content after load.\n- Every visible course-name surface that Rename should synchronize has `data-canvas-helper-course-title`.\n- Repeated or reorderable content has semantic, durable `data-canvas-helper-edit-key` values.\n- New assets live under `workspace/assets/**` or enter through Studio's validated image workflow.\n- Raw baselines, runtime bundles, and exports never become editable source.\n- Standard headings, prose, lists, links, images, captions, and synchronized course-name surfaces must satisfy the fresh-course coverage contract; intentionally runtime-owned controls are marked `data-canvas-helper-studio-edit=\"annotation-only\"` rather than hidden from measurement.\n\nInteractive course code is allowed. The boundary is visible: source-owned supported elements show an Edit action, while runtime-created or replaced elements show **Annotation only** and can move directly into a Codex Review Set.\n\n## 3. Accumulate rollout checks\n\nDuring Build mode, record the relevant checks below as deferred in the handoff. For a visual/content change, inspect only the changed area and rebuild only what the preview needs. Do not rerun these commands merely because another ordinary course edit was completed.",
+      "titleGuess": "Section 3",
+      "keywordHints": [
+        "edit",
+        "only",
+        "canvas",
+        "content",
+        "data",
+        "elements",
+        "helper",
+        "runtime"
+      ]
+    },
+    {
+      "id": "section-4-part-4-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "Section 4 (Part 4)",
+        "sectionHeading": "Section 4"
+      },
+      "text": "Run a narrow immediate check only for saved-state compatibility, destructive behavior, a security/trust boundary, or a defect that prevents the affected preview from working.\n\n## 4. Verify the frozen rollout candidate\n\nWhen the teacher explicitly requests testing, packaging, deployment, or rollout, freeze the agreed candidate and run one batch in increasing cost order:\n\n```bash\nnpm run course:doctor -- --project <slug>\nnpm run verify -- --project <slug> --mode workspace\nnpm run report:course-editability -- --project <slug>\nnpm run test:new-course-readiness\n```\n\nThe doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. The coverage report must have a complete learner inventory and retain the new-course block/text/category/capability floors exercised by `npm run test:new-course-readiness`. Fix the canonical contract rather than forcing eligibility.\n\nCI then runs `verify:new-course-readiness` against the correct Git comparison base, repeats production rendered measurement, and uploads content-free exact-head evidence. The change-aware gate covers a newly added active course, a blocked course promoted to active, a safe adapter newly onboarded onto an older course, and every later project/resource change to a governed course. Existing push/PR CI remains unchanged and is separate from local Build-mode deferral.",
+      "titleGuess": "Section 4",
+      "keywordHints": [
+        "project",
+        "readiness",
+        "report",
+        "slug",
+        "verify",
+        "active",
+        "candidate",
+        "change"
+      ]
+    },
+    {
+      "id": "section-5-part-5-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "Section 5 (Part 5)",
+        "sectionHeading": "Section 5"
+      },
+      "text": "## 5. Prove the real Studio lifecycle\n\n1. Open the course in Studio.\n2. Select **Edit** and inspect the visual map for the actual current page.\n3. Confirm course-name surfaces show **Rename course** and routine content shows its supported action.\n4. Change one supported value and confirm the inert preview overlay updates before Save while the learner element and course files remain unchanged.\n5. Save the canonical draft, reopen it on its real page, and apply it.\n6. Reload the course and confirm the rendered learner result survived.\n7. Use **Undo last batch** and confirm the exact original result returns.\n\nDo not use Undo after Codex, a builder, or another tool changes the course; Studio will disable it when the boundary drifts.\n\nThe CI lifecycle must return `pass`; a page map, no-target result, skipped checkpoint, or failed restoration does not satisfy new-course readiness.\n\n## 6. Add interaction acceptance when needed\n\nWhen the course gains navigation, assessments, stored responses, conditional content, or other learner behavior, create `projects/<slug>/meta/e2e-contract.json` and run:\n\n```bash\nnpm run test:e2e:project -- --project <slug>\n```\n\nPackage and cross-browser persistence acceptance remain separate export-stage gates. After authorized SCORM packaging, verify resume, saved answers, completion, scores, and timing in the target LMS before claiming LMS readiness.",
+      "titleGuess": "Section 5",
+      "keywordHints": [
+        "confirm",
+        "learner",
+        "result",
+        "studio",
+        "acceptance",
+        "content",
+        "lifecycle",
+        "project"
+      ]
+    },
+    {
+      "id": "section-6-part-6-6",
+      "index": 6,
+      "locator": {
+        "kind": "section",
+        "label": "Section 6 (Part 6)",
+        "sectionHeading": "Section 6"
+      },
+      "text": "If validation finds a defect, fix it and rerun the failed or affected checks. Refresh a final gate only when the fix invalidated its evidence; do not restart unrelated passing suites.\n\nGeneric imports and unresolved legacy sources start `blocked`. They can be previewed, inspected, and migrated, but previewability alone cannot make them active or Studio-editable. Direct, English factory, and Social factory output becomes active only with the same versioned contract and the same measured gate.\n\n## Changing ownership later\n\nIf the course eventually becomes generated output from a builder, stop treating workspace HTML as Direct source. Declare the factory/adapter, move durable edits into owning recipes or course-only overrides, define the transactional rebuild write set, and pass a reversible real-course pilot before re-enabling Studio Edit. Preview and Annotate can remain available while that onboarding is incomplete.",
+      "titleGuess": "Section 6",
+      "keywordHints": [
+        "factory",
+        "only",
+        "active",
+        "becomes",
+        "direct",
+        "gate",
+        "output",
+        "same"
+      ]
+    }
+  ]
+}

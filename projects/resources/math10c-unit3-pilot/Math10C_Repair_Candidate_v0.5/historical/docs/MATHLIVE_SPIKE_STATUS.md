@@ -1,0 +1,9 @@
+# MathLive compatibility spike — not completed
+
+Official MathLive integration documentation was consulted. The source repository package file reported 0.110.0. That is the candidate local version, not a claim that a distribution was installed. Access to the distribution URL failed in this environment; no real MathLive component, keyboard or fonts ran in the preview.
+
+`workspace/assets/input-enhancement.js` is a disabled integration candidate. It does not fetch a library, fonts, a Compute Engine or a CDN. Activation requires an explicit owner flag and locally supplied version. Native inputs and notation buttons are the working learner surface. Neither a candidate adapter nor a mocked constructor is counted as real MathLive compatibility.
+
+Before activation: prove the actual library's version API and local resource paths; no remote fallback; CSP/iframe keyboard behavior; supported notation transfer; preserving untransferred visual drafts across navigation/resume; focus/readout with VoiceOver/Safari and NVDA/Chrome; mobile keyboard coverage; and the same successful native fallback. Current adapter should not be enabled for learners until those gaps are resolved.
+
+Reference: https://mathlive.io/mathfield/guides/integration/

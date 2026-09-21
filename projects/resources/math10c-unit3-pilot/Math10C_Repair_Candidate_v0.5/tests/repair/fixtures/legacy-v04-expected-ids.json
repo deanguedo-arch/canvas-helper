@@ -1,0 +1,143 @@
+{
+  "sentinel": "gen-positive-1_1_1",
+  "record": "r-123",
+  "input": {
+    "v": "math10c-unit3-2.0",
+    "rev": 7,
+    "route": "u3-35",
+    "r": {
+      "s-c31": {
+        "q": "c31",
+        "d": "x^2+3x+4x+12",
+        "a": [
+          [
+            1,
+            "(x+2)(x+6)",
+            "incorrect",
+            0
+          ],
+          [
+            2,
+            "(x+3)(x+4)",
+            "correct",
+            4
+          ]
+        ],
+        "n": 2,
+        "s": 4,
+        "reason": "My correction.",
+        "closed": false,
+        "firstSuccess": true
+      },
+      "s-g35": {
+        "q": "g35",
+        "d": "x^2+3x+4x+12",
+        "a": [
+          [
+            1,
+            "(x+2)(x+6)",
+            "incorrect",
+            0
+          ],
+          [
+            2,
+            "(x+3)(x+4)",
+            "correct",
+            4
+          ]
+        ],
+        "n": 2,
+        "s": 4,
+        "reason": "My correction.",
+        "closed": false,
+        "firstSuccess": true
+      },
+      "r-123": {
+        "q": "gen-positive-1_1_1",
+        "d": "x^2+3x+4x+12",
+        "a": [
+          [
+            1,
+            "(x+2)(x+6)",
+            "incorrect",
+            0
+          ],
+          [
+            2,
+            "(x+3)(x+4)",
+            "correct",
+            4
+          ]
+        ],
+        "n": 2,
+        "s": 4,
+        "reason": "My correction.",
+        "closed": false,
+        "firstSuccess": true
+      }
+    },
+    "active": [
+      "r-123"
+    ],
+    "pos": 0,
+    "recent": [
+      "s-g35"
+    ],
+    "pins": [
+      "r-123"
+    ],
+    "selectedTopic": "mixed",
+    "runMode": "learn",
+    "runSeed": 4294967295,
+    "firsts": {
+      "g35": [
+        1,
+        "(x+2)(x+6)",
+        "incorrect",
+        0
+      ]
+    },
+    "drafts": {
+      "g35": "x^2+3x+4x+12"
+    },
+    "counts": {
+      "g35": 2
+    },
+    "trig": {
+      "angleRaw": "0.464 radians",
+      "aa": [
+        [
+          1,
+          "0.464 radians",
+          "different_requested_unit",
+          0
+        ]
+      ],
+      "an": 1,
+      "support": 4
+    },
+    "reasons": {
+      "3.1": "Kept exact reasoning."
+    },
+    "paper": {
+      "3.1": true
+    },
+    "done": [
+      "3.1"
+    ],
+    "notes": {
+      "help": "Help me with the grouping."
+    },
+    "exposed": [
+      "gen-positive-1_1_1"
+    ],
+    "seen": [
+      "gen-positive-1_1_1"
+    ],
+    "summary": {
+      "attempts": 5,
+      "correct": 1,
+      "supported": 1
+    }
+  }
+}

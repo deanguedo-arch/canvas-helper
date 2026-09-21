@@ -1,0 +1,140 @@
+{
+  "environment": "Real Chromium DOM using page.set_content; actual emitted proposed bridge; explicit storage/lock/LMS doubles. URL navigation blocked by host policy.",
+  "command": "python tests/repair/browser_regressions.py",
+  "results": [
+    {
+      "id": "native-save-controls-survive",
+      "cases": [
+        "SAVE-01",
+        "SAVE-07"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "quota-heartbeat-retry",
+      "cases": [
+        "SAVE-02",
+        "SAVE-03",
+        "SAVE-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "rejected-setvalue-and-commit",
+      "cases": [
+        "SAVE-06"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "reentrant-stale-receipt",
+      "cases": [
+        "SAVE-04",
+        "SAVE-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "external-conflict-preserves-both",
+      "cases": [
+        "SAVE-11"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "web-lock-unavailable",
+      "cases": [
+        "SAVE-12"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "second-writer-denied",
+      "cases": [
+        "SAVE-10"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "initial-null-race",
+      "cases": [
+        "SAVE-09"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "draft-invalidates-old-feedback",
+      "cases": [
+        "FEEDBACK-01",
+        "FEEDBACK-02",
+        "FEEDBACK-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "attempts-not-capped",
+      "cases": [
+        "STATE-05",
+        "STATE-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "mixed-independent-strata",
+      "cases": [
+        "LEARNING-03"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "trig-setup-chronology-and-report",
+      "cases": [
+        "TRIG-02",
+        "TRIG-03",
+        "TRIG-05",
+        "REPORT-02"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "trig-feedback-after-submission",
+      "cases": [
+        "TRIG-01"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "explicit-release-blocks-heartbeat",
+      "cases": [
+        "SAVE-10",
+        "SAVE-11"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "unreadable-input-preserved",
+      "cases": [
+        "FEEDBACK-03",
+        "ACCESS-04"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "root-and-faded-source-interaction",
+      "cases": [
+        "LEARNING-01",
+        "LEARNING-05"
+      ],
+      "result": "passed"
+    },
+    {
+      "id": "mobile-menu-focus-and-resize",
+      "cases": [
+        "ACCESS-01",
+        "ACCESS-02",
+        "ACCESS-03"
+      ],
+      "result": "passed"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "projectId": "d7f57256-1962-4aa3-8a04-8d7f18d6f575",
+  "referenceId": "math10c-repair-candidate-v0-5-docs-codex-handoff-md",
+  "generatedAt": "2026-09-21T02:12:34.916Z",
+  "chunks": [
+    {
+      "id": "codex-handoff-repaired-source-v0-5-first-read-authorization-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Codex handoff — repaired source v0.5 ## First read / authorization",
+        "sectionHeading": "# Codex handoff — repaired source v0.5 ## First read / authorization"
+      },
+      "text": "# Codex handoff — repaired source v0.5\n\n## First read / authorization\n\nRead this file, BUILD_REPORT, CAPACITY_DECISION and both requirement matrices. Inspect repaired source before accepting the builder's result summaries. Current authorization covers local repairs and an unapplied shared patch, **not** installation/commit/push/deployment/learner release. Actual repository, Studio and tenant stages require their own execution authorization.\n\n## Exact next action\n\nIndependently re-audit the candidate against the repair specification and frozen master requirements. Re-run the focused source cases in an isolated copy. Start at `workspace/assets/save-controller.js` (failure/receipt/lock), `workspace/assets/state.js` plus frozen catalogs (migration), and `shared-repository/canvas-helper-save-receipts-and-codec.patch`. Compare with actual current checkout HEAD/status and source hashes before any future apply.\n\nDo not treat `historical/` evidence as v0.5 acceptance. Do not accept successful refusal guards as original future mathematical fixture passes. Current `CAP-04` is explicitly failed, not repaired by lowering text limits.\n\n## Shared patch, NOT applied\n\n`PATCH_BASE_HASHES.json` names the baseline/proposed hashes. Proposed changes are to canonical repository paths:",
+      "titleGuess": "# Codex handoff — repaired source v0.5 ## First read / authorization",
+      "keywordHints": [
+        "patch",
+        "source",
+        "authorization",
+        "current",
+        "hashes",
+        "repaired",
+        "repository",
+        "shared"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "- scripts/lib/scorm.ts\n- scripts/lib/scorm-state-codec.ts\n- scripts/tests/scorm-export.test.ts\n- scripts/tests/scorm-state-codec.test.ts\n- docs/workflows/scorm-save-receipts.md\n\nA dry-run and reconstruction were performed against a disposable reference mirror only. No repository command result exists for:\n\n```sh\nnpx tsx --test scripts/tests/scorm-state-codec.test.ts scripts/tests/scorm-export.test.ts\n```\n\nThe local emitter erases TypeScript types and uses a fail-fast unused Cheerio import. It runs the real bridge builder and includes tracking/actions/codec. It does not establish full dependency/typecheck/runner compatibility.\n\n## Local replay\n\n```sh\nexport NODE_PATH=\"$(npm root -g)\"\npython tests/repair/run_repair_suite.py\npython tests/repair/ui_capacity_print.py\npython tests/repair/native_origin_recheck.py\nMATHLIVE_DIST=/local/independently-obtained/mathlive-0.110.0 python tests/repair/mathlive_local_spike.py\n```\n\nThe last two recorded BLOCKED here. A missing real library is not a passing compatibility spike. Do not fetch CDNs at learner runtime, weaken global CSP, or copy fonts into a ChatGPT deliverable. The local-library test mounts independently supplied local assets for testing only.\n\n## Source ownership after separately authorized integration",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "tests",
+        "scorm",
+        "local",
+        "scripts",
+        "test",
+        "repair",
+        "codec",
+        "python"
+      ]
+    },
+    {
+      "id": "section-3-part-3-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "Section 3 (Part 3)",
+        "sectionHeading": "Section 3"
+      },
+      "text": "Candidate input ownership remains HTML/CSS plus declared behavior modules. At Gate B use the repository's **course:create** workflow for `math10c-unit3-pilot`, then declare one Math-owned canonical behavior location (parser/contracts/state/legacy decoder/catalogs/controller/input adapter). Generated workspace copies require a narrow behavior rebuild; never regenerate routine HTML or leave duplicate independent code owners. Declare catalog generation provenance: original 1,706 entries retain their order, ten new IDs are appended. `unit-data.js` display order is not the migration map.\n\n`integration/install-into-canvas-helper.mjs` now refuses `--apply` before writes. Its read-only preflight is not a transactional installer and must not be used as evidence that partial overlay failures are recoverable.\n\n## Critical re-audit targets",
+      "titleGuess": "Section 3",
+      "keywordHints": [
+        "behavior",
+        "declare",
+        "html",
+        "input",
+        "order",
+        "adapter",
+        "appended",
+        "apply"
+      ]
+    },
+    {
+      "id": "section-4-part-4-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "Section 4 (Part 4)",
+        "sectionHeading": "Section 4"
+      },
+      "text": "1. Exact state+completion receipt under reentrant callbacks, stale order, local quota/validation/capacity failure, and final rendered text/visibility.\n2. Native same-origin Web Lock exclusion, initial-null race, explicit release, and stale takeover. Single-origin locks do not solve concurrent devices.\n3. Original v0.4 raw snapshot migration, generated index sentinel, first+latest attempts, protected/recent overlap and uncertain legacy trig chronology.\n4. Actual full-envelope capacity including provenance/framing; choose no new text/history limits without Dean. Decoder-admitted state is not automatically saveable.\n5. Literal-zero/sign/scalar/order normalization, absorbed GCF, literal M09, canceled cubic subtrees, generator bounds/exhaustion, mixed-category exhaustion.\n6. Native entry, root pair fields, closed-disclosure navigation targets, printable teaching/report, canonical teacher hints and withdrawal.\n\n## Gate B / Studio proof is separate",
+      "titleGuess": "Section 4",
+      "keywordHints": [
+        "capacity",
+        "exhaustion",
+        "literal",
+        "native",
+        "order",
+        "origin",
+        "stale",
+        "state"
+      ]
+    },
+    {
+      "id": "section-5-part-5-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "Section 5 (Part 5)",
+        "sectionHeading": "Section 5"
+      },
+      "text": "After integration authorization and a verified baseline, run focused shared tests first. At a requested rollout checkpoint use course doctor/workspace verify/editability/readiness/project E2E and real comparison-base CI. Prove (a) Edit → draft → apply → reload → Undo with no external mutation; separately (b) canonical hint edit → behavior rebuild → reload, then a supported fresh restoration because rebuild may invalidate Undo. No flags-only activation.\n\n## Gates C and D\n\nOnly after packaging authorization build/inspect/hash actual SCORM 2004 output. Test real tenant launch/save/resume/device/new attempt/replacement/learner separation/failed saves/capacity and teacher evidence. Actual endpoints and accepted submission formats remain owner decisions. Then independently re-audit and, after separate authorization, observe varied learners/AT users. No package or learner activity was launched here.\n\n## Known residuals\n\nCapacity-fit acceptance unresolved/failed for worst-case admitted states; real MathLive dependency absent/disabled; native-origin checks blocked by execution-host policy; full repo/Studio/CI/tenant/physical keyboard/AT/human proof not run. Recovery preserves original bytes; it does not promise server rollback after failed Commit or unlimited history. Keep malformed/unknown snapshots for explicit recovery, never reset to an empty course.",
+      "titleGuess": "Section 5",
+      "keywordHints": [
+        "authorization",
+        "failed",
+        "real",
+        "actual",
+        "capacity",
+        "edit",
+        "learner",
+        "only"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+const fs=require('fs'),vm=require('vm'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
+const ROOT=path.resolve(__dirname,'..'),ctx={window:{}};vm.runInNewContext(fs.readFileSync(ROOT+'/workspace/assets/unit-data.js','utf8'),ctx);
+const D=ctx.window.UNIT3_DATA,C=require(ROOT+'/workspace/assets/contracts.js'),St=require(ROOT+'/workspace/assets/state.js');const authored=[...D.questions];
+for(const family of ['positive','signed','common'])for(let p=family==='positive'?1:-9;p<=9;p++)for(let q=p;q<=9;q++)if(p&&q)for(let g=family==='common'?2:1;g<=(family==='common'?9:1);g++)D.questions.push(C.family(family,p,q,g));const Q=Object.fromEntries(D.questions.map(q=>[q.id,q])),ids=Object.keys(Q);
+const codecSource=fs.readFileSync(ROOT+'/tests/reference/scorm-state-codec.ts','utf8');const runtime=Function(codecSource.replace('export function','function')+';return buildScormStateCodecRuntime();')();const codec=Function('btoa','atob',runtime+';return stateCodec;')(btoa,atob);
+const refhash=crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+Buffer.byteLength(codecSource)+'\0'),Buffer.from(codecSource)])).digest('hex');
+let rnd=98765;const random=()=>{rnd=(Math.imul(1664525,rnd)+1013904223)>>>0;return rnd/4294967296};
+const text=(length,kind)=>Array.from({length},()=>kind==='unicode'?String.fromCharCode(0x4e00+Math.floor(random()*18000)):kind==='escaping'?'"\\'[Math.floor(random()*2)]:'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[Math.floor(random()*62)]).join('');
+function witness(kind){
+ const raw=()=>{const nums=Array.from({length:8},()=>String(1000+Math.floor(random()*8000)));let e='(('+nums[0]+'+'+nums[1]+')+('+nums[2]+'+'+nums[3]+'))+(('+nums[4]+'+'+nums[5]+')+('+nums[6]+'+'+nums[7]+'))';return e.padEnd(160,' ');};
+ const s={v:D.version,rev:9999999,route:'u3-work',r:{},active:[],pos:5,recent:[],pins:[],selectedTopic:'mixed',runMode:'independent',runSeed:4294967295,reasons:{},paper:{},done:D.lessons.map(l=>l.n),notes:{help:text(240,kind),error:text(240,kind)},exposed:ids,seen:ids,summary:{attempts:9999999,correct:9999999,supported:9999999},firsts:{},drafts:{},counts:{},trig:{side:'BC',ratio:'tan',angleRaw:'26.6 degrees',lengthRaw:'5.0 m',length:'sin',support:15,rotation:3,reason:text(160,kind),aa:[],la:[],an:4,ln:4}};
+ for(const k of ['aa','la'])for(let n=1;n<=4;n++)s.trig[k].push([n,('1234567890'.repeat(8)), 'incorrect',15]);
+ const make=(id,q)=>{const a=Array.from({length:4},(_,i)=>[i===0?1:9999997+i-1,raw(),'incorrect',15]);s.r[id]={q,d:text(160,kind),a,n:9999999,s:15,reason:id.startsWith('r-')?text(120,kind):'',closed:true,firstSuccess:false};};
+ for(const l of D.lessons){const q='c'+l.n.replace('.','');make('s-'+q,q);s.reasons[l.n]=text(160,kind);s.paper[l.n]=true;}
+ for(let i=0;i<6;i++){const id='r-'+(1900000000000+i);make(id,'gen-positive-1_'+(i+1)+'_1');s.active.push(id);s.r[id].closed=false;}
+ for(let i=0;i<4;i++){const id='r-'+(1900000001000+i);make(id,'gen-common-1_'+(i+2)+'_2');s.pins.push(id);}
+ for(const q of ['g31','g32']){make('s-'+q,q);s.recent.push('s-'+q);}
+ for(const q of authored.filter(q=>!q.id.startsWith('p'))){const r=s.r['s-'+q.id];s.firsts[q.id]=r?r.a[0]:[1,raw(),'incorrect',15];s.drafts[q.id]=r?r.d:text(160,kind);s.counts[q.id]=9999999;}
+ const packed=St.encode(s,ids);const json=JSON.stringify(packed);St.decode(packed,{questions:Q,pages:['u3-work'],version:D.version});
+ const data=codec.encode(json);assert.equal(codec.decode(data),json);
+ const pages=Array.from({length:22},(_,i)=>'u3-page-'+i);const envelope={version:1,projectSlug:'math10c-unit3-pilot',savedAt:'2026-09-20T03:00:00.000Z',values:{},scope:'x'.repeat(64),learnerId:'y'.repeat(64),course:{schemaVersion:1,data,completedIds:D.lessons.map(l=>'u3-check-'+l.n.replace('.',''))},tracking:{schemaVersion:1,bookmark:'u3-work',activeMs:9999999999999,pageMs:Object.fromEntries(pages.map(p=>[p,9999999999999]))}};
+ return{name:kind,applicationCharacters:json.length,applicationUTF8Bytes:Buffer.byteLength(json),encodedCourseCharacters:data.length,completeModelledEnvelopeCharacters:JSON.stringify(envelope).length,applicationLimit:40000,envelopeLimit:60000,applicationPass:json.length<=40000,envelopePass:JSON.stringify(envelope).length<=60000,retainedRecords:Object.keys(s.r).length,staticDrafts:Object.keys(s.drafts).length,staticFirsts:Object.keys(s.firsts).length,protected:s.pins.length,active:s.active.length,recent:s.recent.length,stringPoolEntries:packed.strings.length};
+}
+const witnesses=['ascii','unicode','escaping'].map(witness);const result={scope:'Maximum simultaneous configured tiers and field lengths. Exact copied codec; modelled bridge envelope, not an actual LMS commit or shared-exporter execution.',codecGitBlob:refhash,codePointCoverage:'Valid non-surrogate Unicode and escape-heavy drafts/reasoning; complete supported polynomial strings for submitted algebra',witnesses};
+fs.writeFileSync(ROOT+'/evidence/capacity-results.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));if(witnesses.some(x=>!x.applicationPass||!x.envelopePass))process.exitCode=1;

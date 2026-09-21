@@ -1,0 +1,41 @@
+[scorm-bridge] Failed to commit SCORM data.
+TAP version 13
+# Subtest: bounded codec round trips exact Unicode writing and historical snapshots
+ok 1 - bounded codec round trips exact Unicode writing and historical snapshots
+  ---
+  duration_ms: 17.258037
+  type: 'test'
+  ...
+# Subtest: codec rejects corruption and oversized decoded or encoded work rather than trimming
+ok 2 - codec rejects corruption and oversized decoded or encoded work rather than trimming
+  ---
+  duration_ms: 1.995013
+  type: 'test'
+  ...
+# Subtest: codec selects the shorter serialized JSON field for Unicode and escaping
+ok 3 - codec selects the shorter serialized JSON field for Unicode and escaping
+  ---
+  duration_ms: 55.401282
+  type: 'test'
+  ...
+# Subtest: managed publication receipt names the exact committed state/completion tuple
+ok 4 - managed publication receipt names the exact committed state/completion tuple
+  ---
+  duration_ms: 20.474149
+  type: 'test'
+  ...
+# Subtest: failed commit issues no successful receipt; boolean save API remains compatible
+ok 5 - failed commit issues no successful receipt; boolean save API remains compatible
+  ---
+  duration_ms: 1.643114
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 164.358679

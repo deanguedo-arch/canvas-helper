@@ -1,0 +1,14 @@
+/* Derived executable bindings. The original M01-M30 file is NEVER edited. */
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),C=require('../../workspace/assets/contracts.js');
+const root=path.resolve(__dirname,'../..'),original=JSON.parse(fs.readFileSync(root+'/tests/original_M01_M30.json')),rows=[];
+const map={correct:'correct',incorrect:'incorrect',equivalent_but_wrong_requested_form:'equivalent',input_not_parseable:'input',equivalent_but_incomplete:'equivalent',valid_intermediate_not_final:'intermediate',different_requested_unit:'different_requested_unit'};
+const expr={M01:'(x+3)(x+4)',M02:'(x+3)(x+4)',M03:'(x+3)(x+4)',M04:'(x+3)(x+4)',M05:'(x+3)(x+4)',M06:'2(x+2)(x+3)',M07:'2(x+2)(x+3)',M08:'(x-3)(x+2)',M09:'x^2+7x+12'};
+for(const f of original.cases){
+ if(expr[f.id]||['M11','M12'].includes(f.id)){
+  const q={mode:f.id==='M09'?'split':'factor',answer:expr[f.id],contract:'core-quadratic-v1'};const actual=['M11','M12'].includes(f.id)?C.trig(f.response):C.check(f.response,q);let result='passed';try{assert.equal(actual.status,map[f.expected_status]);}catch{result='failed';}
+  rows.push({fixtureId:f.id,originalResponse:f.response,originalExpectedStatus:f.expected_status,bindingKind:'literal original response to bounded task',expectedBoundStatus:map[f.expected_status],actualStatus:actual.status,result});
+ }else if(Number(f.id.slice(1))>=17){
+  const actual=C.check(f.response,{contract:'unsupported-future-'+f.family,mode:'future'});assert.equal(actual.status,'unsupported');rows.push({fixtureId:f.id,originalExpectedStatus:f.expected_status,originalMathematicalExecution:'not_run',guardId:'PILOT-UNSUPPORTED-'+f.id,guardResult:'passed',guardIsNotOriginalFixtureAcceptance:true});
+ }else rows.push({fixtureId:f.id,originalExpectedStatus:f.expected_status,result:'refer_to_behavioural_binding',binding:{M10:'additional_browser_cases.py::revealed_answer_evidence paper route; no arbitrary method grading',M13:'browser_regressions.py::trig / rotation with explicit BC,AB,AC choices',M14:'additional_browser_cases.py::revealed_answer_evidence exact revealed correct response remains supported',M15:'additional_browser_cases.py::resume + core_regressions.cjs frozen catalog sentinel',M16:'core_regressions.cjs::constructive-exhaustion'}[f.id]});
+}
+fs.writeFileSync(root+'/evidence/original-fixture-binding-results.json',JSON.stringify({command:'node tests/repair/original_fixture_bindings.cjs',originalUnchanged:true,warning:'Literal math cases, behavioural bindings and future refusal guards are separate evidence. A guard pass is not an original mathematical pass.',results:rows},null,2));console.log(JSON.stringify({literalPassed:rows.filter(r=>r.result==='passed').length,literalFailed:rows.filter(r=>r.result==='failed').length,separateFutureGuards:rows.filter(r=>r.guardResult).length}));if(rows.some(r=>r.result==='failed'))process.exitCode=1;

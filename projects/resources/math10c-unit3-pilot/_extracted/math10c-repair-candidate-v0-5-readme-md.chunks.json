@@ -1,0 +1,70 @@
+{
+  "projectId": "d7f57256-1962-4aa3-8a04-8d7f18d6f575",
+  "referenceId": "math10c-repair-candidate-v0-5-readme-md",
+  "generatedAt": "2026-09-21T02:12:35.178Z",
+  "chunks": [
+    {
+      "id": "math-10c-chapter-3-repair-candidate-v0-5-read-first-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Math 10C Chapter 3 — repair candidate v0.5 ## Read first",
+        "sectionHeading": "# Math 10C Chapter 3 — repair candidate v0.5 ## Read first"
+      },
+      "text": "# Math 10C Chapter 3 — repair candidate v0.5\n\nThis is an **edited local review candidate**, not a learner release or an installed Canvas Helper project. It preserves all eight lessons, the science-course presentation, original learner question IDs and the original M01–M30 corpus. New migration/catalog files preserve v0.4 saved work before ten additional authored activities are registered.\n\n## Read first\n\n1. `docs/BUILD_REPORT.md` — actual edits, checks and limits.\n2. `docs/CAPACITY_DECISION.md` — current limits unchanged; capacity fit remains unresolved.\n3. `docs/CONFIDENCE.md` — evidence categories, not a confidence percentage.\n4. `docs/CODEX_HANDOFF.md` — separately executed repository/re-audit gates.\n\n## Local preview\n\nFrom this directory serve **only the canonical workspace**, for example:\n\n```sh\npython -m http.server 8000 --bind 127.0.0.1 --directory workspace\n```\n\nOpen localhost port 8000 in your browser. The rebuilt `Math10C_Chapter3_Reconciled.html` is an equivalent single-file review artifact. A context that does not offer exclusive Web Locks is deliberately read-only; it will not silently use an unsafe localStorage lease. The execution host used for this repair blocked URL navigation, so native-origin preview behavior is a named external recheck—not a claimed pass.",
+      "titleGuess": "# Math 10C Chapter 3 — repair candidate v0.5 ## Read first",
+      "keywordHints": [
+        "docs",
+        "candidate",
+        "capacity",
+        "confidence",
+        "directory",
+        "learner",
+        "limits",
+        "local"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "No teacher/assignment routes are invented. Reports/downloads are not submissions. Browser-local preview saves are not cross-device LMS saves. Keep unsaved work open and use labelled recovery if a failure occurs.\n\n## Re-run locally executable checks\n\n```sh\nexport NODE_PATH=\"$(npm root -g)\" # only if TypeScript is installed globally\npython tests/repair/run_repair_suite.py\npython tests/repair/ui_capacity_print.py\n```\n\nRequires Node, TypeScript, Chromium, Python Playwright, SymPy, BeautifulSoup and PyMuPDF for the indicated test/print steps. These are test dependencies, not remotely fetched course dependencies. Full repository tests are NOT represented by this local runner. Native-origin and real-MathLive gates have separate scripts and can return BLOCKED; see the handoff.\n\n## Shared repository patch\n\n`shared-repository/canvas-helper-save-receipts-and-codec.patch` is **UNAPPLIED**. Base/proposed source and file hashes are supplied. A disposable reference-only dry-run/reconstruction passed; no actual repository was changed. `tests/reference/scorm-state-codec.ts` remains unchanged and is not the production repair.\n\nThe install helper is read-only. `--apply` fails before any integration write. Use the repository's own scaffold only after separately authorized Gate B work. Do not overlay this folder onto a live checkout.",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "repository",
+        "only",
+        "repair",
+        "tests",
+        "python",
+        "codec",
+        "dependencies",
+        "helper"
+      ]
+    },
+    {
+      "id": "section-3-part-3-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "Section 3 (Part 3)",
+        "sectionHeading": "Section 3"
+      },
+      "text": "Historical v0.4 reports and tests are under `historical/`; their results do not describe this candidate. Current evidence is under `evidence/`. The root manifest covers the repaired files; it excludes itself to avoid a self-hash cycle.",
+      "titleGuess": "Section 3",
+      "keywordHints": [
+        "evidence",
+        "historical",
+        "under",
+        "avoid",
+        "candidate",
+        "covers",
+        "current",
+        "cycle"
+      ]
+    }
+  ]
+}

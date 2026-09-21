@@ -1,0 +1,196 @@
+{
+  "projectId": "d7f57256-1962-4aa3-8a04-8d7f18d6f575",
+  "referenceId": "math10c-repair-candidate-v0-5-historical-docs-reconciliation-v0-4-md",
+  "generatedAt": "2026-09-21T02:12:35.083Z",
+  "chunks": [
+    {
+      "id": "unit-scope-reconciliation-v0-4-authority-and-scope-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Unit-scope reconciliation v0.4 ## Authority and scope",
+        "sectionHeading": "# Unit-scope reconciliation v0.4 ## Authority and scope"
+      },
+      "text": "# Unit-scope reconciliation v0.4\n\n## Authority and scope\n\nThe user's latest instruction authorizes reconciliation and implementation of the expanded eight-lesson Chapter 3 unit, retaining the science-course style. It supersedes the earlier single-lesson construction boundary; it does **not** waive learning, evidence, saving or accessibility requirements. The original v0.3 master is preserved unchanged under `reference/`. This document is an explicit unit-scope amendment, not a retrospective claim that the old bounded pilot already covered all Chapter 3 mathematics.\n\nThe new unit retains 3.1 factors/multiples, 3.2 squares/cubes/roots, 3.3 numerical/variable GCF, 3.4 binomial area models, 3.5 monic/signed factoring, 3.6 non-monic decomposition, 3.7 polynomial multiplication and 3.8 special products. An optional trigonometry lab restores the cross-domain experiment. It is labelled separate from Chapter 3 and never counted as an additional mandatory Chapter 3 lesson.\n\n## Explicit amendments\n\n### A01 — expand content without using one universal checker",
+      "titleGuess": "# Unit-scope reconciliation v0.4 ## Authority and scope",
+      "keywordHints": [
+        "chapter",
+        "scope",
+        "explicit",
+        "monic",
+        "reconciliation",
+        "accessibility",
+        "additional",
+        "already"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "Retain the old exact quadratic contract as `core-quadratic-v1` for positive, signed and common-integer-factor generated families. Add separately named `unit-polynomial-v1` and `whole-number-v1` for the additional authored unit work. The larger contract permits only its listed variables and degree/power up to six, with bounded syntax, exact integer arithmetic and an unsimplified syntax tree. This is not a CAS, equation solver or arbitrary-reasoning grader. Supported answer/form expectations remain question-specific.\n\nThe generated catalogue includes 45 positive-monic, 171 signed-monic and 1,368 common-integer-factor parameter combinations. Positive and signed families overlap mathematically; independent selection deduplicates polynomial coefficient signatures. A seeded run stores canonical instance IDs and its seed, and its current content/engine versions must match on restore. This representation deterministically reconstructs the same parameters; it is not an invitation to regenerate different values after an update.\n\n### A02 — preserve independence and meaningful reasoning",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "integer",
+        "positive",
+        "signed",
+        "common",
+        "contract",
+        "exact",
+        "factor",
+        "families"
+      ]
+    },
+    {
+      "id": "section-3-part-3-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "Section 3 (Part 3)",
+        "sectionHeading": "Section 3"
+      },
+      "text": "Maintain separate seen-question and mathematical-support records. Fresh runs exclude seen and exposed targets rather than merely changing a random seed. An attempted response, a previously allocated run, a shown solution, an opened authored support entry, an actually viewed worked example and an observed algebra-tool result have distinct consequences. Mathematical support before each retained submission is stored; later hints never rewrite that earlier mask. Accessible notation controls are not counted as mathematical hints. The system does not monitor external help.\n\nThe literal M09 expression is actually entered into the intermediate field and checked. A sum-correct/product-wrong split is equivalent, not false algebra. An alternative equivalent method is retained ungraded; a final answer can still be checked. Relationship explanation and error/repair remain separate from correct slots. Free text is not marked correct by keyword or length. Lesson-check completion means a recorded response plus short reasoning or paper-work declaration, not a grade or mastery verdict.\n\n### A03 — unit state allocation with an honest limit",
+      "titleGuess": "Section 3",
+      "keywordHints": [
+        "correct",
+        "mathematical",
+        "support",
+        "actually",
+        "algebra",
+        "checked",
+        "equivalent",
+        "hints"
+      ]
+    },
+    {
+      "id": "section-4-part-4-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "Section 4 (Part 4)",
+        "sectionHeading": "Section 4"
+      },
+      "text": "The prior prototype's storage structure was not adopted unchanged. This unit now has eight anchored lesson-check records, one six-question active run, four protected selections, and **two** recent ordinary detailed records. This deliberately reduces the v0.3 candidate's six recent records to make room for the expanded unit's anchored evidence. First submissions and current drafts for all 26 fixed guided/check/error/review questions are kept separately when their ordinary detail rolls out. Records are deduplicated. The first mathematical submission plus latest three are kept per detailed record; four is not an attempt limit.\n\nShort practice notes are bounded to 120 characters, lesson reasons to 160 and the two help/error notes to 240. These limits are stated in the learner interface; long written reasoning uses the established paper/assignment route. This is a limited portable practice/evidence record, not an unlimited notebook. Full selection slots do not block practice. No recurring archive/reset/download gate is imposed. Ending an unfinished run or replacing a protected selection requires explicit on-page confirmation.",
+      "titleGuess": "Section 4",
+      "keywordHints": [
+        "records",
+        "practice",
+        "anchored",
+        "check",
+        "detailed",
+        "error",
+        "evidence",
+        "first"
+      ]
+    },
+    {
+      "id": "section-5-part-5-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "Section 5 (Part 5)",
+        "sectionHeading": "Section 5"
+      },
+      "text": "Transport uses interned strings, compact status codes, stable question indices and exposure/seen bitsets. Engine/content mismatches and malformed records fail closed. The older v1 standalone record is left untouched; a visible recovery download is offered rather than silently migrating or regrading it. A newer local or different-tab record triggers an explicit choice, not automatic last-writer replacement.\n\nThree simultaneous-tier stress examples fit the 40,000-character application ceiling and a modelled 60,000-character shared envelope using the exact referenced codec. They are witnesses, not an exhaustive proof for all text/counters or execution of the production exporter. A real capacity failure still preserves current in-memory work and the last valid stored copy, reports unsaved status and provides recovery. No text is shortened to force a save.\n\n### A04 — one LMS owner, not a competing saver\n\nThe course uses the shared `course-state-v1` API when it is actually present and connected: read, scope, publish, register flush, save acknowledgment. It does not call SCORM Initialize, Commit or Terminate directly. Publication is labelled pending, not committed. A success message requires the shared owner's acknowledgment. Failure remains dirty/unsaved. Standalone browser storage is a distinct review mode, never a cross-device/LMS claim.",
+      "titleGuess": "Section 5",
+      "keywordHints": [
+        "shared",
+        "acknowledgment",
+        "character",
+        "failure",
+        "last",
+        "owner",
+        "record",
+        "recovery"
+      ]
+    },
+    {
+      "id": "section-6-part-6-6",
+      "index": 6,
+      "locator": {
+        "kind": "section",
+        "label": "Section 6 (Part 6)",
+        "sectionHeading": "Section 6"
+      },
+      "text": "`workspace/scorm-tracking.json` declares all 22 routes and the eight required check IDs. Actual shared exporter execution and tenant acceptance remain open; a contract-compatible test double is not the real bridge.\n\n### A05 — canonical teaching and support ownership\n\nAll original lessons remain canonical HTML. All 122 authored hints/solutions now have canonical HTML source entries; runtime references them instead of maintaining a separate hidden wording copy. Generic status/misconception feedback has canonical source text. Generated controls and feedback displays are explicitly Annotation only. Edited coefficient/answer contracts need new targeted mathematical evidence and version control.\n\nA source-controlled topic withdrawal stops automatic questions/checking without erasing work or awarding completion. The learner sees the written lesson/help alternative. That behaviour is browser-tested; actual teacher access to the corresponding control, Studio draft/apply/reload/Undo and final editability measurement remain unproved. No new administration dashboard or unsupported claim of complete Studio integration is introduced.\n\n### A06 — accessible presentation and optional editor",
+      "titleGuess": "Section 6",
+      "keywordHints": [
+        "canonical",
+        "remain",
+        "source",
+        "actual",
+        "control",
+        "feedback",
+        "html",
+        "studio"
+      ]
+    },
+    {
+      "id": "section-7-part-7-7",
+      "index": 7,
+      "locator": {
+        "kind": "section",
+        "label": "Section 7 (Part 7)",
+        "sectionHeading": "Section 7"
+      },
+      "text": "Preserve the charcoal/green/white science shell. Repair prerequisite-return focus, narrow-screen reference access and triangle reflow. Native labelled entry, notation buttons, original-draft preservation, announced feedback and paper/alternative work remain active. Diagram rotation uses stable geometry/labels, not screen position. Input placeholders no longer reveal the target answer.\n\nThe local MathLive acquisition attempt was unsuccessful. An explicitly disabled, version-checked candidate adapter is supplied for later local integration; no CDN/library/fonts are fetched by the student page. This does not satisfy the real MathLive compatibility spike. It must not be silently counted as complete because native entry is working.\n\n### A07 — preserve the rest of the learning loop\n\nPrepared learners can go directly to checking. Prerequisite help returns to the current response. Mixed practice includes error interpretation as well as computation and remains available on a later visit. Core teaching, worked examples and selected work are printable. The optional triangle lab separates side identification, ratio, final value, unit, rounding and short ungraded reasoning. Report preview includes both algebra and triangle evidence. A report download is not an assignment submission.\n\n## What has not changed",
+      "titleGuess": "Section 7",
+      "keywordHints": [
+        "triangle",
+        "entry",
+        "includes",
+        "later",
+        "local",
+        "mathlive",
+        "native",
+        "prerequisite"
+      ]
+    },
+    {
+      "id": "section-8-part-8-8",
+      "index": 8,
+      "locator": {
+        "kind": "section",
+        "label": "Section 8 (Part 8)",
+        "sectionHeading": "Section 8"
+      },
+      "text": "Original M01–M30 and their expected behaviours are unchanged. M17–M30 remain later-family obligations, separate from unsupported guards. No formal examination bank, automatic arbitrary reasoning grade, cross-course dashboard, runtime AI tutor or external learner-data service has been added. Source textbooks, credentials, original course exports, teacher keys and font binaries are not distributed.\n\n## Six learner checks\n\nThe focused browser report exercises: a prepared learner taking the fast route; an entry/prerequisite repair with retained draft and returned focus; an arithmetic slip receiving specific middle-coefficient feedback; an alternative method retained ungraded; narrow-screen native entry/reference access; and a learner who repeatedly reveals answers without laundering them into independent evidence. These are controlled scenarios, not observations of real pupils.\n\n## Acceptance is still stage-specific",
+      "titleGuess": "Section 8",
+      "keywordHints": [
+        "learner",
+        "entry",
+        "original",
+        "retained",
+        "specific",
+        "acceptance",
+        "access",
+        "added"
+      ]
+    },
+    {
+      "id": "section-9-part-9-9",
+      "index": 9,
+      "locator": {
+        "kind": "section",
+        "label": "Section 9 (Part 9)",
+        "sectionHeading": "Section 9"
+      },
+      "text": "U06 now covers this requested build. It does not authorize release. U01 teacher outcome/tool policy; U02 permissions for selected source use; U03 real help/assignment route, evidence policy and accepted formats; U04 production shared-state/tenant behaviour; and U05 real devices, assistive technology and learner observation remain external decisions/evidence gates. The actual repository workflow must still be executed on the user's checkout; this environment never claimed that running the standalone page created a Canvas Helper project.",
+      "titleGuess": "Section 9",
+      "keywordHints": [
+        "evidence",
+        "policy",
+        "real",
+        "accepted",
+        "actual",
+        "assistive",
+        "authorize",
+        "behaviour"
+      ]
+    }
+  ]
+}

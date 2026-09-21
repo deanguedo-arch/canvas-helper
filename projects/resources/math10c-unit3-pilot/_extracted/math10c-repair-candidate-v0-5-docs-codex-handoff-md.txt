@@ -1,0 +1,69 @@
+# Codex handoff — repaired source v0.5
+
+## First read / authorization
+
+Read this file, BUILD_REPORT, CAPACITY_DECISION and both requirement matrices. Inspect repaired source before accepting the builder's result summaries. Current authorization covers local repairs and an unapplied shared patch, **not** installation/commit/push/deployment/learner release. Actual repository, Studio and tenant stages require their own execution authorization.
+
+## Exact next action
+
+Independently re-audit the candidate against the repair specification and frozen master requirements. Re-run the focused source cases in an isolated copy. Start at `workspace/assets/save-controller.js` (failure/receipt/lock), `workspace/assets/state.js` plus frozen catalogs (migration), and `shared-repository/canvas-helper-save-receipts-and-codec.patch`. Compare with actual current checkout HEAD/status and source hashes before any future apply.
+
+Do not treat `historical/` evidence as v0.5 acceptance. Do not accept successful refusal guards as original future mathematical fixture passes. Current `CAP-04` is explicitly failed, not repaired by lowering text limits.
+
+## Shared patch, NOT applied
+
+`PATCH_BASE_HASHES.json` names the baseline/proposed hashes. Proposed changes are to canonical repository paths:
+
+- scripts/lib/scorm.ts
+- scripts/lib/scorm-state-codec.ts
+- scripts/tests/scorm-export.test.ts
+- scripts/tests/scorm-state-codec.test.ts
+- docs/workflows/scorm-save-receipts.md
+
+A dry-run and reconstruction were performed against a disposable reference mirror only. No repository command result exists for:
+
+```sh
+npx tsx --test scripts/tests/scorm-state-codec.test.ts scripts/tests/scorm-export.test.ts
+```
+
+The local emitter erases TypeScript types and uses a fail-fast unused Cheerio import. It runs the real bridge builder and includes tracking/actions/codec. It does not establish full dependency/typecheck/runner compatibility.
+
+## Local replay
+
+```sh
+export NODE_PATH="$(npm root -g)"
+python tests/repair/run_repair_suite.py
+python tests/repair/ui_capacity_print.py
+python tests/repair/native_origin_recheck.py
+MATHLIVE_DIST=/local/independently-obtained/mathlive-0.110.0 python tests/repair/mathlive_local_spike.py
+```
+
+The last two recorded BLOCKED here. A missing real library is not a passing compatibility spike. Do not fetch CDNs at learner runtime, weaken global CSP, or copy fonts into a ChatGPT deliverable. The local-library test mounts independently supplied local assets for testing only.
+
+## Source ownership after separately authorized integration
+
+Candidate input ownership remains HTML/CSS plus declared behavior modules. At Gate B use the repository's **course:create** workflow for `math10c-unit3-pilot`, then declare one Math-owned canonical behavior location (parser/contracts/state/legacy decoder/catalogs/controller/input adapter). Generated workspace copies require a narrow behavior rebuild; never regenerate routine HTML or leave duplicate independent code owners. Declare catalog generation provenance: original 1,706 entries retain their order, ten new IDs are appended. `unit-data.js` display order is not the migration map.
+
+`integration/install-into-canvas-helper.mjs` now refuses `--apply` before writes. Its read-only preflight is not a transactional installer and must not be used as evidence that partial overlay failures are recoverable.
+
+## Critical re-audit targets
+
+1. Exact state+completion receipt under reentrant callbacks, stale order, local quota/validation/capacity failure, and final rendered text/visibility.
+2. Native same-origin Web Lock exclusion, initial-null race, explicit release, and stale takeover. Single-origin locks do not solve concurrent devices.
+3. Original v0.4 raw snapshot migration, generated index sentinel, first+latest attempts, protected/recent overlap and uncertain legacy trig chronology.
+4. Actual full-envelope capacity including provenance/framing; choose no new text/history limits without Dean. Decoder-admitted state is not automatically saveable.
+5. Literal-zero/sign/scalar/order normalization, absorbed GCF, literal M09, canceled cubic subtrees, generator bounds/exhaustion, mixed-category exhaustion.
+6. Native entry, root pair fields, closed-disclosure navigation targets, printable teaching/report, canonical teacher hints and withdrawal.
+
+## Gate B / Studio proof is separate
+
+After integration authorization and a verified baseline, run focused shared tests first. At a requested rollout checkpoint use course doctor/workspace verify/editability/readiness/project E2E and real comparison-base CI. Prove (a) Edit → draft → apply → reload → Undo with no external mutation; separately (b) canonical hint edit → behavior rebuild → reload, then a supported fresh restoration because rebuild may invalidate Undo. No flags-only activation.
+
+## Gates C and D
+
+Only after packaging authorization build/inspect/hash actual SCORM 2004 output. Test real tenant launch/save/resume/device/new attempt/replacement/learner separation/failed saves/capacity and teacher evidence. Actual endpoints and accepted submission formats remain owner decisions. Then independently re-audit and, after separate authorization, observe varied learners/AT users. No package or learner activity was launched here.
+
+## Known residuals
+
+Capacity-fit acceptance unresolved/failed for worst-case admitted states; real MathLive dependency absent/disabled; native-origin checks blocked by execution-host policy; full repo/Studio/CI/tenant/physical keyboard/AT/human proof not run. Recovery preserves original bytes; it does not promise server rollback after failed Commit or unlimited history. Keep malformed/unknown snapshots for explicit recovery, never reset to an empty course.
+

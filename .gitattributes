@@ -21,6 +21,9 @@
 *.gif binary
 *.webp binary
 *.zip binary
+projects/math10c-unit3-pilot/raw/Math10C_Repair_Candidate_v0.5.zip binary
+projects/resources/math10c-unit3-pilot/Math10C_Repair_Candidate_v0.5/** -whitespace
+projects/resources/math10c-unit3-pilot/_extracted/** -whitespace
 projects/ela30-1-modern-drama/workspace/assets/media/*.mp4 filter=lfs diff=lfs merge=lfs -text
 projects/ela30-1-shakespeare-othello/workspace/assets/film-room/*.mp4 filter=lfs diff=lfs merge=lfs -text
 projects/ela20-1-feature-film/raw/*.zip filter=lfs diff=lfs merge=lfs -text

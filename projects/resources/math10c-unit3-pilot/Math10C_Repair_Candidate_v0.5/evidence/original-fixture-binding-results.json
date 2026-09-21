@@ -1,0 +1,248 @@
+{
+  "command": "node tests/repair/original_fixture_bindings.cjs",
+  "originalUnchanged": true,
+  "warning": "Literal math cases, behavioural bindings and future refusal guards are separate evidence. A guard pass is not an original mathematical pass.",
+  "results": [
+    {
+      "fixtureId": "M01",
+      "originalResponse": "(x+3)(x+4)",
+      "originalExpectedStatus": "correct",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "correct",
+      "actualStatus": "correct",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M02",
+      "originalResponse": "(x+4)*(x+3)",
+      "originalExpectedStatus": "correct",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "correct",
+      "actualStatus": "correct",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M03",
+      "originalResponse": "(x+2)(x+6)",
+      "originalExpectedStatus": "incorrect",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "incorrect",
+      "actualStatus": "incorrect",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M04",
+      "originalResponse": "x^2+7x+12",
+      "originalExpectedStatus": "equivalent_but_wrong_requested_form",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "equivalent",
+      "actualStatus": "equivalent",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M05",
+      "originalResponse": "(x+3)(x+4",
+      "originalExpectedStatus": "input_not_parseable",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "input",
+      "actualStatus": "input",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M06",
+      "originalResponse": "2(x+2)(x+3)",
+      "originalExpectedStatus": "correct",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "correct",
+      "actualStatus": "correct",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M07",
+      "originalResponse": "2(x^2+5x+6)",
+      "originalExpectedStatus": "equivalent_but_incomplete",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "equivalent",
+      "actualStatus": "equivalent",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M08",
+      "originalResponse": "(x-3)(x+2)",
+      "originalExpectedStatus": "correct",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "correct",
+      "actualStatus": "correct",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M09",
+      "originalResponse": "x^2+3x+4x+12",
+      "originalExpectedStatus": "valid_intermediate_not_final",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "intermediate",
+      "actualStatus": "intermediate",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M10",
+      "originalExpectedStatus": "not_automatically_graded",
+      "result": "refer_to_behavioural_binding",
+      "binding": "additional_browser_cases.py::revealed_answer_evidence paper route; no arbitrary method grading"
+    },
+    {
+      "fixtureId": "M11",
+      "originalResponse": "26.6 degrees",
+      "originalExpectedStatus": "correct",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "correct",
+      "actualStatus": "correct",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M12",
+      "originalResponse": "0.464 radians",
+      "originalExpectedStatus": "different_requested_unit",
+      "bindingKind": "literal original response to bounded task",
+      "expectedBoundStatus": "different_requested_unit",
+      "actualStatus": "different_requested_unit",
+      "result": "passed"
+    },
+    {
+      "fixtureId": "M13",
+      "originalExpectedStatus": "correct",
+      "result": "refer_to_behavioural_binding",
+      "binding": "browser_regressions.py::trig / rotation with explicit BC,AB,AC choices"
+    },
+    {
+      "fixtureId": "M14",
+      "originalExpectedStatus": "supported_not_independent",
+      "result": "refer_to_behavioural_binding",
+      "binding": "additional_browser_cases.py::revealed_answer_evidence exact revealed correct response remains supported"
+    },
+    {
+      "fixtureId": "M15",
+      "originalExpectedStatus": "restore_same_instance",
+      "result": "refer_to_behavioural_binding",
+      "binding": "additional_browser_cases.py::resume + core_regressions.cjs frozen catalog sentinel"
+    },
+    {
+      "fixtureId": "M16",
+      "originalExpectedStatus": "explicit_generation_failure",
+      "result": "refer_to_behavioural_binding",
+      "binding": "core_regressions.cjs::constructive-exhaustion"
+    },
+    {
+      "fixtureId": "M17",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M17",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M18",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M18",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M19",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M19",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M20",
+      "originalExpectedStatus": "incomplete_solution_set",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M20",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M21",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M21",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M22",
+      "originalExpectedStatus": "incomplete_solution_set",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M22",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M23",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M23",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M24",
+      "originalExpectedStatus": "contains_invalid_root",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M24",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M25",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M25",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M26",
+      "originalExpectedStatus": "equivalent_on_original_domain_but_missing_restriction",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M26",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M27",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M27",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M28",
+      "originalExpectedStatus": "incorrect_without_extra_domain_assumption",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M28",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M29",
+      "originalExpectedStatus": "correct",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M29",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    },
+    {
+      "fixtureId": "M30",
+      "originalExpectedStatus": "correct_solution_incorrect_domain_boundary",
+      "originalMathematicalExecution": "not_run",
+      "guardId": "PILOT-UNSUPPORTED-M30",
+      "guardResult": "passed",
+      "guardIsNotOriginalFixtureAcceptance": true
+    }
+  ]
+}

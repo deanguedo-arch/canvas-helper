@@ -1,0 +1,79 @@
+MEASURE adversarial-metadata
+MEASURE ascii
+MEASURE bmp
+MEASURE escaped
+MEASURE repeated
+MEASURE supplementary
+[
+  {
+    "name": "blank-current-page",
+    "applicationCharacters": 1431,
+    "actualEmittedEnvelopeCharacters": 1081,
+    "applicationFits": true,
+    "bridgeFits": true
+  },
+  {
+    "name": "max-adversarial-metadata",
+    "applicationCharacters": 211276,
+    "actualEmittedEnvelopeCharacters": 215194,
+    "applicationFits": false,
+    "bridgeFits": false
+  },
+  {
+    "name": "max-ascii",
+    "applicationCharacters": 45344,
+    "actualEmittedEnvelopeCharacters": 48460,
+    "applicationFits": false,
+    "bridgeFits": true
+  },
+  {
+    "name": "max-bmp",
+    "applicationCharacters": 44605,
+    "actualEmittedEnvelopeCharacters": 46243,
+    "applicationFits": false,
+    "bridgeFits": true
+  },
+  {
+    "name": "max-escaped",
+    "applicationCharacters": 19139,
+    "actualEmittedEnvelopeCharacters": 5493,
+    "applicationFits": true,
+    "bridgeFits": true
+  },
+  {
+    "name": "max-repeated",
+    "applicationCharacters": 14121,
+    "actualEmittedEnvelopeCharacters": 4565,
+    "applicationFits": true,
+    "bridgeFits": true
+  },
+  {
+    "name": "max-supplementary",
+    "applicationCharacters": 44605,
+    "actualEmittedEnvelopeCharacters": 39781,
+    "applicationFits": false,
+    "bridgeFits": true
+  },
+  {
+    "name": "OPTION-NOT-APPLIED-deduplicate-details",
+    "applicationCharacters": 44433,
+    "actualEmittedEnvelopeCharacters": 46063,
+    "applicationFits": false,
+    "bridgeFits": true
+  },
+  {
+    "name": "OPTION-NOT-APPLIED-recent-zero",
+    "applicationCharacters": 42328,
+    "actualEmittedEnvelopeCharacters": 43932,
+    "applicationFits": false,
+    "bridgeFits": true
+  },
+  {
+    "name": "OPTION-NOT-APPLIED-shorter-new-explanations-80",
+    "applicationCharacters": 43085,
+    "actualEmittedEnvelopeCharacters": 44725,
+    "applicationFits": false,
+    "bridgeFits": true
+  }
+]
+

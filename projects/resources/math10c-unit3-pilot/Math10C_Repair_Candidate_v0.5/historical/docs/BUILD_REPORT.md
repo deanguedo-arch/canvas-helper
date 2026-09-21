@@ -1,0 +1,51 @@
+# Reconciled full-unit build report
+
+**Candidate:** unit-scope v0.4. **Status:** working local review artifact with explicit outstanding integration/rollout gates.
+
+## Delivered
+
+Eight Chapter 3 lessons; 22 navigable destinations; 18 worked examples; 122 authored checkable prompts (96 in the original practice bank); three bounded generated factoring families comprising 1,584 parameter combinations; optional trigonometry contrast; canonical authored hints/solutions; mathematically distinct fresh checks; separate seen/support records; first/latest-attempt retention; selected evidence; limited-history disclosure; native notation entry; printable teaching and reports; state validation, save/retry/conflict handling; and a guarded local repository-integration helper.
+
+The unit was not reduced to a one-lesson demo. Its presentation remains the charcoal/forest-green/white science-course shell. Existing lesson/question/route identities are retained. Mathematical expansion beyond the original v0.3 pilot is named and documented rather than hidden inside a universal grader.
+
+## Executed checks
+
+| Check group | Result | What that establishes |
+|---|---:|---|
+| Exact contract/construction checks | 1759 passed; 0 failed | Includes the 122 authored answer contracts, 1,584 parameter combinations, exact form/entry cases, original-fixture bindings and separate unsupported guards. Not an independent expert audit of every pedagogical claim. |
+| Controlled Chromium learner/state scenarios | 37 passed; 0 failed; 0 uncaught page errors | Tests rendered source using explicit storage and shared-bridge doubles, including the six learner scenarios, printing disclosure, narrow layouts, canonical wording, withdrawal, save failures and conflicts. Not real browser-origin/Studio/tenant acceptance. |
+| Capacity stress examples | 3 passed | Maximum configured tier counts, supported submitted expressions, high-entropy ASCII/Unicode/escaped writing, interned transport and exact referenced codec. Modelled envelope only. |
+| JavaScript syntax | Passed for runtime and integration helper | Syntax only; the integration helper was not applied to the actual repository. |
+| Original fixtures | SHA-256 matches | Original M01–M30 remain byte-for-byte unchanged, `implemented=false`, `passed=null`, `not_run`. |
+
+The original fixture hash is `b59def072b94e8a208cb2fef5418b0898620d96a1966fba3c89fbbfcf4431cb5`. See `FIXTURE_BINDINGS.json`; a later-family refusal is not a pass of M17–M30.
+
+## Capacity evidence
+
+| Stress example | Application characters | Modelled complete envelope characters |
+|---|---:|---:|
+| ascii | 30,498 | 23,155 |
+| unicode | 30,498 | 48,499 |
+| escaping | 39,378 | 13,999 |
+
+The separate provisional ceilings are 40,000 application characters and 60,000 envelope characters. Largest observed values were **39,378** and **48,499**, respectively. These are measured examples, not a proof for every possible input sequence, huge counter, Unicode combination, actual exporter framing or tenant. The code fails closed on capacity/commit failures rather than shortening responses. Full production shared-bridge envelope execution remains open.
+
+The revised policy keeps eight anchored lesson checks, six active records, four protected selections, two recent ordinary detailed records, and separately retained first/current writing for fixed questions. Four retained submissions is not an attempt limit. Versioned question identity plus the recorded seed restores the same mathematical instance; unsupported content/engine versions and malformed input are not silently migrated.
+
+## Defects repaired during this pass
+
+Prerequisite return lost input focus; the narrow reference control became inaccessible; the initial triangle layout overflowed at 320 pixels; visible worked examples and previously seen correct targets could leak into purportedly fresh checks; hints were duplicated away from canonical source; current publication could be mistaken for a committed LMS save; and closed report disclosures could omit retained work from print. Those paths now have focused checks. The test harness was also corrected to wait for actual hash-route visibility/focus rather than assuming navigation completed synchronously.
+
+## Honest environment boundary
+
+Connected GitHub reads confirmed `codex/social-ela-updates@d0b4cf731dd180cebee908915772e90687d40215`. Repository cloning failed because github.com could not be resolved from the container. No real local checkout, `course:create`, project doctor, Studio editing lifecycle, SCORM export or repository write occurred here. The integration helper is supplied, defaults to read-only and remains unexecuted against Canvas Helper. It is not evidence that importing the final unit passes the repository's contracts.
+
+The browser host prohibited direct file/HTTP navigation. Therefore browser checks use Chromium `set_content` with explicit, inspectable storage and bridge doubles. Local-storage/reopen/failure behaviours and bridge protocol distinctions were exercised in those controlled documents; real origin persistence, production bridge integration and actual Brightspace student/teacher evidence must still be demonstrated.
+
+The MathLive distribution was unavailable through the supplied network tools. Native entry is the active solution. The disabled candidate adapter is **not** a completed MathLive compatibility spike. No font files or required remote library have been packaged.
+
+## Outstanding acceptance gates
+
+Actual scaffold/integration and source-ownership doctor; genuine Studio routine-edit/apply/reload/Undo and usable teacher withdrawal controls; production shared-state integration and full envelope; local MathLive compatibility or an explicit owner decision on the independently tested native route; real mobile keyboard and VoiceOver/NVDA flows; actual help/assignment destinations and accepted submission formats; current teacher outcome/asset decisions; Brightspace launch/resume/interruption/attempt replacement/reporting; and separately authorized learner observation.
+
+U06 now authorizes this requested build, not rollout. No deployment, formal grade writer, cross-course learner data service or broad learner release was undertaken.

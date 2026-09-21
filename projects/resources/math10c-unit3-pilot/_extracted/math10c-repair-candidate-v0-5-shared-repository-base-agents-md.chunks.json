@@ -1,0 +1,448 @@
+{
+  "projectId": "d7f57256-1962-4aa3-8a04-8d7f18d6f575",
+  "referenceId": "math10c-repair-candidate-v0-5-shared-repository-base-agents-md",
+  "generatedAt": "2026-09-21T02:12:35.180Z",
+  "chunks": [
+    {
+      "id": "canvas-helper-agent-contract-mission-canvas-helper-is-a-local-first-pro-523d2cce-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Canvas Helper Agent Contract ## Mission Canvas Helper is a local-first production environment for course artifacts.",
+        "sectionHeading": "# Canvas Helper Agent Contract ## Mission Canvas Helper is a local-first production environment for course artifacts."
+      },
+      "text": "# Canvas Helper Agent Contract\n\n## Mission\n\nCanvas Helper is a local-first production environment for course artifacts.\n\nIts job is:\n\n`import -> normalize -> edit -> expand -> integrate -> export`\n\nCanvas Helper is not only a first-pass generator. External first-pass generation (for example Gemini Canvas) is officially supported. Canvas Helper then turns those artifacts into cleaner, integrated, export-ready deliverables.\n\n## Default Work Cadence\n\nEvery new chat and artifact starts in **Build mode** unless the user explicitly requests testing, packaging, deployment, or rollout.\n\nIn Build mode:",
+      "titleGuess": "# Canvas Helper Agent Contract ## Mission Canvas Helper is a local-first production environment for course artifacts.",
+      "keywordHints": [
+        "canvas",
+        "helper",
+        "first",
+        "artifacts",
+        "build",
+        "export",
+        "mode",
+        "pass"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "- “Finish this change” means complete the requested edit and make the affected preview usable. It does not mean certify the whole course or repository.\n- Inspect the affected source and rendered area. Rebuild only what the preview needs.\n- Do not run full-course E2E, exhaustive responsive checks, Studio editability coverage, reversible-edit certification, SCORM tests, broad smoke suites, or previously passing suites after each prompt.\n- Keep a short cumulative list of checks deferred until rollout. Never describe a deferred check as passed.\n- Preserve canonical ownership, stable IDs, safe saving, editable HTML, and required metadata while building. Defer the comprehensive proof of those contracts, not the foundations required to pass it.\n- Run an immediate, narrowly targeted check only when the change affects saved-answer/state compatibility, destructive behavior, security or trust boundaries, or a defect that prevents the affected preview from working. Tell the user why that exception is needed before running it.\n- Tests for a testing framework or policy run when that framework or policy changes, not for ordinary course-content edits.\n\nAt the **Rollout checkpoint**, triggered by an explicit request such as “test it,” “ready to package,” “prepare the release,” “deploy,” or “roll out”:",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "affected",
+        "preview",
+        "change",
+        "check",
+        "checks",
+        "deferred",
+        "edit",
+        "framework"
+      ]
+    },
+    {
+      "id": "section-3-part-3-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "Section 3 (Part 3)",
+        "sectionHeading": "Section 3"
+      },
+      "text": "1. Finish and freeze the agreed candidate.\n2. Run one planned validation batch, ordered from inexpensive static/focused checks to learner E2E and then expensive Studio/readiness proof.\n3. If a failure requires a fix, rerun only the failed or affected checks, plus any final gate whose evidence the fix invalidated.\n4. Package or deploy only when authorized, then verify the actual artifact and target environment before claiming release or LMS readiness.\n\nExisting push/PR CI remains authoritative and unchanged. Local Build-mode deferral does not waive CI or rollout gates.\n\nKeep agent work economical: use targeted reads, concise successful command output, failure-only log expansion, changed-area screenshots, and short Build-mode handoffs. Avoid duplicate reviews, repeated full-file/history reads, unnecessary subagents, and regenerated reports. Write the full handoff at a meaningful session, candidate, or release boundary.\n\n## Official Workflows\n\n### 1) `conversion`\n\nUse for D2L/Brightspace-derived courses and similar conversion tasks.\n\nGoals:\n- preserve instructional fidelity\n- strip LMS noise\n- improve web presentation clarity\n- add targeted interactions only when helpful\n\n### 2) `generated-course`\n\nUse for projects where first-pass artifacts come from Gemini Canvas or another external generator.",
+      "titleGuess": "Section 3",
+      "keywordHints": [
+        "only",
+        "build",
+        "candidate",
+        "checks",
+        "conversion",
+        "failure",
+        "full",
+        "mode"
+      ]
+    },
+    {
+      "id": "section-4-part-4-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "Section 4 (Part 4)",
+        "sectionHeading": "Section 4"
+      },
+      "text": "Goals:\n- import first-pass artifacts into workspace\n- normalize structure and behavior\n- expand depth, hierarchy, navigation, and interaction quality\n- produce coherent export-ready modules\n\nFor a net-new course, the user only needs to ask for the course. The agent must route creation through the Studio-aware course or owning factory workflow automatically; do not make the user choose an internal fast path or remember a verification command. A newly created or newly activated `active`/`ready-for-export` course is not rollout-ready until the automatic new-course readiness gate proves its versioned editability contract, complete learner inventory, rendered routine-content thresholds, and reversible Studio lifecycle. Imported or unresolved legacy material must remain `blocked` until that proof exists.\n\n### 3) `injection/integration`\n\nUse for externally generated interactive activities inserted into existing course surfaces.\n\nGoals:\n- import and normalize component code\n- place components surgically\n- preserve traceability and source-of-truth clarity\n\n## Codex-to-Studio New Course Contract\n\nEvery net-new learner course authored from scratch in Codex must begin with the checked-in scaffold command:\n\n```bash\nnpm run course:create -- --slug <slug> --title \"<title>\" --course-code \"<code>\" --summary \"<summary>\"\n```",
+      "titleGuess": "Section 4",
+      "keywordHints": [
+        "code",
+        "ready",
+        "studio",
+        "codex",
+        "command",
+        "contract",
+        "export",
+        "goals"
+      ]
+    },
+    {
+      "id": "section-5-part-5-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "Section 5 (Part 5)",
+        "sectionHeading": "Section 5"
+      },
+      "text": "- Run the command before adding lessons, activities, or assets. Do not handcraft a project root or copy a legacy course as the starting point.\n- Continue authoring only in the created canonical files under `projects/<slug>/workspace/**` and operational metadata under `projects/<slug>/meta/**`.\n- Keep routine teacher-editable text, links, and images in canonical HTML. JavaScript may attach behavior, but it must not replace those visible elements after load.\n- Keep synchronized course-name surfaces marked with `data-canvas-helper-course-title` and durable repeated/reorderable content marked with `data-canvas-helper-edit-key`.\n- The scaffold must remain `course:doctor`-passing, explicitly `direct-workspace-v1`, and Studio-editable. A running Studio discovers it automatically.\n- If the course later requires a generated workspace or family builder, do not keep claiming Direct ownership. Introduce a supported adapter, stored overrides, rebuild path, and reversible pilot before enabling Edit for that generated boundary.\n- Imported, conversion, English-factory, and Social-factory work must use their owning intake/factory workflow rather than this from-scratch scaffold.\n\nRollout completion floor for a new Codex course (deferred during Build mode):",
+      "titleGuess": "Section 5",
+      "keywordHints": [
+        "factory",
+        "keep",
+        "workspace",
+        "canonical",
+        "canvas",
+        "data",
+        "direct",
+        "edit"
+      ]
+    },
+    {
+      "id": "section-6-part-6-6",
+      "index": 6,
+      "locator": {
+        "kind": "section",
+        "label": "Section 6 (Part 6)",
+        "sectionHeading": "Section 6"
+      },
+      "text": "- `npm run course:doctor -- --project <slug>`\n- `npm run verify -- --project <slug> --mode workspace`\n- visually inspect the Edit map in Studio\n- apply one reversible draft, reload, and Undo\n- add and run `npm run test:e2e:project -- --project <slug>` when learner interactions are added\n\n## Existing Course Catalog Contract\n\nUse the checked-in catalog workflow for legacy course onboarding; never make a project editable by adding only a boolean flag:\n\n```bash\nnpm run course:onboard -- --all\nnpm run course:onboard -- --all --apply --report .runtime/course-onboarding-report.json\nnpm run verify:course-onboarding -- --all\n```",
+      "titleGuess": "Section 6",
+      "keywordHints": [
+        "project",
+        "onboarding",
+        "slug",
+        "apply",
+        "catalog",
+        "onboard",
+        "report",
+        "verify"
+      ]
+    },
+    {
+      "id": "section-7-part-7-7",
+      "index": 7,
+      "locator": {
+        "kind": "section",
+        "label": "Section 7 (Part 7)",
+        "sectionHeading": "Section 7"
+      },
+      "text": "- The audit must assign every project directory one explicit outcome: Direct, English factory, Social factory, preserved legacy snapshot, blocked, reference-only, or package archive.\n- `legacy-snapshot-v1` preserves the current workspace as the learner baseline and quarantines any legacy builder that could replace Studio work. Do not run that old builder through Studio.\n- Package/export-only directories are catalogued but are not editable sources. Recover or intentionally import a canonical source before creating an authorable manifest.\n- Keep runtime-owned content visibly Annotation only. Catalog membership does not mean every rendered node is a safe direct-edit target.\n- A catalog apply must be transactional, doctor every enabled project, signal a running Studio only after success, and be idempotent on its next audit.\n- The completion floor is `test:course-onboarding`, a clean retain-only audit, `verify:course-onboarding -- --all`, focused Studio tests, and the active handoff/audit update.\n\n## Architecture Map",
+      "titleGuess": "Section 7",
+      "keywordHints": [
+        "only",
+        "audit",
+        "studio",
+        "every",
+        "legacy",
+        "builder",
+        "catalog",
+        "direct"
+      ]
+    },
+    {
+      "id": "section-8-part-8-8",
+      "index": 8,
+      "locator": {
+        "kind": "section",
+        "label": "Section 8 (Part 8)",
+        "sectionHeading": "Section 8"
+      },
+      "text": "- `app/studio/`: React/Vite browser shell only\n- `app/server/`: local request handlers, preview serving, command execution bridge\n- `app/shared/`: command contracts and other browser/server-safe shared definitions\n- `scripts/`: import, analyze, refs, export, rehydrate, smoke, and task scripts\n- `scripts/lib/exports/`: export target orchestration only\n- `scripts/lib/intelligence/config/`: intelligence policy and feature-flag resolution\n- `scripts/lib/intelligence/collect/`: always-on learning and signal collection\n- `scripts/lib/intelligence/apply/`: prompt-pack influence, recommendations, and application\n- `projects/incoming/`: intake drop zone for new HTML files and bundle imports\n- `projects/processed/`: latest kept import snapshot per project slug\n- `projects/resources/`: canonical project resource library and extracted text\n- `projects/<slug>/raw/`: immutable imported baseline\n- `projects/<slug>/workspace/`: editable working files\n- `projects/<slug>/meta/`: manifests, prompt-pack, logs, and operational artifacts\n- `projects/resources/<slug>/`: shared project resource library and extracted text\n- `projects/<slug>/exports/`: generated output only\n- `docs/`: architecture, governance, ops, and plans\n\n## Allowed Zones",
+      "titleGuess": "Section 8",
+      "keywordHints": [
+        "projects",
+        "scripts",
+        "slug",
+        "intelligence",
+        "only",
+        "project",
+        "shared",
+        "browser"
+      ]
+    },
+    {
+      "id": "section-9-part-9-9",
+      "index": 9,
+      "locator": {
+        "kind": "section",
+        "label": "Section 9 (Part 9)",
+        "sectionHeading": "Section 9"
+      },
+      "text": "- `app/studio/**`\n- `app/server/**`\n- `scripts/**`\n- `docs/**`\n- `tasks/**`\n- `projects/<slug>/workspace/**`\n- `projects/<slug>/meta/**`\n- `projects/incoming/**`, `projects/processed/**`, and `projects/resources/**` for intake and resource-pipeline work only\n- repo root governance/config files\n\n## Forbidden / Protected Zones\n\n- `projects/<slug>/raw/**` unless the task explicitly requires raw repair or import regeneration\n- `projects/<slug>/exports/**` unless the task explicitly requires generated output inspection\n- `.runtime/**` unless the task explicitly targets runtime intelligence or caches\n- unrelated broad file moves, renames, or formatting-only sweeps\n\n## Domain Ownership",
+      "titleGuess": "Section 9",
+      "keywordHints": [
+        "projects",
+        "slug",
+        "explicitly",
+        "task",
+        "unless",
+        "only",
+        "requires",
+        "runtime"
+      ]
+    },
+    {
+      "id": "section-10-part-10-10",
+      "index": 10,
+      "locator": {
+        "kind": "section",
+        "label": "Section 10 (Part 10)",
+        "sectionHeading": "Section 10"
+      },
+      "text": "- Studio UI state, components, and browser behavior belong in `app/studio/`\n- Local request routing, preview path validation, and command execution belong in `app/server/`\n- Shared Studio/server command definitions belong in `app/shared/`\n- Filesystem import/analyze/refs/export logic belongs in `scripts/lib/`\n- Export target orchestration belongs in `scripts/lib/exports/`\n- Intelligence collection belongs in `scripts/lib/intelligence/collect/`\n- Intelligence application and prompt-pack influence belong in `scripts/lib/intelligence/apply/`\n- Intelligence policy, defaults, and feature flags belong in `scripts/lib/intelligence/config/`\n- Repo operating rules belong in `AGENTS.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, and `docs/ops/`\n\n## Artifact Roles\n\nEvery project must treat artifact roles explicitly:\n\n- `canonical editable source`: primary files for active editing\n- `imported first-pass source`: external seed artifacts from first-pass generation or import\n- `injected component source`: externally generated activities integrated into larger artifacts\n- `runtime/generated output`: bundles and generated files derived from canonical sources\n- `reference/archive only`: non-active files retained for history, extraction, or reuse\n\n## Source-of-Truth and Regeneration Rules",
+      "titleGuess": "Section 10",
+      "keywordHints": [
+        "belong",
+        "intelligence",
+        "scripts",
+        "source",
+        "belongs",
+        "files",
+        "generated",
+        "studio"
+      ]
+    },
+    {
+      "id": "section-11-part-11-11",
+      "index": 11,
+      "locator": {
+        "kind": "section",
+        "label": "Section 11 (Part 11)",
+        "sectionHeading": "Section 11"
+      },
+      "text": "- Every active artifact must declare one canonical editable entry and canonical source files.\n- Runtime bundles and generated outputs are never canonical sources.\n- If generated outputs are tracked, declare how to regenerate them.\n- Direct bundle/runtime patching is emergency-only.\n- Any emergency runtime patch must be documented in project metadata and handoff output.\n- Reference-only files must be declared so they are not mistaken for active execution paths.\n- Every newly created or newly activated active course must declare `authoring.editabilityContract: { schemaVersion: 1, profileId: \"studio-routine-content-v1\" }` and pass `npm run verify:new-course-readiness`; removing the contract or changing a governed project/resource boundary causes the same gate to rerun.\n\n## Project Metadata Standard\n\nUse `projects/<slug>/meta/project.json` as the single per-project metadata contract.\n\nRequired for migrated active work:\n\n- `migrationState`: `legacy | migrated`\n- `projectType`: `conversion | generated-course | hybrid`\n- `preferredWorkflows`: array of workflow names\n- `canonicalEntry`\n- `canonicalSources`\n- `authoringStatus`: `active | blocked | ready-for-export | reference-only | archived`\n- `exportTargets` (when active)\n\nRecommended for discipline:",
+      "titleGuess": "Section 11",
+      "keywordHints": [
+        "active",
+        "project",
+        "canonical",
+        "declare",
+        "generated",
+        "metadata",
+        "only",
+        "runtime"
+      ]
+    },
+    {
+      "id": "section-12-part-12-12",
+      "index": 12,
+      "locator": {
+        "kind": "section",
+        "label": "Section 12 (Part 12)",
+        "sectionHeading": "Section 12"
+      },
+      "text": "- `generatedOutputs`\n- `regenerateCommand`\n- `injectedComponents` with status `active | reference-only | planned | archived`\n- `importedFirstPassOrigin`\n- `referenceOnly`\n- `sourceOfTruthNotes`\n\n## Change Budget\n\n- Prefer focused changes with clear file ownership.\n- Touch only the domains needed for the task.\n- If a task expands past the planned boundary, document why in the handoff output.\n\n## Authoring Modes\n\nThe repo supports two distinct authoring goals and they must not be blended:\n\n- `CANVAS`: artifact-level generation, expansion, and redesign within the requested artifact boundary.\n- `DEFAULT`: controlled engineering for integration, refinement, conversion improvements, and export stability.\n\nMode selection should match the task. Do not average the two behaviors together.\n\n## Clarification Policy\n\nAsk no clarification questions when all of the following are clear from the prompt or project metadata:\n\n- mode\n- workflow\n- project slug\n- canonical entry\n- boundary\n- source-of-truth constraints\n- success criteria\n\nExecute directly when those are clear.\n\nAsk exactly one clarification question only when a missing or conflicting constraint prevents safe action.",
+      "titleGuess": "Section 12",
+      "keywordHints": [
+        "boundary",
+        "clarification",
+        "clear",
+        "only",
+        "task",
+        "artifact",
+        "authoring",
+        "mode"
+      ]
+    },
+    {
+      "id": "section-13-part-13-13",
+      "index": 13,
+      "locator": {
+        "kind": "section",
+        "label": "Section 13 (Part 13)",
+        "sectionHeading": "Section 13"
+      },
+      "text": "Valid reasons to ask:\n- canonical entry is unknown\n- boundary is ambiguous\n- source-of-truth is unclear\n- the request may require editing protected zones, runtime bundles, or reference-only files\n- the request mixes redesign and preservation in a conflicting way\n- success criteria are missing or contradictory\n\nWhen clarification is needed:\n- ask exactly one highest-leverage question\n- do not ask for confirmation on obvious next steps inside the approved boundary\n- do not repeatedly ask for scope confirmation once the boundary is explicit\n- after the answer is provided, proceed without re-asking unless the user changes scope\n\n## Clarification Precedence\n\nThe clarification policy controls whether the agent asks a question before acting.\n\nIf the prompt contract is complete and non-conflicting, execute without asking.\n\nRead-discipline, surgical-default, and mode-overlay rules must be interpreted inside that decision. They may narrow retrieval behavior, but they do not create extra clarification questions unless the task would cross the approved boundary or violate source-of-truth constraints.\n\n## `CANVAS` Mode Behavior",
+      "titleGuess": "Section 13",
+      "keywordHints": [
+        "boundary",
+        "clarification",
+        "approved",
+        "asking",
+        "behavior",
+        "confirmation",
+        "conflicting",
+        "inside"
+      ]
+    },
+    {
+      "id": "section-14-part-14-14",
+      "index": 14,
+      "locator": {
+        "kind": "section",
+        "label": "Section 14 (Part 14)",
+        "sectionHeading": "Section 14"
+      },
+      "text": "- Optimize for coherent artifact quality, not timid micro-patches.\n- Improve hierarchy, readability, interaction quality, responsiveness, and meaningful states.\n- Allow section/page-level restructuring when the request is artifact-focused.\n- Stay inside the requested project boundary.\n- Do not broaden into unrelated repo cleanup.\n\n## `DEFAULT` Mode Behavior\n\n- Optimize for source-of-truth discipline, stability, and controlled scope.\n- Preserve the artifact concept unless redesign is explicitly requested.\n- Prefer smallest diff that fully resolves the task.\n- Keep compatibility with exports, contracts, and selectors.\n- Avoid broad refactor sprawl.\n\n## No Drive-By Refactors\n\n- No formatting sweeps.\n- No renames unless the rename directly clarifies architecture in scope.\n- No dependency churn unless required to preserve or unblock the requested behavior.\n- No speculative cleanup outside the task boundary.\n\n## Retrieval Defaults",
+      "titleGuess": "Section 14",
+      "keywordHints": [
+        "artifact",
+        "requested",
+        "unless",
+        "behavior",
+        "boundary",
+        "cleanup",
+        "optimize",
+        "preserve"
+      ]
+    },
+    {
+      "id": "section-15-part-15-15",
+      "index": 15,
+      "locator": {
+        "kind": "section",
+        "label": "Section 15 (Part 15)",
+        "sectionHeading": "Section 15"
+      },
+      "text": "0. Read `docs/ops/FAST_PATHS.md` first for common task-specific retrieval shortcuts.\n1. Read `docs/ops/ACTIVE_HANDOFF.md` first for any continuation work.\n2. If workflow is known, read the matching file under `docs/workflows/`.\n3. Read `projects/<slug>/meta/prompt-pack.md` first when a project slug exists.\n4. Then read the relevant `.runtime/pattern-bank/` matches or ledger artifacts if the task depends on prior learning.\n5. Use `projects/resources/<slug>/_extracted/` only after prompt-pack and workflow context.\n6. Read `ARCHITECTURE.md` and `docs/ops/HANDOFF.md` for repo-wide changes or handoff rules.\n\n## Surgical Default Rules\n\n- Start with the smallest file set that can answer the task.\n- Prefer targeted reads, `rg`, and known entrypoints over broad repo scans.\n- Expand scope only when the current context is insufficient to act safely.\n- If the prompt contract and clarification policy are already satisfied, do not ask for approval just because additional targeted reads are needed inside the approved boundary.\n- Ask exactly one clarification question only when broader retrieval would cross the declared boundary, risk protected-zone edits, or conflict with source-of-truth constraints.\n- Do not widen scope preemptively \"just in case.\"\n- Keep follow-up reads minimal.\n\n## Refinement Rules",
+      "titleGuess": "Section 15",
+      "keywordHints": [
+        "read",
+        "docs",
+        "first",
+        "handoff",
+        "only",
+        "prompt",
+        "reads",
+        "rules"
+      ]
+    },
+    {
+      "id": "section-16-part-16-16",
+      "index": 16,
+      "locator": {
+        "kind": "section",
+        "label": "Section 16 (Part 16)",
+        "sectionHeading": "Section 16"
+      },
+      "text": "- Preserve the concept unless redesign is explicitly requested.\n- Fix the weakest part first instead of redesigning the entire surface.\n- Keep the blast radius controlled and stay within the requested files and flows.\n- Preserve stable selectors, contracts, and exported behavior when UI or automation depends on them.\n- Prefer the smallest diff that fully resolves the refinement task.\n- Do not turn a cleanup pass into a new visual direction.\n- Do not introduce unrelated cleanup, abstraction churn, or broad repo edits.\n\n## Subagent Mode\n\n- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.\n- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`\n- When subagent mode is active, keep the surgical-default rules on for the rest of the task unless the user changes the scope.\n- Do not keep asking whether to apply subagent rules after subagent mode is confirmed.\n\n## Intelligence Rules",
+      "titleGuess": "Section 16",
+      "keywordHints": [
+        "subagent",
+        "mode",
+        "rules",
+        "task",
+        "keep",
+        "apply",
+        "cleanup",
+        "explicitly"
+      ]
+    },
+    {
+      "id": "section-17-part-17-17",
+      "index": 17,
+      "locator": {
+        "kind": "section",
+        "label": "Section 17 (Part 17)",
+        "sectionHeading": "Section 17"
+      },
+      "text": "- Collection and application are governed by the explicit learner mode and policy flags.\n- Modes:\n  - `off`: no collection, no application\n  - `collect`: collection only\n  - `apply`: collection + application\n- Respect precedence in this order:\n  1. CLI override\n  2. `LEARNER_MODE` environment variable\n  3. project policy file\n  4. repo default policy\n  5. built-in safe default (`collect`)\n- Do not hard-wire intelligence influence into unrelated commands.\n\n## Feature Flag Rules\n\n- Put intelligence flags in `scripts/lib/intelligence/config/`.\n- Default new flags to the safest behavior that preserves current workflows.\n- Document every new flag in `ARCHITECTURE.md`, `CONTRIBUTING.md`, and the relevant command help text.\n\n## Docs Update Rules\n\n- Update `README.md` when quick start, commands, or top-level workflow changes.\n- Update `ARCHITECTURE.md` when responsibilities, folder boundaries, or core data flow changes.\n- Update `CONTRIBUTING.md` when completion, commit, or verification rules change.\n- Update `docs/ops/` when the operating loop, handoff format, or agent workflow changes.\n- Update `docs/workflows/` when workflow patterns or prompt contracts change.\n\n## Test Update Rules",
+      "titleGuess": "Section 17",
+      "keywordHints": [
+        "update",
+        "collection",
+        "rules",
+        "application",
+        "changes",
+        "default",
+        "docs",
+        "flags"
+      ]
+    },
+    {
+      "id": "section-18-part-18-18",
+      "index": 18,
+      "locator": {
+        "kind": "section",
+        "label": "Section 18 (Part 18)",
+        "sectionHeading": "Section 18"
+      },
+      "text": "- Add or update tests when changing parsing, intelligence policy, route behavior, preview safety checks, exported artifacts, or metadata policy enforcement.\n- Add a smoke-path update when changing core import/analyze/refs/export flow.\n- Do not ship architecture changes without at least targeted verification for the affected boundary.\n\n## E2E Automation Policy\n\nUse browser automation as a rollout regression gate for interaction-heavy work.\n\nAccumulate E2E coverage for the Rollout checkpoint when any of the following changed:\n- shared Studio/player UI\n- learner/archive mode logic\n- module navigation logic\n- quiz rendering, progress, or answer state\n- conditional visibility/fallback panel behavior\n- project e2e contract files\n- shared selectors used by tests\n\nDefault commands:\n- platform smoke: `npm run test:e2e:smoke`\n- project contract run: `npm run test:e2e:project -- --project <slug>`",
+      "titleGuess": "Section 18",
+      "keywordHints": [
+        "project",
+        "policy",
+        "smoke",
+        "automation",
+        "behavior",
+        "changing",
+        "contract",
+        "logic"
+      ]
+    },
+    {
+      "id": "section-19-part-19-19",
+      "index": 19,
+      "locator": {
+        "kind": "section",
+        "label": "Section 19 (Part 19)",
+        "sectionHeading": "Section 19"
+      },
+      "text": "Rules:\n- Do not run broad E2E for non-UI scripting work unless the task explicitly requires it.\n- If UI behavior changed, update stable `data-testid` selectors as needed.\n- If project behavior expectations changed, update `projects/<slug>/meta/e2e-contract.json`.\n- Keep the high-confidence suite project-agnostic by defining `assertionProfiles`, `modulePassTargets`, and `visibilityChecks` in the project contract when deeper coverage is needed.\n- Project-contract runs are strict: missing slug/contract, invalid schema, empty deep targets, or missing required `data-testid` hooks must fail fast.\n- A release candidate touching critical interaction flows is not rollout-ready until the required E2E command passes. An individual Build-mode edit may finish with that check explicitly deferred.\n\n## Commit Rules\n\n- Use `type(scope): concise action`\n- Valid types include `refactor`, `feat`, `fix`, `docs`, `test`, `chore`\n- Scope should reflect the owning domain, such as `studio`, `server`, `intelligence`, `ops`, or `smoke`\n\n## Handoff Output Rules\n\nEvery task handoff must include:\n\n1. Summary\n2. Files changed\n3. Verification run\n4. Known risks / follow-up\n5. Source-of-truth location\n6. Fragile areas / what might drift\n7. Next prompt assumptions\n8. Exact next action, with a command only when one is actually required\n9. Exact next file to open",
+      "titleGuess": "Section 19",
+      "keywordHints": [
+        "contract",
+        "project",
+        "changed",
+        "next",
+        "required",
+        "rules",
+        "action",
+        "behavior"
+      ]
+    },
+    {
+      "id": "section-20-part-20-20",
+      "index": 20,
+      "locator": {
+        "kind": "section",
+        "label": "Section 20 (Part 20)",
+        "sectionHeading": "Section 20"
+      },
+      "text": "Use the stricter template in `docs/ops/HANDOFF.md` for ongoing session work.\nKeep the single active handoff in `docs/ops/ACTIVE_HANDOFF.md` for all work and archive prior entries in `docs/ops/ARCHIVED_HANDOFFS.md`.\n\n## Editing Rules for Project Data\n\n- Do not manually edit `projects/<slug>/raw/**` or `projects/<slug>/exports/**` unless the task explicitly requires it.\n- Keep user-authored changes in `projects/<slug>/workspace/**`.\n- Treat `projects/<slug>/meta/**` as generated-plus-operational state that may be updated when workflows require it.\n- Treat `projects/processed/**` as snapshot state, not an editable project workspace.\n- Treat `projects/resources/**` as canonical source material, not a temporary intake queue.\n\n## Design and Interaction Quality Rules\n\nWhen creating or reshaping UI artifacts:\n\n1. Keep information hierarchy clear before adding decorative styling.\n2. Use typography, spacing, and contrast that improve readability in long educational surfaces.\n3. Make interaction affordances explicit with accessible focus, hover, and active states.\n4. Ensure responsive behavior on desktop and mobile from first pass.\n5. Include meaningful states where they improve comprehension and flow continuity.\n6. Prefer coherent production-like surfaces over placeholder scaffolds.\n\n## Rollout Verification Floor",
+      "titleGuess": "Section 20",
+      "keywordHints": [
+        "projects",
+        "slug",
+        "active",
+        "docs",
+        "handoff",
+        "keep",
+        "treat",
+        "improve"
+      ]
+    },
+    {
+      "id": "section-21-part-21-21",
+      "index": 21,
+      "locator": {
+        "kind": "section",
+        "label": "Section 21 (Part 21)",
+        "sectionHeading": "Section 21"
+      },
+      "text": "- During Build mode, defer the checks below and record them in the handoff. Run only a required narrow risk check described in Default Work Cadence.\n- At the Rollout checkpoint, run the smallest meaningful accumulated set of checks for the candidate.\n- For a net-new course or a change to a governed new course, the rollout batch includes `npm run test:new-course-readiness` and the automatic `verify:new-course-readiness` exact-head gate. Direct, English factory, and Social factory courses may become active only after it passes; imported, proposal-only, and unresolved legacy work remains blocked.\n- For repo-wide architecture or governance changes, the minimum floor is:\n  - `npm.cmd run typecheck`\n  - `npm.cmd run build:studio`\n  - targeted tests\n  - smoke-path verification when pipeline behavior changed",
+      "titleGuess": "Section 21",
+      "keywordHints": [
+        "only",
+        "build",
+        "checks",
+        "factory",
+        "readiness",
+        "rollout",
+        "work",
+        "accumulated"
+      ]
+    }
+  ]
+}

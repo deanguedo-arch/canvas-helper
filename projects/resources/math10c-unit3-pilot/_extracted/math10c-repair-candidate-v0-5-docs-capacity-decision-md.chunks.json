@@ -1,0 +1,133 @@
+{
+  "projectId": "d7f57256-1962-4aa3-8a04-8d7f18d6f575",
+  "referenceId": "math10c-repair-candidate-v0-5-docs-capacity-decision-md",
+  "generatedAt": "2026-09-21T02:12:34.915Z",
+  "chunks": [
+    {
+      "id": "capacity-decision-current-limits-unchanged-decision-status-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "# Capacity decision — current limits unchanged ## Decision status",
+        "sectionHeading": "# Capacity decision — current limits unchanged ## Decision status"
+      },
+      "text": "# Capacity decision — current limits unchanged\n\n## Decision status\n\n**No final explanation or history policy has been selected.** The current candidate keeps every original field ceiling and retention tier. The 40,000-character application guard and shared 60,000-character SCORM 2004 envelope guard remain. No saved text is silently shortened. `repair/CAP-04` has **failed capacity-fit acceptance**, while the oversize rejection/recovery cases pass in the controlled environment.\n\nThe prior builder's capacity confidence should not carry forward. Current measurements use the **actual emitted proposed shared bridge**, real codec and actual collected tracking/envelope fields. JSON serialization is observed just before that bridge's own guard. API SetValue staging is distinct from confirmed Commit. No synthetic `envelope={estimated…}` substitutes for collection.\n\n## Measured witnesses",
+      "titleGuess": "# Capacity decision — current limits unchanged ## Decision status",
+      "keywordHints": [
+        "capacity",
+        "current",
+        "envelope",
+        "guard",
+        "actual",
+        "bridge",
+        "character",
+        "decision"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "| Witness | Application JSON | Actual complete bridge envelope | Application ≤40,000 | Bridge ≤60,000 |\n|---|---:|---:|---|---|\n| Event-driven UI session | 19,211 | 12,475 | Yes | Yes |\n| blank-current-page | 1,431 | 1,081 | Yes | Yes |\n| max-adversarial-metadata | 211,276 | 215,194 | No | No |\n| max-ascii | 45,344 | 48,460 | No | Yes |\n| max-bmp | 44,605 | 46,243 | No | Yes |\n| max-escaped | 19,139 | 5,493 | Yes | Yes |\n| max-repeated | 14,121 | 4,565 | Yes | Yes |\n| max-supplementary | 44,605 | 39,781 | No | Yes |\n\nThe UI witness used 194 submitted answers through source-owned control events, eight lesson-check records, six active records, four protected selections, two recent records and 36 fixed drafts. It used intentionally long fields, not a learner trial. Storage, lock and API are explicit doubles; input/click handlers and emitted bridge are real. The UI session is one reachable scripted path, **not a saturation proof for every possible accepted state**.\n\nAdversarial witnesses fill current schema-admitted structures with varied ASCII, BMP, supplementary and escaped text. Their submitted “mathematics” is not asserted to be UI-generable. The large metadata witness gives independently varying provenance detail inside accepted bounds; it demonstrates why accepted schema data is not synonymous with saveable data. It is labelled decoder-admitted, not typical student usage.",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "accepted",
+        "bridge",
+        "records",
+        "witness",
+        "admitted",
+        "adversarial",
+        "application",
+        "ascii"
+      ]
+    },
+    {
+      "id": "section-3-part-3-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "Section 3 (Part 3)",
+        "sectionHeading": "Section 3"
+      },
+      "text": "The separate framing witness has 22 actual historical page-time entries, a 100-character scope and 188-character learner identifier: its emitted envelope is 1,804 characters. These are explicit test assumptions, not the tenant's maximum identifiers. The JSON contains raw/packed alternative full-envelope measurements and actual encoder choice for each text distribution.\n\n## Unchanged policy\n\n- Mathematical raw entry: 160 characters; short practice reasoning: 120.\n- Each of eight lesson explanations: 160; help/error note: 240 each.\n- Trig raw entries: 80; trig reasoning: 160.\n- Eight required lesson-check records, one six-item active set, four protected selections, two recent ordinary detailed records.\n- First submission plus latest three per retained record; further attempts remain available.\n- First fixed responses, fixed drafts, support/exposure and migration provenance remain protected as specified.\n\nStructured pairs are stored losslessly as the two raw native fields separated by `|`. Existing fields' `maxlength` values are unchanged. No original question, explanation or saved response was shortened to force a witness to pass.\n\n## Measured alternatives — NOT applied",
+      "titleGuess": "Section 3",
+      "keywordHints": [
+        "actual",
+        "character",
+        "characters",
+        "eight",
+        "entries",
+        "envelope",
+        "fields",
+        "first"
+      ]
+    },
+    {
+      "id": "section-4-part-4-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "Section 4 (Part 4)",
+        "sectionHeading": "Section 4"
+      },
+      "text": "- `deduplicate-details`: 44,433 application / 46,063 full-envelope characters. Application fit: **no**.\n- `recent-zero`: 42,328 application / 43,932 full-envelope characters. Application fit: **no**.\n- `shorter-new-explanations-80`: 43,085 application / 44,725 full-envelope characters. Application fit: **no**.\n\nThe prospective-80 option is an explicitly labelled counterfactual projection used only in the measurement script. It is **not** applied to source, fixtures, saved work, labels or current acceptance. Existing long responses cannot be migrated by slicing. Reducing recent history alone or shortening explanations to 80 does not even solve the measured BMP application case, so neither is recommended as a sufficient repair.\n\n## Recommendation for the owner/integration review",
+      "titleGuess": "Section 4",
+      "keywordHints": [
+        "application",
+        "characters",
+        "envelope",
+        "full",
+        "explanations",
+        "recent",
+        "acceptance",
+        "alone"
+      ]
+    },
+    {
+      "id": "section-5-part-5-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "Section 5 (Part 5)",
+        "sectionHeading": "Section 5"
+      },
+      "text": "Do not approve a lower explanation limit merely to turn a size test green. Keep the current limits for local review, retain the safe rejection paths, and withhold learner release. Before production acceptance, choose and document the **portable evidence obligation**: the exact protected evidence/drafts to keep in one attempt, whether an approved separate written-work route is required, and how legacy over-budget work will be recovered. Any representation optimization must be lossless, versioned and rerun through the complete real envelope. Do not raise the application ceiling or reduce retention by assumption.\n\nA credible next engineering proposal may encode repeatable provenance by immutable references or partition later unit delivery, but neither is claimed implemented or measured here. The single-SCO/full-history tradeoff is unresolved. The current preserved-work failure behavior is a safety repair, not proof that every allowed session will remain within one record.\n\n## Failure and rollback limits",
+      "titleGuess": "Section 5",
+      "keywordHints": [
+        "work",
+        "current",
+        "evidence",
+        "failure",
+        "keep",
+        "limits",
+        "will",
+        "acceptance"
+      ]
+    },
+    {
+      "id": "section-6-part-6-6",
+      "index": 6,
+      "locator": {
+        "kind": "section",
+        "label": "Section 6 (Part 6)",
+        "sectionHeading": "Section 6"
+      },
+      "text": "Source validation and the application guard stop publication before replacing canonical local data. The proposed bridge refuses an oversized emitted envelope before writing suspend_data. In the controlled API, failed SetValue/Commit does not change the confirmed server copy. The course retains its current draft, recovery branches and last **confirmed** receipt locally; it withholds a success message. Real tenant persistence after a staged write followed by failed Commit is unverified—no server rollback guarantee is made.\n\nWhen storage itself fails, branch copies may exist only in memory and are labelled accordingly. Do not close the tab on an unsaved/error status. Copy/download is emergency recovery, never a normal condition for continuing practice. No current text limit or owner gate was changed while the other repairs were completed.\n\nEvidence: `evidence/actual-bridge-capacity.json`, `ui-session-capacity.json`, `tracking-framing-stress.json`, capacity fixtures, emitted bridge sources and the full regression ledger.",
+      "titleGuess": "Section 6",
+      "keywordHints": [
+        "bridge",
+        "capacity",
+        "json",
+        "commit",
+        "confirmed",
+        "copy",
+        "current",
+        "data"
+      ]
+    }
+  ]
+}

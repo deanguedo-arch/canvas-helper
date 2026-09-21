@@ -1,0 +1,2 @@
+Unchanged historical v0.4 material retained for audit comparison. These tests/reports were not updated to the new catalog and must not be read as v0.5 execution results. Use tests/repair and evidence instead.
+

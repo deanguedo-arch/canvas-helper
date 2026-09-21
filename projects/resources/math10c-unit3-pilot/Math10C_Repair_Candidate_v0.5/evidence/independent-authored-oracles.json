@@ -1,0 +1,672 @@
+{
+  "command": "python tests/repair/independent_oracles.py",
+  "environment": {
+    "sympy": "1.14.0"
+  },
+  "cases": [
+    "MATH-11"
+  ],
+  "limits": "Checks authored numeric results, polynomial identities and authored error-step answers. Does not establish instructional quality or universal factor-form correctness.",
+  "results": [
+    {
+      "id": "g31",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "c31",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "g32",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "c32",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "g33",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "c33",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g34",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "c34",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g35",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "c35",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g36",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "c36",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g37",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "c37",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g38",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "c38",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "e35",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "e38",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p31-0",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-1",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-2",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-3",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-4",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-5",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-6",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-7",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-8",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-9",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-10",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p31-11",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-0",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-1",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-2",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-3",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-4",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-5",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-6",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-7",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-8",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-9",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-10",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p32-11",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "p33-0",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-1",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-2",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-3",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-4",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-5",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-6",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-7",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-8",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-9",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-10",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p33-11",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-0",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-1",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-2",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-3",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-4",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-5",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-6",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-7",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-8",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-9",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-10",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p34-11",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-0",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-1",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-2",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-3",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-4",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-5",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-6",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-7",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-8",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-9",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-10",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p35-11",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-0",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-1",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-2",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-3",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-4",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-5",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-6",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-7",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-8",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-9",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-10",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p36-11",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-0",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-1",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-2",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-3",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-4",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-5",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-6",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-7",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-8",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-9",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-10",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p37-11",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-0",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-1",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-2",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-3",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-4",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-5",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-6",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-7",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-8",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-9",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-10",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "p38-11",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "i31",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "i32",
+      "result": "passed",
+      "method": "prompt-derived integer GCF/LCM/root/value"
+    },
+    {
+      "id": "i33",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "i34",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "i35",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "i36",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "i37",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "i38",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g351",
+      "result": "passed",
+      "method": "integer sum/product"
+    },
+    {
+      "id": "g352",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g353",
+      "result": "passed",
+      "method": "integer sum/product"
+    },
+    {
+      "id": "g354",
+      "result": "passed",
+      "method": "independent symbolic equivalence (not unrestricted form proof)"
+    },
+    {
+      "id": "g321",
+      "result": "passed",
+      "method": "strict neighbouring integer powers"
+    },
+    {
+      "id": "g322",
+      "result": "passed",
+      "method": "strict neighbouring integer powers"
+    },
+    {
+      "id": "e301",
+      "result": "passed",
+      "method": "first non-equivalent equality, SymPy expansion"
+    },
+    {
+      "id": "e302",
+      "result": "passed",
+      "method": "first non-equivalent equality, SymPy expansion"
+    },
+    {
+      "id": "e303",
+      "result": "passed",
+      "method": "first non-equivalent equality, SymPy expansion"
+    },
+    {
+      "id": "e304",
+      "result": "passed",
+      "method": "first non-equivalent equality, SymPy expansion"
+    }
+  ]
+}

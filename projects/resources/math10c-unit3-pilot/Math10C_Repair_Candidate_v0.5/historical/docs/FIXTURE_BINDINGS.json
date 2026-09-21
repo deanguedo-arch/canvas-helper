@@ -1,0 +1,305 @@
+{
+  "note": "Binding results do not rewrite the original fixture corpus. Equivalent/input/intermediate are compact runtime categories mapped in the known task context. Scenario cases have executable behavioural bindings.",
+  "cases": [
+    {
+      "id": "M01",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M01",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M02",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M02",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M03",
+      "original_expected_status": "incorrect",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M03",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M04",
+      "original_expected_status": "equivalent_but_wrong_requested_form",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M04",
+      "derived_environment": "component",
+      "runtime_status_mapping": "equivalent",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M05",
+      "original_expected_status": "input_not_parseable",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M05",
+      "derived_environment": "component",
+      "runtime_status_mapping": "input",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M06",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M06",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M07",
+      "original_expected_status": "equivalent_but_incomplete",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M07",
+      "derived_environment": "component",
+      "runtime_status_mapping": "equivalent",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M08",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M08",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M09",
+      "original_expected_status": "valid_intermediate_not_final",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M09",
+      "derived_environment": "component",
+      "runtime_status_mapping": "intermediate",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M10",
+      "original_expected_status": "not_automatically_graded",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "Learner-4-alternate-method-retained",
+      "derived_environment": "controlled_browser",
+      "runtime_status_mapping": "ungraded",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M11",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M11",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M12",
+      "original_expected_status": "different_requested_unit",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M12",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M13",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "M13-labels-under-four-rotations",
+      "derived_environment": "controlled_browser",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M14",
+      "original_expected_status": "supported_not_independent",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "Learner-6-M14-support-not-retroactively-rewritten",
+      "derived_environment": "controlled_browser",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M15",
+      "original_expected_status": "restore_same_instance",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "M15-restore-in-new-controlled-document",
+      "derived_environment": "controlled_browser",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M16",
+      "original_expected_status": "explicit_generation_failure",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": "BINDING-M16-explicit-exhaustion",
+      "derived_environment": "component",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": null,
+      "guard_is_not_the_original_mathematical_test": false
+    },
+    {
+      "id": "M17",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M17",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M18",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M18",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M19",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M19",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M20",
+      "original_expected_status": "incomplete_solution_set",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M20",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M21",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M21",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M22",
+      "original_expected_status": "incomplete_solution_set",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M22",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M23",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M23",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M24",
+      "original_expected_status": "contains_invalid_root",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M24",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M25",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M25",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M26",
+      "original_expected_status": "equivalent_on_original_domain_but_missing_restriction",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M26",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M27",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M27",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M28",
+      "original_expected_status": "incorrect_without_extra_domain_assumption",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M28",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M29",
+      "original_expected_status": "correct",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M29",
+      "guard_is_not_the_original_mathematical_test": true
+    },
+    {
+      "id": "M30",
+      "original_expected_status": "correct_solution_incorrect_domain_boundary",
+      "original_execution_metadata": "unchanged/not_run",
+      "derived_binding": null,
+      "derived_environment": "not_implemented",
+      "runtime_status_mapping": "See the exact behavioural assertion or matching status",
+      "future_guard": "PILOT-UNSUPPORTED-M30",
+      "guard_is_not_the_original_mathematical_test": true
+    }
+  ]
+}

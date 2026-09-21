@@ -1,0 +1,25 @@
+{
+  "runtimeLibraryAdded": false,
+  "MathLive": {
+    "requested": "0.110.0",
+    "bundled": false,
+    "executed": false,
+    "status": "blocked",
+    "detail": "Real pinned distribution absent; npm acquisition was not completed and DNS retrieval was unavailable. Reproducible spike records absent MATHLIVE_DIST; no mock replaces it."
+  },
+  "nativeOrigin": {
+    "status": "blocked",
+    "detail": "Actual localhost navigation returned ERR_BLOCKED_BY_ADMINISTRATOR; no policy workaround attempted."
+  },
+  "repository": {
+    "checkoutAvailable": false,
+    "baseline": "d0b4cf731dd180cebee908915772e90687d40215",
+    "source": "supplied shared-source references; GitHub codec read only",
+    "patchApplied": false
+  },
+  "primaryReferenceUrls": [
+    "https://mathlive.io/mathfield/guides/integration/",
+    "https://mathlive.io/mathfield/guides/virtual-keyboard/"
+  ],
+  "note": "Documentation inspection is not execution proof."
+}

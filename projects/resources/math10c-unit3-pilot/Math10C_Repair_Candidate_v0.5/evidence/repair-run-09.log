@@ -1,0 +1,19 @@
+RUN native-save-controls-survive
+RUN quota-heartbeat-retry
+RUN rejected-setvalue-and-commit
+RUN reentrant-stale-receipt
+RUN external-conflict-preserves-both
+RUN web-lock-unavailable
+RUN second-writer-denied
+RUN initial-null-race
+RUN draft-invalidates-old-feedback
+RUN unreadable-input-preserved
+RUN attempts-not-capped
+RUN root-and-faded-source-interaction
+RUN mixed-independent-strata
+RUN trig-setup-chronology-and-report
+RUN trig-feedback-after-submission
+RUN mobile-menu-focus-and-resize
+RUN explicit-release-blocks-heartbeat
+{"passed": 17, "failed": 0}
+
