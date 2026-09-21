@@ -287,6 +287,65 @@ test("no response, history, retention or state limit is reduced", () => {
   assert.ok(html.includes('id="trig-reason"'));
 });
 
+test("teacher-review UI fixes keep gutters, collapsed control, launcher, and desktop reference hooks", () => {
+  const css = read(`${SLUG}/workspace/styles.css`);
+  // 1. The direct .lesson-section child of #check-3.5 shares lesson-block gutters.
+  assert.ok(css.includes("#check-3\\.5>.lesson-section{padding:36px 54px"), "desktop gutter");
+  assert.ok(css.includes("#check-3\\.5>.lesson-section{padding:30px 32px"), "<=1050px gutter");
+  assert.ok(css.includes("#check-3\\.5>.lesson-section{padding:28px 22px"), "<=760px gutter");
+  assert.ok(
+    css.includes("#check-3\\.5>.lesson-section>section{padding:0;border:0}"),
+    "nested practice sections keep natural spacing without doubled gutters",
+  );
+  assert.ok(!css.includes("#check-3.5"), "unescaped #check-3.5 selector would never match");
+  // 2. The collapsed-rail toggle is centered; mobile behavior and expanded state stay.
+  assert.ok(
+    css.includes(".sidebar-collapsed .sidebar-header{justify-content:center"),
+    "collapsed toggle centered",
+  );
+  assert.ok(css.includes(".sidebar-toggle{display:none}"), "mobile toggle behavior unchanged");
+  assert.ok(course.includes("aria-expanded"), "accessible expanded state preserved");
+  // 3. The launcher leaves lesson, navigation, and save-bar content alone.
+  assert.ok(
+    css.includes(".reference-button{position:absolute;left:12px;top:10px"),
+    "desktop launcher sits in the top bar",
+  );
+  assert.ok(!css.includes("bottom:16px"), "launcher no longer covers sidebar links or the save bar");
+  assert.ok(!css.includes("content:'ƒ'"), "icon-only collapsed treatment removed");
+  assert.ok(!css.includes("font-size:0"), "collapsed launcher label stays readable");
+  assert.ok(css.includes("right:12px;top:12px"), "mobile header action preserved");
+  assert.ok(css.includes(".topbar{padding-right:150px}"), "mobile top-bar clearance preserved");
+  // 4. The desktop panel is draggable/resizable and clamped; mobile stays an inset sheet.
+  assert.ok(css.includes("resize:both"), "resizable with native controls");
+  assert.ok(css.includes("#reference-panel>header{cursor:move"), "clearly indicated drag handle");
+  assert.ok(css.includes("max-height:calc(100vh - 120px)"), "resized panel stays above the fixed save bar");
+  assert.ok(css.includes("max-width:calc(100vw - 24px)"), "resized panel stays inside the viewport");
+  assert.ok(css.includes(".reference-panel{inset:75px 12px 60px"), "mobile inset sheet preserved");
+  assert.ok(css.includes(".table-wrap{overflow:auto"), "panel table keeps scrolling inside");
+  assert.ok(course.includes("dataset.referenceHandle"), "drag-handle hook");
+  assert.ok(course.includes("clampReferencePanel"), "movement/size clamp hook");
+  assert.ok(course.includes("(min-width: 761px)"), "drag and clamp are desktop-only");
+  assert.ok(
+    course.includes("closest('button,a,input,select,textarea,summary"),
+    "close button and panel content never start a drag",
+  );
+  assert.ok(course.includes("document.addEventListener('pointermove',move)"), "drag tracking");
+  assert.ok(course.includes("removeEventListener('pointerup',stop)"), "listener cleanup on pointer end");
+  assert.ok(course.includes("removeEventListener('pointercancel',stop)"), "listener cleanup on cancel");
+  assert.ok(course.includes("hidden=false;clampReferencePanel()"), "close/reopen leaves a usable panel");
+  assert.ok(course.includes("ResizeObserver"), "native resizing re-clamps the full panel");
+  assert.ok(course.includes("window.innerWidth-width-inset"), "panel right edge stays reachable");
+  assert.ok(course.includes("window.innerHeight-saveBar-height"), "panel bottom stays above save status");
+  assert.ok(course.includes("resetReferencePanel"), "desktop drag styles reset for the mobile inset sheet");
+  assert.ok(
+    course.includes("addEventListener('resize',()=>clampReferencePanel())"),
+    "viewport changes re-clamp the panel",
+  );
+  for (const id of ["reference-open", "reference-close", "reference-panel", "sidebar-toggle", "check-3.5"]) {
+    assert.ok(html.includes(`id="${id}"`), `lost stable id: ${id}`);
+  }
+});
+
 test("retained content keeps unique stable edit keys", () => {
   const keys = [...html.matchAll(/data-canvas-helper-edit-key="([^"]+)"/g)].map((m) => m[1]);
   assert.equal(new Set(keys).size, keys.length, "duplicate edit keys");
