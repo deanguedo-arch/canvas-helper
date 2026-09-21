@@ -333,6 +333,11 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   let courseScope = "";
   let learnerId = "";
   let courseError = "";
+  // Opaque, session-local receipts; no learner content is sent in status events.
+  let publicationSequence = 0;
+  const publicationSession = config.managedState ? Array.from(window.crypto.getRandomValues(new Uint8Array(12)), b => b.toString(16).padStart(2, "0")).join("") : "";
+  let coursePublication = null;
+  let committedPublicationId = null;
   let preparing = null;
 
 ${buildScormStateCodecRuntime()}
@@ -350,10 +355,16 @@ ${buildScormStateCodecRuntime()}
     // Validate and materialize before replacing the last committed snapshot.
     const copy = JSON.parse(JSON.stringify(value));
     stateCodec.encode(JSON.stringify(copy));
+    const ids = Array.from(new Set(completedIds));
+    const identity = JSON.stringify([copy, ids]);
+    if (!coursePublication || coursePublication.identity !== identity) {
+      coursePublication = { id: publicationSession + ":" + (++publicationSequence), identity, state: copy, completedIds: ids };
+    }
     courseState = copy;
-    courseCompletedIds = Array.from(new Set(completedIds));
+    courseCompletedIds = ids;
     courseError = "";
     scheduleFlush("course-state");
+    return coursePublication.id;
   }
   function registerCourse(options) {
     if (!config.managedState) throw new Error("This package has no course state adapter contract.");
@@ -379,6 +390,7 @@ ${buildScormStateCodecRuntime()}
       save: save, saveAsync: saveAsync, saveAndExit: saveAndExit, markCompleted: markCompleted,
       connectionState: connectionState, readCourseState: readCourseState,
       publishCourseState: publishCourseState, registerCourse: registerCourse,
+      capabilities: Object.freeze({courseSaveReceiptV1: true}),
       scopeKey: function (key) { return initialized && config.managedState ? key + ":lms:" + courseScope : key; },
       learner: function () { return learnerId; },
       failCourseSave: function (error) { courseError = String(error.message || error); announceStatus(courseError, true); },
@@ -501,7 +513,7 @@ ${buildScormTrackingRuntime()}
     };
   }
 
-  function collectStateFromLocalStorage() {
+  function collectStateFromLocalStorage(publication) {
     const values = {};
     for (const key of config.managedState ? [] : trackedKeySet) {
       try {
@@ -519,7 +531,7 @@ ${buildScormTrackingRuntime()}
       projectSlug: config.projectSlug,
       savedAt: new Date().toISOString(),
       values: values,
-      ...(config.managedState ? {scope: courseScope, learnerId: learnerId, course: {schemaVersion: 1, data: stateCodec.encode(JSON.stringify(courseState)), completedIds: courseCompletedIds}} : {}),
+      ...(config.managedState ? {scope: courseScope, learnerId: learnerId, course: {schemaVersion: 1, data: stateCodec.encode(JSON.stringify(publication ? publication.state : courseState)), completedIds: publication ? publication.completedIds : courseCompletedIds}} : {}),
       tracking: collectTracking()
     };
   }
@@ -567,31 +579,36 @@ ${buildScormTrackingRuntime()}
   }
 
   function automaticControls() { return document.body && document.body.getAttribute && document.body.getAttribute("data-scorm-save-mode") === "automatic"; }
-  function announceStatus(message, isError) {
+  function announceStatus(message, isError, receipt) {
+    // Render first. A consumer may then accurately display pending/error state
+    // when this receipt describes an older publication rather than its draft.
+    if (controlHost) {
+      if (automaticControls()) controlHost.style.display = isError ? "flex" : "none";
+      const statusNode = controlHost.querySelector("[data-scorm-status]");
+      if (statusNode) {
+        statusNode.textContent = message;
+        statusNode.style.color = isError ? "#b91c1c" : "#334155";
+      }
+    }
     if (config.managedState && typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
-      window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-status", {detail: {message: message, error: Boolean(isError)}}));
+      const detail = {message: message, error: Boolean(isError)};
+      if (!isError && receipt) { detail.phase = "saved"; detail.coursePublicationId = receipt; }
+      window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-status", {detail}));
     }
-    if (!controlHost) { return; }
-    if (automaticControls()) controlHost.style.display = isError ? "flex" : "none";
-
-    const statusNode = controlHost.querySelector("[data-scorm-status]");
-    if (!statusNode) {
-      return;
-    }
-
-    statusNode.textContent = message;
-    statusNode.style.color = isError ? "#b91c1c" : "#334155";
   }
 
   function persistToLms(reason, exitValue) {
     let saved = false;
-    try { saved = persistStateToLms(reason, exitValue); }
+    // Per-invocation receipt is bound to the serialized tuple. Reentrant API
+    // callbacks cannot substitute a later global publication ID.
+    const receipt = {id: null};
+    try { saved = persistStateToLms(reason, exitValue, receipt); }
     catch (error) { lastPersistErrorMessage = String(error.message || "Brightspace save failed. Keep this page open."); }
-    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + actionReportWarning : lastPersistErrorMessage, !saved);
+    announceStatus(saved ? "Saved to Brightspace at " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + actionReportWarning : lastPersistErrorMessage, !saved, saved ? receipt.id : null);
     return saved;
   }
 
-  function persistStateToLms(reason, exitValue) {
+  function persistStateToLms(reason, exitValue, receipt) {
     lastPersistErrorMessage = "";
     if (!api || !initialized || terminated) {
       lastPersistErrorMessage = "Progress could not be saved to Brightspace. Keep this tab open and try again.";
@@ -602,12 +619,18 @@ ${buildScormTrackingRuntime()}
       lastPersistErrorMessage = courseError || "Opening saved course work…";
       return false;
     }
+    const publication = coursePublication;
     announceStatus("Saving to Brightspace…", false);
+    if (config.managedState && courseError) { lastPersistErrorMessage = courseError; return false; }
     let payload;
     let progress;
     try {
-      payload = collectStateFromLocalStorage();
-      progress = completionProgress();
+      payload = collectStateFromLocalStorage(publication);
+      if (config.managedState && publication && trackingContract && trackingContract.completion) {
+        const required = trackingContract.completion.requiredIds;
+        const capturedDone = new Set(publication.completedIds);
+        progress = required.filter(id => capturedDone.has(id)).length / required.length;
+      } else progress = completionProgress();
     } catch (error) {
       lastPersistErrorMessage = String(error.message || "Saved work could not be read. Keep this page open.");
       announceStatus(lastPersistErrorMessage, true);
@@ -648,7 +671,7 @@ ${buildScormTrackingRuntime()}
       return false;
     }
     commitActionReports();
-
+    if (config.managedState && publication) { committedPublicationId = publication.id; if (receipt) receipt.id = publication.id; }
     return true;
   }
 
@@ -698,6 +721,10 @@ ${buildScormTrackingRuntime()}
       return false;
     }
 
+    if (config.managedState && (courseError || coursePublication && coursePublication.id !== committedPublicationId)) {
+      announceStatus("Newer course work is not confirmed. Keep this page open and retry before closing.", true);
+      return false;
+    }
     if (!api.terminate()) {
       announceStatus("Work saved, but Brightspace could not close the session. Try Save and Exit again.", true);
       return false;
@@ -749,6 +776,10 @@ ${buildScormTrackingRuntime()}
     }
 
     if (!persistToLms("terminate", "suspend")) return false;
+    if (config.managedState && (courseError || coursePublication && coursePublication.id !== committedPublicationId)) {
+      announceStatus("Newer course work is not confirmed. Keep this page open and retry before closing.", true);
+      return false;
+    }
     if (!api.terminate()) {
       announceStatus("Work saved, but Brightspace could not close the session. Try Save and Exit again.", true);
       return false;
@@ -945,7 +976,8 @@ ${buildScormTrackingRuntime()}
       return false;
     }
 
-    ensureCompletionStatus();
+    // Managed completion is written only through a course-authorized save.
+    if (!config.managedState) ensureCompletionStatus();
     patchLocalStorage();
     installControls();
     exposeBridge();

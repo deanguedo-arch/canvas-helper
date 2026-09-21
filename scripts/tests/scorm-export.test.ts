@@ -495,3 +495,38 @@ test("SCORM 2004 reports an oversized save and preserves the last valid suspend_
   assert.match(status?.textContent ?? "", /more saved work than Brightspace can accept/);
   assert.equal(status?.style.color, "#b91c1c");
 });
+
+// Isolated wire/receipt tests. This VM does not establish browser DOM behaviour.
+// The repair bundle also includes a real-Chromium-DOM integration regression.
+function receiptHarness() {
+ const receipts: any[]=[]; const staged: Record<string,string>={'cmi.learner_id':'test-learner'};
+ let committed: Record<string,string>={...staged};let reject=false;let onSet: ((key:string,value:string)=>void)|null=null;
+ const listeners: Record<string,Function[]>={};
+ const document:any={body:null,readyState:'loading',visibilityState:'visible',getElementById:()=>({}),querySelector:()=>null,querySelectorAll:()=>[],addEventListener:()=>{}};
+ const win:any={crypto:{getRandomValues:(a:Uint8Array)=>{for(let i=0;i<a.length;i++)a[i]=i+1;return a;}},location:{hash:'#one'},opener:null,
+  localStorage:{getItem:()=>null,setItem:()=>{}},setTimeout:()=>1,clearTimeout:()=>{},setInterval:()=>1,clearInterval:()=>{},
+  addEventListener:(name:string,fn:Function)=>(listeners[name]??=[]).push(fn),
+  dispatchEvent:(event:any)=>{if(event.type==='canvas-helper:scorm-status')receipts.push(event.detail);for(const f of listeners[event.type]||[])f(event);return true;},
+  CustomEvent:class{type:string;detail:any;constructor(type:string,init:any={}){this.type=type;this.detail=init.detail;}}};win.parent=win;
+ win.API_1484_11={Initialize:()=> 'true',Terminate:()=> 'true',GetValue:(k:string)=>staged[k]||'',SetValue:(k:string,v:string)=>{staged[k]=v;onSet?.(k,v);return 'true';},Commit:()=>{if(reject)return'false';committed={...staged};return'true';}};
+ vm.runInNewContext(buildScormBridgeScript({projectSlug:'receipt-test',storageKeys:[],version:'2004',tracking:{schemaVersion:1,adapter:'hash-pages-v1',pageIds:['one'],defaultPageId:'one',state:{adapter:'course-state-v1'},completion:{storageKey:'x',requiredIds:['done']}}}),{window:win,document,console,TextEncoder,TextDecoder,btoa,atob,Uint8Array,JSON,Date,Set,Map});
+ const bridge=win.__canvasHelperScorm;bridge.registerCourse({flush:()=>{}});
+ return{bridge,receipts,staged,committed:()=>committed,reject:(v:boolean)=>reject=v,onSet:(fn:((k:string,v:string)=>void)|null)=>onSet=fn};
+}
+test('managed publication receipt names the exact committed state/completion tuple',()=>{
+ const h=receiptHarness(),a=h.bridge.publishCourseState({draft:'A'},[]);
+ assert.equal(typeof a,'string');assert.equal(h.bridge.capabilities.courseSaveReceiptV1,true);
+ assert.equal(h.bridge.publishCourseState({draft:'A'},[]),a);
+ let b='';h.onSet((key)=>{if(key==='cmi.suspend_data'){h.onSet(null);b=h.bridge.publishCourseState({draft:'B'},['done']);}});
+ assert.equal(h.bridge.save(),true);assert.notEqual(a,b);
+ const receipt=h.receipts.filter(r=>r.phase==='saved').at(-1);assert.equal(receipt.coursePublicationId,a);
+ const envelope=JSON.parse(h.committed()['cmi.suspend_data']);assert.deepEqual(envelope.course.completedIds,[]);
+ assert.equal(h.bridge.save(),true);assert.equal(h.receipts.filter(r=>r.phase==='saved').at(-1).coursePublicationId,b);
+ assert.deepEqual(JSON.parse(h.committed()['cmi.suspend_data']).course.completedIds,['done']);
+});
+test('failed commit issues no successful receipt; boolean save API remains compatible',()=>{
+ const h=receiptHarness();h.bridge.publishCourseState({draft:'old'},[]);assert.equal(h.bridge.save(),true);const before=h.committed()['cmi.suspend_data'];const count=h.receipts.filter(r=>r.phase==='saved').length;
+ h.bridge.publishCourseState({draft:'new'},[]);h.reject(true);assert.equal(h.bridge.save(),false);
+ assert.equal(h.receipts.filter(r=>r.phase==='saved').length,count);assert.equal(h.committed()['cmi.suspend_data'],before);
+ h.reject(false);assert.equal(h.bridge.save(),true);
+});

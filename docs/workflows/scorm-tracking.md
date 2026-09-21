@@ -66,6 +66,8 @@ No installed LMS package, course workspace, or Science release state is changed 
 
 Science contracts may add `"state": {"adapter": "course-state-v1"}`. Dynamic hash renderers may declare `pageContainerId` instead of requiring a static element for every route. The native runtime reads `__canvasHelperScorm.readCourseState()`, restores before editing, calls `publishCourseState(snapshot, completedIds)`, and registers `registerCourse({flush})`. `saveAsync()` awaits this flush before committing. Required IDs retain their native completion rules.
 
+Managed state adapters use the exact-save receipt contract in [Managed course save receipts](./scorm-save-receipts.md). A course clears its dirty state only after the bridge confirms the publication ID that was actually committed.
+
 The version-1 envelope stores compressed course data and a durable attempt scope. `scopeKey(key)` isolates browser recovery and photo databases; learner mismatches, malformed snapshots and unresolved native save failures stop replacement. Managed state excludes unrelated localStorage. Full writing/history is retained until capacity fails: 60,000 characters for SCORM 2004 and 3,500 for 1.2. Capacity errors preserve the previous LMS copy and local writing; use the native Process Collection or Chemistry Backup before closing. Shutdown cannot reliably await pending asynchronous work.
 
 Chemistry's `legacyCourseId` allows exact validated migration of its original `CH10LZ1|` snapshot. Older shared envelopes containing only localStorage values are intentionally blocked until an explicit migration is provided; do not update an existing live attempt without testing its actual format.

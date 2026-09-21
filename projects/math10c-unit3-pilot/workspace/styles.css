@@ -17,10 +17,11 @@ h1[tabindex="-1"]:focus{outline:none}
 .triangle-wrap{max-width:430px;margin:1.2rem auto;overflow:hidden}.triangle-wrap svg{width:100%;height:auto}.triangle-wrap text{font:16px system-ui;fill:#191c1d}
 #u3-transfer label,#u3-transfer input,#u3-transfer select,#u3-transfer button{display:block;margin-block:.7rem;max-width:100%}#u3-transfer input,#u3-transfer select{min-height:44px;width:min(100%,32rem);font:inherit;padding:.65rem;border:1px solid #9ca79c;border-radius:6px}
 #u3-transfer section{margin-block:1.7rem}#u3-support-library details{padding:1rem;margin-block:.75rem;border:1px solid #cbd3c7;border-radius:6px}#u3-support-library summary{cursor:pointer;font-weight:650}
-#decision-dialog{max-width:min(92vw,560px);border:1px solid #a5b7a0;border-radius:12px;padding:1.5rem;color:#191c1d;background:white}#decision-dialog::backdrop{background:rgb(0 0 0 / .5)}#recovery-panel{position:relative;margin:1rem;padding:1rem;z-index:10;background:#fff6dc}#recovery-panel button{margin:.4rem}
+#decision-dialog{max-width:min(92vw,560px);border:1px solid #a5b7a0;border-radius:12px;padding:1.5rem;color:#191c1d;background:white}#decision-dialog::backdrop{background:rgb(0 0 0 / .5)}#recovery-panel{position:relative;margin:1rem 1rem calc(35px + 1rem) calc(var(--side) + 1rem);padding:1.25rem;z-index:10;background:#fff6dc;border:1px solid #dccb99;border-left:4px solid var(--amber)}#recovery-panel>p{max-width:75ch}#recovery-versions article{padding:1rem 0;border-top:1px solid #dccb99}#recovery-versions h3{margin:0 0 .25rem}#recovery-versions .actions{margin:.75rem 0}#recovery-versions details{max-width:75ch}#recovery-versions summary{min-height:44px;padding:.55rem 0;cursor:pointer;font-weight:700;color:var(--green)}#recovery-panel button{margin:0}
 [data-math-checking="paused"] [data-check],[data-math-checking="paused"] [data-hint],[data-math-checking="paused"] [data-solution]{opacity:.55}
 .math-input-toggle{font-size:.85rem;margin:.35rem 0}.visual-input-status{font-size:.85rem}math-field{display:block;font-size:1.25rem;min-height:48px;max-width:100%;margin:.4rem 0}
 @media(max-width:520px){.actions{flex-wrap:wrap}.actions>*{min-height:44px}#decision-dialog .actions{flex-direction:column}}
+@media(max-width:760px){#recovery-panel{margin:1rem 1rem calc(35px + 1rem)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 @media print{#u3-support-library,#u3-transfer,#recovery-panel,#decision-dialog,.math-input-toggle,math-field{display:none!important}}
 

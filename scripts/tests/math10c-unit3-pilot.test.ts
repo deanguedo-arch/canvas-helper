@@ -372,7 +372,19 @@ test("teacher-review UI fixes keep gutters, collapsed control, launcher, and des
   assert.ok(!css.includes("font-size:0"), "collapsed launcher label stays readable");
   assert.ok(css.includes("right:12px;top:12px"), "mobile header action preserved");
   assert.ok(css.includes(".topbar{padding-right:150px}"), "mobile top-bar clearance preserved");
-  // 4. The desktop panel is draggable/resizable and clamped; mobile stays an inset sheet.
+  // 4. Emergency recovery stays outside the fixed sidebar and hides raw state by default.
+  assert.ok(
+    css.includes("calc(var(--side) + 1rem)"),
+    "desktop recovery content clears the current sidebar width",
+  );
+  assert.ok(
+    css.includes("@media(max-width:760px){#recovery-panel{margin:1rem 1rem"),
+    "mobile recovery content uses the full available width",
+  );
+  assert.ok(course.includes("Show technical recovery data"), "raw recovery data is collapsed by default");
+  assert.ok(course.includes("Restore this copy"), "recovery uses plain learner-facing actions");
+  assert.match(html, /This appears only when saving is interrupted or two tabs contain different work/);
+  // 5. The desktop panel is draggable/resizable and clamped; mobile stays an inset sheet.
   assert.ok(css.includes("resize:both"), "resizable with native controls");
   assert.ok(css.includes("#reference-panel>header{cursor:move"), "clearly indicated drag handle");
   assert.ok(css.includes("max-height:calc(100vh - 120px)"), "resized panel stays above the fixed save bar");

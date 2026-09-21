@@ -10,7 +10,7 @@ function encode(s){const a=new TextEncoder().encode(s);if(a.length>LIMIT)throw E
   for(let c=possible.length-1;c>=0;c--){const candidate=possible[c],distance=pos-candidate;if(distance>4095)break;let n=0;while(n<18&&pos+n<a.length&&a[candidate+n]===a[pos+n])n++;if(n>=3&&n>length){length=n;offset=distance;if(n===18)break;}}
   if(length>=3){flags|=1<<bit;const token=(offset<<4)|(length-3);output.push(token>>8,token&255);for(let j=0;j<length;j++)add(pos+j);pos+=length;}else{output.push(a[pos]);add(pos);pos++;}
  }output[flagAt]=flags;}
- let bin='';for(let i=0;i<output.length;i+=8192)bin+=String.fromCharCode(...output.slice(i,i+8192));const packed=PREFIX+a.length+'|'+hash(a)+'|'+btoa(bin);return packed.length<a.length?packed:s;
+ let bin='';for(let i=0;i<output.length;i+=8192)bin+=String.fromCharCode(...output.slice(i,i+8192));const packed=PREFIX+a.length+'|'+hash(a)+'|'+btoa(bin);return JSON.stringify(packed).length<JSON.stringify(s).length?packed:s;
 }
 function decode(s){if(!s.startsWith(PREFIX))return s;const parts=s.split('|');if(parts.length!==4||!/^\d+$/.test(parts[1])||! /^[0-9a-f]+$/.test(parts[2]))throw Error('Invalid saved-state header.');const expected=Number(parts[1]);if(expected>LIMIT)throw Error('Saved state exceeds the decode limit.');const input=Uint8Array.from(atob(parts[3]),c=>c.charCodeAt(0)),out=new Uint8Array(expected);let p=0,q=0;
  while(p<input.length&&q<expected){const flags=input[p++];for(let bit=0;bit<8&&p<input.length&&q<expected;bit++){

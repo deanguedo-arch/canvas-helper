@@ -53,3 +53,35 @@ test("Math 10C pilot keeps its learner route usable at phone width", async ({ pa
   await expect(frame.locator("#u3-35")).toBeVisible();
   await expect(frame.locator('#u3-35 [data-question="g35"] [data-answer="g35"]')).toBeVisible();
 });
+
+test("Math 10C recovery stays readable beside the navigation", async ({ page }) => {
+  await page.addInitScript(() => {
+    (window as typeof window & { __canvasHelperScorm?: unknown }).__canvasHelperScorm = {
+      connectionState: () => "connected",
+      scopeKey: (key: string) => `${key}:e2e`,
+      learner: () => "recovery-layout-test",
+      readCourseState: () => null,
+      registerCourse: () => undefined,
+      failCourseSave: () => undefined,
+    };
+  });
+  await openProjectInStudio(page, SLUG);
+  const frame = page.frameLocator(PREVIEW);
+
+  await frame.locator('a[href="#u3-35"]').first().click();
+  await frame.locator('#u3-35 [data-question="g35"] [data-answer="g35"]').fill("x^2 + 3x + 4x + 12");
+
+  const recovery = frame.locator("#recovery-panel");
+  await expect(recovery).toBeVisible();
+  await expect(recovery).toContainText("This appears only when saving is interrupted");
+  await expect(recovery.locator("textarea").first()).toBeHidden();
+
+  const sidebarBox = await frame.locator("#unit-sidebar").boundingBox();
+  const recoveryBox = await recovery.boundingBox();
+  expect(sidebarBox).not.toBeNull();
+  expect(recoveryBox).not.toBeNull();
+  expect(recoveryBox!.x).toBeGreaterThanOrEqual(sidebarBox!.x + sidebarBox!.width);
+
+  await recovery.locator("details").first().locator("summary").click();
+  await expect(recovery.locator("textarea").first()).toBeVisible();
+});
