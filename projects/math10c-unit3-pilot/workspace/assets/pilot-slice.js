@@ -1,19 +1,24 @@
-/* Blocked review-pilot boundary for math10c-unit3-pilot.
-   Known pages are every preserved course-page ID; active pages are the seven
-   learner-reachable pilot routes. Inactive pages stay in canonical HTML for
-   later expansion but are never routed to. Saved state keeps its key, version
-   and all evidence; only an inactive route is remapped to u3-overview. */
+/* Blocked Chapter 3 review-candidate boundary for math10c-unit3-pilot.
+   All 22 preserved course pages are learner-reachable. Completion derives
+   only from the eight recorded lesson checks u3-check-31 through u3-check-38.
+   The triangle contrast (u3-transfer) stays reachable as an optional lab and
+   never counts toward Chapter progress. Saved state keeps its key, version
+   and all evidence; an unknown route migrates to u3-overview. */
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.MathPilotSlice=factory();})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const ACTIVE_ROUTES=['u3-overview','u3-ready','u3-35','u3-transfer','u3-reference','u3-support-library','u3-work'];
-const INACTIVE_ROUTES=['u3-31','u3-32','u3-33','u3-34','u3-36','u3-37','u3-38','u3-practice','u3-mixed','u3-errors','u3-review','u3-number-lab','u3-expansion-lab','u3-vocab','u3-resources'];
-const REQUIRED_IDS=['u3-check-35','u3-transfer-complete'];
-const TOTAL_CHECKPOINTS=2;
+const ACTIVE_ROUTES=['u3-overview','u3-ready','u3-31','u3-32','u3-33','u3-34','u3-35','u3-36','u3-37','u3-38','u3-practice','u3-mixed','u3-errors','u3-review','u3-reference','u3-number-lab','u3-expansion-lab','u3-vocab','u3-work','u3-resources','u3-support-library','u3-transfer'];
+const INACTIVE_ROUTES=[];
+const OPTIONAL_ROUTES=['u3-transfer'];
+const COMPLETION_LESSONS=['3.1','3.2','3.3','3.4','3.5','3.6','3.7','3.8'];
+const REQUIRED_IDS=['u3-check-31','u3-check-32','u3-check-33','u3-check-34','u3-check-35','u3-check-36','u3-check-37','u3-check-38'];
+const TOTAL_CHECKPOINTS=8;
 function isActiveRoute(id){return ACTIVE_ROUTES.indexOf(id)!==-1;}
 function isKnownRoute(id){return isActiveRoute(id)||INACTIVE_ROUTES.indexOf(id)!==-1;}
+function isOptionalRoute(id){return OPTIONAL_ROUTES.indexOf(id)!==-1;}
+function isRequiredId(id){return REQUIRED_IDS.indexOf(id)!==-1;}
 function migrateRoute(state){
  if(!state||typeof state!=='object')return state;
- if(isActiveRoute(state.route))return state;
+ if(isKnownRoute(state.route))return state;
  const next={};for(const key of Object.keys(state))next[key]=state[key];
  next.route='u3-overview';return next;
 }
@@ -25,10 +30,13 @@ function isTriangleComplete(trig){
  const t=trig||{};
  return angleSetupOk(t)&&checkedCurrent(t,'aa','angleRaw','angle')&&lengthSetupOk(t)&&checkedCurrent(t,'la','lengthRaw','lengthStatus')&&reasonOk(t);
 }
+function recordedLessons(done){const lessons=Array.isArray(done)?done:[];return COMPLETION_LESSONS.filter(n=>lessons.indexOf(n)!==-1);}
 function pilotProgress(done,trig){
- const lessons=Array.isArray(done)?done:[];
- const factoring=lessons.indexOf('3.5')!==-1,transfer=isTriangleComplete(trig);
- return{factoring,transfer,count:(factoring?1:0)+(transfer?1:0),total:TOTAL_CHECKPOINTS};
+ const recorded=recordedLessons(done);
+ const factoring=recorded.indexOf('3.5')!==-1,transfer=isTriangleComplete(trig);
+ return{factoring,transfer,lessons:recorded,count:recorded.length,total:TOTAL_CHECKPOINTS};
 }
-return{ACTIVE_ROUTES,INACTIVE_ROUTES,REQUIRED_IDS,TOTAL_CHECKPOINTS,isActiveRoute,isKnownRoute,migrateRoute,angleSetupOk,lengthSetupOk,reasonOk,checkedCurrent,isTriangleComplete,pilotProgress};
+const chapterProgress=pilotProgress;
+const unitProgress=pilotProgress;
+return{ACTIVE_ROUTES,INACTIVE_ROUTES,OPTIONAL_ROUTES,COMPLETION_LESSONS,REQUIRED_IDS,TOTAL_CHECKPOINTS,isActiveRoute,isKnownRoute,isOptionalRoute,isRequiredId,migrateRoute,angleSetupOk,lengthSetupOk,reasonOk,checkedCurrent,isTriangleComplete,recordedLessons,pilotProgress,chapterProgress,unitProgress};
 });

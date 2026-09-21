@@ -118,13 +118,13 @@ none
 }
 ```
 
-## Pilot Slice Boundary (blocked review pilot)
+## Review Boundary (blocked Chapter 3 review candidate)
 
 - Status: `blocked`, driver `proposal-only-v1`, Studio Edit disabled, every export target disabled.
-- Active learner routes (7): `u3-overview`, `u3-ready`, `u3-35`, `u3-transfer`, `u3-reference`, `u3-support-library`, `u3-work`.
-- Inactive preserved routes (15) stay in canonical HTML with stable IDs for later expansion: `u3-31`, `u3-32`, `u3-33`, `u3-34`, `u3-36`, `u3-37`, `u3-38`, `u3-practice`, `u3-mixed`, `u3-errors`, `u3-review`, `u3-number-lab`, `u3-expansion-lab`, `u3-vocab`, `u3-resources`. They are unreachable via navigation, overview actions, invalid hashes, previous/next controls, practice-set selectors, or restored route state.
-- Required completion IDs (2): `u3-check-35` (existing 3.5 lesson-check rules) and `u3-transfer-complete` (correct angle setup, angle value, length relationship and value, plus a nonempty triangle explanation).
-- State compatibility: save key `math10c-unit3-pilot:review:v2` and state version `unit3-state-3` are unchanged; an inactive saved route migrates to `u3-overview` with all other fields preserved. Source ZIP SHA-256 `0d0597c864e8a705690c6ecaeb16f553073f79e30dd022afa791f467dd094a68`; raw files are immutable.
+- Active learner routes (22): `u3-overview`, `u3-ready`, `u3-31` through `u3-38`, `u3-practice`, `u3-mixed`, `u3-errors`, `u3-review`, `u3-reference`, `u3-number-lab`, `u3-expansion-lab`, `u3-vocab`, `u3-work`, `u3-resources`, `u3-support-library`, and `u3-transfer` (optional lab). Every preserved page is reachable via navigation, overview actions, hashes, previous/next controls, practice-set selectors, and restored route state.
+- Required completion IDs (8): `u3-check-31` through `u3-check-38` (existing per-lesson check rules: a checked lesson answer plus a short explanation or an on-paper indication). Chapter progress is out of 8 lesson checkpoints and derives only from those recorded lesson checks.
+- Optional triangle lab: `u3-transfer` stays reachable, and its gate (correct angle setup, angle value, length relationship and value, plus a nonempty triangle explanation) still works, but it never counts toward completion or Chapter progress.
+- State compatibility: save key `math10c-unit3-pilot:review:v2` and state version `unit3-state-3` are unchanged; every preserved route passes through migration untouched and only an unknown route migrates to `u3-overview` with all other fields preserved. Lesson 3.5 and triangle-lab work from the earlier pilot slice remains readable. Source ZIP SHA-256 `0d0597c864e8a705690c6ecaeb16f553073f79e30dd022afa791f467dd094a68`; raw files are immutable.
 - Full boundary detail: `projects/math10c-unit3-pilot/meta/pilot-slice.json`.
 - No rollout, LMS, Brightspace, accessibility, teacher, or learner acceptance is claimed.
 

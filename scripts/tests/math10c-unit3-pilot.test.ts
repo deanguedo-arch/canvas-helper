@@ -1,10 +1,11 @@
-// Blocked Math 10C factoring + triangle pilot slice: focused boundary test.
+// Blocked Math 10C Chapter 3 review candidate: focused boundary test.
 //
-// Covers the pilot contract only: blocked manifest, immutable source ZIP and
-// raw baseline, active-route/SCORM agreement, inactive-link absence, the two
-// required completion IDs, legacy route remapping without evidence loss, the
-// four-condition triangle gate, the two-checkpoint progress denominator, and
-// unchanged response/history/state limits.
+// Covers the review contract only: blocked manifest, immutable source ZIP and
+// raw baseline, active-route/SCORM agreement, full eight-lesson reachability,
+// the eight required lesson-check IDs with the triangle lab excluded, route
+// migration without evidence loss, the four-condition optional triangle gate,
+// the eight-checkpoint progress denominator, and unchanged
+// response/history/state limits.
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
@@ -146,43 +147,71 @@ test("state decoder keeps pre-refinement work readable while new attempts use ch
   assert.equal(MathState.resultProvenance({ contentVersion: current.contentVersion }).engine, MathState.ENGINE);
 });
 
-test("active route contract and SCORM tracking agree on seven routes and two IDs", () => {
+test("active route contract and SCORM tracking agree on 22 routes and eight IDs", () => {
+  const expectedRoutes = [
+    "u3-overview", "u3-ready",
+    "u3-31", "u3-32", "u3-33", "u3-34", "u3-35", "u3-36", "u3-37", "u3-38",
+    "u3-practice", "u3-mixed", "u3-errors", "u3-review",
+    "u3-reference", "u3-number-lab", "u3-expansion-lab", "u3-vocab",
+    "u3-work", "u3-resources", "u3-support-library", "u3-transfer",
+  ];
+  const expectedIds = [
+    "u3-check-31", "u3-check-32", "u3-check-33", "u3-check-34",
+    "u3-check-35", "u3-check-36", "u3-check-37", "u3-check-38",
+  ];
+  assert.deepEqual(Pilot.ACTIVE_ROUTES, expectedRoutes);
   assert.deepEqual(tracking.pageIds, Pilot.ACTIVE_ROUTES);
   assert.deepEqual(tracking.pageIds, slice.activeRoutes);
+  assert.deepEqual(Pilot.INACTIVE_ROUTES, []);
   assert.deepEqual(Pilot.INACTIVE_ROUTES, slice.inactivePreservedRoutes);
   assert.equal(tracking.defaultPageId, "u3-overview");
-  assert.deepEqual(tracking.completion.requiredIds, ["u3-check-35", "u3-transfer-complete"]);
+  assert.deepEqual(tracking.completion.requiredIds, expectedIds);
   assert.deepEqual(tracking.completion.requiredIds, Pilot.REQUIRED_IDS);
   assert.deepEqual(tracking.completion.requiredIds, slice.completionCriteria.requiredIds);
+  assert.equal(Pilot.TOTAL_CHECKPOINTS, 8);
+  assert.equal(slice.completionCriteria.totalCheckpoints, 8);
   assert.ok(html.includes('<script src="assets/pilot-slice.js"></script>'));
   assert.ok(course.includes("window.MathPilotSlice"));
-  assert.ok(course.includes("Pilot.isTriangleComplete(S.trig)?['u3-transfer-complete']:[]"));
+  assert.ok(!course.includes("u3-transfer-complete"), "triangle ID must not be a completion ID");
 });
 
-test("all 22 pages are retained but inactive lesson links are absent from learner paths", () => {
-  for (const id of [...Pilot.ACTIVE_ROUTES, ...Pilot.INACTIVE_ROUTES]) {
+test("all 22 pages are retained and every one is learner-reachable", () => {
+  for (const id of Pilot.ACTIVE_ROUTES) {
     assert.ok(html.includes(`id="${id}"`), `preserved page missing: ${id}`);
     assert.ok(Pilot.isKnownRoute(id), `unknown route: ${id}`);
+    assert.ok(Pilot.isActiveRoute(id), `unreachable route: ${id}`);
   }
   const nav = html.slice(html.indexOf("<nav"), html.indexOf("</nav>"));
   assert.deepEqual([...new Set(hrefs(nav))].sort(), [...Pilot.ACTIVE_ROUTES].sort());
   for (const id of Pilot.ACTIVE_ROUTES) {
     const leaked = hrefs(pageSegment(html, id)).filter((h) => !Pilot.isActiveRoute(h));
-    assert.deepEqual(leaked, [], `${id} links to inactive routes`);
+    assert.deepEqual(leaked, [], `${id} links to unreachable routes`);
   }
-  assert.match(pageSegment(html, "u3-overview"), /review pilot/i);
-  assert.ok(!course.includes("of 8 lesson checks"));
-  assert.ok(!html.includes("of 8 lesson checks"));
+  assert.match(pageSegment(html, "u3-overview"), /review candidate/i);
+  assert.ok(!/review pilot/i.test(html), "pilot-only learner label remains");
+  assert.ok(!/pilot checkpoint/i.test(html), "pilot-only learner label remains");
+  assert.ok(!course.includes("of 2 pilot checkpoints"));
+  assert.ok(!html.includes("of 2 pilot checkpoints"));
 });
 
-test("factoring and triangle completion IDs are the only required IDs", () => {
-  assert.deepEqual(tracking.completion.requiredIds, ["u3-check-35", "u3-transfer-complete"]);
+test("the eight lesson checks are the only required IDs; triangle work is excluded", () => {
+  assert.deepEqual(tracking.completion.requiredIds, [
+    "u3-check-31", "u3-check-32", "u3-check-33", "u3-check-34",
+    "u3-check-35", "u3-check-36", "u3-check-37", "u3-check-38",
+  ]);
   assert.ok(course.includes("u3-check-'+x.replace('.','')"));
   const literals = [...course.matchAll(/u3-check-[0-9.]+/g)].map((m) => m[0]);
   assert.deepEqual(literals, [], `hardcoded lesson checks: ${literals}`);
+  assert.ok(course.includes("isTriangleComplete"), "optional triangle gate must stay");
+  assert.ok(!course.includes("u3-transfer-complete"), "triangle ID must not be completed");
+  assert.deepEqual(Pilot.OPTIONAL_ROUTES, ["u3-transfer"]);
+  assert.equal(Pilot.isOptionalRoute("u3-transfer"), true);
+  assert.equal(Pilot.isOptionalRoute("u3-35"), false);
+  for (const id of tracking.completion.requiredIds) assert.equal(Pilot.isRequiredId(id), true);
+  assert.equal(Pilot.isRequiredId("u3-transfer-complete"), false);
 });
 
-test("legacy inactive-route state is remapped without dropping protected fields", () => {
+test("every preserved route passes through migration; unknown routes remap without dropping fields", () => {
   const provenance = {
     engine: MathState.ENGINE,
     catalog: "unit3-catalog-v05",
@@ -252,18 +281,29 @@ test("legacy inactive-route state is remapped without dropping protected fields"
   };
   const snapshot = JSON.parse(JSON.stringify(legacy));
   const next = Pilot.migrateRoute(legacy);
-  assert.equal(next.route, "u3-overview");
-  assert.equal(legacy.route, "u3-34", "migration must not mutate the input");
-  const { route: _droppedNext, ...restNext } = next;
-  const { route: _droppedLegacy, ...restLegacy } = snapshot;
+  assert.equal(next, legacy, "a preserved lesson route must pass through untouched");
+  assert.equal(next.route, "u3-34");
+  const transfer = { route: "u3-transfer", done: ["3.5"] };
+  assert.equal(Pilot.migrateRoute(transfer), transfer, "the optional lab must pass through untouched");
+  const unknown = { ...snapshot, route: "u3-legacy-unknown" };
+  const remapped = Pilot.migrateRoute(unknown);
+  assert.equal(remapped.route, "u3-overview");
+  assert.equal(unknown.route, "u3-legacy-unknown", "migration must not mutate the input");
+  const { route: _droppedNext, ...restNext } = remapped;
+  const { route: _droppedLegacy, ...restLegacy } = unknown;
   assert.deepEqual(restNext, restLegacy);
+  // Lesson 3.5 responses and triangle-lab evidence survive migration untouched.
+  assert.deepEqual(remapped.r["s-c35"], unknown.r["s-c35"]);
+  assert.deepEqual(remapped.trig, unknown.trig);
+  assert.deepEqual(remapped.done, unknown.done);
   for (const route of Pilot.ACTIVE_ROUTES) {
     const kept = { route };
     assert.equal(Pilot.migrateRoute(kept), kept, `${route} must pass through untouched`);
   }
+  assert.equal(Pilot.migrateRoute(null), null);
 });
 
-test("triangle completion requires all four conditions", () => {
+test("the optional triangle gate still requires all four conditions", () => {
   const complete = {
     side: "BC",
     adjacent: "AB",
@@ -295,11 +335,7 @@ test("triangle completion requires all four conditions", () => {
   assert.equal(Contracts.trig("5 m", { kind: "length" }).status, "correct");
 });
 
-test("visible progress denominator is two pilot checkpoints", () => {
-  assert.equal(Pilot.TOTAL_CHECKPOINTS, 2);
-  assert.deepEqual(Pilot.pilotProgress([], {}), { factoring: false, transfer: false, count: 0, total: 2 });
-  assert.equal(Pilot.pilotProgress(["3.1", "3.4"], {}).count, 0);
-  assert.equal(Pilot.pilotProgress(["3.5"], {}).count, 1);
+test("visible progress denominator is eight lesson checkpoints; triangle work never counts", () => {
   const trig = {
     side: "BC",
     adjacent: "AB",
@@ -314,11 +350,31 @@ test("visible progress denominator is two pilot checkpoints", () => {
     la: [[1, "5 m", "correct", 0, {}]],
     reason: "Sine uses opposite over hypotenuse.",
   };
-  assert.equal(Pilot.pilotProgress(["3.5"], trig).count, 2);
-  assert.ok(course.includes("of 2 pilot checkpoints"));
-  assert.ok(course.includes("Pilot checkpoints recorded:"));
+  assert.equal(Pilot.TOTAL_CHECKPOINTS, 8);
+  assert.deepEqual(Pilot.COMPLETION_LESSONS, ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8"]);
+  assert.deepEqual(Pilot.pilotProgress([], {}), {
+    factoring: false, transfer: false, lessons: [], count: 0, total: 8,
+  });
+  assert.deepEqual(Pilot.recordedLessons(["3.1", "3.4", "unknown"]), ["3.1", "3.4"]);
+  assert.equal(Pilot.pilotProgress(["3.1", "3.4"], {}).count, 2);
+  assert.equal(Pilot.pilotProgress(["3.5"], {}).count, 1);
+  // A complete triangle lab alone records no Chapter progress.
+  assert.equal(Pilot.pilotProgress([], trig).count, 0);
+  assert.equal(Pilot.pilotProgress([], trig).transfer, true);
+  // All eight recorded lesson checks complete Chapter progress; triangle adds nothing.
+  const all = ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8"];
+  assert.equal(Pilot.pilotProgress(all, {}).count, 8);
+  assert.equal(Pilot.pilotProgress(all, trig).count, 8);
+  assert.equal(Pilot.pilotProgress(all, {}).factoring, true);
+  // Additive aliases report the same Chapter progress without breaking the public API.
+  assert.equal(Pilot.chapterProgress(all, trig).count, 8);
+  assert.equal(Pilot.unitProgress(["3.1"], {}).count, 1);
+  assert.ok(course.includes("of 8 lesson checkpoints"));
+  assert.ok(course.includes("Chapter checkpoints recorded:"));
+  assert.ok(course.includes("Chapter progress"));
   assert.ok(course.includes("syncSaving();updateProgress();return ok"));
-  assert.ok(html.includes("0 of 2 pilot checkpoints"));
+  assert.ok(html.includes("0 of 8 lesson checkpoints"));
+  assert.ok(html.includes("Chapter progress"));
   assert.ok(html.includes('id="transfer-check-status"'));
 });
 

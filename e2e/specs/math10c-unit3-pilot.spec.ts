@@ -5,7 +5,101 @@ import { openProjectInStudio, reloadWorkspacePreview } from "../lib/project-open
 const SLUG = "math10c-unit3-pilot";
 const PREVIEW = '[data-testid="workspace-preview-frame"]';
 
-test("Math 10C pilot checks and retains the reviewed factoring work", async ({ page }) => {
+const LESSON_ROUTES = ["u3-31", "u3-32", "u3-33", "u3-34", "u3-35", "u3-36", "u3-37", "u3-38"];
+const SUPPORT_ROUTES = [
+  "u3-practice",
+  "u3-mixed",
+  "u3-errors",
+  "u3-review",
+  "u3-reference",
+  "u3-number-lab",
+  "u3-expansion-lab",
+  "u3-vocab",
+  "u3-work",
+  "u3-resources",
+  "u3-support-library",
+  "u3-transfer",
+];
+
+test("Math 10C review candidate reaches all eight lesson routes and supporting pages", async ({ page }) => {
+  await openProjectInStudio(page, SLUG);
+  const frame = page.frameLocator(PREVIEW);
+
+  await expect(frame.locator("#progress-count")).toContainText("of 8 lesson checkpoints");
+
+  for (const route of [...LESSON_ROUTES, ...SUPPORT_ROUTES]) {
+    await frame.locator(`.course-nav a[href="#${route}"]`).first().evaluate((link: HTMLAnchorElement) => link.click());
+    await expect(frame.locator(`#${route}`)).toBeVisible();
+  }
+
+  await frame.locator('.course-nav a[href="#u3-overview"]').first().evaluate((link: HTMLAnchorElement) => link.click());
+  await expect(frame.locator("#u3-overview")).toBeVisible();
+  await expect(frame.locator("#u3-overview")).toContainText("Your route through Chapter 3");
+});
+
+test("Math 10C review candidate records lesson checks toward eight checkpoints", async ({ page }) => {
+  await openProjectInStudio(page, SLUG);
+  const frame = page.frameLocator(PREVIEW);
+
+  await frame.locator('.course-nav a[href="#u3-31"]').first().click();
+  await expect(frame.locator("#u3-31")).toBeVisible();
+
+  const answer = frame.locator("#answer-c31-p1");
+  await answer.fill("72");
+  await frame.locator('[data-check="c31"]').click();
+  await expect(frame.locator('[data-feedback="c31"]')).toContainText("Correct");
+
+  await frame.locator('[data-reason="3.1"]').fill("The lights repeat together, so this needs the least common multiple.");
+  await frame.locator('[data-record="3.1"]').click();
+  await expect(frame.locator('[data-check-status="3.1"]')).toContainText("Lesson check recorded");
+  await expect(frame.locator("#progress-count")).toContainText("1 of 8 lesson checkpoints");
+
+  const counts = await frame.locator("body").evaluate(() => {
+    const pilot = (window as typeof window & { MathPilotSlice?: any }).MathPilotSlice;
+    const completeTrig = {
+      side: "BC",
+      adjacent: "AB",
+      hypotenuse: "AC",
+      ratio: "tan",
+      angle: "correct",
+      angleRaw: "26.6 degrees",
+      aa: [[1, "26.6 degrees", "correct", 0, {}]],
+      length: "sin",
+      lengthStatus: "correct",
+      lengthRaw: "5 m",
+      la: [[1, "5 m", "correct", 0, {}]],
+      reason: "Sine uses opposite over hypotenuse.",
+    };
+    return {
+      triangleAlone: pilot.pilotProgress([], completeTrig).count,
+      lessonPlusTriangle: pilot.pilotProgress(["3.1"], completeTrig).count,
+      triangleGate: pilot.isTriangleComplete(completeTrig),
+      requiredIds: pilot.REQUIRED_IDS,
+      total: pilot.TOTAL_CHECKPOINTS,
+    };
+  });
+  expect(counts.triangleGate).toBe(true);
+  expect(counts.triangleAlone).toBe(0);
+  expect(counts.lessonPlusTriangle).toBe(1);
+  expect(counts.requiredIds).toEqual([
+    "u3-check-31",
+    "u3-check-32",
+    "u3-check-33",
+    "u3-check-34",
+    "u3-check-35",
+    "u3-check-36",
+    "u3-check-37",
+    "u3-check-38",
+  ]);
+  expect(counts.total).toBe(8);
+
+  await frame.locator('.course-nav a[href="#u3-transfer"]').first().evaluate((link: HTMLAnchorElement) => link.click());
+  await expect(frame.locator("#u3-transfer")).toBeVisible();
+  await expect(frame.locator("#u3-transfer")).toContainText("Optional lab");
+  await expect(frame.locator("#progress-count")).toContainText("1 of 8 lesson checkpoints");
+});
+
+test("Math 10C review candidate checks and retains the reviewed factoring work", async ({ page }) => {
   await openProjectInStudio(page, SLUG);
   let frame = page.frameLocator(PREVIEW);
 
@@ -41,7 +135,7 @@ test("Math 10C pilot checks and retains the reviewed factoring work", async ({ p
   await expect(frame.locator("#reference-panel")).toBeHidden();
 });
 
-test("Math 10C pilot keeps its learner route usable at phone width", async ({ page }) => {
+test("Math 10C review candidate keeps its learner route usable at phone width", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await openProjectInStudio(page, SLUG);
   const frame = page.frameLocator(PREVIEW);
