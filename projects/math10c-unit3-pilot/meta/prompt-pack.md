@@ -118,6 +118,16 @@ none
 }
 ```
 
+## Pilot Slice Boundary (blocked review pilot)
+
+- Status: `blocked`, driver `proposal-only-v1`, Studio Edit disabled, every export target disabled.
+- Active learner routes (7): `u3-overview`, `u3-ready`, `u3-35`, `u3-transfer`, `u3-reference`, `u3-support-library`, `u3-work`.
+- Inactive preserved routes (15) stay in canonical HTML with stable IDs for later expansion: `u3-31`, `u3-32`, `u3-33`, `u3-34`, `u3-36`, `u3-37`, `u3-38`, `u3-practice`, `u3-mixed`, `u3-errors`, `u3-review`, `u3-number-lab`, `u3-expansion-lab`, `u3-vocab`, `u3-resources`. They are unreachable via navigation, overview actions, invalid hashes, previous/next controls, practice-set selectors, or restored route state.
+- Required completion IDs (2): `u3-check-35` (existing 3.5 lesson-check rules) and `u3-transfer-complete` (correct angle setup, angle value, length relationship and value, plus a nonempty triangle explanation).
+- State compatibility: save key `math10c-unit3-pilot:review:v2` and state version `unit3-state-3` are unchanged; an inactive saved route migrates to `u3-overview` with all other fields preserved. Source ZIP SHA-256 `0d0597c864e8a705690c6ecaeb16f553073f79e30dd022afa791f467dd094a68`; raw files are immutable.
+- Full boundary detail: `projects/math10c-unit3-pilot/meta/pilot-slice.json`.
+- No rollout, LMS, Brightspace, accessibility, teacher, or learner acceptance is claimed.
+
 ## Resource Authority Rules
 
 - Assessments are the highest authority for performance expectations and success criteria.

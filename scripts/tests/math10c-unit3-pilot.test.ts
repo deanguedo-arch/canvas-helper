@@ -1,0 +1,318 @@
+// Blocked Math 10C factoring + triangle pilot slice: focused boundary test.
+//
+// Covers the pilot contract only: blocked manifest, immutable source ZIP and
+// raw baseline, active-route/SCORM agreement, inactive-link absence, the two
+// required completion IDs, legacy route remapping without evidence loss, the
+// four-condition triangle gate, the two-checkpoint progress denominator, and
+// unchanged response/history/state limits.
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+import test from "node:test";
+
+const SLUG = "projects/math10c-unit3-pilot";
+const ZIP = `${SLUG}/raw/Math10C_Repair_Candidate_v0.5.zip`;
+const ZIP_SHA256 = "0d0597c864e8a705690c6ecaeb16f553073f79e30dd022afa791f467dd094a68";
+
+// The workspace math assets are browser-first UMD scripts; execute the real
+// sources with a minimal CommonJS shim instead of the ESM interop loader.
+function loadAsset(absPath) {
+  const code = readFileSync(absPath, "utf8");
+  const module = { exports: {} };
+  const localRequire = (request) => {
+    const resolved = request.endsWith(".js") ? request : `${request}.js`;
+    return loadAsset(new URL(resolved, `file://${absPath}`).pathname);
+  };
+  new Function("module", "exports", "require", code)(module, module.exports, localRequire);
+  return module.exports;
+}
+const asset = (name) => loadAsset(new URL(`../../${SLUG}/workspace/assets/${name}`, import.meta.url).pathname);
+
+const Pilot = asset("pilot-slice.js");
+const Contracts = asset("contracts.js");
+const MathState = asset("state.js");
+
+const read = (rel) => readFileSync(rel, "utf8");
+const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
+const zipEntry = (name) => execFileSync("unzip", ["-p", ZIP, name]);
+const hrefs = (html) => [...html.matchAll(/href="#(u3-[a-z0-9-]+)"/g)].map((m) => m[1]);
+const pageSegment = (html, id) => {
+  const start = html.indexOf(`id="${id}"`);
+  assert.notEqual(start, -1, `missing page ${id}`);
+  let next = html.length;
+  for (const m of html.matchAll(/<(article|section)[^>]*id="(u3-[a-z0-9-]+)"/g)) {
+    if (m.index > start) {
+      next = m.index;
+      break;
+    }
+  }
+  return html.slice(start, next);
+};
+
+const project = JSON.parse(read(`${SLUG}/meta/project.json`));
+const tracking = JSON.parse(read(`${SLUG}/workspace/scorm-tracking.json`));
+const slice = JSON.parse(read(`${SLUG}/meta/pilot-slice.json`));
+const html = read(`${SLUG}/workspace/index.html`);
+const course = read(`${SLUG}/workspace/course.js`);
+
+test("manifest remains blocked, proposal-only, Studio-disabled and non-exportable", () => {
+  assert.equal(project.slug, "math10c-unit3-pilot");
+  assert.equal(project.authoringStatus, "blocked");
+  assert.equal(project.authoring.driverId, "proposal-only-v1");
+  assert.equal(project.authoring.studioEditing.enabled, false);
+  assert.equal(project.migrationState, "migrated");
+  assert.equal(project.projectType, "generated-course");
+  assert.ok(Array.isArray(project.exportTargets) && project.exportTargets.length > 0);
+  for (const target of project.exportTargets) assert.equal(target.enabled, false, target.target);
+});
+
+test("source ZIP hash matches and raw baseline is byte-identical to the ZIP", () => {
+  assert.equal(sha256(readFileSync(ZIP)), ZIP_SHA256);
+  const imported = JSON.parse(read(`${SLUG}/meta/imported-source.json`));
+  assert.equal(imported.sha256, ZIP_SHA256);
+  assert.ok(project.importedFirstPassOrigin.notes.includes(ZIP_SHA256));
+  assert.equal(slice.sourceZip.sha256, ZIP_SHA256);
+  for (const [raw, entry] of [
+    [`${SLUG}/raw/original.html`, "Math10C_Repair_Candidate_v0.5/workspace/index.html"],
+    [`${SLUG}/raw/course.js`, "Math10C_Repair_Candidate_v0.5/workspace/course.js"],
+    [`${SLUG}/raw/styles.css`, "Math10C_Repair_Candidate_v0.5/workspace/styles.css"],
+  ]) {
+    assert.ok(readFileSync(raw).equals(zipEntry(entry)), `${raw} differs from the ZIP`);
+  }
+  for (const name of ["state.js", "contracts.js", "save-controller.js", "unit-data.js", "state-v2-decoder.js", "algebra.js"]) {
+    const disk = readFileSync(`${SLUG}/workspace/assets/${name}`);
+    assert.ok(
+      disk.equals(zipEntry(`Math10C_Repair_Candidate_v0.5/workspace/assets/${name}`)),
+      `shared runtime asset ${name} was modified`,
+    );
+  }
+});
+
+test("active route contract and SCORM tracking agree on seven routes and two IDs", () => {
+  assert.deepEqual(tracking.pageIds, Pilot.ACTIVE_ROUTES);
+  assert.deepEqual(tracking.pageIds, slice.activeRoutes);
+  assert.deepEqual(Pilot.INACTIVE_ROUTES, slice.inactivePreservedRoutes);
+  assert.equal(tracking.defaultPageId, "u3-overview");
+  assert.deepEqual(tracking.completion.requiredIds, ["u3-check-35", "u3-transfer-complete"]);
+  assert.deepEqual(tracking.completion.requiredIds, Pilot.REQUIRED_IDS);
+  assert.deepEqual(tracking.completion.requiredIds, slice.completionCriteria.requiredIds);
+  assert.ok(html.includes('<script src="assets/pilot-slice.js"></script>'));
+  assert.ok(course.includes("window.MathPilotSlice"));
+  assert.ok(course.includes("Pilot.isTriangleComplete(S.trig)?['u3-transfer-complete']:[]"));
+});
+
+test("all 22 pages are retained but inactive lesson links are absent from learner paths", () => {
+  for (const id of [...Pilot.ACTIVE_ROUTES, ...Pilot.INACTIVE_ROUTES]) {
+    assert.ok(html.includes(`id="${id}"`), `preserved page missing: ${id}`);
+    assert.ok(Pilot.isKnownRoute(id), `unknown route: ${id}`);
+  }
+  const nav = html.slice(html.indexOf("<nav"), html.indexOf("</nav>"));
+  assert.deepEqual([...new Set(hrefs(nav))].sort(), [...Pilot.ACTIVE_ROUTES].sort());
+  for (const id of Pilot.ACTIVE_ROUTES) {
+    const leaked = hrefs(pageSegment(html, id)).filter((h) => !Pilot.isActiveRoute(h));
+    assert.deepEqual(leaked, [], `${id} links to inactive routes`);
+  }
+  assert.match(pageSegment(html, "u3-overview"), /review pilot/i);
+  assert.ok(!course.includes("of 8 lesson checks"));
+  assert.ok(!html.includes("of 8 lesson checks"));
+});
+
+test("factoring and triangle completion IDs are the only required IDs", () => {
+  assert.deepEqual(tracking.completion.requiredIds, ["u3-check-35", "u3-transfer-complete"]);
+  assert.ok(course.includes("u3-check-'+x.replace('.','')"));
+  const literals = [...course.matchAll(/u3-check-[0-9.]+/g)].map((m) => m[0]);
+  assert.deepEqual(literals, [], `hardcoded lesson checks: ${literals}`);
+});
+
+test("legacy inactive-route state is remapped without dropping protected fields", () => {
+  const provenance = {
+    engine: MathState.ENGINE,
+    catalog: "unit3-catalog-v05",
+    content: "math10c-unit3-2.1-repair",
+    kind: "checked",
+    detail: "Both relationships must fit.",
+  };
+  const legacy = {
+    v: "math10c-unit3-2.1-repair",
+    rev: 7,
+    route: "u3-34",
+    r: {
+      "s-c35": {
+        q: "c35",
+        d: "(x+3)(x+7)",
+        a: [[1, "(x+3)(x+7)", "correct", 4, provenance]],
+        n: 2,
+        s: 4,
+        reason: "pair 3 and 7",
+        closed: false,
+        firstSuccess: true,
+        catalog: "unit3-catalog-v05",
+      },
+      "r-41": {
+        q: "g351",
+        d: "draft",
+        a: [[2, "draft", "incorrect", 1, provenance]],
+        n: 2,
+        s: 1,
+        reason: "",
+        closed: false,
+        firstSuccess: false,
+        catalog: "unit3-catalog-v05",
+      },
+    },
+    active: ["r-41"],
+    pos: 0,
+    recent: ["r-41"],
+    pins: ["r-41"],
+    selectedTopic: "3.5",
+    runMode: "learn",
+    runSeed: 42,
+    firsts: { g351: [1, "first", "incorrect", 0, provenance] },
+    drafts: { g351: "draft" },
+    counts: { g351: 2 },
+    trig: {
+      side: "BC",
+      adjacent: "AB",
+      hypotenuse: "AC",
+      ratio: "tan",
+      angle: "correct",
+      angleRaw: "26.6 degrees",
+      aa: [[1, "26.6 degrees", "correct", 0, { checker: "c", instance: "i", relationship: "tan", setup: "correct", value: {} }]],
+      an: 1,
+      reason: "kept",
+    },
+    reasons: { "3.5": "pair sums to 10" },
+    paper: { "3.5": true },
+    done: ["3.5"],
+    notes: { help: "need review" },
+    exposed: ["g351"],
+    seen: ["g351"],
+    summary: { attempts: 5, correct: 3, supported: 1 },
+    skills: { "3.5": { attempts: 5, correct: 3, supported: 1 } },
+    legacySummary: { attempts: 0, correct: 0, supported: 0 },
+    summaryRevision: 2,
+  };
+  const snapshot = JSON.parse(JSON.stringify(legacy));
+  const next = Pilot.migrateRoute(legacy);
+  assert.equal(next.route, "u3-overview");
+  assert.equal(legacy.route, "u3-34", "migration must not mutate the input");
+  const { route: _droppedNext, ...restNext } = next;
+  const { route: _droppedLegacy, ...restLegacy } = snapshot;
+  assert.deepEqual(restNext, restLegacy);
+  for (const route of Pilot.ACTIVE_ROUTES) {
+    const kept = { route };
+    assert.equal(Pilot.migrateRoute(kept), kept, `${route} must pass through untouched`);
+  }
+});
+
+test("triangle completion requires all four conditions", () => {
+  const complete = {
+    side: "BC",
+    adjacent: "AB",
+    hypotenuse: "AC",
+    ratio: "tan",
+    angle: "correct",
+    angleRaw: "26.6 degrees",
+    aa: [[1, "26.6 degrees", "correct", 0, {}]],
+    length: "sin",
+    lengthStatus: "correct",
+    lengthRaw: "5 m",
+    la: [[1, "5 m", "correct", 0, {}]],
+    reason: "Sine uses opposite over hypotenuse.",
+  };
+  assert.equal(Pilot.isTriangleComplete(complete), true);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, side: "AB" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, ratio: "cos" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, angle: "incorrect" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, length: "cos" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, lengthStatus: "precision" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, angleRaw: "27 degrees" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, lengthRaw: "6 m" }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, aa: [] }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, la: [] }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, reason: "   " }), false);
+  assert.equal(Pilot.isTriangleComplete({ ...complete, reason: "" }), false);
+  assert.equal(Pilot.isTriangleComplete({}), false);
+  assert.equal(Contracts.trig("26.6 degrees", {}).status, "correct");
+  assert.equal(Contracts.trig("5 m", { kind: "length" }).status, "correct");
+});
+
+test("visible progress denominator is two pilot checkpoints", () => {
+  assert.equal(Pilot.TOTAL_CHECKPOINTS, 2);
+  assert.deepEqual(Pilot.pilotProgress([], {}), { factoring: false, transfer: false, count: 0, total: 2 });
+  assert.equal(Pilot.pilotProgress(["3.1", "3.4"], {}).count, 0);
+  assert.equal(Pilot.pilotProgress(["3.5"], {}).count, 1);
+  const trig = {
+    side: "BC",
+    adjacent: "AB",
+    hypotenuse: "AC",
+    ratio: "tan",
+    angle: "correct",
+    angleRaw: "26.6 degrees",
+    aa: [[1, "26.6 degrees", "correct", 0, {}]],
+    length: "sin",
+    lengthStatus: "correct",
+    lengthRaw: "5 m",
+    la: [[1, "5 m", "correct", 0, {}]],
+    reason: "Sine uses opposite over hypotenuse.",
+  };
+  assert.equal(Pilot.pilotProgress(["3.5"], trig).count, 2);
+  assert.ok(course.includes("of 2 pilot checkpoints"));
+  assert.ok(course.includes("Pilot checkpoints recorded:"));
+  assert.ok(course.includes("syncSaving();updateProgress();return ok"));
+  assert.ok(html.includes("0 of 2 pilot checkpoints"));
+  assert.ok(html.includes('id="transfer-check-status"'));
+});
+
+test("no response, history, retention or state limit is reduced", () => {
+  assert.deepEqual(MathState.POLICY, {
+    raw: 160,
+    recordReason: 120,
+    lessonReason: 160,
+    note: 240,
+    trigReason: 160,
+    trigRaw: 80,
+    active: 6,
+    recent: 2,
+    selected: 4,
+    attemptDetails: 4,
+    applicationCharacters: 40000,
+  });
+  assert.equal(MathState.APP_LIMIT, 40000);
+  assert.equal(MathState.VERSION, "unit3-state-3");
+  assert.ok(course.includes("key:'math10c-unit3-pilot:review:v2'"));
+  assert.ok(course.includes("const rawLimit=160"));
+  assert.ok(html.includes('maxlength="160"'));
+  assert.ok(html.includes('id="trig-reason"'));
+});
+
+test("retained content keeps unique stable edit keys", () => {
+  const keys = [...html.matchAll(/data-canvas-helper-edit-key="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(new Set(keys).size, keys.length, "duplicate edit keys");
+  for (const key of [
+    "u3-source-0000",
+    "u3-source-0007",
+    "u3-source-0008",
+    "u3-source-0014",
+    "u3-source-0034",
+    "u3-source-0040",
+    "u3-source-0041",
+    "u3-source-0042",
+    "u3-source-0047",
+    "u3-source-0071",
+    "u3-source-0443",
+    "u3-source-0445",
+    "u3-source-0446",
+    "lesson-boundary-u3-31",
+    "lesson-boundary-u3-38",
+    "u3-transfer-text-0",
+    "u3-transfer-text-8",
+    "u3-transfer-text-20",
+    "repair-canonical-5",
+    "navigation-u3-transfer",
+    "navigation-u3-support-library",
+  ]) {
+    assert.ok(keys.includes(key), `lost edit key: ${key}`);
+  }
+});
